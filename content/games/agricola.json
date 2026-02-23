@@ -1,0 +1,59 @@
+{
+  "game_id": "agricola",
+  "title": "Agricola",
+  "aliases": [
+    "Agricola Revised Edition"
+  ],
+  "publisher": "Lookout Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": 6
+  },
+  "play_time_minutes": {
+    "min": 90,
+    "max": 150
+  },
+  "complexity": "heavy",
+  "categories": [
+    "worker-placement",
+    "farming",
+    "engine-building",
+    "resource-management"
+  ],
+  "source_url": "https://boardgamegeek.com/boardgame/31260/agricola",
+  "source_verified": false,
+  "sections": {
+    "component_identification": {
+      "content": "Agricola includes a main action board with round spaces, player farm boards, room/stable/fence pieces, resource tokens (wood, clay, reed, stone, food, grain, vegetables), animal meeples (sheep, boar, cattle), occupation and minor improvement cards, begging cards, and family member meeples used for worker placement.",
+      "token_count": 43
+    },
+    "core_game_loop": {
+      "content": "Across 14 rounds, players place family members on action spaces one at a time, taking the listed action and blocking others from using that space this round. New action spaces enter over time, increasing options. At specific harvest rounds, players collect field produce, feed family members, and breed animals. Tight food pressure and action scarcity define the game flow.",
+      "token_count": 59
+    },
+    "detailed_rules": {
+      "content": "You begin with two family members and a small wooden house. Core actions gather accumulating resources, plow fields, sow crops, take animals, build rooms/stables, fence pastures, renovate house materials, and play occupations/improvements. Family growth adds workers but requires enough rooms (unless card effects bypass). At harvest, each family member needs food; missing food yields begging cards worth negative points. Fields produce grain/vegetables when seeded and during harvest. Animals must be housed in valid capacities: home spaces, stables, and fenced pastures with multipliers from stables. Renovation shifts house from wood to clay to stone, often unlocking stronger card lines and endgame points. Card synergies can create engines, but each card play consumes precious actions, so tempo matters as much as raw power.",
+      "token_count": 121
+    },
+    "scoring_and_endgame": {
+      "content": "After round 14 harvest, score each farm category: fields, pastures, grain, vegetables, sheep, boar, cattle, fenced stables, rooms, family members, and selected cards/bonuses. Empty or underdeveloped categories often incur penalties. Highest total points wins; ties share victory by standard tournament conventions.",
+      "token_count": 41
+    },
+    "beginner_strategy": {
+      "content": "First, secure a stable food plan before chasing fancy card combos. Early wood and reed are critical for room growth and fencing, so contest those actions. Expand family at the earliest safe moment because extra workers multiply options over remaining rounds. Diversify farm categories to avoid penalty traps; one animal/crop in each track is often worth more than over-specializing too soon. Use occupations that improve food conversion or action efficiency in the opening half.",
+      "token_count": 74
+    }
+  },
+  "total_token_count": 338,
+  "metadata": {
+    "created_by": "goblin",
+    "created_at": "2026-02-23T04:22:24Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 1,
+    "notes": "Check 4 failed: total_token_count is 338; must be 800-3000 (hard reject if <800 or >5000); Check 5 failed: source_url not acceptable official rules source: https://boardgamegeek.com/boardgame/31260/agricola; Check 6 failed: source_verified is not true"
+  }
+}

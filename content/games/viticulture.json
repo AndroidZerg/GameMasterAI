@@ -1,0 +1,59 @@
+{
+  "game_id": "viticulture",
+  "title": "Viticulture",
+  "aliases": [
+    "Viticulture Essential Edition"
+  ],
+  "publisher": "Stonemaier Games",
+  "player_count": {
+    "min": 1,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": 6
+  },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 90
+  },
+  "complexity": "medium",
+  "categories": [
+    "worker-placement",
+    "engine-building",
+    "economic",
+    "set-collection"
+  ],
+  "source_url": "https://stonemaiergames.com/games/viticulture/rules/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Viticulture includes vineyard mats, wake-up track, worker meeples (including grande worker), vine/wine order/visitor cards, grape and wine value trackers, structures, lira coins, residual income track, and worker placement board split into seasonal actions (summer and winter). Tuscany expansion adds modules but base Essential rules center on vineyard management and wine fulfillment.",
+      "token_count": 51
+    },
+    "core_game_loop": {
+      "content": "Each year: choose wake-up position for turn order and bonus, then place workers in summer actions, then winter actions, then age grapes/wines and pay/collect residual effects. Summer handles planting and structure setup; winter handles harvesting, winemaking, training workers, and filling wine orders. Efficient timing across seasons is the central puzzle.",
+      "token_count": 50
+    },
+    "detailed_rules": {
+      "content": "Workers generally occupy one action space unless using special sharing/bonus conditions; grande worker can use an already-occupied action. Planting requires vine card values to fit field capacity. Harvest converts a field into red/white grapes at vine values; crush pads store grapes with limited slots. Make wine combines grapes into red/white/blush/sparkling under blending rules and cellar constraints. Wines and grapes age up each year unless capped by cellar level. Filling wine orders grants victory points and residual income increases, usually the strongest reliable scoring path. Visitor cards provide tactical boosts but can be swingy; hand management and timing their play around action economy matters. First to 20 VP triggers endgame after round completion depending on player count rules.",
+      "token_count": 117
+    },
+    "scoring_and_endgame": {
+      "content": "The game ends when a player reaches 20 VP and end-of-round completion conditions are met. Highest VP wins; ties break by money then residual income and other listed tiebreakers. Most points come from wine orders, with supplemental points from visitors, structures, and bonuses.",
+      "token_count": 43
+    },
+    "beginner_strategy": {
+      "content": "Prioritize a clean pipeline: plant early, harvest efficiently, upgrade cellar before overproducing grapes. Do not ignore wake-up bonuses; early turn order can unlock contested actions. Use grande worker to guarantee key actions when blocked. Focus on filling medium-value orders consistently instead of waiting for perfect high-value combos. Build residual income so later years have enough cash to sustain tempo.",
+      "token_count": 59
+    }
+  },
+  "total_token_count": 320,
+  "metadata": {
+    "created_by": "goblin",
+    "created_at": "2026-02-23T04:22:24Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 1,
+    "notes": "Check 3 failed: invalid complexity \"medium\"; Check 4 failed: total_token_count is 320; must be 800-3000 (hard reject if <800 or >5000)"
+  }
+}
