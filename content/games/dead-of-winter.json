@@ -1,58 +1,108 @@
 {
   "game_id": "dead-of-winter",
   "title": "Dead of Winter: A Crossroads Game",
-  "aliases": [
-    "Dead of Winter"
-  ],
+  "aliases": ["Dead of Winter"],
   "publisher": "Plaid Hat Games",
   "player_count": {
     "min": 2,
     "max": 5,
     "recommended": 5,
-    "expansion_max": 5
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 60,
-    "max": 120
+    "min": 45,
+    "max": 210
   },
-  "complexity": "heavy",
+  "complexity": "midweight",
   "categories": [
-    "survival",
-    "semi-cooperative",
-    "thematic"
+    "Semi-Cooperative",
+    "Hidden Objectives",
+    "Survival",
+    "Dice",
+    "Narrative",
+    "Zombie"
   ],
   "source_url": "https://www.plaidhatgames.com/board-games/dead-of-winter/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Dead Of Winter by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: COMPONENTS • 10 – Dual-Sided Main Objective Cards • 24 – Secret Objective Cards • 10 – Betrayal Secret Objective Cards • 10 – Exiled Secret Objective Cards • 30 – Survivor Cards • 5 – Player Reference Sheets • 1 – First Player Token • 25 – Starting Item Cards • 20 – Police Station Item Deck Cards • 20 – Grocery Store Item Deck Cards • 20 – School Item Deck Cards • 20 – Gas Station Item Deck Cards • 20 – Library Item Deck Cards • 20 – Hospital Item Deck ...",
-      "token_count": 222
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "10 dual-sided Main Objective cards; 24 Secret Objective cards; 10 Betrayal Secret Objective cards; 10 Exiled Secret Objective cards; 30 Survivor cards; 5 Player Reference sheets; 1 First Player token; 25 Starting Item cards; 20 Police Station Item cards; 20 Grocery Store Item cards; 20 School Item cards; 20 Gas Station Item cards; 20 Library Item cards; 20 Hospital Item cards; 20 Crisis cards; 80 Crossroads cards; 25 Wound tokens (double-sided regular/frostbite); 20 Helpless Survivor tokens; 20 Food tokens; 20 Noise tokens; 20 Barricade tokens; 6 Starvation tokens; 2 Track markers; 30 Zombie standees; 30 Zombie tokens (used if standees run out); 30 Survivor standees; 60 plastic standee stands; 1 Colony board; 6 Location cards; 30 Action Dice; 1 Exposure Die; 1 Rulebook."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the Colony board in the center of the play area. 2) Place the 6 location cards around the colony as shown in the rulebook (or in a layout that best fits the table while preserving all locations). 3) Place the chosen Main Objective card on the main objective space of the Colony board and immediately apply its scenario setup instructions (for example, 'We Need More Samples' sets morale to 6, round track to 6, and adds 1 zombie to each non-colony location). 4) Place the Crisis deck on the Crisis deck space of the colony board and leave space for face-down/face-up crisis contributions. 5) Place each location’s item deck on that location card (Police Station, Grocery Store, School, Gas Station, Library, Hospital). 6) Place survivor and zombie standees in stands, and put all standees/tokens within reach as shared supply."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1) Each player takes 1 Player Reference sheet. 2) Deal 5 Starting Item cards to each player (return any unused starter cards to the box). 3) Deal 4 Survivor cards to each player; each player keeps 2 and returns 2 to the Survivor deck, then reshuffle the Survivor deck. 4) Of the 2 kept survivors, each player chooses 1 as Group Leader (place face up in Group Leader area) and places the other in Followers area below the reference sheet. 5) Place matching survivor standees for each player’s chosen survivors into colony occupant spaces (dashed circles). 6) Secret objective setup: shuffle non-betrayal secret objectives and set aside 2 facedown per player; return extras to box. Shuffle betrayal secret objectives and add exactly 1 betrayal card facedown to the set-aside pile; return remaining betrayal cards to box. Shuffle that mixed pile and deal 1 secret objective to each player facedown. Remaining objective cards from this mix are returned to the box unseen. Players cannot reveal secret objectives to each other."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1) Players choose a standard Main Objective or select one randomly (rulebook first-game recommendation: 'We Need More Samples'). 2) Shuffle and place decks: Crisis deck on colony board; Survivor deck, Exiled Objective deck, and Crossroads deck off to the side; each location item deck shuffled and placed on corresponding location. 3) Optionally remove Crossroads cards marked with mature-content symbol before play, if the group prefers. 4) Determine first player: player whose Group Leader has the highest influence value receives the First Player token. 5) First round begins with Player Turns Phase: reveal crisis, roll action dice, then take player turns in order with Crossroads checks."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Dead Of Winter: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Player Turns Library PLAYER TURN ACTIONS GROCERY STORE ACTIONS THAT REQUIRE AN ACTION DIE PLAYER TURNS PHASE ROUND SUMMARY GROUP LEADER PLAYER TURNS PHASE 1. Pass First Player Token COLONY PHASE 2 FOLLOWERS 11 • { Attack (zombie or survivor) • } Search • Barricade • Clean Waste (3 cards) • Attract (2 zombies) • Play a Card • Add a Card to the Crisis • Move a Survivor • Spend Food Tokens • Request • Hand Off • Vote to Exile ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Dead of Winter rounds follow two major phases shown on the player reference sheet:\n1) Player Turns Phase\n   1. Reveal Crisis card.\n   2. Roll Action Dice.\n   3. Player turns in first-player order.\n      - At the beginning of each player’s turn, the player to their right draws a Crossroads card and checks triggers during that turn.\n2) Colony Phase\n   1. Pay Food.\n   2. Check Waste.\n   3. Resolve Crisis.\n   4. Add Zombies.\n   5. Check Main Objective.\n   6. Move Round Tracker.\n   7. Pass First Player Token.\nThen a new round begins with a new crisis reveal."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "On your turn, available actions are split by whether they consume an action die.\n\nActions that REQUIRE an action die:\n- Attack (zombie or survivor)\n- Search\n- Barricade\n- Clean Waste (discard 3 cards)\n- Attract (2 zombies)\n\nActions that DO NOT require an action die:\n- Play a Card\n- Add a Card to the Crisis\n- Move a Survivor\n- Spend Food Tokens\n- Request\n- Hand Off\n- Vote to Exile\n\nKey operational clarifications from provided rules text:\n- Moving survivors can trigger exposure rolls; exposure results can inflict regular wounds, frostbite, or bites depending on die outcomes/effects.\n- Some item cards are played to waste pile and can modify core procedures (example shown: Fuel can prevent exposure roll on a move).\n- Crisis cards show required contribution symbols to prevent failure and can include optional extra contributions for bonus effect (example: gain morale if extra requirement is met).\n- Location search outcomes are influenced by icon frequency order printed on each location card (left-to-right indicates relative likelihood of item types).\n- Voting to exile and exiled objectives are part of normal action economy and can reshape win conditions/social dynamics."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Semi-cooperative hidden win condition system: The colony has a public Main Objective, but each player also has a hidden Secret Objective. A player only wins if their own secret objective is completed when the game ends. This often aligns with helping the colony, but not always (betrayal cards exist in the objective mix).\n\n2) Crossroads narrative trigger system: At the start of each player’s turn, the player to their right manages a Crossroads card and checks whether italicized trigger text happens during that turn. If triggered, the card resolves by presenting story choices/options with gameplay consequences.\n\n3) Morale and crisis pressure loop: Morale can drop from death, hunger, waste overload, failed crises, and card effects. Because morale reaching 0 immediately ends the game, group stability is as critical as tactical efficiency.\n\n4) Exposure risk model: Movement and some effects require exposure rolls that can wound/frostbite/bite survivors. This risk management layer affects where and when players move.\n\n5) Colony burden mechanics: Helpless survivors consume resources and occupy capacity but do not contribute actions. Starvation tokens represent food shortfall pressure. Noise and zombie pressure at entrances/locations escalate danger over time."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Dead of Winter is objective-based, not VP-based. The game can end in any of these ways:\n1) Morale track reaches 0.\n2) Round track reaches 0.\n3) Main Objective is completed.\n\nWinner determination:\n- At game end, only players who have completed their own Secret Objective win.\n- Because secret objectives often require main objective completion plus additional personal conditions, multiple players may win, one player may win, or no cooperative-aligned players may win depending on outcome.\n\nThere is no numerical victory point scoring and no VP tiebreak hierarchy in the provided rules text; resolution is entirely based on objective completion status at end trigger."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Dead Of Winter, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: When the player has decided he has made enough noise or can no longer make any more noise, he must keep 1 of the drawn cards, adding it to his hand, and place the rest 9 GAS STATION Example: search a location 1 GAS STATION FOREST PLUM • Barricade: To perform a barricade action, a player must choose a survivor he controls and spend an action die of any result to place a barricade token on any empty entrance space at the chosen survivor’s location. We’ve got armed cannibals in our backyard.” OPTION 1 1 3 BLIZZARD 3 OPTION 2 2 += number of non-exiled players For the remainder of the game, whenever any player moves a survivor, in addition to rolling the exposure die they must roll a regular die. Whenever a zombie is killed by an attack or card effect, the player that controls the survivor that killed that zombie must roll for exposure on that survivor. Note: If the result ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: COMPONENTS • 10 – Dual-Sided Main Objective Cards • 24 – Secret Objective Cards • 10 – Betrayal Secret Objective Cards • 10 – Exiled Secret Objective Cards • 30 – Survivor Cards • 5 – Player Reference Sheets • 1 – First Player Token • 25 – Starting Item Cards • 20 – Police Station Item Deck Cards • 20 – Grocery Store Item Deck Cards • 20 – School Item Deck Cards • 20 – Gas Station Item Deck Cards • 20 – Library Item Deck Cards • 20 – Hospital Item Deck Cards • 20 – ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Dead Of Winter: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 139
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Stabilize colony basics immediately: secure early food flow, keep waste manageable, and avoid avoidable morale hits in rounds 1–2. 2) Build role coverage by location: ensure at least one reliable searcher and one reliable fighter/mover are active so the team can answer both crisis symbols and zombie pressure. 3) Contribute to crisis early in each round when possible, so late-turn players are not forced into desperate card dumps. 4) Move with purpose: every exposure roll should buy meaningful progress (objective, crisis prevention, or critical board stabilization). 5) Learn table behavior before exile votes; early false accusations often cost more actions and morale than they save."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating crisis as optional. Ignoring contributions until colony phase commonly triggers failure effects and morale loss. 2) Over-searching one location without managing noise/board pressure, causing escalating zombie problems that consume future turns. 3) Spending strong cards for short-term personal optimization while food/waste tracks are unstable. Colony collapse ends everyone’s plans. 4) Taking unnecessary exposure risks for low-value moves (e.g., moving without a concrete action payoff). 5) Exiling too quickly on weak evidence; wrongful exile can remove useful labor, hand info, and social trust exactly when colony coordination is needed."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Colony safety vs objective tempo: Do you spend actions to clean waste/feed/defend now, or push the main objective while conditions are fragile? 2) Transparency vs secrecy: How much do you reveal about your hand and goals to coordinate efficiently without exposing your secret objective constraints? 3) Trust vs control in social play: When suspicious behavior appears, decide whether to invest actions in exile procedures or absorb short-term inefficiency and gather stronger evidence first."
+        }
+      ]
     }
   },
-  "total_token_count": 1105,
+  "total_token_count": 3170,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "orc",
+    "created_at": "2026-02-22T23:13:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source: provided Dead of Winter rulebook excerpts (components, board anatomy, setup sequence, round flow, action lists, objective framework, and end triggers)."
   }
 }

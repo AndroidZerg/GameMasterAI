@@ -2,55 +2,101 @@
   "game_id": "coup",
   "title": "Coup",
   "aliases": [],
-  "publisher": "Indie Boards & Cards",
+  "publisher": "Indie Boards and Cards",
   "player_count": {
     "min": 2,
     "max": 6,
-    "recommended": 5,
-    "expansion_max": 10
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 15,
-    "max": 20
+    "max": 30
   },
   "complexity": "party",
   "categories": [
     "bluffing",
     "deduction",
-    "social"
+    "player-elimination",
+    "social-manipulation",
+    "hidden-information"
   ],
   "source_url": "https://www.indieboardsandcards.com/index.php/our-games/coup/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Standard Coup set contains 15 influence cards: 3 Duke, 3 Assassin, 3 Captain, 3 Ambassador, 3 Contessa; plus coin tokens (commonly 50) and quick reference cards. Each player begins with 2 coins and 2 hidden influence cards. The shared influence deck remains face down and is public in composition but private in identity. For setup checks, verify exactly three copies of each role exist—probability and bluff logic depend on that fixed distribution.",
-      "token_count": 93
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Core components from the official rulebook: 15 character cards total (3 copies each of 5 roles: Duke, Assassin, Contessa, Captain, Ambassador), 50 coins, and summary cards. Optional rules component: Inquisitor role variant that replaces Ambassador (used only if all players agree to that variant)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Shuffle the 15-character deck. Deal each player 2 face-down character cards (their influence). Each player also takes 2 coins from the treasury. Place remaining coins in a central treasury and place remaining character cards face-down as the Court deck. Players keep their own influence cards hidden; face-down cards represent active influence."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose a starting player by any agreed fair method and proceed clockwise. On each turn, a player chooses exactly one action: either a basic action (Income, Foreign Aid, Coup) or any one character action (even if they may not actually have that character)."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn, declare one action (income, foreign aid, tax, steal, exchange, assassinate, or coup when affordable). Other players may challenge the truth of claimed role actions, and certain actions can also be blocked by specific claimed roles. Resolve challenge/block windows in order, then apply action effect if not canceled. Players who lose influence reveal one card and continue with remaining hidden card if any. Last player with influence remaining wins.",
-      "token_count": 92
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1) Start of turn check: if you have 10 or more coins, you must take the Coup action. 2) Declare exactly one action (basic or character action claim). 3) Other players may challenge if the action or block depends on a claimed character. 4) Resolve challenge if made: if claimant cannot reveal required character, claimant loses 1 influence; if claimant reveals correctly, challenger loses 1 influence and claimant shuffles revealed card into deck then draws a replacement. 5) Resolve the action effect (or block) if still valid. 6) Any player who loses influence turns one character face-up of their choice; face-up influence is dead and unusable. 7) Turn passes clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Basic actions: Income = take 1 coin from treasury (cannot be blocked). Foreign Aid = take 2 coins from treasury (can be blocked by Duke). Coup = pay 7 coins, choose an opponent; that opponent immediately loses 1 influence (if you have 10+ coins, this action is mandatory on your turn). Character actions and blocks: Duke action = take 3 coins from treasury; Duke block = block Foreign Aid. Assassin action = pay 3 coins to attempt assassination of another player’s influence; Contessa can block an assassination against herself. Captain action = take 2 coins from another player (steal); Captain can block stealing against themselves; Ambassador can also block stealing against themselves. Ambassador action = draw 2 cards from Court deck, choose which (if any) to exchange with your current face-down cards, then return 2 cards to Court deck. Important claim rule: you may declare any character action whether or not you actually have that role, but such claims are challengeable."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Influence and elimination: each player starts with 2 influence (2 face-down cards). Whenever you lose influence, reveal one card face-up. Face-up cards cannot be used for actions or blocks. If both your cards are face-up, you are eliminated. Challenge system: character-based actions and character-based blocks automatically succeed unless challenged. If challenged unsuccessfully, challenger loses influence. If challenged successfully, claimant loses influence. When a truthful claimant proves the character, that revealed card is shuffled back into deck and replaced with a fresh hidden card, preserving secrecy. Optional Inquisitor variant (replacing Ambassador): Inquisitor can draw 1 card and optionally exchange with one hidden card, OR force an opponent to show one chosen hidden card (opponent chooses which) and may force redraw/shuffle-back sequence; Inquisitor also blocks stealing."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Coup has no point scoring system. The game ends immediately when only one player still has at least one face-down influence card. That player is the winner. There are no additional victory points and no tiebreakers because final survival determines victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Deal two influence cards face down to each player; place remaining role cards as court deck; give each player two coins. Legal actions: Income (+1, unchallengeable), Foreign Aid (+2, blockable by Duke), Coup (pay 7, target loses one influence, cannot be blocked), Tax as Duke (+3), Assassinate as Assassin (pay 3, target loses one influence, blockable by Contessa), Steal as Captain (take up to 2 from target, blockable by Captain or Ambassador), Exchange as Ambassador (draw two from deck, choose two to keep, return rest). Any role claim may be challenged. If claimant proves claim by revealing correct role card, challenger loses one influence and claimant may swap revealed card with random deck card to restore secrecy. If claimant fails challenge, claimant loses one influence and claimed action/block fails. Blocks may themselves be challenged similarly. Turn economy pressure rule: if a player starts turn with 10+ coins, they must coup. Eliminated players (no influence left) are out immediately and cannot challenge or block. Hidden information is the heart of play; avoid accidental card exposure during exchanges. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 488
-    },
-    "scoring_and_endgame": {
-      "content": "Coup has elimination victory, not points. You “score” only by survival: each lost influence card reduces your life total from 2 to 1 to 0. Coup and assassination effects force influence loss; failed challenges also force influence loss. Game ends instantly when only one player has at least one unrevealed influence card remaining. No tie condition in standard rules because elimination order is sequential.",
-      "token_count": 83
-    },
-    "beginner_strategy": {
-      "content": "Early game, prioritize stable income lines and avoid unnecessary high-variance challenges. Challenge only when probability and table context justify it (e.g., too many of a role already revealed). Track revealed cards constantly; once two Contessas are out, assassination threats change dramatically. Keep coin pressure in mind—forcing an opponent to coup can make their turn predictable. Mix truthful and bluff claims so opponents cannot map your behavior one-to-one with card reality. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 115
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Build a believable identity early: repeat a coherent role story rather than making random contradictory claims each turn. Track coin thresholds at the table—especially who is near 3 (assassination) and 7 (coup). Maintain enough economy that you are not forced into weak lines, but avoid becoming the obvious immediate target. If you plan to bluff aggressively, do it where failure costs least (early) rather than in must-win late turns."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Challenging too often on weak reads. Every failed challenge costs influence and can lose the game quickly. 2) Ignoring mandatory Coup at 10+ coins. New players accidentally attempt other actions illegally. 3) Bluffing every turn with different roles. Inconsistent claims make you easy to challenge. 4) Failing to count treasury and player coins. Good Coup play is threshold management, not just social reads. 5) Revealing influence without future plan. When forced to lose influence, reveal the card that preserves your strongest remaining bluff/block options."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Tempo vs threat profile—whether to accelerate coins quickly (strong economy, higher table heat) or stay modest (lower attention, slower control). Decision 2: Challenge timing—do you challenge now to break an opponent’s momentum, or hold influence and wait for a higher-value challenge point? Decision 3: Assassination pressure vs guaranteed coup value—paying 3 for immediate pressure can be great, but saving toward guaranteed coups can be safer in uncertain bluff states."
+        }
+      ]
     }
   },
-  "total_token_count": 871,
+  "total_token_count": 1660,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "goblin",
+    "created_at": "2026-02-23T07:13:13Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from coup.txt as primary source. Reference snippet: COMPONENTS: 15 character cards (3 each of 5 characters), 50 coins, summary cards."
+    "revision": 1,
+    "notes": "Written from provided Coup official rulebook text, including optional Inquisitor variant note."
   }
 }

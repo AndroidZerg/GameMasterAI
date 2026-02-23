@@ -7,50 +7,100 @@
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 4
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 30,
+    "min": 45,
     "max": 60
   },
   "complexity": "midweight",
   "categories": [
-    "abstract",
-    "strategy",
-    "area-control"
+    "abstract-strategy",
+    "spatial-planning",
+    "area-control",
+    "resource-management"
   ],
-  "source_url": "https://www.blueorangegames.com/index.php/games/photosynthesis",
+  "source_url": "https://www.blueorangegames.com/en/games/photosynthesis",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Photosynthesis by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Game Components ӼӼ Illustrated Rules ӼӼ 1 Game Board ӼӼ 1 Sun Segment ӼӼ 4 Sun Revolution Counters ӼӼ 4 Player Boards ӼӼ 1 First Player Token ӼӼ 24 Scoring Tokens ӼӼ 4 Light Point Trackers ӼӼ 24 Seed Tokens (6 of each variety) ӼӼ 32 Small Trees (8 of each variety) ӼӼ 16 Medium Trees (4 of each variety) ӼӼ 8 Large Trees (2 of each variety) O bject of the game Using your light points, take your trees through their life cycles, from seedlings to fully grown. ÊÊ Growing from a Seed to a Small ...",
-      "token_count": 222
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact component counts from the provided rulebook text: 1 Game Board, 1 Sun Segment, 4 Sun Revolution Counters, 4 Player Boards, 1 First Player Token, 24 Scoring Tokens, 4 Light Point Trackers, 24 Seed Tokens (6 per tree variety), 32 Small Trees (8 per variety), 16 Medium Trees (4 per variety), 8 Large Trees (2 per variety), and 1 Illustrated Rules booklet. Per-player tree inventory is fixed at 6 Seeds + 8 Small + 4 Medium + 2 Large. In 2-player games, remove the 3 darkest green Scoring Tokens with 4 leaves; when collecting from the middle 4-leaf space in 2-player mode, take from the 3-leaf stack instead."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the main board in the center with enough room to rotate the Sun Segment to all 6 positions. 2) Build 4 Scoring Token stacks next to the board by shade/leaf category, arranged in descending order so highest values are on top of each stack. 3) Place the Sun Segment on the printed sun symbol. 4) Place 1st, 2nd, and 3rd Sun Revolution Counters in numerical order on the board edge (leave 4th counter in box unless playing advanced variant). 5) Initial planting step on board edge: in turn order, each player places one available Small Tree on an external-edge (1-leaf zone) space, then repeat a second placement round so each player starts with two Small Trees on the board."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player receives: 1 Player Board, 1 Light Point Tracker, 6 Seeds, and 14 Trees (8 Small, 4 Medium, 2 Large) matching their variety. On each player board, place 4 Seeds, 4 Small Trees, 3 Medium Trees, and 2 Large Trees on their printed storage spaces; set Light Point Tracker to 0. Place remaining pieces beside your board as available supply at game start: 2 Seeds, 4 Small Trees, and 1 Medium Tree. These available pieces can be planted/grown immediately in later turns without first buying them."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The youngest player takes the First Player Token. After both rounds of initial Small Tree placement on external-edge spaces are complete and Sun Segment/Revolution Counters are in place, round 1 begins. Important first-round exception: when entering the first Photosynthesis Phase, you do NOT move the Sun Segment; movement to the next sun angle begins from round 2 onward. The player with the First Player Token drives Sun movement at the start of each Photosynthesis Phase and turn order for the Life Cycle Phase proceeds clockwise from First Player."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Photosynthesis: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Reminder: All of the above actions, except buying, activate a space on the main board (meaning you cannot act upon it again during your turn).This means that during your turn you cannot, for example, plant a seed and then grow it, grow a tree and then use it as a point of origin for a seed, use a tree as a point of origin for a seed and then grow it, or collect a tree and plant a seed in its space. The Life ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round has two numbered phases resolved in order:\n1. Photosynthesis Phase\n   1.1 The First Player moves the Sun Segment clockwise to the next board angle (skip this movement in round 1 only).\n   1.2 All players collect Light Points from trees that are not shadowed.\n   1.3 Light income values: Small Tree = 1, Medium Tree = 2, Large Tree = 3, Seed = 0.\n   1.4 Apply storage cap: no player may hold more than 20 Light Points; excess is lost.\n\n2. Life Cycle Phase\n   2.1 Starting with First Player and proceeding clockwise, each player takes a full turn.\n   2.2 On your turn, spend Light Points on any number of actions in any order (or pass/partially spend).\n   2.3 After all players finish, pass First Player Token clockwise and start the next round.\n\nRevolution tracking:\n- When the Sun completes one full revolution around board positions, remove the top Sun Revolution Counter to box.\n- Base game ends when 3rd counter is removed (3 full revolutions; 18 rounds total in base mode)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "During your Life Cycle turn, legal actions are:\n\nA) Buying pieces with Light Points\n- You may buy Seeds or Trees from your Player Board by paying their printed Light costs.\n- Buying in each column is bottom-to-top progression (least to most expensive).\n- Bought pieces move from board storage to your available area beside board.\n- Reminder: the initial available area pieces (2 Seeds, 4 Small, 1 Medium) are already usable without buying.\n\nB) Planting a Seed (cost: 1 Light per seed planted)\n- Use a Seed from your available area.\n- Seed must be planted from one of your trees as origin.\n- Planting range by origin size:\n  • from Small Tree: exactly 1 space away\n  • from Medium Tree: up to 2 spaces away\n  • from Large/Tall Tree: up to 3 spaces away\n- Direction can be any connected path; does not need to be straight.\n- Planting activates two spaces: origin-tree space and destination seed space.\n\nC) Growing a piece to next size\n- Replacement only to immediate next size:\n  • Seed → Small costs 1 Light\n  • Small → Medium costs 2 Light\n  • Medium → Large costs 3 Light\n- New piece must come from available area.\n- Removed piece returns to topmost open matching space on Player Board; if no matching open space exists, removed piece is discarded to box for rest of game.\n\nD) Collecting (harvesting a Large Tree)\n- Cost: 4 Light per Large Tree collected.\n- Remove Large Tree from board and return it to topmost open matching space on Player Board.\n- Take top Scoring Token from pile matching that soil richness.\n- If matching pile is empty, take from next lower pile as specified (e.g., from 2-leaf if 3-leaf pile is gone).\n- Once removed, that board space becomes available for planting by any player later in the same round.\n\nCritical action restriction (activation rule):\n- During your turn, you cannot perform more than one action on the same board space.\n- All actions except Buying activate board spaces.\n- Illegal examples (same turn): plant then grow same seed; grow tree then use that tree as seed origin; use tree as seed origin then grow it; collect a tree then plant in that same space."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Shadow and light economy system\nLight production is determined by sun direction and shadow projection lengths. Trees cast shadows opposite the sun onto trees of the same size or smaller. Trees taller than the shadow caster are not shadowed and still score full Light. Shadowed trees still cast shadows themselves. Shadow ranges are fixed by size: Small casts 1 space, Medium casts 2 spaces, Large casts 3 spaces in straight lines aligned with the Sun arrows. This creates a rotating positional puzzle: a location that is excellent now may be weak two sun steps later.\n\n2) Persistent light with hard cap\nLight Points carry from round to round but cap at 20. This forces timing choices: banking light for explosive turns versus spending before overflow. Because overflow is lost, efficient players avoid ending Photosynthesis near cap if their board can still generate significant incoming light next round.\n\n3) Inventory loop and supply pressure\nGrowing and collecting temporarily remove pieces from board and return older/removed pieces to your Player Board storage (or to box if storage is full). Buying pulls pieces from board storage to available area. This loop means your action capacity depends on both light and physical piece flow; being out of available pieces can block strong positions even when you have enough light.\n\n4) Soil-value race\nCollecting scores from token stacks with descending values. Early harvests secure higher-value tokens from richer soil categories, but early harvesting also removes future light generators. The fallback rule (take from next pile if matching is empty) creates timing races and dynamic value shifts across regions.\n\n5) Advanced variation options\nAfter mastering base game, the rulebook allows one or both advanced switches: (a) include 4th Sun Revolution Counter for a longer game, (b) forbid planting/growing when that seed/tree is shadowed by another tree. These increase positional punishment and long-term planning depth."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: the game ends when the sun has completed three full revolutions and the last (3rd) Sun Revolution Counter has been drawn/removed. In base game this is 18 rounds total, with final round occurring at the 6th sun position (the one before the printed sun symbol).\n\nFinal scoring sources (all from provided rules):\n1) Points on Scoring Tokens collected during play.\n2) Bonus conversion of unused light: +1 point for every full 3 Light Points remaining.\n   - 0-2 leftover light gives 0 bonus points.\n\nWinner and tie-breakers:\n- Highest total points wins.\n- If tied, tied player with the most seeds + trees still on the main board wins.\n- If still tied, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Photosynthesis, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: ÊÊ Growing from a Seed to a Small Tree costs 1 light point ÊÊ Growing from a Small Tree to a Medium Tree costs 2 light points ÊÊ Growing from a Medium Tree to a Large Tree costs 3 light points Players can only take new trees from their available area to grow seeds or trees on the main board.Trees and seeds that are removed and replaced from the main board are then placed on the Player Board, on the topmost available space. When the sun has completed one revolution around the board, the top token of the Sun Revolution Counter pile is drawn and placed in the box. Reminder: All of the above actions, except buying, activate a space on the main board (meaning you cannot act upon it again during your turn).This means that during your turn you cannot, for example, plant a seed and then grow it, grow a tree and then use it as a point of origin for a seed, ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: Light points are scored as follows: ÊÊ A Small Tree scores 1 point ÊÊ A Medium Tree scores 2 points ÊÊ A Large Tree scores 3 points No points are scored for seedlings. ÊÊ Growing from a Seed to a Small Tree costs 1 light point ÊÊ Growing from a Small Tree to a Medium Tree costs 2 light points ÊÊ Growing from a Medium Tree to a Large Tree costs 3 light points Players can only take new trees from their available area to grow seeds or trees on the main board.Trees and seeds that are removed and ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Photosynthesis: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 136
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Prioritize sun-line positioning, not just centrality. In the first revolution, place and grow trees so they score light across multiple upcoming sun angles instead of one immediate burst. A slightly less-rich hex that remains unshadowed for several sun positions usually outperforms a rich hex that is blocked twice in a cycle.\n\n2) Use your starting available pieces efficiently before overbuying. You begin with 2 Seeds, 4 Small, and 1 Medium available; convert these into board presence first, then buy additional pieces when there is a specific near-term use. Buying without immediate deployment can trap light in inventory instead of board tempo.\n\n3) Build a mixed-size board early. At least one Medium by early-mid first revolution helps both light generation and seed range. Staying all-small too long limits expansion lanes and makes your network easy to overshadow by opponents' medium/large trees.\n\n4) Keep one high-certainty light producer. As the sun rotates, ensure at least one tree is positioned to avoid likely shadows in the next angle so you always have enough light to act. Getting a turn with weak light often creates a cascading tempo loss.\n\n5) Plan activation-safe turns. Because you cannot act twice on the same space in one turn, sequence your actions across different spaces: e.g., seed from Tree A, grow Tree B, collect Tree C. New players who plan single-space combos lose efficiency to this rule.\n\n6) Contest rich-soil timing windows. If an opponent is close to collecting on a valuable pile, consider growing/positioning to shadow them in upcoming angles or race your own collection first. Early token-top values matter."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Hitting the 20-light cap repeatedly\nWhy it's a mistake: every excess light is wasted. Players who keep overcapping often had enough economy to convert light into growth/collection but failed to sequence spending.\n\n2) Overinvesting in buying too early\nWhy it's a mistake: buying pieces from Player Board does nothing until those pieces are in the available area and then placed/grown legally. Early turns should convert into board impact, not just inventory movement.\n\n3) Forgetting activation restrictions\nWhy it's a mistake: trying to plant then immediately grow same spot (or similar same-space chain) is illegal and indicates no turn-map planning. Legal multi-action turns require space diversity.\n\n4) Growing trees without shadow forecast\nWhy it's a mistake: a large tree in the wrong lane may generate less net light than a well-positioned medium and can even cripple your own downstream trees. Always evaluate at least next two sun positions before upgrading.\n\n5) Delaying collection until token values collapse\nWhy it's a mistake: waiting too long can turn a high-value rich-soil harvest into a much lower fallback token once pile tops are gone. Timely harvests are part of scoring race, not just endgame cleanup.\n\n6) Ignoring tie-break condition\nWhy it's a mistake: in close games, maintaining board presence (seeds + trees on map) can decide ties. Some players over-harvest in final rounds and accidentally lose tie-break they would have won."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "A) Economy growth vs immediate scoring\n- Choice: keep Large Trees for recurring light over future rounds, or collect now for guaranteed token points before pile values drop.\n- Read the table: if high-value tokens in your target soil are almost gone, harvesting earlier is often correct even if it reduces short-term light output.\n\nB) Expansion breadth vs upgrade depth\n- Choice: plant many seeds to widen influence, or grow existing trees to medium/large quickly.\n- Broad networks improve future options and tie-break presence; deep upgrades improve light and harvest potential. Strong turns usually maintain a balanced pipeline (some seeding, some upgrading).\n\nC) Offensive shadowing vs self-preservation\n- Choice: place/grow to block opponents' light lines, or optimize your own stable production lanes.\n- Overcommitting to denial can backfire if it sacrifices your own sun-angle coverage. Prioritize moves that both hinder opponents and remain productive for you across upcoming rotations."
+        }
+      ]
     }
   },
-  "total_token_count": 1102,
+  "total_token_count": 3235,
+  "extensions": {},
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "created_at": "2026-02-23T07:13:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Written from provided Photosynthesis rulebook text; includes exact component counts and printed setup/action/endgame rules."
   }
 }

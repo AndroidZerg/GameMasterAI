@@ -7,50 +7,101 @@
     "min": 2,
     "max": 6,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
-    "max": 45
+    "max": 30
   },
-  "complexity": "gateway",
+  "complexity": "midweight",
   "categories": [
-    "dice",
-    "push-your-luck",
-    "battle"
+    "Dice Rolling",
+    "Push Your Luck",
+    "Player Elimination",
+    "Card Powers",
+    "Area Control"
   ],
-  "source_url": "https://iellogames.com/en/games/king-of-tokyo",
+  "source_url": "https://iello.com/en/fiche/king-of-tokyo/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up King Of Tokyo by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: if you start your turn Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) ces for dices Faces (King for of dices tokyo) (King (2 kinds ofFaces tokyo) offor dice, (2 dices kinds black Faces (King of dice for dice, of and dices tokyo) black green Faces (King dice (2 dice) for kinds of and dices tokyo) green of(King dice, (2 dice) kinds of black tokyo) of dice dice, and (2 kinds black greenof dice dice) dice, and black green dice dice) and green dice) (2 kinds of dice, ...",
-      "token_count": 222
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Monster boards (one per monster, each with Life Point and Victory Point dials), matching monster cardboard figures, 1 Tokyo board (Tokyo City and Tokyo Bay), black dice (6 used each turn), 2 green dice, Power card deck, Energy cubes, and 28 tokens total: 3 Smoke, 1 Mimic, 12 Shrink, 12 Poison."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the Tokyo board at the center of the table. 2) Shuffle all Power cards to form a face-down deck. 3) Reveal the top 3 Power cards face up beside Tokyo as the market. 4) Place the 28 tokens nearby. 5) Put the 6 black dice in the center. 6) Keep the 2 green dice set aside (only used when card effects allow). 7) Make a common pool of all Energy cubes. 8) Choose board zones by player count: with 2-4 players, use Tokyo City only; with 5-6 players, use both Tokyo City and Tokyo Bay."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses a Monster and takes the matching Monster board and cardboard figure. Set that Monster's Life Points to 10 and Victory Points to 0. Keep your figure near your board until you enter Tokyo, then place it in Tokyo City or Tokyo Bay as required."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "All players roll the 6 black dice to determine first player. The player with the most Claw results starts; ties are rerolled among tied players until one player has the most. No Monster begins in Tokyo. The first player takes the first full turn and will be required to enter Tokyo during that turn's Enter Tokyo step if Tokyo is empty."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for King Of Tokyo: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Opportunist Fire Breathing If there are two Opportunist in play (because of Mimic), the first Monster clockwise from the Monster whose turn it is gets first opportunity to buy newly revealed cards. End of turn Symbols rolled at the end of your last die Roll represent the actions of your turn: victory points Victory Points smash Monsters that are not in the same place as rolled. The smashing Monster must then take his place during the Enter Tokyo step. The first player ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Turns proceed clockwise. On your turn, follow these 5 steps in order:\n1. Roll Dice\n   - You may roll up to three times total.\n   - First roll: roll all 6 black dice (plus 1-2 green dice only if a Power card says you can).\n   - Before second and third rolls, you may keep any dice and reroll the rest.\n   - On the third roll, you may reroll dice you had previously set aside if desired.\n\n2. Resolve Dice\n   - Resolve all symbols shown on your final results.\n   - You may resolve in any order, but all dice must be resolved.\n\n3. Enter Tokyo\n   - If no one is in Tokyo, you must enter Tokyo City.\n   - In 5-6 players, if Tokyo City is occupied and Tokyo Bay is empty, you must enter Tokyo Bay.\n\n4. Buy Power Cards\n   - You may buy one or more face-up Power cards by paying Energy equal to each card's cost.\n   - Replace bought cards immediately from the deck; newly revealed cards are available immediately.\n   - You may also pay 2 Energy to sweep (discard) all three face-up cards and reveal three new ones.\n   - As long as you can pay, you may keep buying and/or sweeping in this step.\n\n5. End of Turn\n   - Resolve any effects that trigger at end of turn.\n   - Pass the dice to the player on your left."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Final dice results create your turn's actions:\n\nA) Number symbols (1, 2, 3) -> Gain Victory Points\n- If you roll three of a kind of a number, gain VP equal to that number.\n- Each additional die showing the same number adds +1 VP.\n  Example: four 2s = 2 VP +1 extra = 3 VP.\n\nB) Energy symbols -> Gain Energy cubes\n- Gain 1 Energy cube from pool for each Energy symbol rolled.\n- Keep Energy in front of you until spent on cards/effects.\n\nC) Claw symbols -> Deal damage\n- Each Claw causes 1 Life loss to eligible target monsters.\n- If you are in Tokyo (City or Bay), your Claws hit all monsters outside Tokyo.\n- If you are outside Tokyo, your Claws hit all monsters in Tokyo (both City and Bay).\n- Monsters in Tokyo do not Claw each other directly as part of this targeting rule.\n\nD) Heart symbols -> Heal\n- If you are outside Tokyo, gain 1 Life per Heart rolled.\n- You cannot heal above 10 Life.\n- If you are in Tokyo, Heart symbols do not heal you (unless a Power card effect says otherwise).\n\nDamage, elimination, and discards\n- A Monster that loses its last Life is eliminated immediately.\n- Eliminated Monsters discard all Keep cards and all Energy cubes.\n\nYielding Tokyo\n- A Monster in Tokyo may Yield only after losing Life from another Monster's Claw roll.\n- That Monster still takes the damage first.\n- Yield is not allowed from Life loss caused by Power card effects; card-effect damage is different from Claw damage for yielding purposes."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Tokyo control rules and bonuses:\n- Entering Tokyo grants +1 Victory Point immediately.\n- Starting your turn in Tokyo grants +2 Victory Points.\n- Monsters in Tokyo cannot use Heart dice for healing.\n\nTokyo zones (5-6 players):\n- Tokyo consists of Tokyo City and Tokyo Bay. Both count as 'in Tokyo.'\n- If Tokyo City is occupied and Tokyo Bay empty, entering monster must take Tokyo Bay.\n- If player count drops to 4 or fewer, any Monster in Tokyo Bay must leave Tokyo Bay immediately, unless Tokyo City is empty (in that case it moves to Tokyo City).\n\nPower card types:\n- Keep cards: stay face up in front of you until game end unless an effect removes them.\n- Discard cards: resolve immediately when bought, then discard.\n\nCard market cycling:\n- Buying cards and sweeping are both optional but repeatable in Step 4 as long as you can pay.\n- Replacements happen immediately, which can create chain-buy turns if you have enough Energy.\n\nGlossary-linked timing:\n- Roll means a throw of selected dice; before each new roll, you choose which dice to keep/reroll.\n- Yield occurs only when damaged by Claw dice from another Monster and happens before the attacker's Enter Tokyo step."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End triggers (two possible win conditions):\n1) Victory Point win: the first Monster to reach 20 Victory Points wins.\n2) Elimination win: if only one Monster remains alive, that Monster wins immediately.\n\nHow Victory Points are gained:\n- From number sets on dice (three of a kind of 1/2/3, plus +1 per extra matching die).\n- +1 VP when entering Tokyo.\n- +2 VP when starting your turn in Tokyo.\n- Additional VP from Power card effects (when relevant).\n\nDamage and survival path to victory:\n- Claw damage can eliminate players; the last survivor wins even if no one reached 20 VP.\n\nTies and simultaneous outcomes:\n- The provided rule text defines winner as the Monster who reaches 20 first or last survivor and does not provide a separate tie-break paragraph.\n- Resolve effects in turn order and current-action sequence; if a unique winner still cannot be distinguished from the same resolution window, treat as shared victory by table agreement."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In King Of Tokyo, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: Faces Faces Faces forfor dices for dices (King dices (King (King of of tokyo) of tokyo) tokyo) (2 kinds (2 kinds (2 kinds of of dice, of dice, black dice, black black dice dice and dice and green and green green dice) dice) dice) : Gain Victory Points ( Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) Victory Points ) : Gain Energy cube ( ) Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) : Smash Monsters to lose Life Points ( ) Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) : Gain Life Points ( ) Name Power Cards Life Points Power cards have a name, a cost to pay in Energy cubes ( ), a type ( keep / discard ) and an effect. End of turn Symbols rolled at the end of your last die Roll represent the actions ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: Faces Faces Faces forfor dices for dices (King dices (King (King of of tokyo) of tokyo) tokyo) (2 kinds (2 kinds (2 kinds of of dice, of dice, black dice, black black dice dice and dice and green and green green dice) dice) dice) : Gain Victory Points ( Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) Victory Points ) : Gain Energy cube ( ) Faces for dices (King of tokyo) (2 kinds of dice, black dice and green dice) : Smash Monsters to lose Life Points ( ) Faces for ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for King Of Tokyo: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 139
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build early Energy income. In the first turns, prioritize at least some Energy faces so you can buy Power cards before the market's best tempo cards disappear.\n2) Take Tokyo when you can survive it. Early +1 on entry and +2 on start snowballs points, but only if your Life buffer is healthy enough to absorb return fire.\n3) Decide your lane by table state: if opponents are low Life, lean Claws; if table is healthy and passive, race VP with numbers plus Tokyo points.\n4) Keep rerolls purpose-driven. New players often reroll everything; better play is to lock 2-4 dice toward one concrete objective each turn (VP set, Energy spike, or damage burst).\n5) Watch 5-6 player zone pressure. In larger games, City/Bay occupancy changes damage exposure and entry obligations—plan your health and yields around both spaces, not just one."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Staying in Tokyo with critically low Life. The +2 VP is tempting, but getting eliminated loses all future turns and discards your board state.\n2) Ignoring Energy economy. Players who skip Energy early fall behind on card power and cannot pivot when dice are poor.\n3) Chasing number sets every turn regardless of board state. Sometimes one Claw or one Heart matters more than finishing a low-value set.\n4) Forgetting Hearts do nothing in Tokyo. Misplaying this rule causes preventable knockouts.\n5) Yielding Tokyo at the wrong time. Yielding too early can give free VP tempo; yielding too late can get you eliminated. Learn to evaluate incoming threat from all active players."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) VP race vs knockout plan: Do you invest rolls into numbers/Tokyo scoring, or pressure Life totals with Claws to force eliminations?\n2) Spend Energy now vs save for sweep/chains: Immediate buy can stabilize your turn, but banking Energy enables multi-buy turns and market control via repeated sweeps.\n3) Hold Tokyo vs Yield Tokyo: Keeping Tokyo increases scoring speed but blocks Heart healing and paints a target on you. Yielding preserves Life and timing, but can hand tempo to the attacker."
+        }
+      ]
     }
   },
-  "total_token_count": 1105,
+  "total_token_count": 3170,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "druid",
+    "created_at": "2026-02-22T23:16:19-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Generated from provided King of Tokyo rulebook excerpt; scoring/timing language aligned to supplied text."
   }
 }

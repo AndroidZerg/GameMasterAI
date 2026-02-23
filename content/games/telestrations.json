@@ -2,55 +2,96 @@
   "game_id": "telestrations",
   "title": "Telestrations",
   "aliases": [],
-  "publisher": "USAopoly",
+  "publisher": "USAOPOLY (The Op)",
   "player_count": {
     "min": 4,
-    "max": 8,
+    "max": 6,
     "recommended": 6,
-    "expansion_max": 12
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 30,
-    "max": 45
+    "min": 20,
+    "max": 40
   },
   "complexity": "party",
   "categories": [
-    "drawing",
-    "telephone",
-    "humor"
+    "Party Game",
+    "Drawing",
+    "Word Guessing",
+    "Simultaneous Play",
+    "Social Deduction Light"
   ],
-  "source_url": "https://theop.games/products/game/telestrations/",
+  "source_url": "https://theop.games/products/telestrations",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Typical box contents: erasable sketch books (one per supported player), dry-erase markers, cleaning cloths, large prompt card deck/word list, and category die or selector depending edition; some versions include timer. Player count capacity varies by edition (classic vs party pack), but each active player must have one sketch book and marker. Before session start, verify all books erase cleanly and marker tips are usable.",
-      "token_count": 83
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "72 double-sided word cards (\"This Side\" and \"That Side\", over 800 words total), 6 erasable sketch books, 6 dry-erase markers, 3 clean-up cloths, and 1 die."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Place cards, cloths, and die in the center. As a group, choose to use either THIS SIDE or THAT SIDE for all cards this game. Each player takes 1 sketch book, 1 marker, and 1 card. Every player writes their name on the front of their sketch book."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Each player rolls the die (or one die result is used in turn) and matches the number to the corresponding word on their own card. Secretly write that word in your sketch book. If the matched space is blank, invent any word. If the matched item is an underlined category, invent a word in that category.\n\nPlayer-count adjustment before the first pass:\n- 4 or 6 players: each player starts by drawing their own secret word on SKETCH IT page 1.\n- 5 players: each player opens to SKETCH IT page 1 and passes left first; the receiving player reads the secret word and draws it. This ensures the chain ends on a guess."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each player starts with a secret prompt word and writes it in their sketch book. Books are passed; recipients draw the word, then pass again. Next recipient writes a guess describing the drawing, then pass continues alternating DRAW then GUESS every step. When books return to original owners, everyone reveals the full chain from original word through transformations. Optional points can be awarded, but many groups play mainly for comedic reveal quality.",
-      "token_count": 93
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The game is played over 3 rounds. Each round follows this sequence:\n1. Get a Word: Determine each player's secret word from die result and card entry, and record it secretly.\n2. First Sketch: On SKETCH IT page 1, draw the word (or in 5-player games, draw the passed word as described in setup).\n3. Hide and Pass: Turn to page 2 to hide the drawing and pass the open book to the player on your left.\n4. Guess: Receiver flips back to view prior sketch, then writes a guess on GUESS IT page 2.\n5. Pass Again: Flip forward and pass left simultaneously.\n6. Alternate Sketch/Guess: Continue alternating sketch pages and guess pages each pass until books return to original owners. The sequence should end with a guess.\n7. Big Reveal: Owners flip through their books in order, sharing each sketch and guess chain aloud.\n8. Score Round: Apply either Friendly or Competitive scoring. After 3 rounds, highest total wins."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "On each pass, a player performs exactly one content action plus one pass action:\n\nA) Sketch action\n- Draw the current word/guess prompt on the open SKETCH IT page.\n- Sketches must contain no letters and no numbers.\n- Complete within roughly one minute to maintain game pace.\n\nB) Guess action\n- Flip back to view only the immediately previous sketch.\n- Write your best guess on the open GUESS IT page.\n- You must write a guess even if uncertain or silly.\n\nC) Pass action\n- After sketching or guessing, flip pages so prior content is hidden and pass the book left.\n- All players pass simultaneously to keep chains synchronized.\n\nGlobal restrictions\n- No blank pages are allowed.\n- No letters or numbers in any sketch.\n- Books are always passed open to the page the next player must complete."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Chain transformation system:\n- Each book becomes a telephone-style chain: word -> sketch -> guess -> sketch -> guess, and so on. Accuracy and humor emerge from how information mutates.\n\n5-player parity rule:\n- The special first-pass handling in 5-player games exists only to ensure the final page is a guess, matching the intended reveal/scoring flow.\n\nVariants from rulebook:\n- Change seats between rounds or reverse passing direction.\n- Require sketching with the less-dominant hand.\n- Create custom word cards.\n- For mixed ages, let youngest players pick any word freely."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger:\n- Play exactly 3 rounds, then total points. Highest score wins.\n\nScoring mode 1: Friendly Scoring\n- +1 point to the player with your favorite sketch (your choice).\n- +1 point to the player with your favorite guess (your choice).\n- +1 point to yourself if the last guess in your own book matches your original secret word.\n\nScoring mode 2: Competitive Scoring\n- Guesser earns +1 point when their guess matches either the original secret word or the previous guess in chain.\n- Sketcher earns +1 point when their sketch helps the next guesser match correctly.\n- +1 point to yourself if the final guess in your own book matches your original secret word.\n\nAll point sources to count:\n- Favorite sketch votes (friendly mode only).\n- Favorite guess votes (friendly mode only).\n- Correct guess links (competitive mode only).\n- Helpful sketch links (competitive mode only).\n- End-of-chain self-match bonus (both modes).\n\nTie-breaker:\n- The provided rule text states only \"most points wins\" and does not define a formal tie-break. If tied, treat as shared win or play an agreed extra round."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Distribute books/markers/cloths and choose prompt-selection method (card+number/category die in standard rules). Round start: each player records their secret word on first page, then all pass books in agreed direction. On each timer segment, players perform the required action for page type: if they see text, they draw that clue on next page; if they see drawing, they write a guess on next page. Only the most recent page should be visible to prevent future information leakage. Continue pass-rotate until each book is full and returns home. Reveal phase: each owner flips through their book sequence aloud, showing how message drifted over successive interpretations. Rule clarifications: drawings generally may not include letters or direct textual labels unless house variant allows minimal symbols; stick-figure quality is fully legal; time limit should be equal for all turns; late players stop when timer ends to preserve tempo. If scoring mode is used, apply one of the official/house methods consistently before play begins. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 465
-    },
-    "scoring_and_endgame": {
-      "content": "Telestrations can be played with or without formal scoring. In scored play, points are awarded according to selected system (commonly for correct guesses, successful transmission, or peer-voted favorite moments). In no-score party mode, game “win” is social and rounds end after reveal laughter. Session end is after agreed number of rounds/books; if using points, highest total wins. No hidden endgame triggers exist beyond planned round count.",
-      "token_count": 85
-    },
-    "beginner_strategy": {
-      "content": "When drawing, emphasize iconic shapes and relationships over detail—clarity beats artistry. As a guesser, write the most literal interpretation rather than joke answers if your group is scoring competitively. Keep pass direction and rhythm disciplined; delays break energy and cause page confusion. Teach first-time players with a mini demo chain so they understand alternating draw/guess pages. If everyone is new, start without scoring to reduce pressure and improve participation. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 114
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Favor clarity over artistry in your first sketches. Large, iconic shapes communicate better than detailed drawings.\n2) If you get a blank/category prompt, pick a concrete noun (easy to draw and guess) rather than an abstract concept.\n3) During guesses, commit to the most literal interpretation of visible clues; over-clever guesses often derail the chain.\n4) Keep pace and pass cleanly. Fast, synchronized passing prevents accidental extra information leakage and confusion."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Drawing tiny details instead of recognizable silhouettes. Result: guessers miss the core idea.\n2) Breaking the no letters/numbers rule, which gives illegal clues and can invalidate the spirit of the round.\n3) Leaving pages blank or skipping uncertain guesses. The chain must stay unbroken for scoring and reveal flow.\n4) Passing out of sync. If players pass at different times, page order mistakes happen and books get mismatched.\n5) Choosing overly niche words when blanks/categories allow custom picks, making fair guessing nearly impossible for the table."
+        }
+      ]
     }
   },
-  "total_token_count": 840,
+  "total_token_count": 1660,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "druid",
+    "created_at": "2026-02-22T23:13:59-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from telestrations.txt as primary source. Reference snippet: TELESTRATIONS - Official Rulebook (6 Player Family Pack)"
+    "revision": 1,
+    "notes": "Built directly from provided 6 Player Family Pack rule text; includes both scoring modes and listed variants."
   }
 }

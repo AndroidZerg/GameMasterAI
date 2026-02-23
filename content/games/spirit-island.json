@@ -1,59 +1,107 @@
 {
   "game_id": "spirit-island",
   "title": "Spirit Island",
-  "aliases": [
-    "Spirit Island Base Game"
-  ],
+  "aliases": [],
   "publisher": "Greater Than Games",
   "player_count": {
     "min": 1,
     "max": 4,
     "recommended": 3,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 90,
-    "max": 180
+    "max": 120
   },
   "complexity": "heavy",
   "categories": [
-    "cooperative",
-    "asymmetric-powers",
-    "hand-management",
-    "area-control"
+    "cooperative strategy",
+    "asymmetric powers",
+    "area control",
+    "card-driven",
+    "invader AI"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebooks/spirit-island.pdf",
+  "source_url": "https://greaterthangames.com/product/spirit-island/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Components include modular island boards, invader board, fear and blight systems, minor and major power decks, invader cards, fear cards, spirit panels, spirit-specific starting power cards, presence discs, Dahan pieces, and invader pieces for explorers, towns, and cities. Setup uses player-count island layout, spirit selection, fear deck prep, invader deck staging, and printed setup icons on boards for Dahan, invaders, and blight. Each spirit must have full presence and unique cards because missing pieces break growth tracks and legal targeting.",
-      "token_count": 104
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Components visible in the provided Spirit Island rulebook pages (including exact counts shown):\n\nCore boards and panels\n- 1 Invader Board\n- 4 Modular Island Boards\n- 8 Spirit Panels\n\nIsland and invader pieces\n- 36 Dahan\n- 20 Cities\n- 32 Towns\n- 40 Explorers\n- 38 Blight\n\nPlayer/spirit markers\n- 52 Spirit Presence (13 each in 4 colors)\n- 12 Single-Turn Effect Markers (3 each in 4 colors)\n- 8 Player Aid Cards\n- 4 Power Progression Cards\n\nEconomy/fear tokens\n- 32 Energy Markers (20 markers worth 1 Energy, 12 markers worth 3 Energy)\n- 20 Fear Markers\n\nCard decks and dividers\n- 15 Fear Cards\n- 2 Terror Level Dividers\n- 2 Blight Cards\n- 15 Invader Cards\n- 22 Major Power Cards\n- 36 Minor Power Cards\n- 32 Unique Power Cards\n\nDifficulty modules\n- 3 Adversary Panels\n- 3 Adversary Reminder Tiles\n- 4 Scenario Panels\n\nRules context notes from the same pages:\n- The game’s Invader Deck in a normal game is built as 12 cards total using staged invader cards (Stage I, II, III), with one card from each stage set aside each game.\n- Fear deck setup uses exactly 9 Fear Cards divided into 3 groups of 3 by Terror dividers.\n- The game supports a first-game tutorial mode that can skip the randomized Blight card and use printed healthy-island blight instructions instead."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Set up Spirit Island in this sequence so all systems are visible and easy to teach:\n\nA) Invader Board setup\n1. Place the Invader Board at one side of the play area.\n2. Put 4 Fear Markers per player into the Fear Pool.\n3. Shuffle Fear Cards and place 9 in the Fear Deck area. Insert Terror Level 3 divider 3 cards from bottom, and Terror Level 2 divider 3 cards above that (creating three equal segments).\n4. Build the Invader Deck and place it on the Explore action space.\n5. Place a random Blight Card on the Blight space, Healthy Island side up, without looking at its reverse; then place the shown amount of Blight on it. (If using first-game no-blight-card mode, follow printed board blight instructions instead.)\n\nB) Make the Invader Deck (12 cards total in-play)\n- Top: 3 Stage I cards\n- Middle: 4 Stage II cards\n- Bottom: 5 Stage III cards\nUse the stage card groups, shuffle within each stage, and return one unused card from each stage to box (because component pool includes one extra card per stage).\n\nC) Island setup\n1. Randomly choose one Island Board per player.\n2. Arrange selected boards to form island according to player-count layout.\n3. Populate each island board using printed setup icons in each land (initial invaders, Dahan, and blight from box supply).\n\nD) Supply setup\n1. Shuffle Minor Power deck and place with room for discard pile.\n2. Shuffle Major Power deck and place with room for discard pile.\n3. Place Energy markers, Cities, Towns, Explorers, and Dahan in common supply piles all players can reach.\n\nE) Player zones\n- Give each player space for Spirit Panel, Presence tracks, played powers, and hand/discard.\n- Keep fear discard/earned cards and invader pipeline clearly visible so all players can plan upcoming Build/Ravage threats."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player does the following:\n\n1) Choose color and take all components of that color\n- All Spirit Presence in one color\n- Matching Single-Turn Effect Markers\n\n2) Choose a Spirit\n- Take one Spirit Panel\n- Take that Spirit’s 4 Unique Power Cards as starting hand\n\n3) Follow Spirit-specific setup printed on back of Spirit Panel\n- Usually includes placing Presence in one or more lands on your starting island board\n- Some Spirits have extra instructions; complete all printed setup exactly\n\n4) Flip Spirit Panel and initialize tracks\n- Place all remaining Presence onto dashed circles on Presence tracks\n- Keep only leftmost solid-circle spaces uncovered as instructed\n\n5) Optional first-game supports (recommended in rulebook)\n- Choose a low-complexity Spirit\n- Take matching Power Progression Card\n- When gaining new powers, follow progression list instead of normal power gain choices\n- Do not use Adversary or Scenario for first game\n- Optionally do not use random Blight card (use printed healthy-island blight setup)\n\nImportant scope note from setup text:\nEven though each player starts on a different island board, once play begins, Presence and Powers are not restricted to that starting board. Spirits can affect any board if range/target conditions are met."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "After all players and boards are set, finalize setup with the Invaders’ starting action:\n\n1) Reveal the top card of the Invader Deck.\n2) The Invaders immediately Explore that land type (per Explore rules).\n3) Place that revealed card face up in the Build action space.\n\nThis preloads the invader pipeline so first full round begins with meaningful pressure already developing.\n\nThen begin regular gameplay sequence, where all Spirits act each turn in the game’s phase order. Spirit Island uses cooperative simultaneous planning: players openly discuss priorities, then resolve effects according to phase timing (Fast vs Slow powers and Invader action order).\n\nAt game start, victory and loss are not checked until game events create those states. Teams should treat first turns as stabilization-and-growth turns: you begin weaker than invaders and must scale your spirit economy while preventing blight spirals."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each round runs in fixed order: Spirit Phase, Fast Powers, Invader Phase, Slow Powers, then Time Passes. In Spirit Phase players choose growth, gain energy, and play cards. Fast powers resolve before invaders. Invaders then ravage, build, and explore according to shown cards. Slow powers resolve after invaders and usually set up next round. Fear can trigger fear cards and raise terror level, changing victory requirements.",
-      "token_count": 85
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Spirit Island round flow follows the rulebook’s Sequence of Play sections:\n\n1. Spirit Phase\n   a) Growth: each spirit chooses and resolves one growth option from its panel.\n   b) Gain Energy: collect energy according to current uncovered energy income and effects.\n   c) Play and Pay for Powers: choose cards to play this turn up to card-play limit, paying energy costs.\n\n2. Fast Power Phase\n   - Resolve all Fast powers in player-chosen order, honoring each power’s targeting/range restrictions and text.\n\n3. Invader Phase\n   - Invaders execute their current action sequence from Invader Board pipeline (Ravage / Build / Explore based on revealed cards and board state).\n   - Fear cards earned can modify invader behavior depending on current terror level.\n\n4. Slow Power Phase\n   - Resolve all Slow powers played this turn in player-chosen order.\n\n5. Time Passes\n   - Clean up temporary effects and markers that expire at end of turn.\n   - Advance board state as required for next turn.\n   - Re-check victory and loss conditions.\n\nCore pacing principle:\nAll spirits start limited and must grow before they can out-scale invader expansion. Fast powers are your immediate emergency tools; Slow powers are your delayed strategic tools that shape next turn’s invader pipeline."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Your actionable choices in Spirit Island are mostly concentrated in Spirit Phase and card resolution order.\n\nA) Growth choices (from Spirit Panel)\nTypical growth options include combinations of:\n- Add Presence to island\n- Gain energy\n- Reclaim cards from discard\n- Gain a power card (Minor or Major)\n- Other spirit-specific growth effects\nYou choose one growth option each turn unless spirit text says otherwise. Growth is your long-term engine; weak growth sequencing is one of the easiest ways to fall behind invader tempo.\n\nB) Energy and card play decisions\n- Gain energy from uncovered energy track values and effects.\n- Choose which power cards to play this turn, up to your current card-play limit.\n- Pay each selected card’s energy cost.\n- Card text, speed (Fast/Slow), range, and targeting restrictions all apply strictly.\n\nC) Power resolution choices\nEach power specifies effects; common action verbs include moving invaders/Dahan, dealing damage, defending lands, adding/removing blight, generating fear, and modifying invader actions. You must resolve effects legally against valid targets in legal range from your Presence unless card text provides exceptions.\n\nD) Presence placement and board reach\nPresence does several jobs at once:\n- Increases your effective board range\n- Unlocks stronger economy/card play values by uncovering tracks\n- Expands where powers can be targeted from\nBecause each spirit starts tied to a board but can later affect any board, presence placement is also a team-level positioning tool, not just personal growth.\n\nE) Fear and terror interaction\nFear generation contributes to earned Fear Cards; as fear accumulates and terror level rises, your win condition becomes easier (you no longer need full invader wipe at higher terror levels). Fear can also produce immediate tactical effects when Fear Cards resolve.\n\nF) Invader pipeline interaction\nInvaders follow a predictable progression. You can respond in three broad ways:\n- Prevent (stop Build/Explore setup before it snowballs)\n- Mitigate (Defend to absorb Ravage damage and prevent blight)\n- Punish (destroy clustered invaders after they commit)\nStrong teams combine all three instead of doing only one.\n\nG) Deck/supply edge conditions\n- If invader pieces needed cannot be placed due to supply exhaustion, loss condition can be triggered.\n- If blight reserve/card conditions are exhausted per rules text, loss condition can trigger.\n- If spirit Presence elimination conditions are met for a spirit, loss can trigger.\nAlways check loss triggers immediately when relevant state changes."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Asymmetric spirit identity\nEach spirit has unique growth options, innate elements/synergies, and a bespoke starting hand (4 unique powers). This is not cosmetic asymmetry; each spirit solves the invader problem in a different way. Teams must coordinate around role fit (defense, control, fear, damage, support, etc.).\n\n2) Terror system and dynamic victory threshold\nThe fear deck is split into three terror bands by dividers. As fear is generated and terror escalates, the invader destruction requirement for victory becomes less strict. This is a core strategic lever: some games are won by terror acceleration rather than map cleanup.\n\n3) Blight pressure and island health states\nBlight is both tactical damage and a strategic clock. Early blight may be recoverable; uncontrolled blight cascades can force immediate loss. First-game mode can use printed Healthy Island blight instructions to simplify learning, while standard play uses random Blight Card for variability and additional constraints/effects.\n\n4) Invader AI predictability with escalating danger\nInvader behavior is automated but forecastable through the card pipeline. You usually know where threats are heading one or more steps ahead (Explore -> Build -> Ravage flow), enabling planning-heavy cooperative play. Difficulty modules (Adversaries/Scenarios) alter this baseline.\n\n5) First-game teaching modifications\nRulebook explicitly recommends for first game:\n- low-complexity spirit selection\n- power progression cards for deterministic gains\n- no adversary/scenario\n- optionally no blight card\nThese changes reduce decision overhead and variance while preserving core loop.\n\n6) Cooperative transparency\nThe game expects open discussion. The challenge is not hidden traitor logic; it is optimization under pressure. Table communication quality is a major determinant of win rate."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Spirit Island is cooperative and does not use victory points in the standard win/loss determination.\n\nHow the game ends:\n\nA) Victory\nPlayers win when the current victory condition tied to terror level is met (driving off/destroying required invader classes according to current terror threshold). Fear progression can therefore change what must be eliminated to win.\n\nB) Defeat\nPlayers lose immediately if any listed defeat condition is met, including rulebook-highlighted examples such as:\n- island overrun by blight (blight-loss condition reached)\n- a spirit destroyed completely\n- invaders become too entrenched because you are too slow (as described in overview/defeat framing)\n- supply-exhaustion defeat conditions where applicable (e.g., invader piece placement impossible)\n\nC) Timing of checks\nCheck for defeat whenever a triggering state occurs, and check for victory at points specified by sequence/time-passes and effect resolution timing.\n\nScoring note\nThe table of contents indicates a separate Scoring section in the full rulebook. That scoring is post-game performance evaluation, not the core victory condition. Core game outcome is binary cooperative win or loss; no tie-breaker is required in standard play because teams share one result."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Growth drives the economy of card plays, energy, and presence range. Card effects resolve only if target and range are legal. Element icons on played cards unlock innate powers when thresholds are met. Ravage deals damage in matching lands, blight is added when land damage threshold is reached, and Dahan counterattack if they survive. Build adds towns or cities where invaders are present in matching lands. Explore adds explorers from legal source lands into shown terrain. Fear is generated mainly by destroying invaders and by card text. Terror levels reduce what must be removed for victory. Adversaries and scenarios override baseline setup and action rules and must be applied literally. Commonly missed rules are timing windows for fast and slow powers, push and gather legality, and the difference between destroy and damage.",
-      "token_count": 171
-    },
-    "scoring_and_endgame": {
-      "content": "Spirit Island is cooperative and has no normal point total. Win immediately when the current terror-level victory condition is met. At Terror I all invaders must be removed, at Terror II all cities, at Terror III all towns and cities. Loss occurs if a loss condition triggers first, including blight collapse or fear deck exhaustion. Resolve timing strictly in phase order when win and loss effects are close.",
-      "token_count": 88
-    },
-    "beginner_strategy": {
-      "content": "Stop early ravages instead of chasing flashy kills. Coordinate spirit roles so one controls position while another delivers damage or fear. Use fast powers to break build and explore chains before they snowball. Place presence aggressively enough to improve range and card-play tracks. Draft major powers only when your reclaim and energy engine can support them.",
-      "token_count": 72
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Read the invader pipeline before choosing growth\nBefore committing growth and card plays, identify:\n- where Ravage will happen now,\n- where Build will create tomorrow’s ravage threats,\n- where new Explore will extend fronts.\nPrioritize lands where stopping one step prevents two future problems.\n\n2) Grow your spirit economy early, but not blindly\nNew players often panic-react every land and never develop tracks. You must still expand Presence and unlock card plays/energy income in first turns, or your midgame collapses. The best opening lines usually mix one urgent safety intervention with one strong growth step.\n\n3) Use fast powers to prevent irreversible damage\nEarly fast powers are most valuable when they stop blight cascades or deny high-value builds, not when they only remove a single explorer in a quiet land. Spend fast-speed tempo where consequences are highest.\n\n4) Coordinate role coverage across spirits\nIn 3-4 player games especially, avoid duplicate over-specialization. Ensure someone can defend, someone can move/deny builds, and someone can convert pressure into fear or kills. If your team has no reliable defense in opening turns, blight spikes quickly.\n\n5) Preserve Dahan when practical\nDahan are not passive scenery. With proper defense and timing, they convert ravage situations into invader destruction. Early turns that keep Dahan clusters alive often create strong counterattacks later.\n\n6) First-game simplification is strategic, not 'easy mode shame'\nUse low-complexity spirits and progression cards on first plays exactly as recommended. This removes analysis noise and helps you internalize phase timing, which is the hardest part for new groups."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Trying to solve every land each turn\nYou cannot prevent all invader actions early. Treat threats triage-style: stop the most damaging sequences first (city builds, blight cascades, high-population ravages), accept manageable losses elsewhere.\n\n2) Underinvesting in Presence growth\nIf you delay growth too long, your energy and card-play limits stay low and you fall behind permanently. Early growth turns feel risky but are usually required for eventual control.\n\n3) Mis-timing Fast vs Slow powers\nNew players pick strong-looking cards but forget speed timing. A perfect slow answer may arrive one phase too late. Always map card speed against current invader step before committing play slots.\n\n4) Ignoring fear as a win path\nTeams often tunnel on total board wipe and underplay fear generation. Terror escalation can shorten required cleanup dramatically; fear is both tactical and strategic pressure.\n\n5) Fragmented cooperative planning\nWhen players plan in isolation, powers overlap badly (double-defending one land, overkilling trivial targets, leaving critical land untouched). Use explicit planning language: 'I can cover land X if someone handles Y build.'\n\n6) Blight spiral denial\nSome groups keep 'just one more blight is fine' mentality until loss threshold appears suddenly. Watch blight reserve and card state every turn; if you are near flip/loss pressure, pivot immediately to stabilization.\n\n7) Overcommitting to expensive major powers too early\nMajors can be game-winning, but early hands without economy support can strand cards unplayed. Build energy/card-play foundation first unless your spirit specifically spikes into majors early by design."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Prevent vs Recover\nDo you spend this turn preventing a build/explore chain, or recovering from a ravage that already happened? Prevention usually yields better tempo, but sometimes immediate recovery is necessary to avoid cascade or defeat triggers. Evaluate by downstream impact, not by emotional urgency.\n\nDecision 2: Growth turn now vs tactical cover now\nMany turns present a painful choice: take a weaker tactical line to unlock stronger future turns, or spend everything on immediate board firefighting. The right answer depends on clock pressure and how many turns until your team can reliably absorb ravages.\n\nDecision 3: Fear-race win vs board-control win\nAt midgame, decide whether your team is better positioned to push terror quickly or to clean board classes directly. Mixed plans are possible, but unclear plans waste card slots. Call this pivot explicitly as a team once terror deck progress and invader density become clear.\n\nDecision 4: Where to place Presence\nPresence placement is simultaneously economy unlock, targeting network, and territorial commitment. Placing for short-range tactical fix can be correct, but long-term range coverage across multiple boards is often stronger in multiplayer games.\n\nDecision 5: Coordination depth vs speed\nDeep planning improves efficiency but can cause analysis paralysis in a long game. Establish a team cadence: first 60-90 seconds identify critical lands, next 60 seconds assign responsibilities, final check for conflicts. Strong cadence outperforms perfect but late plans.\n\nDecision 6: Module timing (adversary/scenario)\nAfter base-system mastery, adding adversary/scenario increases challenge and changes best practices. Add one layer at a time; stacking too soon can obscure core mistakes and slow learning."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4328,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "elf",
+    "created_at": "2026-02-23T08:03:00Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Written from OCR-readable Spirit Island rulebook PDF pages (components, setup, sequence framing, victory/defeat framing). Uses exact counts visible in provided pages."
   }
 }

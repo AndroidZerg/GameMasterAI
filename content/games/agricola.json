@@ -1,59 +1,107 @@
 {
   "game_id": "agricola",
   "title": "Agricola",
-  "aliases": [
-    "Agricola Revised Edition"
-  ],
+  "aliases": [],
   "publisher": "Lookout Games",
   "player_count": {
     "min": 1,
-    "max": 4,
+    "max": 5,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 90,
+    "min": 30,
     "max": 150
   },
   "complexity": "heavy",
   "categories": [
     "worker-placement",
-    "farming",
+    "farm-development",
+    "resource-management",
     "engine-building",
-    "resource-management"
+    "hand-management"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/agricola.txt",
+  "source_url": "https://lookout-spiele.de/en/games/agricola.html",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Agricola includes player farmyards, action boards, major improvement board, fences, stables, rooms, family members, resource tokens, grain and vegetable markers, animal tokens, and large occupation and minor improvement card sets. The game runs over fourteen rounds and six harvest stages using a fixed round card schedule. Players begin with small farms and family workers and expand through actions and card effects.",
-      "token_count": 79
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Agricola includes: 5 farmyard boards for players; 3 central game boards for actions (including one reverse side for Family Game and two reverse-side examples); 1 Major Improvements board. Cards total 360: 169 yellow Occupation cards (66 marked for 1–5 players, 41 marked for 3–5 players, 62 marked for 4–5 players), 139 orange Minor Improvement cards (including 7 upgrades from Major/Minor Improvements), 10 red Major Improvement cards, 14 blue Round cards (Rounds 1–14), 16 green Action cards (player-count dependent), 5 grey Begging cards, 5 Summary cards, and 2 Deck cards (Deck I and Deck K). Wooden pieces: in each of 5 colors (blue, green, red, natural wood, purple), 5 family member discs, 4 stables, and 15 fences. Resource and livestock pieces: 33 wood counters, 27 clay counters, 15 reed counters, 18 stone counters, 27 grain counters, 18 vegetable counters, 21 sheep cubes, 18 wild boar cubes, 15 cattle cubes, and 1 starting player token. Tiles and markers: 33 field/stone-house tiles, 24 wood/clay-hut tiles, 36 food markers (value 1), 9 multiplication markers, 3 claim markers (\"Guest\" on reverse), and 1 scoring pad."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the 3 game boards in the central play area as shown in the official setup. 2) Place the Major Improvements board with all 10 red Major Improvements face up. 3) Sort resources, animals, food markers, fences/stables/house tiles, and other tokens into accessible supply piles beside the boards. 4) Build the Round deck: sort blue Round cards by stage, shuffle each stage stack separately, then stack them so Stage 1 rounds are on top and Stage 6 rounds on bottom. 5) Add green Action cards by player count: none in solo/2-player; 4 cards in 3-player; 6 cards in 4- or 5-player, placed face up in any order on designated spaces. 6) Place Begging cards face up near board. 7) Give each player one Summary card. 8) Keep illustrative reverse sides and Family Game reverse board distinctions clear before starting, since Family Game alters available action spaces and removes Occupation/Minor Improvement usage."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses one color and takes all pieces in that color plus one farmyard. On each farmyard, place two wooden hut room tiles on the starting house spaces, then place one family member in each room (so each player begins with 2 workers available). Additional family members, fences, and stables stay in personal reserve until built/used. Full game card setup: remove Occupations not valid for current player count using player-count symbols, shuffle valid Occupations, deal 7 Occupation cards to each player; shuffle Minor Improvements, deal 7 Minor Improvements to each player. Unused cards go aside. Family Game variant: do not use Occupation or Minor Improvement cards."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose starting player. Starting player takes the Starting Player marker and 2 food; every other player starts with 3 food. Important: the Starting Player marker does not rotate automatically each round; it moves only when someone takes the Start Player action. After setup, begin Round 1 and follow the four phase structure each round."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each round reveals a new action space and refills accumulation spaces. Players place one family member at a time on open actions and resolve immediately. After all placements, workers return home. At harvest rounds, resolve fields, feed family members, then breeding. The game ends after round fourteen and final harvest.",
-      "token_count": 65
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Agricola is played over 14 rounds in 6 stages, with Harvest after rounds 4, 7, 9, 11, 13, and 14. Each round has 4 phases: 1) Start Round: reveal top Round card and place it on matching round space; this new action is available now and in all later rounds. Resolve any beginning-of-round effects from played cards. 2) Replenish: add goods/food/animals to all action spaces that show accumulation arrows. Existing goods remain and stack with new additions. 3) Work Phase: in clockwise order starting with starting player, each player places exactly one family member at a time on an unoccupied action space and performs that action immediately. Continue until all players have placed all available family members. 4) Return Home: remove all placed family members from action spaces and return them to home rooms. If round ended a stage, perform Harvest. Then start next round."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "General action rule: each action space can be used by only one family member each round unless a specific rule says otherwise. A family member cannot occupy a space without taking its action. Core action families include: gathering resources from accumulating spaces (wood, clay, reed, stone, grain, vegetables, food), plowing fields, sowing crops, building rooms and stables, building fences/pastures, taking animals, starting player action, family growth, renovation, and card-play actions (Occupations/Minor Improvements/Major Improvements) based on available spaces and round progression. Many spaces give either/or choices (choose one branch), while others require a primary action before optional secondary action (e.g., text using \"after\" constraints). Do not treat optional clauses as standalone if wording requires sequence. Resource handling: building resources, grain, vegetables, and food go to visible personal supply. Animals never stay in personal supply; they must be placed immediately into legal farmyard housing (pastures/stables/house storage as allowed). If animals cannot be legally housed, they are returned to supply unless immediately converted via a valid improvement with conversion ability. Card visibility/procedure: when playing a card from hand or buying a major improvement, read it aloud so all players know effects. Players may not hide personal resource supplies or completely cover played cards."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Harvest system (critical): occurs at end of each stage. Harvest includes feeding your family and other harvest steps according to official phase order. During Feeding phase, if you cannot or choose not to produce enough food, take one Begging card per missing food (negative points). Family growth tension: more family members means more actions per round, but also higher feeding burden at harvest. Action availability grows over time: each revealed Round card permanently expands action set, which changes tempo and timing windows. Player-count scaling: green Action cards alter available spaces in 3–5 player games; none are used in 1–2 player games. Deck composition scaling: Occupation cards include player-count symbols and must be filtered each game. Deck modes: Occupation/Minor Improvement decks can be mixed by deck letters (Basic/Interactive/Complex variants) as described in official notes; this affects card interaction density. Family Game variant: removes Occupations and Minor Improvements and changes some action spaces, but otherwise keeps core round/harvest/worker placement structure. Starting player control is tactical, not automatic rotation—taking that action is often tempo-critical for contested spots."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Game ends after Round 14 and final Harvest. Final scoring uses category table and additional bonuses/penalties. Score all core farm categories: Fields, Pastures, Grain, Vegetables, Sheep, Wild boar, Cattle. Also apply: -1 point per unused farmyard space; +1 per fenced stable; +1 per clay hut room; +2 per stone house room; +3 per family member. Add points from played Occupation and Improvement cards as instructed by their text and major scoring references. Apply Begging card penalties from any unfed food deficits accumulated during harvests. Highest total points wins. If tied, apply official tie handling from your edition/scenario (base rules often treat tie as shared or use agreed tiebreak method)."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Worker placement spaces are generally exclusive. Actions provide resources, plow and sow, build rooms and fences, take animals, play cards, and grow family. Family growth gives more actions later but increases feeding burden. Fields must be plowed before sowing and then yield over future harvests. Animals require legal housing in pastures, stables, or allowed home spaces; excess animals are lost. Fences must form complete enclosures and require wood at build time. Improvements and occupations create food conversion engines and action discounts. Feeding phase penalties are severe through begging markers when food is short. Breeding gives at most one offspring per species when at least two are present and legal room exists. Common mistakes are illegal animal storage, delayed food planning, and overcommitting to family growth before a stable feeding engine exists.",
-      "token_count": 170
-    },
-    "scoring_and_endgame": {
-      "content": "Final scoring is category based and rewards balanced development across fields, pastures, crops, animals, rooms, family, and improvements while penalizing neglected categories and begging markers. There is no early trigger; score only after round fourteen final harvest. Highest points wins using rulebook tie breaks.",
-      "token_count": 57
-    },
-    "beginner_strategy": {
-      "content": "Build a food engine early. Grow family only when feeding is secure. Use wood efficiently by fencing in planned chunks. Avoid negative categories before pushing big combos. Read your starting cards for synergy and commit to a coherent path.",
-      "token_count": 50
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "First priority is food security before first harvest cycle panic. Build a realistic feeding plan by round 3–4 (food actions, cooking improvements, grain line, or efficient card engine). Second priority is action scaling: family growth is strong, but only when feeding is stable. Third priority is board shape discipline: begin converting empty farm spaces into productive infrastructure (fields, pastures, rooms) early so you avoid late unused-space penalties. Watch reveal timing of round cards and pre-collect inputs for upcoming high-impact actions like room building, renovation, or family growth. Use Start Player action when key contested actions are likely to be blocked next round."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Growing family too early without food engine. Extra workers look amazing until harvest forces Begging cards that erase your gains. 2) Taking animals without legal housing. Animals cannot sit in supply; illegal animal gains are wasted unless immediate legal placement/conversion exists. 3) Ignoring empty farm penalties until the end. Agricola punishes unfinished boards hard; every unused space is -1. 4) Over-focusing one scoring category while taking negatives in several others. Balanced development usually outperforms a narrow specialty line unless card synergies are exceptional. 5) Misreading action-space text sequencing (especially spaces with \"after\" or required first action). Illegal shortcutting can accidentally grant extra efficiency. 6) Hoarding resources without conversion timing. In Agricola, unspent stockpiles are often less valuable than earlier infrastructure that pays across multiple rounds."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Family growth timing vs feeding risk. Earlier growth gives more actions over the game, but each added family member increases harvest obligations. Decision 2: Renovation path vs board expansion. Investing in house upgrades and card synergies can score well, but delaying fields/pastures/animals may create category deficits. Decision 3: Card-engine commitment vs tactical board actions. Strong Occupation/Improvement combos can dominate if built early, but forcing combo lines while ignoring core farm fundamentals can collapse under feeding and space penalties. Decision 4: Start Player control vs immediate resource gain. Sometimes passing a rich accumulation space to secure first pick next round yields higher long-term value than taking short-term goods now."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4120,
+  "extensions": {},
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "created_at": "2026-02-23T07:18:01Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Written from provided Agricola rulebook excerpt with exact component counts and stage/round structure preserved."
   }
 }

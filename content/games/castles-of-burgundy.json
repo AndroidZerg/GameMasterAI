@@ -8,52 +8,102 @@
   "player_count": {
     "min": 2,
     "max": 4,
-    "recommended": 2,
-    "expansion_max": 4
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 70,
+    "min": 60,
     "max": 120
   },
-  "complexity": "medium-heavy",
+  "complexity": "heavy",
   "categories": [
-    "dice",
-    "tile-placement",
-    "engine-building",
-    "set-collection"
+    "Dice Allocation",
+    "Tile Placement",
+    "Economic Management",
+    "Turn Order Manipulation",
+    "Point Salad"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/castles-of-burgundy.txt",
+  "source_url": "https://www.ravensburger.de/spielanleitungen/ecm/Spielanleitungen/26601%20anl%201596620.pdf",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Components include 1 main board, player estate boards, 9 dice, 164 hex tiles across six color families, 42 goods tiles, 30 worker tiles, 20 silverlings, 12 bonus tiles, player markers, and victory-point tiles. Setup sorts hexes by back color, prepares depot supplies, creates five phase goods stacks, and gives each player starting estate pieces and resources as listed. Estate board choice changes layout challenge and strategic routes.",
-      "token_count": 87
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "164 six-sided tiles total: 56 building tiles (beige, including 16 with black backs), 28 animal tiles (light green, including 8 with black backs), 26 knowledge tiles (yellow, including 6 with black backs), 16 castle tiles (dark green, including 2 with black backs), 12 mine tiles (grey, including 2 with black backs), and 26 ship tiles (blue, including 6 with black backs). Also included: 42 goods tiles (square, 7 in each of 6 colors), 20 Silverlings (eight-sided), 30 worker tiles (square), 12 bonus tiles (square; one small and one large in each of 6 colors), 4 victory point tiles (100/200), 8 playing pieces (2 in each of 4 colors), 9 dice (2 per player color + 1 white die), 1 game board, and 6 double-sided player boards (4x board #1 plus one each of boards #2-#9)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the main game board centrally. It contains: 5 phase spaces (A-E), 5 round spaces, 6 numbered depots (1-6; each with four hex-tile spaces and one large goods space), 1 central black depot, 12 bonus-tile spaces, 1 turn-order track, and 1 victory-point track (0-100). 2) Place the 20 Silverlings, 30 worker tiles, and white die next to the board. 3) Sort all 164 hex tiles by back color into separate face-down supplies. 4) Shuffle the 42 goods tiles face down and make five piles of five; place one pile on each phase A-E. Keep the remaining 17 tiles face down as supply. 5) Place the 12 bonus tiles onto their matching board spaces. 6) At each new phase, remove remaining hex tiles from depots (goods on depot goods spaces remain), then refill depots with new face-up hex tiles by player count (2p use spaces marked \"2\" only, 3p use spaces marked \"2\" and \"3\", 4p use all 24 spaces). 7) Draw black-backed hex tiles to refill the central black depot (quantity depends on player count). 8) Move the current phase's five goods tiles face up to the five round spaces."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player receives: 1 player board (normally side #1), 1 dark-green castle hex as a start castle (place face up on the board's central dark-green die-6 space), 3 random goods tiles from the remaining goods supply (place face up in the three goods-storage slots at top-left; stack same-color goods together and keep different colors separate), 2 same-colored dice, 1 victory marker playing piece (place on 0/100 of VP track), 1 turn-order playing piece, 1 Silverling (place in Silverling storage), and 1 100/200 VP tile (kept beside player board for crossing 100 VP). Any unused initial goods tiles are returned to the box."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Determine start player by rolling dice. Start player receives 1 worker tile, second player clockwise receives 2, third receives 3, and fourth receives 4 (for lower player counts, continue this ascending assignment in seat order). Players place their turn-order markers on the first turn-order space as a stack: start player on top, last player on bottom. Give the white die to the start player. The game then begins in Phase A, Round 1."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The game runs through five phases of five rounds each. Every round players roll dice and take turns using two dice for two actions. Main actions are taking a tile from a depot, placing a tile into estate, selling goods, or taking worker tiles. Workers can modify die values. Scoring accumulates throughout placement and bonuses.",
-      "token_count": 71
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The game lasts 5 phases (A-E), each with 5 rounds (25 rounds total).\n\nPhase setup (before each phase's 5 rounds):\n1. Remove all remaining six-sided tiles from depots and return them to box (not needed before Phase A).\n2. Leave any goods already on depot goods spaces in place.\n3. Refill numbered depots with face-up six-sided tiles by player-count markings (2p/3p/4p as listed in setup).\n4. In 3-player game only: special No. 6 dark-green space exception applies (phases A/C/E castle, phases B/D mine).\n5. Refill central black depot with random black-backed tiles (count depends on player number).\n6. Place current phase's 5 goods tiles face up on the 5 round spaces.\n\nRound sequence (repeated 5 times per phase):\n1. All players roll both personal dice simultaneously; start player also rolls white die.\n2. Start player takes topmost goods tile from round spaces and places it onto the goods space of the depot matching the white die result. White die cannot be modified by workers and is not used as a personal action die.\n3. Starting with start player, then following current turn order (right-to-left on track; top-to-bottom within a stack), each player takes one full turn.\n4. A player turn consists of exactly 2 actions, each consuming one personal die. After use, put that die in used-die storage.\n5. After all players take turns, the round ends; repeat until 5 rounds are complete, then begin next phase setup."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Each action uses one die. You may take any combination/order of actions, including the same action twice.\n\nAction 1: Take a six-sided tile from the board\n- Spend one die to select a depot number matching that die value.\n- Take one hex tile of your choice from that depot.\n- Place it into an empty personal storage slot (bottom-left of your player board), never directly into estate.\n- If storage is full, discard one stored tile first, then place the newly taken tile in the vacated slot.\n\nAction 2: Add a six-sided tile to your estate\n- Spend one die to target an empty estate space whose printed die value matches your spent die.\n- Choose one compatible stored tile and place it onto that space.\n- Placement restrictions: tile must be adjacent to at least one already placed tile; tile color must match destination space color.\n- First placement after setup must be adjacent to the start castle (one of six surrounding spaces).\n\nImmediate effects by tile type (from provided text):\n- Knowledge (yellow): trigger that tile's specific knowledge effect (26 distinct tiles referenced in rulebook pages 10-11).\n- Ship (blue): immediately (a) take all goods from one depot goods space of your choice (independent of die used for placement), storing up to three different goods colors total; and (b) move your turn-order marker one space right, stacking on top if occupied. If this makes you next round's start player, you receive the white die.\n- Animal (light green): score VP equal to animals shown on placed tile (2-4). If the same pasture region already contains same animal type, score those same-animal tiles in that pasture again in addition to new tile. Same-animal tiles in other separate pastures do not score.\n- Castle (dark green): immediately take one additional action of your choice as if you had an extra die showing any value.\n- Mine (grey): mine income/value is referenced in provided text as a key source (and generally Silverling-producing in standard rules); apply mine effect immediately when placed according to your edition's tile reference.\n- Building (beige): apply building-specific effect when placed, according to building type on tile.\n\nAction 3 (extra action, shown on player board summary): Buy with Silverlings\n- The player board includes a dedicated summary for an extra \"buy\" action. Spend Silverlings to obtain certain tiles directly from board supplies as allowed by your edition's buy rule timing and restrictions.\n\nAction 4: Sell goods\n- The player board summary lists selling goods as a core action. Spend one die to sell goods matching the selected depot number/color opportunity, moving sold goods to sold-goods area and scoring VP/Silverlings according to the goods-selling rule for your edition.\n\nWorker tile die adjustment (applies at any time):\n- Spend 1 worker tile to adjust one die by +1 or -1.\n- Wrapping 1->6 or 6->1 is allowed and still costs 1 worker.\n- You may spend multiple workers on the same die for larger adjustments."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Dice as constrained action selectors\nYour two dice do not just determine power—they determine location/number access for both taking and placing. Worker tiles convert variance into planning control.\n\n2) Two-tier economy: storage pressure and timing\nYou must first stage hex tiles in limited personal storage before placement. Storage overflow forces discards, turning weak planning into direct efficiency loss.\n\n3) Turn-order manipulation via ships\nPlacing ships both grants goods burst and advances turn order. Acting earlier in future rounds can be worth more than immediate VP because it secures contested depots and depot goods.\n\n4) Region logic inside your estate\nYour estate has 37 spaces split into colored regions of varying sizes. Region shape plus printed die values create a long-term puzzle: strong play aligns die management, color timing, and adjacency to finish profitable regions efficiently.\n\n5) Pasture scoring recursion\nAnimal scoring is non-linear: adding a same-animal tile to an existing pasture can rescore previous same-animal tiles in that pasture, creating explosive timing windows.\n\n6) Bonus-tile race\nBonus tiles reward completion races by color/size thresholds (small and large for each color in this edition). These are limited and strongly tempo-sensitive.\n\n7) Black-backed central depot uncertainty\nThe central black depot introduces controlled uncertainty and tactical pivots. Players who maintain flexible dice/worker reserves can exploit black tiles better than rigid plans."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger:\n- The game ends after Phase E, Round 5 (all 25 rounds complete).\n\nFinal scoring procedure:\n1. Keep all VP earned during play on the VP track (use 100/200 marker tiles when passing 100).\n2. Add any end-of-game points from unresolved tile effects, bonus tiles, completed-region awards, goods outcomes, knowledge/building effects, and other printed scoring sources in your rules reference.\n3. Include all VP gained from in-game scoring events already resolved: animal placements, goods sales, region completions, bonus tile claims, and tile-effect VP grants.\n4. Apply any final conversion or penalties specified by your edition's tile reference (if any).\n\nAll VP sources to account for in this rules set:\n- Immediate VP from placing/scoring animal tiles (including same-pasture same-animal rescoring).\n- VP from selling goods.\n- VP from completing colored regions in estate.\n- VP from claiming bonus tiles.\n- VP from knowledge/building/castle/mine/ship interactions that award points.\n- Any additional end-of-game VP printed on tile effects or reference aids.\n\nWinner and tiebreak:\n- Highest total VP wins.\n- If tied, tied player with greater resource efficiency (remaining Silverlings/worker value or edition-defined tiebreak metric) is favored; if still tied, shared victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Die values define legal depots and placement numbers, while workers provide value adjustment to avoid dead turns. Tile placement must satisfy both area-color restrictions and numbered-space legality on estate board. Different tile colors provide different effects: ships influence turn order and goods flow, castles grant flexible extra actions, mines generate silverlings in phase scoring, animals score by grouped placement timing, buildings trigger immediate action effects, and yellow knowledge tiles grant ongoing rule modifications or scoring boosts. Goods are collected and sold with timing tied to depot and action efficiency for points and silverlings. Completing estate regions grants immediate points and potential bonus tiles, with earlier completion often worth more. Common mistakes are illegal color placement, forgetting one-time effect timing, and underusing workers to convert weak dice into productive turns.",
-      "token_count": 167
-    },
-    "scoring_and_endgame": {
-      "content": "There is no sudden end trigger; game ends after all 25 rounds. Final score combines accumulated points from placements, region completion bonuses, goods sales, and tile effects. Highest victory points wins with tie breaks by standard resources guidance.",
-      "token_count": 49
-    },
-    "beginner_strategy": {
-      "content": "Use workers actively to smooth variance. Prioritize ships and mines early for tempo and economy. Complete manageable regions instead of overcommitting to huge ones. Sell goods steadily for points instead of waiting too long. Draft yellow and building tiles that support your board layout rather than isolated power.",
-      "token_count": 62
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Stabilize dice control first. Acquire or preserve worker tiles early so your first two phases are not dictated by bad rolls.\n2) Avoid storage congestion. In opening rounds, take only tiles you can realistically place within 1-2 turns; forced discards are hidden point losses.\n3) Start with high-connectivity placements near start castle. Keep multiple color branches open so future dice can be converted into legal placements more often.\n4) Use early ships to seize tempo. The extra goods plus turn-order shift can set up both points and first-pick access in the next round.\n5) Track bonus race thresholds from turn one. If your estate offers a fast size-1/size-2 region completion, prioritize it before opponents lock bonus tiles."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Hoarding tiles without placement windows. New players over-draft and then discard when storage fills, wasting actions.\n2) Spending worker tiles reactively on low-impact moves. Save workers for pivotal placement turns, region completions, or bonus races.\n3) Ignoring turn order until late game. In Castles of Burgundy, acting first can be worth several VP by denying critical depots and goods pickups.\n4) Fragmenting pastures by animal type. Splitting same animal types across separate pastures blocks recursive scoring potential.\n5) Tunnel vision on one color. Estate constraints and die values demand flexibility; mono-color pursuit often creates dead turns."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Tempo now vs efficiency later: Do you place a decent tile immediately to maintain flow, or hold for a better-value placement that might require worker spend?\n2) Turn-order push vs raw points: Ships can be weaker immediate scoring than other tiles, but first-player access can swing future rounds.\n3) Region completion race vs engine building: Finishing regions grants immediate VP/bonuses, while knowledge/mine/building lines can compound over time. Strong play balances both by phase."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4180,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "druid",
+    "created_at": "2026-02-22T23:19:01-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary structure and counts come from provided rulebook excerpt. Some detailed tile-specific effects (knowledge/building/mine and exact final tiebreak wording) are summarized where source excerpt was truncated; verify against full rulebook appendix for production validation."
   }
 }

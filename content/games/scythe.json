@@ -1,60 +1,108 @@
 {
   "game_id": "scythe",
   "title": "Scythe",
-  "aliases": [
-    "Scythe: A Board Game"
-  ],
+  "aliases": [],
   "publisher": "Stonemaier Games",
   "player_count": {
     "min": 1,
     "max": 5,
-    "recommended": 4,
-    "expansion_max": 7
+    "recommended": 5,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 90,
-    "max": 150
+    "max": 115
   },
   "complexity": "heavy",
   "categories": [
     "engine-building",
     "area-control",
     "resource-management",
-    "asymmetric-factions",
-    "combat"
+    "combat",
+    "objective-race",
+    "asymmetric-factions"
   ],
-  "source_url": "https://stonemaiergames.com/games/scythe/scythe-complete-rulebook/",
+  "source_url": "https://stonemaiergames.com/games/scythe/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Scythe base game components are organized into global components, faction-specific sets, and player-mat sets. Global components include 1 game board, 1 Factory card, 1 achievement star tracker area on each player board, 1 structure bonus tile (randomly chosen each game from the structure bonus set), 1 encounter token set, 1 objective card deck, 1 encounter card deck, 1 combat card deck, and coin tokens in multiple denominations. Resource tokens are wooden and come in four types: food, metal, wood, and oil. The game also includes popularity and power trackers for each player, plus score multipliers printed on the board tied to popularity bands.\n\nEach faction has a faction mat and a complete unit set in one color: 1 character miniature, 4 mech miniatures, 4 worker miniatures, 1 home base area, and 4 wooden structures (Mill, Monument, Mine, Armory in that faction color). Each faction also has cardboard faction tokens and starting resource/power/popularity values printed on its faction mat.\n\nEach player also gets 1 player mat (Industrial, Engineering, Patriotic, Mechanical, or Agricultural in the base game), and that mat includes the top-row actions (Move, Bolster, Trade, Produce) and bottom-row actions (Upgrade, Deploy, Build, Enlist) with the specific costs and rewards printed on that mat. Players receive wooden cubes for upgrades, recruit markers for enlist actions, and achievement stars used to mark completed milestones. The game also includes riverwalk/mech ability indicators on faction mats and board adjacency constraints tied to rivers and lakes. Before teaching, verify every player has exactly 1 faction mat, 1 player mat, 1 character, 4 mechs, 4 workers, 4 structures, cubes, recruits, and stars in their color; missing even one of these pieces will break setup and progression.",
-      "token_count": 390
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Global components shown in the provided rulebook excerpt: 1 game board, 1 quick-reference guide, 5 player mats, 42 combat cards, 23 objective cards, 28 encounter cards, 12 Factory cards, 80 resource tokens (20 each of food, metal, wood, and oil), 2 power dials, 80 cardboard coins, 5 Riverwalk cards, 12 multiplier tokens, 12 encounter tokens, 5 quick-start cards, and 6 structure bonus tiles. \n\nFaction components per faction (5 factions shown: Nordic, Saxony, Polania, Crimea, Rusviet): 1 faction mat, 1 action token, 1 popularity token, 1 power token, 6 star tokens, 4 structure tokens, 4 recruit tokens, 4 mech miniatures, 1 character miniature, 8 workers, and 6 technology cubes. \n\nTotal across all five factions from the provided matrix: 5 faction mats, 5 action tokens, 5 popularity tokens, 5 power tokens, 30 stars, 20 structures, 20 recruits, 20 mechs, 5 characters, 40 workers, and 30 technology cubes."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the game board centrally so all tracks are visible (Triumph, Popularity, Power). 2) Place one encounter token on each territory marked with encounter symbol (excerpt indicates 11 total on board setup panel; component list includes 12 encounter tokens in box). 3) Place resource tokens, coins, and multiplier tokens in a shared supply area beside the board. 4) Shuffle combat cards and place deck on board; if deck empties, reshuffle discard to form new deck; if both empty, no cards are drawn. 5) Shuffle encounter cards and objective cards into separate decks and place on board. 6) Randomly choose one structure bonus tile and place it face up at the bottom of the Popularity Track. 7) Shuffle Factory cards and place face-down a number equal to players + 1 on the Factory spaces; return unused Factory cards to box unseen. 8) Randomly deal each player one Faction Mat and one Player Mat; players sit near matching home bases (clockwise faction order shown in setup example: Nordic, Rusviet, Crimea, Saxony, Polania)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Set up each player’s faction and player mat exactly as printed on those mats:\n\nFaction mat setup: \n- Place power token on indicated starting value on Power Track.\n- Draw indicated number of combat cards (count is public, card faces hidden).\n- Gain indicated number of coins.\n\nPlayer mat setup:\n- Place popularity token on indicated starting value on Popularity Track.\n- Draw indicated number of objective cards (hidden).\n- Place 6 technology cubes on green top-row action spaces containing black-square marks.\n- Place 4 structures on matching bottom-row structure boxes.\n- Place 4 recruit tokens on circular recruit spaces.\n- Place remaining 6 workers on Produce action rectangles.\n- Place action token next to player mat for turn selection.\n\nBoard presence setup:\n- Place character miniature on your faction home base.\n- Place 1 worker on each territory connected by land to your home base (2 workers total on map at start).\n- Place your 4 mechs on mech spaces of faction mat and 6 stars on faction mat’s star area/triumph reserve."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "After all players complete setup, determine first player by Player Mat number: the player with the lowest-numbered player mat starts. Play proceeds clockwise. Each player begins with a unique faction/player-mat combination, private objective card(s), private combat cards, and public starting track positions for popularity/power. The game begins immediately with turn-by-turn action selection from each player’s player mat."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn, choose one action space on your player mat that is not the same space you chose on your previous turn. First resolve the top action on that space (or take the weaker no-cost version where relevant), then optionally pay the printed cost to resolve the paired bottom action. Top actions handle board tempo (movement, production, trading, power/cards), while bottom actions build your engine (upgrade, deploy, build structures, enlist recruits). After your turn, play passes clockwise. The game ends immediately when any player places their sixth star, then everyone performs final scoring based on popularity-tier multipliers.",
-      "token_count": 115
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, resolve in this order: \n1) Choose one action section (column) on your Player Mat. You may not choose the same section selected on your previous turn. \n2) Resolve the top-row action of that chosen section (if possible/applicable). \n3) Resolve the bottom-row action of that same section (if you can and want to pay its cost). Top and bottom are always tied to the same column. \n4) End your turn; play passes clockwise. \n\nAt any time you satisfy a star condition, place a star immediately on the Triumph Track space for that achievement type (subject to per-type limits, such as combat stars). \n\nThe game ends immediately when any player places their 6th star. Then proceed to final scoring."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Scythe actions come from your Player Mat’s paired top/bottom action system. The provided excerpt and quick reference identify these major actions and constraints: \n\nTOP-ROW ACTION TYPES \n- Move: Move eligible units according to movement rules; units may transport any number of resource tokens. Mechs can also transport workers; mechs cannot transport characters. Some effects allow one unit to move twice. \n- Produce: Generate resources/workers on territories where you have workers, following production limits and costs as printed on your mat. \n- Trade: Gain selected resources and/or popularity according to your specific player mat layout. \n- Bolster: Gain power and/or combat cards depending on selected bolster option and mat state. \n\nBOTTOM-ROW ACTION TYPES \n- Upgrade (usually costs oil): Move one technology cube from a top-row action slot to a bottom-row action cost slot, improving one top action and reducing one bottom action cost. \n- Deploy (usually costs metal): Place one mech from faction mat to a territory you control where you have a worker (per deploy rules). \n- Build (usually costs wood): Place one structure from your mat onto an eligible territory you control with your worker present. \n- Enlist (usually costs food): Remove one recruit token from your player mat and gain associated enlist benefit/trigger. \n\nACTION RESTRICTIONS AND PAYMENT RULES \n- You can only choose one action section per turn, and not the same as last turn. \n- You may take both top and bottom actions in that section in the listed order, but bottom actions require payment. \n- Resources used for payment must come from territories you currently control. \n- You can spend resources from any territories you control, not just the territory where an effect happens. \n- Spent resources return to supply. \n\nRESOURCE DEFINITIONS \n- Resources are only wood, food, metal, and oil. Workers are not resources. \n- Resources remain on territories when produced until moved/spent/lost with control changes. \n- There is no hard cap on resource token quantity (use multiplier tokens if needed). \n\nUNIT CAPABILITIES (from provided important concepts pages) \n- Characters: can move, transport resources, engage in combat, trigger encounters, and can gain one Factory card once per game by ending movement on Factory. \n- Mechs: can move, transport resources, engage in combat, and can transport workers. \n- Workers: can move and transport resources; they produce resources/workers and are required for deploy/build presence conditions; they do not participate in combat."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Territory and control system: A territory is one board hex of type farm, forest, mountain, tundra, village, lake, factory, or home base zone. You control a territory if you have at least one unit there (character, mech, or worker), OR if you have a structure there with no enemy units present. Only one player controls a territory at a time. \n\nHome base rule: Home bases are not territories. By default you cannot move units, deploy mechs, or build structures onto any home base (including your own), except through specific rule exceptions/effects. \n\nResource exposure: Because resources stay on the map, map control is economic control. Losing control of a territory can deny spending access to all resources there. \n\nPlastic vs wood cue: plastic pieces (characters and mechs) are combat-capable units; wood pieces (workers, resources, structures) are not combat participants. \n\nEncounter system: Encounter tokens on marked territories can be triggered by character movement, granting choice-based card effects from encounter deck. \n\nFactory system: Factory is a unique territory and objective focus. A character ending movement there can gain one Factory card once per game. The quick reference excerpt also notes Factory territory has special scoring treatment (counts as three territories in that reference). \n\nObjective system: Objective cards are private goals. At any time during your turn when you complete an objective, you may place a star on objective achievement space and discard/reveal as required. \n\nStars and achievements: You can earn stars by major milestones listed in source text: all 6 upgrades, all 4 mechs, all 4 structures, all 4 recruits, all 8 workers on board, reveal 1 completed objective, win combat (up to 2 stars), reach 18 popularity, and reach 16 power. Each achievement generally awards at most one star unless explicitly capped differently (combat cap called out). \n\nCombat overview: Combat happens when opposing combat units share territory. Players commit power (via dial) and optionally combat cards, reveal totals, and higher total wins; loser retreats to home base. Winning combat may grant combat star up to cap. Power spent in combat is not recovered automatically, creating long-term deterrence and tempo decisions."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: the game ends immediately when a player places their 6th star on the Triumph Track. \n\nFinal scoring uses coins (fortune), not victory points: \n1) Coins for each star token placed. \n2) Coins for each territory controlled. \n3) Coins for each set of every 2 resources controlled. \n\nPopularity multiplier: The number of coins gained from those three categories depends on your position on the Popularity Track. Higher popularity yields more coins per scored item. \n\nStructure bonus: Gain additional coins from the selected structure bonus tile based on where your structures were built and the bonus condition in play. \n\nTotal winner: player with the most total coins wins. \n\nTie-breakers (in order, from provided quick reference excerpt): most territories controlled, then most resources controlled, then most stars placed."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Action selection rule: you cannot repeat the same action space on consecutive turns, even if circumstances changed. This is one of the most common mistakes from first-time players.\n\nTop-row actions in detail:\n- Move: Move up to the shown number of different units. Units can carry resources and workers according to faction/mech abilities; resources remain on territories unless explicitly carried by allowed movement rules. Entering enemy territory with only workers does not start combat.\n- Bolster: Gain power or draw combat cards (based on mat/upgrade status). Power is spent secretly in combat and also awards a star at the threshold.\n- Trade: Gain resources and/or popularity as printed. Trading is a flexible fixer action and often bridges awkward turns.\n- Produce: Produce on controlled territories with workers; each worker contributes to production in its territory. Repeated production can trigger population pressure and popularity loss when overusing high-worker production at low popularity thresholds.\n\nBottom-row actions in detail:\n- Upgrade: Pay oil to move one upgrade cube from a top-row action (making that top action stronger) to a bottom-row action (making that bottom action cheaper or stronger).\n- Deploy: Pay metal to place one mech from your mat onto a territory you control with a worker; when deployed, that mech ability unlocks for your faction globally.\n- Build: Pay wood to place one of your four structures onto a territory you control with at least one worker (subject to placement restrictions on some spaces).\n- Enlist: Pay food to remove one recruit marker, gain the immediate enlist benefit shown, and unlock the persistent neighbor-trigger bonus for that row.\n\nMovement, control, and territory rules:\n- Rivers normally block movement; riverwalk/mech abilities and specific faction powers modify this.\n- Lakes are generally restricted unless a faction or mech ability permits entry/exit conditions.\n- Control of a territory is determined by presence of your character/mech/worker after movement and combat resolution.\n- Resources on the board belong to the player controlling that territory at scoring time, regardless of who produced them earlier.\n\nCombat system:\n- Combat only occurs when plastic units (character/mech) from different players coexist in one territory after movement. Workers do not fight.\n- Each involved player secretly sets a power dial value up to their current power and may add permitted combat cards from hand.\n- Reveal simultaneously; higher total wins (attacker wins ties in standard rules).\n- Loser retreats all involved plastic units to home base; workers in combat territory are forced to retreat when displaced by enemy entry.\n- Popularity penalty: if you force enemy workers to retreat, you lose popularity for each worker displaced. New players often miss this and over-attack early.\n\nEncounters, objectives, and Factory:\n- Encounter tokens trigger only when your character ends movement on that token; choose one of multiple options and resolve exactly as written.\n- Objective cards provide a star when completed; timing and condition are exact, so check wording literally.\n- Factory card can be gained by moving your character to the Factory; it grants an extra action option and often changes endgame tempo.\n\nStars and progression:\nYou place stars for specific milestones (examples: all mechs deployed, all structures built, all recruits enlisted, all upgrades completed, worker threshold, popularity threshold, power threshold, combat victories limit, objective completion). Because only six stars are needed to end the game, efficient star planning is more important than maximizing any single subsystem.\n\nRules that frequently cause disputes:\n1) You may always do only the top action and skip the bottom action.\n2) You may not partially pay and partially resolve a bottom action; if you pay, resolve fully as allowed.\n3) Choosing an action space is restricted by your previous turn, not by whether you used top or bottom last turn.\n4) Popularity tier is evaluated at game end for multipliers, so late popularity changes can swing scoring dramatically.\n5) Territory/resources scoring is based on end-state board control, not cumulative control during the game.",
-      "token_count": 690
-    },
-    "scoring_and_endgame": {
-      "content": "End-game trigger: the game ends immediately when any player places their sixth star. That player finishes the star placement; then proceed straight to final scoring (no full extra round).\n\nFinal scoring includes all coin sources:\n1) Coins already earned during play remain in your total.\n2) Stars placed are worth coins based on your final popularity tier.\n3) Controlled territories are worth coins based on final popularity tier.\n4) Every pair of resources you control on the board is worth coins based on final popularity tier.\n5) Structure bonus: only the single structure bonus tile selected for this game is scored; each player scores coins for meeting that tile's condition.\n\nPopularity bands are the multiplier engine of final scoring; moving up a band can increase value in every major category simultaneously.\n\nTiebreakers: if players tie on total coins, break ties by most controlled territories; if still tied, by most resources controlled; if still tied, tied players share victory according to scenario/event guidance.",
-      "token_count": 210
-    },
-    "beginner_strategy": {
-      "content": "1) Pick a star plan by turn 3-4. Six stars end the game; you do not need to excel everywhere. A reliable first-game plan is upgrades + mechs + recruits + one objective + one power/popularity threshold.\n2) Upgrade early, especially spaces you expect to use repeatedly. Early cube moves produce compounding returns because they improve top actions and reduce future bottom costs.\n3) Respect popularity. Aggressive worker displacement can tank your multiplier and undo good board control. Fight for position when it matters, but avoid casual early battles that only feed short-term gains.\n4) Treat movement as economy. Repositioning workers and plastic units to produce exactly what your next bottom action needs is stronger than chasing flashy combats.\n5) Time your sixth star. If you can place star six after securing one more high-value territory/resource pair, delay one turn; if an opponent is close, accelerate and end before their engine fully converts.\n6) Don't ignore enlist triggers. Neighbor bonuses fire frequently in experienced tables; a well-timed enlist can out-earn a greedy short-term action.",
-      "token_count": 220
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build an action loop, not a pile of random gains. Because you can’t repeat the same action section in consecutive turns, your first objective is to create a two- or three-column cycle that consistently feeds costs for bottom-row actions. \n2) Deploy early workers and secure safe production zones. Workers are your production base and your deploy/build enablers; weak worker development delays every major star path. \n3) Prioritize one early bottom-row advancement path (often Upgrade or Deploy) to accelerate tempo. Upgrades reduce future action friction and can snowball value over many turns. \n4) Track popularity from turn 1. Endgame coin conversion is heavily popularity-dependent, so an economy that ignores popularity often “looks strong” midgame but loses in final scoring. \n5) Expand with purpose. Territory control matters twice (direct category scoring and resource access). Early expansion should either improve production efficiency, deny key opponents, or set up encounter/factory opportunities."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating workers like expendable combat units. Workers do not fight, and careless worker positioning can cause large tempo and control losses. \n2) Overinvesting in combat stars beyond cap logic. The game only awards up to two combat stars, so repeated fights after that often burn power/cards for low return unless they secure critical territory timing. \n3) Floating huge resource piles on exposed front lines. On-map resources are vulnerable through control shifts; unbanked resources can become opponent leverage. \n4) Ignoring player-mat sequencing rule (no same section twice) in planning. New players often choose a “great” action now that strands them into weak next-turn options. \n5) Delaying objective awareness. Objectives are private and can become easy stars if planned around early; forgetting them until late can cost a free achievement. \n6) Rushing to sixth star without checking coin conversion quality. Ending the game while low on popularity/territory/resources can hand victory to someone with fewer stars but better scoring tiers."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Star race speed vs score quality: You can accelerate toward six stars quickly, but if popularity tier and territory/resource control are weak, you might trigger an endgame you cannot win. Deciding when to push the trigger is one of Scythe’s defining trade-offs. \n\nEngine growth vs board pressure: Investing in upgrades/enlist/production compounding yields stronger later turns, but if you surrender map tempo, opponents may claim encounters, factory leverage, and structure-bonus lanes uncontested. \n\nPower deterrence vs power spending: High visible power discourages attacks and protects your economy; however, holding power too long can mean missed tactical combats and stars. Choosing when to convert threat into actual combat outcomes is a pivotal judgment call each game."
+        }
+      ]
     }
   },
-  "total_token_count": 1625,
+  "total_token_count": 3896,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T04:31:04Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-02-23T07:14:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "revision": 1,
+    "notes": "Primary source used: provided Scythe rulebook excerpt and quick reference text."
   }
 }

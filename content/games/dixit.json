@@ -6,51 +6,102 @@
   "player_count": {
     "min": 3,
     "max": 6,
-    "recommended": 6,
-    "expansion_max": 12
+    "recommended": 5,
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 30,
-    "max": 45
+    "min": 25,
+    "max": 40
   },
-  "complexity": "gateway",
+  "complexity": "party",
   "categories": [
     "party",
-    "storytelling",
-    "imagination"
+    "creative-clueing",
+    "simultaneous-selection",
+    "social-deduction-lite",
+    "voting"
   ],
   "source_url": "https://www.libellud.com/en/games/dixit/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Rulebook contents list: 1 game board with scoring track, 84 illustrated cards, 36 voting tokens in 6 colors (numbered 1–6), and 6 wooden rabbit pawns. Setup text confirms each player receives 6 image cards, places their rabbit at 0, and takes voting tokens matching current player count (1–4 with 4 players, 1–5 with 5 players, 1–6 with 6 players). No hidden extras are required beyond the draw pile made from undealt cards. For table checks at a café: verify card deck is complete at 84, each player color has a rabbit, and token numbers are not mixed between sets. If running 3-player variant from the rules, players use 7 cards each and non-storytellers submit 2 cards each round; this changes card flow but not component identity.",
-      "token_count": 163
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Official components from the provided rulebook text: 1 game board inside the box (used as scoring track), 84 image cards, 36 voting tokens in 6 different colors numbered 1 through 6, and 6 wooden rabbits (meeples/rabbeeples)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Place the scoring board where all players can see and reach it. Shuffle all 84 image cards and deal starting hands. Place the remaining cards face down as a draw pile. No central tableau is built during setup; the display row is created each turn by the storyteller when submitted cards are revealed and numbered from left to right."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses one wooden rabbit and places it on score 0. Each player receives 6 image cards as a hidden hand (do not reveal your hand to others). Voting tokens are distributed by player count: with 4 players, each player takes tokens 1-4; with 5 players, tokens 1-5; with 6 players, tokens 1-6."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "First storyteller is the first player to describe one of their cards aloud. That player chooses one card from their hand and gives a clue (word, phrase, sound, or cultural reference) without showing the card. All non-storytellers then choose one card from hand that best matches the clue and submit it face down to the storyteller."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each round one player is the storyteller. The storyteller picks one card from hand and says a clue aloud without showing the card (word, phrase, sentence, sound, quotation, etc.). Every other player chooses one card from their hand that could match the clue and passes it face down to the storyteller, who shuffles all submitted cards with their own and lays them out in numbered positions. Non-storytellers secretly vote on which displayed card they believe is the storyteller’s card, then all votes are revealed and scored. Players draw back to a full hand and storyteller passes left clockwise.",
-      "token_count": 127
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Resolve each turn in this order: 1) Storyteller chooses one hand card and gives a clue aloud (card stays hidden). 2) Every other player chooses one hand card matching that clue and passes it face down to storyteller. 3) Storyteller shuffles all submitted cards together with their own card, then reveals them face up in random order. Number revealed cards left to right (1, 2, 3, etc.). 4) Non-storytellers secretly vote for the card they think is the storyteller’s card using their numbered voting token; storyteller does not vote. 5) Reveal votes and place each token on the voted card. 6) Score points and move rabbits on track. 7) Each player draws back up to 6 cards. 8) Storyteller role passes to the player on the left (clockwise)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Storyteller action: choose exactly one card from hand and give one clue before reveal. Clue flexibility is broad: one word, multiple words, a sound, an invented phrase, or reference to an existing work (poetry line, song lyric, movie title, proverb, etc.). \n\nNon-storyteller submission action: choose exactly one card from hand that best fits clue and submit it hidden to storyteller. This is your bluff card for the round. \n\nVoting action: once cards are revealed and numbered, each non-storyteller chooses exactly one voting token matching the target card number and places it face down. Then all reveal simultaneously. Restriction: you may not vote for your own submitted card. \n\nHand maintenance action: after scoring, all players draw one card to return hand size to 6. \n\nRole rotation: storyteller seat rotates clockwise every turn without exception."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Core clue-balance mechanic: the storyteller wants some—but not all—players to identify their card. If everyone or no one finds the storyteller card, storyteller scores 0. This creates a deliberate middle-target clue challenge. \n\nBluff incentive mechanic: non-storytellers can score from votes placed on their submitted decoy cards (+1 per vote), so they are incentivized to submit plausible alternatives rather than obvious mismatches. \n\nPlayer-count voting-token scaling: each player only receives token numbers relevant to cards that will be revealed that turn (4-player uses 1-4, 5-player uses 1-5, 6-player uses 1-6). \n\nVariants listed in source text: \n- 3-player variant: each player has 7 cards instead of 6; each non-storyteller submits 2 cards, creating 5 revealed cards total. Special scoring tweak: if only one player finds storyteller card, that player and storyteller score 4 instead of 3. \n- Mimes or songs variant: storyteller may sing or mime clue relation; all other rules unchanged."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Scoring each turn: \n1) If all non-storytellers found storyteller card, OR none found it: storyteller scores 0; every other player scores 2. \n2) Otherwise (some but not all found storyteller card): storyteller scores 3; each player who correctly voted storyteller card also scores 3. \n3) Additionally, each non-storyteller scores +1 for every vote token placed on their submitted card. \n\nMove rabbits forward by points earned. Game end trigger: when the last card from the draw pile has been drawn. Winner: player farthest along scoring track. The provided rulebook excerpt does not define a formal tie-breaker; if tied at end in your group, use shared victory or house tie-break before starting play."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Setup from the rulebook is strict: choose colors, place rabbits on 0, shuffle all 84 cards, deal 6 to each player, and create a face-down draw pile with the rest. Hands stay hidden. The storyteller phase is intentionally open-ended: clues can be literal or associative, spoken text or other performative clue forms depending on variant. After hearing the clue, non-storytellers choose exactly one matching card from hand (two each in the 3-player variant) and pass it face down. The storyteller randomizes all submissions, then reveals them as a numbered line from left to right. Voting is simultaneous and secret using numbered tokens corresponding to card positions; storyteller never votes and a player cannot vote for their own submitted card. After reveal, place votes on the chosen cards before calculating points. Scoring logic from the rulebook: if everybody finds the storyteller card, or nobody finds it, storyteller scores 0 while every other player scores 2. Otherwise storyteller scores 3 and every player who voted correctly scores 3. In addition, every non-storyteller gains +1 for each vote placed on their submitted decoy card. Move pawns on track accordingly. End-of-turn cleanup: discard used cards, refill hands to 6, pass storyteller role clockwise. The rules’ tips emphasize balance: clues that are too obvious or too abstract both punish storyteller scoring. Variant text additionally permits singing/miming clue styles, and groups may combine variants by agreement.",
-      "token_count": 299
-    },
-    "scoring_and_endgame": {
-      "content": "All scoring comes from round voting outcomes. Storyteller points: either 0 (if all or none guessed correctly) or 3 (if some but not all guessed correctly). Guesser points: 3 for correctly identifying storyteller card when that middle condition is met; otherwise non-storytellers get 2 each in all/none cases. Decoy bonus: each non-storyteller receives 1 point per vote attracted to their submitted card. End condition per rulebook: the game ends when the last card from the deck has been drawn (after completing the round sequence). Winner is the player furthest ahead on scoring track; tied leaders share victory unless house tiebreak is announced beforehand.",
-      "token_count": 133
-    },
-    "beginner_strategy": {
-      "content": "As storyteller, aim for a clue with medium precision: you want some people to identify your card, not everyone and not nobody. Use references your table can plausibly recognize; highly private references reduce guessability too far. As a guesser, evaluate the storyteller’s style history—are they usually poetic, literal, pop-culture, or emotional? Submit decoy cards that are believable alternatives, because vote-attraction points are a major scoring source. Track hand composition: burning your strongest “universal” card too early can leave weak options when you become storyteller. In 3-player mode (two-card submissions), expect denser board ambiguity and adjust clue tightness slightly upward.",
-      "token_count": 128
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) As storyteller in early rounds, aim for medium specificity: a clue that strongly matches your card but leaves room for one or two convincing decoys. 2) As non-storyteller, submit cards that could realistically attract votes from players who partially understand the clue. 3) Track players’ clue styles quickly—some players clue literally, others abstractly; adapt your votes and submissions to each style. 4) In first few turns, avoid burning all your broad-interpretation cards unless they secure major score swings; keep flexible cards for future storytelling turns."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Storyteller clue too precise: everyone finds your card and you score 0. \n2) Storyteller clue too abstract: nobody finds your card and you still score 0. \n3) Voting on the prettiest card instead of the clue-consistent card; this loses repeated points over a full game. \n4) Submitting obvious throwaway decoys that attract no votes, wasting the +1-per-vote scoring channel. \n5) Forgetting that you cannot vote for your own card and mentally anchoring on it anyway, which leads to rushed bad votes."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Clarity vs ambiguity as storyteller: maximizing direct recognition is not optimal; calibrated ambiguity is. \n\nSafe vote vs meta vote: do you pick the most clue-fitting image, or predict what this specific storyteller tends to choose? \n\nPoint floor vs point ceiling as non-storyteller: submit a card likely to get at least one vote, or chase a high-variance decoy that might steal many votes but could also score zero."
+        }
+      ]
     }
   },
-  "total_token_count": 850,
+  "total_token_count": 1564,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-02-23T07:10:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from dixit.txt as primary source. Reference snippet: - 36 voting tokens in 6 different colours numbered from 1 to 6"
+    "revision": 1,
+    "notes": "Primary source used: provided Dixit rulebook excerpt."
   }
 }

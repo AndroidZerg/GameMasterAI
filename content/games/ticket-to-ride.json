@@ -2,14 +2,15 @@
   "game_id": "ticket-to-ride",
   "title": "Ticket to Ride",
   "aliases": [
-    "TTR"
+    "Ticket to Ride: USA",
+    "Ticket to Ride (North America)"
   ],
   "publisher": "Days of Wonder",
   "player_count": {
     "min": 2,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 5
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -19,40 +20,91 @@
   "categories": [
     "route-building",
     "set-collection",
-    "train"
+    "hand-management",
+    "network-building",
+    "family strategy"
   ],
-  "source_url": "https://cdn.1j1ju.com/medias/6d/3d/1f-ticket-to-ride-rulebook.pdf",
+  "source_url": "https://www.daysofwonder.com/tickettoride/en/usa/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Ticket to Ride (North America base) includes: 1 board map of North American routes; 240 plastic train cars (45 each in blue, red, green, yellow, black plus spares); 110 Train Car cards (12 each of 8 colors plus 14 locomotives); 30 Destination Ticket cards; 5 wooden scoring markers; 1 Longest Continuous Path bonus card (+10); and rules. At setup each player takes 45 trains and one matching marker. Players start with 4 Train Car cards and 3 destination tickets, keeping at least 2.",
-      "token_count": 107
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Ticket to Ride (North America rules, reprint 2015) includes the following components: 1 board map of North American train routes; 240 colored train cars total (organized as 45 each in blue, red, green, yellow, and black, plus extra replacement cars in each color); 144 illustrated cards total, broken down as 110 Train Car cards (12 each of Box, Passenger, Tanker, Reefer, Freight, Hopper, Coal, and Caboose cards, plus 14 Locomotives), 30 Destination Ticket cards, 1 Summary card, 1 Longest Continuous Path bonus card, 1 promotional card for additional maps, and 1 Days of Wonder promotional card; 5 wooden scoring markers (1 each in blue, red, green, yellow, and black); 1 rules booklet; and 1 Days of Wonder online access number.\n\nGameplay-critical counts to verify before play begins: exactly 110 Train Car cards in the draw system, exactly 30 Destination Tickets, 5 scoring markers, and 45 playable train cars in each player color. The replacement train pieces are not part of a player’s normal supply and should stay out unless needed to replace missing or damaged trains."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the North America map board in the center of the table where all routes and city names are visible to every player.\n2) Place the Longest Continuous Path bonus card face up next to the board.\n3) Shuffle the Train Car deck (110 cards), place it face down near the board, and reveal 5 face-up Train Car cards beside it to form the market row.\n4) Shuffle the Destination Ticket deck (30 cards) and place it face down near the board.\n5) Leave enough table space for each player to keep train cards in hand, destination tickets hidden, and unused trains in a personal supply.\n6) Keep a discard area for spent Train Car cards where all players can see the pile for reshuffling when needed.\n\nPractical teaching tip for layout: keep the face-up Train Car row close to the draw pile so replacements happen quickly and visibly, and keep destination tickets farther from casual view because ticket information is secret until final scoring."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses one color and takes that full set of 45 colored train cars plus the matching wooden scoring marker. Place each scoring marker on Start (0) on the score track around the board edge.\n\nDeal each player 4 Train Car cards from the shuffled deck. Then deal each player 3 Destination Ticket cards. Each player privately reviews their 3 tickets and must keep at least 2, but may keep all 3. Any returned ticket cards are placed on the bottom of the Destination Ticket deck.\n\nAll Destination Tickets are kept secret from opponents until the end of the game. Players can hold any number of Train Car cards and any number of Destination Tickets during play. There is no hand limit on train cards in this ruleset."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "After setup is complete, determine first player as the most experienced traveler. Play proceeds clockwise for the rest of the game.\n\nFrom the very first turn onward, a player must perform exactly one of three possible actions: (a) draw Train Car cards, (b) claim one route, or (c) draw Destination Tickets. A turn never combines multiple action types.\n\nNo opening placement phase occurs in Ticket to Ride: your first meaningful decision is already one of those three core actions. Because of that, players should glance at their starting tickets and immediately identify whether they need to race for contested routes early or gather cards first."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn you perform exactly one action: draw Train Car cards, claim one route, or draw new Destination Tickets. Drawing cards fuels future claims; claiming a route spends a same-color set and places your trains on that link for immediate route points. Drawing destination tickets gives new hidden objectives, but you must keep at least one from the draw. Play continues clockwise until an endgame trigger occurs when a player is down to 0–2 trains at end of their turn, then each player gets one final turn.",
-      "token_count": 114
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, complete exactly one numbered step below:\n\n1. Choose one action type:\n   - Draw Train Car Cards, OR\n   - Claim a Route, OR\n   - Draw Destination Tickets.\n\n2. Resolve that action fully using all restrictions for that action (including locomotive limits, card matching rules, route occupancy rules, and minimum ticket keeps).\n\n3. Update score immediately if you claimed a route (using route length table).\n\n4. Check endgame trigger at the end of your turn: if you now have 0, 1, or 2 train pieces left in your supply, announce final round.\n\n5. Pass turn clockwise.\n\nRound flow is continuous (not split into formal rounds) until endgame is triggered. Once triggered, each player, including the triggering player, receives exactly one final turn. Then final scoring is performed."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "ACTION A: Draw Train Car Cards\n- You normally draw 2 Train Car cards this turn.\n- Each draw can be from the 5 face-up cards or from the top of deck (blind draw).\n- If you take a face-up card, immediately replace it from the top of the deck before any second draw decision.\n\nLocomotive-specific restrictions:\n- Locomotives are wild cards and count as any color when claiming routes.\n- If you take a face-up Locomotive as your first draw, your turn ends immediately; you do not draw a second card.\n- If your first draw was not a face-up Locomotive and the replacement card revealed is a Locomotive, you may not take that newly revealed Locomotive as your second draw.\n- If you draw a Locomotive blindly from the top of the deck, it counts as only one card and you may still take a second draw normally.\n\nFace-up row refresh rule:\n- If at any time 3 of the 5 face-up cards are Locomotives, immediately discard all 5 face-up cards and reveal 5 new face-up cards from the deck.\n\nDeck exhaustion rule:\n- If draw deck runs out, shuffle all Train Car discards to form a new draw pile.\n- Rare edge case: if draw pile is empty and discard pile is also empty (because players are hoarding cards), you cannot choose Action A this turn; choose route claim or destination draw instead.\n\nACTION B: Claim a Route\n- Choose one open route on the map between adjacent cities.\n- Play a set of Train Car cards equal to route length (number of spaces).\n- Cards used for that claim must all be the same color/type, except Locomotives can substitute as wild cards.\n- For colored routes, card color must match route color (with Locomotive substitutions allowed).\n- For gray routes, use any one color set, all matching each other (again with Locomotive substitutions allowed).\n- Place one of your train pieces on each space of the route.\n- Discard the cards used.\n- Score immediately using route table: length 1=1 point, length 2=2 points, length 3=4 points, length 4=7 points, length 5=10 points, length 6=15 points.\n\nRoute occupancy restrictions:\n- You may claim only one route per turn.\n- You are never required to connect a newly claimed route to your existing network.\n- Double-route rule: no single player may claim both tracks of the same double-route pair between two cities.\n- In 2- or 3-player games, only one side of each double-route may be used at all; once one track is claimed, the parallel track is closed to everyone.\n\nACTION C: Draw Destination Tickets\n- Draw top 3 Destination Tickets (or as many as remain if fewer than 3).\n- You must keep at least 1 of the drawn tickets.\n- You may keep 2 or all 3 if desired.\n- Return any not kept to the bottom of the Destination Ticket deck.\n- Kept tickets remain secret and are scored at game end as positive if completed, negative if not completed."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Destination Ticket Completion\nEach ticket lists two named cities and a point value. At final scoring, you either gain that value if your claimed routes create a continuous path connecting those cities, or lose that value if you failed to connect them. Tickets are hidden information until game end, so opponents must infer your plans from map behavior.\n\nLongest Continuous Path Bonus\nAt game end, compute each player’s single longest continuous line of trains. This line may include loops and may pass through the same city multiple times, but no single physical train segment can be used twice in that one measured path. All tied players for longest path gain the 10-point bonus.\n\nImmediate vs Delayed Scoring\nRoute points are always scored immediately when claimed. Ticket and longest-path scoring are endgame scoring. This split is crucial: a player ahead on the score track midgame can still lose heavily after ticket reveals.\n\nMap-Pressure Chokepoints\nWhile not a separate rules phase, the map’s geography creates practical choke routes where timing matters. Because turns allow only one action type, deciding whether to draw for stronger future claims or claim now to prevent block is a defining tactical tension in Ticket to Ride."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "ENDGAME TRIGGER\nThe game end is triggered when a player finishes their turn with 0, 1, or 2 trains left in supply. Once triggered, every player gets one final turn, including the triggering player. Then the game ends immediately and final scoring begins.\n\nFINAL SCORING PROCEDURE\n1) Confirm route points already scored during play (optionally recount from board if needed).\n2) Reveal all Destination Tickets for each player.\n   - Add ticket value for each completed connection.\n   - Subtract ticket value for each uncompleted connection.\n3) Determine Longest Continuous Path.\n   - Award +10 points to all players tied for longest valid path.\n4) Compare total scores. Highest score wins.\n\nALL POINT SOURCES\n- Positive points from claimed routes (during game):\n  Length 1 = 1\n  Length 2 = 2\n  Length 3 = 4\n  Length 4 = 7\n  Length 5 = 10\n  Length 6 = 15\n- Positive points from completed Destination Tickets (endgame).\n- Positive +10 from Longest Continuous Path bonus (endgame, possibly shared in tie).\n- Negative points from uncompleted Destination Tickets (endgame deduction).\n\nTIEBREAKERS\nIf players tie for most total points:\n1) Player who completed the most Destination Tickets wins.\n2) If still tied, player with the Longest Continuous Path bonus card wins.\n3) If still unresolved after these printed tiebreakers, treat as shared victory by table agreement."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Card draw action: normally draw 2 train cards, from face-up row or blind from deck. If you take a face-up locomotive as your first pick, your draw action ends immediately (you only get one card that turn). If you draw blind and it is a locomotive, it still counts as a normal single card and you may draw again. Whenever three of five face-up cards are locomotives, discard all five and refill to five face-up cards.\n\nClaim route action: spend a set equal to route length. Colored routes require that exact color; gray routes accept any one color set. Locomotives are wild and may supplement/replace color cards. After paying, place one plastic train in each space of that route, then score immediately using route table (1/2/3/4/5/6 length gives 1/2/4/7/10/15 points). You may claim only one route per turn. Routes are exclusive; a single player may never claim both lines of the same double-route pair.\n\nPlayer-count restriction: in 2- or 3-player games, only one track of each double-route pair can be used total; the parallel track is closed once one is taken.\n\nDestination ticket action: draw top 3 tickets, keep at least 1, return unwanted to bottom of ticket deck. Tickets stay secret until final scoring. You may hold any number of tickets. Completed ticket = add points at end; incomplete ticket = subtract points at end.\n\nDeck exhaustion: when train card deck runs out, shuffle discards to form a new draw deck. If both deck and discard are empty, players cannot draw train cards on that turn and must choose another legal action.\n\nNetwork logic: destination tickets are satisfied by a continuous path of your own claimed routes between named cities; branching is allowed as long as the required city-to-city connection exists.",
-      "token_count": 379
-    },
-    "scoring_and_endgame": {
-      "content": "Route points are scored immediately when claimed using the official table (1=1, 2=2, 3=4, 4=7, 5=10, 6=15). Endgame triggers as soon as any player ends their turn with 0, 1, or 2 trains remaining; then all players (including trigger player) receive one last turn so turn counts are equal. Final scoring then adds completed destination ticket values and subtracts incomplete ticket values. Award Longest Continuous Path bonus card for +10 points to player(s) with the longest uninterrupted line of their own trains (loops can count; you cannot reuse the same plastic train segment twice within the same path). Highest score wins; tie breaks first by most completed destination tickets, then by possession/share of longest path per official tie guidance.",
-      "token_count": 154
-    },
-    "beginner_strategy": {
-      "content": "Start by mapping overlap among your initial tickets and build a backbone that can satisfy two objectives with one trunk line. Claim key bottlenecks early (single critical links and dense hubs) before opponents force expensive detours. Prefer purposeful card draws over random hoarding: know which route you are aiming to claim in the next 1–2 turns. If you are behind, avoid triggering endgame until your highest-value ticket liabilities are secured; if ahead, use low train count to close the game quickly. Draw extra tickets only when your network is broad enough that new objectives are likely to fit naturally; blind late-ticket gambling loses more games than it wins.",
-      "token_count": 140
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Audit your starting tickets before your first move. Identify shared city clusters and any must-have chokepoints. If two tickets overlap, prioritize the shared spine first.\n\n2) Decide whether your first 2 turns are a race or a build-up. If your tickets require contested links (especially in 4-5 player games), claim one key route early even if it is not your highest point route. If your lines are flexible, spend early turns drawing to build efficient 4-6 length claims.\n\n3) Favor high-value route efficiency where possible. Longer routes score much better per turn and per card than many short routes. A length-6 route (15 points) is a major tempo swing when safely available.\n\n4) Preserve locomotives for bottlenecks, not convenience. Using a locomotive to finish a routine short route can leave you unable to secure a critical color-limited segment later.\n\n5) Watch train count clock. Because endgame triggers on remaining trains, players pursuing many medium/long routes can suddenly accelerate the finish. Start verifying ticket completion status before opponents dip below roughly 8-10 trains."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Drawing extra Destination Tickets too early.\nNew players often grab more tickets before their base network is stable. This can create huge negative swings if routes are blocked or time runs out. Fix: expand ticket portfolio only after your core skeleton is mostly secure.\n\n2) Ignoring double-route restrictions in low player counts.\nIn 2-3 player games, only one side of each double-route is usable at all. Beginners forget this and plan around a path that may become permanently unavailable.\n\n3) Spending locomotives inefficiently.\nUsing wilds for easy claims feels good short-term but weakens tactical flexibility later. Save locomotives for contested colors, emergency completion, or long routes where card conversion is best.\n\n4) Tunnel-vision on score-track lead.\nA visible lead from route points can hide unfinished tickets that later produce heavy deductions. Always track probable ticket completion, not just current marker position.\n\n5) Triggering endgame without self-checking tickets.\nPlayers sometimes rush the train supply to force game end but accidentally lock in uncompleted tickets for themselves. Before pushing end trigger, verify that your own key destinations are connected and that your final-turn options are clear."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Claim now vs draw now\nThe core Ticket to Ride tension is timing. Claiming now secures board position and denies opponents, but drawing now improves claim quality and flexibility. Ask: 'If I wait one full round, can someone realistically cut this line?' If yes, claim sooner.\n\nDecision 2: Efficient scoring vs guaranteed completion\nLong routes and map-wide expansions score well, but ticket deductions can erase those gains. Sometimes a lower-value but safer connector is stronger than a flashy high-point route that leaves your network fragile.\n\nDecision 3: Expansion vs consolidation\nWhen considering new tickets, compare expected value against board congestion and remaining trains. If your current network can absorb many new tickets with minor add-ons, draw more. If you still need expensive bridges to finish current obligations, consolidate first.\n\nDecision 4: Denial play vs self-development\nBlocking an opponent can be powerful, but denial that does not also advance your network can cost you a full turn’s tempo. Best denial moves are dual-purpose: they improve your map while constraining someone else."
+        }
+      ]
     }
   },
-  "total_token_count": 894,
+  "total_token_count": 2706,
+  "extensions": {},
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T05:46:34Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "elf",
+    "created_at": "2026-02-23T07:20:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Written from provided Ticket to Ride rulebook text (2015 reprint excerpt) as primary source."
   }
 }

@@ -6,47 +6,101 @@
   "player_count": {
     "min": 2,
     "max": 4,
-    "recommended": 3,
-    "expansion_max": 4
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 60,
-    "max": 90
+    "min": 90,
+    "max": 120
   },
   "complexity": "midweight",
-  "categories": ["worker-placement", "storytelling", "town-building", "exploration"],
-  "source_url": "https://cdn.1j1ju.com/medias/9f/b0/4c-above-and-below-rulebook.pdf",
+  "categories": [
+    "Worker Placement",
+    "Narrative Encounters",
+    "Resource Management",
+    "Engine Building"
+  ],
+  "source_url": "https://www.redravengames.com/aboveandbelow",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "4 player boards. 12 starting villagers (3 per player, each showing a house on the back). 18 regular villagers (face-down pile). 6 special villagers (Liquid Woman, Glogo, 2 Cave Cats, 2 Metal Men — each has a cave symbol on the back). 9 key house cards (key symbol). 6 star house cards (star symbol). 25 house cards. 24 outpost cards. 4 starting house cards. 1 reputation board. 25 cave cards. 81 goods tokens: 12 fruit, 12 fish, 12 mushroom (common); 10 rope, 10 clay pot, 10 paper (uncommon); 8 ore, 7 amethyst (rare). 7 dice. 4 wooden cubes (one per player color). 1 encounter book. 1 first-player card. 1 round marker. Coins: 36 ones, 6 fives, 8 tens. 20 potion tokens. 10 cider tokens.",
-      "token_count": 180
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "25 house cards, 24 outpost cards, 25 cave cards, 9 key house cards, 6 star house cards, 4 starting house cards, 1 reputation board, 4 player boards, 1 encounter book, 7 dice, 1 first-player card, 1 round marker, 4 cubes (one in each player color), 12 starting villagers, 18 villagers, 6 special villagers, 81 goods tokens (12 fruit/fish/mushroom, 10 pots/rope/paper, 8 ore, 7 amethyst), 10 cider tokens, 20 potion tokens, and coin tokens (36 ones, 6 fives, 8 tens)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Put the reputation board in the center. 2) Place the round marker on the top chamber in the row of seven caves on the reputation board. 3) Place coin, goods, cider, and potion tokens beside the board as a shared supply. 4) Put one cider token on the reputation board's cider space. 5) Place the 6 star house cards face up in one row. 6) Shuffle key house cards, reveal 4 face up in a row below the star houses, and return the remaining key houses to the box. 7) Put special villagers aside; place remaining standard villagers face down, draw 5, and place those 5 face up across the top of the reputation board. 8) Shuffle cave cards and place them in a face-up pile next to the reputation board. 9) Shuffle house cards and outpost cards into separate face-down decks, then reveal 4 from each deck into separate face-up market rows. 10) Place encounter book and dice within reach of all players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player gets 1 player board, 7 coins, 1 starting house card, and 3 starting villagers (one of each starting villager type shown in setup icon 1A), then places those villagers in the ready area (left grassy area). Each player takes the cube matching the banner color on their board and places it on the torch space of the reputation board. Four-player exception: the two starting villagers without hammer symbols begin exhausted (moon area), so each player only starts round 1 with one ready villager; those two exhausted starting villagers move to ready at end of round 1."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose a first player and give them the first-player card. Turn order proceeds clockwise. Setup balancing coins: in 2-player, second player gets +1 coin; in 3-player, second and third each get +1 coin; in 4-player, fourth gets +1 coin. After setup, begin round 1. Each round starts with action turns beginning from the first player and proceeding clockwise until everyone passes."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Above and Below is played over exactly 7 rounds. Each round, players take turns assigning villagers from their ready area to perform one action per turn: Explore (send 2+ villagers into a cave for a storybook encounter), Build (use a hammer villager to buy a house or outpost), Harvest (exhaust villagers to collect goods from your buildings), Train (use a quill villager to recruit a new villager from the reputation board), or Labor (exhaust villagers to gain 1 coin each, plus the cider token if you're first to labor this round). You can also perform free actions before your main action: buy goods from another player, put something for sale, or pay 1 coin to refresh a building row. When you have no more villagers or don't want to act, you pass. After all players pass, the round ends: move the round marker, replenish cider, slide remaining villagers on the reputation board left and refill empty slots, rest your villagers using beds/potions/cider, collect income, refresh goods on replenishing buildings, and pass the first-player card left.",
-      "token_count": 210
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Above and Below is played over 7 rounds. Each round follows this structure: 1) Action Phase: starting with the first-player card and moving clockwise, each player takes one turn at a time, choosing exactly one normal action (Explore, Build, Harvest, Train, or Labor) or passing. Players continue cycling in turn order until all players have passed. Some players may take more turns than others. 2) End Round Phase: after all pass, resolve end-of-round steps in order: spend potions/cider if desired, rest villagers using beds, collect income, and perform round-advance upkeep from the reputation board. 3) Next Round: begin another action phase unless round 7 is complete; after round 7, proceed to final scoring."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "On your turn, you may take free actions first, then exactly one normal action. After taking a normal action, you may not take more free actions this turn.\n\nNormal Actions:\n1) Explore: Draw the top cave card to the left of your board. Move at least 2 ready villagers onto that cave card (you may send more than 2). Roll one die per exploring villager and place each die on its villager as rolled. Lantern generation per villager: roll 1+ gives 1 lantern; roll 3+ gives 2 lanterns (max 2 from a die). Use cave card result to locate the encounter paragraph in the encounter book. The player to your left reads the full paragraph, both choice labels, and explore thresholds (but not rewards in parentheses). You choose one option aloud, then must meet one of that option's explore numbers. You may Exert explorers for +1 lantern each by moving them from cave card to injured area. If successful, gain reward at highest threshold reached for your chosen option, then move remaining exploring villagers to exhausted and place the cave card to the right side of your board (in your cave/outpost row). If failed, gain no cave and no rewards, move remaining explorers to exhausted, apply any listed failure penalty, and place cave card at bottom of cave deck.\n2) Build: Exhaust one ready villager with a hammer symbol. Pay coin cost to buy one available card: house, key house, star house, or outpost. Houses/key/star houses go in your house row next to starting house. Outposts go in outpost row beneath houses and must be placed on top of an open cave card you own from a prior Explore action. After building a house or outpost, refill that market row to 4 face-up cards.\n3) Harvest: Exhaust one or more ready villagers. For each villager exhausted this way, take one good from one of your houses/outposts. Put that good beside your coins, place it for sale (top-left sale circle), or place it into your advancement track.\n4) Train: Exhaust one ready villager with a quill symbol. Pay the listed coin cost for one available villager from the reputation board row and place that trained villager in your exhausted area. Do not refill the villager row immediately (refill occurs at end-of-round upkeep).\n5) Labor: Exhaust one or more ready villagers. Gain 1 coin per villager exhausted. The first player to take Labor in a round also takes the cider token from the reputation board (if available). If no cider remains there, gain only coins.\n\nFree Actions (before your normal action):\n- Buy from another player: on your turn, you may attempt to buy one good/cider/potion that another player has placed for sale. Price is negotiated in coins but must be at least 3 coins; seller may refuse any offer. If accepted, pay seller and take item.\n- Put something for sale: place one good, cider, or potion in your sale circle. You may have only one item for sale at a time.\n- Remove or replace your for-sale item: only on your turn.\n- Refresh building row: pay 1 coin once per turn to refresh either all 4 house cards or all 4 outpost cards in one row (send old row to bottom of that deck, reveal 4 new cards). Key/star house rows cannot be refreshed.\n- Pass: declare \"I pass\" to leave the round. You may not take further actions or free actions this round. If you start your turn with no ready villagers, you must pass (after optional free actions)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "The encounter system is a branching push-your-luck mechanism. During Explore, you commit workers first, then hear a story branch and choose one of two approaches. Each approach has multiple explore thresholds and hidden rewards. Dice produce lanterns in a stepped way (1 or 2), and exerting villagers trades long-term tempo (injuries) for short-term encounter success. Village state is spatial: ready/exhausted/injured areas control worker availability and recovery speed; beds on your built cards determine how quickly villagers recover each round. Outpost expansion is gated by successful cave discovery: you cannot place an outpost unless you have an unoccupied cave card."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The game ends after round 7. Final scoring is based on village-point generation from your built tableau and progression systems. From the provided rule text, village points come from: (1) house/key house/star house/outpost cards that provide village points and point effects, and (2) advancement track placements, where each advancement slot grants village points and may increase income as shown on the player board. Reputation-board progress and card abilities may also contribute according to their printed symbols/effects. Player with the highest final village-point total wins. Tie-breaker is determined by the official full rulebook scoring section (not included in the provided excerpt)."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "SETUP: Each player gets a player board, 7 coins, 1 starting house card, and 3 starting villagers (placed in the ready area). With 4 players, 2 of your starting villagers (those without a hammer) start in the exhausted area and move to ready at the end of round 1. Place 6 star houses face up in a row. Shuffle 9 key houses, draw 4 face up below the star houses, box the rest. Place the reputation board centrally. Set aside special villagers face up. Shuffle remaining villagers face down, draw 5 onto the reputation board. Round marker on the first cave. Place 1 cider on the reputation board's cider icon. Each player places their colored cube on the torch space of the reputation track. Shuffle house cards and outpost cards into two face-down decks below the reputation board, draw 4 face up from each. Second/third/fourth players each get bonus coins as indicated (2p: second player +1 coin; 3p: second and third +1 coin each; 4p: fourth player +1 coin).\n\nEXPLORE ACTION: Requires at least 2 villagers. Draw the top cave card, place it left of your player board. Slide 2 or more villagers from ready onto the cave card (no upper limit). Roll 1 die and check the cave card's grid to determine which encounter paragraph to read. The player to your left reads the paragraph from the encounter book, including the bold choices and their explore numbers, but NOT the rewards in parentheses. The active player chooses one option aloud. Then roll 1 die per villager on the cave card. Each villager's token shows what rolls give lanterns — for example, a roll of 1+ gives 1 lantern, a roll of 3+ gives 2 lanterns. Place each die on the villager it was rolled for. Total all lanterns. If insufficient, you may EXERT one or more villagers: remove them from the cave card to the injured area on your player board, gaining 1 extra lantern per exerted villager. If your total meets or exceeds at least one explore number for your chosen option, you succeed and gain the rewards from the highest explore number you reached. Remaining villagers on the cave card move to exhausted. Place the cave card to the right of your player board, below your house row. If you fail to meet any explore number, you get nothing — villagers go to exhausted and the cave card goes to the bottom of the cave deck. Some paragraphs have failure penalties.\n\nBUILD ACTION: Requires a villager with a hammer symbol. Slide the hammer villager from ready to exhausted. Pay the coin cost on a house card, star house, key house, or outpost card. Houses/key houses/star houses go in a row next to your starting house. Outposts must be placed on an empty cave card you own (from a previous explore). After building a house or outpost, draw a replacement card so 4 are always available. A villager with a hammer-plus symbol pays 1 fewer coin when building.\n\nHARVEST ACTION: Slide one or more villagers from ready to exhausted. For each villager exhausted, take 1 goods token from one of your houses or outposts. Goods can be kept in your supply, placed for sale, or placed on your advancement track.\n\nTRAIN ACTION: Requires a villager with a quill symbol. Slide the quill villager from ready to exhausted. Pay the coin cost shown on the reputation board for any available villager there. The new villager goes to your exhausted area. Do not refill the reputation board slot until end of round. A villager with a quill-plus symbol pays 1 fewer coin when training.\n\nLABOR ACTION: Slide one or more villagers from ready to exhausted. Gain 1 coin per villager exhausted. The first player to labor each round also gains the cider token from the reputation board.\n\nFREE ACTIONS (before your main action only): Buy From a Player — purchase a good, cider, or potion that another player has placed for sale in their sell area. Minimum price is 3 coins, seller can refuse. Put Something For Sale — place 1 good, cider, or potion in your sell area (top left of player board). Only 1 item for sale at a time, can be swapped only on your turn. Refresh Building Row — pay 1 coin to discard all 4 face-up cards in either the house or outpost row and draw 4 new ones. Once per turn. Cannot refresh key houses or star houses.\n\nADVANCEMENT TRACK: The row of circles at the bottom of your player board. Place goods left to right with no gaps. If you place a second good of the same type, it stacks on the same slot. Each slot shows two numbers: left = village points per good in that slot at game end; right = your current income level (based on the rightmost occupied slot). Once placed, goods cannot be removed.\n\nREST PHASE (end of round): Spend a potion to move 1 villager from injured to exhausted. Spend a cider to move 1 villager from exhausted to ready. Can use both on the same villager. Then use beds: for each bed symbol on your buildings, move 1 villager from injured to exhausted OR exhausted to ready (not both — a villager can't use 2 beds).\n\nSPECIAL VILLAGERS (obtained only through encounters): Liquid Woman — you lose 1 reputation when she joins. Glogo — pay 1 fewer coin when building with him. Cave Cat — roll a die each time you assign her: 1-2 she refuses (goes to exhausted, action not lost, you may assign another villager); 3-6 she performs the action. Metal Man — has his own built-in bed, cannot use building beds, cannot use cider or potions.\n\nREPUTATION TRACK: Starts on the torch symbol. Gain reputation = move toward bottom of cave (better). Lose reputation = move toward surface (worse). Gained/lost through explore encounters. The track also has small VP symbols at certain positions showing bonus/penalty VP at game end.",
-      "token_count": 1100
-    },
-    "scoring_and_endgame": {
-      "content": "The game ends after exactly 7 rounds (when the round marker cannot move further down). Players count village points from these sources:\n\n1. ADVANCEMENT TRACK: Each good on the track is worth the VP value shown above its slot. Goods stacked in the same slot are each worth that amount. Example: 4 fruit in the third slot at 2 VP each = 8 VP.\n\n2. BUILDINGS: Each building is worth 1 VP. This includes your starting house, all houses, key houses, star houses, and outposts. Empty cave cards (no outpost on them) do NOT count.\n\n3. REPUTATION BONUS: Most reputation = 5 VP. Second most = 3 VP. Third most = 2 VP. In a 2-player game, only the leader gets a bonus (3 VP instead of 5). Ties: add the tied positions' rewards, divide by 2, round up. Example: tied for 1st = (5+3)/2 = 4 VP each. Also check the reputation track for VP bonus/penalty symbols next to your cube's position.\n\n4. CARD BONUSES: Some buildings show bonus VP at the bottom of the card. Some give flat VP. Others give conditional VP — for example, 2 VP per potion you own, or 2 VP per house you own, or 1 VP per empty cave card. Goods must be on the advancement track or in your supply (not on a building) to count for card bonuses.\n\nTIEBREAKER: Most coins wins. Still tied: most villagers. Still tied: most buildings.\n\nIMPORTANT: Coins remaining are NOT worth VP (they only break ties). Unused goods not on the advancement track are NOT worth VP unless a card bonus specifically counts them.",
-      "token_count": 320
-    },
-    "beginner_strategy": {
-      "content": "1. EXPLORE EARLY AND OFTEN: Cave cards are free to acquire and exploring gives you outpost slots, goods, coins, and reputation. Send 3 villagers instead of 2 when possible — the extra die dramatically increases your chances of hitting higher explore numbers for better rewards. The explore action is the engine that drives everything else.\n\n2. DIVERSIFY YOUR GOODS: The advancement track rewards variety — each new type of good opens a new slot, which increases your income AND the per-good VP value climbs as you fill more slots. Don't stack 5 of the same good in slot 1 (worth 0 VP each). Spread across 4-5 different goods for maximum income and VP.\n\n3. DON'T IGNORE BEDS: Villagers stuck in injured or exhausted can't work. Beds on your buildings are how you recover them. Buy at least one building with beds early — without recovery, you'll run out of usable villagers by round 4-5 and have to waste turns on labor.\n\n4. WATCH THE 7-ROUND CLOCK: The game is shorter than it feels. You only get about 15-20 total actions across the entire game. Don't spend rounds 1-3 purely exploring with no buildings — you need houses and outposts generating goods and income by mid-game. Balance exploration with infrastructure.\n\n5. REPUTATION IS WORTH PURSUING BUT NOT AT ALL COSTS: The 5 VP bonus for most reputation is significant, but losing reputation sometimes gives you better encounter rewards. Don't reflexively pick the 'nice' option in every encounter — weigh the rewards against the reputation cost. If you're already behind on reputation, take the better loot.",
-      "token_count": 330
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Stabilize your action economy first: make sure you can reliably perform Build and Train early (hammer + quill access matters). 2) Prioritize one early engine card that either produces a good you can repeatedly harvest or increases your economic flexibility. 3) Explore with intent, not greed: send enough villagers to hit realistic encounter thresholds, but avoid excessive exertion in rounds 1-2 unless the reward is a major tempo swing. 4) Use Labor opportunistically to claim first-cider in rounds where your other actions are blocked; cider helps recovery and can effectively add future actions."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Over-exerting villagers in early explores. Injuries snowball into fewer available actions in future rounds. 2) Ignoring outpost prerequisites. Buying/aiming for outposts without open cave cards wastes planning and turns. 3) Training too late. New villagers enter exhausted, so delaying training reduces their lifetime contribution across only 7 rounds. 4) Treating Labor as default every turn. Labor is safe but low ceiling; overusing it can leave your village underdeveloped in points and production. 5) Forgetting free actions before normal action. Missing a timely refresh or sale listing can lock you out of better card purchases that turn."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Explore risk vs workforce health: deciding when to exert for immediate rewards versus preserving villagers for upcoming turns. 2) Build now vs Train now: immediate point/economy card purchases compete with long-term action-capacity growth. 3) Goods allocation: keep goods for internal advancement and engines, or sell/trade for coins to hit critical buy windows in the market rows."
+        }
+      ]
     }
   },
-  "total_token_count": 2140,
+  "total_token_count": 3330,
+  "extensions": {},
   "metadata": {
-    "created_by": "bard",
-    "created_at": "2026-02-23T05:00:00Z",
+    "schema_version": "2.0",
+    "created_by": "tiefling",
+    "created_at": "2026-02-22T23:11:50-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Complete rewrite from official Red Raven Games rulebook PDF. Source: https://cdn.1j1ju.com/medias/9f/b0/4c-above-and-below-rulebook.pdf. All component counts, action descriptions, scoring rules, special villagers, and advancement track mechanics verified against the 16-page official rulebook."
+    "revision": 1,
+    "notes": "Guide written from the provided Above and Below rulebook excerpt. The excerpt is truncated near end-round/final-scoring pages, so tie-break wording and complete point-source enumeration should be verified against the full official rulebook text."
   }
 }

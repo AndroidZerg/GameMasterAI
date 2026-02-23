@@ -1,15 +1,13 @@
 {
   "game_id": "everdell",
   "title": "Everdell",
-  "aliases": [
-    "Everdell Base Game"
-  ],
+  "aliases": [],
   "publisher": "Starling Games",
   "player_count": {
     "min": 1,
     "max": 4,
-    "recommended": 3,
-    "expansion_max": 6
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 40,
@@ -19,40 +17,91 @@
   "categories": [
     "worker-placement",
     "tableau-building",
-    "engine-building"
+    "engine-building",
+    "card-combos",
+    "resource-management"
   ],
   "source_url": "https://www.starling.games/everdell",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Everdell base box components include 1 main board, 1 Ever Tree, 128 Critter/Construction cards, resource tokens (berries, twigs, resin, pebbles), 24 workers (6 per player color), point tokens (1-point and 3-point), basic event tiles, forest cards, occupied tokens, solo die (for solo mode), and supporting markers/rule materials. The Meadow is a shared row of 8 face-up cards drawn from the main deck. Each player also has a city area with a strict 15-card limit. Verify worker count, resource pools, and card deck completeness before setup because these govern turn economy and legal city size.",
-      "token_count": 122
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Everdell includes exactly: 1 game board, 1 Ever Tree, 128 Critter & Construction cards (main deck), 11 Forest cards, 16 Special Event cards, 4 Basic Event tiles, 24 workers (6 per player), 30 berries, 25 resin, 20 pebbles, 30 twigs, 20 Occupied tokens, point tokens (10 worth 3 points and 20 worth 1 point), 1 Victory card, and 1 8-sided die (for solo game). For multiplayer teaching, the die and solo-specific procedures are not used unless playing solo against Rugwort."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the main board and attach/place the Ever Tree on the stump at the top. 2) Put twigs, resin, pebbles, and berries in supply piles along the river bank. 3) Place point tokens and occupied tokens beside the board. 4) Shuffle Forest cards and place them on forest clearings: use 3 Forest cards in a 2-player game, or 4 Forest cards in a 3- or 4-player game; return unused Forest cards to the box. 5) Place all 4 Basic Event tiles along the river. 6) Shuffle Special Event cards and place 4 Special Events on the lower Ever Tree branches; return the rest to the box. 7) Shuffle the main deck, reveal 8 cards face-up to form the Meadow, and place the remaining deck in/inside the Ever Tree. 8) Reserve a space for the face-down discard pile near the Meadow and deck."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses a color and takes 6 workers in that color. Start with 2 workers available in your personal supply. Place your remaining 4 workers on the Ever Tree seasonal branches: 1 on spring, 1 on summer, and 2 on autumn. Initial cards are dealt by player order seat: first player draws 5 cards, second player 6 cards, third player 7 cards, fourth player 8 cards. There is no personal resource income at setup beyond what your first worker placements will provide."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The most humble player takes the first turn. Play proceeds clockwise. On your turn you must take exactly one of three actions: Place a Worker, Play a Card, or Prepare for Season (only legal when all currently available workers are deployed). There is no initial drafting and no mulligan step in the provided rules."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Players take turns choosing one action: place a worker to gain resources/cards/effects, play a card to their city by paying costs, or prepare for next season. Workers stay placed until seasonal preparation returns them. Seasons are asynchronous: players can advance from winter to spring/summer/autumn at different times. Card engines produce resources, discounts, and scoring opportunities that compound over the year. The game ends when all players have completed autumn and can no longer (or choose not to) take actions.",
-      "token_count": 102
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn follows this sequence: 1) Choose one action only: Place a Worker, Play a Card, or Prepare for Season. 2) Resolve that action fully, including any immediate card/location effects. 3) If cards were taken from the Meadow for play/effects, refill Meadow as instructed (draw all first when an effect says to draw from Meadow, then replenish). 4) Enforce strict hand limit of 8 cards at all times; if an effect would overdraw, you only draw up to 8. 5) Pass turn clockwise. The game does not use fixed round resets for all players together; each player advances seasons independently as soon as they have deployed all currently available workers."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Action 1 — Place a Worker: Place one available worker on a legal location with a worker symbol. Resolve the listed gain/effect immediately. The worker remains deployed until you perform Prepare for Season. Location types: (a) Exclusive locations allow only one worker total, (b) Shared locations allow multiple workers (even same color unless restricted), (c) Forest locations provide variable effects; extra marked placement locations are only used in 4-player games, and you still may not place 2 of your own workers on a single Forest location, (d) Destination cards in your city are legal worker spaces; opponent Destination cards are only legal if they show the open symbol, and when used the owner gains 1 point token. Haven is shared and unlimited: discard any number of cards, gain 1 of any resource per 2 cards discarded. Events: you may place 1 worker on an available Basic or Special Event only if you meet requirements and pay costs at that time; one player per event. Journey (autumn only): send a worker by discarding cards equal to chosen journey value; 5/4/3-point spaces are exclusive, 2-point is shared. Action 2 — Play a Card: Play one card from hand or from the Meadow by paying listed cost to supply. Cards are either Critters or Constructions. Common cards can have multiple copies in your city; each specific Unique card can appear only once in your city. Critter free-play pairing: if the linked Construction shown on Critter is already in your city, you may play that Critter without paying berries; place an occupied token on that Construction; each Construction can do this once. City limit is 15 cards (events do not count toward this limit). Action 3 — Prepare for Season: Legal only after placing all currently available workers. You retrieve all your deployed workers, then advance to next season and gain that season bonus: Spring = gain 1 worker + activate all green Production cards; Summer = gain 1 worker + draw up to 2 Meadow cards (no seasonal production trigger in summer); Autumn = gain 2 workers + activate all green Production cards."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Card type timing is central in Everdell. Tan Traveler cards activate once when played and never again. Green Production cards activate when played, plus during spring and autumn Prepare for Season. Red Destination cards activate when a worker is placed on them; some are open to opponents and can feed points to their owner. Blue Governance cards grant discounts/bonuses tied to specific play conditions and can alter card economy decisions. Purple Prosperity cards score bonus points at endgame in addition to base points. Card draw rules are strict: by default draw from deck unless text specifically says Meadow; if deck empties, shuffle discard to form a new deck. Hand limit is hard-capped at 8, including during effects that grant draws or card transfers. Resource storage has no upper limit; if physical resource tokens run out, substitute components."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "You pass when you cannot or do not wish to take more actions. Passed players are locked out of future actions and cannot be given cards/resources; if an effect would give cards/resources to a passed player and all opponents are also passed, discard those items instead. Unpassed players continue until all players have passed. Final scoring includes ALL of the following: (1) base points on cards in your city, (2) point tokens collected during play, (3) bonus points from purple Prosperity cards, (4) Journey points from workers sent on Journey spaces, and (5) points from achieved Events (Basic and Special). Highest total points wins. Tiebreaker 1: player with most Events achieved. Tiebreaker 2 (if still tied): player with most leftover resources wins."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Worker placement spaces may be basic locations, forest locations, destinations from cards, or events. Some spaces are exclusive while others are shared as printed. To play a card, pay listed resources unless a specific effect reduces/waives cost. Key base rule: if you own the matching Construction, you may play the corresponding Critter for free (occupancy), effectively saving resources and tempo. Green Production cards trigger when played and again during production season transitions as defined by rules. Blue Governance, Red Destination, Tan Traveler, and Purple Prosperity classes have different timing/scoring behaviors; card text controls exceptions. The Meadow always refills back to 8 when cards are taken (if deck permits). Hand size is capped (8 unless modified), and city size is capped at 15 cards unless explicit exceptions apply. Events require meeting card-symbol criteria and grant points/bonuses; basic events are on board, special events come from card interactions. Because season advancement is individual, timing can create turn-order asymmetry; players in later seasons may have stronger engines but must still obey placement restrictions and available spaces. Common errors include exceeding city cap, missing free Critter occupancy, and forgetting production timing during seasonal prep. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds.",
-      "token_count": 349
-    },
-    "scoring_and_endgame": {
-      "content": "When all players are finished after autumn, compute total points from: printed VP on city cards, point tokens gained during play, event tiles/cards claimed, prosperity-card end-game bonuses, and any additional scoring effects on relevant cards. Highest total wins. Tie-breaker is most remaining resources, then shared if still tied in common play. Important teaching note: many points come from end-game purple effects and events, so visible board score can be misleading until final tally.",
-      "token_count": 94
-    },
-    "beginner_strategy": {
-      "content": "Build a reliable resource engine in spring before chasing flashy high-cost cards. Use Construction\u2192Critter free-play pairs aggressively; they are among the strongest tempo tools in base Everdell. Treat the Meadow as both opportunity and denial market\u2014taking a card to block an opponent can be correct when it also advances your plan. Plan city slots from midgame onward; 15 cards fills quickly, and low-value fillers can trap you out of late prosperity points. Advance seasons when worker retrieval and production upside exceed one more low-value action in current season. Keep your hand moving: dead cards are costly in a capped hand-size game. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
-      "token_count": 209
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Use early workers to secure conversion efficiency, not just raw resources. The best starts usually do three things: 1) establish at least one reliable resource-to-cards engine (or card-to-resource via Haven), 2) set up at least one green Production card before spring transition so it triggers multiple times, and 3) keep your city flexible under the 15-card cap by prioritizing cards that open locations, discounts, or repeated value. Watch the Meadow aggressively: because everyone can buy from it, visible card timing matters as much as your hand. If you can safely claim a Destination that opponents will want to use, that can become passive point income. Plan your first Prepare for Season proactively—do not wait with no good worker spaces left just because you still \"could\" place a weak worker somewhere."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Forgetting the strict 8-card hand limit and losing draw value. New players overdraw mentally and miss that extra draws simply fail past 8. 2) Filling city slots too quickly with low-impact cards. The 15-card cap is a hard ceiling, so low-efficiency cards can block stronger late-game scoring cards. 3) Delaying season prep too long. If your remaining worker placements are weak, staying in the current season can lose tempo compared to refreshing workers and gaining season bonuses. 4) Missing free Critter occupancy timing. Players often pay berries for a Critter that could be played for free via linked Construction, or forget occupied tokens are one-time use per Construction. 5) Ignoring event requirements until late autumn. Many events demand specific city composition and cannot be improvised at the end if your tableau never moved in that direction. 6) Treating Meadow as only \"backup\" cards. In Everdell, Meadow control and denial are core tactical tools; ignoring it gives opponents easy combo pieces."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Engine cards now vs point cards now. Early points feel good, but repeatable production/governance effects often outscore immediate VP by enabling stronger autumn turns. Decision 2: Seasonal timing trade-off. Advancing season early gives workers and triggers, but may forfeit contested spaces/cards in current season; advancing late can squeeze value but risks stale turns. Decision 3: Meadow contest vs private hand plan. Committing to Meadow racing can deny opponents but may disrupt your own city cohesion; committing to hand-only lines can be efficient but predictable and vulnerable if key costs/resources are blocked. Decision 4: Event route vs broad scoring. Chasing event prerequisites can yield efficient bundles of points, but overcommitting to one event line can crowd your 15-card city and reduce adaptability."
+        }
+      ]
     }
   },
-  "total_token_count": 876,
+  "total_token_count": 3180,
+  "extensions": {},
   "metadata": {
-    "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.132886Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "schema_version": "2.0",
+    "created_by": "goblin",
+    "created_at": "2026-02-23T07:11:01Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Written from provided Everdell rulebook text; includes multiplayer core and excludes solo procedures except component acknowledgement."
   }
 }

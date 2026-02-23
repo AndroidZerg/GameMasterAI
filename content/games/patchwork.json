@@ -1,15 +1,13 @@
 {
   "game_id": "patchwork",
   "title": "Patchwork",
-  "aliases": [
-    "Patchwork Base"
-  ],
+  "aliases": [],
   "publisher": "Lookout Games",
   "player_count": {
     "min": 2,
     "max": 2,
     "recommended": 2,
-    "expansion_max": 2
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 15,
@@ -17,42 +15,92 @@
   },
   "complexity": "gateway",
   "categories": [
-    "polyomino",
-    "time-track",
-    "economy"
+    "Tile Placement",
+    "Economic Management",
+    "Time Track",
+    "Abstract Strategy",
+    "Polyomino"
   ],
-  "source_url": "https://lookout-spiele.de/en/games/patchwork.html",
+  "source_url": "https://lookout-spiele.de/upload/en_patchwork.html_Patchwork_Rules_EN.pdf",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Patchwork base components: 1 central time board, 2 quilt boards (one per player), 33 regular patch tiles, 5 special 1x1 leather patches, 1 special 7x7 bonus tile, 1 neutral token, 2 time tokens, and button currency tiles (32x value-1, 12x value-5, 5x value-10, 1x value-20). Each player starts with a quilt board, a time token on start, and 5 buttons. The neutral token is placed near the smallest 1x2 patch and controls market selection among nearby patches.",
-      "token_count": 100
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 neutral token; 2 time tokens (lime green and yellow); 1 central time board (double-sided; sides differ only in appearance); 1 special tile; 2 quilt boards (1 per player); 33 regular patches; 5 special patches (leather patches); button tiles: 32x value-1, 12x value-5, 5x value-10, and 1x value-20. Keep all button tiles accessible as a common supply."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the central time board in the middle of the table (choose either side; gameplay is identical). 2) Put both player time tokens on the starting space. 3) Place all 5 special (leather) patches on the marked spaces of the time board. 4) Place the special tile nearby where both players can reach it. 5) Arrange the 33 regular patches face up in a loose circle or oval around the time board. 6) Find the smallest regular patch (the 1x2 patch) and place the neutral token between this patch and the next patch clockwise. This defines the initial purchase window."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes 1 quilt board and 1 time token. Each player also receives 5 buttons as starting currency. No patches start on a player's quilt board. All remaining button tiles stay in a shared supply within reach of both players."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The player who last used a needle is first player. The game does not use strict alternating turns; instead, the player whose time token is furthest behind on the time board takes the next turn. If both time tokens are on the same space, the token on top takes the next turn. This can cause one player to take multiple consecutive turns."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Patchwork is driven by time-track position, not strict alternation: the player whose time token is behind takes the next turn (so one player may take multiple turns in a row). On a turn, choose exactly one action: advance past opponent to gain buttons, or buy/place one of the next three patches clockwise from the neutral token. Buying a patch costs buttons, consumes time, and increases quilt coverage/income potential. As tokens cross income and special-patch markers, those effects resolve immediately.",
-      "token_count": 102
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn follows this sequence:\n1. Identify active player: the player whose time token is furthest behind on the time board takes the turn (if tied on one space, top token acts).\n2. Choose exactly one action:\n   - A) Advance and Receive Buttons, or\n   - B) Take and Place a Patch.\n3. Move your time token according to the chosen action.\n4. Resolve any time-board events for each marked space you moved onto or past during that movement (special patch pickup and/or button income, as applicable).\n5. End turn and check token positions again to determine who acts next.\n\nAction B has its own mandatory 5-step internal order:\n1) Choose one of the 3 patches directly in front of the neutral token (clockwise).\n2) Move the neutral token so it sits next to the chosen patch.\n3) Pay the printed button cost to supply.\n4) Place the patch on your quilt board (no overlap; orientation may be changed freely).\n5) Move your time token forward by the printed time cost."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Action A — Advance and Receive Buttons:\n- Move your time token forward to the space directly in front of your opponent's token.\n- Gain 1 button per space actually moved.\n- If this move would pass the final space, stop on the final space and gain buttons only for spaces actually moved.\n\nAction B — Take and Place a Patch:\n- Patch selection restriction: you may only choose from the next 3 patches in clockwise order in front of the neutral token.\n- After choosing, immediately move neutral token beside that chosen patch.\n- Pay the patch's printed button cost to supply.\n- Place the patch on your quilt board with no overlap; you may rotate/turn it before placing.\n- Move your time token by the patch's printed time cost.\n\nGeneral placement and movement restrictions:\n- Patches may never overlap existing patches.\n- All patch placement is on your own quilt board only.\n- If your time token ends on the same space as opponent's token, place yours on top.\n\nButton economy details:\n- Buttons are both currency (for buying patches) and endgame score basis.\n- Income from Action A and from button-income events is always taken from common supply in available denominations."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Time Board Events (triggered whenever you move onto or past marked spaces):\n1) Special Patch event: Immediately take the special 1x1 leather patch from the time board and place it onto your quilt board right away. These are the only pieces that fill a single square.\n2) Button Income event: Gain buttons equal to total button-income icons shown on patches currently in your quilt.\n\n7x7 Special Tile:\n- The first player to completely fill a 7x7 square area on their quilt board immediately gains the special tile.\n- The special tile is worth 7 points at game end.\n\nTurn-order tempo mechanic:\n- Because only the furthest-behind token acts, low-time turns can chain into extra turns.\n- Time cost is therefore both a cost and an initiative tool."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger:\n- The game ends once both time tokens have reached the final space of the time board.\n- If a token would move beyond the final space, it stops at the final space.\n\nFinal scoring formula (all points sources):\n1) Start with number of buttons you have left.\n2) Add +7 if you possess the special tile.\n3) Subtract 2 points for each empty square remaining on your quilt board.\n\nHighest final score wins.\nTie-breaker: if scores are tied, the tied player who reached the final space of the time board first wins."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Action A (advance and receive buttons): move your time token to the space directly in front of opponent’s token and gain 1 button per space moved. This is the fallback action and is often strong when available patches are inefficient.\n\nAction B (take and place patch) has five ordered steps: (1) choose one of the three patches immediately clockwise from neutral token; (2) move neutral token to the chosen patch’s former position; (3) pay the printed button cost to supply; (4) place patch on your quilt board without overlap (rotate/flip according to your edition’s allowed placement); (5) move your time token forward by patch time cost.\n\nTime-board events: whenever your token lands on or passes a button-income space, gain buttons equal to your current total printed button income on patches in your quilt. Whenever you are first to pass a special-patch marker, immediately take the associated 1x1 leather patch and place it at once. If tokens land on same space, most recently moved token is placed on top; the behind token always acts next.\n\n7x7 bonus: the first player to completely fill a 7x7 area on their quilt receives the special tile worth +7 points. Only one player can claim it.\n\nEndgame movement cap: if movement would go beyond final time space, stop on final space. In advance action, gain buttons only for actual spaces moved. Game ends when both players reach final space. Practical edge case reminders: if your time token lands exactly on a marker, you still resolve that marker effect; passing over multiple markers in one move resolves each in order. The neutral token always defines the purchase window, so even very cheap patches may become temporarily unavailable until the market rotates. Because the player behind on time acts next, taking a high-time patch can intentionally hand initiative back to the opponent; sometimes that is correct if it secures a uniquely efficient piece. Endgame often swings on empty-square penalties, so late low-cost fillers can outperform high-income patches that arrive too late to pay back.",
-      "token_count": 438
-    },
-    "scoring_and_endgame": {
-      "content": "When both players have reached the final time space, compute final score: buttons remaining (plus +7 if you hold the special 7x7 tile) minus 2 points for every empty square on your quilt board. Higher score wins. Official tie-break: if tied, winner is the player who reached the final space first.",
-      "token_count": 80
-    },
-    "beginner_strategy": {
-      "content": "Tempo beats perfection: a medium patch with low time can be better than a geometrically perfect patch that gives opponent multiple consecutive turns. Invest early in button-income patches so later income triggers fund expensive, high-efficiency pieces. Keep your board shape flexible—avoid isolated pockets that only a rare shape can fill, because each empty square costs 2 points. Passing (advance action) is not failure; it is often the best economic move when the next three patches are overpriced or awkward. Track upcoming special-patch and income markers on the time board and plan purchases so your movement order captures key thresholds before your opponent.",
-      "token_count": 132
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build early button income, not just board coverage. In the first few buys, prioritize at least one efficient income patch so future income events scale your economy.\n2) Protect quilt geometry from turn 1. Favor pieces that keep your central area flexible and avoid creating isolated single-square holes too early.\n3) Use Action A tactically when your options are weak. Advancing for buttons can be better than paying for a bad-shape patch that damages long-term fit.\n4) Track tempo while buying. A low-time patch can grant immediate follow-up turns, letting you claim another useful patch before your opponent acts.\n5) Watch both shared markets: the patch ring and the time board. A strong patch near the neutral token is only valuable if you can afford it and still keep initiative where possible."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Buying patches only because they are cheap in buttons. Cheap but awkward patches often cause more than 2 points of empty-space penalty later and can also hurt access to better pieces.\n2) Ignoring button-income icons. New players often overvalue pure area and underinvest in income, then run out of purchasing power in midgame.\n3) Creating scattered one-square holes everywhere. Special 1x1 patches are limited, so many isolated holes turn into unavoidable -2 penalties each.\n4) Spending down to zero buttons without a plan. If you cannot pay for upcoming key patches, your next turns become forced and low quality.\n5) Forgetting that turn order is positional, not alternating. Players frequently mis-evaluate time cost and accidentally hand the opponent multiple consecutive turns."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Economy vs compression: Do you take a patch with strong button income but awkward shape, or a clean-fitting patch with weak economy? The best choice depends on upcoming income triggers and your current cash buffer.\n2) Tempo vs quality: Is it worth taking a slightly weaker low-time patch now to keep the turn and deny access, or should you accept a larger time jump for a premium shape?\n3) 7x7 race vs whole-board efficiency: Chasing the special tile (+7) can be decisive, but overcommitting to one square region may create expensive dead zones elsewhere."
+        }
+      ]
     }
   },
-  "total_token_count": 852,
+  "total_token_count": 2480,
+  "extensions": {},
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T05:46:34Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "druid",
+    "created_at": "2026-02-22T23:09:47-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
-  }
+    "revision": 1,
+    "notes": "Generated from provided Patchwork rulebook text; component counts and scoring/tiebreak follow source."}
 }

@@ -1,56 +1,104 @@
 {
   "game_id": "one-night-ultimate-werewolf",
   "title": "One Night Ultimate Werewolf",
-  "aliases": [],
+  "aliases": ["ONUW"],
   "publisher": "Bezier Games",
   "player_count": {
     "min": 3,
     "max": 10,
     "recommended": 7,
-    "expansion_max": 10
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 10,
-    "max": 15
+    "max": 10
   },
   "complexity": "party",
   "categories": [
-    "hidden-roles",
-    "deduction",
-    "social"
+    "Social Deduction",
+    "Hidden Roles",
+    "Bluffing",
+    "Simultaneous Voting"
   ],
   "source_url": "https://beziergames.com/products/one-night-ultimate-werewolf",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Core game includes a role deck and role tokens (16 roles/tokens in common base set), plus rules and often app-guided narration support. Setup uses exactly player-count + 3 role cards each game: one card dealt to each player and three face-down center cards. Not every role is used every session. Ensure selected role mix matches recommended setup charts; role balance depends on combination, not just count.",
-      "token_count": 85
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "16 role cards total: 1 Doppelganger, 2 Werewolves, 1 Minion, 2 Masons, 1 Seer, 1 Robber, 1 Troublemaker, 1 Drunk, 1 Insomniac, 1 Hunter, 1 Tanner, and 3 Villagers. Also includes 16 role tokens."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Build the role set with exactly 3 more cards than player count. Place one matching role token in the center for every role card in this game so everyone knows which roles are in play. Deal each player 1 role card face-down. Put the 3 extra role cards face-down in the center. Each player secretly looks at their own card."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "There is no first player turn structure in the normal sense because the game is phase-driven. Once everyone has a role and has seen their card, begin the Night phase and resolve wake-ups in exact rulebook order. All role movements happen at night, discussion and accusation happen during day, and elimination is determined by one simultaneous vote."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Players receive secret roles and view only their own card. Night phase runs in fixed order as narrated by moderator/app; specific roles may view, swap, or alter cards. After night, all players discuss and deduce who is currently a werewolf based on claims and contradictions. Everyone votes simultaneously for one player. Resolve deaths and then determine which team wins using final role states, not original dealt roles.",
-      "token_count": 87
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1) Night Phase: roles wake in strict sequence and perform night effects. Wake order is: #1 Doppelganger, #2 Werewolves, #3 Minion, #4 Masons, #5 Seer, #6 Robber, #7 Troublemaker, #8 Drunk, #9 Insomniac, #9a Doppelganger/Insomniac check. Villager, Tanner, and Hunter do not wake. 2) Day Phase: all players discuss, accuse, and claim roles. 3) Vote Phase: everyone points at another player simultaneously. Highest votes die; ties kill all tied players; if all players receive one vote, nobody dies. 4) Win Check: determine winners using final roles and death results."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Night role actions: Doppelganger views one other player's card (without swapping) and becomes that role/team, with conditional immediate follow-up: if she sees Seer/Robber/Troublemaker/Drunk she immediately performs that copied action; if she sees Werewolf/Mason she wakes with them later; if she sees Insomniac she checks at #9a; if she sees Minion she joins werewolf team logic. Werewolf: all werewolves open eyes and identify each other; if alone, the other werewolf card(s) are in center (lone wolf option: may view one center card). Minion: wakes after werewolves and sees who they are (werewolves give thumbs up), but werewolves do not learn minion identity. Masons: both must be included if used; they wake and find each other, or infer partner is in center if none seen. Seer: look at one player's card OR two center cards, no movement. Robber: may swap own card with another player's card, then look at the new card; robber adopts new team but does not perform new role's night action. Troublemaker: may swap two other players' cards without looking. Drunk: must swap own card with one center card and does not look at new card. Insomniac: wakes late and looks at own card to see final change state. Day options: players may make truthful or false claims, pressure vote blocs, or withhold info; no player uses additional mechanical powers during day except vote and Hunter pointing consequence if killed."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Core twist: starting role and final role can differ because of Robber, Troublemaker, Drunk, and Doppelganger copies. Team membership follows final role for most outcomes, with explicit exceptions in role text (e.g., Robber does not use new role's night action). Minion is werewolf-team aligned but hidden from werewolves. Tanner is an independent objective role: Tanner wants to die and can win even when other teams also win. Hunter creates a chained elimination: if Hunter dies, the pointed-at player also dies regardless of vote totals."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "No VP system is used. The game ends immediately after the single vote resolves deaths and any Hunter chained death. Winning conditions: Village team wins if at least one Werewolf dies. Werewolf team wins if no Werewolves die. If no players are Werewolves (all werewolf cards in center), village wins only if no one dies. Tanner wins only if Tanner dies (independent win condition). Additional interaction from role text: if Tanner dies and no Werewolves die, werewolf team does not win; if Tanner and a Werewolf both die, village team still wins. In ties for most votes, all tied players die. If everyone gets exactly one vote, no one dies."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Choose role set appropriate to player count, shuffle, deal one per player plus three center cards. All players examine their own role card, then begin night with eyes closed. Narration order matters and must not be skipped: werewolf information steps first, then support/utility roles (e.g., seer viewing, robber swap-and-look, troublemaker swap-without-look, drunk center swap, insomniac final check), following whichever roles are in game. Players may gain information or alter role ownership during night; some roles act only if present. Morning discussion is open and often timed; players may bluff freely unless using no-lie variants. Voting is simultaneous. Player with most votes dies; ties can kill multiple players depending on exact vote distribution/rules text. Then evaluate win condition by final roles after all swaps. Village usually wins by eliminating at least one werewolf, or by correctly executing no-kill condition when no werewolf is in play; werewolf side wins otherwise. Special roles (e.g., Tanner, Hunter, Minion in relevant sets) can override baseline victory logic, so always check included-role text before final adjudication. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 481
-    },
-    "scoring_and_endgame": {
-      "content": "One Night is a single-round social deduction game with team outcome, not cumulative points. End triggers immediately after vote resolution. Determine deaths, apply any death-trigger role effects, then check team victory conditions according to final role assignment. If using role-specific alternates (Tanner wants to die, etc.), apply those before announcing winners. Groups commonly play multiple rounds and rotate role sets; each round is self-contained.",
-      "token_count": 83
-    },
-    "beginner_strategy": {
-      "content": "In discussion, build a clear timeline of night actions and challenge inconsistencies in order of operation. Villagers should prioritize cross-confirmable claims rather than loud confidence alone. If you performed a swap role, disclose carefully—timing and target detail can prove authenticity. Werewolf-side players should prefer one coherent narrative over layered complicated lies. Coordinate final votes; scattered village votes frequently hand victory to werewolves. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 105
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Open day discussion by anchoring timeline details, not just claims: what woke, when, and what changed. If you are an information role (Seer/Robber/Insomniac), decide quickly whether early reveal helps create a coherent story web before bluffs harden. If your claim can be cross-checked (e.g., Mason pair, Robber target), name interactions early so contradictions are easier to expose."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating starting role as permanent. In ONUW, role-swaps mean final role is what usually matters for win checks. 2) Ignoring no-werewolf possibility. If both werewolves are in center, killing someone can throw the village loss condition. 3) Over-trusting unverified lone claims. Good lies often copy role text accurately; demand cross-links and timing consistency. 4) Forgetting Minion incentives. A suspicious non-werewolf may still protect werewolves for team win. 5) Misplaying Hunter consequences by careless pointing and vote piling, causing avoidable double deaths."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Information release timing: reveal early to guide table, or hold to catch liars in contradictions. 2) Vote target selection under uncertainty: take a high-confidence werewolf shot vs controlled no-kill lines in possible no-werewolf setups. 3) Claim posture: hard-claiming a role can organize votes, but it also paints a target and may help opposing bluff structures."
+        }
+      ]
     }
   },
-  "total_token_count": 841,
+
+  "total_token_count": 1750,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "tiefling",
+    "created_at": "2026-02-22T23:13:49-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from one-night-ultimate-werewolf.txt as primary source. Reference snippet: CONTENTS: 16 role cards: 1 Doppelganger, 2 Werewolves, 1 Minion, 2 Masons, 1 Seer, 1 Robber, 1 Troublemaker, 1 Drunk, 1 Insomniac, 1 Hunter,"
+    "revision": 1,
+    "notes": "Written from provided official rulebook text including wake order, role actions, vote resolution, and win conditions."
   }
 }

@@ -1,15 +1,13 @@
 {
   "game_id": "wingspan",
   "title": "Wingspan",
-  "aliases": [
-    "WINGSPAN"
-  ],
+  "aliases": [],
   "publisher": "Stonemaier Games",
   "player_count": {
     "min": 1,
     "max": 5,
-    "recommended": 3,
-    "expansion_max": 7
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 40,
@@ -19,41 +17,91 @@
   "categories": [
     "engine-building",
     "tableau-building",
-    "cards",
-    "nature"
+    "set-collection",
+    "open-drafting",
+    "resource-conversion"
   ],
-  "source_url": "https://stonemaiergames.com/games/wingspan/rules/",
+  "source_url": "https://stonemaiergames.com/games/wingspan/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Base game components per rulebook include: 1 main game board with round tracker and scoring track, 1 goal board (double-sided for competitive vs non-competitive round-goal scoring), 5 player mats, 1 birdfeeder dice tower plus dice tray, 5 custom food dice, 8 round-goal tiles (4 green-side and 4 blue-side options), 170 bird cards, 26 bonus cards, 16 Automa cards, 75 egg miniatures, 103 food tokens, 40 wooden action cubes (8 in each player color), 8 player aid tiles, and a first-player token. Bird cards are the central components and each shows habitat icons, food cost, nest type, wingspan, egg capacity, point value, and power timing strip. Food token types are fruit, fish, rodent, seed, and invertebrate. Players should verify egg miniatures, food tokens, and action cubes first, because those are the pieces most likely to be short after prior plays.",
-      "token_count": 180
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Components listed in the provided rulebook text: 1 rulebook, 1 appendix, 1 goal board, 40 wooden action cubes, 1 scorepad, 103 food tokens, 170 bird cards, 1 bird tray, 8 goal tiles, 26 bonus cards, 5 player mats, 75 egg miniatures, 1 birdfeeder dice tower, 1 first-player token, and 5 custom wooden dice."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Global setup is: (1) Shuffle the 170 bird cards into one deck, place it next to the bird tray, and reveal 3 face-up cards in the tray. (2) Put all food tokens and egg miniatures into shared supply pools. (3) Toss all 5 custom dice into the birdfeeder tower. (4) Choose goal board side: Green side uses ranked placements (1st/2nd/3rd), Blue side uses 1 point per qualifying item. (5) Shuffle goal tiles face down and place 1 random goal tile on each of the 4 goal spaces; return extras to the box. (6) Shuffle bonus cards and place deck near play area."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player receives: 1 player mat, 8 action cubes of one color, 2 random bonus cards, 5 random bird cards, and 5 starting food tokens (1 each of the five food types shown in the rules: invertebrate, seed, fish, fruit, rodent). Next, each player chooses a starting hand by keeping up to 5 bird cards; for each bird card kept, that player must discard 1 food token from their starting 5. After that, each player keeps 1 of their 2 bonus cards and discards the other. Bird hands may be kept private or public if the table agrees, but standard play treats hands as private information."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Randomly select first player and give them the first-player token. Wingspan is played over exactly 4 rounds. In each round, players take turns clockwise until everyone has used all currently available action cubes. One action cube is committed to round-goal scoring each round, so action counts shrink by round: Round 1 = 8 turns, Round 2 = 7 turns, Round 3 = 6 turns, Round 4 = 5 turns."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Wingspan is played over 4 rounds, and players get fewer action cubes each round (8, then 7, then 6, then 5). On each turn, a player spends one action cube to choose one action row: play a bird, gain food, lay eggs, or draw cards. After the row action resolves, the player activates all brown powers in that habitat from right to left, so rows become stronger as birds are added. When all players have used their cubes for the round, everyone scores the current round-goal tile, passes first-player, resets cubes for the next round, and continues. End-of-game scoring combines card points, bonus cards, round goals, eggs, cached food, and tucked cards.",
-      "token_count": 145
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, choose exactly 1 of 4 actions: (1) Play a Bird, (2) Gain Food, (3) Lay Eggs, or (4) Draw Bird Cards. \n\nFor Play a Bird: place an action cube in the Play-a-Bird area above the chosen column, pay costs, place bird, resolve only that bird’s WHEN PLAYED power if desired, then turn ends. \n\nFor habitat-row actions (Gain Food / Lay Eggs / Draw Cards), resolve this 3-step loop: 1) Place an action cube on the leftmost exposed slot in the chosen habitat row and gain the printed slot benefit. 2) Move that action cube from right to left, activating any brown WHEN ACTIVATED powers in that row (each is optional). 3) Leave the cube on the far-left side of that row; turn ends."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "PLAY A BIRD: To play a bird from hand, the habitat must be legal for that card and all costs must be paid in full. Costs include food cost (upper-left icons) plus possible egg cost based on target column: column 1 costs 0 eggs, columns 2-3 cost 1 egg, columns 4-5 cost 2 eggs. Eggs may be discarded from any birds on your mat. Food is paid from your personal food supply (tokens beside your mat), not from cached food on bird cards. Food icon rules from provided text: a wild icon can be paid with any one of the 5 food types; crossed-out circle means no food cost. Special conversion while playing birds only: any 2 food tokens can be spent as any 1 food token. After paying, place bird on leftmost exposed slot of chosen habitat (max 5 birds per habitat row). Resolve WHEN PLAYED power if present. Brown and pink powers do not trigger when bird is played unless card text explicitly says otherwise.\n\nGAIN FOOD (Forest row): Place action cube on leftmost exposed forest slot and gain the amount of food shown by selecting dice from birdfeeder. For each food gained, remove one die from birdfeeder and take one matching food token. On split-face die result shown with slash, choose one of the two icons (not both). If the row slot grants card-to-food conversion, you may discard up to 1 bird card from hand to gain one extra food from a remaining die. Then activate brown powers in forest row from right to left.\n\nLAY EGGS (Grassland row): Place action cube on leftmost exposed grassland slot and lay eggs equal to slot value (modified by powers). Place eggs on birds respecting each bird’s printed egg limit; a bird cannot hold more eggs than its limit. Egg color is cosmetic and does not affect scoring. If instructed to lay more eggs than available capacity, extra egg placements are lost. Then activate brown powers in grassland row from right to left.\n\nDRAW BIRD CARDS (Wetland row): Place action cube on leftmost exposed wetland slot and draw number of cards indicated. Draw from deck and/or face-up tray according to allowed choices in the rules and player mat slot. Refill tray as required from deck. Then activate brown powers in wetland row from right to left.\n\nBIRDFEEDER MANAGEMENT: If birdfeeder tray is empty, reroll all 5 dice into feeder. If all dice currently in tray show the same face (including the case of only one die left) and you are about to gain food, you may first reroll all 5 dice.\n\nTOKEN LIMITS: Provided text states there is no hard limit on food tokens held by players or cached on cards, and no limit on supply amount (use substitutes if physically exhausted). Egg supply is similarly unlimited in practice (use substitutes if needed)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Habitat engine design: each habitat specializes in one economy axis—Forest for food, Grassland for eggs, Wetland for cards. As more birds are added to a row, that row’s action often becomes stronger because the right-to-left activation pass triggers additional brown powers. This creates Wingspan’s core compounding engine.\n\nPower timing framework in provided excerpt: WHEN PLAYED powers are resolved only when a bird enters play; brown WHEN ACTIVATED powers trigger during habitat actions while moving action cube right-to-left; pink powers are not detailed in this excerpt but are not triggered by the play action itself.\n\nRound-goal cadence: at end of each round, players remove action cubes, score the just-finished round’s goal, discard and refresh all face-up tray birds, then pass first-player token clockwise. Spending one cube to mark round-goal score is why each later round has fewer turns.\n\nGoal board mode choice: Green side produces direct rank competition (1st/2nd/3rd scoring), while Blue side is less confrontational and gives 1 point per qualifying item. This setup choice strongly changes table interaction and should be explained to new players before game start."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Game ends after Round 4 is fully completed. Final score is the sum of all six categories printed in the provided scorepad section: (1) points printed on bird cards in your tableau, (2) points scored from your kept bonus card(s), (3) points from end-of-round goals, (4) 1 point per egg on your birds, (5) 1 point per cached food token on bird cards, and (6) 1 point per tucked card under bird cards. Highest total wins. Tie-breaker: tied player with the most unused food tokens wins. If still tied, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "When playing a bird, choose a legal habitat shown on that card, pay the card\u2019s food cost, then pay any egg cost printed under the target habitat column on your mat. The further right you place birds, the higher that egg cost becomes. Forest actions gain food dice; grassland actions place eggs on birds without exceeding each bird\u2019s egg limit; wetland actions draw cards and may include discard/exchange effects from birds. If the birdfeeder dice all show the same face, or all faces except one, the active player may reroll the birdfeeder before taking food. White powers trigger when a bird is played, brown powers trigger during habitat activation, pink powers trigger once between your turns when opponents meet the trigger condition, and teal powers trigger at end of round. Face-up bird tray cards are replenished from deck as cards are taken. Some birds cache food or tuck cards; these do not become spendable resources and are tracked for final points only unless a card says otherwise. Round goals can be scored with either the green side (ranked scoring by position) or blue side (threshold/self-scoring style), determined by goal board side during setup. If ties occur, follow tie handling for the selected side exactly. Commonly missed rules: egg costs to play into later columns, pink powers only once between your turns, and hard egg limits per bird.",
-      "token_count": 295
-    },
-    "scoring_and_endgame": {
-      "content": "The game ends after the fourth round and final round-goal scoring. Final score is the sum of: (1) printed points on all birds in your tableau, (2) bonus card points, (3) round-goal points earned over 4 rounds, (4) 1 point per egg on birds, (5) 1 point per cached food on birds, and (6) 1 point per tucked card under birds. Highest total wins. Tie-breaker is most unused food tokens; if still tied, tied players share victory. Teachers should remind players that many late-game points come from eggs/cached/tucked effects, not only bird-face values.",
-      "token_count": 120
-    },
-    "beginner_strategy": {
-      "content": "Prioritize a stable economy in rounds 1\u20132: at least one reliable food engine and one reliable card engine. Cheap birds with brown powers are usually stronger early than expensive point-only birds. Keep an eye on round goals from setup, but do not overcommit to a goal that fights your hand and food mix. Build one habitat deeply before spreading thin, because stronger single-row activations generate better action efficiency. In round 4, compare points per action: laying eggs is the default floor, but some bird chains (draw+tuck, lay+cache, etc.) can beat eggs if already assembled. Use bonus cards as direction, not as a trap\u2014pivot if the deck and tray stop supporting your initial plan. Avoid hand clogging: cards in hand score nothing unless a specific effect converts them.",
-      "token_count": 165
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build a reliable first loop: in your opening turns, prioritize one row that reliably feeds the others—usually Forest first if your hand has food-hungry birds, or Wetland first if you need card quality. 2) Keep starting birds that are cheap and have useful brown powers; the rules hint that brown powers are especially valuable early because they repeat. 3) Don’t over-keep expensive birds in setup: every kept card costs a starting food token, so greedy keeps can leave you unable to execute turn 1-2 plays. 4) Place early birds in habitats that match your near-term deficits (food shortfall, egg bottleneck, or card drought). 5) Set your first-round goal plan early—on Green goal board especially, being one action short of a placement tier is a common opening leak."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating all four actions as equally urgent every turn. New players often alternate actions without purpose, instead of repeating the action that currently has best engine return.\n2) Ignoring egg costs on columns 2-5 when planning future bird plays. Running out of egg economy can freeze your hand.\n3) Burning cards too freely for bonus food conversion in Forest when card quality is scarce. The discard-for-food option is strong, but overuse starves your long game.\n4) Overfilling one habitat while neglecting others. A giant egg row with weak food/card generation can still stall final scoring.\n5) Failing to track endgame scoring mix. Players who only chase bird points can lose to opponents converting eggs, cached food, tucked cards, and round goals efficiently."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Engine depth vs scoring immediacy: do you spend an action to improve a row now, or cash immediate points via eggs/goal pressure? In Wingspan, both are valid, but timing is everything because turns are limited and shrinking each round.\n\nPublic race vs private optimization: on Green goal board, contesting rank placements can be high value but may force awkward plays; on Blue side, private tableau optimization can outperform direct contention.\n\nCard quality vs action economy: drawing more cards is not automatically good. The better question is whether extra cards convert into playable birds with your current food and egg infrastructure before game end."
+        }
+      ]
     }
   },
-  "total_token_count": 905,
+  "total_token_count": 2862,
+  "extensions": {},
   "metadata": {
-    "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.115729Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-02-23T07:08:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source used: provided Wingspan rulebook excerpt."
   }
 }

@@ -7,7 +7,7 @@
     "min": 2,
     "max": 12,
     "recommended": 6,
-    "expansion_max": 12
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -16,41 +16,92 @@
   "complexity": "party",
   "categories": [
     "party",
-    "team",
-    "communication"
+    "team communication",
+    "deduction",
+    "word association",
+    "social"
   ],
   "source_url": "https://www.cmyk.games/products/wavelength",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Rulebook text identifies a central Wavelength device (with hidden target wheel and scoring track), one rotatable needle dial for guesses, two team score markers, and a large deck of double-sided spectrum cards (prompt axes such as HOT/COLD, etc.). Some printings include quick-reference material, but core play requires: device, needle, scoring markers, spectrum cards, and rules. Before teaching, verify the wheel can be hidden/revealed smoothly, the needle rotates freely, and score markers are present for both teams. Spectrum deck integrity matters because repeated axes reduce game quality; count can vary by edition but should match the official insert for that box.",
-      "token_count": 130
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "From the provided rule text and setup diagram, gameplay uses these core components: 1 Wavelength device (the large plastic unit containing the rotating wheel, hidden target, blue screen, and red dial), 1 deck of Wavelength cards (double-sided concept pairs), 2 team scoring tokens (Left Brain and Right Brain heads), and 1 guessing token for the non-Psychic team’s LEFT/RIGHT guess.\n\nExact quantities explicitly shown in setup text: 3 tokens total are inserted into slots (2 scoring heads + 1 guessing piece), and 1 device is placed in the center tray slot. The card deck is used as a shared draw pile, one card drawn each round in competitive mode.\n\nNote on card count: the excerpt identifies the card deck and how it is used, but does not provide a numeric card total in the visible text. For table setup and play, use the full included deck as printed in your edition."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the Wavelength device into the slot in the middle of the box tray.\n2) Insert the two team scoring head tokens into their score tracks/slots.\n3) Insert the non-Psychic team guessing token into its designated slot location.\n4) Place the Wavelength card deck nearby as the draw pile.\n5) Ensure the active Psychic can rotate and open/close the blue screen privately when needed.\n\nThe game is designed to be played in the box without fully removing all parts; pass/rotate the box so the active team can interact with the dial during its Team Phase."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Divide players into 2 teams of roughly equal size. Choose one Psychic (clue giver) on each team for the first cycle.\n\nSet initial scores as specified by rules: team going first starts at 0 points, team going second starts at 1 point. Teams may use default names Left Brain and Right Brain or rename themselves.\n\nOnly the active team’s current Psychic may view the hidden target before clueing. After clue delivery, that Psychic cannot communicate further for the round (no clarifications, no facial hints, no gestures)."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose which team takes the first round. The first active Psychic begins the Psychic Phase using official order:\n1) Close screen completely.\n2) Draw 1 Wavelength card and choose one side (normal or weird), place it in the slot, and read the two endpoint concepts aloud.\n3) Randomize hidden target by spinning the wheel while screen remains closed.\n4) Open screen fully, privately inspect target center location.\n5) Give one clue positioned conceptually on that spectrum.\n6) Close screen and rotate the box toward the Psychic’s team.\n\nAfter that clue, Team Phase starts immediately with teammates discussing where to set the dial."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Teams alternate clue-giver turns. The active clue-giver privately sees where the hidden target sits on the current spectrum, then gives one clue intended to place their team’s needle near that location on the axis. Teammates discuss, position the needle, and lock their guess. Reveal the target and score based on distance from center target window, with possible bonus/steal opportunities for the opposing team depending on standard team rules. Advance score markers, rotate clue-giver, and continue until a team reaches the winning score threshold.",
-      "token_count": 107
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round follows 4 phases in strict order:\n\n1. Psychic Phase\n   - Active team Psychic secretly sets and reads the spectrum card, randomizes target, views it, gives one clue, then stops communicating entirely.\n\n2. Team Phase\n   - Psychic’s teammates discuss and turn the red dial to the position they believe is closest to target center.\n\n3. Left/Right Phase\n   - Opposing team briefly decides whether actual target center is LEFT or RIGHT of the active team’s final dial position and places guessing token accordingly.\n\n4. Scoring Phase\n   - Psychic reveals target by opening screen; active team scores wedge points (2-4) if in target area; opposing team may score 1 for correct left/right guess (unless perfect center wedge was hit).\n\nThen next round normally passes to the other team, except catch-up rule can grant consecutive turns to a trailing team that just scored 4 points and remains behind."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Psychic actions:\n- Draw exactly 1 Wavelength card each round and choose one side.\n- Randomize target with screen closed (no intentional target selection).\n- Open fully to inspect target position.\n- Give one clue ON THE SPECTRUM between card endpoints.\n- Immediately stop all communication after clue.\n\nTeam actions (active team):\n- Discuss freely in any style while deciding dial placement.\n- Any teammate may turn dial; team decides how to negotiate control.\n- Team confirms a final dial position to opponents.\n- Rule-spirit guidance: avoid percentages/numeric shorthand for position (e.g., '25%').\n\nOpposing team actions:\n- Hold a short binary discussion only: is center wedge left or right of dial?\n- Place guessing marker in LEFT or RIGHT slot.\n\nSpecial edge actions and corrections:\n- If target center wedge is not visible at all after randomization, close and spin again.\n- If center wedge is partially visible at extreme edge, that is valid.\n- If Psychic accidentally leaks target after clue (verbally or nonverbally), table decides penalty/reset by consensus; rulebook suggests generosity and often a reset with new card/target."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Catch-up rule (critical):\nIf active Psychic team scores 4 points in a round and is STILL losing after that round’s scoring, they immediately take another turn with a different Psychic. This can happen repeatedly and is designed to keep blowouts reversible.\n\nClue-giving firm rules:\n1) Convey a single thought; avoid multi-part combo clues.\n2) Don’t invent custom one-off fictional constructs just for this clue.\n3) Stay on topic to the spectrum meanings (avoid unrelated double-meaning exploits).\n4) Don’t use card words themselves or synonyms from the same word family.\n5) No numbers/percentages/ratios as positional code (numbers in proper names are allowed).\n\nClue-giving suggestions (recommended for better fun):\n- Be concise (often five words or fewer).\n- Avoid modifiers ('very', 'almost', 'kind of') that split interpretation into two clues.\n- Prefer concrete proper nouns when category prompts encourage specific exemplars.\n\nGeometry note from FAQ:\nWhen extreme target placement reveals tiny opposite-side color slivers, teams should ignore those and aim based on the side containing the center wedge (4-point target center)."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Round scoring:\n- Active (Psychic) team scores the value of wedge where their dial lands inside target area: 2, 3, or 4 points.\n- If dial sits exactly on an edge between two active-team wedge outcomes, active team gets the better result.\n- Opposing team scores 1 point if they correctly guessed LEFT/RIGHT relative to target center.\n- Exception: if active team hit perfect 4-point center wedge, opposing team cannot score left/right bonus.\n\nGame end trigger:\nOnce a team reaches 10 points, game ends immediately and higher score wins.\n\nTie handling:\nIf tied when game would end, both teams take a sudden-death turn; team that scores more points in that round wins (including any left/right bonus). If still tied, repeat sudden-death rounds until a winner is determined.\n\nAll scoring sources:\n1) Active team target wedge points (2-4).\n2) Opponent left/right guess bonus (1, conditionally denied on perfect center hit)."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Standard setup forms two teams, places both team markers at the start of the score track, prepares the Wavelength machine with hidden target, and draws a spectrum card for the current round. The clue-giver alone views the exact target location (a slice somewhere between spectrum extremes), then presents a single conceptual clue indicating where they think that target lies. Communication restrictions are core to fairness: clue-giver should provide one clue package, not chained iterative hints that effectively reveal coordinates. Teammates discuss interpretation publicly, then set the needle to their final position. Once locked, reveal the target window and award points by overlap/proximity bands shown on the machine. In many rule sets, the opposing team then makes a left/right relation call (whether target is above or below the guessed point) for bonus points; resolve this after primary scoring. Rotate turn order so clue-giver responsibility shifts within each team. If a spectrum card or custom card seems ambiguous, apply the printed axis literally and decide disputes before clue is spoken. Keep a strict reveal order: clue -> discussion -> lock -> reveal -> score -> rotate. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 499
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring is positional. The closer the team’s needle to the hidden target, the more points they score; exact center hits grant maximum value, nearby bands grant reduced values. Opponent side-guess bonus (where used) can add points for the non-active team. Move team markers immediately after each round. Endgame triggers when a team reaches or passes the designated finish space on the score track (commonly 10 points in base play). If both teams could claim a win condition in the same final cycle under local variant, resolve by full round completion and compare final totals.",
-      "token_count": 122
-    },
-    "beginner_strategy": {
-      "content": "Clue-givers should anchor around culturally stable concepts (e.g., “sauna” for HOT side) instead of hyper-personal references no one shares. Guessing teams should calibrate to the specific clue-giver’s mental scale over several rounds; identical clue words can map differently by person. Avoid overfitting to midpoint math—the game is semantic, not numeric. On defense, listen actively during opponent discussions to improve bonus side guesses. In close scores, prioritize reliable medium-value placements over risky all-or-nothing center attempts. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 120
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Set a team calibration habit in first rounds.\nBefore touching the dial, quickly anchor both spectrum endpoints with one obvious example each. Then place the clue relative to those anchors. This prevents overreacting to one person’s intuition.\n\n2) Psychic: choose clues your team shares context for.\nA brilliant clue with private references is worse than a simple clue everyone understands. In early game, prioritize shared cultural anchors over cleverness.\n\n3) Guessing team: decide dial ownership protocol.\nBecause anyone can turn the dial, chaotic 'grab wars' cost precision. Use a simple flow: open discussion -> one person final adjustment -> team lock.\n\n4) Opposing team: exploit language mismatch, not your own bias.\nWhen making LEFT/RIGHT guess, think 'What did this Psychic likely mean to THEIR team?' rather than where you personally place the clue.\n\n5) Rotate Psychics often and intentionally.\nDifferent clue styles can be stronger on different spectra; changing Psychics each round (as intended) keeps team signal quality high and avoids predictable patterns."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Multi-part clues that violate single-thought spirit.\nThese force teammates to weight two different ideas and usually create noisy guesses. Keep clues atomic.\n\n2) Psychic keeps talking after clue.\nEven harmless clarification leaks huge positional info. Rule is strict: after clue, total silence and straight face.\n\n3) Teams using number language to micro-position dial.\nIt may feel efficient, but it bypasses intended social deduction and can make rounds flat. Use relative language ('a bit right', 'much more left').\n\n4) Overfitting to extremes.\nPlayers often drag dial too far toward endpoint examples and miss that many targets are only slightly off-center.\n\n5) Opposing team overthinks LEFT/RIGHT as if full clue-solving.\nThat phase is binary; spending too long usually decreases accuracy. Make a quick, best-read directional call."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Precision clue vs robust clue\nA very specific clue can target center tightly but risks complete team mismatch; a broader clue is safer but may cap score at 2-3. Choose based on team calibration confidence.\n\nDecision 2: Early lock vs extended discussion\nLong discussion can improve placement, but too much debate introduces anchoring and drift. Teams should set a soft time limit: discuss core interpretation, then commit.\n\nDecision 3: Dial to maximize your score vs deny opponent bonus\nSometimes nudging toward guaranteed wedge points is better than chasing perfect center and risking miss; other times aiming for 4 is worth it because it also denies opponent LEFT/RIGHT bonus if hit.\n\nDecision 4: Rule-strict vs house-flex clue culture\nThe firm rules prevent abuse, but groups may adapt some edges. Decide table strictness early so clue disputes do not interrupt momentum."
+        }
+      ]
     }
   },
-  "total_token_count": 978,
+  "total_token_count": 1806,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "elf",
+    "created_at": "2026-02-23T07:35:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from wavelength.txt as primary source. Reference snippet: 2. Choose a wavelength: Draw 1 wavelength card from the"
+    "revision": 1,
+    "notes": "Written from provided Wavelength rulebook excerpt as primary source. Component count for cards is not numerically visible in excerpt; used full-deck phrasing per provided text."
   }
 }

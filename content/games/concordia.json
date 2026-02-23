@@ -2,58 +2,114 @@
   "game_id": "concordia",
   "title": "Concordia",
   "aliases": [
-    "Concordia Base Game"
+    "Concordia Base Game",
+    "Concordia Imperium/Italia"
   ],
   "publisher": "PD-Verlag",
   "player_count": {
     "min": 2,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 90,
     "max": 120
   },
-  "complexity": "medium-heavy",
+  "complexity": "heavy",
   "categories": [
-    "deck-building",
-    "economic",
+    "eurogame",
     "hand-management",
-    "map-control"
+    "route-building",
+    "economic",
+    "engine-building"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/concordia.txt",
+  "source_url": "https://www.pd-verlag.de/concordia",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Concordia contains map board, player sets with houses, sea and land colonists, storehouses, scoring markers, goods cubes, city tokens, coins, personality cards, Praefectus Magnus card, Concordia card, and player aids. Each player starts with a small hand of personality cards that define all actions and a full house supply for expansion. The card market is shared and partly removed by player count.",
-      "token_count": 80
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 double-sided game board (Imperium side for 3-5 players, Italia side for 2-4 players), 5 storehouses, 110 wooden player pieces across red/green/yellow/blue/black (per player: 3 sea colonists, 3 land colonists, 1 scoring marker, 15 houses), 80 wooden goods units (brick, food, tool, wine, cloth), 30 city tokens, 72 cards total (65 personality cards + 7 Concordia/auxiliary cards), 24 bonus markers, coin set in 1/2/5/10 sestertii denominations, 1 Praefectus Magnus card, 1 game rules booklet, 5 player aids, 1 quick intro, and 1 historical information booklet. Personality card structure from rules: 35 starting cards arranged as 7-per-player decks I-V, plus 30 cards for sale."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Choose map side by player count (Imperium for 3-5, Italia for 2-4). 2) Place city tokens and province bonus markers according to the map setup in the quick intro. 3) Prepare market display with 7 personality cards face up; include only cards for current player count and remove unused for-sale cards from game. 4) Place remaining for-sale personality cards as draw stack for replenishment. 5) Place goods supply and coin bank within reach. 6) Place the Concordia card nearby (awarded to end-triggering player). 7) Determine start player randomly. 8) Give Praefectus Magnus to the last player (to start player's right)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes one color's full set: storehouse, 6 colonists (3 land, 3 sea), scoring marker, and 15 houses. Each player receives one 7-card starting hand from their assigned starting deck (I-V), matching the rulebook's 35 starting cards (7 per player). Starting colonist/house positions and starting goods/coins are set using the quick intro map setup; colonists begin in Roma unless scenario/map setup specifies additional placement. Players place owned goods in their storehouse spaces and keep coins in front of them. Played personality cards will later form a face-up personal discard pile showing only the top card."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "After randomizing start player and assigning Praefectus Magnus to the player on start player's right, play proceeds clockwise. On every turn, a player must play exactly 1 personality card from hand and execute its action. No simultaneous turns. Card market begins with 7 cards available. Endgame can be triggered either by buying the last display card or by first player to place their 15th house."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn play exactly one card from hand and execute it. Played cards form your personal discard stack until Tribune recalls them. Actions cover movement and building, production, trade, copying actions, and buying new cards. Turns continue clockwise. Endgame triggers on last market card bought or when a player builds the final house.",
-      "token_count": 70
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Concordia has continuous clockwise turns rather than fixed rounds. Each player's turn is: 1) Choose exactly 1 personality card from your hand. 2) Play it and fully resolve all effects in printed order. 3) Place that card onto your personal discard pile (top card visible). 4) Pass play to left. Core rhythm revolves around exhausting hand, then using Tribune to recover cards and optionally add a new colonist. Market and board state update continuously as cards are bought, houses built, provinces activated, and production markers flipped."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "TRIBUNE: Recover all previously played cards into hand. If total cards recovered (including Tribune) exceeds 3, gain 1 sestertius from bank per card above 3. Then you may optionally buy 1 new colonist by paying 1 food + 1 tool, placing either land or sea colonist from your storehouse into Roma.\n\nARCHITECT (2-step action): (1) Move colonists. Total movement steps available equals number of your colonists on board. You may split steps among colonists freely. Land colonists move only on brown lines; sea colonists only on blue lines. First step moves from city onto adjacent line; later steps move through city onto next line. Colonists may move through occupied lines, but cannot end movement on an already-occupied line segment. (2) Build houses after all movement. You may build in cities adjacent to any of your colonists by paying goods + coins to bank. Goods cost: in a brick city pay 1 food; in any other city pay 1 brick + 1 good matching that city type. Coin base cost by city type: brick city 1, food city 2, tool city 3, wine city 4, cloth city 5. If city already contains houses, multiply coin cost by total number of houses that will be present after your build. Goods cost is not multiplied. Restrictions: max one of your houses per city; never build in Roma.\n\nPREFECT (choose one mode): (A) Province production mode: choose one active province whose bonus marker currently shows goods side. Flip that province marker to coin side; gain 1 unit of depicted bonus good from bank; then all houses in that province (all players) produce one unit of their city's good. You may choose this even with no house in that province. (B) Cash-bonus mode: gain 1 sestertius for each visible coin currently showing on province bonus markers. Then flip all coin-side bonus markers back to goods side (reactivating provinces).\n\nCOLONIST (choose one mode): (A) Place colonists: for each new colonist placed, pay 1 food + 1 tool; place in Roma or in any city where you own a house. (B) Take money: gain 5 sestertii plus 1 additional sestertius per your colonist currently on board.\n\nMERCATOR (2-step action): gain 3 sestertii (or 5 if using purchased Mercator variant card), then trade with bank in up to 2 different goods types total. You may buy two types, sell two types, or buy one/sell one. Quantity constrained by your money and free storage spaces in storehouse. Prices are fixed as printed on storehouse roof.\n\nDIPLOMAT: Copy action of top face-up personality card in another player's discard pile. Resolve as if you played that copied card yourself. Cannot copy actions from players who just used Diplomat or who just recovered cards with Tribune (i.e., no chain/copy loophole from reset state).\n\nSENATOR: Buy up to 2 personality cards from market display into hand. Card cost = (red-box printed cost on card) + (slot cost shown beneath its display position; '?' means any one good of your choice). After purchases, shift remaining display cards left to fill gaps and refill to 7 from stack while available.\n\nCONSUL: Buy exactly 1 personality card from display into hand. Pay only red-box printed cost on card; ignore slot cost below position. Then shift left and refill to 7 as with Senator.\n\nSPECIALISTS (Mason/Farmer/Smith/Vintner/Weaver): produce one unit for each of your houses in matching city-good type. Only your houses produce; other players unaffected."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Praefectus Magnus timing rule: if the player currently holding Praefectus Magnus uses a Prefect production action (including via Diplomat copy), that player receives double province bonus good (2 units instead of 1). City production in that province is unchanged. After resolving, Praefectus Magnus passes to player on holder's right. Holder must use it when eligible; they may not decline the bonus to keep the card for later.\n\n2) Shared-economy province cycling: provinces alternate between goods side (active for production option) and coin side (spent). Prefect production spends one province tile to coin side; Prefect cash option reactivates all spent provinces. This creates tempo windows where some players want immediate production and others want to delay reset until they can exploit coins.\n\n3) Movement occupancy nuance: route segments (not cities) are the occupancy-limited spaces for colonists. You may pass through occupied segments by spending movement, but endpoint must be unoccupied. This allows tactical traffic blocking while preserving route traversal.\n\n4) House cost scaling pressure: coin build cost increases with crowding in a city regardless of owner. Late builds in contested high-value cities become expensive in cash but unchanged in goods. This is a central interaction mechanism in an otherwise low-conflict euro system.\n\n5) Hand-cycle economy: your hand is your action menu; every played card reduces flexibility until Tribune resets hand. Good Concordia play is sequencing: cash generation, goods conversion, board expansion, card acquisition, then timely Tribune recovery for efficient next cycle.\n\n6) Market compression: after each purchase, cards slide left and slot costs reposition. The same card can become more or less affordable depending on timing; Senator and Consul have different efficiency profiles because Senator pays slot costs and can take two cards, while Consul ignores slot cost but buys only one."
+        },
+        {
+          "id": "additional-god-scoring-reference",
+          "title": "God-Based Card Scoring Reference",
+          "content": "Final scoring is entirely card-driven: each personality card belongs to one ancient god and awards points according to that god's achievement criterion (examples from rulebook text include populated provinces, number of colonists, and other empire-development metrics). This means your end score is not from board area-control majority alone; it is from how your board and economy match the gods represented by your owned personality cards. Cards bought from market increase both tactical options during play and multiplicative scoring potential at game end."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: game ends immediately when either (a) a player purchases the last card from the board display, or (b) a player builds their 15th house. The triggering player immediately takes the Concordia card. Then all other players each take one final turn.\n\nFinal scoring procedure: score all personality cards according to their god categories and their corresponding achievements (as defined on final scoring page/reference): examples explicitly cited in rules text include number of populated provinces, number of colonists, and similar empire metrics. Add all god-card points together for each player, including points from cards in hand and played sets as applicable in official scoring method. Include Concordia card value/benefit as awarded by end trigger. Highest total wins.\n\nVictory point sources (complete structure used in base game scoring): 1) VP from each owned personality card's god-based formula, 2) Concordia card bonus for end-triggering player, 3) any intermediate scoring is optional/teaching only and does not replace final scoring.\n\nTiebreaker: if players tie on total victory points, player with most sestertii wins; if still tied, player with greater total goods value in storehouse wins; if still tied, shared victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Concordia is hand-programming through deck cycle timing. Architect drives expansion by moving colonists then building in reachable cities for cost. Prefect either produces in provinces or takes coin according to card mode and province state. Mercator manages buy and sell liquidity. Tribune recovers played cards and can grant coin plus optional new colonist purchase with food and tools. Diplomat copies the previous action card from another player under its limits. Purchased personality cards both add actions and define endgame multipliers tied to gods, so market buys are strategic scoring commitments. Province spread, city type access, and colonist mix determine long-term scoring ceilings. Common mistakes include poor Tribune timing, overexpansion without cash, and buying cards with no board state to score them.",
-      "token_count": 157
-    },
-    "scoring_and_endgame": {
-      "content": "Game ends when a player builds the fifteenth house or buys the last market card. Trigger player gains Concordia card and all others take one final turn. Final scoring is entirely by god-card multipliers based on your board and economy state. Highest points wins with tie breaks by standard rule order.",
-      "token_count": 66
-    },
-    "beginner_strategy": {
-      "content": "Expand into diverse provinces early. Keep enough cash to exploit Architect turns. Buy scoring cards before midgame so you can actually score them. Time Tribune so your hand never stalls. Watch opponents god portfolios and contest key city types.",
-      "token_count": 50
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Establish movement infrastructure early. Your first Architect turns should prioritize colonist spread to multiple adjacent build options, not just immediate house count. More reachable cities means stronger future Architect conversions and better specialist triggers.\n\n2) Build an economy triangle: cash flow (Colonist/Mercator), goods flow (Prefect/Specialists), and action flow (Tribune timing). New players often overbuild houses before sustaining inputs; instead, ensure you can repeatedly pay building goods and coin multipliers in later contested cities.\n\n3) Target at least two god-scoring lanes by mid-early game. Because final points are card-god based, opening purchases should align with likely board growth (provinces, colonists, city types). Buying tactically useful cards that do not map to your eventual scoring profile often underperforms.\n\n4) Watch slot-cost efficiency in market. Early Senator is strong when two cards are both high-value even after slot taxes; early Consul is strong when one key card is expensive in slot tax but cheap in printed cost.\n\n5) Use Prefect timing proactively: if many coin-side province markers are visible, cash reset can spike income; if key province still active with your houses, production can beat immediate cash. Track both before your turn so you can pivot quickly."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Late Tribune resets. Beginners frequently keep playing weak leftover cards to avoid spending a turn on Tribune, resulting in lower total tempo and missed colonist opportunities. Efficient hand reset is not a loss of turn; it is cycle acceleration.\n\n2) Overpaying contested city coins without plan. The coin multiplier in crowded cities is punishing; entering a city as third/fourth builder without immediate scoring/economic reason can cripple your cash curve.\n\n3) Ignoring storehouse capacity when trading/producing. Mercator and specialist production are constrained by storage spaces; producing/trading into full storage wastes potential. Expand practical storage use by placing colonists (which open storage spots) and timing purchases/spends.\n\n4) Buying cards for text, not for scoring god mix. Concordia's end score comes from your card set's gods multiplied by empire state. A card with a useful action but mismatched scoring profile can dilute your ceiling if repeated too often.\n\n5) Mis-sequencing Prefect cash reset. Taking cash reset too early may reactivate provinces for opponents before you can benefit, while delaying too long can leave multiple coin-side markers unclaimed when you needed liquidity."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision A - Board expansion vs market investment: spend early resources on more houses (improving production web and city access) or on personality cards (increasing action flexibility and scoring multipliers). The best line depends on whether your current hand can monetize new cards quickly.\n\nDecision B - Tribune timing threshold: reset hand now for income + colonist option + full menu next cycle, or delay one turn to exploit a narrow tactical action currently available. Expert timing often resets slightly earlier than intuition suggests.\n\nDecision C - Prefect mode choice each time: produce one active province for direct goods and broad table production, or cash-reset all coin markers for immediate money burst and global province reactivation. This is one of Concordia's highest-leverage tempo decisions.\n\nDecision D - Specialist density vs diversification: stacking houses in one good type amplifies specialist cards, while diverse city coverage supports broader card purchases and god conditions. Over-specializing can create brittle economy; over-diversifying can dilute efficiency.\n\nDecision E - Endgame trigger control: rushing 15th house or draining final market card can freeze opponents before they optimize last cycles, but if timed poorly it may hand them high-value final turns. Trigger only when your own scoring conversion is already locked."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4276,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "gnome",
+    "created_at": "2026-02-22T23:16:00-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary source: Concordia rule text provided in prompt, including components, game flow, end triggers, and personality card action descriptions."
   }
 }

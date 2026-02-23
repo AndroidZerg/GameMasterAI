@@ -1,59 +1,110 @@
 {
   "game_id": "viticulture",
-  "title": "Viticulture",
-  "aliases": [
-    "Viticulture Essential Edition"
-  ],
+  "title": "Viticulture: Essential Edition",
+  "aliases": ["Viticulture", "Viticulture Essential Edition"],
   "publisher": "Stonemaier Games",
   "player_count": {
     "min": 1,
     "max": 6,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 45,
     "max": 90
   },
-  "complexity": "medium",
+  "complexity": "heavy",
   "categories": [
-    "worker-placement",
-    "engine-building",
-    "economic",
-    "set-collection"
+    "Worker Placement",
+    "Engine Building",
+    "Hand Management",
+    "Economic Management",
+    "Tableau Building"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/viticulture.txt",
+  "source_url": "https://stonemaiergames.com/games/viticulture/rules/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Viticulture Essential Edition includes main board, six vineyard mats, worker and grande worker meeples, temporary worker, structure tokens, grape and wine tokens, lira coins, wake-up roosters, VP and residual markers, first player token, and multiple card decks: vine, wine order, summer visitor, winter visitor, plus mama and papa setup cards. Players manage fields, crush pad, cellar tracks, and structures on personal mats.",
-      "token_count": 80
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Cards (232 total): 42 vine cards (green), 36 wine order cards (purple), 38 summer visitor cards (yellow), 38 winter visitor cards (blue), 18 field cards (large, double-sided), 24 Automa cards (large, beige back), 36 mama and papa cards (large, pink/blue deck). Pieces: 30 regular worker meeples (6 colors), 1 gray temporary worker, 6 grande worker meeples, 50 glass grape and wine tokens, 6 rooster wake-up tokens, 6 cork victory-point tokens, 6 residual-payment tracker tokens (wine bottles), 48 wooden structure tokens (8 unique per color), 72 lira coins (52 bronze value-1, 12 silver value-2, 8 gold value-5), and 1 first-player token (grapes). Boards and references: 1 main game board, 6 vineyard mats, and rulebook + quick-reference guide."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the main board in the center. 2) Shuffle and place the four small-card decks in their marked deck spaces: vine (green), summer visitor (yellow), wine order (purple), winter visitor (blue). 3) Put shared coin supply and other components near the board. 4) Each player places their rooster token above the wake-up chart, cork token on the start space of the VP track, and wine-bottle token in the middle of the residual-payment tracker. 5) Each player takes a vineyard mat and places their 3 starting field cards (value 5, 6, and 7) field-side up on the mat. 6) Keep in mind open-information rule from the board notes: each player's vineyard mat, available workers, lira amount, and card counts/types are public."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "After first player is randomly chosen from claimed rooster colors, shuffle mama and papa cards and deal each player one face-up mama and one face-up papa. Resolve mama first: every mama gives 2 regular workers and tells you which starting cards to draw for your opening hand. Resolve papa second: every papa gives 1 grande worker, usually some lira, and a choice (commonly start with a specific structure or take extra lira; some papas offer an extra regular worker or a victory point instead of a structure). Players make papa choices clockwise from first player. Once all starting resources are taken, discard mama/papa cards; they are setup-only."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Use the deck maintenance rule from turn 1 onward: if one of the four small decks empties, reshuffle its discard to form a new deck immediately; if no discard exists yet, that deck is temporarily unavailable until cards are discarded. After setup and initial resources are complete, begin Year 1 in Spring. The first-player token only sets who picks wake-up row first in Spring; Summer/Fall/Winter action order for the entire year is based on wake-up chart row positions chosen that spring."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each year has spring, summer, fall, winter, and year end. In spring players choose wake-up position for turn order and bonus. Summer uses workers for planting, structures, and card actions. Fall grants visitor cards. Winter handles harvest, winemaking, training, and filling orders. Year end ages grapes and wines and recalls workers.",
-      "token_count": 66
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Viticulture is played in yearly cycles with five phases, repeating until endgame trigger. 1) Spring - Wake-Up Placement: starting with the first-player token holder and moving clockwise, each player places their rooster on an open wake-up row (1-7), sets player order for the rest of the year, and gains that row's bonus. Wake-up bonuses are: Row 1 no bonus; Row 2 draw 1 vine card; Row 3 draw 1 wine order card; Row 4 gain 1 lira or 1 VP; Row 5 draw either a summer or winter visitor card; Row 6 gain 1 VP; Row 7 gain the temporary worker for this year. 2) Summer - Yellow Action Season: in top-to-bottom wake-up order, each player takes turns placing exactly 1 worker on an available summer action and resolving it immediately, or passing to save remaining workers for winter. Continue turn cycle until all players pass. 3) Fall - Visitor Draw: in wake-up order, each player draws either 1 summer visitor or 1 winter visitor card. 4) Winter - Blue Action Season: in wake-up order, each player places 1 worker per turn on available winter action spaces and resolves immediately, repeating until all players have placed all workers (or otherwise exhausted worker usage for year). 5) Year End: age grape and wine tokens, return workers to vineyard mats, collect residual payments, remove roosters from wake-up chart, and rotate first-player token counterclockwise. If any player has reached or exceeded 20 VP, the game ends after completing this Year End."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Core worker-placement constraints: each worker may be used only once per year; place one worker per turn; workers can only go in current season spaces; if you pass in a season you cannot place more workers that season; when you place a worker, that action is mandatory. Board scaling by player count: in 2-player, only left action space of each action is open; in 3-4 players, left + middle spaces are open; in 5-6 players, all three spaces are open. Each action space holds one worker. Bonus icons on specific spaces are optional additions; the main action remains mandatory. Grande worker rules: the grande follows regular worker rules but can be placed on an already fully occupied action to still perform that action; multiple players can do this with their grande workers. If grande is placed directly in a bonus action space, it also gets that bonus; if placed on action art of a full action, no bonus icon is gained.\n\nSummer actions shown in the provided rules pages: (A) Gain 1 lira action (cart): in summer or winter, place a worker on the cart to gain 1 lira; unlimited workers may use this over a year. (B) Play one summer visitor card: play from hand and resolve effect, then discard to summer visitor discard; bonus space allows playing an additional summer visitor card. (C) Draw one vine card: draw from vine deck; bonus space draws one additional vine card. (D) Give a vineyard tour: gain 2 lira; bonus space grants additional 1 lira. (E) Sell at least one grape OR buy/sell one field: you may sell one or more grape tokens from crush pad for printed prices (discard sold grapes), OR sell one empty field for its printed lira, OR buy back one sold field at same cost. You cannot sell a field that contains vines, and cannot plant on sold fields. Bonus grants 1 VP. (F) Build one structure: pay the structure's cost and place corresponding structure token on your mat; one copy maximum per structure type per player. Bonus grants 1 lira. (G) Plant one vine: place a vine card from hand on an empty field or stack on a planted field. Field total vine value cannot exceed that field's limit (5, 6, or 7). Bonus allows planting one additional vine. Vines usually remain planted for game duration unless uprooted by special effects.\n\nAdditional rules shown in excerpt: Uproot can occur via Yoke or certain visitor cards, returning a planted vine card to hand; this is a niche reconfiguration action. Visitors can include point-loss costs, and players cannot go below -5 VP; if already at -5, you cannot use a visitor requiring more VP loss."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Viticulture's key system is seasonal tempo management. Wake-up row choice is both initiative and compensation: earlier rows act first but gain weaker/no bonus, while later rows sacrifice action order for stronger benefits, including temporary worker at row 7. This creates a recurring timing puzzle every year. Another core mechanism is card-to-production conversion: vine cards generate specific grape colors/values, often with structure prerequisites (trellis, irrigation, or both) printed on the card; you must build required structures before planting those vines. Terminology from rulebook matters: grape/wine value is used for production and order fulfillment, while grape price is immediate money when selling grapes. Worker pressure is intentionally tight because workers are single-use per year and split between summer and winter. The grande worker is your anti-blocking valve. Temporary worker (wake-up row 7) acts as a regular worker for that year only."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: when any player reaches or exceeds 20 victory points, finish the current year through Year End, then determine winner by highest VP total. Players may score above 20; there is no hard cap. Victory points in the provided rules text come from multiple sources, including: filling wine orders (core progression described in game objective), wake-up chart VP bonuses (rows 4/6 options), certain summer/winter visitor effects (including cards with negative VP costs), and other board/card effects that award VP icons. Final tiebreakers (in order, exactly as rulebook states): 1) Most lira. 2) Total value of wine in cellar. 3) Total value of grapes on crush pad."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Worker placement is seasonal and space-limited. Grande worker can use an already-occupied action once per year, providing tactical protection against blocking. Vine cards determine legal planting and must respect field value limits. Harvest converts field vines into grape values on crush pad tracks. Winter actions convert grapes to wine if cellar level supports that wine type. Wines and grapes age at year end up to track caps. Wine order cards provide points and residual income and are the primary scoring engine. Structures unlock vital capabilities such as cellar upgrades, yoke, and vine requirements. Visitor cards are powerful but timing-locked by season deck color. The wake-up chart creates an order versus bonus tradeoff every year. Common mistakes include producing wine beyond cellar limits, forgetting season restrictions, and racing to points without reliable residual income or order flow.",
-      "token_count": 176
-    },
-    "scoring_and_endgame": {
-      "content": "Game-end trigger is a player reaching twenty points, but the current year is completed before final winner is declared. Highest point total wins; ties break by most lira, then total wine value in cellar, then grape value on crush pad. Players may exceed twenty points.",
-      "token_count": 58
-    },
-    "beginner_strategy": {
-      "content": "Build cellar and planting infrastructure before overdrawing cards. Create steady residual income early for long-term tempo. Use grande worker as a safety tool for critical blocked actions. Choose wake-up positions based on your immediate bottleneck. Fill orders on a repeatable cadence rather than one burst and stall.",
-      "token_count": 61
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build your pipeline, not just your hand: in early years, prioritize actions that connect vine acquisition -> planting -> future winter conversion/filling. Drawing vine cards without planting access, or planting without future payoff, creates dead tempo. 2) Respect wake-up tempo: choose early rows when contested actions are critical (for example, first access to key summer slots), and late rows when the bonus materially fixes your bottleneck (card type, VP, or temporary worker). 3) Use grande worker as insurance, not default: hold it for the one action you absolutely cannot miss once blocking appears. 4) Make field capacity decisions with math: because fields cap at 5/6/7 total vine value, avoid random planting that strands high-value cards later. 5) Keep at least one flexible line in hand (visitor or vine) so you can pivot if action spaces are blocked."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating wake-up bonuses as free value and ignoring turn order. Going late for a nice bonus often loses more value if key actions are taken first by others. 2) Overcommitting to summer economy and arriving in winter with weak conversion/fill capability. Viticulture rewards full-cycle planning across seasons, not isolated good turns. 3) Planting vines without checking prerequisites or field limits. This causes illegal/inefficient placements and stalls long-term wine quality growth. 4) Spending grande worker too early on a replaceable action. Once gone, you can get hard-locked out of must-have spaces later in the year. 5) Selling grapes reflexively for cash. Immediate lira is useful, but selling too many grapes can delay order fulfillment and reduce VP pace."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Initiative vs compensation: every spring asks the same strategic question—act first on scarce actions, or accept later action order for stronger wake-up bonuses and possible efficiency spikes. 2) Money now vs points later: use grape sales, field sales, and structure buys to stabilize economy, but weigh each coin move against delayed order-filling tempo. 3) Engine depth vs tactical visitors: do you invest turns into persistent vineyard improvements (fields/structures/vines) or leverage visitor cards for immediate tactical gains and timing swings? Strong play mixes both based on table pressure and your wake-up row."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+
+  "total_token_count": 4090,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "tiefling",
+    "created_at": "2026-02-22T23:18:48-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Written from provided Viticulture Essential Edition excerpt (setup, yearly structure, wake-up chart, worker placement, summer actions, prerequisites, and endgame/tiebreakers)."
   }
 }

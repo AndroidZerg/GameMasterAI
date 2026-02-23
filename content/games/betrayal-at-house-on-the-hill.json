@@ -1,16 +1,15 @@
 {
   "game_id": "betrayal-at-house-on-the-hill",
-  "title": "Betrayal at House on the Hill",
+  "title": "Betrayal at House on the Hill (3rd Edition)",
   "aliases": [
-    "Betrayal 2nd Edition",
-    "Betrayal 3rd Edition"
+    "Betrayal 3e"
   ],
   "publisher": "Avalon Hill",
   "player_count": {
     "min": 3,
     "max": 6,
     "recommended": 5,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 60,
@@ -18,43 +17,93 @@
   },
   "complexity": "midweight",
   "categories": [
-    "thematic",
+    "traitor-game",
+    "modular-board",
     "horror",
-    "cooperative",
-    "traitor"
+    "scenario-driven",
+    "dice-checks"
   ],
-  "source_url": "https://avalonhill.wizards.com/en-us/games/betrayal-at-house-on-the-hill",
+  "source_url": "https://avalonhill.hasbro.com/en-us/product/betrayal-at-house-on-the-hill-3rd-edition:F4541",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Betrayal At House On The Hill by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Jetons nécessaires Jetons numérotés 8 jetons d'attribut – Indices Découvrir la vérité Si vous avez un jeton d'indice et si vous êtes sur une tuile où se trouve l'autre jeton du même attribut ou un héros ayant ce jeton, faites un test de l'attribut correspondant. Indices Chaque jeton d'attribut est un indice qui doit être apparié avec l'autre jeton du même attribut. Cartes Objet Les objets sont des choses utiles que vous pouvez trouver en explorant la maison, comme une lampe torche ou une tronçonneuse. Vous avez décidé de satisfaire votre curiosité ...",
-      "token_count": 222
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Components listed in the provided 3rd Edition rulebook excerpt: 6 double-sided character sheets, 2 haunt books (Secrets of Survival and Traitor’s Tome), 6 character miniatures, 6 miniature bases, 4 sliders per player for traits, 74 game cards total (Event, Item, and Omen), room tiles including 3 starting tiles (the large ground-floor triple start tile, Basement Landing, and Upper Landing) plus additional room tiles in a shuffled deck, 5 scenario cards, 5 player reference cards, 1 traitor reference card, 1 monster reference card, 2 dice, 1 tracker with indicator, and 114 cardboard tokens. The component panel in the excerpt also shows room-tile and token count groupings; all setup and play references in this guide follow those listed totals and item types."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Set both haunt books aside; they are not used until the haunt begins. 2) Place the three starting tiles in the center area, separated as instructed (about 20–25 cm apart): the large ground-floor start tile and the two landing tiles for basement and upper floor. 3) Shuffle the remaining room tiles into a face-down stack. 4) Separate Event, Item, and Omen cards into three decks and shuffle each; place face down within reach of all players. 5) Put the monster reference card and traitor reference card face up on the table. 6) Set the tracker, indicator, and cardboard tokens aside for later use when required by haunt setup."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses one character and takes the matching character sheet, miniature, and color base, then inserts miniature into base. Each player receives four trait sliders and sets them to the green starting values shown on their character sheet (for Might, Speed, Knowledge, and Sanity). Each player receives one player reference card. All explorers begin on the Entrance Hall space of the large starting tile."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "As a group, choose one of the 5 scenario cards. That scenario establishes why the explorers entered the house and determines which haunt branch is tied to this game. Return unused scenario cards to the box. Determine first player by birthday rule from the excerpt: the player whose character has the next upcoming birthday goes first. Play proceeds clockwise. The game begins in the pre-haunt phase with all players on the same side."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Betrayal At House On The Hill: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Toutes les actions sont considérées comme des informations ouvertes À chaque fois que vous effectuez une action pendant une hantise, l'autre équipe peut vous demander d'expliquer ce que vous faites. Vous pouvez effectuer autant d'actions spéciales que vous le voulez pendant votre tour, mais vous ne pouvez effectuer chaque action spéciale qu'une seule fois par tour. TUILE DE DÉPART ACTION INFORMATION SUR SPÉCIALE LES MONSTRES Voir Mise en place, Voir Actions spéciales, étape 8, page 7 page 13 Voir ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Before the haunt, use this turn flow: 1) Start turn with available movement based on your current Speed and effects. 2) Move through discovered rooms and/or reveal one new adjacent room tile when exploring unknown space. 3) Resolve the newly revealed tile and draw/resolve a card if the room shows Event, Item, or Omen symbol. 4) If an Omen is discovered, make a haunt roll under 3rd Edition rules (roll one die per discovered Omen; if any die shows 5+ threshold condition from rules excerpt, the haunt starts; if haunt still has not started when the last Omen is drawn, it starts automatically). 5) End turn. In this edition, a turn ends automatically when you discover/place a new room tile and resolve it, unless another explicit effect extends your actions. After haunt begins, follow haunt-specific turn and objective rules while maintaining core movement/combat/check framework unless the haunt overrides it."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Core pre-haunt actions and options from the provided rules sections: \n\nMovement: Move through adjacent connected rooms according to your current Speed and tile links. Forced movement effects can override normal movement choice. \n\nExploration: When you move into unexplored edge space, reveal and place an eligible room tile from the room stack. Tile placement grows the house differently each game. \n\nCard resolution: If a room displays Event, Item, or Omen symbol, draw the matching card deck and resolve its text immediately. Events are usually one-time effects; Items grant ongoing capabilities; Omens are dangerous signs that also influence haunt timing. \n\nChecks/tests: Many card and room effects call for trait checks (Might, Speed, Knowledge, Sanity). Roll the specified dice and compare against target/effect text. \n\nTrait management: Gain, lose, and heal traits by moving sliders as instructed. If a critical trait falls to fatal level, your explorer dies (corpse remains on tile in this edition). \n\nTrading: Players may exchange permitted items/powers according to turn and haunt rules when conditions are met. \n\nSpecial actions: Certain cards and haunts grant explicit special actions; these can break normal patterns but must be read and followed exactly.\n\nPost-haunt information rule: during haunt, if you perform an action from your haunt book, opponents may ask you to read the full action text aloud; once used, that action information is no longer secret."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Two-phase game structure: Betrayal 3e has a cooperative exploration phase followed by a haunt phase where teams/objectives shift. In many haunts, one player becomes traitor; in others, there may be no traitor, hidden traitor, or free-for-all structures. \n\nScenario-card-driven haunt selection: unlike earlier matrix-based selection, the chosen scenario card sets the haunt path and traitor determination logic. \n\nHaunt trigger update: the haunt roll procedure changed in 3rd Edition (one die per discovered Omen; haunt starts when threshold result occurs; automatic trigger if last Omen appears first). \n\nTurn-ending change: in this edition, discovering and resolving a new room tile ends your turn by default. \n\nNo default stealing: stealing items after combat is not a baseline rule in this edition unless a haunt explicitly grants it. \n\nCorpse looting: dead explorers leave a body on the room where they died; other explorers can take items and omens from that body, and some haunts use corpses for objectives or powers. \n\nOpen action information during haunt: when an action is used from a haunt book, its text can be demanded and read openly, reducing rules ambiguity and hidden procedural advantages."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Betrayal does not use victory points. The game ends immediately when one side fulfills its haunt-specific win condition, as written in the corresponding hero and traitor haunt sections. During setup of the haunt, both sides read their introductory/setup text aloud before separating, then continue with side-specific hidden instructions. Depending on the haunt, winners may be heroes, traitor, hidden side, or an individual in free-for-all format. The provided rulebook excerpt defines this as objective completion rather than score totals; therefore there are no universal VP sources and no universal tie-breaker. If a timing conflict appears, resolve by haunt text priority first, then group consensus as recommended by the rules’ play-smoothly guidance."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Betrayal At House On The Hill, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: Par exemple, vous pouvez vous déplacer une première fois, échanger un objet, vous déplacer à nouveau, effectuer une action spéciale, puis vous déplacer une troisième fois. autres tests, 10 tests d'attribut, 10 échanges, 13 Voir aussi pillage égalité, désigner le traître, 18 enterrer, 12 étourdir, 19 fiches de personnage, 6–9 fin de la partie, 19 guérison, 5, 9 hantise, anatomie d'une, 16 comment jouer, 14–19 test de hantise, 5 début, 14 types, 14 voir aussi attaquer, monstres hantise sans traître, 14 hantise à traître caché, 14 hantise à un traître, 14 héros et explorateurs, différence, 14 mise en place, du jeu, 6, 7 de la hantise, 16 monstres, 15, 16, 18, 19 contrôle, 19 encadrés de monstre, 16 voir aussi, cartes, hantise, traître mort, 19 obstacles, 15, 18 pillage, 15 voir aussi attaquer, cartes Objet symboles utilisés, 4 tests, lancers, 10 Voir aussi les dés tests d'attaque, 10 tours, 11 fin, 13 actions spéciales, 13 traître, 14 malgré eux, 18 ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: Une fois pendant votre tour, vous pouvez Visiter un des endroits préférés de la bande Si vous êtes sur un des endroits préférés de la bande, guérissez tous vos attributs. 6 Mise en place 7 Aperçu du matériel 8 Cartes 8 Tuiles de pièce 8 Jetons 8 Fiches de personnage et figurines 8 Gain, perte et guérison des attributs 9 Attributs critiques 9 Mort d'un personnage 9 Comment les dégâts affectent vos attributs 9 Les dés 10 Tests d'attribut 10 Tests d'attaque 10 Tests de hantise 10 Autres tests 10 JOUER AVANT LA HANTISE Comment jouer : Avant la ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Betrayal At House On The Hill: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 143
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Explore efficiently but keep relative team spacing. Splitting too far in pre-haunt can leave weak characters isolated when betrayal starts. 2) Build broad capability across the table: try to distribute key Items and Omens so one unlucky role flip does not remove all power from one side. 3) Track trait health early—especially low Speed and low Might characters—because random losses can put someone at death risk before the haunt. 4) Read every card effect carefully and apply immediately; small pre-haunt gains stack into major post-haunt survivability. 5) Use scenario awareness: because scenario card influences haunt path, plan with uncertainty but remember that the game is designed for a dramatic role split, not pure co-op optimization."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Misplaying 3rd Edition haunt timing with old-edition memory. If your group uses the wrong haunt roll logic, game balance breaks fast. \n2) Ignoring the automatic end-of-turn on room discovery in 3e, which creates illegal extra actions and tempo mistakes. \n3) Hoarding all useful gear on one explorer. If that explorer dies or becomes traitor, the team can collapse. \n4) Not resetting mindset when haunt begins. Players sometimes keep acting co-op even after objectives diverge; this hands wins to the opposing side. \n5) Skimming haunt setup text. Most losses in Betrayal come from missing one line of setup, component placement, or action restriction."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Pace of exploration vs safety: exploring quickly accelerates card gain and map knowledge, but also accelerates omen count and haunt trigger. \n\nPositioning vs efficiency: grouping explorers reduces risk and supports trades, while spreading increases map reveal and card opportunities. \n\nResource concentration vs resilience: stacking strong items on one character creates tactical spikes, but distributing tools across explorers protects you against betrayal and deaths."
+        }
+      ]
     }
   },
-  "total_token_count": 1109,
+  "total_token_count": 2812,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-02-23T07:12:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source used: provided Betrayal at House on the Hill 3rd Edition rulebook excerpt (French)."
   }
 }

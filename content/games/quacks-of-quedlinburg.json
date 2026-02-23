@@ -2,57 +2,109 @@
   "game_id": "quacks-of-quedlinburg",
   "title": "The Quacks of Quedlinburg",
   "aliases": [
-    "Quacks of Quedlinburg"
+    "Quacks of Quedlinburg",
+    "Quacks"
   ],
-  "publisher": "CMYK / Schmidt Spiele",
+  "publisher": "Schmidt Spiele",
   "player_count": {
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 4
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 45,
     "max": 60
   },
-  "complexity": "gateway",
+  "complexity": "midweight",
   "categories": [
-    "bag-building",
-    "push-your-luck",
-    "engine-building"
+    "Bag Building",
+    "Push Your Luck",
+    "Simultaneous Play",
+    "Variable Player Powers",
+    "Engine Building"
   ],
-  "source_url": "https://www.cmyk.games/products/quacks",
+  "source_url": "https://www.schmidtspiele.de/details/produkt/die-quacksalber-von-quedlinburg.html",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Quacks Of Quedlinburg by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Fortune Teller Cards At the beginning of each turn, the player who has the Fortune Teller cards in front of them reads the first card aloud, then lays it face up next to the Scoring Track, which starts the discard pile. Each player receives one pot (player board), one bag, and the scoring marker in the color of their choice, which they place on the seal tile of the same color. 4 pots (player boards) 2 red ingredient books 2 blue ingredient books 1 Scoring Track with Turn Indicator 2 purple ingredient books 215 ingredient ...",
-      "token_count": 222
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact component counts from provided rulebook text:\n- 2 yellow ingredient books\n- 2 green ingredient books\n- 2 red ingredient books\n- 2 blue ingredient books\n- 2 purple ingredient books\n- 1 orange ingredient book\n- 1 black ingredient book\n- 24 Fortune Teller cards\n- 4 pots (player boards)\n- 1 scoring track with turn indicator\n- 215 ingredient chips + 3 replacement chips\n- 4 bags\n- 4 flasks\n- 4 0/50 seal tiles\n- 20 rubies\n- 1 Almanac of Ingredients\n- 1 flame (turn marker)\n- 8 droplets (4 are for game variation)\n- 1 bonus die\n- 4 scoring markers\n- 4 rat stones\n\nStarting chips per player (taken from chip supply): 4 white 1-chips, 2 white 2-chips, 1 white 3-chip, 1 orange 1-chip, 1 green 1-chip."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Put the Scoring Track in the center.\n2) Put the Flame on turn space 1 of the turn indicator.\n3) Put the four 0/50 seals on their matching spaces with the “0” side up.\n4) Lay out the Orange and Black ingredient books (always used).\n5) Choose one set (1-4) for Green, Blue, Red, Yellow, Purple books. For first game use Set 1.\n6) At setup start, place only Green, Blue, Red books from chosen set; keep Yellow and Purple aside (they enter in turns 2 and 3).\n7) Sort ingredient chips by color and place near matching books.\n8) Shuffle Fortune Teller cards and place face down near start player as draw pile; create discard next to scoring track when first revealed."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes one color set: 1 pot, 1 bag, 1 flask, 1 scoring marker, 1 rat stone.\n- Place scoring marker on matching colored seal tile.\n- Place pot in front of you with side without test tubes face up.\n- Place droplet on “0” in center of pot.\n- Place flask on large trivet, full side face up.\n- Place rat stone on small trivet left of flask.\n- Put the starting 9 chips into your bag: 4x white-1, 2x white-2, 1x white-3, 1x orange-1, 1x green-1."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The last person who cooked something is start player and holds the Fortune Teller deck.\n\nThe game lasts 9 turns. At the start of each turn, reveal and read the top Fortune Teller card aloud. Resolve card timing by color:\n- Purple Fortune Teller cards: resolve directly before turn begins.\n- Blue Fortune Teller cards: effect lasts through turn or resolves at end as indicated.\n\nRulebook turn unlock reminder:\n- Yellow ingredient book becomes active in turn 2.\n- Purple ingredient book becomes active in turn 3."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Quacks Of Quedlinburg: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Nina Lucas Turn Indicator The Turn Indicator shows what turn it is and whether or not an action must be carried out to start the turn. Fortune Teller Cards At the beginning of each turn, the player who has the Fortune Teller cards in front of them reads the first card aloud, then lays it face up next to the Scoring Track, which starts the discard pile. B) Chip Actions Beginning with the start player and then proceeding clockwise, each player will ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each of the 9 turns follows this sequence:\n1. Reveal and resolve Fortune Teller card.\n2. Rats phase (from round 2 onward): all players behind leader count rat tails and move rat stone that many spaces ahead of droplet.\n3. Potions phase (simultaneous): draw chips one at a time from bag and place in pot according to chip value; after each draw, choose stop or continue.\n4. Explosion check: if total value of white chips in your pot exceeds 7, your pot explodes and you must stop drawing (last drawn chip still stays).\n5. End of draw: once all players have stopped/exploded, begin evaluation.\n6. Evaluation A-F in order (A bonus die, B end-phase chip effects, C rubies, D victory points, E buy chips with coins, F flask refill/droplet advancement as applicable).\n7. Cleanup: return drawn chips to bag, advance turn marker, pass first-player Fortune Teller responsibility as needed by table flow."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Potions phase actions:\n- Draw 1 chip blindly from your bag; you may never look into your bag.\n- Place first chip immediately after droplet (or rat stone if used this turn).\n- Place each later chip forward by its printed value (1/2/3/4) from the last placed chip; skipped spaces remain empty.\n- After placing each chip, choose to stop safely or draw again.\n- If bag is empty, you must stop.\n\nExplosion rule:\n- Add only white chip values.\n- If white total exceeds 7, potion explodes immediately and you stop.\n- Explosion does not cancel chip effects or Fortune Teller effects already applicable.\n\nChip effects timing:\n- White and Orange chips: no extra powers.\n- Blue, Red, Yellow: activate when drawn (immediate).\n- Black, Green, Purple: evaluate in evaluation phase as specified by current ingredient books.\n- You may decline optional chip effects.\n\nFlask use:\n- If the last chip you drew is white, you may use full flask to return that last white chip to your bag.\n- Turn flask to empty side after use.\n- You can continue drawing after using flask.\n- Flask cannot be used if the draw caused explosion.\n- Normally flask can be used once per turn and must later be refilled (evaluation step F).\n\nEvaluation choices with/without explosion:\n- Players whose pot did not explode take part in all standard scoring benefits, including bonus die contest.\n- Players whose pot exploded do not roll bonus die and later must choose between taking VP (D) or buying chips with coins (E), not both.\n\nBuying chips:\n- Use coins shown by your scoring space to buy ingredient chips from available books/costs.\n- Usual purchase limit is up to 2 chips, and they must be different colors (unless a special effect changes this).\n- New chips go into your bag for future turns."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Rats catch-up system:\n- Starting in turn 2, trailing players get temporary start-distance boosts by rat tails between them and leader on scoring track.\n- Rat stone sets where your first chip placement can begin this turn; it does not permanently move your droplet.\n\nIngredient set system:\n- Green/Blue/Red/Yellow/Purple each have 4 alternative rule sets (Set 1-4), dramatically changing strategy.\n- Orange and Black books are always in game.\n\nBonus die system (Evaluation A):\n- Among non-exploded players, whoever reached the highest scoring space rolls bonus die (all tied highest players roll).\n- Bonus die can award VP, rubies, droplet advancement, or a free orange chip depending on roll face.\n\nScoring-space dual rewards:\n- The space after your last placed chip gives both VP and coin value (subject to explosion restrictions on taking both).\n- Ruby icons on reached spaces give rubies regardless of explosion status."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger:\n- Game ends after the 9th turn’s evaluation and cleanup.\n\nFinal scoring includes all sources:\n1) Victory points accumulated on the scoring track during all rounds.\n2) Endgame conversion of remaining rubies into victory points (per rulebook conversion rate).\n3) Endgame conversion of leftover money/coins into victory points (per rulebook conversion rate).\n4) Any additional points granted by final-turn ingredient effects that award VP in your chosen ingredient set.\n\nWinner:\n- Player with highest total victory points wins.\n\nTiebreaker:\n- If tied, tied player who reached farther scoring position by game end wins.\n- If still tied, tied player with more rubies wins.\n- If still tied, share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Quacks Of Quedlinburg, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: Die also be carr ip costs s with the roll the Bonus s in and a 4-ch explode costs 10, if your potion you still cannot potion explode r a 2-chip The r, r pot, SET 2 5 coins, Howeve lies even if you drawn chips. If the  For a down 1 into the 4-chip, take n, you may lay all back  For a put them s draw may chip see, you From the what you tely. If If you place a ed afte hip is plac d placed chip ion exp s. Throughout the course of the game, whenever you’re able to move your droplet forward (through a Fortune Teller card, chip action or paying 2 rubies), you can decide which of your 2 droplets you want to move forward - the droplet in your pot or the one on your test tubes. Stopped by an Explosion According to its value, place the first chip you draw on the space ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: D) Victory Points (if a chip occupies the space, move it aside) Mary C) Rubies Beginning with the start player, everyone receives the victory points depicted on their respective scoring space. At the end of the turn, players can carry out the following actions (more than once) by spending rubies: Once everyone has finished shopping, each player puts the purchased chips into their bags along with all the other drawn chips. Victory points The actions of the green, purple and black chips can be applied only at the end of the Potions Phase (see scoring). At the end of ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Quacks Of Quedlinburg: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 139
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Upgrade bag reliability before chasing huge turns.\nEarly buys should reduce white-chip risk density and increase useful low-cost color effects. A steady pot in turns 1-3 is better than one lucky spike.\n\n2) Protect flask timing.\nTreat flask as insurance against a bad white draw near your stop threshold. Don’t waste it on a harmless early draw unless your set effects strongly justify it.\n\n3) Watch rat-tail economics.\nIf you trail slightly, rat stones can create efficient catch-up turns. Use that tempo to buy engine chips, not just to grab a one-time VP burst.\n\n4) Buy chips that match your active set powers.\nSet effects matter more than raw chip value. A cheap chip with strong set synergy often outperforms a pricier standalone chip.\n\n5) Plan for turn-2/turn-3 unlocks.\nYellow and purple entering later changes value calculations. Keep enough coin flow to capitalize when those books open."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Over-pushing every round.\nRepeated explosions force bad D/E choices and weaken long-term bag growth.\n\n2) Ignoring white-chip probability.\nPlayers often evaluate only the next draw, not remaining bag composition. Count your remaining white totals before deciding to continue.\n\n3) Buying expensive chips too early.\nHigh-cost chips can starve your bag of functional mid-cost pieces that stabilize turns and trigger synergies consistently.\n\n4) Forgetting chip-timing windows.\nSome effects trigger on draw, others at evaluation. Mis-timing leads to missed value and illegal sequencing.\n\n5) Misusing flask after an explosion draw.\nRules explicitly prevent flask use if the last draw caused explosion. Track this carefully to avoid accidental take-backs."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Stop now vs draw one more\n- Stopping secures guaranteed VP/coins and avoids explosion penalties.\n- Drawing again can unlock stronger scoring space and effects but increases bust risk.\n\nDecision 2: VP now vs economy now (especially after explosion)\n- Taking VP keeps scoreboard pressure.\n- Taking coins accelerates future bag quality and often yields better total points over 9 rounds.\n\nDecision 3: Broad chip mix vs focused synergy\n- Broad mix increases flexibility and reduces dependency on specific draws.\n- Focused synergy can produce explosive turns if you see those chips together frequently."
+        }
+      ]
     }
   },
-  "total_token_count": 1105,
+  "total_token_count": 3042,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "monk",
+    "created_at": "2026-02-22T23:17:12-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary content based on provided Quacks rulebook excerpt; ingredient-set specifics reference the Almanac/book system called out in the rules."
   }
 }

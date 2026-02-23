@@ -2,58 +2,109 @@
   "game_id": "power-grid",
   "title": "Power Grid",
   "aliases": [
-    "Funkenschlag"
+    "Funkenschlag",
+    "Power Grid Recharged"
   ],
-  "publisher": "2F-Spiele",
+  "publisher": "2F-Spiele / Rio Grande Games",
   "player_count": {
     "min": 2,
     "max": 6,
-    "recommended": 5,
-    "expansion_max": 6
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 120,
     "max": 150
   },
-  "complexity": "medium-heavy",
+  "complexity": "heavy",
   "categories": [
-    "auction",
-    "economic",
-    "network-building",
-    "resource-management"
+    "Auction",
+    "Network Building",
+    "Route Building",
+    "Resource Management",
+    "Economic"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/power-grid.txt",
+  "source_url": "https://www.2f-spiele.de/spiele/powergrid/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Power Grid includes a Germany and USA map board, 132 houses, 84 resource tokens in four fuel types, money, 54 cards including power plants and Step 3 card, and markers for auction and game steps. Setup chooses connected map areas by player count, seeds starting resource market quantities and prices, prepares initial power plant market, and assigns initial player order. Each player starts with houses, cash, and score marker at zero connected cities.",
-      "token_count": 94
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact component counts from the provided rulebook text:\n- 1 two-sided board: Germany/USA map, with scoring track, player order track, and resource market\n- 132 wooden houses in 6 colors (22 per color/player)\n- 84 wooden resource tokens total: 24 coal (brown), 24 oil (black), 24 garbage (yellow), 12 uranium (red)\n- 1 auction hammer\n- 1 discount token\n- 1 Step 2 barrier\n- 1 Game End barrier\n- Money (Elektro): 40x1, 15x5, 40x10, 25x50\n- 54 cards total:\n  - 42 power plant cards (numbers 03-40, 42, 44, 46, 50)\n  - 1 Step 3 card\n  - 5 resource refill summary cards\n  - 6 payment summary cards\n- 1 rules sheet/booklet\n\nMap details from setup text:\n- Each map (Germany/USA) has 6 color-coded areas with 7 cities per area (42 cities total on map side).\n- Color-coded areas matter for selecting the contiguous play zone only; once selected, the whole chosen zone is shared by all players."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Follow preparation in order:\n1) Place the board in the center (Germany recommended for first game).\n2) Select a contiguous play zone by player count:\n   - 2 players: 3 connected areas\n   - 3 players: 3 connected areas\n   - 4 players: 4 connected areas\n   - 5 players: 5 connected areas\n   - 6 players: 5 connected areas\n3) Set up the resource market with starting tokens in these spaces:\n   - Coal: spaces 1-8\n   - Oil: spaces 3-8\n   - Garbage: spaces 6-8\n   - Uranium: spaces 14-16\n4) Put all remaining resource tokens as supply near the market. (USA note from rules: coal storage area starts empty.)\n5) Put money sorted by denomination near board.\n6) Place the correct resource refill summary card for your player count near the resource market.\n7) Build initial power plant market:\n   a. Take plug-back plants (03-15), shuffle.\n   b. Reveal 8 plants, sort ascending.\n   c. Put 4 cheapest in current market (top row), next 4 in future market (bottom row).\n   d. Set aside 1 additional plug-back plant face down.\n8) Set up power plant draw stack:\n   a. Remove Step 3 card from socket-back plants.\n   b. Shuffle socket-back plants.\n   c. Remove random plants face down by player count table:\n      - 2 players: remove 1 plug + 5 socket plants\n      - 3 players: remove 2 plug + 6 socket plants\n      - 4 players: remove 1 plug + 3 socket plants\n      - 5-6 players: remove none\n   d. Shuffle all remaining plants (plugs/sockets that remain) together.\n   e. Insert Step 3 card face down under this supply stack as specified by rulebook.\n   f. Put the set-aside plug plant from step 7d on top of supply stack face down.\n9) Place auction hammer and discount token next to power plant market.\n10) Place Step 2 and Game End barriers next to connected-city scoring track."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes:\n- All 22 houses of one color\n- 50 Elektro starting money\n- 1 payment summary card\n\nEach player places 1 house on space 0 of the connected-cities scoring track.\n\nRandom starting order setup:\n- Take one house from each player and randomly place them on the top row of the player order track to set initial order.\n\nOptional experienced setup (from rulebook):\n- After choosing play zone and random order, players may choose default future starting cities in player order and mark with uranium tokens temporarily."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Before first round begins, confirm:\n1) Resource market, plant market, and draw stack are legal and sorted.\n2) Player order has been randomly set.\n3) Each player has money, houses, and payment card.\n\nFirst-round special requirement from auction rules:\n- In round 1, every player must buy exactly 1 power plant (no voluntary skipping of plant ownership in first round).\n\nAfter this confirmation, begin Round 1 with Phase 1: Determine Player Order."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each round has five phases: player order, power plant auction, resource buying, building houses, and bureaucracy. Players buy plants, fuel them, expand city networks, and earn income from powered cities. Turn order shifts based on network strength and matters differently by phase. Step transitions change city occupancy and market dynamics.",
-      "token_count": 65
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Power Grid is played over repeated rounds, each with 5 numbered phases:\n1. Determine Player Order\n2. Auction Power Plants\n3. Buy Resources\n4. Build Houses\n5. Bureaucracy\n\nThe game also progresses through Step 1, Step 2, and Step 3, which alter access limits and market behavior as thresholds are crossed.\n\nPhase order and action-order logic (critical):\n- Phase 1 recalculates player order by current standings.\n- Phase 2 (auction) runs in player order from first to last.\n- Phase 3 (resource buying) runs in reverse order from last to first.\n- Phase 4 (building) runs in reverse order from last to first.\n- Phase 5 resolves operation, income, refills, and market updates.\n\nDetailed phase sequence:\n1) Determine Player Order\n   - Player with most connected cities is first.\n   - Ties broken by highest-numbered power plant.\n   - Place houses on top row of order track from first through last accordingly.\n\n2) Auction Power Plants\n   - Place discount token on smallest plant in current market at start of this phase.\n   - Players who have not yet bought/passed this phase act in order:\n     a) Offer a current-market plant for auction, OR\n     b) Pass for the phase.\n   - Each player may buy at most one plant this round.\n   - Last player who must/chooses to start auction may buy at minimum bid if no contest.\n   - Refill and re-sort market after each purchase.\n\n3) Buy Resources\n   - In reverse order, players buy resources from market at current printed costs.\n   - Resources are limited by market supply and storage capacity on owned plants.\n\n4) Build Houses\n   - In reverse order, players pay connection + city entry costs to place houses in additional cities in legal network.\n\n5) Bureaucracy\n   - Players choose plants to power and spend exact required resources.\n   - Count powered cities and receive Elektro from payment table.\n   - Refill resource market based on step/map/player count refill table card.\n   - Update plant market as required, including removals/draws/re-sorting and any step transition effects."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Phase 1 actions: Determine Player Order\n- No purchases; this is a ranking update.\n- Rank by connected city count first, then largest plant number as tie-break.\n\nPhase 2 actions: Auction Power Plants\nA) Start an auction\n- Active player chooses one of the 4 plants in current market only (never future market).\n- Place auction hammer on chosen card.\n- Opening bid must be at least printed number, or 1 Elektro if this is the discounted smallest current plant.\n- Bidding proceeds clockwise; bidders may raise or pass.\n- Passing means permanent exit from this specific auction.\n- Last remaining bidder pays bank and takes plant.\n- Winner moves their order-marker house to matching number in bottom row to indicate they are done acquiring this round.\n- Immediately reveal replacement plant from stack and re-sort market ascending with 4 cheapest in current row.\n\nB) Pass the phase\n- Active player may pass instead of starting auction (except first round must-buy condition).\n- Move marker to bottom row; cannot bid in later auctions this round.\n\nAuction constraints and edge rules:\n- First round: each player must buy one plant.\n- Each player may own max 3 plants. If buying a 4th, they must scrap one of their old plants (cannot scrap the just-bought one).\n- Resources on scrapped plant may be transferred only to legal remaining plants with capacity; excess goes to supply (not market).\n- Discount token behavior:\n  - At phase start it sits on smallest current plant and sets min bid to 1 for that plant.\n  - If discounted plant is bought, token stays by market; if a newly drawn replacement is smaller than discounted plant’s printed number, remove that newly drawn plant and remove discount effect, then draw again.\n  - If discounted plant is not bought by end of phase, remove it from game and replace it.\n\nPhase 3 actions: Buy Resources\n- Reverse order (last player buys first), which gives trailing players first access to cheap resources.\n- Pay market price per token from lowest available spaces upward.\n- You may only buy resource types your plants can store.\n- Storage limits:\n  - Standard fossil plant stores up to double required fuel symbols of its own type.\n  - Hybrid coal/oil plant stores combined coal+oil up to double total required (not double each).\n  - Ecological plants store no resources.\n- Players may rearrange owned resources among their own compatible plants subject to capacities.\n\nPhase 4 actions: Build Houses\n- Reverse order again (last to first).\n- Choose legal city connected to your network and pay:\n  1) Connection cost along links from your network, and\n  2) City occupancy cost for current step slot\n- Occupancy by step:\n  - Step 1: one house per city max\n  - Step 2: two houses per city max\n  - Step 3: three houses per city max\n- Place a house from your supply in each purchased city and advance your connected-city marker accordingly.\n\nPhase 5 actions: Bureaucracy\nA) Produce power\n- Choose which plants to run.\n- For each running fossil/hybrid plant, spend exactly the printed fuel amount (no under/over spend).\n- Ecological plants power without fuel.\n- Powered city count is limited by both your connected cities and total output of running plants.\n\nB) Income\n- Receive Elektro from payment table based on number of cities actually powered (not merely connected).\n\nC) Market refill\n- Refill resource market from supply according to current step, player count, and map using refill summary card.\n\nD) Power plant market update\n- Remove/replace plants as required by standard end-of-round market procedure and step rules, then keep market sorted."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Power plant card anatomy and operating rules\n- Top number = minimum auction bid and market-order indicator.\n- Lower-left resource icons and colored strip = fuel type(s) and exact fuel required to operate once.\n- House icon number = cities that plant can power each bureaucracy.\n- Capacity rule: plant stores up to 2x its required fuel symbols; never powers more than printed house number in one round.\n\nPlant types\n1) Standard fossil plants\n- Coal, oil, garbage, uranium plants use one fuel type.\n- Must spend exact amount shown to run.\n\n2) Hybrid plants (coal/oil)\n- Can burn any combination of coal and oil totaling the required amount.\n- Store coal+oil in a shared combined cap equal to double requirement.\n\n3) Ecological plants\n- Require no fuel and cannot store fuel.\n\nStep system (game arc controller)\n- Step 1: low occupancy, slower market churn.\n- Step 2 trigger: when a player reaches the Step 2 city threshold for player count; place Step 2 barrier and apply two-house city rules plus associated market effects from full rules.\n- Step 3 trigger: when Step 3 card appears in plant market flow; this causes immediate market changes and three-house access rules as defined by full step procedure.\n\nDiscount-token subsystem\n- Introduced each auction phase to keep smallest plant economically accessible.\n- Can cause temporary below-face-value entry and special removal behavior if certain replacement cards are drawn.\n- Prevents auction stagnation and speeds weaker-plant turnover.\n\nTurn-order inversion economy\n- Leaders act first in auctions but last in resource buying/building.\n- Trailing players buy/build first, which functions as an intended catch-up mechanism.\n\nMap and player-count variability\n- Germany/USA use same core flow with some map-specific adjustments (e.g., USA coal storage note).\n- Resource refill card, city zone size, and card removals scale by player count, heavily affecting tempo and scarcity."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Endgame trigger\n- The game end is triggered when a player reaches the Game End city threshold (tracked with Game End barrier and player-count-specific values from rules).\n- Finish the current round through Bureaucracy so all players get equal phase access that round.\n\nFinal scoring principle\n- Power Grid is not won by most money or most connected cities alone.\n- Primary victory condition: most cities powered in the final Bureaucracy.\n\nFinal evaluation procedure\n1) Each player chooses which plants to run and spends exact required fuels.\n2) Count how many connected cities they can actually power (capped by both network size and plant output).\n3) Compare players by powered-city count.\n\nAll victory-relevant sources at game end\n- Primary: number of cities powered in final round (this is the actual winning metric).\n- Secondary (tie-break source): total Elektro remaining after final round if powered-city totals tie.\n- Tertiary (tie-break source): number of connected cities if still tied on powered cities and money.\n\nTie-breakers (in order)\n1) More Elektro remaining.\n2) More connected cities.\n3) If still tied, share victory.\n\nImportant scoring clarification\n- Money earned throughout the game is not direct VP; it is operational currency and tie-break material.\n- Resources left on plants are not points by themselves; their value is indirect through your ability to power cities in the final round."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "In auction phase plants are bought via open bidding and market replacement. Resource purchase follows reverse order pressure and strict storage limits per plant. Building requires paying connection cost plus city entry cost while respecting current step occupancy limits. Bureaucracy consumes resources to power cities and pays income from payment table by number of powered cities, then refills resources by chart and updates plant market. Step 2 triggers when threshold connected cities are reached; Step 3 enters via Step 3 card handling and changes market and tempo. Connected cities are not the same as powered cities for income and final victory. Common mistakes include overbuying fuel, ignoring reverse-order advantages, and triggering step changes before your plant portfolio is ready.",
-      "token_count": 154
-    },
-    "scoring_and_endgame": {
-      "content": "Game end triggers when a player reaches the required connected city threshold for the player count. Final winner is the player who can power the most cities in the final bureaucracy. Ties break by money then connected cities. During play, score track mainly tracks connection progress and player order position.",
-      "token_count": 65
-    },
-    "beginner_strategy": {
-      "content": "Protect cash in early rounds; do not overspend in auctions. Buy plants with a clear upgrade path and fuel plan. Anticipate resource price spikes and pre-buy efficiently. Expand where future connection options remain open. Time step transitions to your advantage instead of blindly racing the city threshold.",
-      "token_count": 61
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Buy one efficient plant and one flexible plan, not just a flashy card.\nIn early auctions, prioritize plants with favorable fuel economics relative to current market prices. Hybrid plants are especially forgiving while markets are volatile.\n\n2) Protect cash for infrastructure, not just auctions.\nNew players often overspend by 5-15 Elektro in opening auctions and then cannot expand their city network on schedule. In Power Grid, delayed building is often harder to recover than a slightly weaker plant.\n\n3) Choose region for future link efficiency.\nWhen selecting first city/corridor, look two rounds ahead at connection costs and competitor crowding. A cheap opening city that traps you behind expensive links can lose the midgame.\n\n4) Track resource refill pressure immediately.\nKnow which fuel types are likely to tighten under your player count and map. If several opponents share your fuel type, modest early stockpiling on cheap slots can be decisive.\n\n5) Use turn-order dynamics intentionally.\nBeing slightly behind on city count can be an advantage: buying fuel and building earlier in reverse-order phases can create stronger net tempo than forcing early first-player status."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating auction value as card strength in isolation.\nA high-number plant is not automatically better for you now. If its fuel is expensive/scarce or mismatched with your economy, it can underperform a cheaper plant and drain cash.\n\n2) Ignoring storage caps and legal fuel compatibility.\nPlayers frequently buy resources they cannot legally store or spread too thinly across incompatible plants, wasting purchase opportunities in critical rounds.\n\n3) Expanding network faster than generation capacity.\nConnecting many cities looks strong, but if you cannot power them, you lose income efficiency and may fail final powered-city count despite broad map presence.\n\n4) Misreading step timing.\nFailing to anticipate Step 2/Step 3 can cause being boxed out of city slots or holding obsolete plants too long. Always ask, “What changes next round if someone triggers the step now?”\n\n5) Overcommitting to one fuel market with no hedge.\nIf three players fight over the same fuel, costs can spike hard. Without alternate plants/fuel paths, your bureaucracy output collapses at the worst time."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Auction aggression vs treasury stability\n- Aggressive bidding secures premium plants and initiative, but can starve building turns.\n- Conservative bids preserve expansion money, but risk weak generation and bad tie-break position later.\n\nDecision 2: Fuel specialization vs flexibility\n- Specialization can be highly efficient when your fuel market is uncontested.\n- Flexibility (especially hybrids/ecological support) reduces exposure to price spikes and opponent denial.\n\nDecision 3: Triggering step transitions vs delaying them\n- Triggering Step 2/3 at the right moment can punish opponents who are underprepared in plant quality, resources, or city slot positioning.\n- Delaying can let you optimize your own board before opening additional competition and market volatility.\n\nDecision 4: Early lead vs controlled second position\n- Leading grants first choice in auctions but worst timing for buying fuel/building.\n- Staying just behind can grant better tactical access to cheap resources and key cities in reverse-order phases.\n\nDecision 5: Final-round setup (cash vs stored fuel vs network shape)\n- Endgame is won on powered cities, so final two rounds should be planned backward: secure enough fuel, enough compatible plant output, and enough connected cities to convert that output into a winning final power count."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4386,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "monk",
+    "created_at": "2026-02-22T23:19:49-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Built from provided Power Grid rulebook excerpt (components, setup, plant rules, phase structure, auction rules) with complete teaching synthesis for full-round and endgame play."
   }
 }

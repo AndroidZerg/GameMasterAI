@@ -9,7 +9,7 @@
     "min": 2,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 60,
@@ -17,42 +17,93 @@
   },
   "complexity": "midweight",
   "categories": [
-    "worker-placement",
-    "intrigue",
-    "set-collection"
+    "Worker Placement",
+    "Hand Management",
+    "Secret Objectives",
+    "Engine Building",
+    "Resource Conversion"
   ],
-  "source_url": "https://dnd.wizards.com/products/lords-waterdeep",
+  "source_url": "https://media.wizards.com/2015/downloads/ah/lords-of-waterdeep_rulebook.pdf",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Lords of Waterdeep base components include main board with action spaces and round track, player mats, agents (meeples) by color, score markers, adventurer cubes in four classes (fighter/rogue/cleric/wizard), coins, building tiles, quest cards, intrigue cards, and lord cards. Setup uses open quest display, intrigue decks, available building stack, and hidden lords for each player. The harbor area and owned-building spaces are central to turn flow and should be clearly laid out before teaching.",
-      "token_count": 94
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 game board; 1 rulebook; 1 storage tray; 5 player mats; 100 Adventurer cubes (25 Clerics/white, 25 Fighters/orange, 25 Rogues/black, 25 Wizards/purple); 33 wooden pieces (5 score markers, 25 Agents total = 5 of each color, 1 Ambassador, 1 Lieutenant, 1 First Player marker); 121 cards (11 Lord of Waterdeep cards, 50 Intrigue cards, 60 Quest cards); 170 die-cut pieces (24 Building tiles, 45 Building control markers = 9 of each color, 60 Gold tokens = 50 one-gold + 10 five-gold, 36 Victory Point tokens, 5 one-hundred-VP tokens)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Unfold and place the game board in the center. 2) Put Adventurer cubes, Gold tokens, and VP tokens in a general supply near the board. 3) Place 3 VP tokens on each round space of the rounds track. 4) Shuffle Building tiles face down; reveal 3 tiles face up in Builder's Hall and place the remaining stack on its labeled space. 5) Shuffle Quest cards; deal and display 1 face-up Quest card in each of Cliffwatch Inn's 4 spaces, then place the remaining Quest deck face down in its labeled space. 6) Shuffle Intrigue cards and place deck face down near Waterdeep Harbor. 7) Keep Lord cards separate for secret dealing."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses a color and takes the matching player mat, score marker, Agents, and Building control markers. Place score marker on 0 of the scoring track. Put starting Agents in your Agent Pool based on player count: 2 players = 4 Agents each, 3 players = 3 Agents each, 4 players = 2 Agents each, 5 players = 2 Agents each. Place 1 additional Agent of your color near the Round 5 space (it becomes available in Round 5). Draw 1 Lord card face down (secret identity), 2 Intrigue cards face down to hand, and 2 Quest cards face up to your active Quest area. Keep Gold and Adventurers gained during play in your Tavern area."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The player who most recently visited another city takes the First Player marker and becomes start player. Give starting Gold in ascending order clockwise: first player gets 4 Gold, next gets 5 Gold, and so on until all players have starting Gold. Return unused Lord cards to the box face down (they are out of the game). The game starts in Round 1 and lasts 8 rounds total."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The game lasts 8 rounds. In turn order, players assign one available agent to an open action space to gain resources, cards, quests, buildings, or special effects. Instead of assigning, a player may complete a quest by spending required adventurers/coins and taking rewards and VP. Once all agents are used, end-round cleanup returns agents, advances round marker, refreshes offers, and starts next round. Highest VP after round 8 wins.",
-      "token_count": 89
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The game is played over 8 rounds. Each round follows this order:\n1. Start of Round: Remove the 3 VP tokens from the current round space and place 1 VP token on each face-up Building tile in Builder's Hall. Resolve any 'When Purchased/Start of Round' Building effects currently in play.\n2. Player Turns: In turn order, each player with available Agents takes a turn. On your turn, if you can act, you may do one or both of these in order: (a) Assign 1 Agent, then (b) Complete 1 Quest.\n3. Continue Passing Turn Priority: Keep cycling through players; anyone with no available Agents is skipped for Agent assignment for the rest of the round.\n4. End of Round: Resolve end-of-round effects, return assigned Agents to owners' Agent Pools (except where Harbor timing/effects alter return timing), refresh board elements as required by occupied buildings/cards, and advance to next round.\n5. Round 5 Unlock: Each player adds the reserved extra Agent near Round 5 into their usable pool when that round begins.\n6. After Round 8: Proceed to final scoring."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "A. Assign Agent (core action)\n- If you have at least 1 Agent in your Agent Pool, you must assign exactly 1 Agent to an unoccupied action space on a Building that is in play (basic board Building or purchased Building tile).\n- You cannot place on occupied spaces and cannot place on Buildings not yet added to the board.\n- You generally cannot pass if legal placements exist.\n- Resolve that space's instructions immediately, once. Rewards can include Adventurers, Gold, VP, cards, or other effects.\n\nB. Complete Quest (optional second action in your turn if able)\n- Pay the exact listed Adventurers (and Gold if listed) from your Tavern for one of your active Quests.\n- Move that Quest to your Completed Quests area and gain the Quest reward (typically VP plus possible bonus resources/effects).\n- Quest types include categories relevant to Lord bonuses and card effects.\n\nC. Buy Building (via Builder's Hall action spaces)\n- Assigning an Agent to Builder's Hall lets you purchase 1 face-up Building by paying its Gold cost.\n- Score any immediate VP shown on that Building.\n- Place the purchased Building tile into an open Building spot on the board and place your control marker on it.\n- Immediately refill the vacated Builder's Hall display slot by revealing the top Building from the stack.\n\nD. Waterdeep Harbor actions\n- Waterdeep Harbor has 3 action spaces (not the usual 1), so multiple Agents can go there over a round.\n- Assigning to Harbor includes playing exactly 1 Intrigue card from your hand. If you have no Intrigue cards, you cannot assign there.\n- Harbor also interacts with end-of-round Agent flow (as defined on the board/rules text), making it a timing tool in addition to an effect space.\n\nE. Intrigue card play\n- Intrigue cards are hidden in hand until played by legal timing (most commonly Harbor assignment, plus card text exceptions).\n- Resolve all card text in order. Effects may alter resources, force Mandatory Quests, grant VP, manipulate turn tempo, or create conditional bonuses.\n\nF. Supply limits and deck exhaustion\n- Adventurers/Gold are limited by physical supply; if insufficient cubes/tokens exist, take only what is available.\n- If a deck is empty when a card draw is required, shuffle that deck's discard pile to form a new draw deck.\n- Completed Quests are never shuffled back into the Quest deck."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Secret Lord identity and endgame bonus\nEach player has one hidden Lord card granting bonus VP for specific accomplishments (for example, certain Quest categories). Your Lord is hidden during play, then revealed during final scoring.\n\n2) Building ownership economy\nPurchased Building tiles have an owner benefit line. Whenever another player assigns an Agent to your Building, you gain the listed owner benefit. This creates passive income and can shape table incentives.\n\n3) Round-track VP accrual on unpurchased Buildings\nAt each start of round, one VP token is placed on each face-up Building in Builder's Hall. Delayed purchases can therefore become more valuable as VP accumulates.\n\n4) Neutral Agents\nThe Ambassador and Lieutenant are neutral Agent pieces not controlled at game start. Game effects can grant control of them, effectively increasing your worker capacity.\n\n5) Mandatory Quest pressure\nCertain Intrigue cards can force opponents to take Mandatory Quests. These restrict Quest completion flow and can impose endgame penalties if left incomplete.\n\n6) Information warfare\nBecause Lord identities are secret but scoring categories are public, your Quest drafting and completion pattern leaks clues. Managing that signal is part of high-level play."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger:\n- The game ends immediately after the 8th round is completed.\n\nFinal scoring procedure:\n1. Keep all VP already gained during play on the scoring track (from Quests, Buildings, Intrigue effects, and other VP-granting effects).\n2. Reveal all Lord cards. Each player scores their Lord's bonus VP for matching completed conditions (typically specific Quest-type mixes or related goals).\n3. Apply Mandatory Quest penalties: each incomplete Mandatory Quest in a player's active area is worth -4 VP.\n4. Include any endgame VP from card/building text that explicitly scores at game end.\n\nAll VP sources to count:\n- VP scored immediately during play from completed Quests.\n- VP from Building purchases or Building/intrigue effects that award VP.\n- VP from accumulated board/card effects resolved before game end.\n- Secret Lord bonus VP at reveal.\n- Minus penalties from incomplete Mandatory Quests.\n\nWinner and tie-breaker:\n- Highest total VP wins.\n- If tied, the tied player with the most leftover resources (total Gold plus Adventurer cubes in Tavern) wins.\n- If still tied, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Action spaces are exclusive unless card text says otherwise. Board spaces provide adventurers, gold, quests, intrigue, or building opportunities. Purchasing a building adds a new action space to the board and grants owner benefits when opponents use it (as defined by building rules). Waterdeep Harbor has special timing: when you place there, you play an intrigue card and later retrieve/reassign harbor agents at round end in harbor order. Quests require exact resource payment and then grant immediate rewards (VP, resources, ongoing effects for Plot Quests, etc.). Mandatory Quests hinder opponents by forcing completion before other quests; timing these well can disrupt leader tempo. Each player\u2019s hidden Lord grants end-game bonus points for specific quest/building categories, shaping long-term strategy. Intrigue cards can manipulate resources, turn order, VP, or quest pressure; always resolve full text. Common pitfalls: forgetting owner bonuses from built spaces, mis-sequencing harbor reassignment, and overlooking that quest completion can happen instead of agent placement on your turn. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
-      "token_count": 347
-    },
-    "scoring_and_endgame": {
-      "content": "After round 8 concludes, final score is current VP track plus hidden Lord bonus and any end-game effects from completed quests/buildings/cards. Highest VP wins. Tie-breakers typically use remaining gold and then adventurers if needed by printed rules conventions. Because Lord bonuses are hidden until end, apparent board leaders can be overtaken during reveal. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
-      "token_count": 97
-    },
-    "beginner_strategy": {
-      "content": "Identify your Lord\u2019s scoring pattern early and draft quests that naturally align with it. Balance resource intake with completion tempo; hoarded cubes and coins do nothing without completed quests. Use Harbor when your intrigue hand offers meaningful leverage or combo timing. Buy buildings primarily when they improve your own action access first, with owner-trigger income as secondary upside. Save disruptive Mandatory Quests for moments when an opponent is about to spike a big scoring turn. Late game, prioritize immediate VP and realistic completions over speculative long engines. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
-      "token_count": 191
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build a resource base before chasing flashy VP. In Rounds 1-2, prioritize actions that generate flexible Adventurers (especially Fighters/Rogues) and Gold so you can complete Quests on schedule.\n2) Draft for overlap. Take Quests that reuse the same Adventurer colors; this reduces dead inventory and speeds completion tempo.\n3) Track Builder's Hall value growth. A Building with a strong action and growing VP tokens can be a high-efficiency buy even if not immediately obvious.\n4) Enter Round 5 prepared. Since everyone gains an extra Agent then, set up for explosive turns by banking options (Intrigue cards, affordable Building lines, or near-complete Quests).\n5) Hide your Lord identity early. Mix Quest types in the opening so opponents cannot easily infer your secret bonus."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Overvaluing raw Adventurer quantity over conversion speed. A Tavern full of cubes is worthless if you cannot turn them into completed Quests quickly.\n2) Buying weak Buildings just to buy a Building. If owner benefit is poor and action space is low impact, you lose tempo and Gold.\n3) Ignoring Intrigue timing windows. Harbor turns can create major swings; skipping Intrigue planning wastes a core tactical layer.\n4) Telegraphing your Lord too early. Repeatedly taking one Quest category in early rounds invites targeted disruption and denial.\n5) Ending with uncompleted Mandatory Quests. The -4 VP each can erase an otherwise strong game; clear them before final round whenever possible."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Tempo vs infrastructure: Do you complete a medium Quest now for guaranteed VP, or spend this turn building an engine (Building purchase/Harbor setup) that pays off over multiple rounds?\n2) Public value vs private information: Best visible move can reveal your Lord objective. Sometimes a slightly weaker move that preserves ambiguity is superior.\n3) Direct optimization vs disruption: Taking a contested action for your own plan may be weaker than denying an opponent a critical space, especially late in rounds 6-8 when turns are scarce."
+        }
+      ]
     }
   },
-  "total_token_count": 818,
+  "total_token_count": 3340,
+  "extensions": {},
   "metadata": {
-    "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.144169Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "schema_version": "2.0",
+    "created_by": "druid",
+    "created_at": "2026-02-22T23:11:59-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Authored from provided Lords of Waterdeep rulebook text and sequence headings; includes complete schema-required teaching structure."
   }
 }

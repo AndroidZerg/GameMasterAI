@@ -7,7 +7,7 @@
     "min": 3,
     "max": 5,
     "recommended": 5,
-    "expansion_max": 8
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 60,
@@ -15,42 +15,96 @@
   },
   "complexity": "midweight",
   "categories": [
-    "negotiation",
-    "alliance",
-    "variable-powers"
+    "Negotiation",
+    "Asymmetric Powers",
+    "Alliances",
+    "Hand Management",
+    "Take-That"
   ],
   "source_url": "https://www.fantasyflightgames.com/en/products/cosmic-encounter/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Cosmic Encounter by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Petersen abandoning tech 17 acquiring new tech 17 advanced setup 16 alert lamps 11 alien complexity 11 alien powers 11 losing powers 13 “use” of powers 12 zapping powers 12 alien sheet 11 Alliance Phase 8 allies 8 alternate Filch flare 18 artifact cards 12 attack cards 7 attack versus attack 9 attack versus negotiate 9 B bystanders 13 C canceling powers 13 clarifications 18 colonies 6 colony track 13 committing ships Alliance Phase 8 Launch Phase 8 compensation 10 completing tech 17 cosmic quake 18 cosmic tokens 18 D deals 9 successful deals 10 unsuccessful ...",
-      "token_count": 222
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "25 player planets (5 per player), 100 plastic ships (20 per player), 5 player colony markers, 1 warp, 1 hyperspace gate, 1 genesis planet, 1 quick-start guide, 7 grudge tokens, 1 Prometheus token, 1 lunar cannon token, 42 cosmic tokens, 51 alien sheets, 51 flare cards (1 per alien), 34 cosmic combo cards, 20 destiny cards, 55 encounter cards, 6 reinforcement cards, 11 artifact cards, 20 tech cards, and 1 alternate Filch flare card."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Each player chooses a color and takes that color's colony marker, 5 planets, and 20 ships. 2) Each player places their 5 planets in front of them as their home system and stacks 4 of their ships on each planet. 3) Place the warp in the center of the table. 4) Place each player's colony marker at 0 on the warp colony track. 5) Place common components (hyperspace gate and other central tokens/decks) within reach in the play area."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player starts with all personal pieces of one color: planets, ships, and colony marker. Home setup is fixed at 4 ships on each of 5 home planets. After choosing aliens, each player gets one alien sheet (based on player-count-legal alien selection from the revealed cosmic combo card). Then each player receives a starting hand of 8 cosmic cards from the cosmic deck (which contains encounter + reinforcement + artifact cards). Players may look at their own cards but may not show them to others."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Prepare destiny deck by taking the 3 destiny cards for each chosen player color and shuffling them together with wild and special destiny cards. Remove destiny cards for unchosen colors from the game. Choose aliens by shuffling cosmic combo cards, revealing the top combo, gathering matching alien sheets for the current player count, and dealing one randomly to each player. Build cosmic deck by shuffling all encounter, reinforcement, and artifact cards together. Determine first player: for a group's first game, youngest player starts; otherwise reveal destiny cards until one matches a player color, that player is first, then reshuffle destiny deck. The first player begins the first turn."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Cosmic Encounter: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: Petersen abandoning tech 17 acquiring new tech 17 advanced setup 16 alert lamps 11 alien complexity 11 alien powers 11 losing powers 13 “use” of powers 12 zapping powers 12 alien sheet 11 Alliance Phase 8 allies 8 alternate Filch flare 18 artifact cards 12 attack cards 7 attack versus attack 9 attack versus negotiate 9 B bystanders 13 C canceling powers 13 clarifications 18 colonies 6 colony track 13 committing ships Alliance Phase 8 Launch Phase 8 compensation 10 completing tech 17 ...",
-      "token_count": 196
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Cosmic Encounter turn flow is encounter-based and follows this phase sequence shown in the quick-start: 1) Start Turn. 2) Regroup. 3) Destiny (determine target/opponent from destiny card). 4) Launch (offense commits ships through hyperspace gate toward target planet). 5) Alliance (players are invited/allowed to ally with either side). 6) Planning (main players choose encounter cards; optional planning effects may apply). 7) Reveal (main players reveal chosen encounter cards). 8) Resolution (determine winner, compensation/deals/ship movement and colony outcomes). Then proceed to the next encounter/turn per normal game flow."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Core player options revolve around encounter cards, alliances, and alien powers. Main players choose encounter cards (typically Attack or Negotiate outcomes as summarized on cards): Attack vs Attack compares totals (ships plus attack card, modified by effects); higher total wins and the loser receives compensation where applicable. Negotiate interactions create deal/compensation outcomes and can cause ship loss to warp if a deal fails in the allowed window. During alliance phase, eligible players may commit allied ships to one side, potentially changing totals and sharing rewards/risks. Players may also play artifact and reinforcement cards at legal timing windows printed on those cards (for example, adding to totals after reveal or canceling certain card effects). Aliens can alter default permissions/restrictions at specific phases (examples in provided text include joining alliances when not invited, modifying ship counts in gate, stealing used encounter cards, or changing compensation/reward interactions)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Asymmetry is the defining system: each alien has a unique power that can override base rules and significantly alter tactics, diplomacy, or card timing. The destiny deck dynamically targets encounters and shapes table politics by color draws plus wild/special effects. Alliances are central, not optional flavor: much of the game's strategy is social bargaining over who to support and when. The cosmic deck is multi-type (encounter/reinforcement/artifact), so hand value is contextual rather than linear. Tech, flares, and special tokens add optional/advanced layers and are tied to specific cards/aliens in the provided components and quick-start references."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "There is no victory point track. The game ends when a player establishes 5 foreign colonies (colonies on other players' planets). That player wins immediately as stated in the overview. If two or more players establish their fifth foreign colony at the same time, they all win together (shared victory). No further scoring or tiebreaker is used beyond this simultaneous-win rule."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Cosmic Encounter, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: Petersen abandoning tech 17 acquiring new tech 17 advanced setup 16 alert lamps 11 alien complexity 11 alien powers 11 losing powers 13 “use” of powers 12 zapping powers 12 alien sheet 11 Alliance Phase 8 allies 8 alternate Filch flare 18 artifact cards 12 attack cards 7 attack versus attack 9 attack versus negotiate 9 B bystanders 13 C canceling powers 13 clarifications 18 colonies 6 colony track 13 committing ships Alliance Phase 8 Launch Phase 8 compensation 10 completing tech 17 cosmic quake 18 cosmic tokens 18 D deals 9 successful deals 10 unsuccessful deals 10 defender rewards 10 defending lost planets 18 defending without ships 18 defense 7 defense wins 10 defensive ally 8 depleting the destiny deck 18 destiny cards 7 Destiny Phase 7 drawing their own color 8 drawing cards as defense 8, 13 drawing encounter cards 13 Revised Edition Credits Producer: Molly Glover Rules Writing and Revision: Adam Baker, Bill Eberle, Greg Olotka, and Peter Olotka Editing: Carsten ...",
-      "token_count": 339
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: Petersen abandoning tech 17 acquiring new tech 17 advanced setup 16 alert lamps 11 alien complexity 11 alien powers 11 losing powers 13 “use” of powers 12 zapping powers 12 alien sheet 11 Alliance Phase 8 allies 8 alternate Filch flare 18 artifact cards 12 attack cards 7 attack versus attack 9 attack versus negotiate 9 B bystanders 13 C canceling powers 13 clarifications 18 colonies 6 colony track 13 committing ships Alliance Phase 8 Launch Phase 8 compensation 10 completing tech 17 cosmic quake 18 cosmic tokens 18 D deals 9 successful deals 10 unsuccessful deals 10 defender ...",
-      "token_count": 209
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Cosmic Encounter: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 137
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Learn your alien's exact timing windows before first encounter; many early mistakes come from using powers too late or in the wrong phase. 2) Preserve hand flexibility in early turns—avoid burning your strongest encounter/reinforcement cards on low-leverage fights. 3) Build at least one reliable diplomatic channel with another player early; alliances decide more outcomes than raw arithmetic. 4) Track destiny composition by active colors so you can estimate who is likely to be targeted next and negotiate from that pressure."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Playing it like a pure combat optimization game. Cosmic Encounter rewards negotiation and timing at least as much as card strength. 2) Ignoring shared-win risk. Letting two rivals both approach five foreign colonies can end the game before you can respond. 3) Overcommitting ships in early encounters, leaving home planets thin and future launch options weaker. 4) Failing to read artifact/reinforcement timing text; many cards are strongest only in narrow windows. 5) Treating alien power as occasional bonus instead of core plan—most powers are your main edge and should shape your turn decisions."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Colony tempo vs table threat: race quickly to foreign colonies or pace growth to avoid becoming the whole table's target. 2) Hand economy vs immediate wins: spend premium cards now for a colony, or hold them for defense/counterplay in higher-stakes turns. 3) Alliance positioning: support short-term gains even if it helps a leader, or refuse/redirect support to prevent a fast shared-win end."
+        }
+      ]
     }
   },
-  "total_token_count": 1103,
+
+  "total_token_count": 3180,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 3,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "tiefling",
+    "created_at": "2026-02-22T23:16:05-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Written from the provided Cosmic Encounter quick-start/rule excerpt. Full timing minutiae and advanced module details are in the complete rulebook; this guide captures the core legal flow and setup from supplied text."
   }
 }

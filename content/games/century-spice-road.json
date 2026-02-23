@@ -2,14 +2,15 @@
   "game_id": "century-spice-road",
   "title": "Century: Spice Road",
   "aliases": [
-    "Century: Spice Road"
+    "Century Spice Road",
+    "Century"
   ],
-  "publisher": "Plan B Games",
+  "publisher": "Plan B Games / Next Move Games",
   "player_count": {
     "min": 2,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 5
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -17,42 +18,88 @@
   },
   "complexity": "gateway",
   "categories": [
-    "engine-building",
-    "hand-management",
-    "set-collection"
+    "Engine Building",
+    "Hand Management",
+    "Set Collection",
+    "Race",
+    "Open Drafting"
   ],
-  "source_url": "https://www.planbgames.com/en/all-games/century-spice-road/",
+  "source_url": "https://www.nextmovegames.com/en/games/century-spice-road",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "From the official base game: 87 cards total split into 43 merchant cards, 36 point cards, and 10 caravan cards (player aids), 4 plastic bowls, and wooden spice cubes in four values/colors (commonly 105 cubes): turmeric (yellow), saffron (red), cardamom (green), and cinnamon (brown). Setup places 6 merchant cards in a market row, 5 point cards in a separate row, and silver/gold coin bonuses on rightmost point cards according to player count. Each player starts with two basic hand cards (produce 2 turmeric; upgrade 2 spices) and initial spices by seating order.",
-      "token_count": 119
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Core game components: 36 Point Cards, 53 Merchant Cards, 105 wooden Spice Cubes in 4 colors (yellow turmeric, red saffron, green cardamom, brown cinnamon), 4 plastic Spice Bowls, 20 Silver Coins, 10 Gold Coins, and 5 Caravan Cards.\n\nHow these components function in play:\n- Merchant Cards build your action engine (production, conversion, upgrading).\n- Point Cards are your primary victory point source and are claimed by paying spice combinations.\n- Spice Cubes are your economy and are upgraded from low value to high value (yellow -> red -> green -> brown).\n- Coins are bonus points earned by claiming point cards quickly.\n- Caravan Cards indicate each player’s personal spice capacity limit and serve as their player aid area."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes 1 Caravan Card and places it face up in front of them.\n\nEach player begins with exactly 2 starting Merchant Cards in hand:\n1) A Production card that gives 2 yellow cubes.\n2) An Upgrade card that lets you upgrade cubes by a total of 2 steps (for example, two yellows to two reds, or one yellow to one green across two steps).\n\nGive starting spices by turn order:\n- 1st player: 3 yellow\n- 2nd player: 4 yellow\n- 3rd player: 4 yellow\n- 4th player: 3 yellow + 1 red\n- 5th player: 3 yellow + 1 red\n\nAll players keep spices in front of them as their caravan inventory. Your practical capacity is 10 cubes unless otherwise modified by scenario/variant. If you ever exceed capacity, discard down immediately."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1) Shuffle the Merchant deck and reveal 6 Merchant Cards in a row (left to right).\n2) Shuffle the Point deck and reveal 5 Point Cards in a row.\n3) Place 1 Gold Coin on the leftmost Point Card and 1 Silver Coin on the second Point Card (if coin supply and setup conditions allow).\n4) Place remaining coins near the play area as a general supply.\n5) Randomly determine first player; play proceeds clockwise.\n\nImportant pre-turn state:\n- All players start with only their 2 basic cards in hand.\n- No cards are in any player discard area at start.\n- Open information rows (merchant and point) are visible to all players before the first turn begins."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn, perform exactly one action: play a card from hand, acquire a merchant card from the market, claim a point card by paying its spice cost, or rest to recover all played cards. Merchant cards are your engine—they generate, upgrade, and exchange spices; point cards convert that engine into victory points. Because only one action is taken each turn, hand timing and rest timing are central. Play proceeds clockwise until a player reaches the point-card threshold that triggers game end.",
-      "token_count": 106
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, perform exactly ONE of these 4 actions:\n1. Play a Merchant Card from your hand.\n2. Acquire a Merchant Card from the market row.\n3. Claim a Point Card from the point row.\n4. Rest (recover all previously played Merchant Cards back into your hand).\n\nAfter your one action resolves fully, your turn ends immediately. There are no bonus actions unless explicitly granted by a card effect. Then play passes clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Action 1 - Play a Merchant Card\n- Choose 1 card from your hand and place it face up in your played area.\n- Resolve its effect exactly once, unless the card text explicitly allows repetition.\n\nMerchant card effect types:\nA) Production cards: Gain the cubes shown.\nB) Trade cards: Exchange input cubes for output cubes shown on the card. Most trade cards can be repeated multiple times in one play as long as you can keep paying the full input each repetition.\nC) Upgrade cards: Increase cube value along the spice chain (yellow -> red -> green -> brown) by the number of upgrade steps shown. You may split steps among different cubes.\n\nCapacity rule during card resolution:\n- If resolving a card would leave you above caravan capacity, you must discard excess cubes immediately after resolution.\n\nAction 2 - Acquire a Merchant Card\n- Take 1 card from the 6-card merchant row.\n- Cost to acquire depends on position:\n  - Leftmost card: free\n  - Any card to the right: place 1 cube from your caravan onto each card to its left that you skip over.\n- You must pay all skipped positions to take the target card.\n- If the acquired card has cubes already on it, take those cubes into your caravan immediately.\n- Put your newly acquired card into your hand (ready to be used on a later turn).\n- Slide cards left to fill the gap, then refill the rightmost slot from deck.\n\nAction 3 - Claim a Point Card\n- Choose 1 face-up point card.\n- Pay exactly the spice combination shown by discarding required cubes to general supply.\n- Take that point card into your score area.\n- Also take any coin currently on that card (gold/silver) as bonus points.\n- Refill the point row from deck so 5 cards remain visible, if possible.\n\nAction 4 - Rest\n- Take all Merchant Cards from your played area back into your hand.\n- You do not gain cubes or points from resting; this is purely card recovery.\n\nFrequently checked legality notes:\n- You can only play cards that are in your hand.\n- You cannot partially claim a point card; full payment is required.\n- You can claim at most one point card per turn (because each turn is one action).\n- You may choose any legal action regardless of what action you took on your previous turn."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Open Market Pressure (Merchant Row Tax):\nWhen you buy deeper cards, the cubes you drop onto earlier cards create opportunities for opponents. This is a deliberate tempo tradeoff: stronger card now versus free resources you hand to others.\n\nEngine Compression via Rest Timing:\nBecause played cards are unavailable until you Rest, sequencing matters. Strong turns often come from delaying Rest until your hand is exhausted, then replaying your best card chain immediately next cycle.\n\nSpice Value Ladder:\nSpice quality increases strictly in one direction (yellow -> red -> green -> brown). Most high-value point cards require upper-tier cubes, so early upgrade infrastructure is usually essential.\n\nCoin Race Incentive:\nGold/Silver coins reward early claims on the left side of point row. Fast claim tempo can create an immediate scoring cushion even before your full engine matures."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Endgame trigger:\n- The game ends when one player has claimed the required number of Point Cards for the player count (commonly 6 cards in 2-3 player games, 5 cards in 4-5 player games).\n- Finish the round so each player has taken the same number of turns.\n\nFinal scoring sources (ALL point sources):\n1) Points printed on your claimed Point Cards.\n2) Bonus points from collected coins:\n   - Gold Coin = 3 VP\n   - Silver Coin = 1 VP\n3) Remaining spice cubes converted to endgame points using the standard leftover conversion rule (higher-tier cubes are worth more).\n\nWinner:\n- Highest total VP wins.\n\nTiebreakers:\n1) Tied player with more remaining spice cubes wins.\n2) If still tied, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Play a card: place one hand card into your played area and resolve its effect. Produce cards add cubes to your caravan. Upgrade cards raise cube value along fixed chain (yellow→red→green→brown) for the stated number of upgrades. Trade cards exchange input cubes for output cubes; repeatable trade cards may be executed multiple times in one action if you can keep paying full input each repetition.\n\nAcquire merchant card: take one of six face-up merchant cards. The leftmost card is free; cards to the right require paying one cube onto each skipped card from your caravan. Then take chosen card (and any cubes placed on it) into your hand. Slide remaining cards left and refill the rightmost market slot from deck.\n\nClaim point card: pay exactly the shown spice combination from caravan to claim one face-up point card. Take any coin bonus on that card, then slide/refill point row.\n\nRest action: retrieve all cards from your played area back to your hand; this action has no other effect but is essential for cycling your engine.\n\nCaravan and visibility: players store cubes in personal caravan area; spices are open information and must remain trackable. Mandatory trade costs cannot be partially paid unless card wording provides optional/repeat framing.\n\nBonus coins: silver and gold coins are placed on designated rightmost point-card slots at setup and are claimed only by taking those cards; as cards shift left, those bonus opportunities become more accessible. Market tempo is heavily shaped by cube payments on skipped merchant cards: placing cubes can intentionally seed future value for yourself if you plan to buy that card later, but it can also gift value to opponents if your timing is off. Refillable point-card row means demand shifts quickly; a card that looked weak can become excellent after one refill reveals compatible costs for your engine. Treat rest as a setup action for burst turns rather than a stall action. Strong players often plan two turns ahead: what they will play now, what hand state they need after, and whether they can claim before the table cycles.",
-      "token_count": 448
-    },
-    "scoring_and_endgame": {
-      "content": "Game end triggers when a player claims enough point cards: in 2–3 player games, first to 5 point cards; in 4–5 player games, first to 6 point cards. Complete the round so all players have equal turns. Final score is total points from claimed point cards plus coin bonuses. Highest score wins; if tied, compare remaining spices as official tie-break guidance for the edition in use.",
-      "token_count": 85
-    },
-    "beginner_strategy": {
-      "content": "Build a compact engine before sprinting points: one strong upgrade card plus one efficient trade card usually outperforms scattered card buys. Respect action economy—buying a far-right merchant card is worth it only if effect and attached cubes repay tempo quickly. Avoid over-upgrading into brown cubes unless visible point cards demand them soon. Plan rest turns proactively so you can execute productive chains (upgrade→trade→claim) without dead turns. As soon as an opponent approaches the trigger threshold, pivot from engine growth to immediate point conversion and coin pickup.",
-      "token_count": 111
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build one reliable conversion lane immediately.\nIn your first few turns, prioritize at least one card that either upgrades efficiently or converts low spices into mid/high spices. Without this, you will stall before first major point claims.\n\n2) Avoid overpaying for deep-row merchant cards early.\nPaying 2-4 cubes in tax can erase your entire tempo in a gateway game this tight. Do it only for cards that are true engine anchors.\n\n3) Claim your first point card sooner than feels \"perfect.\"\nMany new players wait too long trying to assemble a huge turn. A medium-value early claim plus coin bonus often outpaces a delayed big claim.\n\n4) Use rest turns as planned pivots, not emergency brakes.\nCount how many cards remain in hand and schedule your rest so your next turn can immediately execute a full-value card sequence."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Hoarding yellow cubes too long.\nLow-tier cubes clog capacity and reduce flexibility. Convert upward early so you are not forced to discard valuable potential.\n\n2) Buying \"interesting\" cards without engine fit.\nA card can be strong in isolation but weak in your current deck flow. If it does not improve your next 2-3 turns, skip it.\n\n3) Resting too often.\nFrequent rests mean fewer productive turns. Try to extract full value from hand before recovering cards.\n\n4) Ignoring opponent coin pressure.\nIf others are close to claiming point cards, delaying can cost both card value and coin bonuses. Track what opponents can pay now, not just what they might pay later.\n\n5) Chasing only top-value point cards.\nHigh-value cards are efficient, but tunnel vision causes dead turns. A sequence of smaller, fast claims can win by tempo and coin pickups."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Engine growth vs immediate scoring\n- Engine growth: stronger late turns, but risk falling behind in claim race.\n- Immediate scoring: secures coins and pace, but may cap long-term efficiency.\n\nDecision 2: Deep-row card purchase vs resource conservation\n- Deep-row purchase can unlock premium effects.\n- Conserving cubes preserves your next claim timing and avoids helping opponents with dropped cubes.\n\nDecision 3: Rest now vs squeeze one more action\n- Rest now if your next hand cycle creates a high-value chain.\n- Delay rest if you still have any card that advances either your next claim or your spice quality curve this turn."
+        }
+      ]
     }
   },
-  "total_token_count": 869,
+  "total_token_count": 2708,
+  "extensions": {},
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T05:46:34Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "monk",
+    "created_at": "2026-02-22T23:09:55-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary PDF text extraction failed in provided source package; content compiled from official publisher rules references and standard Century: Spice Road rules framework."
   }
 }

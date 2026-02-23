@@ -6,51 +6,102 @@
   "player_count": {
     "min": 2,
     "max": 4,
-    "recommended": 3,
-    "expansion_max": 4
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 45,
     "max": 60
   },
-  "complexity": "gateway",
+  "complexity": "midweight",
   "categories": [
-    "family",
     "tile-placement",
-    "set-collection"
+    "set-collection",
+    "objective-cards",
+    "route-building",
+    "family-strategy"
   ],
   "source_url": "https://www.bombyx.com/en/games/takenoko/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Takenoko by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Keep replacement counters and reference cards in reach so players can match symbols quickly during live teaching. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently.",
-      "token_count": 243
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "The provided Takenoko rulebook text in this prompt contains only scanned page headers (\"TAKENOKO Regles US CARRE.indd\" with timestamps) and does not include readable component pages, counts, or setup diagrams. Because of that source limitation, exact component counts cannot be extracted from the supplied text. To stay source-faithful, use this checklist before teaching: verify all physical components directly against the official printed rulebook contents page in the box (board tiles, objective cards, bamboo pieces by color, weather die, miniatures, irrigation pieces, and markers). Do not proceed with competitive play until the official contents list is confirmed at the table."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "The supplied text does not include the setup section, so exact sequence wording is unavailable in-source. Use official board setup from the printed rulebook in this order: place the starting central tile, create draw/supply areas for plot tiles and objectives, place irrigation supply, place bamboo reserves by color, place gardener and panda miniatures at their required starting positions, and place weather/randomization tools. Keep all objective decks separated by objective type and place them where all players can draw legally."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Because player-setup details are not present in the extracted text, confirm player aid, starting objective cards, and any initial irrigation/tile resources directly from the official rulebook before the first turn. For teaching consistency, each player should verify: personal objective hand size, whether objectives are kept secret or public, and any per-player starting action modifiers if listed by player count."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The source snippet does not include first-player determination text. Use the official first-player rule from the printed rulebook and begin clockwise. Before turn one, announce aloud: objective visibility rules, action selection limits per turn, weather usage timing, and endgame trigger so all players share the same baseline."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Takenoko: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: In edge cases, table order and explicit timing words in the rulebook control resolution order.",
-      "token_count": 105
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The supplied OCR text does not include readable turn-order rules. Use this rules-teaching skeleton and map each step to your printed official rulebook wording: 1) Resolve start-of-turn random/weather effect (if active in your edition). 2) Choose and resolve action #1. 3) Choose and resolve action #2 (respecting any rulebook restriction against repeating the same action unless a weather effect allows it). 4) Resolve objective completion checks and immediate scoring/claim timing as written. 5) Refill any public displays or supplies required by end-of-turn maintenance. 6) Pass clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Action descriptions are not present in the extracted text block, so exact legal wording must be taken from the official printed rules. In standard teaching structure for Takenoko, action families include: adding/placing hex plot tiles, placing irrigation, moving gardener to grow bamboo, moving panda to eat bamboo, and drawing objective cards. Teach each action with three checks: legal target, immediate effect, and resulting objective progress. When action interactions conflict, resolve by official timing hierarchy in the printed rules. If weather grants an extra or modified action, apply that modification before selecting actions."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Key systems to verify directly in the official rulebook (not available in the OCR snippet) are: irrigation network requirements, bamboo growth conditions, panda consumption timing, objective claiming windows, and weather modifiers. These systems are where most disputes happen. For clean play, keep a visible table reminder of: which plots are irrigated, current bamboo heights by color, and whether an objective can be claimed immediately or only on specific timing windows."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The provided text does not contain endgame trigger or scoring/tiebreak text. Use the official printed rulebook to confirm: exact trigger condition by player count, whether round completion is required after trigger, all point sources from completed objectives, and tie-break procedure. Do not substitute house rules here; Takenoko’s finish timing can swing the winner by several points if handled incorrectly."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Takenoko, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: For simultaneous effects, resolve using the timing method printed in the rules (often active player order, first player order, or explicit priority). For hidden information games, reveal only what the rulebook requires; accidental over-sharing changes game balance. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently.",
-      "token_count": 423
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: If the game uses elimination or scenario success instead of point totals, winner determination follows the objective text and any listed tie procedures.",
-      "token_count": 109
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Takenoko: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 136
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Because the supplied text lacks full rules detail, keep early strategy process-based and rules-safe: prioritize board states that preserve flexibility (irrigation access and movement options), collect objectives that overlap shared requirements, and avoid committing all early actions to one narrow line unless your objective hand strongly supports it. After turn one, reassess which objective types are realistically completable with current plot colors and bamboo growth pace."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Advancing actions without confirming irrigation legality, which invalidates growth assumptions. 2) Over-drawing objective cards without enough board development actions to complete them. 3) Ignoring opponent scoring race and accidentally giving them uncontested objective windows. 4) Mis-timing endgame trigger checks, especially when a final objective is completed mid-turn. 5) Treating weather effects as optional flavor instead of strict turn modifiers when the official rules make them binding."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Board development now vs objective claiming now—whether to invest actions into infrastructure (irrigation/plot states) or cash immediate objective points. Decision 2: Denial vs efficiency—using panda/gardener movement to disrupt opponents versus maximizing your own progress each turn. Decision 3: Trigger timing—when to push the endgame trigger based on your completed objective mix and expected opponent final-turn potential."
+        }
+      ]
     }
   },
-  "total_token_count": 1016,
+  "total_token_count": 2680,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 4,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "goblin",
+    "created_at": "2026-02-23T07:15:02Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source limitation: provided Takenoko text contains only scanned page headers and no readable rules/body text. This file is schema-complete but intentionally flags where official printed rulebook verification is required for exact counts and legal wording."
   }
 }

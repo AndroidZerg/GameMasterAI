@@ -2,14 +2,14 @@
   "game_id": "seven-wonders",
   "title": "7 Wonders",
   "aliases": [
-    "7 Wonders"
+    "Seven Wonders"
   ],
   "publisher": "Repos Production",
   "player_count": {
-    "min": 2,
+    "min": 3,
     "max": 7,
     "recommended": 5,
-    "expansion_max": 7
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -17,42 +17,93 @@
   },
   "complexity": "midweight",
   "categories": [
-    "card-drafting",
-    "set-collection",
-    "civilization"
+    "card drafting",
+    "set collection",
+    "civilization building",
+    "simultaneous play",
+    "tableau building"
   ],
   "source_url": "https://reposproduction.com/en/games/7-wonders",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Rulebook contents: 7 Wonder boards (double-sided A/B), 7 Wonder cards, 49 Age I cards, 49 Age II cards, 50 Age III cards, 46 conflict tokens (defeat -1 and victory +1/+3/+5), coins (46 value-1 and 24 value-3 in the listed edition), score booklet, and rulebook, plus 2 cards for 2-player variant. Core card colors are brown/gray resources, yellow commerce, red military, blue civic, green science, and purple guilds (Age III subset). Each player begins with one Wonder board that grants a starting resource and stage tracks with costs and rewards.",
-      "token_count": 115
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Core box contents listed in the rulebook: 7 Wonder boards, 7 Wonder cards, 49 Age I cards, 49 Age II cards, 50 Age III cards, 46 Conflict tokens, 24 coins of value 3, 46 coins of value 1, 1 score booklet, 1 rulebook, and 2 cards for 2-player mode.\n\nImportant deck composition note from setup rules: Age III includes 10 Guild cards (purple), but not all are used each game. You keep a number of guilds equal to player count + 2, then shuffle those into the rest of Age III.\n\nCard families used in scoring and play: Raw Materials (brown), Manufactured Goods (gray), Civilian Structures (blue), Scientific Structures (green), Commercial Structures (yellow), Military Structures (red), and Guilds (purple)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place coin bank and conflict token reserve in reach of all players.\n2) Prepare each Age deck for the exact player count by removing cards marked above your player number. Example from rules: in a 6-player game, use 3+, 4+, 5+, and 6+ cards; remove 7+ cards.\n3) For Age III only, remove all 10 guilds, randomly keep only N+2 guilds (N = number of players), and shuffle those kept guilds into the Age III deck.\n4) Shuffle Wonder cards and deal one face down to each player, or mutually choose Wonder boards if all players agree. The dealt wonder card determines which board and side are used.\n5) Each player places their Wonder board in front of them with their chosen side visible.\n\nThere is no central map board in 7 Wonders; each player’s city tableau forms the play area, and all card play is simultaneous."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player begins with exactly 3 coins of value 1 on their Wonder board area. Remaining coins form the bank; players can make change between value-1 and value-3 coins as needed.\n\nEach player’s Wonder board grants a starting resource shown in the upper-left icon. Wonders are double-sided; side A is recommended for early teaching games because it is simpler.\n\nAt the start of each Age, every player receives a fresh hand of 7 cards from that Age’s prepared deck. Hands are hidden and chosen simultaneously each turn."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Age I begins after all players have their 7-card hand and 3 starting coins. There is no separate initiative phase required; all players choose and reveal actions simultaneously each turn.\n\nAges proceed in this order: Age I, then Age II, then Age III. Each age has exactly 6 played turns. On each turn, every player chooses 1 card, resolves 1 action, then passes the remaining hand in the age-specific direction:\n- Age I: pass left\n- Age II: pass right\n- Age III: pass left\n\nOn the 6th turn of each age, players receive only 2 cards, play 1, and discard the other without gaining 3 coins for that discarded card."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "7 Wonders is played over 3 Ages. In each Age, every player receives a hand, chooses one card simultaneously, then reveals together and resolves the chosen card by either building it, using it to build a Wonder stage, or discarding it for 3 coins. After resolution, each player passes their remaining hand left or right depending on age direction. This continues until six cards are played and the final card is discarded. At each Age end, resolve military conflicts with left and right neighbors, then begin the next Age with a fresh deck.",
-      "token_count": 120
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn in an Age is resolved in numbered order:\n\n1) Choose a card\nEvery player selects one card from hand and places it face down.\n\n2) Resolve one action simultaneously\nAfter all players have chosen, everyone resolves exactly one of three actions with the selected card:\n- Build the structure\n- Build a Wonder stage\n- Discard the card for 3 coins\n\n3) Pass hands\nPlayers pass all remaining cards to neighbor according to age direction (Age I left, Age II right, Age III left), and receive a new hand from the opposite side.\n\n4) Repeat until 6 turns are completed in that Age\nAt turn 6, from a 2-card hand, choose 1 to play and discard the unchosen card face down without coin gain.\n\n5) End of Age: Military conflict resolution\nEach player compares military strength with immediate left and right neighbors and takes conflict tokens for each comparison. Then next Age begins with fresh 7-card deal.\n\nAfter Age III conflict resolution, proceed directly to final scoring."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Action A — Build the selected structure card\n- Pay its listed cost (if any), then place it in your city.\n- You cannot build two identical structures (same name/illustration) in your city.\n- Brown and gray cards are usually arranged so production is easy to read; other colors are arranged in front of your Wonder board.\n- Some cards are free (empty cost box).\n- Some cards cost coins paid to bank.\n- Some cards cost resources and/or coins.\n\nResource production and use\n- Resources come from your Wonder board, brown cards, gray cards, and some yellow cards.\n- Resources are NOT consumed when used; production persists every turn for the whole game.\n- You may use produced resources for your own build even if you sold those resources to a neighbor in the same turn.\n\nCommerce\n- You may buy missing resources only from your immediate left and/or right neighbors.\n- Purchasable resources are those from their Wonder starting resource, brown cards, and gray cards.\n- Certain yellow-card or wonder-produced resources may be personal-only and not purchasable.\n- Default cost is 2 coins per resource bought, paid to the neighbor providing it.\n- Some yellow cards reduce this buy cost from 2 to 1 for specific resource types or directions.\n- Neighbors cannot refuse to sell.\n- Bought resources can only be used on that turn.\n- You must have enough coins at the START of your turn to buy; coins gained during the same turn cannot be immediately reused for purchases that turn.\n\nAction B — Build a Wonder stage\n- Instead of building your selected card, place it face down under your Wonder board as a construction marker for the next stage.\n- Pay the stage cost printed on your Wonder board (ignore the selected card’s own cost).\n- Gain that Wonder stage’s reward immediately.\n- Wonder stages must be built in order from left to right.\n\nAction C — Discard selected card for money\n- Discard selected card to gain 3 coins from the bank.\n- Exception on final turn of each Age: the unchosen card from your 2-card hand is discarded with NO 3-coin gain.\n\nFree construction chains\n- Some Age II and Age III cards can be built for free if you built the prerequisite chain symbol/name in a prior age (shown on the card).\n- If chain condition is met, ignore normal resource cost for that card."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Simultaneous drafting engine\nAll players choose and resolve at once, then pass hands. You are not only building your city—you are also deciding what your neighbors will see next. Denial drafting is therefore a real strategic tool.\n\nMilitary conflicts (end of each Age)\nYou compare total shields with each adjacent neighbor separately:\n- If stronger, gain a Victory token (Age I: +1, Age II: +3, Age III: +5).\n- If weaker, take a Defeat token worth -1.\n- Ties generally award neither victory nor defeat token between tied players.\nThis means every age produces up to two military outcomes per player (left side and right side).\n\nCard color systems\n- Brown/Gray: economy foundation and production consistency.\n- Yellow: commerce modifications, coin flow, and sometimes VP.\n- Green: scientific scoring set-building.\n- Blue: direct VP.\n- Red: military strength for conflict tokens.\n- Purple (Age III guilds): conditional scoring tied to table state.\n\nGuild scaling by player count\nOnly N+2 guilds enter Age III each game, which changes late-game scoring texture each session and increases replayability.\n\nCoin economy timing rule (easy to miss)\nMoney earned from selling resources during a turn cannot fund purchases in that same turn; it is available on following turns only. This timing rule can make otherwise legal builds impossible if you began the turn with insufficient coins."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "END TRIGGER\nThe game ends immediately after Age III is completed and Age III military conflicts are resolved.\n\nFINAL SCORING\nTotal victory points are counted from all sources in your completed city and token area:\n1) Military conflict tokens\n   - Add positive victory tokens (+1/+3/+5 by age)\n   - Subtract defeat tokens (-1 each)\n2) Coins\n   - Remaining money converts at 3 coins = 1 victory point (rounded down).\n3) Civilian structures (blue cards)\n   - Add printed VP.\n4) Scientific structures (green cards)\n   - Score based on your development in the three scientific fields per science scoring system.\n5) Commercial structures (yellow cards)\n   - Add any VP granted by yellow card effects.\n6) Guilds (purple cards)\n   - Add points according to each guild’s specific criteria.\n7) Wonder stages\n   - Add any VP and effects from completed Wonder stages.\n\nWINNER\nHighest total VP wins.\n\nTIEBREAKER\nIf tied on VP, player with the most coins wins. If still tied, treat as shared victory unless a house rule specifies otherwise."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "To build a card, pay its printed resource/coin cost unless it is free by chain symbol. Resource production from brown/gray cards is persistent and can be used each turn for your own builds. If short on resources, you may buy resources only from immediate neighbors (left and/or right), paying coins to the supplying neighbor; by default this is 2 coins per purchased resource, modified by yellow discount cards. You cannot buy from non-neighbors. Building a Wonder stage uses one selected card face down under the current stage, paying the stage\u2019s listed cost and gaining its benefit. Military is checked at end of each age: compare shield totals with each neighbor separately; gain age-appropriate victory token for each win and a -1 token for each loss. Science uses three symbols and scores by both sets and symbol concentration; this is often mis-scored, so calculate carefully. Purple guild cards appear in Age III and generally score from your neighbors\u2019 tableau composition. Coin economy matters all game: coins are needed for trading and some card costs, and leftover coins convert to points at game end. Key beginner edge cases: a free-chain build ignores normal resource cost entirely, neighbors do not lose resource production when selling to you, and each military comparison is independent (you can beat one side and lose the other). Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds.",
-      "token_count": 387
-    },
-    "scoring_and_endgame": {
-      "content": "After Age III military resolution, total points from all categories: blue civic structures, red military tokens, green science, yellow commerce points, purple guild points, Wonder-stage points, and coin conversion at 3 coins = 1 point (rounded down). Highest score wins; tie-breaker is most coins. If still tied, tied players share victory per common rules convention. Ensure science is calculated with both set bonuses and square-value symbol counts.",
-      "token_count": 87
-    },
-    "beginner_strategy": {
-      "content": "In Age I, secure production first: a city with weak raw resources is forced into expensive trading all game. Track both neighbors constantly because they determine your military matchups, your trade options, and your guild value ceiling in Age III. Use chain symbols deliberately\u2014planning one or two free upgrades can swing tempo and coin efficiency. Don\u2019t overforce science without access; partial science plans often underperform a stable civic/military economy. Build Wonder stages opportunistically when your current hand is weak or when the stage reward is immediate tempo (coins, shields, extra turns/effects depending on board side). In Age III, choose between point maximization and denial drafting: sometimes taking a mediocre card is correct if it blocks a huge guild/science payoff for a neighbor. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
-      "token_count": 236
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build a resource base in Age I first, points second.\nMost beginner losses come from weak production that forces expensive buying in Ages II-III. Aim for at least one dependable raw material line and one manufactured-good path if possible.\n\n2) Keep 2-4 coins in reserve while developing.\nEven if your tableau is productive, commerce flexibility matters when draft hands are awkward. Running out of coins can strand powerful plays.\n\n3) Read both neighbors early.\nBecause military compares only with adjacent cities and trade is only with adjacent cities, neighbor boards define your costs and conflict outcomes. Track what they are producing and whether they are pushing red military.\n\n4) Build toward at least one chain.\nA single free chain into Age II can save critical resources and tempo. If you can line up two chain opportunities without sacrificing economy, even better.\n\n5) Use wonder stages as conversion turns, not default turns.\nWonder building is excellent when your current draft hand is weak for direct structures, but avoid burying high-value cards when your city can support them efficiently."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Over-prioritizing blue points in Age I.\nEarly points feel safe, but weak production later creates dead turns and expensive purchases that erase the advantage.\n\n2) Forgetting that bought resources are turn-limited.\nPlayers sometimes mentally 'bank' purchased resources; you cannot. Purchases only support that immediate build.\n\n3) Ignoring the coin timing rule.\nYou cannot spend coins earned from selling this turn until future turns. This causes frequent illegal build attempts by newer players.\n\n4) Underestimating military defeats.\nRepeated -1 tokens from both neighbors across ages can quietly swing the game. Even a modest military investment can prevent that bleed.\n\n5) Building duplicate-named structures by mistake.\nRule prohibits identical structures in one city. Verify card names before committing.\n\n6) Drafting only for personal gain with no denial awareness.\nPassing a perfect chain card or guild trigger to a neighbor can cost more than taking a slightly weaker card for yourself."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Economy depth vs immediate VP\nDo you spend early turns on resource and commerce infrastructure, or lock in immediate points? In most tables, stronger economy wins unless a clear point engine is already online.\n\nDecision 2: Wonder stage timing vs structure timing\nEvery wonder stage consumes a drafted card. If the card is low-value for your city, converting it into a stage is efficient. If the card would meaningfully improve your engine or deny an opponent, burying it can be costly.\n\nDecision 3: Military thresholding\nYou rarely need to dominate military globally; you need to beat or tie neighbors often enough. Decide whether to invest just enough shields for parity, or push hard for multiple age wins.\n\nDecision 4: Science commitment level\nScience can score explosively, but partial science without enough symbols or chain support underperforms. Either commit with support, or treat green as opportunistic rather than primary plan.\n\nDecision 5: Coin liquidity vs card quality\nSometimes discarding for 3 coins is the strongest play if it enables two future premium builds. Beginners often avoid discarding because it feels passive, but in 7 Wonders liquidity is tempo."
+        }
+      ]
     }
   },
-  "total_token_count": 945,
+  "total_token_count": 3228,
+  "extensions": {},
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.120552Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "created_at": "2026-02-23T07:27:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Written from provided 7 Wonders rulebook text excerpt as primary source."
   }
 }

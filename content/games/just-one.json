@@ -2,12 +2,12 @@
   "game_id": "just-one",
   "title": "Just One",
   "aliases": [],
-  "publisher": "Repos Production",
+  "publisher": "Repos Production / Sombreros Production",
   "player_count": {
     "min": 3,
     "max": 7,
-    "recommended": 5,
-    "expansion_max": 7
+    "recommended": 7,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 20,
@@ -15,42 +15,87 @@
   },
   "complexity": "party",
   "categories": [
-    "party",
     "cooperative",
-    "word"
+    "word-game",
+    "party",
+    "simultaneous-play"
   ],
   "source_url": "https://www.rprod.com/en/games/just-one",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Official components include 7 easels, 7 dry-erase markers, 7 cleaning cloths, and a deck of word cards (110 cards, 550 words in common editions), plus rules. During setup, each player takes one easel and marker; one player is active guesser each round while all others become clue writers. Word cards are drawn and oriented so only clue writers can see the target entry while guesser cannot. For café maintenance, ensure marker ink is legible and cloths are present; physical wear affects readability more than card wear in this title.",
-      "token_count": 115
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact contents listed in the provided rulebook: 110 cards, 7 easels, 7 erasable felt markers, and 1 rulebook. For a standard game, you will create a temporary 13-card deck from the 110 cards; the rest are returned to the box and not used in that session."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Shuffle all cards and randomly draw 13 to form a face-down deck in the middle of the table. Give each player one easel and one erasable felt marker. Ensure all players can write privately and then reveal clues to each other during the comparison phase. In a 3-player game variant, each player takes two easels because each player writes two clues per turn."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Randomly choose the first active player (the guesser for that turn). The active player draws the top card without looking and places it into their easel support so all other players can see the five candidate words. The active player then chooses a number from 1 to 5 to indicate which mystery word clue-givers must reference. If clue-givers do not know that selected word, they can ask the active player to choose a different number before clue writing begins."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On a round, one player is the guesser and cannot see the secret word. Every other player writes a one-word clue on their easel. Before showing clues to the guesser, all clue writers compare and erase duplicates so only unique clues remain. The guesser then sees the surviving clues and makes one guess at the target word. Resolve as success or failure, rotate guesser, and continue cooperatively through the agreed card count.",
-      "token_count": 93
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn follows 4 phases, then a role pass:\n1. Choose the Mystery Word: Active player displays top card and selects word number (1-5).\n2. Clue Selection: Every non-active player secretly writes one single-word clue without communication.\n3. Comparing Clues: Active player closes eyes; clue-givers reveal to each other and cancel all identical or invalid clues.\n4. Guess: Active player opens eyes and makes exactly one guess based only on remaining clues.\n5. End of Turn: Resolve success/failure/skip effects, rotate active player to the left, erase old clues, and continue."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Clue writing rules:\n- Each clue must be one word.\n- Digits, numbers, acronyms, onomatopoeia, and special characters count as words per rulebook examples.\n- No communication during clue writing.\n\nClue cancellation rules in comparison phase:\n- Identical clues are cancelled (both/all copies).\n- Word-family variants are treated as identical and cancelled (e.g., plural/gender/spelling variants).\n- Invalid clues are cancelled, including: the mystery word spelled differently, the mystery word in another language, a same-family derivative of the mystery word, invented words, and homophones judged invalid by rule examples.\n- Cancelled clues are hidden by tipping easels down.\n\nGuess resolution:\n- Active player gets only one guess.\n- Correct guess: place that card face up in success area.\n- Wrong guess: return current card and also return the top card of the deck to the box.\n- Skip: if active player chooses not to answer, return only the current card to the box.\n- If all clues were cancelled, return current card to the box and move directly to end of turn (no guess made).\n\nPronunciation note from rules:\n- If the active player guesses a word with the same pronunciation as the mystery word, that guess is valid.\n\nFinal-turn penalty note:\n- If the active player gives a wrong guess during the final turn, also remove one previously successful card."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "This is a fully cooperative hidden-writing system with simultaneous clue generation and mandatory duplicate pruning. The game’s core tension is not only finding a useful clue, but finding a useful clue that no one else will also write.\n\n3-player variant (explicitly in provided text): each player takes two easels and writes two clues during clue selection. Duplicate cancellation still applies across all written clues. This variant restores clue volume and uncertainty at low player count."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: The game ends when the 13-card deck is empty.\n\nScoring: Count successfully guessed cards and compare to the official rating table:\n- 13: Perfect score!\n- 12: Incredible!\n- 11: Awesome!\n- 9-10: Wow, not bad at all!\n- 7-8: Average.\n- 4-6: Good start.\n- 0-3: Try again.\n\nAll score sources in this game:\n- +1 successful card for each correctly guessed mystery word (tracked by face-up success cards).\n- No other positive score sources exist.\n\nNegative outcome effects that reduce final total:\n- Wrong guess removes current card plus one extra top-deck card from potential scoring.\n- Final-turn wrong guess removes an additional previously successful card.\n- Skip and all-cancelled-clue turns remove current card from potential scoring.\n\nTie-breakers: Not applicable in standard play, because the team shares one cooperative score rather than competing individual totals."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Setup distributes writing materials and defines round count (often the official 13-card sequence for score grading). Each round, reveal a new card so non-guessers can view the selected target while guesser looks away. All clue writers independently write exactly one clue. Then comes the mandatory duplicate-elimination step: identical clues are removed before the guesser sees anything; many tables also treat close inflections/plurals as duplicates when clearly equivalent, but the strictest official baseline is exact duplicate words. After erasing duplicates, reveal remaining clues. Guesser gives one spoken answer. If correct, place card in success pile; if wrong, card is lost per scoring method. Rotate guesser role clockwise and repeat. Communication rules matter: no additional hints, gestures, or tone cues after clue reveal; the deduction must come from written clues only. If all clues are eliminated, the guesser must still attempt (or pass under allowed variant). Keep pace brisk: writing, compare, erase, reveal, guess, score. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 458
-    },
-    "scoring_and_endgame": {
-      "content": "Just One is fully cooperative: team score equals number of correctly guessed words at session end. Standard official play uses a fixed number of rounds/cards (commonly 13) and then checks result against performance bands in the rulebook (from poor to excellent/legendary style ratings by edition language). Wrong guesses add to failure count and reduce final score ceiling. End game when planned card count is exhausted; no individual winner exists.",
-      "token_count": 89
-    },
-    "beginner_strategy": {
-      "content": "Write clues that are specific but not obvious duplicates—“mammal” and “animal” can coexist, while two players writing “pet” wastes both. Think one step beyond the first association you expect everyone else to choose. As guesser, infer meaning from the pattern of what survived; a weird clue that remains is often the key. In repeated sessions, vary clue style (category, function, context) so your group avoids habitual collisions. If teaching newcomers, run a sample round to demonstrate duplicate cancellation before score begins. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 130
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "In the first few turns, prioritize clue diversity over maximum precision. Before writing, mentally list the two most obvious clues and avoid them; obvious clues collide and disappear. Use one-step-removed associations (category, context, function, opposite, famous example) that are still clear to the guesser but less likely to duplicate. As active player, pick a word number you believe most clue-givers will understand immediately, because confusion at word selection can waste the turn before clue quality even matters."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Writing the most obvious synonym every time. It often gets cancelled and leaves the guesser with weak leftovers.\n2) Using invalid clue forms (same family, disguised target word, translated target) and losing clue value for free.\n3) Trying to be so clever that clues become opaque. A unique clue is worthless if it cannot guide the guesser.\n4) Ignoring table meta: if your group repeatedly uses certain clue types, collisions become predictable unless you adapt.\n5) Guessing too quickly as active player. Taking a short moment to connect all surviving clues usually increases accuracy, especially after heavy clue cancellation."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Safety vs uniqueness: Do you write a very clear clue that might duplicate, or a more original clue that might survive but be weaker?\n2) Specificity vs breadth: Narrow clues can lock onto the right word but risk invalid overlap; broader clues survive more often but may not differentiate enough.\n3) Risk management near end of deck: In late turns, decide whether the active player should attempt a difficult guess or skip to avoid larger penalties from a wrong answer, especially with the final-turn penalty in mind."
+        }
+      ]
     }
   },
-  "total_token_count": 885,
+  "total_token_count": 1690,
+  "extensions": {},
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "created_at": "2026-02-23T07:11:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from just-one.txt as primary source. Reference snippet: 1) S\u0007 huffle the cards and randomly draw 13 to create a"
+    "revision": 1,
+    "notes": "Primary source: Just One rulebook text provided in prompt, including setup, 4-phase turn flow, clue validity/cancellation rules, score table, and 3-player variant."
   }
 }

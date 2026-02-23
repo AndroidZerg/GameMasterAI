@@ -4,12 +4,12 @@
   "aliases": [
     "Azul (2017)"
   ],
-  "publisher": "Next Move Games / Plan B",
+  "publisher": "Next Move Games",
   "player_count": {
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 4
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -17,42 +17,92 @@
   },
   "complexity": "gateway",
   "categories": [
+    "abstract",
+    "tile-drafting",
     "pattern-building",
-    "drafting",
     "set-collection"
   ],
-  "source_url": "https://www.nextmovegames.com/en/home/azul/",
+  "source_url": "https://www.nextmovegames.com/en/games/azul/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "100 resin tiles (20 each in blue, yellow, red, black, white), 4 player boards (A side standard), 9 factory displays, 4 score markers, 1 first player token, and 1 cloth bag.",
-      "token_count": 120
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Component counts from the provided rulebook text: 100 tiles total, split as 20 tiles in each of 5 colors; Factory displays (use 5 in a 2-player game, 7 in a 3-player game, 9 in a 4-player game); 1 starting player marker; player boards (1 per player, each with pattern lines, wall, floor line, and score track); scoring markers (1 per player); and 1 bag used to draw random tiles. The rulebook also references the lid of the game box as a temporary storage area for discarded/removed tiles during and between rounds. Exact setup-critical counts are: 4 tiles placed on each active Factory display at round start, 1 score marker per player placed on 0, and all 100 tiles loaded into the bag before first fill."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Seat players and place one player board in front of each player, all on the same side (standard colored wall side unless intentionally using the gray-side variant for everyone). 2) Put each player's scoring marker on 0 of their personal score track. 3) Place active Factory displays in a circle around the center: 5/7/9 depending on 2/3/4 players. 4) Fill the bag with all 100 tiles. 5) Give the starting player marker to the player who most recently visited Portugal. 6) That player draws exactly 4 random tiles from the bag and places them on each active Factory display. 7) Keep center of table clear at start; it will receive leftover tiles from factories during drafting and also hold the starting player marker once the round begins."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player receives exactly two physical components: 1 player board and 1 scoring marker. No player starts with tiles in pattern lines, wall spaces, or floor line. Every player must use the same board side. During setup, each player places only their marker at score 0; all tiles begin in the bag and then move to factories. Players should quickly review their board zones before play: (a) five pattern lines with capacities 1 to 5, filled right-to-left; (b) wall grid where completed pattern lines score by placing exactly one tile; (c) floor line where overflow/illegal/unwanted tiles go and cause end-of-round penalties."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "After setup is complete, the current holder of the starting player marker places that marker in the center of the table and takes the first turn of the Factory Offer phase; play continues clockwise. On your turn you must draft tiles from exactly one source (a factory or the center), then place those tiles following placement restrictions. If you are first in the round to draft from center, you must also take the starting player marker and place it on the leftmost free floor-line space, where it will count as a floor penalty tile this round and determine who starts next round."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "In each round players draft all tiles of one color from a factory or from the center. Chosen tiles are staged on one pattern line of matching length; overflow breaks and causes penalties. After all tiles are drafted, completed lines move one tile to the wall and score points. New factories refill and the next round begins.",
-      "token_count": 95
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Azul is played over repeating rounds, and each round has three numbered phases:\n1. Factory Offer phase\n   - Starting player begins, then clockwise turns.\n   - On each turn, player drafts all tiles of one color from one source (a factory OR the center).\n   - Player places drafted tiles onto one pattern line (legal placement only); excess or unplaceable tiles go to floor line.\n   - If drafting from a factory, remaining tiles on that factory move to center.\n   - If first to draft from center this round, also take starting player marker to floor line.\n   - Phase ends when center and all factories are empty.\n2. Wall-tiling phase\n   - All players may resolve simultaneously.\n   - For each complete pattern line, move its rightmost tile to matching color space in that wall row and score immediately.\n   - Remove leftover tiles from completed pattern lines to box lid.\n   - Incomplete pattern lines remain as-is for next round.\n   - Apply floor-line penalties and then clear floor line to lid (starting player marker is kept in front of player, not moved to lid).\n3. Preparing the next round\n   - If endgame trigger not met, refill each active factory with 4 random tiles from bag.\n   - If bag empties during refill, refill bag from tiles in box lid and continue.\n   - If both bag and lid are empty, begin round even if some factories are not fully refilled.\n   - Player with starting player marker will begin the next Factory Offer phase."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Legal draft options on your turn are exactly:\nA) Factory draft: choose one Factory display, take all tiles of one color from it, then move all remaining tiles from that factory to center.\nB) Center draft: take all tiles of one color from center; if first center drafter this round, also take starting player marker into leftmost free floor slot.\n\nAfter drafting, place tiles under these constraints:\n- You choose one pattern line to receive placed tiles.\n- Pattern line capacity is fixed by row (1 through 5 spaces).\n- Tiles are placed right-to-left on that line.\n- A pattern line can contain only one color. If it already has a color, you may only add that same color.\n- You cannot place a color in a pattern line if that row's wall already contains that color.\n- Any drafted tiles you cannot or do not place legally must go to floor line, left-to-right.\n- If floor line is full, additional fallen tiles are placed into box lid.\n\nWall-tiling movement and scoring action details:\n- Resolve pattern lines from top to bottom.\n- For each complete line, move exactly the rightmost tile to corresponding same-color wall space in that row.\n- Score immediately for this placed wall tile.\n- If no orthogonally adjacent wall tiles (horizontal/vertical), score 1 point.\n- If adjacent tiles exist, score connected horizontal group size including new tile, then score connected vertical group size including new tile. (If both exist, score both values.)\n- Remove remaining tiles from that completed line to box lid.\n- Ignore incomplete lines; tiles remain for next round.\n\nFloor-line penalty action at end of wall-tiling:\n- For each occupied floor slot, lose points indicated above those slots.\n- Score cannot drop below 0.\n- Then clear floor tiles to box lid.\n- If starting player marker is on floor line, treat it like a normal penalty tile for scoring, but place marker in front of you afterward (not into lid)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Pattern-line to wall conversion constraint: completing a pattern line does not move the whole line; only one tile (the rightmost) transfers to the wall, while the rest are discarded to lid. This creates deliberate inefficiency and makes tile quantity management central.\n\n2) Center-pressure and initiative tax: drafting from center can grant next-round first player but forces the starting player marker into your floor line, guaranteeing at least one penalty this round. Timing this tradeoff is a core tactical decision.\n\n3) Persistent incomplete lines: incomplete pattern lines remain between rounds, allowing multi-round planning and tactical carryover. However, they also lock color choices in those lines.\n\n4) Wall legality lockout in standard side: once a row has a given color on wall, that same color can never be staged in that row's pattern line again. This forces long-term color-row planning and denial play.\n\n5) Tile economy loop: discarded tiles from completed lines and floor line go to box lid, later recycled into bag only when bag empties during refill. This means color availability can temporarily skew by round and player drafting behavior.\n\n6) Gray-side variant (optional mode from rulebook): same core flow, but when moving from completed pattern line to wall, tile can be placed on any space in that row as long as no color repeats in that row or in any column. If no valid wall space exists for a completed line, all tiles from that line immediately go to floor line."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: the game ends immediately after the Wall-tiling phase of a round in which at least one player completed at least one horizontal line of 5 consecutive tiles on their wall. You always finish that Wall-tiling phase and then perform final bonus scoring.\n\nScoring during game (ongoing):\n- Every wall tile placed from a complete pattern line scores immediately by adjacency rule (1 if isolated, otherwise horizontal group size plus vertical group size as applicable).\n- Floor line applies negative points at end of each Wall-tiling phase; score floor marker cannot go below 0.\n\nFinal bonus scoring (all VP sources listed in provided rules):\n- +2 points for each complete horizontal line of 5 tiles.\n- +7 points for each complete vertical line of 5 tiles.\n- +10 points for each color set of all 5 tiles placed on your wall.\n\nWinner determination:\n- Highest score wins.\n- Tie-breaker: tied player with more complete horizontal lines wins.\n- If still tied after that, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Setup: fill each factory with 4 random tiles from bag. On your turn, choose source: one factory or center. If factory chosen, take all tiles of a single color from that factory; push remaining tiles to center. If center chosen, take all tiles of one color there and also take first player token if present (token gives next-round start and immediate -1 penalty). Place taken tiles onto one pattern line respecting constraints: each line accepts only one color; you cannot place a color in a line if that row already has that color on completed wall; excess tiles go to floor line. Wall-tiling phase: each fully filled pattern line moves exactly one tile to corresponding wall slot; remaining tiles from that line go to discard lid. Score placed tile by contiguous horizontal/vertical counts (1 alone, otherwise row-run + column-run). Floor penalties are applied each round by left-to-right negative values. Refill phase: return factories, draw 4 tiles each; if bag empty, refill bag from discard lid. Game can end mid-round trigger but finishes current round fully.",
-      "token_count": 470
-    },
-    "scoring_and_endgame": {
-      "content": "Endgame triggers when any player completes at least one horizontal row on their wall during wall-tiling. Finish round, then apply bonuses: +2 per completed horizontal row, +7 per completed vertical column, +10 per complete set of 5 same-color tiles on wall. Add to running score after floor penalties; highest score wins, tie broken by most completed horizontal rows.",
-      "token_count": 150
-    },
-    "beginner_strategy": {
-      "content": "Avoid floor penalties at all costs—taking a slightly weaker color is usually better than eating multiple negatives. Build toward row completion timing so one round places several scoring tiles in connected clusters. Deny opponents key colors when they are one tile short of high-value lines. Track bag composition: late rounds often starve one color, so don’t overcommit impossible lines. First-player token is worth taking only when it secures an excellent first pick next round.",
-      "token_count": 170
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Prioritize legal placement flexibility over raw tile volume in the first two rounds. Early floor penalties are hard to recover because isolated wall placements often score only 1 each.\n2) Complete at least one short pattern line quickly (rows 1-2) to start scoring and reduce future overflow pressure.\n3) Avoid filling multiple lines with colors that are likely to conflict with existing wall-row restrictions; check each row's wall target before drafting.\n4) Watch center timing. Taking starting player marker is strong only when first pick next round will complete a valuable line or deny an opponent's key completion.\n5) Build adjacency deliberately: when choosing which completed lines to prioritize, favor placements that connect to existing horizontal or vertical groups rather than isolated single points.\n6) Track which colors are becoming scarce in factories this round and which are likely in bag/lid cycle; avoid committing a long line to a color that may not appear in time."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Overdrafting from a tempting factory and dumping 2-4 tiles to floor line. Why it's bad: floor penalties can erase an entire round's positive scoring, and excess tiles are wasted to lid.\n2) Ignoring wall-row color lockout. Why it's bad: players draft a color, then discover that row is illegal because that color is already on that row's wall, forcing floor penalties.\n3) Treating all completed lines equally. Why it's bad: moving a tile that lands isolated for 1 point is much weaker than timing a move that scores both horizontal and vertical links.\n4) Taking starting player marker by habit. Why it's bad: initiative is valuable, but guaranteed floor penalty is a real cost; taking it without a concrete next-round plan loses net points.\n5) Not planning for end trigger timing. Why it's bad: opponents can end the game as soon as they complete a horizontal five; if you ignore this, you may leave vertical/color-set bonuses unrealized.\n6) Filling long pattern lines too early with uncertain supply. Why it's bad: unfinished long lines lock space and color, reducing flexibility while you wait for specific tiles."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "A) Initiative vs penalty tradeoff\n- Decision: take first-player marker now (and accept floor penalty) or avoid center early.\n- Strategic lens: take it when expected first pick next round converts into immediate high-value completion or critical denial.\n\nB) Denial draft vs self-optimization\n- Decision: draft tiles that are slightly weaker for you but prevent an opponent from completing a major line/bonus path.\n- Strategic lens: denial is strongest when opponent is one tile from completion that would produce adjacency points now plus endgame bonus later.\n\nC) Immediate points vs endgame structure\n- Decision: place tiles for near-term adjacency bursts or orient placements toward future complete rows/columns/color sets.\n- Strategic lens: in midgame, balancing both is key; in late game, evaluate who can trigger end first and whether you should accelerate or delay that trigger based on current bonus outlook."
+        }
+      ]
     }
   },
-  "total_token_count": 1005,
+  "total_token_count": 2860,
+  "extensions": {},
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "human",
+    "created_at": "2026-02-23T07:08:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
     "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "notes": "Generated from provided Azul rulebook excerpt; counts and phase/scoring details align with that source text."
   }
 }

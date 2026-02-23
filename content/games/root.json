@@ -9,7 +9,7 @@
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 60,
@@ -19,41 +19,91 @@
   "categories": [
     "asymmetric",
     "area-control",
-    "wargame",
-    "card-crafting"
+    "warfare",
+    "card-crafting",
+    "table-politics"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/root.txt",
+  "source_url": "https://ledergames.com/products/root-a-game-of-woodland-might-and-right",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Root uses a shared woodland map, shared deck, ambush and dominance cards, faction boards, faction warriors and tokens, crafted item tokens, and battle dice. Base game includes four asymmetric factions with unique pieces and setup. Cards have fox, rabbit, mouse, or bird suits, with bird often wild under core rules. Faction boards define each faction action structure and scoring pattern and must be complete for legal play.",
-      "token_count": 87
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Using the provided Law of Root excerpt as the primary source, these exact counts are explicitly stated: 5 Ambush cards (1 mouse, 1 rabbit, 1 fox, 2 bird), 4 Dominance cards (one per suit), 4 Ruins placed on map slots marked with R, Item Supply setup of 12 items total (2 M, 2 B, 1 C, 1 H, 2 S, 2 T, 2 X), 16 faction overview cards, and 2 custom dice. The game uses a shared deck/discard and faction-specific piece pools listed on each faction board. The excerpt also gives explicit faction setup counts where shown: Marquise forms supplies of 25 warriors and 8 wood tokens, and has building tracks filled with remaining 5 sawmills, 5 workshops, and 5 recruiters after placing one of each as starting buildings. Additional faction piece totals are defined on the backs of faction boards and must be followed exactly during setup."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the Woodland map board centrally. 2) Place score markers on 0 for all players. 3) Prepare shared deck: if 2 players, remove all 4 Dominance cards first; then shuffle and deal each player 3 cards. 4) Place Ruins in each map slot marked R (4 total). 5) Build Item Supply at top of map in matching spaces: 2 M, 2 B, 1 C, 1 H, 2 S, 2 T, 2 X. 6) Place 2 custom dice near the map. 7) Hand out faction overview cards as desired. 8) In setup order (A, B, C, etc.), each player executes faction-specific setup instructions from their board/rules section."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player receives one faction board and all pieces listed on the back of that board. Every player places their score marker at 0 and draws 3 starting cards from the shared deck (after any 2-player dominance removal step). Then each faction performs its own setup. From the provided excerpt: Marquise de Cat gathers 25 warriors and 8 wood; places Keep in a corner clearing; places a warrior in each clearing except the diagonally opposite corner; places 1 sawmill, 1 workshop, and 1 recruiter among Keep clearing and adjacent clearings; then fills tracks with remaining buildings. Faction asymmetry is mandatory: players do not share setup templates, actions, or scoring engines."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Assign factions, determine starting player and seating order randomly, complete full faction setups in setup order, then begin play clockwise. The first player begins their turn with Birdsong, then Daylight, then Evening. Before first action, all players should confirm the Golden Rules hierarchy: card text overrides rules reference when conflicting; 'cannot' effects are absolute unless explicitly superseded; and simultaneous effects are ordered by the current-turn player unless otherwise specified."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Turns proceed clockwise. Each turn has Birdsong, Daylight, and Evening. Players resolve faction effects in Birdsong, perform main actions and crafting in Daylight, then draw and clean up in Evening. Shared core systems are movement, battle, crafting, and ruling clearings, but each faction modifies them heavily. Game ends when a player reaches 30 points or fulfills a dominance condition.",
-      "token_count": 76
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Root uses a strict 3-phase turn loop:\n1. Birdsong\n   - Resolve faction Birdsong effects in the order defined by your faction board/rules.\n   - Some victory checks (notably dominance checks) occur at start of Birdsong for relevant players.\n2. Daylight\n   - Perform faction Daylight actions and common actions (Craft, Move, Battle) as allowed.\n   - You may trigger card effects, faction powers, and optional conversions based on your current state.\n3. Evening\n   - Resolve faction Evening effects (often card draw, cleanup, and scoring for some factions).\n   - Enforce hand limits and mandatory discards where required.\nAfter Evening, turn passes clockwise. Continue until a player wins immediately by VP threshold or dominance condition."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Shared action framework from the Law excerpt:\n\nA) Craft\n- To craft a card, activate crafting pieces whose suits match the card cost icons.\n- Crafting piece suit is determined by the clearing it occupies.\n- Each crafting piece can be activated only once per turn.\n- Immediate effects resolve and card is discarded. If immediate craft shows an item, take matching item from supply and place in your Crafted Items box; if item not available, card cannot be crafted.\n- Persistent effects remain in your play area for ongoing use.\n- You cannot craft duplicate copies of the same persistent effect.\n\nB) Move\n- Move any number of your warriors or your pawn from one clearing to an adjacent clearing.\n- Move legality requires ruling the origin or the destination clearing (or both).\n- A piece may move multiple times per turn if effects allow.\n\nC) Battle\n1) Choose clearing where you have warriors or pawn; choose a defender there.\n2) Defender may play matching-suit Ambush card.\n   - If not foiled, defender deals 2 hits immediately.\n   - Attacker may foil by playing matching Ambush after defender plays one.\n   - If no attacking warriors remain, battle ends immediately.\n3) Roll both dice. Attacker deals hits equal to higher die; defender deals hits equal to lower die (equal dice = same hits each).\n4) Maximum rolled hits each side can deal is capped by number of that side's warriors in the battle clearing (unless extra-hit effects apply).\n5) Apply extra hits from abilities/effects as permitted; these extra hits are not capped by warrior count.\n6) Deal hits simultaneously. Each hit removes one piece. Player taking hits chooses removed pieces but must remove all their warriors in that clearing before removing any buildings/tokens there.\n\nCard handling and suit rules:\n- Draws come from shared deck; if empty, shuffle discard to form new deck.\n- Discard/spend goes to shared discard unless rule says otherwise (e.g., some dominance interactions).\n- Bird cards are wild for many spend/take/give prompts, but forced-effects clauses can require treating bird cards as prompted suit.\n- If prompted specifically for a bird card, reverse substitution applies: you cannot substitute another suit.\n\nInformation and negotiation limits:\n- Hand size is public; hand contents are private unless explicitly revealed by effects.\n- Discard pile is searchable at any time.\n- Deals are non-binding unless rules enforce transfer.\n- Players may only give cards when explicitly instructed by rules/effects."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Asymmetry as core system\nRoot is not one ruleset with cosmetic factions; each faction has a fundamentally different scoring engine, action economy, and risk profile. Shared rules (movement, battle, crafting, ruling, card flow) are only the common language. Real play quality depends on reading cross-faction incentives and threat pacing.\n\n2) Rule precedence and absolute prohibitions\nThe Law defines strict precedence: card text overrules rules reference when conflicting; rules reference overrules learning guide when conflicting. Any rule using 'cannot' is absolute unless an explicit override exists. This matters constantly in edge-case timing and faction exceptions.\n\n3) Ruling and positional legality\nRuling a clearing means having the highest combined number of warriors + buildings there (tokens/pawns do not count for rule). Ties mean no ruler. Rule status directly gates movement legality and many faction actions, so board control is not just about combat; it's about maintaining legal action corridors.\n\n4) Piece typing and supply limits\nPieces are typed (warriors, buildings, tokens, pawn, items), each with specific placement/removal rules. If an effect asks you to place/take/remove more pieces than available, you do as much as possible. This physical-limit rule creates important tactical ceilings and can deny otherwise legal-looking lines.\n\n5) Dominance victory conversion\nAt 10+ VP in Daylight, a player may activate a Dominance card, remove their score marker, and stop scoring VP. From then on they pursue alternative map-control win conditions: Mouse/Rabbit/Fox dominance checks for ruling three matching-suit clearings at start of Birdsong; Bird dominance checks for ruling opposite-corner clearings at start of Birdsong. Activated Dominance cards stay in play and cannot be replaced.\n\n6) Ambush and battle tempo\nAmbush creates pre-roll damage and can terminate attacks before dice. Foil timing, hit caps, simultaneous hit application, and mandatory warrior-before-cardboard casualty order are frequent dispute points. In high-skill play, attack selection often targets cardboard not warriors because removing enemy buildings/tokens both scores points and slows engines.\n\n7) Faction-specific examples from excerpt\n- Marquise: scores from building progression and depends on protected wood economy; Keep controls placement rights; Field Hospitals recovers removed warriors by spending matching cards.\n- Eyrie (overview): gains VP from roost count and is constrained by mandatory Decree execution, with turmoil risk if Decree cannot be completed.\nThese illustrate Root's defining tension: each faction has a distinct growth curve and failure mode that table politics must manage."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Primary victory:\n- First player to reach 30 VP wins immediately.\n- If multiple players reach 30+ simultaneously, current-turn player wins.\n\nGeneral VP sources available to factions from shared rules:\n1) Removing enemy buildings/tokens: +1 VP per enemy building or token removed.\n2) Crafting items: gain VP listed on crafted item card.\n3) Faction-specific scoring systems (e.g., building tracks, roost counts, sympathy, quests, etc.) as defined by faction rules in use.\n\nAlternative victory via Dominance cards:\n- A player at 10+ VP may activate a dominance card during Daylight, remove their score marker, and can no longer score VP.\n- Mouse/Rabbit/Fox Dominance: win immediately at start of Birdsong if you rule three clearings of matching suit.\n- Bird Dominance: win immediately at start of Birdsong if you rule two opposite-corner clearings.\n\nTie handling:\n- The provided Law excerpt gives explicit simultaneous-30 handling (current-turn player wins).\n- Dominance wins are immediate condition-based and do not require VP comparison once achieved."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "The Law of Root defines precedence: cards override general rules and cannot rules are absolute unless explicitly superseded. Control of clearings drives movement and action legality. Battle uses two dice with hits capped by warriors present, and piece removal can score based on faction and target type. Ambush cards can modify battle timing. Cards come from shared draw and discard piles; hand size is public but card identity is private unless revealed by effect. Bird suit is wild for many costs but can be forced as prompted suit by specific effects. Crafting requires faction-specific crafting piece presence in matching suits. Dominance cards replace normal point victory with map-control objectives. Key faction management issues are decree stability for Eyrie, action economy buildings for Cats, supporter and outrage flow for Alliance, and item and relationship economy for Vagabond. Common disputes involve simultaneous effects, movement legality, and faction text overrides.",
-      "token_count": 191
-    },
-    "scoring_and_endgame": {
-      "content": "Standard victory is immediate at 30 points. Alternative victory is dominance: a player who has switched to dominance wins by meeting that card objective at the required timing. Points are earned through faction actions, cardboard removal, crafting, and faction-specific effects. Always check win state immediately when points are gained.",
-      "token_count": 63
-    },
-    "beginner_strategy": {
-      "content": "Play your faction plan, not generic value moves. Remove enemy scoring infrastructure, not just warriors. Track leader pace and table balance early because interaction decides outcomes. Craft when it supports your faction tempo rather than as a side hobby. Plan one turn cycle ahead so suit constraints do not trap your action economy.",
-      "token_count": 68
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Learn your faction's scoring cadence before turn 1. In Root, efficient play is faction-specific: an opening that is excellent for one faction can be self-sabotage for another. Read your first two turns as a planned sequence, not isolated actions.\n\n2) Build legal action lanes, not just presence. Because movement and many effects depend on rule/adjacency, ensure you can keep taking legal moves and battles next turn. A strong board position that cannot legally project force is weaker than it looks.\n\n3) Track cardboard opportunities early. Removing enemy buildings/tokens both scores and damages economy. New players overfocus on warrior attrition; stronger play identifies which cardboard pieces are throughput bottlenecks (recruitment, crafting, production, sympathy, etc.).\n\n4) Preserve suit flexibility in hand. Suits power crafting costs, faction mechanics, and reaction options. Spending your only critical suit too early can choke your next-turn options or prevent defensive responses.\n\n5) Respect table tempo, not just your own board. Root is multiplayer pressure management. If one faction has a visibly faster scoring ramp, early coalition behavior emerges naturally. Contribute to leader checking without overpaying your own tempo.\n\n6) Use battles with purpose. Initiate battle when it advances scoring, denies enemy scoring, opens movement/crafting lanes, or protects your own engine. Random attrition fights usually benefit a third player.\n\n7) For Marquise/Eyrie specifically (from excerpt context):\n- Marquise opening should secure wood flow and keep-protected production continuity.\n- Eyrie opening should choose Decree commitments you can reliably sustain; early overcommitment invites turmoil and tempo collapse."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating Root like a symmetric area-control game\nWhy it fails: faction asymmetry means generic 'best practices' are often wrong. You must prioritize your faction's scoring engine and failure conditions.\n\n2) Ignoring rule-based movement legality\nWhy it fails: players plan attacks that are illegal because they do not rule origin/destination. This causes lost tempo and forced fallback actions.\n\n3) Spending bird cards carelessly\nWhy it fails: bird cards are powerful suit wildcards in many contexts, but forced-suit and reverse-substitution clauses create edge cases. Burning flexible cards too early can leave you unable to execute critical prompts.\n\n4) Fighting warriors while leaving high-value cardboard untouched\nWhy it fails: enemy warriors often recycle quickly; buildings/tokens usually represent scoring engines and infrastructure. You score from removing cardboard and disrupt long-term output.\n\n5) Overreacting to table talk deals as binding commitments\nWhy it fails: agreements are non-binding by Law. Strategic planning must survive renegotiation and betrayal risk.\n\n6) Activating dominance without board reality\nWhy it fails: switching off VP scoring at 10+ is irreversible for that card. If you cannot realistically hold required clearings at Birdsong checks, dominance pivot can hand game to another player.\n\n7) Missing battle sequence details\nWhy it fails: ambush timing, foil timing, rolled-hit caps, and casualty ordering change outcomes dramatically. Sequence mistakes can invalidate entire turns."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "A) VP race vs dominance pivot\n- Decision: continue racing to 30 VP, or convert to dominance at 10+ VP.\n- Trade-off: VP race is flexible but contested; dominance can bypass point tempo but demands durable map control at Birdsong timing checkpoints.\n\nB) Self-tempo vs coalition policing\n- Decision: spend actions to check leader now, or keep building your own engine.\n- Trade-off: under-policing leader loses game; over-policing can leave you far behind another faction that free-rolls. Good Root play is calibrated intervention.\n\nC) Card economy now vs future suit coverage\n- Decision: spend key cards for immediate crafts/actions/battles, or hold for suit-critical obligations and reactions next round.\n- Trade-off: immediate gain may be large, but suit starvation can force weak turns or faction-specific collapses. Evaluate card spend against your next full turn cycle, not just current board snapshot."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4120,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "human",
+    "created_at": "2026-02-23T07:15:00Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Written from provided Law of Root excerpt; exact counts included where explicitly present in excerpt, with faction-board-listed quantities referenced per rules text."
   }
 }

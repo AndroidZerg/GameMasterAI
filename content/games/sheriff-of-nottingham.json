@@ -1,56 +1,105 @@
 {
   "game_id": "sheriff-of-nottingham",
   "title": "Sheriff of Nottingham",
-  "aliases": [],
+  "aliases": [
+    "Sheriff of Nottingham (CMON Edition)",
+    "Sheriff"
+  ],
   "publisher": "CMON",
   "player_count": {
     "min": 3,
-    "max": 6,
-    "recommended": 5,
-    "expansion_max": 6
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 45,
-    "max": 60
+    "max": 75
   },
-  "complexity": "gateway",
+  "complexity": "midweight",
   "categories": [
     "bluffing",
     "negotiation",
-    "party"
+    "bribery",
+    "set-collection",
+    "hand-management"
   ],
-  "source_url": "https://www.cmon.com/products/sheriff-of-nottingham/",
+  "source_url": "https://www.cmon.com/product/sheriff-of-nottingham",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Using the official rulebook text as the primary source, set up Sheriff Of Nottingham by first sorting all components into player materials, shared components, randomizers, and state markers. Verify component names and iconography against the rulebook contents section before anyone chooses a role or starts the first turn. This avoids the most common setup failure: missing or mis-sorted decks/tokens that break later rules interactions. The rulebook references these core pieces repeatedly in setup and play: Keep replacement counters and reference cards in reach so players can match symbols quickly during live teaching. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently.",
-      "token_count": 245
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "216 Goods cards: 144 Legal Goods (48 Apples, 36 Cheese, 36 Bread, 24 Chicken), 60 Contraband (22 Pepper, 21 Mead, 12 Silk, 5 Crossbow), and 12 Royal Goods (2 each of Royal Cheddar, Gouda Cheese, Rye Bread, Pumpernickel Bread, Royal Rooster, Golden Apple). 110 Gold coins (39x1, 42x5, 17x20, 12x50). 1 Sheriff marker. 5 Merchant Stands. 5 Merchant Bags. 1 rulebook."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes 1 Merchant Stand and matching Merchant Bag and places them in front of them. Choose one player as banker; banker gives each player 50 Gold and keeps bank supply separate. For a learning game, remove all 12 Royal Goods (optional basic mode). Shuffle remaining Goods deck and deal 6 cards to each player as starting hand. Put remaining cards as facedown draw pile. Reveal 5 cards into one discard pile and 5 cards into a second discard pile. All players may inspect discard piles at any time."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "First Sheriff is the player with highest value of actual cash on their person (outside the game); if tied or none, choose randomly. Give that player Sheriff marker. In 3-player games, remove all cards marked with the 4+ icon before shuffling (all 36 Bread plus 4 Pepper, 5 Mead, and 3 Silk). Game starts with Round 1, Phase 1 (Market). Sheriff does not participate in Market or bag loading/declaration that round."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "The official rules describe a repeatable turn rhythm for Sheriff Of Nottingham: perform start-of-turn checks, execute the game’s main action structure in the stated order, resolve triggered effects, then complete cleanup/end-step timing before passing play. Teach this as a fixed checklist so new players do not skip mandatory windows. If an interrupt or reaction occurs, resolve it completely, then return to the unresolved step. Rulebook turn-sequence cues include: [SCANNED PDF - TEXT EXTRACTION FAILED] The rulebook PDF is available at: /mnt/d/GameMasterAI/content/rulebooks/sheriff-of-nottingham.pdf (16 pages) Agent must read the PDF directly to extract rules content. In edge cases, table order and explicit timing words in the rulebook control resolution order.",
-      "token_count": 140
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round has 5 phases in order: 1) Market: Starting with player left of Sheriff and clockwise, each merchant may discard up to 5 cards face down, then draw back up to 6. Draws may come from top of either discard pile or draw pile, one card at a time. Any cards taken from discard piles must be taken before drawing from draw pile. After drawing, merchant places all set-aside cards face up onto one discard pile in any order. 2) Load Merchant Bag: All merchants simultaneously place 1 to 5 Goods cards into their bag and snap it shut. Zero cards is illegal; more than 5 illegal. 3) Declaration: In clockwise order from Sheriff's left, each merchant hands bag to Sheriff and declares exactly how many cards are inside and exactly one type of Legal Good (never Contraband). 4) Inspection: Sheriff chooses any order and any number of bags to inspect (including zero). Negotiation/bribery may occur before each decision. Sheriff either accepts final deal and returns bag unopened, or rejects deal and opens bag. 5) End of Round: If game end condition not met, Sheriff marker passes left; all players draw to 6 cards; next round begins at Market phase."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Merchant options in Market: cycle hand by replacing up to 5 cards; manage visibility from public discards; keep hand at exactly 6 after turn. Merchant options in Load/Declaration: choose legal goods, contraband, or mix in bag; declare only legal type and exact count of cards in bag; may lie about type and contents but not quantity. Negotiation options in Inspection: offer bribes in Gold, Legal Goods from stand, Contraband from stand, Goods currently in bag, or immediate-round favors/promises. Cards in hand cannot be offered as bribe. Any players may talk/offer during negotiation, but Sheriff has final decision for each bag. Sheriff options per bag: A) Accept deal and return bag unopened (cannot inspect that bag afterward). Merchant then reveals bag publicly, placing Legal Goods face up in stand and Contraband face down at top of stand. Any promised/payable bribe from actual available goods/coins must be paid. B) Inspect bag: if declaration was fully truthful (exactly declared legal type and quantity), Sheriff pays merchant penalties equal to each card's penalty value and merchant places those legal goods in stand. If declaration was not fully truthful, declared legal cards that truly match enter stand, all undeclared/mismatched cards (legal or contraband) are confiscated to discard pile in any order chosen by Sheriff, and merchant pays Sheriff penalties for all confiscated cards. Special payment shortage rule: if owing coins and cannot pay, pay with Legal Goods from stand equal to at least value owed (no change); if still short, reveal/pay Contraband; if still short after exhausting stand, remaining debt is forgiven."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Deal binding framework (Honor Among Thieves): deals accepted by both sides are binding if they can be completed in the current round. Promises about future rounds are not binding. For goods-based bribes, only goods actually present in bag/stand at resolution must be paid; if promised goods do not exist, merchant proves this and does not owe those specific goods. A deal is considered accepted when offer is clearly accepted (use explicit 'deal' to avoid disputes). Information rules: discard piles are open information; drawn discard cards must be visible while drawn; Sheriff should observe draw behavior for tells. Contraband secrecy: when passing unchecked or after truthful/partial resolution, contraband that enters stand stays face down (quantity known, identity hidden until endgame). Optional systems in rulebook include inspection timer, removing random cards pregame, seven-card hand, and adding promotional cards. Royal Goods module: when included, Royal Goods are Contraband during play (must be lied about, can be confiscated, incur penalties), but at final scoring each counts as 2 or 3 units of a matching legal good for King/Queen bonus competitions."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Game ends immediately after every player has been Sheriff twice (or three times in a 3-player game). At game end, discard all hand cards; hand cards score nothing. Then reveal all contraband in stands and total points from all sources: 1) value of all goods in your Merchant Stand (legal + contraband), 2) gold coins on hand, 3) King/Queen legal-goods bonuses. King/Queen bonuses: Apples King 20 / Queen 10, Cheese King 15 / Queen 10, Bread King 15 / Queen 10, Chicken King 10 / Queen 5. Determine who has most and second-most of each legal good delivered. If tie for King, combine King+Queen bonuses and split evenly among tied players, rounding down, and do not pay second place. If no tie for King and tie for Queen, split Queen bonus among tied Queens per normal group convention (round down if needed). Royal Goods affect these counts by adding their printed equivalent legal-good quantity (2 or 3 of type). Winner is highest total points. Tiebreakers: first, most Legal Goods wins; if still tied, most Contraband Goods wins; if still tied after that, shared victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Detailed play should follow a strict rulebook hierarchy: explicit card/effect text first, scenario-specific instructions second, and baseline turn structure third. In Sheriff Of Nottingham, most disputes come from timing windows, target legality, replacement effects, and whether an action is optional or mandatory. Read 'must', 'may', and 'cannot' literally; these terms define obligations and restrictions. Always verify eligibility before paying costs, then resolve effects sentence by sentence. If an effect changes board state mid-resolution, finish the current instruction chain before opening new optional actions unless the text says otherwise. Important operational clauses extracted from the official rulebook include: [SCANNED PDF - TEXT EXTRACTION FAILED] The rulebook PDF is available at: /mnt/d/GameMasterAI/content/rulebooks/sheriff-of-nottingham.pdf (16 pages) Agent must read the PDF directly to extract rules content. For simultaneous effects, resolve using the timing method printed in the rules (often active player order, first player order, or explicit priority). For hidden information games, reveal only what the rulebook requires; accidental over-sharing changes game balance. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently. Additional rulebook-grounded clarification: confirm setup order step-by-step, verify each phase transition aloud for the first two rounds, and resolve icon text before using memory-based shortcuts. When uncertainty appears, pause and read the exact clause from the official rules instead of negotiating a house interpretation. This game rewards clean sequencing, legal targeting, and complete resolution of mandatory text. For café teaching, keep a visible mini-checklist for turn order, mandatory upkeep, and end-condition checks; this reduces misplays and disputes. Also remind players that public and private information boundaries are part of the rules framework and should be enforced consistently.",
-      "token_count": 458
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring and endgame are determined only by printed rulebook conditions. During play, track all score/objective progress continuously so players can identify whether the game ends immediately on trigger or after round completion. When an end trigger occurs, resolve pending mandatory effects in the order defined by the rules, then apply final scoring and tie-breakers exactly as written. Official scoring references include: If the game uses elimination or scenario success instead of point totals, winner determination follows the objective text and any listed tie procedures.",
-      "token_count": 109
-    },
-    "beginner_strategy": {
-      "content": "Beginner strategy from the official rules for Sheriff Of Nottingham: (1) Prioritize legal, repeatable value every turn before attempting high-variance combos. (2) Plan around timing windows—many beginner mistakes are not tactical, they are sequencing errors. (3) Preserve flexibility by keeping at least one adaptable action/resource each round, so you can respond to interrupts and shifting board states. (4) Study loss conditions and penalties early; defensive rule awareness prevents avoidable collapses. (5) In the endgame, choose objective-completing actions over cosmetic optimization, because trigger timing usually matters more than one extra short-term gain. These recommendations come directly from the turn structure and win-condition logic in the official rulebook text.",
-      "token_count": 139
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build early credibility: make a few clean legal declarations in first rounds so later bluffs cost less in bribes. 2) Use discard-pile control: in Market phase, track what opponents expose and time your own discards so needed sets are retrievable while denying obvious draws. 3) Pick at least one legal-good majority race (often Apples or Cheese) and feed it consistently; King/Queen bonuses are large swings. 4) Manage liquidity: keep enough coins to survive failed inspections and still threaten bribes next round. 5) As early Sheriff, inspect selectively based on declaration patterns and hand-cycling tells, not ego; truthful inspections lose money fast."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Overloading contraband too early: repeated red-heavy bags paint a target and drain coins through penalties. 2) Declaring impossible patterns: saying high-count premium legal goods when your prior Market behavior contradicted it invites guaranteed inspections. 3) Forgetting that quantity cannot be lied about: declaration count must exactly match bag size, so sloppy miscounts can force obvious suspicion. 4) Bribing above expected value: paying huge guaranteed bribes to protect low-value cargo is often negative EV compared with risking inspection. 5) Ignoring King/Queen races until endgame: players who only chase contraband points often lose to legal-bonus specialists by double digits."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1 - Reputation vs burst profit: do you stay mostly honest to gain future pass-through leverage, or spike contraband now while Sheriff pressure is uncertain? Decision 2 - Sheriff policy mix: tight-inspect strategy catches liars but bleeds money versus truthful bags; permissive strategy protects cash but can let contraband snowball. Decision 3 - Economy split: invest rounds into legal-majority bonuses (King/Queen) or maximize raw value via contraband and coin hoarding; winning lines usually blend both depending on table behavior."
+        }
+      ]
     }
   },
-  "total_token_count": 1091,
+  "total_token_count": 3198,
+  "extensions": {},
   "metadata": {
-    "created_by": "human",
-    "created_at": "2026-02-23T04:25:00Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 4,
-    "notes": "Rewrite sprint: all five sections rewritten using official rulebook text in content/rulebook-text as primary source."
+    "schema_version": "2.0",
+    "created_by": "gnome",
+    "created_at": "2026-02-22T23:13:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source was OCR extraction from /mnt/d/GameMasterAI/content/rulebooks/sheriff-of-nottingham.pdf (CMON/Arcane Wonders rulebook)."
   }
 }

@@ -1,58 +1,109 @@
 {
   "game_id": "sushi-go-party",
   "title": "Sushi Go Party!",
-  "aliases": [
-    "Sushi Go Party"
-  ],
+  "aliases": ["Sushi Go Party"],
   "publisher": "Gamewright",
   "player_count": {
     "min": 2,
     "max": 8,
-    "recommended": 5,
-    "expansion_max": 8
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 20,
     "max": 30
   },
-  "complexity": "party",
+  "complexity": "gateway",
   "categories": [
-    "drafting",
-    "set-collection",
-    "simultaneous"
+    "Card Drafting",
+    "Set Collection",
+    "Simultaneous Play",
+    "Variable Setup"
   ],
   "source_url": "https://gamewright.com/product/Sushi-Go-Party",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "181 cards (8 menu categories and desserts), 22 menu tiles, 8 pawns/chopsticks markers, 1 game board, and scoring tracker. Card counts vary by menu item; board shows which sets to include each game.",
-      "token_count": 120
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Core box contents: 181 cards, 22 menu tiles, 8 pawns, and 1 game board. Card pool by type from the rulebook: 12 Nigiri cards total; Rolls cards: 12 each of Maki Roll, Temaki, and Uramaki; Appetizer cards: 8 each of Tempura, Sashimi, Dumpling, Eel, Tofu, Onigiri, Edamame, and Miso Soup; Specials cards: 3 each of Chopsticks, Soy Sauce, Tea, Menu, Spoon, Special Order, Takeout Box, and Wasabi; Desserts cards: 15 each of Pudding, Green Tea Ice Cream, and Fruit."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the game board in the center of the table. 2) Choose the menu for this game (preset menu from the rulebook or custom legal menu). 3) Put the matching menu tiles into the correct board slots so everyone can see which card types are active and their scoring reminders. 4) If Maki is in the menu and you are playing with 6-8 players, flip the Maki tile to the 6-8 player scoring side. 5) Shuffle the chosen dessert cards into their own face-down pile beside the board. 6) Shuffle all other chosen card sets together as the face-down main deck beside the board."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses a color and takes the matching pawn. Place pawns on or near the 0 space of the score track. Players do not start with personal resources beyond their dealt hand each round. During rounds, each player builds a face-up play area in front of them; cards should be grouped by color/type in columns for easier scoring. Dessert cards are moved to each player's personal side area at end of each round and remain there until final scoring."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "A game lasts 3 rounds. Before each round, shuffle dessert cards into the main deck according to player count and round: for 2-5 players add 5 dessert cards in round 1, 3 in round 2, and 2 in round 3; for 6-8 players add 7 dessert cards in round 1, 5 in round 2, and 3 in round 3. Then deal face-down cards to each player: 10 cards (2-3 players), 9 cards (4-5), 8 cards (6-7), 7 cards (8 players). Keep hands secret. Remaining cards form a face-down deck beside the board. Play begins immediately with simultaneous card selection."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Players simultaneously choose one card from hand, reveal, then pass remaining hand left (or right by round depending variant). Cards score by set-building patterns and menu effects. After hand depletion, round scores most items; desserts often score at game end. New hands are dealt for next rounds based on player count.",
-      "token_count": 95
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Every turn in a round is simultaneous: 1) Choose 1 card from your hand and place it face-down in front of you. 2) Reveal simultaneously: all players turn selected cards face-up. 3) Resolve immediate and bonus effects (including called bonus actions like Chopsticks/Spoon and the timing order printed on cards when multiple effects are used in one turn). 4) Pass your remaining hand face-down to the player on your left. 5) Pick up the new hand and repeat until all cards are played and no one has cards in hand. Round end then triggers scoring and reset for the next round."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Default action each turn: play exactly 1 card from your current hand. Card effects split into scoring cards and special-action cards. Bonus/action cards and constraints from the rule text include: Chopsticks (on a later turn, play 2 cards from hand, then put Chopsticks into your hand), Spoon (call Spoon to ask for any named card; first player to your left who has it gives it to you and takes the Spoon card), Menu (draw 4 cards from deck, play 1, return the rest and shuffle), Special Order (copies a card that it points at when played), Takeout Box (flip over previously played cards; those cards are now worth 2 each), and Wasabi (next Nigiri you play is worth x3). Miso Soup rule: if any other Miso Soup is played in the same turn, Miso Soup is discarded. Uramaki race scores immediately when thresholds are hit during the round. Restrictions by player count/menu legality: Menu and Special Order may not be used in 7-8 player games; Spoon and Edamame may not be used in 2-player games. When creating custom menus, Nigiri is always included plus exactly 1 rolls type, 3 appetizer types, 2 specials, and 1 dessert."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Sushi Go Party!'s core mechanism is simultaneous pick-and-pass drafting: everyone selects from a shrinking hand at once, then passes remaining cards left, so tempo and reading neighbors matter every turn. Menu construction is a formal system: each game only uses selected card families, changing strategy and interaction. Bonus action timing is explicit and ordered: if multiple bonus actions (or multiple Menu/Takeout Box effects) are used in one turn, resolve by the small number printed on cards (lowest first). Several card types score immediately during the round (not only at round end), especially Uramaki's race to 10 icons. Desserts are delayed scoring cards: they are set aside each round and only score at game end."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Round end procedure: when hands are empty, the round ends. First move all dessert cards played this round to your personal dessert area for endgame scoring. Then score all non-dessert cards from the round according to active card types/menu tiles and move your pawn on the board. After scoring, collect all non-dessert cards, reshuffle with the next round's dessert additions, deal fresh hands, and repeat. After round 3, score desserts and determine winner. Victory points can come from active menu card types, including (as shown in the card guide/menu tiles): Nigiri (egg/salmon/squid values, multiplied by Wasabi when applicable), Maki majority scoring (2-5 players: most 6, second 3; 6-8 players: most 6, second 4, third 2), Temaki (most +4, fewest -4; no fewest penalty in 2-player), Uramaki race placements (8/5/2 with immediate scoring and special tie handling), Tempura sets, Sashimi sets, Dumpling progressive sets, Eel thresholds, Tofu thresholds, Onigiri unique-shape sets, Edamame per opponent with Edamame, Miso Soup conditional scoring/discard, Soy Sauce diversity majority, Tea scoring by your largest same-color set, Special Order copying effects, Takeout Box conversion effects, plus dessert scoring at game end for whichever dessert type is in the menu (e.g., Pudding majority/least, Green Tea Ice Cream set scoring, Fruit per-type table). Highest total score wins. Official tie-breaker: tied player with the most dessert cards wins."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Before play, build menu by selecting item categories per board instructions (e.g., nigiri, rolls, appetizers, specials, desserts). Deal hands each round (cards per player scale by player count). Everyone picks one card and places face-up; optional chopsticks effect allows taking two cards in one turn if you played chopsticks previously, then return chopsticks card to hand. Scoring depends on included cards: Nigiri values, Wasabi triples next nigiri, Tempura pairs, Sashimi triples, Dumpling escalating sets, Maki majority/minority by icons, etc. Unused/odd cards in incomplete sets usually score zero unless card text says otherwise. After each round, clear non-dessert cards; keep desserts in front (pudding, fruit depending mode) for endgame scoring. Pass direction may alternate to reduce first-seat bias in some variants.",
-      "token_count": 470
-    },
-    "scoring_and_endgame": {
-      "content": "Default game is 3 rounds. Score most cards at round end according to active menu tile rules; track cumulative points. Desserts score at final endgame (e.g., Pudding: most gains points, least loses in 3+ players; Fruit uses mixed set chart). Highest total after dessert scoring wins, tie broken by dessert points then shared victory.",
-      "token_count": 150
-    },
-    "beginner_strategy": {
-      "content": "Learn menu interactions before drafting—Wasabi is weak unless nigiri density is high, while dumplings want steady accumulation. Early in each hand, prioritize flexible cards that keep multiple scoring lines open. Watch pass direction and count remaining cards to predict whether a needed combo piece can wheel back. In high-player games, deny majority-sensitive maki when an opponent is close to first. Don’t overcommit to one fragile combo if menu has many denial opportunities.",
-      "token_count": 170
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "In the first 2-3 picks of round 1, prioritize cards that either (a) open strong combos, or (b) lock in contested race categories before neighbors do. Practical priorities: 1) If Wasabi is active, secure it early only when Nigiri density is high enough to pair quickly. 2) If your menu includes race cards (Maki, Uramaki, Temaki), decide immediately whether you're contesting that race or avoiding it; half-committing is usually bad. 3) Start dessert positioning early (especially Pudding/Fruit style endgame swings) so you are not forced into weak desperation picks in round 3. 4) Build coherent columns by type as you play to avoid scoring misses and to track what neighbors are collecting."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Chasing too many scoring tracks at once. In a draft game, split focus often yields unfinished sets and low totals. 2) Taking Wasabi without realistic Nigiri follow-up. Unpaired Wasabi is dead value. 3) Ignoring player-count scoring changes (especially Maki 6-8 player values and 2-player Temaki penalty exception). 4) Forgetting same-turn conflict rules (Miso Soup discard condition, or timing order for multiple bonus cards). 5) Leaving dessert planning until round 3; by then your table may have already locked majority and denial positions, forcing low-value picks."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Immediate points vs engine/setup: take a sure scorer now or a setup card (like Wasabi/Chopsticks potential) that needs future support. 2) Race commitment vs denial play: decide whether to win a category outright (Maki/Uramaki/Temaki) or spend picks denying a leader's threshold. 3) Dessert pressure vs round scoring: each round ask whether one dessert pick now prevents a late-game swing larger than the card you would otherwise draft."
+        }
+      ]
     }
   },
-  "total_token_count": 1005,
+
+  "total_token_count": 2860,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "tiefling",
+    "created_at": "2026-02-22T23:09:23-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
     "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "notes": "Written from provided Sushi Go Party! rulebook excerpt and card guide/menu text. Endgame lists all VP source categories referenced in provided text; final exact values always follow the active menu tiles in the selected setup."
   }
 }

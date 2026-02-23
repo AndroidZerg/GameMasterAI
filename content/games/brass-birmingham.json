@@ -9,51 +9,101 @@
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 4
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 60,
-    "max": 120
+    "min": 90,
+    "max": 150
   },
   "complexity": "heavy",
   "categories": [
     "economic",
     "network-building",
     "hand-management",
-    "engine-building"
+    "industry",
+    "route-building"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/brass-birmingham.txt",
+  "source_url": "https://roxley.com/brass-birmingham-rulebook",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Core components from the rulebook include 1 board, 4 player mats, 4 character tiles, 4 player aids, 4 VP markers, 4 income markers, money tokens, 64 location and industry cards, 8 wild cards, 56 link tiles, and 180 industry tiles split by player color. Shared resources are 30 coal cubes, 18 iron cubes, and 15 beer barrels, plus merchant tiles. Industry types are cotton mills, manufacturers, coal mines, iron works, breweries, and potteries.",
-      "token_count": 94
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact component counts from the provided rules excerpt: 1 board, 64 Location and Industry cards, 8 Wild cards (4 Wild location, 4 Wild industry), 4 Player Aids, 4 VP Markers, 4 Income Markers, 30 Coal cubes, 18 Iron cubes, 15 Beer barrels, 4 Player Mats, 67 Money tokens (or Deluxe Edition: 70 Iron Clays), 4 Character tiles, 56 Link tiles (14 per colour), 180 Industry tiles (45 per colour), and 9 Merchant Tiles. The excerpt further identifies each player’s industry stacks by type on their mat: Cotton Mills, Coal Mines, Iron Works, Manufacturers, Potteries, and Breweries. A per-colour example composition shown in the component panel is 11 Cotton Mills, 7 Coal Mines, 4 Iron Works, 11 Manufacturers, 5 Potteries, and 7 Breweries."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Follow these setup steps in order from the provided rules text:\n1) Place the board on either day side or night side.\n2) For games with fewer than 4 players, remove all cards and Merchant tiles showing a player count greater than your player count and return them to the box.\n3) Separate the Wild Location and Wild Industry cards and place them face up in two Card Draw Areas.\n4) Shuffle remaining cards and place them face down in the remaining Card Draw Area as the Draw Deck.\n5) Shuffle remaining Merchant tiles and place one face up on each Merchant space marked for your player count near board edges. (Result note from text: in 2-player, no Merchant tiles in Warrington and Nottingham; in 3-player, no Merchant tile in Nottingham.)\n6) Place one beer barrel on each beer-barrel space beside each non-blank Merchant tile.\n7) Fill Coal Market spaces with black cubes, leaving one £1 coal market space open.\n8) Fill Iron Market spaces with orange cubes, leaving both £1 iron market spaces open.\n9) Place all remaining coal/iron cubes and beer barrels beside board as General Supply.\n10) Place money beside board as Bank.\n\nLocation banner reminder from setup text:\n- 2 players: blue and teal location cards are not in draw deck.\n- 3 players: teal location cards are not in draw deck.\n- 4 players: all location cards are in draw deck."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player completes all personal setup steps exactly as listed:\n1) Take 1 Player Mat.\n2) Take £17 from the Bank.\n3) Choose a coloured Character tile.\n4) Place matching coloured Link tiles in your player area.\n5) Stack matching coloured Industry tiles on the appropriate slots on your Player Mat (Cotton Mills, Coal Mines, Iron Works, Manufacturers, Potteries, Breweries), with black top half face down.\n6) Place your VP marker on 0 of the Progress Track.\n7) Place your Income marker on 10 of the Progress Track.\n8) Draw 8 cards from Draw Deck into your Hand (hidden from opponents).\n9) Draw 1 additional card from Draw Deck and place it face down in your player area as your Discard Pile seed card.\n\nAfter all players complete setup, shuffle all players’ Character tiles and place them in random order on the Turn Order Track."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Brass: Birmingham is played across two eras in fixed sequence: Canal Era (1770-1830), then Rail Era (1830-1870). Round structure begins in Canal Era with turn order set by Character tiles on the Turn Order Track. Each turn normally gives a player 2 actions. Important exception from provided text: during the first round of the Canal Era, each player performs only 1 action. Rounds continue until both the Draw Deck and all players’ Hands are exhausted for that era. The excerpt states exact rounds per era by player count: 8 rounds (4-player), 9 rounds (3-player), 10 rounds (2-player)."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn discard one card and take two actions, choosing from build, network, develop, sell, loan, or scout. Card restrictions and connectivity determine legal placement. You first play canal era then rail era, with a scoring and transition between eras. Flipped industry tiles generate victory points in scoring. Play continues until players run out of cards for the era.",
-      "token_count": 78
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each era is played as a sequence of rounds in turn-order-track order. A player turn follows this numbered structure:\n1. Determine action count for this turn (normally 2 actions; exception: first round of Canal Era is 1 action per player).\n2. For each action, spend one card and execute one legal action from the action list (you may repeat the same action twice in a turn if legal).\n3. Pay all required costs immediately (money, resources, beer, etc.) and update shared markets/supply as required by action resolution.\n4. Resolve flips and income/VP changes resulting from completed industry conditions.\n5. End turn; next player in current turn order acts.\n6. End of round/era hand refresh and turn-order updates occur per rulebook timing.\n\nEra progression:\n- Continue rounds until Draw Deck and all players’ Hands are exhausted for current era.\n- Conduct era scoring.\n- Perform transition cleanup between Canal and Rail eras, then begin Rail era rounds.\n- After Rail era scoring, highest VP wins."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Brass: Birmingham is card-driven. Most actions require discarding a card that grants location/industry permission, unless using a Wild card. On each action, choose one legal action and resolve costs/effects.\n\nCore action categories (as indicated by the game system and setup/action list structure):\n1) Build Industry\n- Discard an appropriate card (location or industry, or relevant wild).\n- Pay the tile’s printed cost in money.\n- Place the chosen industry tile from your player mat onto a legal board location connected to your network or otherwise legal per era setup constraints.\n- Pay any required input resources (coal/iron) from connected sources or market, and beer when required by the industry/type timing.\n- If the placement/consumption immediately satisfies flip conditions, flip tile and apply benefits (income/VP progression as printed).\n\n2) Build Network (Link Action)\n- Place a Link tile of your colour on a legal connection.\n- In Canal era this places canal links; in Rail era, rail links with stricter cost/resource requirements.\n- Pay link cost and any associated coal requirement from connected source/market in rail placement context.\n\n3) Develop\n- Spend action plus required iron and card discard to remove lower-level industry tiles from your player mat, accelerating access to higher-level tiles.\n- Development changes your future build options and scoring efficiency in both eras.\n\n4) Sell\n- Use merchant demand system and beer availability to sell produced goods from eligible industries (notably cotton/manufactured goods/pottery pathways depending on board state).\n- Sales usually flip your producing tile, converting latent board investment into active scoring/income progression.\n\n5) Loan\n- Take money from the bank immediately.\n- Move your income marker downward by the required amount.\n- Loan is tempo-positive short term, but reduces long-term cash flow; timing is a major strategic lever.\n\n6) Scout (where used in current living rules)\n- Discard cards to gain wild flexibility, allowing stronger action-card matching on later turns.\n\nResource sourcing rules backbone:\n- Coal, iron, and beer are constrained by connectivity and market state.\n- When local/connected supply exists, it is generally consumed before market purchase options.\n- Market purchases alter market prices and can create indirect value transfer by flipping opponents’ resource industries when their cubes are consumed.\n\nCard economy constraints:\n- Your hand is both permission system and opportunity cost.\n- Every discarded card for action is a path not taken later; hand planning across both eras is central to high-level play."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Dual-era architecture:\nBrass: Birmingham is fundamentally two linked games: Canal Era then Rail Era. Canal-era decisions shape rail-era opportunity, but not all infrastructure persists. This creates a planned obsolescence puzzle where short-term canal tempo must be balanced against long-term rail positioning.\n\nTile flipping as engine core:\nIndustry tiles usually score and generate strong value only after flipping. Flipping can occur by your own action sequence or via interaction when other players consume your produced resources/beer. This means opponent actions can benefit you, and your board can be designed to attract profitable consumption.\n\nShared markets and dynamic pricing:\nCoal and Iron markets are populated in setup with specific open low-price slots. As cubes are bought/removed, prices move. Market timing is tactical: buying early may be cheap but helps producers less; buying late may be expensive but can trigger larger board state consequences.\n\nMerchant/beer economy:\nMerchant tiles seed board-side beer and demand channels. Beer acts as a transactional lubricant for many sales and rail-era conversions. Beer denial and beer routing are among the most interactive tactical layers in the game.\n\nTurn order as tempo resource:\nCharacter tile order determines sequence each round. Because opportunities are perishable (market slots, beer barrels, merchant access, open build spots), acting earlier or later can dramatically change action value.\n\nPlayer-count deck shaping:\nLocation-card distribution changes by player count (blue/teal removals in lower counts). This alters spatial contest density, making 2-player games more concentrated and 4-player games broader and more contested.\n\nNetwork connectivity and legal build envelope:\nYour links define where future industries can be placed and which resources you can efficiently access. Poor connectivity creates expensive market dependence; strong connectivity creates compounding value through self-supplied chains and opportunistic sales."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Game end trigger:\nThe game ends after completion of the Rail Era and its scoring step.\n\nScoring structure from provided rules framework:\n- Victory Points are scored at the end of each era for your Link tiles and your flipped Industry tiles.\n- Canal-era scoring occurs after canal rounds end.\n- Rail-era scoring occurs after rail rounds end and determines the winner.\n\nAll VP sources (within this rules scope):\n1) Flipped Industry tiles at era scoring checkpoints.\n2) Link tiles evaluated at era scoring checkpoints.\n\nIncome vs VP distinction:\nIncome track affects your cash inflow during play; it is not itself victory points. VP marker on progress track is the win metric.\n\nEra transition impact:\nAfter Canal-era scoring, board/state cleanup and era transition alter what remains relevant for final scoring. Planning for what survives into Rail era is essential.\n\nWinner and tie-break:\nWinner is the player with the highest VP after Rail-era scoring.\nIf tied on VP, tie-break by most money remaining.\nIf still tied after money comparison, tied players share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Card use controls what and where you can build. Location cards enable actions in named cities and industry cards enable a chosen industry in legal connected locations. Build costs money and often consumes coal, iron, or beer from connected supply or market according to priority rules. Network places canal links in era one and rail links in era two with rail fuel costs. Develop removes lower-level tiles by paying iron so stronger tiles become available. Sell flips industry tiles through merchant connections and beer use, creating points and income gains. Loans provide cash but reduce income level. At canal-era end score flipped industries and canal links, then remove canal links and specific low-level unflipped tiles as instructed before rail setup. Common mistakes are illegal disconnected resource sourcing, misusing beer, and forgetting era-specific link scoring.",
-      "token_count": 174
-    },
-    "scoring_and_endgame": {
-      "content": "Brass scores at end of canal era and again at end of rail era. In each scoring, only flipped industry tiles and links for that era score. Money itself is not victory points. Game ends after rail era is exhausted and final scoring is complete. Highest total victory points wins, with money as tie support by standard rules.",
-      "token_count": 75
-    },
-    "beginner_strategy": {
-      "content": "Increase income early so later turns are stronger. Develop with purpose to reach high-value tiles sooner. Build breweries only when you can actually consume beer in selling lines. Watch connectivity before committing coal-dependent builds. In canal era, prioritize flipping a few meaningful tiles over scattered setup.",
-      "token_count": 59
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Build a coherent first network, not random points. Your early links should connect likely resource sources and future build hubs, reducing expensive market dependency.\n2) Protect liquidity in rounds 1-3. Starting at £17 seems comfortable, but heavy sequencing (build + develop + network) can bankrupt tempo quickly. Plan one loan window before you are forced into desperate borrowing.\n3) Flip early industries fast. Unflipped tiles are dead weight; prioritize lines that can be consumed/sold soon so you gain income momentum before mid-era hand squeeze.\n4) Read merchant beer map immediately. Knowing where initial beer sits tells you which sales are realistic and which openings are traps.\n5) Use first-round Canal exception (1 action) to set future flexibility. A precise setup action (network or enabling industry) often outperforms greedy but disconnected value."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Overbuilding in Canal without flip plan. New players place industries that look efficient but cannot flip before era scoring, wasting money and board space.\n2) Ignoring card-permission bottlenecks. Holding perfect long-term cards while lacking legal current plays causes tempo collapse. Use wild/scout/develop planning earlier.\n3) Treating coal/iron markets as infinite convenience. Repeated market buys at rising prices silently destroy margins and force bad loans.\n4) Building links with no scoring or access purpose. Every link must either unlock better builds, improve resource routing, or score strongly; decorative links lose games.\n5) Delaying develop too long. Staying on weak early tile levels into midgame leaves your action efficiency behind opponents.\n6) Hoarding beer or consuming it without timing sales. Beer management is not side-economy; it is often the gate on your highest-value flips.\n7) Tunnel vision on personal engine while leader races unchecked. Because interaction is mostly indirect, beginners under-react to an opponent setting up uncontested rail-era scoring lines."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Canal tempo vs Rail positioning:\nDo you maximize immediate Canal points/income, or place infrastructure that may underperform now but creates dominant Rail-era access? Elite play balances both, but table context determines which to emphasize.\n\n2) Loan timing and debt posture:\nEarly loans can fund explosive development and board claims; late emergency loans preserve survival but often lock in weak endgame. Decide whether to loan proactively for initiative or conservatively for income stability.\n\n3) Producer posture vs converter posture:\nWill you build mines/iron/beer to profit when others consume your output, or focus on consuming available resources to flip your own goods quickly? Mixed lines are common, but overcommitting to one posture can be punished by table behavior.\n\n4) Hand flexibility vs deterministic line:\nKeeping flexible cards reduces dead turns but weakens immediate precision. Committing to a narrow plan can be powerful if uncontested, disastrous if blocked. Evaluate opponent routes each round before committing.\n\n5) Market manipulation vs direct efficiency:\nSometimes paying slightly more now changes market state in your favor later (or denies an opponent a cheap conversion). Deciding when to accept short-term inefficiency for strategic market pressure is a core heavy-game skill in Brass: Birmingham."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 3860,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T07:14:00Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary source: Brass: Birmingham rulebook text provided in prompt, including component inventory, setup sequence, player setup, rounds/eras structure, and scoring framework."
   }
 }

@@ -2,57 +2,112 @@
   "game_id": "codenames",
   "title": "Codenames",
   "aliases": [
-    "Codenames (2015)"
+    "Codenames (Original)",
+    "CGE Codenames"
   ],
   "publisher": "Czech Games Edition",
   "player_count": {
     "min": 2,
     "max": 8,
     "recommended": 4,
-    "expansion_max": 8
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 15,
     "max": 30
   },
-  "complexity": "party",
+  "complexity": "gateway",
   "categories": [
     "word-game",
-    "team",
-    "deduction"
+    "team-vs-team",
+    "deduction",
+    "party",
+    "hidden-information"
   ],
-  "source_url": "https://czechgames.com/en/codenames/",
+  "source_url": "https://codenamesgame.com/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "200 double-sided word cards (400 codenames), 40 key cards, 16 agent cards in two colors, 1 double agent card, 7 innocent bystander cards, 1 assassin card, 1 card stand, 1 timer (in some editions), and rules.",
-      "token_count": 120
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 rulebook, 200 codename cards, 40 key cards, 16 agent cards (8 red agents, 8 blue agents), 1 double agent card, 7 innocent bystander cards, 1 assassin card, 1 card stand, and 1 sand timer. In play, 25 codename cards form the word grid and identity cards are used to cover guessed words."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Shuffle the codename cards thoroughly (the rulebook specifically suggests occasionally flipping half the deck while shuffling). 2) Randomly choose 25 codename cards and place them in a 5-by-5 grid where all players can read them. 3) Randomly choose 1 key card and place it in the stand between the two spymasters, with either side up. 4) Ensure only spymasters can see the key. 5) Put red and blue agent cards in front of the matching spymaster. 6) Put the innocent bystanders and assassin between the spymasters, easy for both to reach. 7) Identify the starting team by the four lights on the edge of the key card and set the double agent card to that color."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Players split into two teams of similar size and skill. Each team chooses one spymaster; everyone else on that team is a field operative. Spymasters sit on the same side of the table, facing the grid together. Field operatives sit opposite their own spymaster. No one receives hidden hands or personal resources; all play is through public words and team discussion, with the key card hidden from operatives only."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Use the key card edge lights to determine the starting team. The starting team has 9 target words total (8 base agents plus the double agent). The other team has 8 target words. The starting team's spymaster gives the first clue (one word plus one number), and play proceeds in alternating team turns from there."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Two teams compete to contact all their agents first. Spymasters see a key card and give one-word clue plus number; operatives guess matching words on the table. Each guess reveals team agent, neutral, opponent, or assassin. Turn ends on mistake, pass, or after allowed guesses. Communication limits create the deduction puzzle.",
-      "token_count": 95
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each team turn follows this sequence: 1) Clue Phase: The active team's spymaster gives exactly one spoken clue word and one number (example: \"tree: 2\"). 2) Discussion Phase: Field operatives may openly discuss possibilities while the spymaster remains neutral and expressionless. 3) Guess Resolution Phase: Operatives make an official guess by touching one codename card. The spymaster covers it according to the key. 4) Continue or Stop Decision: If the guess was correct (their team color), operatives may guess again. They may stop voluntarily at any time after at least one guess. 5) Turn End Conditions: Turn ends immediately if they guess an innocent bystander, enemy agent, or assassin; or when they voluntarily stop; or when they reach maximum allowed guesses for that clue. 6) Pass Turn: Other team's spymaster gives the next clue."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Spymaster legal action: Give one clue consisting of exactly one word and one number. The clue must be about meaning, not spelling position tricks. It cannot be any visible codename on the table, any form of a visible codename (for example break/broken/breakdown while BREAK is visible), or part of a visible compound codename. Spymaster may give clue for one or multiple words. Operatives' legal actions: discuss guesses, make at least one official guess, continue guessing while hitting own team words, optionally take up to one extra guess beyond the spoken number, or stop early. Guess outcomes: A) Own agent touched: cover with own color agent card; team may guess again. B) Innocent bystander touched: cover with bystander card; turn ends immediately. C) Opponent agent touched: cover with opponent agent card; turn ends and helps opponent. D) Assassin touched: cover with assassin card; game ends immediately and guessing team loses. Invalid clue handling: if noticed, the clue-giving team's turn ends immediately; as an extra penalty, the opposing spymaster may pre-cover one of their own agents before giving their next clue. If no one notices the invalid clue in time, it stands as valid."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Guess limit rule: For a clue with number N, operatives may make up to N+1 guesses, but never fewer than one guess. 2) Straight-face information discipline: Spymasters should not signal with tone, gestures, eye contact, or reaching toward cards. Operatives are encouraged to keep focus on grid, not spymaster reactions. 3) Clue language and word-form standards: clues are in English; foreign words are allowed only if commonly used in the group's English speech. Homonym guidance from the rulebook applies: sound-alikes with different spellings/meanings are treated as different words; identical spellings may count as same clue word even if meanings differ. Spelling a clue aloud is allowed for disambiguation. 4) Flexible house-rule space: groups may agree on handling abbreviations, proper names, compound words, and rhymes, but should decide consistently and quietly between spymasters when uncertain. 5) Optional advanced clue numbers: groups may use \"0\" and \"unlimited\" as expert number conventions, as described in the rulebook."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Primary win condition: first team to have all of its own agent words covered wins immediately. Because turns can reveal enemy words, a team can win during the other team's turn if the other team accidentally identifies that final required agent. Instant-loss condition: if a team touches the assassin, that team immediately loses and the opposing team wins. Scoring model: Codenames has no victory points, no multi-source score tally, and no final numerical tiebreaker procedure in standard play; outcomes are strictly win/loss by objective completion or assassin contact."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Setup 25 word cards in a 5x5 grid. Randomly choose key card orientation; one team starts and therefore has 9 agents, other has 8. Spymaster clue must be a single word with a number indicating how many cards it relates to; clue cannot be a visible grid word, derivative, or obvious letter-position hint under normal rules. Operatives may guess up to clue number plus one extra bonus guess, stopping anytime. If they reveal own color agent, they may continue; revealing bystander ends turn; revealing opponent agent ends turn and helps opponent; revealing assassin ends game instantly with loss. Spymasters must remain poker-faced and give no additional guidance beyond legal clue format. Guess order matters because teams can bank bonus guesses from earlier clues.",
-      "token_count": 470
-    },
-    "scoring_and_endgame": {
-      "content": "Win by revealing all your team’s agent cards. Lose immediately if your team reveals assassin. If both teams are close, current turn sequence still applies—no simultaneous victory. No point scoring: outcome is binary win/loss per round, often replayed best-of series.",
-      "token_count": 150
-    },
-    "beginner_strategy": {
-      "content": "As spymaster, favor precise two-card clues over risky four-card swings unless behind. Track your own previous clues to avoid giving opponents accidental meta-information. As operative, start with highest-confidence link and stop early when confidence drops; preserving tempo beats gifting the other team. Pay attention to words your opponents avoid—they may indicate assassin adjacency. Use “bonus guess” mostly to clean up obvious leftovers from prior clues, not wild speculation.",
-      "token_count": 170
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "For spymasters: Start with a high-certainty 2-word clue rather than forcing a flashy 4-word clue on turn one. Before locking a clue, actively test it against three dangers: assassin association, enemy words, and broad ambiguous words. For operatives: Guess your strongest match first to preserve turn equity. If your first guess is uncertain, discuss alternative order because one wrong touch ends the turn. In early turns, log unresolved possibilities from prior clues—this sets up strong use of the +1 extra guess later. As a team, establish a shared style quickly (literal vs thematic connections) so clue interpretation gets tighter by round 2-3."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Spymaster greed in early game: trying to connect too many words at once increases accidental links to assassin and enemy cards; safer multi-turn precision usually wins. 2) Operatives using the extra guess recklessly: the +1 guess is powerful only when confidence is high from prior clues; low-confidence bonus guesses throw away tempo. 3) Ignoring clue legality before speaking: saying an invalid clue can end your turn and may give opponents a free agent cover. 4) Reading spymaster body language: this breaks game spirit and can create arguments; rely on one word + one number only. 5) Not adapting after board changes: once words are covered, clue options and risks shift; teams that keep using old associations without re-evaluating the live grid make avoidable errors."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1 - Safety vs speed in clue size: A small clue (1-2) lowers catastrophe risk; a large clue accelerates if accurate but can lose instantly via assassin linkage. Decision 2 - Whether to push the optional extra guess: Taking it can recover missed words from prior turns, but only if your confidence is evidence-based from earlier clue threads. Decision 3 - End-turn discipline for operatives: Knowing when to stop is a strategic skill; preserving board state for your spymaster's next precise clue is often stronger than forcing one speculative touch now."
+        }
+      ]
     }
   },
-  "total_token_count": 1005,
+
+  "total_token_count": 2468,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "gnome",
+    "created_at": "2026-02-22T23:08:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
     "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "notes": "Primary source: Codenames rulebook text supplied in prompt. Includes firm and flexible clue-validity guidance from that text."
   }
 }

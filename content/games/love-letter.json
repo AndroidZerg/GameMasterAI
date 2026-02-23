@@ -1,56 +1,108 @@
 {
   "game_id": "love-letter",
   "title": "Love Letter",
-  "aliases": [],
+  "aliases": [
+    "Love Letter (2019)",
+    "Z-Man Love Letter"
+  ],
   "publisher": "Z-Man Games",
   "player_count": {
     "min": 2,
     "max": 6,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 15,
-    "max": 25
+    "max": 30
   },
-  "complexity": "gateway",
+  "complexity": "party",
   "categories": [
-    "microgame",
     "deduction",
-    "card"
+    "card-game",
+    "elimination",
+    "bluffing",
+    "quick-play"
   ],
   "source_url": "https://www.zmangames.com/en/products/love-letter/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Current Love Letter editions commonly include 21 character cards, 6 player reference cards, 13 favor tokens, and rules (some printings add a cloth bag). Older editions used 16 cards, so verify by edition before teaching. Round setup always removes one card face down from deck; in 2-player rules additional cards are often removed face up. Each active player starts a round with one card in hand and no hidden side components.",
-      "token_count": 92
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "21 Character Cards total: 2 Spy (0), 6 Guard (1), 2 Priest (2), 2 Baron (3), 2 Handmaid (4), 2 Prince (5), 2 Chancellor (6), 1 King (7), 1 Countess (8), 1 Princess (9). Also 6 Reference Cards, 13 Favor Tokens, and 1 cloth bag."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Give each player 1 reference card (return extras to box). Shuffle all 21 character cards into a facedown deck. Set aside the top card facedown without looking. In a 2-player game, set aside 3 additional cards faceup. Deal 1 starting hand card to each player."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "First player is the person who most recently hand-wrote a letter. In later rounds, first player is the previous round winner; if tied, randomly choose among tied players. Play proceeds clockwise."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn, draw one card then choose one of your two cards to play, resolving its effect immediately. Effects may reveal information, force discards, protect a player, compare hands, swap hands, or eliminate players depending on role. Eliminated players are out for the round but return next round. Round ends when deck is empty or only one player remains. Award one favor token to the round winner and start the next round until someone reaches the required token threshold.",
-      "token_count": 104
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn: 1) Draw 1 card from the deck. 2) Choose 1 of your 2 cards and play it faceup in your play area. 3) Resolve that card's effect fully. 4) Keep the other card in hand. 5) Pass turn clockwise. If you are out of the round, your turn is skipped."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "You always play exactly one card each turn from your two-card hand state. Card effects: Princess (9): if played or discarded for any reason, you are immediately out. Countess (8): no effect, but must be played if your other card is King or Prince (this restriction does not apply during temporary Chancellor draw handling). King (7): choose another player, trade hands. Chancellor (6): draw 2 cards, keep 1 of the 3 cards now in hand, put other 2 on bottom in any order; with only 1 deck card left draw 1 and return 1; with no deck cards, no effect. Prince (5): choose any player (including yourself); that player discards hand without resolving it and draws a new card; if deck empty, draws facedown set-aside card. Handmaid (4): until start of your next turn, other players cannot choose you for card effects. Baron (3): choose another player; secretly compare hands; lower value is out (tie: nobody out). Priest (2): choose another player; secretly look at their hand. Guard (1): choose another player and name a character other than Guard; if named card matches their hand, they are out. Spy (0): no immediate effect. If all other in-round players are protected by Handmaid and your card requires choosing another player (Guard/Priest/Baron/King), card resolves with no effect. If your card requires choosing any player (Prince), you must choose yourself in that case."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Elimination handling: when you are knocked out, discard your hand faceup without resolving that card's effect, flip reference card to broken seal side, you cannot be chosen for effects, and your turns are skipped until next round. Open information rule: all played and discarded cards remain visible to everyone. Spy bonus rule: at round end, if you are the only player still in the round who played or discarded a Spy, gain 1 extra favor token (this is separate from round-win token and maxes at 1 token even if you played/discarded 2 Spies)."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "A round ends either when the deck runs out or when only one player remains in the round. If deck runs out, all remaining players reveal hand cards; highest value wins the round and gains 1 favor token. If tied for highest value, all tied players each gain 1 favor token. If only one player remains, that player immediately wins the round and gains 1 favor token. Additional token source: Spy bonus token as specified by Spy rule. Game ends when at least one player reaches the required favor tokens by player count: 2 players = 6 tokens, 3 players = 5, 4 players = 4, 5 players = 3, 6 players = 3. Multiple players can win simultaneously. No further tiebreaker is applied beyond simultaneous win allowance."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Prepare deck per player count and edition instructions. Deal one card to each player. Turns are simple but timing-sensitive: draw, choose, play, resolve. Common role behavior across modern sets: Guard guesses another player’s role (not Guard) to eliminate if correct; investigative roles reveal/peek at hands; Baron-type effects compare hand values with lower eliminated; Handmaid-type protection prevents targeting until next turn; Prince-type effects force target discard and redraw; King-type swaps hands; Countess has forced-play condition when held with specific high nobility in many editions; Princess causes immediate self-elimination if discarded. All played cards remain visible in discard area, creating an information trail. A protected player cannot be targeted by most effects while protection lasts. If deck empties with multiple players alive, compare hand value; ties break via discard-value totals as specified in rules. Round winner gains one favor token. Continue rounds until a player reaches the player-count-specific token goal. Clarify edition differences before play because role lineup and forced-play text can differ. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 469
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring is round-based via favor tokens. You gain one token by being the last player in round or by holding highest-value card when deck is exhausted. Tie-breaking at round end uses the prescribed comparison of discarded cards if needed. Full game ends when a player reaches target favor count for current player count (per printed chart in your edition). That player wins immediately.",
-      "token_count": 81
-    },
-    "beginner_strategy": {
-      "content": "Track every discard; Love Letter is mostly memory and probability. Don’t waste Guard guesses randomly—target roles that are statistically plausible from visible information. Time protective cards before high-risk turns when opponents can target you. Consider card valuation against deck size: with few cards left, safe survival may beat aggressive elimination attempts. In multiplayer, deny the current token leader when possible even if alternative plays seem marginally stronger short term. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 114
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Track every faceup discard from turn one; deduction improves Guard calls and Prince targets immediately. Use early Priest/Baron safely to narrow possibilities before making high-risk guesses. Preserve flexibility by not exposing your hand value pattern unless it gains concrete advantage. If you hold Handmaid, time it before likely attack windows rather than just playing it on cooldown."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Random Guard naming with no evidence, which wastes the strongest repeat card. 2) Forgetting mandatory Countess play when holding King or Prince. 3) Revealing too much table talk after seeing a hand with Priest, letting opponents infer hidden information. 4) Mis-timing Handmaid so it protects you when nobody can threaten you anyway. 5) Ignoring the Spy bonus and accidentally giving up a free favor token race edge."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Information vs aggression: do you use Priest/Baron to confirm reads first, or fire Guard now before cards rotate? 2) Survival vs pressure: play Handmaid defensively, or push elimination tempo with Prince/Guard and accept exposure. 3) End-round value management: if deck is thinning, decide whether to protect a high card for showdown or force outs before comparison."
+        }
+      ]
     }
   },
-  "total_token_count": 860,
+
+  "total_token_count": 1662,
+  "extensions": {},
+
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "gnome",
+    "created_at": "2026-02-22T23:11:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from love-letter.txt as primary source. Reference snippet: Shuffle the 21 character cards to create the"
+    "revision": 1,
+    "notes": "Primary source: Love Letter rules text provided in prompt (Z-Man Games edition, 2019)."
   }
 }

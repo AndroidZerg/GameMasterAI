@@ -1,15 +1,13 @@
 {
   "game_id": "great-western-trail",
   "title": "Great Western Trail",
-  "aliases": [
-    "Great Western Trail (Second Edition)"
-  ],
-  "publisher": "Lookout Games",
+  "aliases": ["GWT"],
+  "publisher": "eggertspiele",
   "player_count": {
-    "min": 1,
+    "min": 2,
     "max": 4,
-    "recommended": 3,
-    "expansion_max": 4
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 75,
@@ -17,43 +15,94 @@
   },
   "complexity": "heavy",
   "categories": [
-    "deck-building",
-    "route-building",
-    "engine-building",
-    "economic"
+    "Deck Building",
+    "Route Movement",
+    "Hand Management",
+    "Economic",
+    "Engine Building",
+    "Action Selection"
   ],
-  "source_url": "/mnt/d/GameMasterAI/content/rulebook-text/great-western-trail.txt",
+  "source_url": "https://boardgamegeek.com/boardgame/193738/great-western-trail",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "The game includes main board, player boards, cattle decks, market cattle cards, worker tiles in three professions, hazard tiles, teepee tiles, objective cards, station master tiles, neutral and private building tiles, player discs, engines, certificate markers, and cattlemen. Setup stages multiple tile stacks and markets so options enter in balanced waves. Each player has numbered private buildings and a starting cattle deck.",
-      "token_count": 80
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 game board; 54 worker tiles (18 cowboy, 18 craftsman, 18 engineer); 18 hazard tiles (6 flood, 6 drought, 6 rockfall); 22 teepee tiles (11 blue, 11 green); 4 player boards; 4 player count tiles (double-sided, one per player: front for 3 players, back for 4 players); 4 cattlemen (one per player); 56 player discs (14 per player); 4 engines (one per player); 4 certificate markers (one per player); 92 cattle cards total, consisting of 56 player cattle cards (14 per player) and 36 market cattle cards; player cattle card distribution shown in rules: 7 Holstein (yellow), 5 Jersey (gray), 3 Dutch Belt (green), 3 Black Angus (black), 3 Guernsey (white), 7 Brown Swiss (red), 7 Ayrshire (blue); market cattle include 9 West Highland (brown) and 6 Texas Longhorn (purple); 24 objective cards; 4 starting objective cards; 47 building tiles total (7 neutral building tiles labeled A-G, plus 40 private building tiles, 10 per player, each double-sided a/b); 5 station master tiles; 55 coins (35x$1, 20x$5); 1 job market token; 1 scoring note pad."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the game board in the middle of the table. 2) Shuffle the 5 station master tiles and place 1 face up on each station master space. 3) Place the job market token on the top dashed round space in the job market. 4) Place neutral buildings: if first game, put A-G on matching spaces; otherwise shuffle and place randomly on neutral spaces. 5) Prepare Kansas City supply: turn worker/teepee/hazard tiles face down, sort by back number (1, 2, 3), shuffle each number pile separately, and place these three supply piles near Kansas City. 6) Reveal number-1-back tiles one by one and place according to type: hazard tiles into matching hazard section onto lowest available number space (1 to 4), teepees into Indian trade section onto lowest money value space (starting at -3). Continue until 7 total tiles have been placed on the board. If a revealed hazard cannot be placed (section full), flip it face down and return it to Kansas City supply. 7) Reveal number-1 worker tiles to fill job market from the space beneath your current player-count sign, moving rightward, wrapping to second row similarly, ending immediately left of the job market token (result: 3 to 7 workers depending on player count). 8) Fill the 6 foresight spaces with Kansas City supply tiles: two number-1 tiles on spaces marked 1, two number-2 tiles on spaces marked 2, two number-3 tiles on spaces marked 3. 9) Cattle market: shuffle 36 market cattle cards face down, then reveal by player count (2p: 7 cards, 3p: 10, 4p: 13), sort by color, and arrange face up overlapping left-to-right in color order yellow, red, blue, brown, purple (not all colors necessarily present). 10) Shuffle 24 objective cards to form stack; reveal 4 below it as the general objective display. 11) Place coins as bank within reach of all players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses a color and takes that player board. In 3- or 4-player games, each player also takes the matching player-count tile, flips it to correct side (3p or 4p), and uses it to cover Phase A section on their board as instructed. Each player takes 10 private building tiles of their color (numbered 1-10, each with side a and b). For first games, all players set all private buildings to a-side and display them above their board in ascending order. Advanced variant from setup text: one chosen player randomizes sides of her buildings, displays ascending, and all others copy those same sides (no player may then flip deliberately). Each player places 14 discs onto all colored disc spaces on their board (leaving only 2 gray upper-left spaces empty), places their engine on the railroad starting space (red building), places certificate marker on top of certificate track at 0, and keeps cattleman near board. Each player takes their 14 player cattle cards (matching their star color), shuffles as personal draw stack, draws 4 cards into hand. Then shuffle the 4 starting objective cards, deal 1 face up to each player as first card of personal objective area; return unused starting objective cards to the box."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Determine starting player. Starting money is staggered: first player gets $6, second gets $7, third (if present) gets $8, fourth (if present) gets $9. Play begins with the starting player and proceeds clockwise. Core objective for all players: repeatedly move from trail start area to Kansas City, perform actions, and send cattle by train to cities while improving herd quality and board position for endgame VP."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Players move cattlemen forward along the trail and resolve the action where they stop. Along the route they improve deck quality, hire workers, place buildings, remove hazards, and develop railroad position. Reaching Kansas City triggers delivery: evaluate herd value, gain money, and ship to a city for points and bonuses. Then return to start and repeat. Endgame occurs after official trigger thresholds are met.",
-      "token_count": 83
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Beginning with the starting player and proceeding clockwise, each player takes a full turn. On your turn, resolve exactly these phases in order: 1) Phase A - Move your cattleman to another location along the trail. 2) Phase B - Use the action(s) of the location you reached. 3) Phase C - Draw cards up to your current hand limit (starting hand limit is 4). Then next player takes their turn.\n\nPhase A movement framework from rule text:\n- A location is Kansas City or any space containing a tile (building tile, hazard tile, teepee tile). Empty trail spaces are not locations.\n- Movement is measured in steps, where each location passed/reached counts as 1 step.\n- On your very first turn of the game, place your cattleman on any neutral building tile and continue directly with Phase B (can share that building with others).\n- You must move at least 1 step and no more than your current step limit (initially 3 or 4 depending on player count; can increase later).\n- Movement must follow trail direction arrows (forward only); at forks, choose one available path.\n- You cannot pass Kansas City; when you reach it, movement ends there.\n- Other players’ cattlemen do not block or interfere.\n- Fee icons (green/black hands): when you move to OR pass over such locations, pay fee immediately. If location is hazard/teepee, pay bank; if it is another player’s private building, pay that player. Fee per hand depends on player count:\n  * 2 players: green $2, black $2\n  * 3 players: green $2, black $1\n  * 4 players: green $1, black $2"
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Phase B actions depend on the location where your cattleman stops. The provided rules excerpt identifies these core action families and outcomes:\n\n1) Building actions (neutral/private)\n- Stopping on a building location lets you resolve that location’s action(s) in Phase B.\n- Private buildings are player-owned tiles and may impose pass/move fees on others via hand icons.\n- Building placement itself is one major path to points and engine growth (private building tiles are placed from your personal set).\n\n2) Cattle market actions\n- You can buy market cattle cards and add them to your herd deck/discard cycle.\n- Better cattle types and higher breeding values improve Kansas City deliveries and related rewards.\n\n3) Worker/job market actions\n- Worker tiles in the job market are hired as part of your strategy.\n- Three worker types exist: cowboys (cattle-focused), craftsmen (building-focused), engineers (railroad-focused).\n- Job market fills over time from Kansas City supply using numbered tile pipeline and player-count-dependent row limits set during setup.\n\n4) Railroad/city progression actions\n- Upgrading stations/managing train progression is explicitly called out as a scoring and efficiency path.\n- Each Kansas City arrival requires sending cattle by train to another city; city delivery can grant money and/or VP depending on value and network state.\n\n5) Hazard/teepee interaction\n- Hazard removal is listed as a VP-generating path.\n- Teepees and hazards also interact with movement economy through hand-fee spaces if moved to/passed over.\n\n6) Herd deck handling and card economy\n- Your herd deck consists of personal draw stack, hand cards (up to hand limit), and personal discard pile.\n- Many actions require discarding specific cattle cards from hand to gain rewards.\n- When you must draw but personal draw stack is empty, shuffle your face-up personal discard pile to form a new draw stack, then continue drawing.\n\nAction restrictions explicitly present in excerpt:\n- Movement must end on a location; empty trail spaces cannot be destination locations.\n- You must obey step limit and directional arrows in Phase A before resolving location actions.\n- If an action requires certain cards/resources/workers, those prerequisites must be met (as indicated by action space specifics)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "1) Hybrid route-and-deck system: Unlike classic deck-builders, card value spikes at Kansas City delivery moments. You continuously cycle cattle cards, trying to arrive with diverse, high breeding-value hand composition.\n\n2) Repeated delivery loop: Your cattleman repeatedly traverses the trail from lower-right toward Kansas City. Reaching Kansas City does not end your game; it triggers a delivery cycle and your route process continues again from the trail start area. Players usually reach Kansas City about 5-7 times over a game.\n\n3) Dynamic board economy via private buildings and pass fees: Players customize the trail by placing private buildings, creating both personal action access and movement tax points for opponents. The green/black hand fee matrix changes by player count, altering interaction pressure between 2p/3p/4p games.\n\n4) Staged tile pipeline (Kansas City supply): Tiles enter game in balanced waves via back numbers 1/2/3 and are fed into hazards, Indian trade, job market, and foresight spaces, shaping tempo and opportunity timing.\n\n5) Multi-axis staffing engine: Cowboys, craftsmen, and engineers support different strategic arcs (herd improvement, infrastructure placement, rail advancement), encouraging specialization or balanced growth.\n\n6) Shared-side private building setup option: Advanced setup randomizes a/b sides uniformly across players, creating a synchronized but variable ruleset for private tile effects across the entire table."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "From the provided rule text: all victory points are awarded at the end of the game. Players total VP symbols on components in front of them and VP symbols marked with their color on the game board; highest total wins.\n\nVP sources explicitly identified in the excerpt include:\n- Delivering cattle to cities via Kansas City/train system (cities may be worth VP).\n- Placing private building tiles (listed as a way to earn VP).\n- Upgrading train stations (listed as a way to earn VP).\n- Removing hazards (listed as a way to earn VP).\n- Objective cards and other VP-marked components/board spaces (implied by final tally instruction to count VP symbols on owned components and personal board marks).\n\nEnd trigger and formal tie-break procedure are not present in the provided excerpt segment (gameplay/end section is truncated). Use official complete rulebook end-trigger/tiebreak text when performing rules arbitration in live play. For teaching from this source excerpt, winner determination is: highest final VP total after adding all printed VP symbols attributable to that player."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Movement is forward and constrained by board topology and occupied spaces. Building actions create permanent route economy and interaction points. Hiring from worker market supports strategic focus: cowboys for cattle, craftsmen for buildings, engineers for rail. Herd value depends on distinct cattle breeds in hand, so deck thinning and upgrade timing are core efficiency skills. Kansas City delivery sequence must be resolved in exact order, including certificates and train-position effects that can add penalties if rail lags behind delivery ambition. Hazard and teepee spaces change route costs and can be converted into points or value by effects. Objective cards reward structured planning but can be traps if they conflict with your movement and deck tempo. Common mistakes are backward planning too late for hand quality, underdeveloped train position, and inefficient private-building placement off your natural path.",
-      "token_count": 176
-    },
-    "scoring_and_endgame": {
-      "content": "Final scoring combines delivery network results, objectives, board and tile bonuses, railroad progression, and other listed endgame sources. Endgame trigger depends on depletion and player-count settings in official setup. Highest victory points wins using standard tie-break steps.",
-      "token_count": 48
-    },
-    "beginner_strategy": {
-      "content": "Upgrade cattle early so every delivery improves. Keep train progress close to delivery targets to avoid repeated penalties. Specialize workers but stay flexible with market opportunities. Place private buildings where your route already goes. Use certificates deliberately for high-value delivery turns.",
-      "token_count": 53
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Secure a coherent first loop: pick early locations that give both cash flow and one long-term engine piece (worker, cattle upgrade, or building progress), rather than chasing scattered one-shot gains.\n2) Upgrade herd quality quickly: low-value starter cattle cap your Kansas City payout; your first market purchases should increase both breeding value and type diversity.\n3) Protect route tempo: movement fees from hand-icon locations can drain early economy, so route around expensive crossings unless action payoff clearly exceeds fee.\n4) Commit to a staff lane by turn cycle 2-3: early hires should reflect your plan (cowboys for cattle pace, craftsmen for board control, engineers for rail timing).\n5) Preserve deck cadence: avoid bloating with low-impact cards; reaching Kansas City with a clean, diverse hand is more important than raw card count."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Sprinting to Kansas City with weak hand value. Fast loops are not automatically good if deliveries are low quality.\n2) Ignoring movement taxes. New players often hemorrhage dollars by repeatedly crossing fee locations without checking alternatives.\n3) Overinvesting in one subsystem too early (all buildings, all rail, or all cattle) without enough economy to support it.\n4) Treating objective cards as side content. Objectives and VP symbols are central to final scoring and should inform route and purchase choices.\n5) Poor discard timing in herd deck. Discarding wrong cattle before delivery can collapse both value and variety in the critical Kansas City hand."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Tempo vs value in trail movement: take shorter efficient loops for more Kansas City visits, or longer loops for stronger action chains and improved deliveries.\n2) Market herd growth vs infrastructure growth: buy premium cattle now, or spend turns building route control and worker economy first.\n3) Interaction posture: place private buildings mainly for your own action engine, or position them to create profitable/taxing choke points opponents must cross."
+        }
+      ]
     }
   },
-  "total_token_count": 820,
+  "total_token_count": 4090,
+  "extensions": {},
   "metadata": {
-    "created_by": "goblin",
-    "created_at": "2026-02-23T05:50:43Z",
+    "schema_version": "2.0",
+    "created_by": "orc",
+    "created_at": "2026-02-22T23:16:00-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewrite sprint with rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary source is the provided Great Western Trail rulebook excerpt (components, setup, herd/deck explanation, turn phases, movement/fee rules, and scoring overview). The supplied gameplay text is truncated before full action iconography, formal end trigger, and tiebreak wording; this guide preserves only excerpt-supported specifics and flags missing arbitration details."
   }
 }

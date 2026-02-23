@@ -1,58 +1,110 @@
 {
   "game_id": "clank",
-  "title": "Clank! A Deck-Building Adventure",
+  "title": "Clank!: A Deck-Building Adventure",
   "aliases": [
-    "Clank!"
+    "Clank!",
+    "Clank! Base Game"
   ],
-  "publisher": "Dire Wolf",
+  "publisher": "Renegade Game Studios / Dire Wolf",
   "player_count": {
     "min": 2,
     "max": 4,
     "recommended": 4,
-    "expansion_max": 4
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 45,
-    "max": 90
+    "min": 30,
+    "max": 60
   },
   "complexity": "midweight",
   "categories": [
-    "deck-building",
-    "push-your-luck",
-    "dungeon-crawl"
+    "Deck Building",
+    "Push Your Luck",
+    "Dungeon Crawl",
+    "Race",
+    "Hand Management"
   ],
   "source_url": "https://www.direwolfdigital.com/clank/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Clank! base components include a double-sided board, 4 player pawns, personal cube sets (Clank cubes) per player plus black dragon cubes, 4 ten-card starting decks, a 100-card dungeon deck, reserve piles (Mercenary, Explore, Secret Tome, Goblin), artifact tokens, major/minor secret tokens, market items (keys, backpacks, crowns), dragon marker, and supporting rules components. Setup places artifacts/secrets/market tokens on designated spaces and prepares dungeon row plus dragon bag with player and black cubes.",
-      "token_count": 92
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Component counts from the provided rulebook text:\n- 1 double-sided game board\n- 100-card Dungeon Deck\n- Reserve cards: 15 Mercenary, 15 Explore, 12 Secret Tome, 1 Goblin\n- 4 starting decks (10 cards each), each deck contains: 6 Burgle, 2 Stumble, 1 Cautious Advance, 1 Skillful Move (40 starting cards total)\n- 7 Artifact tokens (values 5 to 30)\n- Market items: 2 Master Keys, 2 Backpacks, 3 Crowns (values 10, 9, 8)\n- 3 Monkey Idol tokens\n- Dragon cubes: 24 black cubes (for the Dragon Bag)\n- 1 Dragon marker (black)\n- Mastery tokens: 1 per player (use 2-4 depending on player count)\n- Gold tokens in bank: denominations 1 and 5\n- Player pieces: each player has 1 pawn and 30 Clank! cubes in personal supply (up to 4 players)\n- Dragon Bag: 1\n\nNote: Major Secret and Minor Secret tokens are also required and used during setup; they are shuffled and placed on their marked spaces as described in setup."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Set up the board in this order:\n1) Place the 7 Artifacts face up on matching numbered artifact spaces.\n   - With 3 players: remove 1 random Artifact before placing.\n   - With 2 players: remove 2 random Artifacts before placing.\n2) Shuffle Major Secrets face down and place 1 at random on each Major Secret space; return extras unseen.\n3) Shuffle Minor Secrets face down and place 1 on each Minor Secret spot (two Minor Secrets in each room that shows Minor Secrets).\n4) Put Market items in the Market: 2 Keys, 2 Backpacks, 3 Crowns.\n5) Put 3 Monkey Idols in the Monkey Shrine room.\n6) Place 1 Mastery token per player near the top-left board area.\n7) Put Gold tokens (1s and 5s) in a bank beside the board.\n8) Place Dragon marker on Rage Track by player count:\n   - 4 players: first space\n   - 3 players: second space\n   - 2 players: third space\n9) Put all 24 black dragon cubes into the Dragon Bag.\n10) Place Reserve piles near board: Goblin card, Mercenary stack, Explore stack, Secret Tome stack.\n11) Shuffle Dungeon Deck and reveal 6 cards to form Dungeon Row. Replace any revealed card with Dragon Attack symbol until the starting row has no Dragon Attack symbols, then shuffle replaced cards back into Dungeon Deck. Leave room for Dungeon discard pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player takes:\n- 1 pawn in their color\n- 30 Clank! cubes in personal supply\n- 1 starting 10-card deck (6 Burgle, 2 Stumble, 1 Cautious Advance, 1 Skillful Move)\n\nEach player places their pawn just outside the dungeon at the top entrance, shuffles their 10-card deck, and draws 5 cards."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Determine first player as the sneakiest player (or randomly). Play proceeds clockwise.\n\nInitial Clank! placement in Clank! Area by seat order:\n- 1st player: 3 Clank!\n- 2nd player: 2 Clank!\n- 3rd player: 1 Clank!\n- 4th player: 0 Clank!\n\nAfter these cubes are placed, the first player begins their turn."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "On your turn, play cards from hand to generate Skill (buying power), Boots (movement), Swords (combat), and sometimes Clank (noise). Spend Skill to acquire cards from dungeon row or reserve, spend Boots to move through tunnels, and spend Swords to defeat monsters. Any Clank generated goes to your clank area and is added to the dragon bag at attack timing. Draw back to hand size at end of turn and refill market/dungeon row as needed.",
-      "token_count": 97
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, resolve in order:\n1. Play cards from your hand in any order, resolving each card’s text immediately.\n2. Generate and spend resources (Skill, Swords, Boots) on legal actions in any sequence. You may interleave actions between card plays.\n3. Finish actions, then end turn: discard all played cards to your personal discard pile.\n4. Draw 5 new cards. If your deck is empty when drawing, shuffle your discard pile to form a new deck.\n5. Refill Dungeon Row back to 6 cards. If one or more newly revealed cards show Dragon Attack symbols, resolve exactly one Dragon Attack this turn.\n\nImportant: Unused Skill, Swords, and Boots are lost at end of turn."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "You may take each action multiple times per turn as long as you can pay the cost.\n\nA) Acquire a card for your deck (Skill)\n- Spend Skill equal to card’s cost (lower right).\n- Valid targets: blue-banner cards in Dungeon Row and yellow-banner cards in Reserve.\n- Place acquired card in your personal discard pile.\n\nB) Use a Device (Skill)\n- Devices are purple-banner cards in Dungeon Row.\n- Pay Skill cost, resolve the card’s Use text immediately, then place that card in Dungeon discard pile (not your deck).\n\nC) Fight a monster (Swords)\n- Monsters are red-banner cards in Dungeon Row.\n- Spend required Swords shown on card.\n- Gain reward from Defeat text; place defeated monster in Dungeon discard.\n- You may also fight Goblin in Reserve repeatedly in the same turn (it stays in Reserve).\n\nD) Move through tunnels (Boots)\n- Spend 1 Boot to move through one normal tunnel.\n- Footprint tunnels require 2 Boots.\n- Monster tunnels deal listed damage unless reduced by spending Swords (1 Sword prevents 1 damage).\n- Lock tunnels require owning a Master Key token.\n- Arrow tunnels are one-way unless an effect allows otherwise.\n\nE) Take room tokens when you enter a room\n- When entering a room, you may take exactly one token there (Minor Secret, Major Secret, Monkey Idol, or Artifact).\n- If taking Minor/Major Secret, reveal it immediately and resolve as instructed.\n- You cannot take an Artifact if you already have one.\n- Taking an Artifact advances Dragon marker 1 space on Rage Track.\n- You may choose to take no token.\n\nF) Buy from Market (Gold)\n- If your pawn is in a Market room, you may buy an item for 7 Gold.\n- Items bought are placed in front of you and kept.\n\nG) Clank! and negative Clank\n- Positive Clank effects: place that many cubes from personal supply into Clank! Area.\n- Negative Clank effects: remove your cubes from Clank! Area.\n- If you cannot remove enough cubes, leftover negative Clank can cancel Clank you would gain later that same turn. Any still unused negative Clank is lost at turn end.\n\nH) Crystal Cave exhaustion\n- The instant you enter a Crystal Cave room, you may not use any more Boots that turn.\n- Teleport effects can still move you if available."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Dragon Attacks (core pressure system)\n- Trigger: During Dungeon Row refill, if any revealed card has Dragon Attack symbol, resolve one attack.\n- First, move all cubes currently in Clank! Area into Dragon Bag.\n- Draw cubes from Dragon Bag equal to the value indicated by Dragon marker’s current Rage space.\n- Black cubes drawn are set aside and deal no damage.\n- Colored cubes drawn deal 1 damage each to matching player color (place on that player’s Health Meter).\n\nRage escalation\n- Dragon Rage increases by 1 each time an Artifact is taken.\n- Dragon Rage also increases when Dragon Egg secrets are found (a Minor Secret type).\n- Higher Rage means larger future attack draws and deadlier late game.\n\nHealth and knockout\n- Damage is tracked on your color’s Health Meter.\n- Damage from dragon attacks uses cubes drawn from bag.\n- Damage from monster tunnels uses cubes from your personal supply if you choose not to spend Swords to prevent it.\n- If your Health Meter is filled, you are knocked out.\n  - If you have an Artifact and are out of the Depths area, you are rescued and still score.\n  - If you do not have an Artifact, or are still in the Depths, you are not rescued and are effectively out of contention.\n\nDeck-building flow\n- Newly acquired deck cards always enter your discard pile.\n- They are unavailable until shuffled into deck and drawn in a later hand."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Endgame trigger and finish\n- The game enters endgame once players begin escaping and/or players are knocked out as pressure from dragon attacks escalates.\n- Players who make it back to the starting area outside the dungeon have escaped and are safe from further danger.\n- Players knocked out in unrecoverable conditions (no Artifact or still in Depths) do not survive to score competitively.\n\nFinal scoring sources (all points you count):\n1) Artifact token value (5-30).\n2) Gold: each Gold is worth 1 point.\n3) Crown tokens (10/9/8 points).\n4) Monkey Idol tokens (point value on token).\n5) Secret token points (if any), plus any immediate rewards already gained during play.\n6) Point values printed on cards in your deck/discard/played areas (such as Secret Tomes and other VP cards).\n7) Other persistent point-granting effects from cards/items collected during game.\n\nWinner\n- Highest total points wins.\n\nTie-breaker\n- If tied, tied player with the most remaining health is ahead.\n- If still tied, tied player with more Gold is ahead.\n- If still tied, share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Movement obeys path requirements: some edges require extra Boots, keys, or prior combat icons. Certain rooms grant immediate pickups (gold, secrets, monkeys, etc.) and some effects are mandatory. Artifacts are major scoring objectives; each player can carry one major artifact unless backpack effects allow additional loot as specified. Buying from dungeon row resolves card text and then refills row; dragon-attack symbols trigger immediate bag pulls. During dragon attacks, mix current Clank into bag as directed, draw cubes equal to attack strength, and players take damage for each cube of their color drawn; black cubes are misses. Health reaching zero causes knockout; being knocked out in deep areas is heavily penalized versus near-surface knockouts. Market purchases are limited by item stock and can unlock mobility/survivability lines (keys/backpacks/crowns). Endgame starts when a player escapes above ground with artifact or when dragon rage reaches terminal pressure depending on game state; remaining players get a limited number of turns before final attacks resolve. Frequent mistakes: forgetting tunnel lock requirements, overproducing Clank without mitigation, and misunderstanding knockout scoring penalties. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
-      "token_count": 367
-    },
-    "scoring_and_endgame": {
-      "content": "At end, score artifact value, cards with VP, tokens collected (secrets, idols, crowns as applicable), and gold (1 VP per gold). Players who fail to escape can lose access to key scoring, especially if knocked out in deeper zones per base rules. Highest total wins; tie-breakers use progress toward escape and/or gold depending on tie context. Clank is a race with risk: extraction timing often decides outcomes more than raw dungeon depth. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
-      "token_count": 122
-    },
-    "beginner_strategy": {
-      "content": "Buy movement early; many losses come from being trapped by path requirements rather than weak card quality. Manage noise: high-Clank decks can self-destruct once dragon attacks accelerate. Enter deep zones only with a clear extraction route (keys, boots density, and acceptable health buffer). Include some deck-thinning or low-value card replacement to improve consistency in midgame. Watch opponent pace: if someone is close to escaping, pivot from greed to survivable exit. Value market keys/backpacks when they solve route or carrying constraints, not just by printed point value. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
-      "token_count": 189
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Buy movement and utility first, not raw points.\nYour first two deck buys should usually improve Boots and card quality so you can reach useful rooms and still return safely.\n\n2) Enter the dungeon with an exit plan.\nBefore going deep, make sure your deck can repeatedly produce movement and at least occasional Swords or teleport. Being rich in Skill but poor in Boots gets players trapped.\n\n3) Keep Clank! manageable in early cycles.\nA little noise is fine; repeated noisy turns before your deck stabilizes can put many cubes in the bag before you have meaningful loot.\n\n4) Grab efficient early board tokens.\nMinor/Major Secrets near the upper-mid map can accelerate your economy and survivability without committing to dangerous depth lines too soon.\n\n5) Watch the Dungeon Row for attack cadence.\nIf Dragon Attack icons are appearing often, shift to safer routes and reduce noise generation immediately."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Diving for high-value artifacts too early.\nPlayers chase 25/30 artifacts without enough movement to escape, then die in the Depths when rage rises.\n\n2) Ignoring lock tunnels and market timing.\nFailing to buy a Key when your route needs one can waste multiple turns and leave you stuck in bad paths.\n\n3) Overfilling deck with weak purchases.\nToo many low-impact cards dilute your best movement and control cards, making escape turns inconsistent.\n\n4) Treating Swords as optional in monster corridors.\nRepeatedly taking tunnel damage instead of budgeting swords shortens your survivability window against dragon attacks.\n\n5) Staying underground after a safe artifact line is available.\nGreedy extra turns often lose more points to knockout risk than they gain in loot."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Fast, low artifact vs deep, high artifact\n- Low artifact route: safer escape, lower base VP, stronger consistency.\n- Deep artifact route: high VP ceiling, much higher death risk and stricter deck demands.\n\nDecision 2: Quiet deck vs explosive deck\n- Quiet deck lowers dragon exposure and improves survival.\n- Explosive deck can generate huge tempo but increases Clank! and volatility.\n\nDecision 3: Keep delving vs pivot to escape\n- Keep delving only if your health, deck cycle, and board position all support a likely safe return.\n- Pivot to escape when rage is ramping or when one bad attack could remove your scoring chance entirely."
+        }
+      ]
     }
   },
-  "total_token_count": 867,
+  "total_token_count": 3186,
+  "extensions": {},
   "metadata": {
-    "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.147873Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "schema_version": "2.0",
+    "created_by": "monk",
+    "created_at": "2026-02-22T23:12:19-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary content written from provided Clank! rulebook excerpt and setup/action text."
   }
 }

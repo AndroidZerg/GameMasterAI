@@ -1,58 +1,107 @@
 {
   "game_id": "carcassonne",
   "title": "Carcassonne",
-  "aliases": [
-    "Carcassonne Base Game"
-  ],
+  "aliases": [],
   "publisher": "Hans im Glück / Z-Man Games",
   "player_count": {
     "min": 2,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 6
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 35,
-    "max": 45
+    "max": 50
   },
   "complexity": "gateway",
   "categories": [
-    "tile-placement",
-    "area-control",
+    "tile-laying",
+    "area-majority",
+    "route-building",
+    "medieval",
     "map-building"
   ],
-  "source_url": "https://images.zmangames.com/filer_public/73/6f/736f4a38-5f5a-4d67-9f84-68f4459f57c1/zm7810_carcassonne_rules.pdf",
+  "source_url": "https://www.zmangames.com/en/products/carcassonne/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Official base set components: 84 land tiles total (including 1 dark-backed start tile and 12 river tiles used with river rules), a scoreboard, and 40 regular meeples (8 in each of five colors). The modern base box also includes 5 abbots (1 per color), though first-game/base teaching commonly sets abbots aside. For standard base play, each player starts with 7 meeples in supply and places one extra meeple of their color on 0 of the scoring track as a score marker.",
-      "token_count": 105
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Core components from the provided rulebook text: 84 Land tiles total, depicting roads, cities, monasteries, and surrounding fields. Of those 84, 12 are River tiles (used with supplementary rules) and 1 is the start tile; the start tile and River tiles have darker backs, while normal land tiles have regular backs. The box also contains 1 scoreboard, 40 regular meeples (exactly 8 in each color: yellow, red, green, blue, black), and 5 abbots (exactly 1 in each of those same colors). For first-game/base teaching from this text: use regular meeples and set abbots aside."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1) Place the start tile (dark back) face up in the middle of the table. 2) Shuffle the remaining playable tiles and form several face-down stacks within reach of all players. 3) Put the scoreboard to the side of the play area where everyone can see and update it easily. 4) Leave generous open space around the start tile, because the landscape expands in multiple directions over the game. 5) If this is your first game with these rules, keep River tiles and abbots out unless you are explicitly using supplementary rules."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player picks a color and takes 7 regular meeples of that color into their personal supply. The 8th regular meeple of each chosen color is placed on space 0 of the scoreboard and functions as that player’s scoring marker. Any unused colors go back to the box. For introductory play described in this rulebook segment, abbots are returned to the box and not used."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose a first player (the text suggests youngest as an example). Play proceeds clockwise. Starting with the first player, each player takes full turns in sequence. The key starting condition is that every turn follows the same 3-step order: place 1 tile, optionally place 1 meeple from supply on the just-placed tile (if legal), then score any features completed by that placement."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each turn has three ordered steps: place one drawn tile, optionally place one meeple from your supply on that just-placed tile, then score any features completed by the placement. Tile edges must match adjacent terrain types (city to city, road to road, field to field). Meeples claim features as knights, highwaymen, monks (and farmers in full rules), and remain committed until those features score (farmers typically stay to endgame). After scoring, recovered meeples return to supply for reuse on later turns.",
-      "token_count": 105
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, perform these steps in exact order:\n1. Place a tile: Draw exactly 1 land tile from a face-down stack and place it face up so it continues the existing landscape correctly.\n2. Place a meeple (optional): You may place 1 meeple from your supply onto a legal feature of the tile you just placed.\n3. Score completed features: You must score every feature that was completed by that tile placement, for all players who qualify.\n4. Return scored meeples: Any meeple(s) in feature(s) just scored are returned to their owners’ supplies.\n5. Pass turn clockwise.\n\nScoring is immediate at end of the active player’s turn whenever a feature is completed by the newly placed tile, even if the scoring player is not the active player."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Tile placement rules:\n- You must place the drawn tile so both landscape and illustrated features continue correctly from adjacent edges (roads to roads, city walls to city walls, fields to fields).\n- In rare cases where a tile cannot be placed legally anywhere, return it to the box and draw another tile.\n\nMeeple placement rules:\n- Placement is optional, and only on the tile you just placed.\n- You may not place a meeple into a feature that already contains at least one meeple anywhere in that connected feature.\n- Role depends on where the meeple is placed: road = highwayman, city = knight, monastery = monk, field = farmer (field/farmer scoring appears in final scoring and supplementary guidance).\n\nRoad completion and scoring:\n- A road is completed when both ends are closed by a village, city, monastery, or by looping into itself.\n- Score 1 point per tile in the completed road.\n- After scoring, meeple(s) from that road return to supply.\n\nCity completion and scoring during the game:\n- A city is completed when it is fully enclosed by walls with no gaps/holes.\n- Score 2 points per tile in that completed city.\n- Score +2 points for each coat of arms in that completed city.\n- Return meeple(s) after scoring.\n\nMonastery completion and scoring during the game:\n- A monastery is completed when it is surrounded on all 8 adjacent spaces by tiles.\n- Score 1 point for each of those 8 surrounding tiles plus 1 for the monastery tile itself (maximum 9).\n- Return the monk meeple after scoring.\n\nShared feature control and majority:\n- Multiple meeples can end up in one connected feature when separate sections are merged later by tile placement.\n- If a scored feature has multiple players’ meeples, only the player with the most meeples scores full points.\n- If tied for most meeples, all tied players each score full points.\n- Players with fewer meeples in that scored feature get 0 points.\n\nScore tracking:\n- Move your scoring marker meeple along the scoreboard whenever you gain points.\n- If your score passes 50, lay your scoring meeple down to indicate 50+ points as noted in the rules."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Feature merging is a central tactical system in Carcassonne. You cannot place a meeple directly into an already-occupied connected feature, but you can place into a currently separate segment and later connect it. This creates competition and timing battles for majority.\n\nRoad merge example logic from the text: two separate roads each with a highwayman can later be connected into one completed road; if both players are tied for most meeples, both score full points.\n\nCity takeover logic from the text: you may place a knight in a city segment that is currently separate from an opponent’s city segment, then later connect those segments. If your total knights become the majority in the resulting completed city, only you score it (unless tied).\n\nFarmers/fields: The text mentions fields and final-scoring value (3 points per adjacent completed city), and advises introducing farmers after a few games via supplementary rules. For teaching progression, many groups first master roads/cities/monasteries and majority scoring before adding full field strategy."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: The game ends immediately after the turn in which the last tile is placed.\n\nThen perform final scoring for all meeples still on the map:\n- Incomplete road: 1 point per tile (same rate as completed road scoring).\n- Incomplete city: 1 point per tile + 1 point per coat of arms (half value compared with completed cities during play).\n- Incomplete monastery: 1 point for the monastery tile + 1 point for each adjacent surrounding tile present.\n- Fields: each field is worth 3 points per adjacent completed city (as presented in final scoring notes; farmers/fields are in supplementary guidance).\n\nMajority and tie rules still apply during final scoring:\n- Most meeples in a feature scores full points.\n- If tied for most, all tied players score full points.\n\nAll point sources in this rules text:\n1) Completed roads during play (1 per road tile).\n2) Completed cities during play (2 per city tile + 2 per coat of arms).\n3) Completed monasteries during play (up to 9 total).\n4) Incomplete roads at final scoring (1 per tile).\n5) Incomplete cities at final scoring (1 per tile + 1 per coat of arms).\n6) Incomplete monasteries at final scoring (1 + adjacent tiles).\n7) Fields at final scoring (3 per adjacent completed city).\n\nWinner: player with the highest total points after final scoring.\nTie handling: players tied for highest total are tied winners (shared victory)."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Tile placement is mandatory: draw one tile and place it legally connected to at least one existing tile, matching all touching edges. If a drawn tile has no legal placement, remove it from play and draw next (rare). After placing a tile, you may place exactly one meeple from your supply on one feature of that tile—or place none.\n\nOccupancy rule: you may place on a road/city/field/monastery only if no meeple already occupies that connected feature (consider full connected area, not just local tile segment). Later tile placements can merge features, creating shared control conflicts that are resolved by majority at scoring.\n\nRoad scoring: a road completes when both ends are closed by city/village/monastery junctions or loop closure. Completed roads score 1 point per tile in the road. City scoring during play: completed city scores 2 points per tile plus 2 per pennant/coats of arms. Monastery scoring during play: monastery is complete when surrounded by 8 adjacent tiles; it scores 9 points total (monastery tile + 8 neighbors).\n\nMajority/ties: if multiple players have equal most meeples in a completed feature, all tied players receive full points (points are not split). After scoring roads/cities/monasteries, involved meeples return to owners.\n\nFields/farmers: farmers are placed lying down on field areas and stay until game end; they do not return during normal turn scoring. Field connectivity is separated by city walls/roads according to field boundaries.\n\nEndgame and incomplete features: when final tile is placed, perform final scoring for incomplete roads, cities, monasteries, and fields. Incomplete roads/cities score reduced values compared with completed-city scoring in-game (roads still 1 per tile; incomplete cities 1 per tile and 1 per pennant). Incomplete monasteries score 1 point for monastery tile plus each surrounding tile present.",
-      "token_count": 373
-    },
-    "scoring_and_endgame": {
-      "content": "During the game, completed roads, cities, and monasteries score immediately for their controller(s). At game end (after last tile), unfinished roads and monasteries still score based on tiles present, and unfinished cities score at reduced rate (1 per tile + 1 per pennant). Field scoring is then resolved: each field scores 3 points for each completed city that field touches, awarded to player(s) with majority farmers in that field; ties grant full points to all tied majorities. The player with highest total score wins. If tied, tied players share victory.",
-      "token_count": 117
-    },
-    "beginner_strategy": {
-      "content": "Keep your meeple economy healthy: early points are great, but running out of available meeples removes your tactical flexibility. Favor short roads and medium cities you can realistically close, then recycle those meeples quickly. Use placement to influence opponents as much as yourself—feeding a tile that completes their large city is often worse than taking a smaller personal gain elsewhere. Learn when to invest in farms: one good farm touching multiple likely-completed cities can outscore several small features, but overcommitting farmers too early can starve your turn-by-turn scoring. Watch merge opportunities—joining your claimed feature to an opponent’s for a majority swing is one of the strongest tactical plays in base Carcassonne.",
-      "token_count": 144
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Prioritize fast meeple turnover: early short roads and small-to-medium cities that are likely to close quickly keep your supply flexible.\n2) Preserve supply discipline: avoid dropping too many meeples into long projects immediately; keeping 2–3 meeples available gives tactical freedom.\n3) Place with dual purpose: look for tiles that both improve your own features and make opponents’ completion paths awkward.\n4) Use monasteries selectively: they are reliable points when the surrounding area is likely to fill, but weak if isolated near map edges.\n5) Watch coat-of-arms cities: they are high-value and worth planning around, either to secure majority or deny easy closures."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Meeple starvation: beginners commit too many meeples early to giant unfinished features and run out of workers for profitable short opportunities.\n2) Ignoring majority contests: treating a feature as ‘owned forever’ and not anticipating merge/takeover plays leads to big point swings.\n3) Over-expanding cities without closure plan: large cities can be lucrative, but unfinished cities score at half value in final scoring and often underperform.\n4) Forgetting that opponents can score on your turn: placing a tile that closes an opponent’s feature can hand them immediate points and meeple return.\n5) Weak endgame awareness: not tracking tile depletion and final-scoring conversions can cause missed opportunities to secure incomplete-feature points or deny fields."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Secure vs. speculative scoring: Do you take guaranteed smaller scores now (quick roads/closures) or invest meeples in larger uncertain features?\n2) Compete vs. isolate: Do you enter contested features for majority battles, or build separate features for safer independent scoring?\n3) Tempo vs. denial: Is this tile best used to improve your own scoring line, or to block an opponent’s closure/takeover path? In close games, denial placement can be worth more than immediate points."
+        }
+      ]
     }
   },
-  "total_token_count": 844,
+  "total_token_count": 2430,
+  "extensions": {},
   "metadata": {
-    "created_by": "halfling",
-    "created_at": "2026-02-23T05:46:34Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T07:08:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 2,
-    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
+    "revision": 1,
+    "notes": "Primary source: provided Carcassonne rulebook text in prompt; component counts and scoring values copied from that source scope."
   }
 }

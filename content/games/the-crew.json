@@ -1,56 +1,103 @@
 {
   "game_id": "the-crew",
   "title": "The Crew: The Quest for Planet Nine",
-  "aliases": [],
+  "aliases": [
+    "The Crew"
+  ],
   "publisher": "KOSMOS",
   "player_count": {
-    "min": 2,
+    "min": 3,
     "max": 5,
     "recommended": 4,
-    "expansion_max": 5
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 20,
-    "max": 50
+    "min": 5,
+    "max": 20
   },
-  "complexity": "gateway",
+  "complexity": "party",
   "categories": [
     "cooperative",
     "trick-taking",
-    "mission"
+    "mission-based",
+    "limited-communication"
   ],
   "source_url": "https://www.kosmos.de/en/the-crew-the-quest-for-planet-nine_1691193_4002051691193",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Rulebook component list: 40 large playing cards (36 suit cards valued 1–9 across four colors plus 4 rocket trump cards valued 1–4), 36 small task cards, 5 large reminder cards, 16 tokens (10 task tokens, 5 radio communication tokens, 1 distress signal token), 1 commander token, and rulebook/logbook with missions. Verify all numbered suit cards are complete and rockets 1–4 are present, since missing low cards can silently break mission solvability. Task deck and communication tokens are required for campaign progression and mission modifiers.",
-      "token_count": 109
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact counts from the provided rulebook text: 40 large playing cards total (36 color cards in 4 colors, values 1-9, plus 4 rocket cards values 1-4), 36 small task cards, 5 large reminder cards, 16 tokens total (10 task tokens, 5 radio communication tokens, 1 distress signal token), 1 commander token, and 1 rulebook/logbook. Mission play also references the mission logbook (50 missions) and uses task cards plus communication tokens as core systems each mission attempt."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Before each mission attempt: shuffle all 40 large playing cards and deal them face down as evenly as possible to all crew members. If 3 players are playing, one person receives one extra card; after the last trick, one card remains unplayed. Each player places one radio communication token green-side up in front of themselves. Keep one reminder card ready per player. Place distress signal token face down. Shuffle all 36 task cards and place them as a facedown pile."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Read the mission to determine how many task cards are used. Reveal that many task cards face up in the center. The player holding Rocket 4 is commander and takes commander token. Task draft starts with commander and proceeds clockwise, one task card at a time, until all revealed tasks are assigned (players may receive different numbers of tasks). Only after tasks are distributed may players communicate using radio tokens. Commander leads the first trick unless mission text says otherwise."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "For each mission, deal the card deck and assign commander to holder of Rocket 4. Reveal/assign task cards according to mission instructions. Players then play cooperative trick-taking: follow suit when able, rockets trump suits, and trick winners lead next trick. Teams may use very limited communication (radio token) according to the mission rules. Mission succeeds only if all task requirements are fulfilled; otherwise fail and retry mission.",
-      "token_count": 87
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Mission flow in order:\n1. Mission Preparation: deal large cards, set communication tokens, prepare task cards/tokens, determine commander (Rocket 4).\n2. Task Distribution: reveal required task cards and draft clockwise starting with commander.\n3. Trick Play Loop:\n   a) Leader plays first card of trick (sets suit).\n   b) In clockwise order, each other player plays one card.\n   c) Follow-suit required if possible.\n   d) Highest card in led suit wins trick unless rockets are played; highest rocket wins.\n   e) Trick winner leads next trick.\n4. Mission Check: complete all assigned tasks to win; if any required card is won by wrong player or a mission rule is broken, mission fails immediately.\n5. On failure, reshuffle and restart mission with new deal/tasks."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "On your play in a trick, you must play exactly one card. Legal card play is determined by follow-suit: if you have the led suit, you must play that suit; if not, you may play any card. You are never forced to play your highest eligible card and are never required to try to win the trick. Rockets are trump cards: they win against color cards; if multiple rockets are in one trick, highest rocket wins. If a rocket is led, rockets become the suit for that trick and must be followed if possible.\n\nCommunication actions (strictly limited): each player may communicate exactly once per mission attempt, and only before a trick (never during a trick). To communicate, place one non-rocket color card face up and place your token to indicate: top = highest card of that color in your hand, middle = only card of that color, bottom = lowest card of that color. One of these must be true at the moment of communication. Rocket cards cannot be communicated. Token position cannot be changed later even if the statement would no longer be true. After communicating, take a reminder card; when that communicated card is played, return reminder card and flip communication token red."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Task ownership is the core mission mechanic: each small task card corresponds to one specific playing card that must be captured by that task owner. Tasks are fulfilled when owner wins a trick containing the matching playing card; fulfilled tasks are turned face down. A player may complete multiple tasks in one trick if matching cards are captured. The game is cooperative, but hidden information is tightly constrained: players may not show, suggest, or discuss hand contents beyond permitted communication token actions. Won tricks are placed face down; only the most recently won trick may be inspected. Mission structure is campaign-based across 50 missions, with difficulty and symbols introducing additional constraints later in the logbook."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The Crew has no victory points. Mission outcome is binary:\n- Mission success: all assigned task cards are fulfilled by their correct owners under any mission-specific rules.\n- Mission failure: immediate if any required playing card is won by a player who does not own that task, or if a mission special rule is violated.\nAfter success, proceed to the next mission and optionally log number of attempts. After failure, reshuffle all cards, redeal, redistribute tasks, and retry the same mission. There are no tie-breakers because missions are pass/fail cooperative objectives, not comparative scores."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "The Crew is cooperative but mechanically strict trick-taking. Mission setup from logbook defines how many and which task cards are in play, plus any special constraints (order requirements, who may win what, communication limits, etc.). Cards are dealt evenly; in uneven player counts some cards may be set aside as instructed. Player with Rocket 4 receives commander token and often leads first trick. Trick resolution: lead any card, each following player must play same suit if possible, otherwise any card including rocket; highest card of led suit wins unless one or more rockets are played, in which case highest rocket wins. Winner collects trick face down and leads next trick. Task completion is checked by who captures required card(s). Communication system is intentionally narrow: each player typically has one radio token to place on one hand card, indicating that card is highest/only/lowest of that suit depending token position, and only when mission permits. No table talk conveying hidden hand specifics beyond allowed communication. Mission failure is immediate when a required condition becomes impossible or violated (for example, wrong player captures a protected task card). Distress signal and advanced mission symbols add exceptions such as timing windows, forced order, silence constraints, or altered communication rights; always read mission line completely before dealing. After fail, reset and replay same mission until success, then continue campaign. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 549
-    },
-    "scoring_and_endgame": {
-      "content": "There are no victory points in base campaign structure. Each mission is pass/fail: success means every listed task condition was met exactly; failure means at least one condition was broken or left unmet. End of a mission occurs when tasks are either all completed (success) or mission is impossible/violated (failure), typically by trick resolution. Campaign progression is the macro scoring system: advance to next mission on success, retry on failure. Groups may track retries as performance metric, but official win condition is mission completion, not point totals.",
-      "token_count": 113
-    },
-    "beginner_strategy": {
-      "content": "Before first trick, map likely ownership of critical cards from your hand and mission tasks; plan who should take lead at key moments. Preserve rockets for mission-critical captures instead of routine trick wins. Use radio communication on the single most decision-changing piece of information; early waste often causes avoidable fails. When a mission fails, diagnose the exact failure trick and adjust only that line instead of fully randomizing your approach. In 3–5 player games, controlling lead order is often more valuable than winning many tricks. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 135
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Before first trick, identify where your task cards are likely to appear and which suits you can safely control. 2) If you are commander, choose first task that matches your strongest certainty (high card control in that color or rocket protection). 3) Use your one communication only when it resolves a real branching decision (who should lead, who should dump, who must avoid winning). 4) In early tricks, establish lead order intentionally; who wins now determines who controls suit selection next trick. 5) Preserve rockets for mission-critical saves rather than routine trick wins."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Communicating too early with low-impact info; you then lack communication when mission pressure peaks. 2) Treating rockets like guaranteed wins and burning them before critical task cards appear. 3) Forgetting that wrong-player capture is instant loss, leading to casual overtricking. 4) Ignoring leader control: winning an unnecessary trick can force you to lead a dangerous suit. 5) Breaking communication rules by hinting from private-hand knowledge outside the token system."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "A) Safety vs tempo: play high now to secure a known task, or play low to preserve control tools for later tasks. B) Communication timing: spend your once-per-mission signal early to coordinate setup, or hold it for a high-risk endgame trick. C) Leader management: decide when to intentionally lose a trick so the right teammate can choose the next suit and route target cards correctly."
+        }
+      ]
     }
   },
-  "total_token_count": 993,
+  "total_token_count": 1640,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "human",
+    "created_at": "2026-02-23T07:11:00Z",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from the-crew.txt as primary source. Reference snippet: Game Materials............................................ 2"
+    "revision": 1,
+    "notes": "Written from provided The Crew rulebook excerpt (materials, trick rules, communication, mission prep/sequence)."
   }
 }

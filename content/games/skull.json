@@ -1,56 +1,102 @@
 {
   "game_id": "skull",
   "title": "Skull",
-  "aliases": [],
+  "aliases": ["Skull & Roses"],
   "publisher": "Space Cowboys",
   "player_count": {
     "min": 3,
     "max": 6,
     "recommended": 5,
-    "expansion_max": 6
+    "expansion_max": 10
   },
   "play_time_minutes": {
     "min": 15,
-    "max": 30
+    "max": 45
   },
   "complexity": "party",
   "categories": [
-    "bluffing",
-    "bidding",
-    "push-your-luck"
+    "Bluffing",
+    "Bidding",
+    "Push Your Luck",
+    "Player Elimination",
+    "Social Deduction"
   ],
   "source_url": "https://www.spacecowboys.fr/skull",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Skull components are minimal: each player receives a personal set of 4 discs/cards (3 flowers/roses and 1 skull), with identical backs and player-distinct fronts/sets. Many editions support up to 6 players, so full box contains 24 discs total. No board, no scoring pad, and no resource tokens are required under standard rules. Verify each player set has exactly one skull; missing a skull invalidates bluff balance immediately.",
-      "token_count": 87
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "6 tribes total. Each tribe contains exactly 3 flower discs, 1 skull disc, and 1 card-playing mat. Total physical contents therefore include 24 discs (18 flower + 6 skull) and 6 mats. Base game supports 3–6 players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player chooses one tribe and takes that tribe’s 4 discs and matching mat. Place your mat in front of you with the skull side visible. Keep your discs hidden in your hand so opponents cannot identify which disc you are about to play."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Choose a first player by any agreed method. Begin the first round at Step 1 (Turn Preparation): every player selects one disc from hand and places it face down on their own mat."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Players begin by placing one disc face down. On turn, a player either adds one more disc to their own stack or starts/increases a bid on how many discs they can reveal without exposing a skull. Bidding continues until all but one bidder pass. The winning bidder reveals discs: their own stack first, then chosen top discs from opponents until reaching bid target. Success scores one point; hitting any skull fails and costs a disc. First to two successful challenges wins.",
-      "token_count": 105
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round follows this 3-step sequence:\n1) Turn Preparation: every player places 1 face-down disc onto their own mat.\n2) Adding Discs or Challenge (clockwise from first player): on each turn, a player either adds one disc to their own stack or starts/continues bidding for a challenge.\n3) The Attempt: the final highest bidder (the Challenger) flips discs equal to their bid, following reveal-order rules.\nAfter the attempt resolves (success or failure), all discs are recollected as required, then a new round starts. The Challenger is first player of the new round unless elimination/failure first-player exceptions apply."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "During Step 2, the active player must choose one legal option:\n\nA) ADD A DISC\n- Place one disc from your hand face down on top of your own stack.\n- Place it slightly offset so all players can count how many discs are in your stack.\n- If you have no discs left in hand, you cannot add and must issue a challenge.\n\nB) CHALLENGE / BID\n- Announce a number of discs you intend to reveal from all mats combined.\n- Legal bid limits: bid cannot be 0 and cannot exceed total number of face-down discs currently on the table.\n- Clockwise from bidder, each player in bidding must either pass (slide mat toward center, leaving bidding) or raise bid.\n- Raising can jump by more than +1; a player may directly bid the maximum legal total.\n- Last remaining bidder becomes the Challenger.\n- Challenge scope includes all discs on all mats, including mats of players who passed bidding.\n\nStep 3 reveal rules (The Attempt):\n1) Challenger must reveal ALL of their own discs first.\n2) After their own stack is cleared, they may choose other players’ stacks in any order.\n3) Reveals are one-by-one and always from top disc of the chosen stack.\n4) Challenger does not need to clear an opponent’s entire stack unless needed to reach the bid count.\n5) If bid equals all discs on table, reveals still proceed one-by-one and stop immediately if a skull appears.\n\nOutcome checks:\n- Reveal any skull at any time: challenge fails immediately.\n- Reveal required number with no skull: challenge succeeds."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Failure penalty and elimination system:\n- On failed challenge, stop revealing immediately.\n- All players collect their discs back to hand.\n- Challenger loses one disc permanently: Challenger shuffles their remaining discs face down; the owner of the skull that was revealed chooses one of those discs to remove without seeing its face.\n- If Challenger revealed their own skull, Challenger chooses which of their own remaining discs to lose.\n- If a player loses their last disc, they are eliminated.\n\nFirst-player transfer exceptions on failed attempts:\n- If eliminated after revealing another player’s skull, next first player is the owner of that skull.\n- If Challenger revealed their own skull, Challenger chooses who is next first player.\n\nMat progress tracker:\n- On first successful challenge, flip your mat to flower-side up to show one success.\n- A second successful challenge while already flower-side up wins immediately.\n\nSpecial one-disc case:\n- A player with only one disc left must call challenge instead of adding during adding phase.\n- During bidding, that player may still pass or raise as normal.\n- If that lone disc is revealed as a skull during a challenge, that player is eliminated.\n\nOfficial variants in provided rules text:\n- Combine two boxes for 7–10 players.\n- Two tribes per player variant."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "Skull has no VP scoring system; victory is condition-based. The game ends immediately when either condition is met:\n1) A player succeeds at their second challenge (tracked by flipping mat to flower side after first success, then winning on next success).\n2) Only one player remains not eliminated.\n\nThere are no point totals and therefore no point tiebreakers. If both win conditions appear to approach simultaneously, resolve strictly by sequence of play: the first condition achieved during normal resolution ends the game and determines the winner."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Each player begins round with all remaining discs and starts a face-down stack in front of themselves. Play proceeds clockwise. If no bid is active, your legal choices are: add one disc to your stack or open bidding with a number not exceeding currently available top discs. Once bidding starts, subsequent players must either raise the bid or pass; no further disc placement occurs. When one bidder remains, challenge resolution begins. Challenger must reveal from their own stack first, top to bottom. If no skull appears, they continue revealing top disc from any players’ stacks one at a time until they either satisfy bid count (success) or reveal a skull (failure). Revealing a skull ends challenge immediately. On failure, challenger loses one random disc (or according to edition procedure) from their remaining set; concealed identity of removed disc preserves uncertainty where applicable. On success, challenger gains one point/flower token toward victory. Round then resets with all unrevealed discs returned to owners’ supplies and new opening placements. Eliminated players (no discs) are out. Bluff texture comes from memory of prior reveals and stack-growth behavior. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 497
-    },
-    "scoring_and_endgame": {
-      "content": "Scoring is binary per challenge: successful bidder gains one point; failed bidder gains none and loses a disc. Standard win condition is first player to score two successful challenges. Alternate terminal condition occurs when only one player remains with discs due to eliminations; that survivor wins if your edition includes survival resolution. There are no additional bonus points.",
-      "token_count": 75
-    },
-    "beginner_strategy": {
-      "content": "Early rounds, prioritize information gathering over hero bids—watch who repeatedly opens with conservative placement. Remember that challengers must flip their own stack first; this makes self-stack composition critical to bid credibility. Mix truthful and deceptive bid behavior so opponents cannot infer whether your top is skull or flower. When an opponent is one point from victory, pressure with raises that force them into high-risk reveals. Keep a mental log of likely skull locations from previous failed challenges. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 124
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Track exact disc counts on every mat from turn one. Good Skull play starts with arithmetic before psychology.\n2) In early rounds, prioritize information over hero bids: force opponents to act, watch who bids aggressively after adding extra discs, and note who hesitates when totals are low.\n3) Use first-player pressure if you have it: starting bids can shape round tempo and force riskier overbids from others.\n4) Mix your opening patterns (flower-first vs skull-first) so opponents cannot map your stack habits.\n5) When your own stack is large, remember you must clear it first as Challenger—do not bid beyond what your own top sequence can realistically support."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Forgetting mandatory self-reveal order. New players often bid high, then realize they must clear their own risky stack first and self-destruct.\n2) Bidding without table-total awareness. Illegal or unrealistic bids happen when players lose track of total discs in play.\n3) Revealing too many discs from one opponent out of habit. The rules let you switch targets; use that flexibility to avoid obvious skull danger.\n4) Becoming predictable (always flower first, always skull second, etc.). Patterned play gets punished quickly once opponents notice.\n5) Panicking when down to one disc. One-disc players can still influence bids and force mistakes; automatic desperation bluffs often eliminate them faster."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Add vs challenge timing: Add to increase uncertainty and future leverage, or challenge now before opponents stack safer flowers?\n2) Bid size calibration: Conservative bids preserve life; ambitious bids can secure fast wins but dramatically increase skull exposure risk.\n3) Target order during reveals: After clearing your own stack, choose opponents in an order that reflects observed behavior, stack depth, and current psychological pressure—not table position alone."
+        }
+      ]
     }
   },
-  "total_token_count": 888,
+  "total_token_count": 1710,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "orc",
+    "created_at": "2026-02-22T23:12:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from skull.txt as primary source. Reference snippet: CONTENTS: 6 tribes. Each tribe has: 3 flower-discs, 1 skull-disc, 1 card-playing mat. 3-6 players."
+    "revision": 1,
+    "notes": "Primary source: provided Skull official rulebook text summary (setup, three-step round flow, challenge rules, failure handling, elimination, victory, and listed variants)."
   }
 }

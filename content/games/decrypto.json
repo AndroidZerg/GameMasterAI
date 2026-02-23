@@ -1,56 +1,104 @@
 {
   "game_id": "decrypto",
   "title": "Decrypto",
-  "aliases": [],
-  "publisher": "Le Scorpion Masque",
+  "aliases": [
+    "DECRYPTO"
+  ],
+  "publisher": "Le Scorpion Masqué",
   "player_count": {
     "min": 3,
     "max": 8,
     "recommended": 6,
-    "expansion_max": 8
+    "expansion_max": null
   },
   "play_time_minutes": {
-    "min": 30,
+    "min": 15,
     "max": 45
   },
   "complexity": "party",
   "categories": [
-    "word",
-    "team",
-    "deduction"
+    "Team-Based",
+    "Word Game",
+    "Deduction",
+    "Communication Limits",
+    "Hidden Information"
   ],
-  "source_url": "https://www.scorpionmasque.com/en/decrypto/",
+  "source_url": "https://www.decrypto.info",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Official component list from rulebook: 2 team screens, 48 code cards (24 per color deck), 110 keyword cards (440 words total), 4 white interception tokens, 4 black miscommunication tokens, 1 sand timer (30 seconds), 50 note sheets, and rulebook. Setup has each team place 4 keyword cards into numbered slots in their screen, hidden from opponents. Code deck color matches team screen color. Center area holds timer and token pools for both teams.",
-      "token_count": 94
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "Exact component counts from the rulebook:\n- 2 Screens\n- 48 Code Cards total (1 black deck of 24 cards, 1 white deck of 24 cards)\n- 110 Keyword Cards (440 words total)\n- 4 Interception Tokens (white)\n- 4 Miscommunication Tokens (black)\n- 1 Sand Timer (30 seconds)\n- 50 Note Sheets\n- 1 Rulebook\n\nKeyword card handling note from rulebook: do not pre-shuffle or pre-read keyword cards before play."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1) Split players into two teams as evenly as possible (normally 2-4 players per team; 3-player variant exists in the rulebook).\n2) Teams sit opposite each other, with teammates together.\n3) Each team takes 1 Screen.\n4) Each team draws 4 Keyword Cards and places them into the 4 numbered slots of their Screen so only that team can see them.\n5) Each team takes the Code deck matching their screen color (Black team gets black deck, White team gets white deck).\n6) Each team takes 1 Note Sheet and writes team name."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Place the Sand Timer, Interception tokens, and Miscommunication tokens in the center of the table.\n\nChoose an initial Encryptor for each team (this role rotates each round).\n\nRound flow always starts with the White Team’s code sequence, then the Black Team’s.\n\nImportant round-1 condition: during the first round, neither team attempts interception of the opposing code. They still decode their own Encryptor’s clues as normal."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Each round, one player on each team acts as Encryptor and draws a three-digit code card. Encryptor gives three clues in order, each clue referring to one of the team’s four secret keywords by slot number. Team attempts to decode their own sequence while opponents listen and attempt interception from accumulated clue history. Resolve whether team decrypted correctly and whether opponents intercepted correctly, assign tokens, rotate encryptor, and continue.",
-      "token_count": 89
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The game is played over rounds (usually 4-6). Each round follows this strict order:\n1. Each team’s Encryptor secretly draws 1 Code Card and reads it privately.\n2. Each Encryptor writes 3 clues (top line for first digit, middle for second, bottom for third) on their Note Sheet.\n3. White Encryptor reads White clues aloud; Black team records them on white side of their note sheet.\n4. Both teams discuss and write their attempted White code in the first response column (Encryptor is silent and gives no reactions).\n5. Black team states interception attempt for White code (except round 1, when interception is skipped).\n6. White team states its own decode attempt.\n7. White Encryptor reveals actual code card; assign tokens if interception and/or miscommunication occurred.\n8. Repeat steps 3-7 for Black team (Black clues spoken, both teams guess, White may intercept except round 1, Black attempts own decode, reveal).\n9. End of round: check win/loss. If game continues, return used code cards to respective decks, shuffle, and rotate Encryptor on each team."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "Encryptor clue rules (must follow all):\n- You may give clues as a word, phrase, sentence, sound, hum, dance, or mime, as long as the 3 clues are clearly separated in order.\n- Clues must refer to keyword meaning only.\n- Forbidden clue methods: spelling hints, letter counts, position hints (e.g., referencing keyword slot number), pronunciation tricks.\n- Clues must rely only on publicly available information; no private shared memories or private references.\n- If asked, you must spell clues aloud.\n- Any information given to your team must equally be available to opponents (public communication only).\n- Once spoken, a clue cannot be modified or improved.\n- You may never repeat the same clue in the same game.\n- You may never read code digits aloud, and may not use the keyword itself (or direct translation) as a clue, even for another keyword.\n\nTeam decoding/interception actions:\n- Teams discuss clues and map each clue to a keyword number (1-4).\n- Teams write a 3-digit attempt in order.\n- Interception succeeds only with exact digits in exact order.\n- Own-team decode fails if any digit/order is wrong, causing a Miscommunication token.\n- It is possible in the same reveal for one team to gain an Interception token while the clue-giving team gains a Miscommunication token."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Persistent information leakage:\n- Keyword assignments stay constant for the entire game.\n- Because clues are spoken aloud and logged, both teams build a growing clue history for each keyword number. This is the main strategic engine of the game.\n\nNote Sheet system:\n- First response column records attempted codes.\n- Second response column records correct code after reveal.\n- Bottom grouping boxes collect clue history by keyword number, helping long-term deduction.\n\nOptional time pressure:\n- To speed play, once either Encryptor finishes writing clues, flip sand timer. The other Encryptor must finish before sand runs out, or they may end up with fewer than 3 complete clues."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "A team can win/lose during end-of-round checks:\n- Win condition: your team has 2 Interception tokens.\n- Loss condition: your team has 2 Miscommunication tokens.\n\nIf at least one such condition is met at end of the round, game ends and evaluate tiebreaker situations as needed.\n\nTiebreaker is required if any of these occur:\n1) A team has both 2 Interception and 2 Miscommunication tokens at end of round (simultaneous win/loss).\n2) Both teams gain their second Interception token in the same round.\n3) Both teams gain their second Miscommunication token in the same round.\n4) Neither team has won/lost by end of round 8.\n\nTiebreak procedure:\n- Score tokens: each Interception token = +1 point; each Miscommunication token = -1 point.\n- Team with higher total wins.\n- If tied, each team guesses the opposing team’s 4 keywords; team with more correct guesses wins.\n- If still tied, both teams share victory."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "Form two teams, seated opposite each other. Each team sets up a screen with four secret keyword cards in slots 1–4. Teams take matching color code deck and a note sheet (front/back used for own and opponent tracking). On a round, active encryptor draws top code card showing a sequence such as 4-2-1, then delivers three ordered clues corresponding to those positions. Clue rules from rulebook emphasize semantic relation to keyword meaning; clues may be word/phrase/sentence (even performative variants if agreed), but must remain separable as clue 1/2/3 and cannot directly expose keyword text by trivial transformations. First, encryptor’s own team discusses and states their decode guess. Opposing team also states interception guess based on heard clues and prior notes. Resolve outcomes: own-team failure gives miscommunication token; opponent correct interception gives interception token. Both can occur in same round depending guesses. Rotate encryptor within each team each round and keep using same four keywords for the whole game, which drives escalating deduction. Note-taking is essential and explicitly supported by provided sheets. As rounds progress, clue history creates inference pressure: be clear enough for teammates yet ambiguous enough to deny opponents. Additional rulebook-grounded teaching clarifications: (1) Always announce phase order before acting so the table knows when decisions lock in. (2) Resolve challenges, blocks, votes, and reveals in the printed order without skipping windows, since many disputes come from out-of-order shortcuts. (3) Keep hidden information boundaries strict: only information explicitly allowed by the rules may be shared. (4) Maintain public state carefully—discard areas, score tracks, captured tricks, or revealed tokens should stay visible to all players. (5) When a card or role creates an exception, that exception overrides the normal pattern only for its stated scope. (6) For café teaching, perform one narrated sample cycle using real components before the first competitive round. (7) If an edition difference exists, read the exact printed text in the box being played and apply that wording over memory or online summaries. (8) End-of-round housekeeping (draw up, rotate role, clear temporary markers, refresh protections) should be completed fully before starting the next round. (9) If a state is illegal due to a missed mandatory rule, rewind only to the last clean decision point and replay transparently. (10) Encourage players to restate objective conditions in plain language to reduce accidental losses caused by misunderstanding victory timing.",
-      "token_count": 507
-    },
-    "scoring_and_endgame": {
-      "content": "Win condition: your team gains 2 interception tokens (successful opponent-code reads). Loss condition: your team gains 2 miscommunication tokens (failing your own code transmission). Tokens are assigned immediately after each round’s guess resolutions. Game ends as soon as one end condition is met; if simultaneous edge case appears, apply the resolution order specified in the rulebook/edition FAQ before declaring winner.",
-      "token_count": 78
-    },
-    "beginner_strategy": {
-      "content": "Build a stable internal clue vocabulary early so teammates can decode without over-explaining. Avoid direct synonyms that opponents can map instantly after one round. Track both teams’ clue history on note sheets—memory alone is not enough by midgame. When ahead, prioritize safe own-team decoding to avoid accidental loss through miscommunications. When behind, increase clue obliqueness selectively to deny interception while still preserving a recognizable pattern for teammates. Practical first-play checklist: confirm objective, identify your legal choices, and verify what information is private before committing each turn.",
-      "token_count": 111
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Establish stable clue lanes in rounds 1-2.\nUse clues that are understandable to your teammates but broad enough that opponents cannot instantly map exact keywords.\n\n2) Record everything cleanly.\nThe Note Sheet is your advantage engine. Write opponent clues accurately and group them by likely keyword number early.\n\n3) Prioritize teammate reliability over cleverness.\nA safe clue your teammate gets is better than a brilliant clue they miss (which gives you a Miscommunication token).\n\n4) Start interception modeling immediately after round 1.\nEven though no round-1 interception occurs, those first clues become your baseline map for future steals."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Giving overly specific clues too early.\nThis makes your keyword mapping obvious and fuels enemy interceptions by round 2-3.\n\n2) Being too vague with your own team.\nIf your teammate cannot consistently connect clue to the right number, you hand out Miscommunication tokens.\n\n3) Reusing clue words.\nRule violation risk aside, repeated terms make your pattern transparent and predictable.\n\n4) Encryptor reacting during team discussion.\nEven subtle facial reactions break the information rules and compromise fairness.\n\n5) Tracking opponent clues poorly.\nTeams lose many games by forgetting clue history and then missing obvious interceptions."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Decision 1: Clarity vs secrecy\n- More clarity helps your team decode accurately now.\n- More secrecy slows opponent interception later.\nBalancing these is the core skill of Decrypto.\n\nDecision 2: Conservative decode vs risky interception\n- Conservative calls avoid self-inflicted errors.\n- Aggressive interception attempts can win quickly if your clue model is strong.\n\nDecision 3: Short-term round result vs long-term information control\n- A clue that wins this round may reveal too much for future rounds.\n- Sometimes a slightly less direct clue protects your keyword map for the rest of the game."
+        }
+      ]
     }
   },
-  "total_token_count": 879,
+  "total_token_count": 1786,
+  "extensions": {},
   "metadata": {
-    "created_by": "dwarf",
-    "created_at": "2026-02-23T05:46:10Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
+    "schema_version": "2.0",
+    "created_by": "monk",
+    "created_at": "2026-02-22T23:14:30-08:00",
+    "validated_by": null,
+    "validated_at": null,
     "validation_status": "pending",
-    "revision": 3,
-    "notes": "Rewrite sprint using official rulebook text from decrypto.txt as primary source. Reference snippet: In DECRYPTO, two teams of 2 to 4 players each compete"
+    "revision": 1,
+    "notes": "Written directly from provided Decrypto rulebook excerpt, including token scoring and round-order details."
   }
 }

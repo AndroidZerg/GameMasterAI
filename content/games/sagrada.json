@@ -1,15 +1,13 @@
 {
   "game_id": "sagrada",
   "title": "Sagrada",
-  "aliases": [
-    "Sagrada Base Game"
-  ],
+  "aliases": [],
   "publisher": "Floodgate Games",
   "player_count": {
     "min": 1,
     "max": 4,
-    "recommended": 3,
-    "expansion_max": 4
+    "recommended": 4,
+    "expansion_max": null
   },
   "play_time_minutes": {
     "min": 30,
@@ -17,42 +15,93 @@
   },
   "complexity": "midweight",
   "categories": [
-    "dice-drafting",
-    "pattern-building",
-    "abstract"
+    "Dice Drafting",
+    "Pattern Building",
+    "Set Collection",
+    "Objective Scoring",
+    "Abstract Strategy"
   ],
-  "source_url": "https://floodgate.games/products/sagrada",
+  "source_url": "https://floodgate.games/pages/sagrada",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "Sagrada base components listed by rulebook include: 90 dice (18 each in five colors), 12 window pattern cards (24 sides), 12 tool cards, 10 public objective cards, 5 private objective cards, 24 favor tokens, 4 window frame player boards, round track, score markers, dice bag, and rules. Window pattern cards show difficulty (favor-token starting amount) and color/value placement constraints. Dice represent both color and shade (pip value). Public objectives are shared scoring criteria; each player gets one hidden private objective color card.",
-      "token_count": 106
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "12 Window Pattern Cards; 90 Dice total (18 each in 5 colors: red, yellow, green, blue, purple); 12 Tool Cards; 10 Public Objective Cards; 5 Private Objective Cards; 4 Window Frame Player Boards; 24 Favor Tokens; 4 Score Markers; 1 Dice Bag; 1 Round Track (front) / Score Track (back)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Set up a shared central area and personal workspaces as follows: 1) Place the Round Track near the center of the table. 2) Shuffle all Tool Cards and reveal 3 face up in the center. 3) Shuffle all Public Objective Cards and reveal 3 face up. 4) Place all 90 dice into the Dice Bag. 5) Keep remaining cards not used this game set aside. 6) Leave enough room near the Round Track for remaining draft dice each round and for score tracking at game end when the track is flipped to its Score Track side."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player completes the following setup: 1) Receive 1 random Private Objective card face down (you may look at your own card secretly). 2) Receive 2 random Window Pattern cards and 1 Window Frame Player Board. 3) Choose 1 of the 4 possible window patterns shown on those two cards (front or back). The unchosen card is not used. 4) Gain Favor Tokens equal to the difficulty number on your chosen window (difficulty ranges 3 to 6; harder windows grant more Favor Tokens). 5) Slide the selected Window Pattern card into the bottom of your Window Frame board. 6) Place the Score Marker matching your board color near the Round Track for final scoring."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Randomly determine a Start Player and give them the Dice Bag (the rulebook suggests the player who most recently visited a cathedral). Setup is otherwise identical for 2, 3, or 4 players. At the start of each round, the Start Player draws and rolls draft dice from the bag: 5 dice for 2 players, 7 dice for 3 players, 9 dice for 4 players (2 per player + 1 extra). These rolled dice form the Draft Pool for that round."
+        }
+      ]
     },
-    "core_game_loop": {
-      "content": "Sagrada is played across 10 rounds. At round start, dice are rolled from the bag into a draft pool based on player count. Players draft in snake order (first-to-last, then last-to-first), placing one die each turn into their window following adjacency and restriction rules or using tool effects if paid. After all drafts, leftover dice are placed on the round track. Start-player marker rotates and a new round begins. Final scoring happens after round 10.",
-      "token_count": 97
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Sagrada is played over exactly 10 rounds. Each round follows this numbered sequence: 1) Create Draft Pool: Start Player draws and rolls the correct number of dice for player count. 2) First pass (clockwise): Beginning with the Start Player, each player takes one turn in clockwise order. 3) Second pass (counterclockwise): After the last player finishes their first turn, turn order reverses; each player takes a second turn starting from the last player and proceeding counterclockwise until the Start Player takes their second turn. 4) End of round: Place all undrafted dice on the current round space of the Round Track (if multiple dice remain, they all sit on that single completed-round space). 5) Pass start role: Pass the Dice Bag clockwise to the next player; that player becomes Start Player for the next round. 6) After round 10 ends, proceed immediately to End Game Scoring."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "On your turn, you may perform up to two optional actions, in any order: A) Draft & Place one die from the Draft Pool. B) Use one Tool Card by spending Favor Tokens. You may do both, only one, or pass entirely.\n\nDraft & Place action details: when you draft a die, place it immediately into an open space on your window while obeying all placement restrictions: 1) First die rule: the first die you place in the game must go in an edge or corner space. 2) Adjacency rule for later dice: each later die must be adjacent to at least one already placed die (orthogonally or diagonally). 3) Space restriction rule: if a window space shows a color, the die must match that color (any value); if it shows a number, the die must match that value (any color); white spaces have no printed color/value restriction. 4) Orthogonal conflict rule: dice may never be orthogonally adjacent to a die of the same color or the same value. Diagonal adjacency is allowed even if color or value matches.\n\nTool Card action details: during your turn, you may use exactly one Tool Card by paying Favor Tokens to that card and then resolving its ability text. Cost depends on whether that tool has been used before this game: pay 1 Favor Token if there are no tokens on that tool yet; otherwise pay 2 Favor Tokens. Place spent tokens on the Tool Card itself. You may choose not to use a tool even if you can afford one.\n\nPassing: you are allowed to skip drafting and/or skip tool use. This can leave dice in the Draft Pool for later players or for end-of-round placement on the Round Track.\n\nWhite-space clarification: any die can go in white spaces as long as all other placement rules are still respected."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "Sagrada’s identity comes from layered constraints and timing pressure:\n\n1) Snake draft turn order each round: Players pick once clockwise, then once counterclockwise. This means turn position has both early and late advantages in the same round.\n\n2) Tool economy with escalating card-specific cost: The first use of a specific tool is cheaper (1 token), later uses of that same tool cost more (2 tokens). This creates a race for efficient early access versus waiting until board states make tool effects more impactful.\n\n3) Dual objective structure: Everyone shares the same 3 Public Objectives while each player has a secret Private Objective color that scores by pip-value sum. Strong play balances visible race goals with hidden point optimization.\n\n4) Placement error correction rule: If a window is ever found illegal, that player immediately removes dice of their choice until all rules are satisfied. Removed dice are out of play, and resulting gaps still penalize final score. This is important because the game enforces board legality strictly at all times.\n\n5) Solo mode framework (official): Solo setup removes Favor Tokens, uses 2 Public + 2 Private objectives face up, and variable number of tools (1 hardest to 5 easiest). In solo play, tools are paid by spending a draft die matching tool color and each tool may only be used once. Endgame compares your score to a Target Score equal to total pip values on Round Track dice (excluding tool-payment dice), with -3 per open space in solo scoring."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "End trigger: the game ends at the end of round 10.\n\nScoring procedure (multiplayer):\n1) Remove dice from the Round Track and flip it to the Score Track side.\n2) Use Score Markers to track totals (flip markers if needed when surpassing 50 points).\n3) Each player totals Victory Points from all sources: \n   - Public Objective Cards: score each of the 3 public objectives; many objectives can score multiple complete sets/patterns. For row- and column-based objectives, only complete rows/columns (no open spaces) count.\n   - Private Objective Card: sum the pip values of all dice of your private objective color in your window.\n   - Favor Tokens: +1 VP per unspent Favor Token.\n   - Open Spaces: -1 VP for each empty space in your window.\n4) Highest total VP wins.\n\nOfficial tiebreakers (in order):\n1) Most points from Private Objective.\n2) Most remaining Favor Tokens.\n3) Reverse player order in the final round.\n\nScoring interpretation note from examples: set-based objectives score by number of complete sets available (limited by whichever required element is least frequent), and leftover unmatched elements do not score partial points."
+        }
+      ]
     },
-    "detailed_rules": {
-      "content": "First die placed in a window must touch an edge or corner. Every later placement must be adjacent (orthogonally or diagonally) to an existing die. Orthogonally adjacent dice may not share the same color or same value. A die on a restricted space must match that space\u2019s printed color or number; blank spaces accept any die. Players may pass drafting opportunities if legal options are poor. Tool cards allow rule bending and advanced manipulations, but each use requires favor tokens and exact timing/order shown on the card; first tool use is cheaper than later use in base structure. Public objectives score patterns such as color sets or shade runs, while private objective scores sum of one color\u2019s pip values in your window. Empty spaces are penalized at endgame. Round-track dice can matter for specific tool interactions and should be preserved carefully. Frequent rules errors: illegal orthogonal duplicates, forgetting that diagonal adjacency is allowed, and executing tool effects out of sequence. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
-      "token_count": 349
-    },
-    "scoring_and_endgame": {
-      "content": "After 10 rounds, score all public objectives, then your private objective, then add remaining favor tokens. Subtract 1 point for each empty space in your window. Highest total wins. Tie-breakers are private objective score first, then remaining favor tokens, then shared if needed. Because empty-space penalties can erase objective gains, complete-window efficiency is a core scoring discipline. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
-      "token_count": 102
-    },
-    "beginner_strategy": {
-      "content": "Prioritize legal flexibility in rounds 1\u20133 by leaving multiple compatible placement options open. Avoid boxing yourself into value/color traps that force future penalties. Draft with table awareness: denying a perfect die to a neighbor can be as valuable as optimizing your own turn. Don\u2019t overspend favor tokens early unless a tool use unlocks major long-term freedom. Track two public objectives that naturally overlap with your private color rather than chasing all of them. From midgame on, actively count how many spaces remain fillable with plausible dice values to avoid endgame dead zones. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
-      "token_count": 197
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "1) Place your first die in an edge/corner that preserves flexibility, not just immediate value. Your first placement determines future adjacency chains, so prefer locations with multiple legal follow-up routes. 2) Read your window restrictions before first draft and identify 2-3 high-risk spaces (tight value/color constraints). Aim to keep access lanes to those spaces open early. 3) Track both passes of snake order: ask not only what you pick now, but what might still be available when turn order reverses. 4) Spend Favor Tokens early only if the tool unlocks structure, not just pips. Structural fixes (opening blocked lines, relocating key dice, adjusting value conflicts) are usually worth more than a small private-objective gain. 5) Avoid creating orthogonal traps by placing a die next to matching space requirements (e.g., placing a 2 beside a printed 2, or red beside printed red), because that can make those spaces impossible later."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1) Treating diagonal adjacency like orthogonal restriction. New players sometimes avoid legal diagonal matches unnecessarily and lose good placements. Only orthogonal adjacency forbids same color/value. 2) Overcommitting to one public objective too early. If board geometry collapses, you lose both that objective and flexibility for others. Build a legal skeleton first, then optimize. 3) Spending Favor Tokens for marginal effects. Tokens are both tool fuel and endgame VP, so low-impact tool use can be a double loss. 4) Ignoring open-space penalties until late. Every empty space costs points, and late-round windows can become impossible to complete if you leave awkward pockets. 5) Forgetting first-die edge/corner rule or adjacency continuity. Misplays force dice removal under the correction rule, which can be devastating because removed dice are permanently out of play for that player."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "1) Public race vs private optimization: Should you prioritize immediate public scoring structures, or secure high pip values in your private color? The best answer changes with draft availability each round. 2) Token conservation vs tactical intervention: Keep Favor Tokens as guaranteed VP, or spend them to rescue/improve board structure when placement options narrow? 3) Safe placement vs high-upside placement: A conservative legal spot can preserve many future options, while a high-value but restrictive placement may increase short-term points and create long-term dead zones."
+        }
+      ]
     }
   },
-  "total_token_count": 851,
+  "total_token_count": 3075,
+  "extensions": {},
   "metadata": {
-    "created_by": "elf",
-    "created_at": "2026-02-23T05:45:41.140516Z",
-    "validated_by": "paladin",
-    "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 2,
-    "notes": "Rewrite sprint using official rulebook text as primary reference."
+    "schema_version": "2.0",
+    "created_by": "orc",
+    "created_at": "2026-02-22T23:09:00-08:00",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Primary source: provided Sagrada v1.2 rulebook text including setup, gameplay, tool/favor economy, endgame scoring, tie-breakers, placement correction rule, and solo-mode differences."
   }
 }
