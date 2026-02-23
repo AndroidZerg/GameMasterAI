@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes.dashboard import router as dashboard_router
 from app.api.routes.games import router as games_router
+from app.api.routes.query import router as query_router
 from app.models.game import rebuild_db
 
 
@@ -29,6 +30,7 @@ app.add_middleware(
 
 app.include_router(dashboard_router)
 app.include_router(games_router)
+app.include_router(query_router)
 
 
 @app.get("/health")
