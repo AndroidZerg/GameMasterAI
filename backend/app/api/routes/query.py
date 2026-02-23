@@ -1,12 +1,15 @@
-"""LLM query endpoint — game-specific Q&A via the OpenClaw gateway."""
+"""LLM query endpoint — game-specific Q&A."""
 
 from pydantic import BaseModel
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 
 from app.services.knowledge import load_game, build_knowledge_text
 from app.services.llm import chat_completion
 
 router = APIRouter(prefix="/api")
+limiter = Limiter(key_func=get_remote_address)
 
 
 class QueryRequest(BaseModel):
@@ -15,7 +18,8 @@ class QueryRequest(BaseModel):
 
 
 @router.post("/query")
-async def query_game(req: QueryRequest):
+@limiter.limit("10/minute")
+async def query_game(request: Request, req: QueryRequest):
     # Load the game
     game = load_game(req.game_id)
     if not game:
