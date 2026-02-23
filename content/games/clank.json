@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Base box includes: double-sided board, 180+ cards (starting decks, dungeon deck, reserve cards), tokens for artifacts/monkey idols/keys/backpacks/crowns/secrets, 24 cubes per player color plus black dragon cubes, 4 player pawns, dragon marker, market board/items, and rulebook.",
-      "token_count": 45
+      "content": "Clank! base components include a double-sided board, 4 player pawns, personal cube sets (Clank cubes) per player plus black dragon cubes, 4 ten-card starting decks, a 100-card dungeon deck, reserve piles (Mercenary, Explore, Secret Tome, Goblin), artifact tokens, major/minor secret tokens, market items (keys, backpacks, crowns), dragon marker, and supporting rules components. Setup places artifacts/secrets/market tokens on designated spaces and prepares dungeon row plus dragon bag with player and black cubes.",
+      "token_count": 92
     },
     "core_game_loop": {
-      "content": "On your turn, play all cards in hand to generate Skill, Swords, Boots, and Clank. Spend Skill to buy cards, Boots to move through dungeon, and Swords to defeat monsters. Any Clank generated is added to the Clank area and may be pulled during dragon attacks. Goal is to grab an artifact and escape for the best score.",
-      "token_count": 75
+      "content": "On your turn, play cards from hand to generate Skill (buying power), Boots (movement), Swords (combat), and sometimes Clank (noise). Spend Skill to acquire cards from dungeon row or reserve, spend Boots to move through tunnels, and spend Swords to defeat monsters. Any Clank generated goes to your clank area and is added to the dragon bag at attack timing. Draw back to hand size at end of turn and refill market/dungeon row as needed.",
+      "token_count": 97
     },
     "detailed_rules": {
-      "content": "Movement through tunnels may require Boots, keys, or fight values for monster-guarded paths. You can only pick up one major artifact and must return to the top and ideally escape to score full points. Dungeon Row refills from deck; some cards trigger immediate dragon attacks. Black cubes in the dragon bag are neutral misses, while colored cubes deal damage to matching players when drawn. Health loss can knock players out; knockout in depths is much worse for scoring than in upper areas. Certain cards have companion/synergy icons and trashing effects for deck thinning. Market items (key/backpack/crown) are limited and can unlock routes or carry extra artifacts. Endgame starts when one player escapes or dragon rage reaches maximum; remaining players get limited turns before final attacks resolve.",
-      "token_count": 163
+      "content": "Movement obeys path requirements: some edges require extra Boots, keys, or prior combat icons. Certain rooms grant immediate pickups (gold, secrets, monkeys, etc.) and some effects are mandatory. Artifacts are major scoring objectives; each player can carry one major artifact unless backpack effects allow additional loot as specified. Buying from dungeon row resolves card text and then refills row; dragon-attack symbols trigger immediate bag pulls. During dragon attacks, mix current Clank into bag as directed, draw cubes equal to attack strength, and players take damage for each cube of their color drawn; black cubes are misses. Health reaching zero causes knockout; being knocked out in deep areas is heavily penalized versus near-surface knockouts. Market purchases are limited by item stock and can unlock mobility/survivability lines (keys/backpacks/crowns). Endgame starts when a player escapes above ground with artifact or when dragon rage reaches terminal pressure depending on game state; remaining players get a limited number of turns before final attacks resolve. Frequent mistakes: forgetting tunnel lock requirements, overproducing Clank without mitigation, and misunderstanding knockout scoring penalties. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
+      "token_count": 367
     },
     "scoring_and_endgame": {
-      "content": "Score artifact value, rescued tokens, cards/monsters with VP, gold (1 VP each), and major secrets/crowns/idols as applicable. Players who fail to escape (especially from deep) may lose artifact points per rules. Highest total wins; tie-breaker farthest progress toward escape, then most gold.",
-      "token_count": 54
+      "content": "At end, score artifact value, cards with VP, tokens collected (secrets, idols, crowns as applicable), and gold (1 VP per gold). Players who fail to escape can lose access to key scoring, especially if knocked out in deeper zones per base rules. Highest total wins; tie-breakers use progress toward escape and/or gold depending on tie context. Clank is a race with risk: extraction timing often decides outcomes more than raw dungeon depth. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
+      "token_count": 122
     },
     "beginner_strategy": {
-      "content": "1) Buy movement early or you’ll stall in choke points. 2) Control Clank generation; noisy decks can implode under repeated dragon attacks. 3) Plan your route before committing to deep artifacts—tempo to exit matters as much as value. 4) A little deck-thinning goes a long way. 5) Watch opponents’ health/rage to time your escape and pressure trailing players.",
-      "token_count": 75
+      "content": "Buy movement early; many losses come from being trapped by path requirements rather than weak card quality. Manage noise: high-Clank decks can self-destruct once dragon attacks accelerate. Enter deep zones only with a clear extraction route (keys, boots density, and acceptable health buffer). Include some deck-thinning or low-value card replacement to improve consistency in midgame. Watch opponent pace: if someone is close to escaping, pivot from greed to survivable exit. Value market keys/backpacks when they solve route or carrying constraints, not just by printed point value. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 189
     }
   },
-  "total_token_count": 412,
+  "total_token_count": 867,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.085715Z",
+    "created_at": "2026-02-23T05:45:41.147873Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 412; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }

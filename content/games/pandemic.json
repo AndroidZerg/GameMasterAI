@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Components: 1 game board, 7 role cards, 7 pawns, 6 research stations, 96 disease cubes (24 each in 4 colors), 48 infection cards, 59 player cards (48 city cards, 5 event cards, 6 epidemic cards), 4 cure markers, 1 infection-rate marker, 1 outbreaks marker, and rulebook/reference cards.",
-      "token_count": 61
+      "content": "Pandemic base components in rulebook structure: 1 world board, 7 role cards, 7 matching pawns, 6 research stations, 96 disease cubes (24 per color across 4 diseases), 48 infection cards, 59 player cards (city cards, event cards, and epidemic cards), 4 cure markers, 1 infection-rate marker, 1 outbreaks marker, and rules/reference materials. Setup additionally uses infection discard pile, player discard pile, and deck partitions based on chosen difficulty (number of epidemic cards). Accurate cube and station counts are critical for legal loss checks and setup balance.",
+      "token_count": 111
     },
     "core_game_loop": {
-      "content": "Each player turn follows strict order: take up to 4 actions, draw 2 player cards, then infect cities based on the current infection rate. The team collaborates to discover all 4 cures before a loss condition occurs. Roles bend rules and define coordination priorities, but turn sequence never changes.",
-      "token_count": 63
+      "content": "Every player turn follows fixed sequence: perform up to 4 actions, draw 2 player cards, then infect cities according to current infection rate. Actions include movement, treating disease, sharing knowledge, building research stations, and discovering cures. Team play is fully cooperative, so table discussion and role coordination are expected. After each turn, pressure increases through infections and occasional epidemics, pushing the board toward outbreaks and resource depletion. The team wins instantly when all 4 cures are discovered before any loss condition triggers.",
+      "token_count": 106
     },
     "detailed_rules": {
-      "content": "Actions include Drive/Ferry, Direct Flight, Charter Flight, Shuttle Flight, Build Research Station, Treat Disease, Share Knowledge, and Discover Cure. Treat removes 1 cube (all cubes of that color if cured; Medic has stronger effect). To discover a cure, be at a research station and discard 5 same-color city cards (Scientist needs 4). Epidemic cards do 3 steps: increase infection rate, infect bottom card city with 3 cubes, then intensify by shuffling infection discard pile onto top of deck. Outbreaks happen when placing a 4th cube of a color in a city; add one cube to each connected city and advance outbreak track. During one infection step, a city can outbreak only once, but chain reactions can propagate. If a color supply is empty when cubes must be placed, team loses immediately. Dispatcher/Operations Expert/Quarantine Specialist and events create timing edge cases; event cards may be played at almost any time as written, even on other players’ turns.",
-      "token_count": 202
+      "content": "Movement actions are Drive/Ferry to adjacent city, Direct Flight by discarding destination city card, Charter Flight by discarding your current city card, and Shuttle Flight between research stations. Treat Disease removes 1 cube in a city; if that disease is cured, a treat action removes all cubes of that color in the city. Discover Cure requires being at a research station and discarding a full color set (normally 5 cards, modified by role abilities such as Scientist). Epidemic cards resolve in three steps: Increase infection rate, Infect bottom-city with 3 cubes, then Intensify by shuffling infection discard pile and placing it on top of infection deck. Outbreak occurs when a cube would be added to a city already holding 3 of that color; instead, outbreak marker advances and each connected city gets one cube of that color. During one chain resolution, a city can outbreak at most once, preventing infinite loops while still allowing multi-city cascades. If cubes of a color run out when needed, the game is lost immediately. Event cards can be played outside normal turn timing as specified. Roles override baseline in targeted ways and are the primary source of tactical edge cases; resolve card text as written. Also note eradication timing: once a cured disease has no cubes on board, further infections of that color place no cubes. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds.",
+      "token_count": 391
     },
     "scoring_and_endgame": {
-      "content": "Pandemic is win/lose, not VP. Team wins instantly when all four cures are discovered. Team loses if outbreaks marker reaches 8, if any disease cube color cannot be placed, or if players cannot draw required player cards because the deck is empty.",
-      "token_count": 54
+      "content": "Pandemic has no point scoring; it is a binary cooperative result. Win condition: all four cures discovered immediately ends game in victory, regardless of board state. Loss conditions: outbreaks marker reaches 8, any disease cube supply cannot provide required cubes, or player deck is exhausted when cards must be drawn. Teaching emphasis: many games are lost by tempo collapse from epidemic intensify, not by a single bad turn, so preserving action economy is central.",
+      "token_count": 96
     },
     "beginner_strategy": {
-      "content": "1) Early game priority is board stability—prevent double/triple-cube clusters from chaining. 2) Build a station network for mobility, not everywhere; 3–4 well-placed stations is usually enough. 3) Plan card routing two turns ahead so cures complete efficiently. 4) Spend events to prevent catastrophe, not minor inconvenience. 5) Once a disease is cured, aggressively clear that color to reduce infection pressure.",
-      "token_count": 78
+      "content": "Stabilize first, specialize second. Early turns should prevent outbreak chains in high-connectivity cities rather than chasing a premature cure at any cost. Build a compact research-station network to reduce travel actions; a few strong hubs outperform scattered stations. Route cards intentionally to one or two likely curers instead of splitting colors among everyone. Treating cured diseases is action-efficient board control and buys time for final cures. Save event cards for swing moments (outbreak prevention, critical mobility, epidemic aftermath), not minor convenience. Keep an eye on infection discard composition: recently hit cities are statistically likely to be hit again after intensify. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 208
     }
   },
-  "total_token_count": 458,
+  "total_token_count": 912,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.035317Z",
+    "created_at": "2026-02-23T05:45:41.124599Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 458; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }

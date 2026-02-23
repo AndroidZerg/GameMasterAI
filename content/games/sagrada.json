@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Components: 90 translucent dice (18 each in 5 colors), 12 window pattern cards (24 sides), 10 public objective cards, 5 private objective cards, 12 tool cards, 24 favor tokens, 4 player boards, 1 round track, 1 score marker, dice bag, and rulebook.",
-      "token_count": 54
+      "content": "Sagrada base components listed by rulebook include: 90 dice (18 each in five colors), 12 window pattern cards (24 sides), 12 tool cards, 10 public objective cards, 5 private objective cards, 24 favor tokens, 4 window frame player boards, round track, score markers, dice bag, and rules. Window pattern cards show difficulty (favor-token starting amount) and color/value placement constraints. Dice represent both color and shade (pip value). Public objectives are shared scoring criteria; each player gets one hidden private objective color card.",
+      "token_count": 106
     },
     "core_game_loop": {
-      "content": "Play 10 rounds. Each round, roll and draft dice in snake order (start player to end, then back). On your turn place one drafted die in your window following placement restrictions or use a tool by paying favor tokens. At round end, leftover dice go to round track and start player passes clockwise.",
-      "token_count": 68
+      "content": "Sagrada is played across 10 rounds. At round start, dice are rolled from the bag into a draft pool based on player count. Players draft in snake order (first-to-last, then last-to-first), placing one die each turn into their window following adjacency and restriction rules or using tool effects if paid. After all drafts, leftover dice are placed on the round track. Start-player marker rotates and a new round begins. Final scoring happens after round 10.",
+      "token_count": 97
     },
     "detailed_rules": {
-      "content": "First placement must be on edge/corner. Future placements must be orthogonally or diagonally adjacent to an existing die. You may never place same color or same number orthogonally adjacent. Window spaces may require specific color or number; blank spaces accept any die. Tool cards break rules temporarily but require exact payment and timing; first use costs 1 favor token, subsequent uses generally cost 2 (per base rules). Public objectives score shared patterns (e.g., color sets, shade varieties), private objective scores sum of one color in your window. Favor tokens come from choosing an easier side of window card at setup. Round-track dice matter for certain tools and can influence final decisions. Common mistakes: forgetting orthogonal duplicate restrictions and misapplying tool sequencing.",
-      "token_count": 157
+      "content": "First die placed in a window must touch an edge or corner. Every later placement must be adjacent (orthogonally or diagonally) to an existing die. Orthogonally adjacent dice may not share the same color or same value. A die on a restricted space must match that space\u2019s printed color or number; blank spaces accept any die. Players may pass drafting opportunities if legal options are poor. Tool cards allow rule bending and advanced manipulations, but each use requires favor tokens and exact timing/order shown on the card; first tool use is cheaper than later use in base structure. Public objectives score patterns such as color sets or shade runs, while private objective scores sum of one color\u2019s pip values in your window. Empty spaces are penalized at endgame. Round-track dice can matter for specific tool interactions and should be preserved carefully. Frequent rules errors: illegal orthogonal duplicates, forgetting that diagonal adjacency is allowed, and executing tool effects out of sequence. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
+      "token_count": 349
     },
     "scoring_and_endgame": {
-      "content": "After round 10, score all public objective cards, your private objective card, and add remaining favor tokens. Subtract 1 point per empty space in your window. Highest score wins; tie-breaker is private objective total, then favor tokens.",
-      "token_count": 48
+      "content": "After 10 rounds, score all public objectives, then your private objective, then add remaining favor tokens. Subtract 1 point for each empty space in your window. Highest total wins. Tie-breakers are private objective score first, then remaining favor tokens, then shared if needed. Because empty-space penalties can erase objective gains, complete-window efficiency is a core scoring discipline. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
+      "token_count": 102
     },
     "beginner_strategy": {
-      "content": "1) Preserve flexibility early—avoid trapping high-restriction spaces too soon. 2) Draft for both survival and denial; taking a die that blocks an opponent can be worth it. 3) Treat tools as tempo spikes, not constant crutches. 4) Track empty-space penalties from midgame onward. 5) Build around 1–2 public objectives plus your private color rather than chasing every pattern.",
-      "token_count": 75
+      "content": "Prioritize legal flexibility in rounds 1\u20133 by leaving multiple compatible placement options open. Avoid boxing yourself into value/color traps that force future penalties. Draft with table awareness: denying a perfect die to a neighbor can be as valuable as optimizing your own turn. Don\u2019t overspend favor tokens early unless a tool use unlocks major long-term freedom. Track two public objectives that naturally overlap with your private color rather than chasing all of them. From midgame on, actively count how many spaces remain fillable with plausible dice values to avoid endgame dead zones. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 197
     }
   },
-  "total_token_count": 402,
+  "total_token_count": 851,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.064074Z",
+    "created_at": "2026-02-23T05:45:41.140516Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 402; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }

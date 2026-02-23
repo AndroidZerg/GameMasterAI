@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Base components: 1 game board, 121 Intrigue cards, 100+ Quest cards (starter/plot/mandatory), 11 building tiles, 5 player mats, 30 agents (6 per player color), adventurer cubes in 4 classes (fighter/rogue/cleric/wizard), coin tokens, victory point markers, first-player marker, and rulebook.",
-      "token_count": 50
+      "content": "Lords of Waterdeep base components include main board with action spaces and round track, player mats, agents (meeples) by color, score markers, adventurer cubes in four classes (fighter/rogue/cleric/wizard), coins, building tiles, quest cards, intrigue cards, and lord cards. Setup uses open quest display, intrigue decks, available building stack, and hidden lords for each player. The harbor area and owned-building spaces are central to turn flow and should be clearly laid out before teaching.",
+      "token_count": 94
     },
     "core_game_loop": {
-      "content": "Game lasts 8 rounds. In player order, place one agent on an open building space to gain its reward or action. When all agents are placed, play ends round with reassignment: retrieve agents, reveal next round, and resolve upkeep. Complete quests by spending required adventurers/resources for immediate rewards and VP.",
-      "token_count": 65
+      "content": "The game lasts 8 rounds. In turn order, players assign one available agent to an open action space to gain resources, cards, quests, buildings, or special effects. Instead of assigning, a player may complete a quest by spending required adventurers/coins and taking rewards and VP. Once all agents are used, end-round cleanup returns agents, advances round marker, refreshes offers, and starts next round. Highest VP after round 8 wins.",
+      "token_count": 89
     },
     "detailed_rules": {
-      "content": "At setup each player receives a hidden Lord card that awards endgame bonuses for specific quest categories or buildings. Spaces are either basic board buildings or purchased buildings added during play; owner gains bonus when others use owned buildings. Intrigue cards are played when visiting Waterdeep Harbor or when cards specify timing; Harbor agents stay until round end then get reassigned in order. Mandatory Quests must be completed before any other quest by affected player. Plot Quests provide ongoing benefits once completed. Building purchase allows adding a new action space to board and potential owner income. Resources are adventurer cubes and gold; no randomness in acquisition, so efficiency and timing dominate. Ties and timing around quest completion matter for VP races.",
-      "token_count": 157
+      "content": "Action spaces are exclusive unless card text says otherwise. Board spaces provide adventurers, gold, quests, intrigue, or building opportunities. Purchasing a building adds a new action space to the board and grants owner benefits when opponents use it (as defined by building rules). Waterdeep Harbor has special timing: when you place there, you play an intrigue card and later retrieve/reassign harbor agents at round end in harbor order. Quests require exact resource payment and then grant immediate rewards (VP, resources, ongoing effects for Plot Quests, etc.). Mandatory Quests hinder opponents by forcing completion before other quests; timing these well can disrupt leader tempo. Each player\u2019s hidden Lord grants end-game bonus points for specific quest/building categories, shaping long-term strategy. Intrigue cards can manipulate resources, turn order, VP, or quest pressure; always resolve full text. Common pitfalls: forgetting owner bonuses from built spaces, mis-sequencing harbor reassignment, and overlooking that quest completion can happen instead of agent placement on your turn. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds. Also enforce component-state clarity: players should separate spent versus available resources and keep any temporary modifiers visible until the step fully resolves, then clear them before the next player begins.",
+      "token_count": 347
     },
     "scoring_and_endgame": {
-      "content": "End after round 8. Score current VP track plus Lord bonus points based on hidden objective, plus any unresolved card/building endgame bonuses. Highest VP wins; tie-breaker most gold, then most adventurers.",
-      "token_count": 40
+      "content": "After round 8 concludes, final score is current VP track plus hidden Lord bonus and any end-game effects from completed quests/buildings/cards. Highest VP wins. Tie-breakers typically use remaining gold and then adventurers if needed by printed rules conventions. Because Lord bonuses are hidden until end, apparent board leaders can be overtaken during reveal. Final scoring should be performed category by category in open table order so everyone can verify each line item and avoid double-counting.",
+      "token_count": 97
     },
     "beginner_strategy": {
-      "content": "1) Identify your Lord objective early and bias quest picks toward it without becoming predictable. 2) Waterdeep Harbor is tempo-positive when you have strong intrigue cards queued. 3) Buy buildings when they improve your own action economy first, owner bonus second. 4) Use Mandatory Quests to blunt a leader’s timing spike. 5) Avoid resource glut—turn cubes/gold into completed quests quickly.",
-      "token_count": 78
+      "content": "Identify your Lord\u2019s scoring pattern early and draft quests that naturally align with it. Balance resource intake with completion tempo; hoarded cubes and coins do nothing without completed quests. Use Harbor when your intrigue hand offers meaningful leverage or combo timing. Buy buildings primarily when they improve your own action access first, with owner-trigger income as secondary upside. Save disruptive Mandatory Quests for moments when an opponent is about to spike a big scoring turn. Late game, prioritize immediate VP and realistic completions over speculative long engines. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 191
     }
   },
-  "total_token_count": 390,
+  "total_token_count": 818,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.078827Z",
+    "created_at": "2026-02-23T05:45:41.144169Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 390; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }

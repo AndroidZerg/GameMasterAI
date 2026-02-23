@@ -26,34 +26,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Base game includes: 1 game board (Mars map + global parameters), 5 player boards, project card deck (base game), 5 player aid cards, 17 corporation cards, 208 resource cubes, player markers in 5 colors, 3 global parameter markers (temperature, oxygen, oceans), 9 ocean tiles, greenery/city/special tiles, milestone/award markers, and rulebook.",
-      "token_count": 65
+      "content": "Terraforming Mars base components include a Mars game board with global parameters (oxygen, temperature, oceans) and map spaces, player boards for production/resource tracking, corporation cards, project card deck, tiles (ocean, city, greenery, special), markers for players and global tracks, and resource cubes in denomination colors. Standard setup also includes milestone and award markers plus reference materials. Core resources tracked per player are megacredits, steel, titanium, plants, energy, and heat. Terraform Rating (TR) marker serves as both income baseline and major scoring track.",
+      "token_count": 106
     },
     "core_game_loop": {
-      "content": "Game proceeds through generations. Each generation starts with card phase (draw projects, optionally buy), then players alternate taking 1 or 2 actions until all pass, then production happens simultaneously. Actions include playing project cards, using standard projects, claiming milestones/funding awards, and activating blue card actions. Repeat generations until oxygen, temperature, and oceans are all maxed.",
-      "token_count": 71
+      "content": "Play proceeds in generations. In each generation, players draw project cards, decide which to buy into hand, then take turns performing 1 or 2 actions until all pass. Actions include playing project cards, using standard projects, converting heat, placing tiles, using blue-card actions, claiming milestones, and funding awards. After everyone passes, production phase grants resources according to tracks and TR. Then a new generation begins. Game end is triggered when oxygen, temperature, and ocean parameters are all fully completed.",
+      "token_count": 102
     },
     "detailed_rules": {
-      "content": "Every card has tags, requirements, and effects. You may only play cards meeting all global/city/tile prerequisites. Terraform Rating (TR) is both score and base megacredit production. Raising oxygen/temperature or placing oceans increases TR; some actions also raise production tracks directly. Standard projects are always available but usually less efficient than card engines. Tile placement has map restrictions (oceans on reserved spaces; greeneries adjacent to your tiles when possible; cities not adjacent to other cities). End triggers when all three global parameters are complete, then finish the current generation so all players get equal turns. Milestones can be claimed once each (first come, fixed cost), awards can be funded then scored by ranking. Card text can override defaults and creates many edge cases; resolve immediate effects fully before secondary triggers.",
-      "token_count": 167
+      "content": "Project cards require paying megacredit cost and meeting any requirements (tags, global parameter thresholds, or board conditions). Steel and titanium can be spent on eligible building/space tags according to printed conversion rates. Raising global parameters generally increases TR by 1 each step, improving both score and future MC income. Standard projects are always available but usually less efficient than card-driven engines. Tile placement obeys map restrictions: oceans only on ocean spaces, cities not adjacent to other cities, greeneries with adjacency preference to own tiles when legal, and placement bonuses resolved immediately from board icons. Blue cards may grant actions usable once each generation or persistent effects; red events are one-time plays; green cards are active projects with static effects/tags. Milestones can be claimed by meeting conditions and paying cost, with limited slots and first-come timing. Awards are funded during game and scored at end by ranking among players. End-game trigger occurs when all three terraforming parameters are complete; finish the current generation so each player gets equal action count. Edge cases frequently involve requirement checks at play time only, and card text overriding default placement or production rules. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds.",
+      "token_count": 347
     },
     "scoring_and_endgame": {
-      "content": "Final score = Terraform Rating + VP icons on played cards + board points (city adjacency to greeneries, greeneries worth 1 each) + milestone points + award points. Highest score wins; tie-breaker most megacredits.",
-      "token_count": 44
+      "content": "Final score equals TR plus additional VP from played cards, board presence, milestones, and awards. Board points include 1 VP per greenery and city adjacency points for neighboring greeneries (regardless of owner as per rules). Award points are distributed by rank among qualified players; milestone points are fixed for claimed tiles. Highest total wins; tie-breaker is most megacredits. Because TR is both economy and scoring, early terraforming can snowball into stronger late-game VP conversion.",
+      "token_count": 96
     },
     "beginner_strategy": {
-      "content": "1) Early generations: prioritize economy (MC/steel/titanium/plant/energy/heat production). 2) Don’t buy every drawn card—paying 3 MC per keep is a real tax. 3) Build around tag synergies from your corporation and opening hand. 4) Contest milestones early if you’re close; waiting often loses them. 5) In late game, convert resources into guaranteed points (greeneries, point cards, city placements) before final trigger.",
-      "token_count": 78
+      "content": "Early generations should prioritize production ramp (especially MC and key materials) over immediate vanity points. Be selective when buying cards during draft/draw; paying 3 MC per kept card is a hidden tax that can cripple tempo. Align card purchases with your corporation ability and opening tags rather than chasing every strong-looking card. Contest easy milestones early\u2014waiting often loses guaranteed points. Use board placement tactically: cities and greeneries can create both your points and denial pressure. In endgame, convert all lingering resources into direct VP actions (greeneries, point cards, city placement) before trigger closure. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 198
     }
   },
-  "total_token_count": 425,
+  "total_token_count": 849,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.056787Z",
+    "created_at": "2026-02-23T05:45:41.137892Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 425; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }

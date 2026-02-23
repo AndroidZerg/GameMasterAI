@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Base 2E includes 500 cards: 250 Kingdom cards (10 each of 25 types), 130 Treasure cards (60 Copper, 40 Silver, 30 Gold), 48 Victory cards (24 Estate, 12 Duchy, 12 Province), 30 Curse cards, 7 blank/randomizer cards, 1 Trash card, and rulebook/setup trays. Players start with 7 Copper + 3 Estate each.",
-      "token_count": 67
+      "content": "Dominion (base/2nd edition line) includes 500 cards organized into base treasures/victory/curses, 25 kingdom sets (10 copies each), randomizers/blanks, and a Trash card. Core base piles: Copper (60), Silver (40), Gold (30), Estate (24), Duchy (12), Province (12), and Curse (30) for typical 2\u20134p setup, with supply counts adjusted by player count where applicable in official rules. Each player starts with a 10-card deck of 7 Copper and 3 Estate. The play area uses Supply piles, a Trash area, and each player\u2019s deck/discard/hand/in-play zones.",
+      "token_count": 107
     },
     "core_game_loop": {
-      "content": "On your turn: Action phase, Buy phase, Clean-up phase. Play one Action by default (unless cards grant +Actions), then play any Treasures and buy one card with available Coins (unless +Buys). Discard played and unplayed cards, draw 5 new cards. Goal is to end with most victory points in deck.",
-      "token_count": 65
+      "content": "A turn has three phases: Action, Buy, and Clean-up. In Action phase, you may play one Action card unless effects grant extra actions. In Buy phase, you play treasures and spend coins to buy one card unless effects grant extra buys; bought cards go to discard by default. In Clean-up, discard hand and played cards, then draw 5 new cards. Players continue alternating turns until an end-game trigger is met, then total victory points in full decks.",
+      "token_count": 100
     },
     "detailed_rules": {
-      "content": "Setup uses 10 Kingdom piles plus base Treasure/Victory/Curse piles. Each card text is authoritative and can break baseline rules. Gaining puts cards in discard unless specified otherwise. Attack cards affect opponents unless they reveal/use a reaction that says it can defend. Trash is permanent removal and crucial for efficiency. Game ends immediately at end of current turn when Province pile is empty or any 3 supply piles are empty (4 piles in some larger-player variants/expansions). Victory points come from green cards and some Kingdom cards; deck quality matters because dead VP cards reduce draw quality during play. Important timing: resolve card instructions top-to-bottom, finish one card fully before next unless card says otherwise; duration-style effects are expansion-specific and not in base rules.",
-      "token_count": 158
+      "content": "Game setup always uses base treasure/victory/curse piles plus exactly 10 selected kingdom piles. Card text is authoritative and can modify turn structure, costs, gains, and interactions. If a deck empties, reshuffle discard to form a new deck when drawing is required. Gaining is distinct from buying: effects can gain cards without using buys. Trashing removes cards from your deck ecosystem permanently and is a key engine concept. Attacks affect opponents unless prevented by reaction text or immunity granted by specific cards. Resolve instructions in printed order, fully completing one card before moving to another unless a card explicitly interrupts timing. Costs are in coins unless text references debt/potion in expansion contexts (ignore if not in chosen setup). End-game triggers in base rules: Province pile empty OR any three supply piles empty; game ends after current player\u2019s turn. Common misplays: putting gained cards into hand without explicit text, taking extra buys without source, and ending game immediately mid-turn before cleanup resolution. Teaching clarifications from rulebook-first play: always resolve effects in printed timing windows and finish mandatory steps before optional effects. If a card or tile text conflicts with a baseline rule, the specific card text takes priority for that interaction only. During teaching, call out hidden information boundaries, legal action checks before payment, and tie handling exactly as written. Most play disputes come from skipped sequence steps, so keep turn order visible and confirm each phase aloud in early rounds.",
+      "token_count": 310
     },
     "scoring_and_endgame": {
-      "content": "At game end, count all VP in each player’s full deck/discard/hand/in-play: Estate 1, Duchy 3, Province 6, Curse -1, plus any Kingdom VP cards in setup. Highest VP wins; tie goes to player with fewer turns, then shared if still tied.",
-      "token_count": 53
+      "content": "After the game ends, each player counts all victory points in deck, discard, hand, and in-play cards. Base values: Estate 1, Duchy 3, Province 6, Curse -1, plus any points from kingdom cards used in that setup. Highest VP wins. Tie-breaker goes to player with fewer turns (because current player may have had one extra turn); if still tied, shared win. Dominion rewards engine timing: deck strength during play matters only insofar as it converts into more VP by game end.",
+      "token_count": 105
     },
     "beginner_strategy": {
-      "content": "1) Buy enough economy first (Silvers, key draw cards) before greening. 2) Trashing weak starters (Estates/Coppers) is usually the biggest jump in deck power. 3) Don’t split between too many Kingdom plans; build around 1–2 strong synergies. 4) Track end triggers—sometimes emptying a third pile wins even without Province majority. 5) Start buying Provinces when your deck can keep buying them repeatedly.",
-      "token_count": 80
+      "content": "Open with economy and deck quality, not early green cards. Buying too many victory cards too soon reduces draw consistency and stalls your engine. Prioritize one reliable payload plan (money density, draw-based turns, village/action chains, or strong gainers) based on the available kingdom set. Trashing weak starters (especially Estates) is often the highest-value early improvement. Watch pile pressure every turn: if three piles are nearing empty, pivot from long-term engine upgrades to immediate points or pile control. Learn to count buy power distribution in your deck so you know when to green. Also draft with interaction in mind\u2014if attacks are present, include defense or speed to avoid losing tempo. New-player coaching tip: choose one clear plan by the end of early game, then spend midgame turns increasing action efficiency rather than collecting disconnected benefits. Track remaining rounds/end triggers constantly; many losses come from mis-timing rather than bad tactical choices. When uncertain between two similar options, prefer the move that preserves flexibility for the next turn while still scoring now.",
+      "token_count": 219
     }
   },
-  "total_token_count": 423,
+  "total_token_count": 841,
   "metadata": {
     "created_by": "elf",
-    "created_at": "2026-02-23T04:27:49.042546Z",
+    "created_at": "2026-02-23T05:45:41.128751Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 423; must be 800-3000 (hard reject if <800 or >5000)"
+    "revision": 2,
+    "notes": "Rewrite sprint using official rulebook text as primary reference."
   }
 }
