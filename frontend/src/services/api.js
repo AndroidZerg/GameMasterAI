@@ -10,11 +10,17 @@ export async function fetchGames(search = "", complexity = "") {
   return res.json();
 }
 
-export async function queryGame(gameId, question, mode = "rules") {
+export async function fetchGame(gameId) {
+  const res = await fetch(`${API_BASE}/api/games/${gameId}`);
+  if (!res.ok) throw new Error(`Failed to fetch game: ${res.status}`);
+  return res.json();
+}
+
+export async function queryGame(gameId, question) {
   const res = await fetch(`${API_BASE}/api/query`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ game_id: gameId, question, mode }),
+    body: JSON.stringify({ game_id: gameId, question }),
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: "Unknown error" }));
