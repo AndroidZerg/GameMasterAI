@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: gmai-backend
+    runtime: python
+    region: oregon
+    plan: starter
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: LLM_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: LLM_API_KEY
+        sync: false  # set manually in Render dashboard
+      - key: LLM_MODEL
+        value: openai/gpt-4o-mini
+      - key: CORS_ORIGIN
+        value: https://playgmai.com
+      - key: PYTHON_VERSION
+        value: "3.12"

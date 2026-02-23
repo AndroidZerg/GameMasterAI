@@ -11,9 +11,9 @@ LLM_MODE = os.getenv("LLM_MODE", "gateway")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
-# Gateway mode (local dev)
+# Gateway / OpenAI-compatible mode (local dev: OpenClaw Gateway, prod: OpenRouter)
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://127.0.0.1:18789/v1")
-LLM_AUTH_TOKEN = os.getenv("LLM_AUTH_TOKEN", "780a902774909bb7f47b82006b91724aec59b79f795ac401")
+LLM_AUTH_TOKEN = os.getenv("LLM_API_KEY", os.getenv("LLM_AUTH_TOKEN", "780a902774909bb7f47b82006b91724aec59b79f795ac401"))
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-5.3-codex")
 
 # Anthropic mode (fallback)
@@ -24,6 +24,8 @@ ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-haiku-4-5")
 CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:3100")
 
 # ── Data paths ────────────────────────────────────────────────────
-CONTENT_DIR = os.getenv("CONTENT_DIR", "/mnt/d/GameMasterAI/content/games")
+# Local dev: WSL paths. Production (Render): relative to repo root.
+_IS_RENDER = os.getenv("RENDER", "")  # Render sets this automatically
+CONTENT_DIR = os.getenv("CONTENT_DIR", "../content/games" if _IS_RENDER else "/mnt/d/GameMasterAI/content/games")
 HEARTBEAT_DIR = os.getenv("HEARTBEAT_DIR", "/mnt/d/GameMasterAI/agents/heartbeat")
-DB_PATH = os.getenv("DB_PATH", "/mnt/d/GameMasterAI/backend/games.db")
+DB_PATH = os.getenv("DB_PATH", "/tmp/games.db" if _IS_RENDER else "/mnt/d/GameMasterAI/backend/games.db")
