@@ -71,7 +71,7 @@ def _build_game_status(heartbeats):
             if current and current.lower() == title_lower:
                 game_status[g] = "in_progress"
     # Also check content/games for completed files
-    content_dir = Path(os.getenv("CONTENT_DIR", r"D:\GameMasterAI\content\games"))
+    content_dir = Path(os.getenv("CONTENT_DIR", "/mnt/d/GameMasterAI/content/games"))
     if content_dir.exists():
         for gf in content_dir.glob("*.json"):
             if gf.name == "_template.json":

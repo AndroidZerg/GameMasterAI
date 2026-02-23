@@ -57,15 +57,30 @@ def get_all_metadata() -> list[dict]:
     return results
 
 
+TAB_DISPLAY_NAMES = {
+    "setup": "Setup",
+    "rules": "Rules",
+    "strategy": "Strategy",
+}
+
+
 def build_knowledge_text(game: dict) -> str:
-    """Concatenate all sections into a single text block for the LLM prompt."""
-    sections = game.get("sections", {})
+    """Flatten all tabs/subtopics into a Markdown string for the LLM system prompt.
+
+    Schema v2.0: tabs.{setup,rules,strategy}.subtopics[].{title, content}
+    """
+    tabs = game.get("tabs", {})
     parts = []
-    for key in ["component_identification", "core_game_loop", "detailed_rules",
-                 "scoring_and_endgame", "beginner_strategy"]:
-        section = sections.get(key, {})
-        content = section.get("content", "")
-        if content:
-            label = key.replace("_", " ").upper()
-            parts.append(f"## {label}\n{content}")
+    for tab_key in ["setup", "rules", "strategy"]:
+        tab = tabs.get(tab_key)
+        if not tab:
+            continue
+        display = TAB_DISPLAY_NAMES.get(tab_key, tab_key.title())
+        parts.append(f"## {display}")
+        for subtopic in tab.get("subtopics", []):
+            title = subtopic.get("title", "")
+            content = subtopic.get("content", "")
+            if title and content:
+                parts.append(f"### {title}\n{content}")
+        parts.append("")  # blank line between tabs
     return "\n\n".join(parts)
