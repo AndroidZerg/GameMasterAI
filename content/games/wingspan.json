@@ -1,0 +1,59 @@
+{
+  "game_id": "wingspan",
+  "title": "Wingspan",
+  "aliases": [
+    "WINGSPAN"
+  ],
+  "publisher": "Stonemaier Games",
+  "player_count": {
+    "min": 1,
+    "max": 5,
+    "recommended": 3,
+    "expansion_max": 7
+  },
+  "play_time_minutes": {
+    "min": 40,
+    "max": 70
+  },
+  "complexity": "midweight",
+  "categories": [
+    "engine-building",
+    "tableau-building",
+    "cards",
+    "nature"
+  ],
+  "source_url": "https://stonemaiergames.com/games/wingspan/rules/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Box components (base game): 1 game board (round goals and scoring track), 5 player mats, 1 birdfeeder dice tower, 1 dice tray, 5 custom food dice, 1 goal board (2-sided), 8 round goal tiles (2 for each round slot), 170 bird cards, 26 bonus cards, 16 Automa cards, 75 egg miniatures (small/medium/large), 103 food tokens (fruit, fish, rodent, seed, invertebrate), 40 wooden action cubes (8 per player color), 8 player aid tiles, and 1 first-player token. Every bird card includes habitat, food cost, nest type, wingspan, egg limit, point value, and a power band (when played/activated/round end/once between turns).",
+      "token_count": 128
+    },
+    "core_game_loop": {
+      "content": "Wingspan runs 4 rounds. On your turn, place one action cube on an empty action space in one habitat row: play a bird, gain food, lay eggs, or draw bird cards. After resolving the chosen action, activate brown powers in that habitat from right to left, so your row gets stronger as birds are added. Players keep taking turns until all cubes for the round are used; then score the round goal, reset, and start the next round with one fewer cube.",
+      "token_count": 106
+    },
+    "detailed_rules": {
+      "content": "To play a bird, pick a legal habitat icon from the card, pay the printed food cost, then pay the egg cost shown under that habitat column (later columns cost more eggs). Forest actions generate food; Grassland actions place eggs up to each bird\u2019s egg limit; Wetland actions draw cards and may exchange via tray rules. Food dice come from the birdfeeder; if all dice show the same face or all faces but one, players may reroll before taking food. White powers trigger when the bird is played, brown powers during habitat activation, pink powers once between turns when opponents trigger the condition, and teal powers at round end. Cards may cache food/tuck cards/lay eggs as points; those points count during final scoring. Face-up bird tray is replenished immediately after draw effects. End-of-round goals use either green side (competitive ranking) or blue side (threshold scoring); ties are shared by rules on the selected side. Common mistakes: forgetting egg payment when playing to later columns, overfilling egg limits, and incorrectly triggering pink powers more than once between turns.",
+      "token_count": 230
+    },
+    "scoring_and_endgame": {
+      "content": "Game end is after Round 4 scoring. Final points are total bird card points + bonus card points + round goal points + 1 point per egg on birds + 1 point per cached food token + 1 point per tucked card. Highest total wins; tie-breaker is most unused food tokens, then shared victory if still tied.",
+      "token_count": 74
+    },
+    "beginner_strategy": {
+      "content": "1) First two rounds: prioritize cheap birds that increase food/card flow; your engine matters more than raw point birds early. 2) Build one dependable habitat before spreading thin\u2014consistency beats flashy combos. 3) Track round goals from setup and commit early if they align with your card pool; don\u2019t chase every goal. 4) In round 4, compare expected points-per-action: eggs are your fallback, but a strong wetland/forest combo can outscore eggs. 5) Keep hand quality high\u2014discard low-synergy birds instead of hoarding cards you cannot afford.",
+      "token_count": 109
+    }
+  },
+  "total_token_count": 647,
+  "metadata": {
+    "created_by": "elf",
+    "created_at": "2026-02-23T04:27:49.022723Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

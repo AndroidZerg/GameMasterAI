@@ -1,0 +1,59 @@
+{
+  "game_id": "terraforming-mars",
+  "title": "Terraforming Mars",
+  "aliases": [
+    "TM"
+  ],
+  "publisher": "FryxGames",
+  "player_count": {
+    "min": 1,
+    "max": 5,
+    "recommended": 3,
+    "expansion_max": 5
+  },
+  "play_time_minutes": {
+    "min": 120,
+    "max": 180
+  },
+  "complexity": "midweight",
+  "categories": [
+    "engine-building",
+    "card-drafting",
+    "tableau",
+    "science-fiction"
+  ],
+  "source_url": "https://www.fryxgames.se/games/terraforming-mars/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Base game includes: 1 game board (Mars map + global parameters), 5 player boards, project card deck (base game), 5 player aid cards, 17 corporation cards, 208 resource cubes, player markers in 5 colors, 3 global parameter markers (temperature, oxygen, oceans), 9 ocean tiles, greenery/city/special tiles, milestone/award markers, and rulebook.",
+      "token_count": 65
+    },
+    "core_game_loop": {
+      "content": "Game proceeds through generations. Each generation starts with card phase (draw projects, optionally buy), then players alternate taking 1 or 2 actions until all pass, then production happens simultaneously. Actions include playing project cards, using standard projects, claiming milestones/funding awards, and activating blue card actions. Repeat generations until oxygen, temperature, and oceans are all maxed.",
+      "token_count": 71
+    },
+    "detailed_rules": {
+      "content": "Every card has tags, requirements, and effects. You may only play cards meeting all global/city/tile prerequisites. Terraform Rating (TR) is both score and base megacredit production. Raising oxygen/temperature or placing oceans increases TR; some actions also raise production tracks directly. Standard projects are always available but usually less efficient than card engines. Tile placement has map restrictions (oceans on reserved spaces; greeneries adjacent to your tiles when possible; cities not adjacent to other cities). End triggers when all three global parameters are complete, then finish the current generation so all players get equal turns. Milestones can be claimed once each (first come, fixed cost), awards can be funded then scored by ranking. Card text can override defaults and creates many edge cases; resolve immediate effects fully before secondary triggers.",
+      "token_count": 167
+    },
+    "scoring_and_endgame": {
+      "content": "Final score = Terraform Rating + VP icons on played cards + board points (city adjacency to greeneries, greeneries worth 1 each) + milestone points + award points. Highest score wins; tie-breaker most megacredits.",
+      "token_count": 44
+    },
+    "beginner_strategy": {
+      "content": "1) Early generations: prioritize economy (MC/steel/titanium/plant/energy/heat production). 2) Don\u2019t buy every drawn card\u2014paying 3 MC per keep is a real tax. 3) Build around tag synergies from your corporation and opening hand. 4) Contest milestones early if you\u2019re close; waiting often loses them. 5) In late game, convert resources into guaranteed points (greeneries, point cards, city placements) before final trigger.",
+      "token_count": 78
+    }
+  },
+  "total_token_count": 425,
+  "metadata": {
+    "created_by": "elf",
+    "created_at": "2026-02-23T04:27:49.056787Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
