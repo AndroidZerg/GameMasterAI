@@ -20,7 +20,7 @@ const TABS = [
   { key: "qa", label: "Q&A" },
 ];
 
-const SPEED_OPTIONS = [0.75, 1.0, 1.25, 1.5];
+const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
 function InlineMarkdown({ text }) {
@@ -833,7 +833,15 @@ export default function GameTeacher() {
   const [gameTitle, setGameTitle] = useState(gameId);
   const [activeTab, setActiveTab] = useState("setup");
   const [ttsState, setTtsState] = useState("idle");
-  const [ttsRate, setTtsRate] = useState(getRate());
+  const [ttsRate, setTtsRate] = useState(() => {
+    const saved = getRate();
+    // If saved rate is no longer valid (e.g. 1.5x removed), reset to 1.0x
+    if (!SPEED_OPTIONS.includes(saved)) {
+      setRate(1.0);
+      return 1.0;
+    }
+    return saved;
+  });
 
   useEffect(() => {
     setOnStateChange((state) => {
