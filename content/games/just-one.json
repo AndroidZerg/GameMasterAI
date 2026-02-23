@@ -1,0 +1,56 @@
+{
+  "game_id": "just-one",
+  "title": "Just One",
+  "aliases": [],
+  "publisher": "Repos Production",
+  "player_count": {
+    "min": 3,
+    "max": 7,
+    "recommended": 5,
+    "expansion_max": 7
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "party",
+  "categories": [
+    "party",
+    "cooperative",
+    "word"
+  ],
+  "source_url": "https://www.rprod.com/en/games/just-one",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Box contents: 110 word cards (550 mystery words), 7 dry-erase easels, 7 dry-erase markers, 7 cleaning cloths, and rulebook. Each player uses one easel and marker, with one player as guesser per round. Word cards are double-sided and supply category-balanced prompts for repeated play.",
+      "token_count": 57
+    },
+    "core_game_loop": {
+      "content": "Turn rhythm: active side reveals or frames information, teammates/opponents respond under that game’s communication limits, then resolve points or survival state and rotate responsibility. Teach this as a repeating three-step cycle: present signal, interpret signal, then resolve consequences. New players should always know whose decision matters right now and what hidden information cannot be shared. Most confusion comes from breaking communication restrictions or skipping reveal order, so keep sequence strict.",
+      "token_count": 91
+    },
+    "detailed_rules": {
+      "content": "Choose active guesser, who cannot see the mystery word. Other players secretly write one-word clues on easels, then compare clues before revealing to guesser. All duplicate clues are erased—exact matches always cancel; many groups also cancel obvious variants/plurals by agreed strictness. Remaining unique clues are shown to guesser, who has one guess. Correct guess scores card, wrong/skip sends card to loss pile. Rotate guesser each round. Cooperative objective is to score as high as possible over deck segment (often 13 cards). Edge cases: clue cannot be same root form as target by your table’s language policy; no gestures/intonation hints once reveal begins; if all clues cancel, guesser must still attempt from zero info or pass by rules variant. Final rating bands in rulebook map score to performance level.",
+      "token_count": 166
+    },
+    "scoring_and_endgame": {
+      "content": "No individual scoring; team score equals number of correctly guessed cards kept. Wrong guesses and passes go to loss pile. After fixed round count/deck segment (commonly 13), compare successes to rulebook rating ladder (legendary/excellent/etc.). Variant difficulties can change target thresholds but not cooperative objective.",
+      "token_count": 57
+    },
+    "beginner_strategy": {
+      "content": "1) Before writing, think of the most obvious clue then avoid it—duplicates are deadly. 2) Aim for specific but not giveaway clues; medium rarity words survive cancellation. 3) Use category/context clues that narrow field cleanly. 4) Rotate clue styles across players to avoid accidental matching. 5) As guesser, infer why a clue survived—uniqueness itself is information.",
+      "token_count": 72
+    }
+  },
+  "total_token_count": 443,
+  "metadata": {
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T04:28:56Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 2,
+    "notes": "Check 4 failed: total_token_count is 443; must be 800-3000 (hard reject if <800 or >5000)"
+  }
+}

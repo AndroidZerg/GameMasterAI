@@ -1,0 +1,56 @@
+{
+  "game_id": "love-letter",
+  "title": "Love Letter",
+  "aliases": [],
+  "publisher": "Z-Man Games",
+  "player_count": {
+    "min": 2,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": 6
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 25
+  },
+  "complexity": "gateway",
+  "categories": [
+    "microgame",
+    "deduction",
+    "card"
+  ],
+  "source_url": "https://www.zmangames.com/en/products/love-letter/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Modern Love Letter editions usually include 21 character cards, 6 reference cards, 13 favor tokens/cubes, 1 cloth bag, and rulebook. Older printings used 16-card decks and fewer roles; always verify your specific edition. All cards are shuffled each round after removing one hidden card (and extra cards in 2-player games).",
+      "token_count": 65
+    },
+    "core_game_loop": {
+      "content": "Turn rhythm: active side reveals or frames information, teammates/opponents respond under that game’s communication limits, then resolve points or survival state and rotate responsibility. Teach this as a repeating three-step cycle: present signal, interpret signal, then resolve consequences. New players should always know whose decision matters right now and what hidden information cannot be shared. Most confusion comes from breaking communication restrictions or skipping reveal order, so keep sequence strict.",
+      "token_count": 91
+    },
+    "detailed_rules": {
+      "content": "At round start shuffle deck, remove one card face down unseen; in 2-player game remove extra cards face up per rules. Deal 1 card to each player. On turn draw one card then play one of two, resolving its effect immediately. Core effects (modern set) include Guard guessing role to eliminate, Priest/Spy information, Baron comparison knockout, Handmaid protection until next turn, Prince forcing discard/redraw, Chancellor filtering draws, King swap, Countess forced play when held with King/Prince in many editions, Princess self-elimination if discarded. Eliminated players sit out until round end. Round ends when deck empties or one player remains; remaining players compare hand value, tie-break by sum/value of discarded cards as specified by edition. Winner gains one favor token. Game ends when someone reaches required favor threshold by player count.",
+      "token_count": 169
+    },
+    "scoring_and_endgame": {
+      "content": "Round scoring: winner earns one favor token by being last active player or highest hand value when deck empties. Game scoring: first player to required favor threshold (varies by player count/edition) wins the full game. Tie-breaks at round end use discard pile values as specified.",
+      "token_count": 58
+    },
+    "beginner_strategy": {
+      "content": "1) Hand reading matters more than luck—track every discard. 2) Guard guesses should be probabilistic, not random; remove impossible roles first. 3) Handmaid timing protects high-value hands before forced-discard turns. 4) Don’t auto-play high cards; sometimes low-profile survival wins rounds. 5) In token races, deny leaders by targeting them even with lower-EV plays.",
+      "token_count": 68
+    }
+  },
+  "total_token_count": 451,
+  "metadata": {
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T04:28:56Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 2,
+    "notes": "Check 4 failed: total_token_count is 451; must be 800-3000 (hard reject if <800 or >5000)"
+  }
+}

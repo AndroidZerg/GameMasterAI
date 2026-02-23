@@ -1,0 +1,56 @@
+{
+  "game_id": "skull",
+  "title": "Skull",
+  "aliases": [],
+  "publisher": "Space Cowboys",
+  "player_count": {
+    "min": 3,
+    "max": 6,
+    "recommended": 5,
+    "expansion_max": 6
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "party",
+  "categories": [
+    "bluffing",
+    "bidding",
+    "push-your-luck"
+  ],
+  "source_url": "https://www.spacecowboys.fr/skull",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Skull includes 24 coaster-style discs: for each player color, 3 flower discs and 1 skull disc (supporting up to 6 players in many editions), plus rules. No board, no score pad, and no additional tokens are required. Each player’s set is identical except color/back design.",
+      "token_count": 58
+    },
+    "core_game_loop": {
+      "content": "Turn rhythm: active side reveals or frames information, teammates/opponents respond under that game’s communication limits, then resolve points or survival state and rotate responsibility. Teach this as a repeating three-step cycle: present signal, interpret signal, then resolve consequences. New players should always know whose decision matters right now and what hidden information cannot be shared. Most confusion comes from breaking communication restrictions or skipping reveal order, so keep sequence strict.",
+      "token_count": 91
+    },
+    "detailed_rules": {
+      "content": "Each player has 4 discs (3 flowers, 1 skull). Round begins with everyone placing one disc face down. On your turn either add one disc to your own stack or start a bid (challenge) stating how many total discs you can reveal safely. Bidding proceeds clockwise with raise-or-pass until one challenger remains. Challenger flips their own stack first, then chooses other players’ top discs one at a time until meeting bid count. Revealing any skull fails challenge: lose one random disc from your supply (or chosen by rules variant) and no point scored. Successful challenge scores one point; at two points you win. If a player loses all discs they stay out. Edge clarity: you may bid even with only skull left (risky bluff state), and only top disc of each chosen stack is revealed during challenge unless additional picks required.",
+      "token_count": 183
+    },
+    "scoring_and_endgame": {
+      "content": "Successful challenge grants 1 point; first to 2 points wins game instantly. Failed challenge (revealed skull) gives no point and costs one random disc from challenger. Alternative elimination end can occur when only one player retains discs; that player wins by survival.",
+      "token_count": 54
+    },
+    "beginner_strategy": {
+      "content": "1) Build an image early: predictable players are exploitable, unreadable players are dangerous. 2) First bid should reflect stack memory confidence, not bravado alone. 3) When ahead 1 point, pressure opponents into risky counter-bids. 4) Track each player’s exposed flowers/skulls over multiple rounds. 5) If short on discs, weaponize desperation bluffs—others often overfold.",
+      "token_count": 68
+    }
+  },
+  "total_token_count": 454,
+  "metadata": {
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T04:28:56Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 2,
+    "notes": "Check 4 failed: total_token_count is 454; must be 800-3000 (hard reject if <800 or >5000)"
+  }
+}

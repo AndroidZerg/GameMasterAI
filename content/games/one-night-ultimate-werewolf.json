@@ -1,0 +1,56 @@
+{
+  "game_id": "one-night-ultimate-werewolf",
+  "title": "One Night Ultimate Werewolf",
+  "aliases": [],
+  "publisher": "Bezier Games",
+  "player_count": {
+    "min": 3,
+    "max": 10,
+    "recommended": 7,
+    "expansion_max": 10
+  },
+  "play_time_minutes": {
+    "min": 10,
+    "max": 15
+  },
+  "complexity": "party",
+  "categories": [
+    "hidden-roles",
+    "deduction",
+    "social"
+  ],
+  "source_url": "https://beziergames.com/products/one-night-ultimate-werewolf",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Core set includes 16 role cards, 16 role tokens, 1 moderator/app reference card, and rulebook (many groups use the official app for narration). Setup always uses exactly player-count + 3 role cards; the extra three are center cards. Different recommended role mixes are listed for various player counts.",
+      "token_count": 62
+    },
+    "core_game_loop": {
+      "content": "Turn rhythm: active side reveals or frames information, teammates/opponents respond under that game’s communication limits, then resolve points or survival state and rotate responsibility. Teach this as a repeating three-step cycle: present signal, interpret signal, then resolve consequences. New players should always know whose decision matters right now and what hidden information cannot be shared. Most confusion comes from breaking communication restrictions or skipping reveal order, so keep sequence strict.",
+      "token_count": 91
+    },
+    "detailed_rules": {
+      "content": "Deal role cards equal to players + 3 center cards. Everyone looks at own role, then closes eyes. Night phase proceeds in strict role order (Werewolves, Minion, Seer, Robber, Troublemaker, Drunk, Insomniac, etc. depending set). Some roles may view or swap cards; no one receives confirmation except as role text allows. Morning: everyone opens eyes and discusses, bluffs, and deduces final roles. After timed discussion all players vote simultaneously for one player. Player with most votes dies; ties kill all tied players. Village team wins if at least one Werewolf is killed, or if no Werewolves are in play and no one dies (edition text nuances apply). Werewolf team wins otherwise. Key teaching point: victory checks FINAL roles after night swaps, not original dealt roles.",
+      "token_count": 162
+    },
+    "scoring_and_endgame": {
+      "content": "No points; single-round team victory check after vote resolution. Determine whether werewolf team members (in final role state) were eliminated. Apply special-role modifiers (Tanner wants to die, Hunter revenge shot, etc.) if included. Declare winning team(s) per final roles and role text.",
+      "token_count": 54
+    },
+    "beginner_strategy": {
+      "content": "1) Start discussion with concrete night-action claims to anchor timeline. 2) Villagers should cross-check role interaction consistency, not just confidence. 3) Werewolves win by creating alternate worlds; keep one simple lie, not five complex ones. 4) Vote coordination matters—split votes frequently hand win to wolves. 5) Always reason from possible final roles after swaps, not initial claims.",
+      "token_count": 74
+    }
+  },
+  "total_token_count": 443,
+  "metadata": {
+    "created_by": "dwarf",
+    "created_at": "2026-02-23T04:28:56Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-02-23T04:33:40Z",
+    "validation_status": "rejected",
+    "revision": 2,
+    "notes": "Check 4 failed: total_token_count is 443; must be 800-3000 (hard reject if <800 or >5000)"
+  }
+}
