@@ -1,0 +1,60 @@
+{
+  "game_id": "scythe",
+  "title": "Scythe",
+  "aliases": [
+    "Scythe: A Board Game"
+  ],
+  "publisher": "Stonemaier Games",
+  "player_count": {
+    "min": 1,
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": 7
+  },
+  "play_time_minutes": {
+    "min": 90,
+    "max": 150
+  },
+  "complexity": "heavy",
+  "categories": [
+    "engine-building",
+    "area-control",
+    "resource-management",
+    "asymmetric-factions",
+    "combat"
+  ],
+  "source_url": "https://stonemaiergames.com/games/scythe/scythe-complete-rulebook/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "Scythe base game components are organized into global components, faction-specific sets, and player-mat sets. Global components include 1 game board, 1 Factory card, 1 achievement star tracker area on each player board, 1 structure bonus tile (randomly chosen each game from the structure bonus set), 1 encounter token set, 1 objective card deck, 1 encounter card deck, 1 combat card deck, and coin tokens in multiple denominations. Resource tokens are wooden and come in four types: food, metal, wood, and oil. The game also includes popularity and power trackers for each player, plus score multipliers printed on the board tied to popularity bands.\n\nEach faction has a faction mat and a complete unit set in one color: 1 character miniature, 4 mech miniatures, 4 worker miniatures, 1 home base area, and 4 wooden structures (Mill, Monument, Mine, Armory in that faction color). Each faction also has cardboard faction tokens and starting resource/power/popularity values printed on its faction mat.\n\nEach player also gets 1 player mat (Industrial, Engineering, Patriotic, Mechanical, or Agricultural in the base game), and that mat includes the top-row actions (Move, Bolster, Trade, Produce) and bottom-row actions (Upgrade, Deploy, Build, Enlist) with the specific costs and rewards printed on that mat. Players receive wooden cubes for upgrades, recruit markers for enlist actions, and achievement stars used to mark completed milestones. The game also includes riverwalk/mech ability indicators on faction mats and board adjacency constraints tied to rivers and lakes. Before teaching, verify every player has exactly 1 faction mat, 1 player mat, 1 character, 4 mechs, 4 workers, 4 structures, cubes, recruits, and stars in their color; missing even one of these pieces will break setup and progression.",
+      "token_count": 390
+    },
+    "core_game_loop": {
+      "content": "On your turn, choose one action space on your player mat that is not the same space you chose on your previous turn. First resolve the top action on that space (or take the weaker no-cost version where relevant), then optionally pay the printed cost to resolve the paired bottom action. Top actions handle board tempo (movement, production, trading, power/cards), while bottom actions build your engine (upgrade, deploy, build structures, enlist recruits). After your turn, play passes clockwise. The game ends immediately when any player places their sixth star, then everyone performs final scoring based on popularity-tier multipliers.",
+      "token_count": 115
+    },
+    "detailed_rules": {
+      "content": "Action selection rule: you cannot repeat the same action space on consecutive turns, even if circumstances changed. This is one of the most common mistakes from first-time players.\n\nTop-row actions in detail:\n- Move: Move up to the shown number of different units. Units can carry resources and workers according to faction/mech abilities; resources remain on territories unless explicitly carried by allowed movement rules. Entering enemy territory with only workers does not start combat.\n- Bolster: Gain power or draw combat cards (based on mat/upgrade status). Power is spent secretly in combat and also awards a star at the threshold.\n- Trade: Gain resources and/or popularity as printed. Trading is a flexible fixer action and often bridges awkward turns.\n- Produce: Produce on controlled territories with workers; each worker contributes to production in its territory. Repeated production can trigger population pressure and popularity loss when overusing high-worker production at low popularity thresholds.\n\nBottom-row actions in detail:\n- Upgrade: Pay oil to move one upgrade cube from a top-row action (making that top action stronger) to a bottom-row action (making that bottom action cheaper or stronger).\n- Deploy: Pay metal to place one mech from your mat onto a territory you control with a worker; when deployed, that mech ability unlocks for your faction globally.\n- Build: Pay wood to place one of your four structures onto a territory you control with at least one worker (subject to placement restrictions on some spaces).\n- Enlist: Pay food to remove one recruit marker, gain the immediate enlist benefit shown, and unlock the persistent neighbor-trigger bonus for that row.\n\nMovement, control, and territory rules:\n- Rivers normally block movement; riverwalk/mech abilities and specific faction powers modify this.\n- Lakes are generally restricted unless a faction or mech ability permits entry/exit conditions.\n- Control of a territory is determined by presence of your character/mech/worker after movement and combat resolution.\n- Resources on the board belong to the player controlling that territory at scoring time, regardless of who produced them earlier.\n\nCombat system:\n- Combat only occurs when plastic units (character/mech) from different players coexist in one territory after movement. Workers do not fight.\n- Each involved player secretly sets a power dial value up to their current power and may add permitted combat cards from hand.\n- Reveal simultaneously; higher total wins (attacker wins ties in standard rules).\n- Loser retreats all involved plastic units to home base; workers in combat territory are forced to retreat when displaced by enemy entry.\n- Popularity penalty: if you force enemy workers to retreat, you lose popularity for each worker displaced. New players often miss this and over-attack early.\n\nEncounters, objectives, and Factory:\n- Encounter tokens trigger only when your character ends movement on that token; choose one of multiple options and resolve exactly as written.\n- Objective cards provide a star when completed; timing and condition are exact, so check wording literally.\n- Factory card can be gained by moving your character to the Factory; it grants an extra action option and often changes endgame tempo.\n\nStars and progression:\nYou place stars for specific milestones (examples: all mechs deployed, all structures built, all recruits enlisted, all upgrades completed, worker threshold, popularity threshold, power threshold, combat victories limit, objective completion). Because only six stars are needed to end the game, efficient star planning is more important than maximizing any single subsystem.\n\nRules that frequently cause disputes:\n1) You may always do only the top action and skip the bottom action.\n2) You may not partially pay and partially resolve a bottom action; if you pay, resolve fully as allowed.\n3) Choosing an action space is restricted by your previous turn, not by whether you used top or bottom last turn.\n4) Popularity tier is evaluated at game end for multipliers, so late popularity changes can swing scoring dramatically.\n5) Territory/resources scoring is based on end-state board control, not cumulative control during the game.",
+      "token_count": 690
+    },
+    "scoring_and_endgame": {
+      "content": "End-game trigger: the game ends immediately when any player places their sixth star. That player finishes the star placement; then proceed straight to final scoring (no full extra round).\n\nFinal scoring includes all coin sources:\n1) Coins already earned during play remain in your total.\n2) Stars placed are worth coins based on your final popularity tier.\n3) Controlled territories are worth coins based on final popularity tier.\n4) Every pair of resources you control on the board is worth coins based on final popularity tier.\n5) Structure bonus: only the single structure bonus tile selected for this game is scored; each player scores coins for meeting that tile's condition.\n\nPopularity bands are the multiplier engine of final scoring; moving up a band can increase value in every major category simultaneously.\n\nTiebreakers: if players tie on total coins, break ties by most controlled territories; if still tied, by most resources controlled; if still tied, tied players share victory according to scenario/event guidance.",
+      "token_count": 210
+    },
+    "beginner_strategy": {
+      "content": "1) Pick a star plan by turn 3-4. Six stars end the game; you do not need to excel everywhere. A reliable first-game plan is upgrades + mechs + recruits + one objective + one power/popularity threshold.\n2) Upgrade early, especially spaces you expect to use repeatedly. Early cube moves produce compounding returns because they improve top actions and reduce future bottom costs.\n3) Respect popularity. Aggressive worker displacement can tank your multiplier and undo good board control. Fight for position when it matters, but avoid casual early battles that only feed short-term gains.\n4) Treat movement as economy. Repositioning workers and plastic units to produce exactly what your next bottom action needs is stronger than chasing flashy combats.\n5) Time your sixth star. If you can place star six after securing one more high-value territory/resource pair, delay one turn; if an opponent is close, accelerate and end before their engine fully converts.\n6) Don't ignore enlist triggers. Neighbor bonuses fire frequently in experienced tables; a well-timed enlist can out-earn a greedy short-term action.",
+      "token_count": 220
+    }
+  },
+  "total_token_count": 1625,
+  "metadata": {
+    "created_by": "goblin",
+    "created_at": "2026-02-23T04:31:04Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 2,
+    "notes": "Rewritten for schema compliance and full teaching detail; component verification should be cross-checked against physical insert during QA."
+  }
+}
