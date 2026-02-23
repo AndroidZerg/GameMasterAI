@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "1 board map of North America, 240 plastic train cars (45 in each player color plus extras by edition), 110 Train Car cards (12 each of 8 colors plus 14 locomotive wilds), 30 Destination Tickets (short and long routes by edition split), 5 wooden scoring markers, and rules booklet.",
-      "token_count": 120
+      "content": "Ticket to Ride (North America base) includes: 1 board map of North American routes; 240 plastic train cars (45 each in blue, red, green, yellow, black plus spares); 110 Train Car cards (12 each of 8 colors plus 14 locomotives); 30 Destination Ticket cards; 5 wooden scoring markers; 1 Longest Continuous Path bonus card (+10); and rules. At setup each player takes 45 trains and one matching marker. Players start with 4 Train Car cards and 3 destination tickets, keeping at least 2.",
+      "token_count": 107
     },
     "core_game_loop": {
-      "content": "On your turn you do exactly one action: draw train cards, claim one route on the map, or draw destination tickets. Claimed routes place your plastic trains on matching colored links and immediately score points. Cards fuel route claims; longer routes need more matching cards but score better. Play proceeds clockwise until an endgame trigger is met.",
-      "token_count": 95
+      "content": "On your turn you perform exactly one action: draw Train Car cards, claim one route, or draw new Destination Tickets. Drawing cards fuels future claims; claiming a route spends a same-color set and places your trains on that link for immediate route points. Drawing destination tickets gives new hidden objectives, but you must keep at least one from the draw. Play continues clockwise until an endgame trigger occurs when a player is down to 0–2 trains at end of their turn, then each player gets one final turn.",
+      "token_count": 114
     },
     "detailed_rules": {
-      "content": "Route claim: spend the exact number of cards matching route length and color; gray routes accept any one color set. Ferries require locomotive cards shown on route. Tunnels (in Europe variants) are not in base North America and should be ignored unless playing expansion maps. When drawing train cards, you may take two from the deck/open market unless your first pick is a face-up locomotive, which ends your draw at one card. If three locomotives are face-up at once, clear all five face-up cards and refill. Destination tickets are private objectives between two cities; completing grants points, failing loses points at game end. When drawing destination tickets midgame, keep at least one and discard the rest. Route ownership is exclusive in 2-3 player base; double routes are only available in 4-5 player games where both tracks can be independently claimed. You cannot split a route claim across turns. If deck runs out, shuffle discards to form new draw pile.",
-      "token_count": 470
+      "content": "Card draw action: normally draw 2 train cards, from face-up row or blind from deck. If you take a face-up locomotive as your first pick, your draw action ends immediately (you only get one card that turn). If you draw blind and it is a locomotive, it still counts as a normal single card and you may draw again. Whenever three of five face-up cards are locomotives, discard all five and refill to five face-up cards.\n\nClaim route action: spend a set equal to route length. Colored routes require that exact color; gray routes accept any one color set. Locomotives are wild and may supplement/replace color cards. After paying, place one plastic train in each space of that route, then score immediately using route table (1/2/3/4/5/6 length gives 1/2/4/7/10/15 points). You may claim only one route per turn. Routes are exclusive; a single player may never claim both lines of the same double-route pair.\n\nPlayer-count restriction: in 2- or 3-player games, only one track of each double-route pair can be used total; the parallel track is closed once one is taken.\n\nDestination ticket action: draw top 3 tickets, keep at least 1, return unwanted to bottom of ticket deck. Tickets stay secret until final scoring. You may hold any number of tickets. Completed ticket = add points at end; incomplete ticket = subtract points at end.\n\nDeck exhaustion: when train card deck runs out, shuffle discards to form a new draw deck. If both deck and discard are empty, players cannot draw train cards on that turn and must choose another legal action.\n\nNetwork logic: destination tickets are satisfied by a continuous path of your own claimed routes between named cities; branching is allowed as long as the required city-to-city connection exists.",
+      "token_count": 379
     },
     "scoring_and_endgame": {
-      "content": "Points from claimed routes are scored immediately by route length track values (1=1, 2=2, 3=4, 4=7, 5=10, 6=15). At game end, add completed destination ticket values and subtract incomplete ticket values. Award Longest Continuous Path bonus (10 points in base rules) to player(s) with longest uninterrupted network. Endgame starts when any player has 2 or fewer trains left after their turn; every player including trigger gets one final turn, then final scoring decides winner.",
-      "token_count": 150
+      "content": "Route points are scored immediately when claimed using the official table (1=1, 2=2, 3=4, 4=7, 5=10, 6=15). Endgame triggers as soon as any player ends their turn with 0, 1, or 2 trains remaining; then all players (including trigger player) receive one last turn so turn counts are equal. Final scoring then adds completed destination ticket values and subtracts incomplete ticket values. Award Longest Continuous Path bonus card for +10 points to player(s) with the longest uninterrupted line of their own trains (loops can count; you cannot reuse the same plastic train segment twice within the same path). Highest score wins; tie breaks first by most completed destination tickets, then by possession/share of longest path per official tie guidance.",
+      "token_count": 154
     },
     "beginner_strategy": {
-      "content": "Prioritize connecting overlapping destination tickets so one backbone route satisfies multiple goals. Claim key choke-point links early (for example Nashville–Atlanta or Calgary corridors) before opponents block your plan. Draw cards in pairs that support your next concrete route instead of hoarding random colors. Keep at least one “safe” short ticket completed early so you are never forced into desperate endgame builds. Count opponents’ remaining trains: if ahead, trigger endgame quickly; if behind, avoid dropping to 2 trains until you complete critical tickets.",
-      "token_count": 170
+      "content": "Start by mapping overlap among your initial tickets and build a backbone that can satisfy two objectives with one trunk line. Claim key bottlenecks early (single critical links and dense hubs) before opponents force expensive detours. Prefer purposeful card draws over random hoarding: know which route you are aiming to claim in the next 1–2 turns. If you are behind, avoid triggering endgame until your highest-value ticket liabilities are secured; if ahead, use low train count to close the game quickly. Draw extra tickets only when your network is broad enough that new objectives are likely to fit naturally; blind late-ticket gambling loses more games than it wins.",
+      "token_count": 140
     }
   },
-  "total_token_count": 1005,
+  "total_token_count": 894,
   "metadata": {
     "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
+    "created_at": "2026-02-23T05:46:34Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "revision": 2,
+    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
   }
 }

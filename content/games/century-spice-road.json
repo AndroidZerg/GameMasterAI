@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "36 point cards, 43 merchant/action cards, 105 wooden cubes (turmeric yellow, saffron red, cardamom green, cinnamon brown), 4 wooden bowls, and rulebook.",
-      "token_count": 120
+      "content": "From the official base game: 87 cards total split into 43 merchant cards, 36 point cards, and 10 caravan cards (player aids), 4 plastic bowls, and wooden spice cubes in four values/colors (commonly 105 cubes): turmeric (yellow), saffron (red), cardamom (green), and cinnamon (brown). Setup places 6 merchant cards in a market row, 5 point cards in a separate row, and silver/gold coin bonuses on rightmost point cards according to player count. Each player starts with two basic hand cards (produce 2 turmeric; upgrade 2 spices) and initial spices by seating order.",
+      "token_count": 119
     },
     "core_game_loop": {
-      "content": "On your turn choose one action: play a merchant card, acquire a new merchant card from market, claim a point card, or rest to pick up your played cards. Merchant cards upgrade, trade, or harvest spices to build your engine. Point cards convert spices into points and can grant endgame bonuses. Fast, clean turns continue clockwise.",
-      "token_count": 95
+      "content": "On your turn, perform exactly one action: play a card from hand, acquire a merchant card from the market, claim a point card by paying its spice cost, or rest to recover all played cards. Merchant cards are your engine—they generate, upgrade, and exchange spices; point cards convert that engine into victory points. Because only one action is taken each turn, hand timing and rest timing are central. Play proceeds clockwise until a player reaches the point-card threshold that triggers game end.",
+      "token_count": 106
     },
     "detailed_rules": {
-      "content": "Play card: execute effect exactly; upgrade cards may improve cubes to next value color chain (yellow->red->green->brown), trade cards swap specified sets, harvest cards gain cubes shown. Acquire merchant card: take one from six-card row, paying one cube onto each skipped card; collect cubes on taken card. Claim point card: spend required cubes from hand to take one available point card and optionally bonus token if present. Rest action returns all played merchant cards to hand (no other effect). Hand management is central: you cannot play cards not in hand and cannot partially ignore mandatory exchange losses on some cards unless text allows optional repeats. Cube supply in bowls is shared bank but practically sufficient.",
-      "token_count": 470
+      "content": "Play a card: place one hand card into your played area and resolve its effect. Produce cards add cubes to your caravan. Upgrade cards raise cube value along fixed chain (yellow→red→green→brown) for the stated number of upgrades. Trade cards exchange input cubes for output cubes; repeatable trade cards may be executed multiple times in one action if you can keep paying full input each repetition.\n\nAcquire merchant card: take one of six face-up merchant cards. The leftmost card is free; cards to the right require paying one cube onto each skipped card from your caravan. Then take chosen card (and any cubes placed on it) into your hand. Slide remaining cards left and refill the rightmost market slot from deck.\n\nClaim point card: pay exactly the shown spice combination from caravan to claim one face-up point card. Take any coin bonus on that card, then slide/refill point row.\n\nRest action: retrieve all cards from your played area back to your hand; this action has no other effect but is essential for cycling your engine.\n\nCaravan and visibility: players store cubes in personal caravan area; spices are open information and must remain trackable. Mandatory trade costs cannot be partially paid unless card wording provides optional/repeat framing.\n\nBonus coins: silver and gold coins are placed on designated rightmost point-card slots at setup and are claimed only by taking those cards; as cards shift left, those bonus opportunities become more accessible. Market tempo is heavily shaped by cube payments on skipped merchant cards: placing cubes can intentionally seed future value for yourself if you plan to buy that card later, but it can also gift value to opponents if your timing is off. Refillable point-card row means demand shifts quickly; a card that looked weak can become excellent after one refill reveals compatible costs for your engine. Treat rest as a setup action for burst turns rather than a stall action. Strong players often plan two turns ahead: what they will play now, what hand state they need after, and whether they can claim before the table cycles.",
+      "token_count": 448
     },
     "scoring_and_endgame": {
-      "content": "Game ends immediately when a player claims their fifth point card in 2-3 player game or sixth in 4-5 player game. Finish round so all players have equal turns, then total points from claimed cards plus gold/silver bonus tokens. Highest score wins; tie broken by most cubes remaining then shared as needed.",
-      "token_count": 150
+      "content": "Game end triggers when a player claims enough point cards: in 2–3 player games, first to 5 point cards; in 4–5 player games, first to 6 point cards. Complete the round so all players have equal turns. Final score is total points from claimed point cards plus coin bonuses. Highest score wins; if tied, compare remaining spices as official tie-break guidance for the edition in use.",
+      "token_count": 85
     },
     "beginner_strategy": {
-      "content": "Build an early conversion ladder (upgrade + efficient trade) before racing expensive point cards. Buying a market card with several cubes on it can be stronger than its printed effect alone. Don’t over-upgrade into brown cubes without point cards that actually pay for them. Time your rest so you can chain two or three high-impact plays before pausing. Watch endgame pace: if opponent nears 5/6 cards, pivot from engine growth to immediate claim value.",
-      "token_count": 170
+      "content": "Build a compact engine before sprinting points: one strong upgrade card plus one efficient trade card usually outperforms scattered card buys. Respect action economy—buying a far-right merchant card is worth it only if effect and attached cubes repay tempo quickly. Avoid over-upgrading into brown cubes unless visible point cards demand them soon. Plan rest turns proactively so you can execute productive chains (upgrade→trade→claim) without dead turns. As soon as an opponent approaches the trigger threshold, pivot from engine growth to immediate point conversion and coin pickup.",
+      "token_count": 111
     }
   },
-  "total_token_count": 1005,
+  "total_token_count": 869,
   "metadata": {
     "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
+    "created_at": "2026-02-23T05:46:34Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "revision": 2,
+    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
   }
 }

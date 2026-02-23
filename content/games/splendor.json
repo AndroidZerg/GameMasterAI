@@ -25,34 +25,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "40 development cards (level I/II/III decks), 10 noble tiles, 7 gem tokens each of emerald/sapphire/ruby/diamond/onyx (5 each in 2p, 4 each in 3p, 7 each in 4p), and 5 gold joker tokens.",
-      "token_count": 120
+      "content": "Splendor components from official rules: 90 development cards split into 40 level-I, 30 level-II, and 20 level-III cards; 10 noble tiles; and 40 tokens total—7 each emerald (green), sapphire (blue), ruby (red), diamond (white), onyx (black), plus 5 gold joker tokens. Setup reveals 4 face-up cards from each level and nobles equal to player count +1. Token pools are reduced by player count: with 2 players keep 4 of each gem color, with 3 keep 5 each, with 4 keep all 7 each; gold remains 5 in all counts.",
+      "token_count": 115
     },
     "core_game_loop": {
-      "content": "On your turn choose one action: take gem tokens, reserve a card, or buy a development card. Purchased cards stay in front of you, granting permanent gem discounts and often points. Nobles visit automatically when your card bonuses meet their requirement. Play continues until a player reaches target prestige, then round ends for final comparison.",
-      "token_count": 95
+      "content": "Players take one action per turn, clockwise: take gem tokens, reserve one development card (and usually gain gold), or purchase one card (face-up or reserved). Purchased cards provide permanent gem-color bonuses and may give prestige points. At end of your turn, if your permanent bonuses meet a noble requirement, one noble visits automatically for 3 points. The game races to 15 prestige, then finishes the round for equal turns before winner determination.",
+      "token_count": 93
     },
     "detailed_rules": {
-      "content": "Token taking: either 3 different gem colors, or 2 of the same color only if at least 4 tokens of that color are available before taking. You may never exceed 10 tokens; discard down immediately if needed. Reserve action: take one face-up card or top card of a deck into hand; if gold token available, take one gold. Reserved cards are hidden to opponents and max 3 reserved at once. Buy action: pay card cost with tokens plus permanent discounts from your tableau; gold acts as wildcard. Refill face-up slot from same deck immediately after purchase/reserve. Nobles are not drafted; at end of your turn, if you satisfy one or more noble requirements, exactly one noble visits and grants 3 points (choose if multiple eligible). You cannot split one action into multiple buys/takes.",
-      "token_count": 470
+      "content": "Action 1 (take tokens): either take 3 different gem colors, or take 2 of one color only if at least 4 tokens of that color are currently in the pool before taking. Action 2 (reserve): take one face-up card or draw blind top card from any level deck into your hand; if a gold token is available, take one gold joker. Players may hold at most 3 reserved cards; reserved cards cannot be discarded except by purchasing them. Action 3 (purchase): pay card cost using gem tokens plus permanent discounts from previously purchased cards; gold tokens substitute any one color.\n\nToken limit: at end of turn, if you have more than 10 total tokens (including gold), immediately return tokens of your choice until you have exactly 10.\n\nMarket maintenance: when a face-up card is bought or reserved, immediately refill that slot from the same level deck if possible. If a deck empties, open slots remain empty.\n\nBonuses: each purchased development gives a permanent bonus of one color. Bonuses act like permanent resources for future purchases and can reduce required token spend to zero for that color if sufficient. Prestige points come from cards showing point values and from noble tiles.\n\nNobles: end-of-turn check is mandatory. If your bonuses satisfy one or more visible nobles, you must take exactly one noble tile that turn (your choice if multiple). Taking a noble is not your action; it is a free end-of-turn resolution.\n\nOpen information: players’ purchased cards and visible token holdings are public. Reserved cards are hidden. Tactical pressure often comes from racing visible bonus thresholds and denying key market cards. Additional rules clarifications from the official flow: you cannot perform multiple action types in one turn, and taking a noble never replaces your chosen action. Reserved cards in hand are private, but your purchased tableau must remain arranged so point values and bonus colors are visible to all players. Because market refill happens immediately after reserve/purchase, tactical denial can also reveal a stronger card to opponents; timing this matters. In two-player games especially, reduced gem supply makes double-take actions harder, so bonus discounts and token efficiency become even more important than raw card points.",
+      "token_count": 471
     },
     "scoring_and_endgame": {
-      "content": "Game-end trigger is any player reaching 15 or more prestige points at end of their turn. Continue until all players have taken equal turns in the round, then winner is highest prestige. Tie-break: tied player with fewest purchased development cards wins (more efficient engine). Points come from development cards (various values) and noble tiles (3 each).",
-      "token_count": 150
+      "content": "Prestige points are scored from purchased development cards (printed values) and noble tiles (3 each). The endgame triggers immediately when a player reaches at least 15 prestige at end of their turn. Then complete the current round so every player has taken the same number of turns. Highest prestige wins. Official tie-break: among tied players, the one who purchased fewer development cards wins (more efficient engine).",
+      "token_count": 85
     },
     "beginner_strategy": {
-      "content": "Early game, prioritize cheap level I cards that create a discount triangle across colors rather than random buys. Reserve high-value cards only if you can realistically buy them soon; otherwise you tempo-loss yourself. Watch opponents’ noble races and cut one required color to delay their free 3 points. Keep token count flexible (7–9) so you can pivot to unexpected face-up deals without forced discards. A fast low-card 15-point line often beats a flashy level III plan.",
-      "token_count": 170
+      "content": "Build an efficient discount engine first: early low-level cards with no points are often correct if they accelerate future buys. Reserve defensively only when a card is pivotal for your plan or to deny an opponent near-term points; over-reserving slows your economy. Track noble requirements from turn one and align your color spread to threaten one noble naturally rather than chasing all of them. Treat gold as tempo, not treasure—spend jokers to convert timing advantages into immediate card pickups. Stay under token-cap pressure by buying regularly; players who repeatedly discard down from 11+ are usually losing tempo.",
+      "token_count": 126
     }
   },
-  "total_token_count": 1005,
+  "total_token_count": 890,
   "metadata": {
     "created_by": "halfling",
-    "created_at": "2026-02-23T04:24:07Z",
+    "created_at": "2026-02-23T05:46:34Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Passed structural/source gate (Checks 1-6). Pending manual content accuracy review (Checks 7-12) before approval."
+    "revision": 2,
+    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
   }
 }

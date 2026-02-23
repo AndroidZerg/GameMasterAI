@@ -26,34 +26,34 @@
   "source_verified": true,
   "sections": {
     "component_identification": {
-      "content": "Core components include 19 terrain hexes, number tokens, resource cards (brick, lumber, wool, grain, ore), development cards, roads/settlements/cities in four player colors, a robber pawn, two dice, ports, and bonus cards for Longest Road and Largest Army.",
-      "token_count": 37
+      "content": "Catan base game components from the official rules: 19 terrain hexes (4 forest, 4 pasture, 4 fields, 3 hills, 3 mountains, 1 desert), 6 sea-frame pieces, 9 harbor pieces, 18 number tokens, 95 resource cards (19 each of lumber, wool, grain, brick, ore), 25 development cards (14 knight, 6 progress, 5 victory point), 4 building-cost cards, 2 special cards (Longest Road and Largest Army), 60 roads (15 per player color), 20 settlements (5 per color), 16 cities (4 per color), 2 dice, 1 robber pawn, and the rulebook/almanac. In play, each player uses exactly 15 roads, 5 settlements, and 4 cities of one color.",
+      "token_count": 135
     },
     "core_game_loop": {
-      "content": "Each turn you roll dice to produce resources, resolve robber effects on a 7, optionally trade with players or bank/ports, then spend resources to build roads, settlements, cities, or buy a development card.",
-      "token_count": 33
+      "content": "A turn in Catan has a fixed rhythm: roll for production, trade, then build. First, roll both dice; every hex showing that number produces resources for players with adjacent settlements/cities. If a 7 is rolled, players with more than 7 resource cards discard half (rounded down), then the active player moves the robber and steals 1 random card from an eligible adjacent opponent. After dice resolution, the active player may trade with players and/or use maritime trade rates from the bank/harbors. Finally, the player may build roads/settlements/cities and buy development cards in any order they can afford before ending the turn.",
+      "token_count": 131
     },
     "detailed_rules": {
-      "content": "Setup uses randomized terrain and number tokens (with spacing rules) and two starting settlements per player. Settlements must follow the distance rule (no adjacent settlements). Roads extend your network and enable new settlement spots. Cities upgrade settlements and double production from adjacent hexes. On a 7, players with more than seven cards discard half and the active player moves the robber to block one hex and steal one random card from an adjacent opponent. Development cards are bought face down; most cannot be played the same turn they are purchased. First to a continuous 5-road chain claims Longest Road (+2 VP), and first to three played Knights claims Largest Army (+2 VP).",
-      "token_count": 112
+      "content": "Setup uses either the beginner map or the variable setup from the almanac. In either setup, settlements must always respect the distance rule: no settlement may be placed on an intersection adjacent to another settlement (at least two road edges apart). Initial placement is snake order: each player places one settlement + one connected road in turn order, then a second settlement + connected road in reverse order; resources are collected from hexes adjacent to the second starting settlement.\n\nProduction and robber: on non-7 rolls, each settlement adjacent to a producing hex gets 1 matching resource; each city gets 2. The desert never produces. If a 7 is rolled, discard first (for hands above 7), then move robber to any hex; that hex is blocked from production while robber remains there. The mover steals one random resource from one player with a settlement/city on the robbed hex.\n\nBuilding costs and placement: road = brick+lumber; settlement = brick+lumber+wool+grain; city upgrade = 3 ore+2 grain; development card = ore+grain+wool. Roads must connect to your existing road/settlement/city network (except initial placement). New settlements must be connected to your road and obey distance rule. Cities can only be built by upgrading your own settlements; return the settlement piece to your supply.\n\nTrading: domestic trade values are negotiated freely with active player involved in every trade. Maritime trade is with the bank: default 4 identical for 1 of choice, improved to 3:1 with generic harbor or 2:1 for matching resource harbor if you have a settlement/city on that harbor intersection.\n\nDevelopment cards: purchased cards are kept hidden. You may play at most one development card per turn, and generally not the same turn it was bought (victory point cards are kept hidden until relevant). Knight moves robber and can trigger Largest Army. Road Building places 2 free roads following normal legal placement. Year of Plenty takes any 2 resources from bank. Monopoly names one resource; all opponents give you all cards of that type.\n\nSpecial cards: Longest Road is awarded to first player with a continuous road of at least 5 segments; if another player later has a strictly longer legal continuous route, they take it. Largest Army goes to first player who has played 3 knight cards; it can be stolen by a player who later has more played knights.",
+      "token_count": 501
     },
     "scoring_and_endgame": {
-      "content": "Points come from settlements (1), cities (2), certain development cards (1 each), Longest Road (2), and Largest Army (2). The game ends immediately when a player reaches 10+ points on their own turn.",
-      "token_count": 33
+      "content": "Victory points come from board position and special cards: each settlement is 1 VP, each city is 2 VP, Largest Army is 2 VP, Longest Road is 2 VP, and each victory point development card is 1 VP. The winner is the first player to reach at least 10 VP on their own turn (including VP cards they choose to reveal as part of that check). End happens immediately when threshold is reached; no full-round completion. Important practical scoring checks near game end: verify if Longest Road/Largest Army are currently held by the leading player, and count hidden VP development cards only when revealed for win confirmation.",
+      "token_count": 139
     },
     "beginner_strategy": {
-      "content": "Prioritize strong starting intersections with high-probability numbers (6/8) and balanced resource access. Expand early with road+settlement tempo, protect against robber risk by spending cards before turns cycle, and use ports or smart trades to smooth bottlenecks. Track opponents near 10 VP and contest Longest Road/Largest Army when possible.",
-      "token_count": 48
+      "content": "Prioritize opening intersections that combine strong probabilities (especially 6/8, then 5/9) with resource diversity; high pips without variety can still stall your build tree. Secure at least one early expansion line with brick+lumber access so you can place your third settlement before the board closes. Spend down oversized hands when possible to reduce 7-risk—buying a development card to park value is often better than passing with 9+ cards. Treat ports as efficiency engines, not decoration: a well-timed 2:1 or 3:1 settlement can fix a weak production spread and keep you independent from table politics. In the midgame, track opponents’ VP pace and deny explosive finishes by contesting Longest Road routes, pressuring knight tempo, and placing robber where it both blocks leaders and limits their trade leverage.",
+      "token_count": 163
     }
   },
-  "total_token_count": 263,
+  "total_token_count": 1069,
   "metadata": {
     "created_by": "halfling",
-    "created_at": "2026-02-23T04:22:28Z",
+    "created_at": "2026-02-23T05:46:34Z",
     "validated_by": "paladin",
     "validated_at": "2026-02-23T04:33:40Z",
-    "validation_status": "rejected",
-    "revision": 1,
-    "notes": "Check 4 failed: total_token_count is 263; must be 800-3000 (hard reject if <800 or >5000)"
+    "validation_status": "pending",
+    "revision": 2,
+    "notes": "Rewritten using official rulebook text in /content/rulebook-text as primary source."
   }
 }
