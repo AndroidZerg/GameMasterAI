@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { queryGame, fetchGames } from "../services/api";
 import VoiceButton from "./VoiceButton";
+import { speakResponse, stopSpeaking } from "./ResponseDisplay";
 
 const MODES = [
   { key: "setup", label: "Setup" },
@@ -49,19 +50,8 @@ export default function GameTeacher() {
       const answer = result.answer;
       setHistory((prev) => [...prev, { role: "assistant", content: answer }]);
 
-      // Voice output
-      if (!voiceMuted && window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(answer);
-        utter.rate = 0.9;
-        // Pick a good English voice if available
-        const voices = window.speechSynthesis.getVoices();
-        const english = voices.find(
-          (v) => v.lang.startsWith("en") && v.name.includes("Google")
-        ) || voices.find((v) => v.lang.startsWith("en"));
-        if (english) utter.voice = english;
-        window.speechSynthesis.speak(utter);
-      }
+      // Voice output via SpeechSynthesis
+      speakResponse(answer, voiceMuted);
     } catch (err) {
       setHistory((prev) => [
         ...prev,
@@ -109,7 +99,7 @@ export default function GameTeacher() {
         <button
           onClick={() => {
             setVoiceMuted(!voiceMuted);
-            if (!voiceMuted) window.speechSynthesis?.cancel();
+            if (!voiceMuted) stopSpeaking();
           }}
           style={{
             padding: "8px 14px",
