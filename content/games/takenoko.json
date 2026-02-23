@@ -29,22 +29,22 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "The provided Takenoko rulebook text in this prompt contains only scanned page headers (\"TAKENOKO Regles US CARRE.indd\" with timestamps) and does not include readable component pages, counts, or setup diagrams. Because of that source limitation, exact component counts cannot be extracted from the supplied text. To stay source-faithful, use this checklist before teaching: verify all physical components directly against the official printed rulebook contents page in the box (board tiles, objective cards, bamboo pieces by color, weather die, miniatures, irrigation pieces, and markers). Do not proceed with competitive play until the official contents list is confirmed at the table."
+          "content": "#### Player-Count Audit (Step 0)\n- **Rulebook text provided** \u2014 Only scanned header lines are present.\n- **2-player variant found** \u2014 No readable value found in provided text.\n- **3-player variant found** \u2014 No readable value found in provided text.\n- **4-player variant found** \u2014 No readable value found in provided text.\n- **Solo mode found** \u2014 No readable solo rules found in provided text.\n- **Variant references found** \u2014 No readable variant rules found in provided text.\n\n#### Source Limitation\n- **Missing component page** \u2014 Exact component counts are not present in the supplied OCR text.\n- **Count integrity** \u2014 Do not invent component numbers from memory.\n- **Teaching requirement** \u2014 Verify counts directly from the printed official rulebook before play.\n\n#### Verification Checklist\n- **Core pieces** \u2014 Confirm all boards/tiles/figures listed in the physical rulebook contents.\n- **Card stacks** \u2014 Confirm each objective deck and its count from the printed rules.\n- **Resource sets** \u2014 Confirm bamboo/irrigation marker counts from printed rules."
         },
         {
           "id": "board-layout",
           "title": "Board Layout",
-          "content": "The supplied text does not include the setup section, so exact sequence wording is unavailable in-source. Use official board setup from the printed rulebook in this order: place the starting central tile, create draw/supply areas for plot tiles and objectives, place irrigation supply, place bamboo reserves by color, place gardener and panda miniatures at their required starting positions, and place weather/randomization tools. Keep all objective decks separated by objective type and place them where all players can draw legally."
+          "content": "#### Setup Sequence (Use Printed Rulebook Values)\n1. **Center tile** \u2014 Place the starting central tile as shown in official setup.\n2. **Supply zones** \u2014 Create supply areas for tiles, irrigation, bamboo, and objective decks.\n3. **Miniatures** \u2014 Place panda and gardener on their official starting spaces.\n4. **Randomizer** \u2014 Place weather/randomization tools used by your edition.\n5. **Public rows** \u2014 Arrange objective decks and open areas exactly as the printed diagram shows.\n\n#### Player-Count Audit Application\n- **Count-specific layout text** \u2014 No readable 2/3/4-player layout differences are present in supplied OCR text.\n- **Exact-numbers policy** \u2014 Apply only the numeric setup values printed in the physical rulebook."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Because player-setup details are not present in the extracted text, confirm player aid, starting objective cards, and any initial irrigation/tile resources directly from the official rulebook before the first turn. For teaching consistency, each player should verify: personal objective hand size, whether objectives are kept secret or public, and any per-player starting action modifiers if listed by player count."
+          "content": "#### Player Setup Checklist\n- **Identity setup** \u2014 Give each player their markers/components exactly per printed rules.\n- **Starting hand setup** \u2014 Deal starting objectives/cards exactly per printed rules.\n- **Starting resources** \u2014 Give only the resources explicitly listed for setup.\n\n#### Player-Count Headers (No Readable Deltas in Provided OCR)\n--- 2 Players ---\n- **Setup delta in provided text** \u2014 No readable value found.\n\n--- 3 Players ---\n- **Setup delta in provided text** \u2014 No readable value found.\n\n--- 4 Players ---\n- **Setup delta in provided text** \u2014 No readable value found.\n\n#### Pre-Game Validation\n- **Objective secrecy** \u2014 Confirm whether objective cards are hidden or public.\n- **Opening legality** \u2014 Confirm any first-turn restrictions from printed rules."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "The source snippet does not include first-player determination text. Use the official first-player rule from the printed rulebook and begin clockwise. Before turn one, announce aloud: objective visibility rules, action selection limits per turn, weather usage timing, and endgame trigger so all players share the same baseline."
+          "content": "#### Start Procedure\n1. **First player** \u2014 Determine first player using official printed rule method.\n2. **Turn direction** \u2014 Begin clockwise play unless printed rules say otherwise.\n3. **Rule reminders** \u2014 Announce objective timing, weather timing, and endgame trigger timing.\n\n#### Player-Count Audit\n- **Count-based start differences** \u2014 No readable 2/3/4-player start differences in supplied OCR text.\n- **Solo mode** \u2014 No readable solo start sequence in supplied OCR text."
         }
       ]
     },
@@ -53,22 +53,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "The supplied OCR text does not include readable turn-order rules. Use this rules-teaching skeleton and map each step to your printed official rulebook wording: 1) Resolve start-of-turn random/weather effect (if active in your edition). 2) Choose and resolve action #1. 3) Choose and resolve action #2 (respecting any rulebook restriction against repeating the same action unless a weather effect allows it). 4) Resolve objective completion checks and immediate scoring/claim timing as written. 5) Refill any public displays or supplies required by end-of-turn maintenance. 6) Pass clockwise."
+          "content": "#### Turn Order Skeleton\n1. **Start-of-turn effect** \u2014 Resolve weather/random effect if your printed rules require it.\n2. **Action one** \u2014 Choose and resolve first action fully.\n3. **Action two** \u2014 Choose and resolve second action fully.\n4. **Completion checks** \u2014 Resolve objective completion and scoring windows.\n5. **Maintenance** \u2014 Refill/refresh public elements required by end-of-turn rules.\n6. **Pass turn** \u2014 Move to next player clockwise.\n\n#### Rule Precision\n- **Sequence priority** \u2014 Follow printed timing text exactly.\n- **No memory shortcuts** \u2014 If timing is unclear, read the exact printed line."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "Action descriptions are not present in the extracted text block, so exact legal wording must be taken from the official printed rules. In standard teaching structure for Takenoko, action families include: adding/placing hex plot tiles, placing irrigation, moving gardener to grow bamboo, moving panda to eat bamboo, and drawing objective cards. Teach each action with three checks: legal target, immediate effect, and resulting objective progress. When action interactions conflict, resolve by official timing hierarchy in the printed rules. If weather grants an extra or modified action, apply that modification before selecting actions."
+          "content": "#### Action Families (Confirm Exact Text in Printed Rules)\n- **Tile placement** \u2014 Add a plot tile using legal placement constraints.\n- **Irrigation** \u2014 Place irrigation using legal network connection rules.\n- **Gardener movement** \u2014 Move gardener and resolve growth effects as written.\n- **Panda movement** \u2014 Move panda and resolve eating effects as written.\n- **Objective draw** \u2014 Draw objective cards from legal decks and timing windows.\n\n#### Resolution Discipline\n- **Legality first** \u2014 Check legal target/location before resolving effect.\n- **Immediate effects** \u2014 Resolve mandatory effects immediately.\n- **Conflict handling** \u2014 Use printed timing hierarchy when effects overlap."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "Key systems to verify directly in the official rulebook (not available in the OCR snippet) are: irrigation network requirements, bamboo growth conditions, panda consumption timing, objective claiming windows, and weather modifiers. These systems are where most disputes happen. For clean play, keep a visible table reminder of: which plots are irrigated, current bamboo heights by color, and whether an objective can be claimed immediately or only on specific timing windows."
+          "content": "#### Core Systems to Verify in Printed Rules\n- **Irrigation state** \u2014 Track which plots are irrigated at all times.\n- **Growth state** \u2014 Track bamboo color and height state on each plot.\n- **Panda timing** \u2014 Apply panda consumption at the exact timing step.\n- **Objective timing** \u2014 Claim objectives only in legal timing windows.\n- **Weather modifiers** \u2014 Apply weather effects before/after actions exactly as written.\n\n#### Table Aids\n- **Visual tracker** \u2014 Keep a visible marker system for irrigated vs non-irrigated plots.\n- **Dispute prevention** \u2014 Pause and quote printed rule text when timing disputes occur."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "The provided text does not contain endgame trigger or scoring/tiebreak text. Use the official printed rulebook to confirm: exact trigger condition by player count, whether round completion is required after trigger, all point sources from completed objectives, and tie-break procedure. Do not substitute house rules here; Takenoko’s finish timing can swing the winner by several points if handled incorrectly."
+          "content": "#### Endgame Audit\n- **Trigger text in OCR** \u2014 Not readable in provided source text.\n- **Scoring text in OCR** \u2014 Not readable in provided source text.\n- **Tiebreak text in OCR** \u2014 Not readable in provided source text.\n\n#### Required Official Verification\n- **Trigger condition** \u2014 Confirm exact end trigger from printed rulebook.\n- **Final-round handling** \u2014 Confirm whether round completion occurs after trigger.\n- **Point sources** \u2014 Confirm all scoring categories from printed rules.\n- **Tiebreak order** \u2014 Confirm exact tiebreak sequence from printed rules."
         }
       ]
     },
@@ -77,31 +77,31 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "Because the supplied text lacks full rules detail, keep early strategy process-based and rules-safe: prioritize board states that preserve flexibility (irrigation access and movement options), collect objectives that overlap shared requirements, and avoid committing all early actions to one narrow line unless your objective hand strongly supports it. After turn one, reassess which objective types are realistically completable with current plot colors and bamboo growth pace."
+          "content": "#### Early Priorities\n- **Flexibility first** \u2014 Build board states that keep multiple legal actions open next turn.\n- **Network first** \u2014 Prioritize irrigation access so growth actions stay live.\n- **Objective overlap** \u2014 Keep objectives that share board requirements for efficient scoring.\n- **Tempo check** \u2014 Reassess after each turn whether your next two actions are both high value.\n\n#### Count-Aware Caution\n--- 2 Players ---\n- **Interaction pressure** \u2014 Verify disruption timing from printed rules before overcommitting to denial lines.\n\n--- 3 Players ---\n- **Race pressure** \u2014 Verify objective race pace from printed rules before hoarding objective draws.\n\n--- 4 Players ---\n- **Board pressure** \u2014 Verify placement congestion impacts from printed rules before planning long routes."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Advancing actions without confirming irrigation legality, which invalidates growth assumptions. 2) Over-drawing objective cards without enough board development actions to complete them. 3) Ignoring opponent scoring race and accidentally giving them uncontested objective windows. 4) Mis-timing endgame trigger checks, especially when a final objective is completed mid-turn. 5) Treating weather effects as optional flavor instead of strict turn modifiers when the official rules make them binding."
+          "content": "- **Irrigation miss** \u2014 Taking growth-dependent actions without legal irrigation support.\n- **Objective bloat** \u2014 Drawing too many objectives without matching board execution actions.\n- **Timing drift** \u2014 Applying weather/objective timing in the wrong phase order.\n- **Trigger miss** \u2014 Forgetting to check endgame trigger immediately when conditions might be met.\n- **Rule-memory play** \u2014 Using remembered house interpretations instead of printed official text."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "Decision 1: Board development now vs objective claiming now—whether to invest actions into infrastructure (irrigation/plot states) or cash immediate objective points. Decision 2: Denial vs efficiency—using panda/gardener movement to disrupt opponents versus maximizing your own progress each turn. Decision 3: Trigger timing—when to push the endgame trigger based on your completed objective mix and expected opponent final-turn potential."
+          "content": "#### Decision 1: Infrastructure vs Immediate Points\n- **Infrastructure line** \u2014 Spend actions on irrigation/board state to unlock repeat value.\n- **Point line** \u2014 Claim immediate objectives when timing windows are favorable.\n\n#### Decision 2: Self-Progress vs Denial\n- **Self-progress** \u2014 Maximize your own deterministic scoring plan.\n- **Denial** \u2014 Use movement/actions to reduce opponents\u2019 likely completions.\n\n#### Decision 3: Endgame Timing\n- **Fast trigger** \u2014 Push endgame when your current objective spread leads.\n- **Slow trigger** \u2014 Delay trigger when one more cycle improves your scoring spread significantly."
         }
       ]
     }
   },
-  "total_token_count": 2680,
+  "total_token_count": 2750,
   "extensions": {},
   "metadata": {
     "schema_version": "2.0",
     "created_by": "goblin",
-    "created_at": "2026-02-23T07:15:02Z",
+    "created_at": "2026-02-23T18:26:40Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Primary source limitation: provided Takenoko text contains only scanned page headers and no readable rules/body text. This file is schema-complete but intentionally flags where official printed rulebook verification is required for exact counts and legal wording."
+    "revision": 2,
+    "notes": "Reformatted for skimmable style; source OCR lacks readable rule text, so exact numeric deltas must be verified from printed rulebook."
   }
 }

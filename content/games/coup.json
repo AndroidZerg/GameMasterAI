@@ -29,17 +29,17 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "Core components from the official rulebook: 15 character cards total (3 copies each of 5 roles: Duke, Assassin, Contessa, Captain, Ambassador), 50 coins, and summary cards. Optional rules component: Inquisitor role variant that replaces Ambassador (used only if all players agree to that variant)."
+          "content": "#### Core Cards\n- **15 character cards** — The full influence deck.\n- **3 Duke cards** — Character role copies.\n- **3 Assassin cards** — Character role copies.\n- **3 Contessa cards** — Character role copies.\n- **3 Captain cards** — Character role copies.\n- **3 Ambassador cards** — Character role copies in base game.\n\n#### Currency\n- **50 coins** — Shared treasury supply.\n\n#### Reference\n- **Summary cards** — Turn/action reminder aids.\n\n#### Optional Variant Component\n- **Inquisitor role option** — Replaces Ambassador when using the optional rule variant."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Shuffle the 15-character deck. Deal each player 2 face-down character cards (their influence). Each player also takes 2 coins from the treasury. Place remaining coins in a central treasury and place remaining character cards face-down as the Court deck. Players keep their own influence cards hidden; face-down cards represent active influence."
+          "content": "#### Setup Steps\n1. **Shuffle deck** — Shuffle all 15 character cards together.\n2. **Deal influence** — Deal 2 face-down cards to each player.\n3. **Deal coins** — Give each player exactly 2 coins.\n4. **Create Court deck** — Put all undealt character cards face-down as the Court deck.\n5. **Create treasury** — Put remaining coins in a shared treasury pile.\n\n#### Hidden Information\n- **Influence secrecy** — Keep your 2 influence cards face-down and hidden from opponents.\n- **Active influence** — Face-down influence is usable influence."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "Choose a starting player by any agreed fair method and proceed clockwise. On each turn, a player chooses exactly one action: either a basic action (Income, Foreign Aid, Coup) or any one character action (even if they may not actually have that character)."
+          "content": "#### Player-Count Audit (Step 0)\n- **Detected count rule** — Official rules state game supports 2–6 players.\n- **Detected setup scaling** — No different setup numbers are listed by specific player count.\n- **Detected action scaling** — No action changes are listed by specific player count.\n- **Detected scoring scaling** — No scoring changes are listed by specific player count.\n- **Detected solo mode** — No solo mode rules are listed.\n- **Detected variant** — Optional Inquisitor variant replaces Ambassador role behavior.\n\n#### Count Confirmation\n--- 2 Players ---\n- **Support status** — Officially supported.\n- **Setup difference** — No count-specific setup changes listed.\n\n--- 3 Players ---\n- **Support status** — Officially supported.\n- **Setup difference** — No count-specific setup changes listed.\n\n--- 4 Players ---\n- **Support status** — Officially supported.\n- **Setup difference** — No count-specific setup changes listed.\n\n--- 5 Players ---\n- **Support status** — Officially supported.\n- **Setup difference** — No count-specific setup changes listed.\n\n--- 6 Players ---\n- **Support status** — Officially supported.\n- **Setup difference** — No count-specific setup changes listed.\n\n#### First Turn\n- **Start player** — Choose first player by agreed method.\n- **Turn order** — Play proceeds clockwise.\n- **Turn choice** — On your turn, take exactly one action declaration."
         }
       ]
     },
@@ -48,22 +48,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "1) Start of turn check: if you have 10 or more coins, you must take the Coup action. 2) Declare exactly one action (basic or character action claim). 3) Other players may challenge if the action or block depends on a claimed character. 4) Resolve challenge if made: if claimant cannot reveal required character, claimant loses 1 influence; if claimant reveals correctly, challenger loses 1 influence and claimant shuffles revealed card into deck then draws a replacement. 5) Resolve the action effect (or block) if still valid. 6) Any player who loses influence turns one character face-up of their choice; face-up influence is dead and unusable. 7) Turn passes clockwise."
+          "content": "#### Turn Sequence\n1. **Mandatory coup check** — If you have 10+ coins, you must choose Coup.\n2. **Declare action** — Declare one basic action or one character action claim.\n3. **Challenge window** — Opponents may challenge any claimed character action or character-based block.\n4. **Resolve challenge** — Apply reveal/loss rules immediately if challenge occurs.\n5. **Resolve action** — Complete action effect if legal and not successfully stopped.\n6. **Apply influence loss** — Any player losing influence reveals one chosen face-down card.\n7. **Pass turn** — Continue clockwise."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "Basic actions: Income = take 1 coin from treasury (cannot be blocked). Foreign Aid = take 2 coins from treasury (can be blocked by Duke). Coup = pay 7 coins, choose an opponent; that opponent immediately loses 1 influence (if you have 10+ coins, this action is mandatory on your turn). Character actions and blocks: Duke action = take 3 coins from treasury; Duke block = block Foreign Aid. Assassin action = pay 3 coins to attempt assassination of another player’s influence; Contessa can block an assassination against herself. Captain action = take 2 coins from another player (steal); Captain can block stealing against themselves; Ambassador can also block stealing against themselves. Ambassador action = draw 2 cards from Court deck, choose which (if any) to exchange with your current face-down cards, then return 2 cards to Court deck. Important claim rule: you may declare any character action whether or not you actually have that role, but such claims are challengeable."
+          "content": "#### Basic Actions\n- **Income** — Take 1 coin from treasury.\n- **Income blockability** — Income is not blocked by character text in the provided rules.\n- **Foreign Aid** — Take 2 coins from treasury.\n- **Foreign Aid block** — Duke can block Foreign Aid.\n- **Coup** — Pay 7 coins and force one target opponent to lose 1 influence.\n- **Mandatory Coup threshold** — If you have 10 or more coins, Coup is required on your turn.\n\n#### Character Action Claims\n- **Duke action** — Take 3 coins from treasury.\n- **Assassin action** — Pay 3 coins to attempt to assassinate one opponent influence.\n- **Captain action** — Take 2 coins from another player (steal).\n- **Ambassador action** — Draw 2 from Court deck, choose exchange with hidden influence, return 2 to Court deck.\n\n#### Defensive Blocks\n- **Duke block** — Block someone from taking Foreign Aid.\n- **Contessa block** — Block an assassination attempt against yourself.\n- **Captain block** — Block someone from stealing from you.\n- **Ambassador block** — Block someone from stealing from you.\n\n#### Claim Legality\n- **Bluff permission** — You may declare any character action whether or not you actually hold that character.\n- **Challenge risk** — Any declared character claim is challengeable."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "Influence and elimination: each player starts with 2 influence (2 face-down cards). Whenever you lose influence, reveal one card face-up. Face-up cards cannot be used for actions or blocks. If both your cards are face-up, you are eliminated. Challenge system: character-based actions and character-based blocks automatically succeed unless challenged. If challenged unsuccessfully, challenger loses influence. If challenged successfully, claimant loses influence. When a truthful claimant proves the character, that revealed card is shuffled back into deck and replaced with a fresh hidden card, preserving secrecy. Optional Inquisitor variant (replacing Ambassador): Inquisitor can draw 1 card and optionally exchange with one hidden card, OR force an opponent to show one chosen hidden card (opponent chooses which) and may force redraw/shuffle-back sequence; Inquisitor also blocks stealing."
+          "content": "#### Influence System\n- **Influence definition** — Influence is represented by your face-down character cards.\n- **Lose influence** — When required, reveal one of your face-down cards face-up.\n- **Face-up status** — Face-up characters cannot be used for actions or blocks.\n- **Elimination** — If both your cards are face-up, you are out of the game.\n\n#### Challenge Resolution\n- **Default success** — Character actions and character blocks succeed unless challenged.\n- **Failed proof** — If challenged and you cannot reveal required character, you lose 1 influence.\n- **Successful proof** — If challenged and you reveal required character, challenger loses 1 influence.\n- **Reshuffle step** — A successfully revealed character is shuffled into Court deck.\n- **Redraw step** — After reshuffling, draw a replacement hidden character card.\n\n#### Optional Inquisitor Variant\n- **Role swap** — Inquisitor replaces Ambassador in optional rules.\n- **Inquisitor option A** — Draw 1 from Court deck and choose whether to exchange with hidden influence.\n- **Inquisitor option B** — Force an opponent to show one chosen hidden card (opponent chooses which card to show).\n- **Forced redraw option** — Inquisitor may force that opponent card to be shuffled back and redrawn.\n- **Steal defense** — Inquisitor blocks stealing."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "Coup has no point scoring system. The game ends immediately when only one player still has at least one face-down influence card. That player is the winner. There are no additional victory points and no tiebreakers because final survival determines victory."
+          "content": "#### End Condition\n- **Last influence standing** — Game ends when only one player has at least one face-down influence card.\n\n#### Winner\n- **Victory condition** — The last player with influence wins immediately.\n\n#### Scoring Note\n- **No VP track** — Coup has no point-scoring system in the provided rules.\n- **No tiebreaker needed** — Survival state defines a single winner."
         }
       ]
     },
@@ -72,31 +72,31 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "Build a believable identity early: repeat a coherent role story rather than making random contradictory claims each turn. Track coin thresholds at the table—especially who is near 3 (assassination) and 7 (coup). Maintain enough economy that you are not forced into weak lines, but avoid becoming the obvious immediate target. If you plan to bluff aggressively, do it where failure costs least (early) rather than in must-win late turns."
+          "content": "#### Early Table Positioning\n- **Establish credibility** — Make early claims that can be defended consistently over multiple turns.\n- **Track thresholds** — Watch who can reach 3 coins (assassin pressure) and 7 coins (coup pressure).\n- **Control threat level** — Build coins without becoming the automatic table target.\n\n#### Practical Opening Lines\n- **Safe economy line** — Use Income/Foreign Aid cadence when challenge pressure is high.\n- **Tempo bluff line** — Claim Duke early only if your table is challenge-shy or you can absorb a failed challenge.\n- **Defense planning** — Keep at least one believable defensive claim online before opponents hit 3+ coins."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Challenging too often on weak reads. Every failed challenge costs influence and can lose the game quickly. 2) Ignoring mandatory Coup at 10+ coins. New players accidentally attempt other actions illegally. 3) Bluffing every turn with different roles. Inconsistent claims make you easy to challenge. 4) Failing to count treasury and player coins. Good Coup play is threshold management, not just social reads. 5) Revealing influence without future plan. When forced to lose influence, reveal the card that preserves your strongest remaining bluff/block options."
+          "content": "- **Over-challenging** — Challenging weakly-read claims burns influence faster than it gains control.\n- **Missing forced coup** — Trying non-coup actions at 10+ coins is illegal and usually costs tempo.\n- **Chaotic bluffing** — Switching claimed roles every turn makes you easy to call out.\n- **Ignoring coin math** — Not tracking coin totals causes surprise assassinations and coups.\n- **Wrong reveal choice** — Revealing the wrong card when losing influence can destroy your remaining bluff tree."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "Decision 1: Tempo vs threat profile—whether to accelerate coins quickly (strong economy, higher table heat) or stay modest (lower attention, slower control). Decision 2: Challenge timing—do you challenge now to break an opponent’s momentum, or hold influence and wait for a higher-value challenge point? Decision 3: Assassination pressure vs guaranteed coup value—paying 3 for immediate pressure can be great, but saving toward guaranteed coups can be safer in uncertain bluff states."
+          "content": "#### Decision 1: Economy Speed vs Table Heat\n- **Fast money** — Higher coin gain gives faster pressure but paints a target.\n- **Low-profile money** — Slower gain reduces threat perception but risks falling behind.\n\n#### Decision 2: Challenge Now vs Challenge Later\n- **Immediate challenge** — Stops momentum if correct but can lose influence if wrong.\n- **Delayed challenge** — Preserves influence while collecting more read data.\n\n#### Decision 3: Assassin Spend vs Coup Save\n- **Assassin route** — Pay 3 for earlier elimination pressure and bluff leverage.\n- **Coup route** — Save to 7 for guaranteed, unblockable influence removal."
         }
       ]
     }
   },
-  "total_token_count": 1660,
+  "total_token_count": 1720,
   "extensions": {},
   "metadata": {
     "schema_version": "2.0",
     "created_by": "goblin",
-    "created_at": "2026-02-23T07:13:13Z",
+    "created_at": "2026-02-23T18:24:43Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Written from provided Coup official rulebook text, including optional Inquisitor variant note."
+    "revision": 2,
+    "notes": "Reformatted for skimmable style with explicit player-count audit and exact count headers where applicable."
   }
 }

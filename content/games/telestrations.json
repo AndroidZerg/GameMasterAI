@@ -29,17 +29,17 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "72 double-sided word cards (\"This Side\" and \"That Side\", over 800 words total), 6 erasable sketch books, 6 dry-erase markers, 3 clean-up cloths, and 1 die."
+          "content": "#### Step 0 - Player-Count Audit\n- **Supported counts** — 4 to 6 players.\n- **4-player rule found** — Listed in setup flow for first sketch handling.\n- **5-player rule found** — Special first pass rule to force round ending on a guess.\n- **6-player rule found** — Listed in setup flow for first sketch handling.\n- **Fewer/more wording** — No separate fewer/more scaling tables beyond 4/5/6 handling.\n- **Solo mode** — Not listed.\n- **Variants** — Optional variants are listed (seat switch, reverse pass, etc.) but are not player-count scaling rules.\n\n#### Core components\n- **Word cards** — 72 cards (double-sided: \"This Side\" and \"That Side\") with 800+ words total.\n- **Sketch books** — 6 erasable sketch books.\n- **Markers** — 6 dry-erase markers.\n- **Clean-up cloths** — 3 cloths.\n- **Die** — 1 die."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Place cards, cloths, and die in the center. As a group, choose to use either THIS SIDE or THAT SIDE for all cards this game. Each player takes 1 sketch book, 1 marker, and 1 card. Every player writes their name on the front of their sketch book."
+          "content": "#### Shared setup\n- **Center supplies** — Place cards, cloths, and die in the center.\n- **Card side choice** — Group chooses either THIS SIDE or THAT SIDE for this game.\n\n--- 4 Players ---\n- **Personal items** — Each player takes 1 sketch book, 1 marker, and 1 card.\n- **Book label** — Each player writes their name on the front of their sketch book.\n\n--- 5 Players ---\n- **Personal items** — Each player takes 1 sketch book, 1 marker, and 1 card.\n- **Book label** — Each player writes their name on the front of their sketch book.\n\n--- 6 Players ---\n- **Personal items** — Each player takes 1 sketch book, 1 marker, and 1 card.\n- **Book label** — Each player writes their name on the front of their sketch book."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "Each player rolls the die (or one die result is used in turn) and matches the number to the corresponding word on their own card. Secretly write that word in your sketch book. If the matched space is blank, invent any word. If the matched item is an underlined category, invent a word in that category.\n\nPlayer-count adjustment before the first pass:\n- 4 or 6 players: each player starts by drawing their own secret word on SKETCH IT page 1.\n- 5 players: each player opens to SKETCH IT page 1 and passes left first; the receiving player reads the secret word and draws it. This ensures the chain ends on a guess."
+          "content": "#### Word generation\n- **Die step** — Roll the die and match the number to a word on your card.\n- **Secret write** — Write that word secretly in your book.\n- **Blank result** — If the matched slot is blank, invent any word.\n- **Underlined category** — If the matched slot is a category, invent a word in that category.\n\n--- 4 Players ---\n- **Page start** — Turn to SKETCH IT page 1.\n- **First action** — Draw your own secret word.\n\n--- 5 Players ---\n- **Page start** — Turn to SKETCH IT page 1.\n- **Immediate pass** — Pass the book left before first drawing.\n- **First drawing owner** — The receiving player sees the word and draws it.\n- **Reason** — This ensures the round ends on a guess.\n\n--- 6 Players ---\n- **Page start** — Turn to SKETCH IT page 1.\n- **First action** — Draw your own secret word."
         }
       ]
     },
@@ -48,22 +48,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "The game is played over 3 rounds. Each round follows this sequence:\n1. Get a Word: Determine each player's secret word from die result and card entry, and record it secretly.\n2. First Sketch: On SKETCH IT page 1, draw the word (or in 5-player games, draw the passed word as described in setup).\n3. Hide and Pass: Turn to page 2 to hide the drawing and pass the open book to the player on your left.\n4. Guess: Receiver flips back to view prior sketch, then writes a guess on GUESS IT page 2.\n5. Pass Again: Flip forward and pass left simultaneously.\n6. Alternate Sketch/Guess: Continue alternating sketch pages and guess pages each pass until books return to original owners. The sequence should end with a guess.\n7. Big Reveal: Owners flip through their books in order, sharing each sketch and guess chain aloud.\n8. Score Round: Apply either Friendly or Competitive scoring. After 3 rounds, highest total wins."
+          "content": "#### Round structure\n1. **Get a word** — Determine and secretly write each player's word from die/card result.\n2. **First sketch setup** — Apply the player-count specific first sketch rule.\n3. **Sketch step** — Draw on SKETCH IT page 1 (about one minute).\n4. **Hide + pass** — Turn page to hide content and pass open book left.\n5. **Guess step** — Receiver flips back to view prior sketch and writes guess on GUESS IT page.\n6. **Pass again** — Flip forward and pass left simultaneously.\n7. **Repeat loop** — Alternate sketch/guess until books return to owners.\n8. **Reveal** — Owners flip through and share each chain.\n9. **Score** — Use Friendly or Competitive scoring.\n\n#### Game length\n- **Total rounds** — Play exactly 3 rounds.\n\n--- 4 Players ---\n- **First sketch source** — Each player sketches their own secret word first.\n- **Round end state** — Books should end on a guess when they return.\n\n--- 5 Players ---\n- **First sketch source** — First sketch is done by the player to your left after immediate pass.\n- **Round end state** — This format explicitly ensures ending on a guess.\n\n--- 6 Players ---\n- **First sketch source** — Each player sketches their own secret word first.\n- **Round end state** — Books should end on a guess when they return."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "On each pass, a player performs exactly one content action plus one pass action:\n\nA) Sketch action\n- Draw the current word/guess prompt on the open SKETCH IT page.\n- Sketches must contain no letters and no numbers.\n- Complete within roughly one minute to maintain game pace.\n\nB) Guess action\n- Flip back to view only the immediately previous sketch.\n- Write your best guess on the open GUESS IT page.\n- You must write a guess even if uncertain or silly.\n\nC) Pass action\n- After sketching or guessing, flip pages so prior content is hidden and pass the book left.\n- All players pass simultaneously to keep chains synchronized.\n\nGlobal restrictions\n- No blank pages are allowed.\n- No letters or numbers in any sketch.\n- Books are always passed open to the page the next player must complete."
+          "content": "#### Sketch action\n- **When used** — Use on SKETCH IT pages.\n- **Task** — Draw the current prompt (word or previous guess).\n- **Restriction** — No letters in any sketch.\n- **Restriction** — No numbers in any sketch.\n- **Pace** — Keep sketches to about one minute to maintain flow.\n\n#### Guess action\n- **When used** — Use on GUESS IT pages.\n- **Visibility rule** — Flip back only to the immediately previous sketch.\n- **Task** — Write your best guess.\n- **Mandatory entry** — Always write a guess, even if silly or uncertain.\n\n#### Pass action\n- **Hide rule** — Flip forward so previous page is concealed.\n- **Direction** — Pass books to the player on your left.\n- **Timing rule** — Pass simultaneously with all players.\n\n#### Global restrictions\n- **Blank pages** — No blank pages allowed.\n- **Synchronization** — Keep books aligned by passing together."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "Chain transformation system:\n- Each book becomes a telephone-style chain: word -> sketch -> guess -> sketch -> guess, and so on. Accuracy and humor emerge from how information mutates.\n\n5-player parity rule:\n- The special first-pass handling in 5-player games exists only to ensure the final page is a guess, matching the intended reveal/scoring flow.\n\nVariants from rulebook:\n- Change seats between rounds or reverse passing direction.\n- Require sketching with the less-dominant hand.\n- Create custom word cards.\n- For mixed ages, let youngest players pick any word freely."
+          "content": "#### Telephone chain system\n- **Transformation loop** — Each book cycles word -> sketch -> guess -> sketch -> guess.\n- **Gameplay outcome** — Humor and difficulty come from gradual information drift.\n\n--- 4 Players ---\n- **Opening mechanic** — Players sketch their own word first.\n- **Chain parity** — Sequence is structured to end on a guess.\n\n--- 5 Players ---\n- **Opening mechanic** — Immediate left pass before first sketch.\n- **Chain parity** — This specific adjustment exists to force a final guess endpoint.\n\n--- 6 Players ---\n- **Opening mechanic** — Players sketch their own word first.\n- **Chain parity** — Sequence is structured to end on a guess.\n\n#### Rulebook variants\n- **Seat variant** — Switch seats between rounds.\n- **Direction variant** — Reverse pass direction.\n- **Dexterity variant** — Sketch with less-dominant hand.\n- **Content variant** — Create custom cards.\n- **Mixed ages** — Youngest player may pick any word."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "End trigger:\n- Play exactly 3 rounds, then total points. Highest score wins.\n\nScoring mode 1: Friendly Scoring\n- +1 point to the player with your favorite sketch (your choice).\n- +1 point to the player with your favorite guess (your choice).\n- +1 point to yourself if the last guess in your own book matches your original secret word.\n\nScoring mode 2: Competitive Scoring\n- Guesser earns +1 point when their guess matches either the original secret word or the previous guess in chain.\n- Sketcher earns +1 point when their sketch helps the next guesser match correctly.\n- +1 point to yourself if the final guess in your own book matches your original secret word.\n\nAll point sources to count:\n- Favorite sketch votes (friendly mode only).\n- Favorite guess votes (friendly mode only).\n- Correct guess links (competitive mode only).\n- Helpful sketch links (competitive mode only).\n- End-of-chain self-match bonus (both modes).\n\nTie-breaker:\n- The provided rule text states only \"most points wins\" and does not define a formal tie-break. If tied, treat as shared win or play an agreed extra round."
+          "content": "#### End trigger\n- **Game end** — End after 3 rounds.\n- **Primary win condition** — Most points wins.\n\n#### Friendly scoring\n- **Favorite sketch point** — Give 1 point to player with your favorite sketch.\n- **Favorite guess point** — Give 1 point to player with your favorite guess.\n- **Self-match point** — Give yourself 1 point if final guess in your book matches original secret word.\n\n#### Competitive scoring\n- **Guesser point** — Guesser earns 1 point if guess matches original secret word or previous guess.\n- **Sketcher point** — Sketcher earns 1 point if sketch helps next guesser match.\n- **Self-match point** — Give yourself 1 point if final guess in your book matches original secret word.\n\n#### Point-source checklist\n- **Friendly mode sources** — Favorite sketch + favorite guess + self-match.\n- **Competitive mode sources** — Correct guess link + helpful sketch link + self-match.\n\n#### Tie handling\n- **Rulebook statement** — Rule text says \"most points wins\" and provides no formal tie-breaker.\n- **Practical resolution** — Use shared victory or agreed tiebreak round by group choice."
         }
       ]
     },
@@ -72,12 +72,12 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "1) Favor clarity over artistry in your first sketches. Large, iconic shapes communicate better than detailed drawings.\n2) If you get a blank/category prompt, pick a concrete noun (easy to draw and guess) rather than an abstract concept.\n3) During guesses, commit to the most literal interpretation of visible clues; over-clever guesses often derail the chain.\n4) Keep pace and pass cleanly. Fast, synchronized passing prevents accidental extra information leakage and confusion."
+          "content": "#### Early-round execution\n- **Draw big shapes** — Use large, recognizable outlines before adding details.\n- **Pick concrete words** — On blank/category prompts, choose nouns that are easy to depict fast.\n- **Guess literal first** — Start from the most obvious interpretation of visible clues.\n- **Preserve pace** — Finish quickly and pass with the table to prevent desync.\n\n--- 4 Players ---\n- **First sketch quality** — Your own opening sketch sets chain clarity; prioritize legibility over style.\n\n--- 5 Players ---\n- **First guess awareness** — Because first sketch is by your left neighbor, make your initial guess extra literal to stabilize chain.\n\n--- 6 Players ---\n- **First sketch quality** — Your own opening sketch sets chain clarity; prioritize legibility over style."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Drawing tiny details instead of recognizable silhouettes. Result: guessers miss the core idea.\n2) Breaking the no letters/numbers rule, which gives illegal clues and can invalidate the spirit of the round.\n3) Leaving pages blank or skipping uncertain guesses. The chain must stay unbroken for scoring and reveal flow.\n4) Passing out of sync. If players pass at different times, page order mistakes happen and books get mismatched.\n5) Choosing overly niche words when blanks/categories allow custom picks, making fair guessing nearly impossible for the table."
+          "content": "- **Detail overload** — Tiny details are harder to parse than simple silhouettes.\n- **Illegal symbols** — Letters or numbers in sketches break core rules.\n- **Blank-page break** — Skipping a page collapses the chain and invalidates flow.\n- **No-guess hesitation** — Refusing to guess is not allowed; always write something.\n- **Unsynced passing** — Passing at different times causes page-order errors and confusion."
         }
       ]
     }
@@ -87,11 +87,11 @@
   "metadata": {
     "schema_version": "2.0",
     "created_by": "druid",
-    "created_at": "2026-02-22T23:13:59-08:00",
+    "created_at": "2026-02-23T10:32:31-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Built directly from provided 6 Player Family Pack rule text; includes both scoring modes and listed variants."
+    "revision": 2,
+    "notes": "Reformatted for skimmable scan-first reading with explicit player-count audit and exact 4/5/6-player headers where rules differ."
   }
 }

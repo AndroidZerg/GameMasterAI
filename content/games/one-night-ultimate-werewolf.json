@@ -1,7 +1,9 @@
 {
   "game_id": "one-night-ultimate-werewolf",
   "title": "One Night Ultimate Werewolf",
-  "aliases": ["ONUW"],
+  "aliases": [
+    "ONUW"
+  ],
   "publisher": "Bezier Games",
   "player_count": {
     "min": 3,
@@ -22,24 +24,23 @@
   ],
   "source_url": "https://beziergames.com/products/one-night-ultimate-werewolf",
   "source_verified": true,
-
   "tabs": {
     "setup": {
       "subtopics": [
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "16 role cards total: 1 Doppelganger, 2 Werewolves, 1 Minion, 2 Masons, 1 Seer, 1 Robber, 1 Troublemaker, 1 Drunk, 1 Insomniac, 1 Hunter, 1 Tanner, and 3 Villagers. Also includes 16 role tokens."
+          "content": "#### Role Cards (16 Total)\n- **1** Doppelganger\n- **2** Werewolves\n- **1** Minion\n- **2** Masons\n- **1** Seer\n- **1** Robber\n- **1** Troublemaker\n- **1** Drunk\n- **1** Insomniac\n- **1** Hunter\n- **1** Tanner\n- **3** Villagers\n\n#### Tokens\n- **16** role tokens\n\n#### Player-Count Reference List (Step 0 Audit)\n- **Supported player count** — 3-10 players.\n- **Role-set formula** — Always use player count + 3 role cards.\n- **Center cards** — Always place exactly 3 face-down cards in the center.\n- **Center tokens** — Place one role token for every role card used in the session.\n- **No other count-specific rule changes** — The provided rule text does not list unique setup/action/scoring exceptions by exact count beyond 3-10 support and card-count formula."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Build the role set with exactly 3 more cards than player count. Place one matching role token in the center for every role card in this game so everyone knows which roles are in play. Deal each player 1 role card face-down. Put the 3 extra role cards face-down in the center. Each player secretly looks at their own card."
+          "content": "--- 3-10 Players ---\n- **Role selection rule** — Build the role set with exactly 3 more cards than players.\n- **Token display** — Put one matching role token in the center for each role card in this game.\n- **Deal rule** — Deal each player 1 face-down role card.\n- **Center setup** — Place the remaining 3 role cards face down in the center.\n- **Private knowledge** — Each player secretly looks at only their own card."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "There is no first player turn structure in the normal sense because the game is phase-driven. Once everyone has a role and has seen their card, begin the Night phase and resolve wake-ups in exact rulebook order. All role movements happen at night, discussion and accusation happen during day, and elimination is determined by one simultaneous vote."
+          "content": "- **Turn system** — There is no normal first-player turn loop; play is phase-driven.\n- **Start trigger** — Begin Night phase after all players have viewed their own role.\n- **Night scope** — All role swaps/role information actions happen at night.\n- **Day scope** — Discussion, claims, and accusations happen during day.\n- **Elimination scope** — One simultaneous vote determines deaths."
         }
       ]
     },
@@ -48,22 +49,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "1) Night Phase: roles wake in strict sequence and perform night effects. Wake order is: #1 Doppelganger, #2 Werewolves, #3 Minion, #4 Masons, #5 Seer, #6 Robber, #7 Troublemaker, #8 Drunk, #9 Insomniac, #9a Doppelganger/Insomniac check. Villager, Tanner, and Hunter do not wake. 2) Day Phase: all players discuss, accuse, and claim roles. 3) Vote Phase: everyone points at another player simultaneously. Highest votes die; ties kill all tied players; if all players receive one vote, nobody dies. 4) Win Check: determine winners using final roles and death results."
+          "content": "1. **Night phase** — Resolve wake order exactly: #1 Doppelganger, #2 Werewolves, #3 Minion, #4 Masons, #5 Seer, #6 Robber, #7 Troublemaker, #8 Drunk, #9 Insomniac, #9a Doppelganger/Insomniac check.\n2. **No-wake roles** — Villager, Tanner, and Hunter never wake at night.\n3. **Day phase** — All players discuss, accuse, and make claims.\n4. **Vote phase** — Everyone points at another player simultaneously.\n5. **Death resolution** — Highest votes die; ties kill all tied; if everyone gets one vote, no one dies.\n6. **Win check** — Determine winners from final roles and death outcomes."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "Night role actions: Doppelganger views one other player's card (without swapping) and becomes that role/team, with conditional immediate follow-up: if she sees Seer/Robber/Troublemaker/Drunk she immediately performs that copied action; if she sees Werewolf/Mason she wakes with them later; if she sees Insomniac she checks at #9a; if she sees Minion she joins werewolf team logic. Werewolf: all werewolves open eyes and identify each other; if alone, the other werewolf card(s) are in center (lone wolf option: may view one center card). Minion: wakes after werewolves and sees who they are (werewolves give thumbs up), but werewolves do not learn minion identity. Masons: both must be included if used; they wake and find each other, or infer partner is in center if none seen. Seer: look at one player's card OR two center cards, no movement. Robber: may swap own card with another player's card, then look at the new card; robber adopts new team but does not perform new role's night action. Troublemaker: may swap two other players' cards without looking. Drunk: must swap own card with one center card and does not look at new card. Insomniac: wakes late and looks at own card to see final change state. Day options: players may make truthful or false claims, pressure vote blocs, or withhold info; no player uses additional mechanical powers during day except vote and Hunter pointing consequence if killed."
+          "content": "#### Night Role Actions\n- **Doppelganger view** — Look at one other player's card without swapping.\n- **Doppelganger identity** — Become that role and that team immediately.\n- **Doppelganger immediate copy** — If you viewed Seer/Robber/Troublemaker/Drunk, do that action immediately and do not wake again for that role.\n- **Doppelganger delayed wake** — If you viewed Werewolf or Mason, wake with that role later when called.\n- **Doppelganger/Minion case** — If you viewed Minion, you are on werewolf team and follow the Minion interaction.\n- **Doppelganger/Insomniac case** — If you viewed Insomniac, wake at #9a to check your card.\n\n- **Werewolf action** — Werewolves open eyes and identify each other.\n- **Lone-wolf option** — If you are the only werewolf player, you may view 1 center card.\n\n- **Minion action** — Minion wakes after werewolves and sees who the werewolves are (werewolves show thumbs up).\n- **Minion visibility** — Werewolves do not learn who the Minion is.\n\n- **Mason action** — If Masons are in game, both must be included; each Mason wakes and checks for the other Mason.\n- **Mason center clue** — If a Mason sees no other Mason awake, the other Mason card is in center.\n\n- **Seer action** — Look at 1 player's card OR 2 center cards; do not move cards.\n\n- **Robber action** — You may swap your card with another player's card, then look at your new card.\n- **Robber team rule** — You are on the team of the role you took.\n- **Robber limit** — You do not perform your new role's night action.\n- **Robber pass option** — If you do not rob, you remain Robber on village team.\n\n- **Troublemaker action** — You may swap cards of 2 other players without looking at them.\n\n- **Drunk action** — You must swap your Drunk card with 1 center card and do not look at it.\n\n- **Insomniac action** — Wake late and look at your own card to see whether it changed.\n\n#### Day Actions\n- **Discussion action** — Share or hide night information, bluff, and challenge claims.\n- **Vote action** — Point at exactly one player during simultaneous vote.\n\n#### No-Wake Roles\n- **Villager** — No night action; village team.\n- **Tanner** — No night action; independent win condition.\n- **Hunter** — No night action; adds extra death if Hunter dies."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "Core twist: starting role and final role can differ because of Robber, Troublemaker, Drunk, and Doppelganger copies. Team membership follows final role for most outcomes, with explicit exceptions in role text (e.g., Robber does not use new role's night action). Minion is werewolf-team aligned but hidden from werewolves. Tanner is an independent objective role: Tanner wants to die and can win even when other teams also win. Hunter creates a chained elimination: if Hunter dies, the pointed-at player also dies regardless of vote totals."
+          "content": "#### Final Role Logic\n- **Role drift** — Starting role can differ from final role due to swaps/copies.\n- **Resolution basis** — Most team checks use final role state after all night actions.\n\n#### Team Exceptions\n- **Robber exception** — Robber changes team to stolen role but does not trigger that role's night action.\n- **Minion alignment** — Minion is on werewolf team even though werewolves may not know who Minion is.\n\n#### Independent Objective\n- **Tanner objective** — Tanner wins only by dying.\n- **Cross-team overlap** — Tanner can win in outcomes where other teams also win.\n\n#### Chain Death Rule\n- **Hunter trigger** — If Hunter dies, the player Hunter points at also dies regardless of vote count."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "No VP system is used. The game ends immediately after the single vote resolves deaths and any Hunter chained death. Winning conditions: Village team wins if at least one Werewolf dies. Werewolf team wins if no Werewolves die. If no players are Werewolves (all werewolf cards in center), village wins only if no one dies. Tanner wins only if Tanner dies (independent win condition). Additional interaction from role text: if Tanner dies and no Werewolves die, werewolf team does not win; if Tanner and a Werewolf both die, village team still wins. In ties for most votes, all tied players die. If everyone gets exactly one vote, no one dies."
+          "content": "- **Scoring model** — There is no VP track or point tally.\n- **End trigger** — The game ends after the single vote resolves all deaths (including Hunter chain death).\n\n#### Win Conditions\n- **Village win** — At least one Werewolf dies.\n- **Werewolf-team win** — No Werewolves die.\n- **No-werewolf special case** — If all werewolf cards are in center, village wins only if no one dies.\n- **Tanner win** — Tanner wins only if Tanner dies.\n\n#### Interaction Clarifications\n- **Tanner blocks werewolf win** — If Tanner dies and no Werewolf dies, werewolf team does not win.\n- **Dual result case** — If Tanner and a Werewolf both die, village still wins and Tanner also wins.\n\n#### Vote Outcome Rules\n- **Most-votes rule** — Player with most votes dies.\n- **Tie-votes rule** — All tied players die.\n- **All-single-vote rule** — If every player receives exactly one vote, no one dies."
         }
       ]
     },
@@ -72,33 +73,31 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "Open day discussion by anchoring timeline details, not just claims: what woke, when, and what changed. If you are an information role (Seer/Robber/Insomniac), decide quickly whether early reveal helps create a coherent story web before bluffs harden. If your claim can be cross-checked (e.g., Mason pair, Robber target), name interactions early so contradictions are easier to expose."
+          "content": "- **Timeline first** — Open with night-order details (what you saw, when, and whether swaps happened).\n- **Cross-check early** — If your claim can be verified (Mason pair, Robber target, Insomniac check), state names early.\n- **Information role discipline** — As Seer/Robber/Insomniac, decide quickly whether immediate reveal creates stronger vote control than delayed reveal.\n- **Consistency pressure** — Ask players to restate their role claim in wake-order terms to expose contradictions."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Treating starting role as permanent. In ONUW, role-swaps mean final role is what usually matters for win checks. 2) Ignoring no-werewolf possibility. If both werewolves are in center, killing someone can throw the village loss condition. 3) Over-trusting unverified lone claims. Good lies often copy role text accurately; demand cross-links and timing consistency. 4) Forgetting Minion incentives. A suspicious non-werewolf may still protect werewolves for team win. 5) Misplaying Hunter consequences by careless pointing and vote piling, causing avoidable double deaths."
+          "content": "- **Static-role thinking** — Treating starting roles as final roles leads to bad vote targets.\n- **No-werewolf blind spot** — Ignoring the all-center-werewolf possibility can hand village a loss by unnecessary kill.\n- **Unverified trust** — Accepting lone claims without cross-links makes coordinated lies easy.\n- **Minion oversight** — Forgetting Minion incentives causes misreads of anti-village behavior.\n- **Hunter mismanagement** — Piling votes on Hunter without planning pointer consequences causes avoidable double deaths."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "1) Information release timing: reveal early to guide table, or hold to catch liars in contradictions. 2) Vote target selection under uncertainty: take a high-confidence werewolf shot vs controlled no-kill lines in possible no-werewolf setups. 3) Claim posture: hard-claiming a role can organize votes, but it also paints a target and may help opposing bluff structures."
+          "content": "- **Reveal timing** — Reveal hard info early to steer votes, or hold it to trap liars after they commit.\n- **Vote risk profile** — Choose between high-confidence werewolf shot and conservative no-kill logic in possible all-center-werewolf games.\n- **Claim posture** — Decide whether to hard-claim (control narrative) or soft-claim (retain flexibility)."
         }
       ]
     }
   },
-
-  "total_token_count": 1750,
+  "total_token_count": 1820,
   "extensions": {},
-
   "metadata": {
     "schema_version": "2.0",
     "created_by": "tiefling",
-    "created_at": "2026-02-22T23:13:49-08:00",
+    "created_at": "2026-02-23T10:29:29-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
+    "revision": 2,
     "notes": "Written from provided official rulebook text including wake order, role actions, vote resolution, and win conditions."
   }
 }

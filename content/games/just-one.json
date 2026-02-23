@@ -28,17 +28,17 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "Exact contents listed in the provided rulebook: 110 cards, 7 easels, 7 erasable felt markers, and 1 rulebook. For a standard game, you will create a temporary 13-card deck from the 110 cards; the rest are returned to the box and not used in that session."
+          "content": "#### Core Components\n- **110 cards** — Word cards used to build the session deck.\n- **7 easels** — Reusable writing stands for clues and active-word display.\n- **7 erasable felt markers** — One marker per easel in full player count.\n- **1 rulebook** — Official rules and variant reference.\n\n#### Session Build (Per Game)\n- **13 cards used** — Shuffle and draw exactly 13 cards for this game.\n- **Unused cards** — Return all remaining cards to the box."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Shuffle all cards and randomly draw 13 to form a face-down deck in the middle of the table. Give each player one easel and one erasable felt marker. Ensure all players can write privately and then reveal clues to each other during the comparison phase. In a 3-player game variant, each player takes two easels because each player writes two clues per turn."
+          "content": "--- 3 Players ---\n- **Easels per player** — Each player takes 2 easels.\n- **Clues per player** — Each player writes 2 clues during clue selection.\n- **Deck size** — Still draw 13 cards for the session.\n\n--- 4-7 Players ---\n- **Easels per player** — Each player takes 1 easel.\n- **Markers per player** — Each player takes 1 erasable felt marker.\n- **Deck size** — Shuffle and draw 13 cards face down in the center.\n\n#### Shared Setup Rules\n- **Privacy** — Write clues where others cannot see before reveal.\n- **Erase between turns** — Clear old clues before the next round."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "Randomly choose the first active player (the guesser for that turn). The active player draws the top card without looking and places it into their easel support so all other players can see the five candidate words. The active player then chooses a number from 1 to 5 to indicate which mystery word clue-givers must reference. If clue-givers do not know that selected word, they can ask the active player to choose a different number before clue writing begins."
+          "content": "- **First active player** — Choose randomly.\n- **Card handling** — Active player draws top card without looking.\n- **Display method** — Active player places card in easel support so others can read all 5 words.\n- **Word selection** — Active player chooses a number from 1 to 5.\n- **Fallback** — If clue-givers do not know that word, active player chooses a different number."
         }
       ]
     },
@@ -47,22 +47,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "Each turn follows 4 phases, then a role pass:\n1. Choose the Mystery Word: Active player displays top card and selects word number (1-5).\n2. Clue Selection: Every non-active player secretly writes one single-word clue without communication.\n3. Comparing Clues: Active player closes eyes; clue-givers reveal to each other and cancel all identical or invalid clues.\n4. Guess: Active player opens eyes and makes exactly one guess based only on remaining clues.\n5. End of Turn: Resolve success/failure/skip effects, rotate active player to the left, erase old clues, and continue."
+          "content": "1. **Choose mystery word** — Active player presents card and selects word number (1-5).\n2. **Write clues** — Non-active players secretly write clue word(s) with no communication.\n3. **Compare clues** — Active player closes eyes; clue-givers reveal to each other and cancel invalid/duplicate clues.\n4. **Make one guess** — Active player opens eyes and gives exactly one guess from remaining clues.\n5. **Resolve result** — Apply success, failure, skip, or all-cancelled outcome.\n6. **Rotate active player** — Player to the left becomes new active player."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "Clue writing rules:\n- Each clue must be one word.\n- Digits, numbers, acronyms, onomatopoeia, and special characters count as words per rulebook examples.\n- No communication during clue writing.\n\nClue cancellation rules in comparison phase:\n- Identical clues are cancelled (both/all copies).\n- Word-family variants are treated as identical and cancelled (e.g., plural/gender/spelling variants).\n- Invalid clues are cancelled, including: the mystery word spelled differently, the mystery word in another language, a same-family derivative of the mystery word, invented words, and homophones judged invalid by rule examples.\n- Cancelled clues are hidden by tipping easels down.\n\nGuess resolution:\n- Active player gets only one guess.\n- Correct guess: place that card face up in success area.\n- Wrong guess: return current card and also return the top card of the deck to the box.\n- Skip: if active player chooses not to answer, return only the current card to the box.\n- If all clues were cancelled, return current card to the box and move directly to end of turn (no guess made).\n\nPronunciation note from rules:\n- If the active player guesses a word with the same pronunciation as the mystery word, that guess is valid.\n\nFinal-turn penalty note:\n- If the active player gives a wrong guess during the final turn, also remove one previously successful card."
+          "content": "#### Clue Writing Rules\n- **Single-word rule** — Each clue must be one word.\n- **Allowed word forms** — Digits, numbers, acronyms, onomatopoeia, and special characters are allowed as words.\n- **No table talk** — Players may not coordinate while writing clues.\n\n#### Duplicate Cancellation\n- **Exact duplicates** — Identical clues are cancelled.\n- **Family variants** — Plurals, gender forms, and spelling variants are treated as duplicates and cancelled.\n- **Hidden cancelled clues** — Tip easel down to hide cancelled clue.\n\n#### Invalid Clues\n- **Disguised target** — Mystery word spelled differently is invalid.\n- **Translated target** — Mystery word in another language is invalid.\n- **Same family as target** — Derivative word from same family is invalid.\n- **Invented word** — Made-up words are invalid.\n- **Phonetic trap** — Phonetically matching forms listed as invalid by rules are invalid.\n\n#### Guess Resolution\n- **Guess limit** — Active player gets exactly one guess.\n- **Correct guess** — Place card face up in success area.\n- **Wrong guess** — Return current card and top deck card to box.\n- **Skip choice** — Return only current card to box.\n- **All clues cancelled** — Return current card to box; go straight to end of turn.\n- **Pronunciation allowance** — Same-pronunciation guess is valid.\n- **Final-turn penalty** — Wrong guess on final turn also removes one previously successful card."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "This is a fully cooperative hidden-writing system with simultaneous clue generation and mandatory duplicate pruning. The game’s core tension is not only finding a useful clue, but finding a useful clue that no one else will also write.\n\n3-player variant (explicitly in provided text): each player takes two easels and writes two clues during clue selection. Duplicate cancellation still applies across all written clues. This variant restores clue volume and uncertainty at low player count."
+          "content": "#### Player-Count Variant\n--- 3 Players ---\n- **Double clue load** — Each player writes 2 clues instead of 1.\n- **Duplicate rule unchanged** — Duplicate cancellation still applies across all written clues.\n\n--- 4-7 Players ---\n- **Standard clue load** — Each non-active player writes 1 clue.\n\n#### Cooperative Core\n- **Shared objective** — Team tries to maximize total successful words.\n- **Design tension** — Best clues are both understandable and non-duplicating."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "End trigger: The game ends when the 13-card deck is empty.\n\nScoring: Count successfully guessed cards and compare to the official rating table:\n- 13: Perfect score!\n- 12: Incredible!\n- 11: Awesome!\n- 9-10: Wow, not bad at all!\n- 7-8: Average.\n- 4-6: Good start.\n- 0-3: Try again.\n\nAll score sources in this game:\n- +1 successful card for each correctly guessed mystery word (tracked by face-up success cards).\n- No other positive score sources exist.\n\nNegative outcome effects that reduce final total:\n- Wrong guess removes current card plus one extra top-deck card from potential scoring.\n- Final-turn wrong guess removes an additional previously successful card.\n- Skip and all-cancelled-clue turns remove current card from potential scoring.\n\nTie-breakers: Not applicable in standard play, because the team shares one cooperative score rather than competing individual totals."
+          "content": "- **End trigger** — Game ends when the 13-card deck is empty.\n\n#### Score Table (Successful Cards)\n- **13** — Perfect score! Can you do it again?\n- **12** — Incredible! Your friends must be impressed!\n- **11** — Awesome! That’s a score worth celebrating!\n- **9-10** — Wow, not bad at all!\n- **7-8** — You’re in the average. Can you do better?\n- **4-6** — That’s a good start. Try again!\n- **0-3** — Try again, and again, and again.\n\n#### How Cards Change Final Score\n- **Success gain** — Each correct guess adds 1 successful card.\n- **Wrong guess loss** — Wrong guess removes current card plus top deck card.\n- **Skip loss** — Skip removes current card.\n- **All-cancelled loss** — If all clues are cancelled, current card is removed.\n- **Final-turn extra loss** — Wrong final-turn guess removes one previously successful card.\n\n#### Tie-Break Note\n- **Co-op scoring** — Team shares one total score, so no competitive tie-breaker is used."
         }
       ]
     },
@@ -71,17 +71,17 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "In the first few turns, prioritize clue diversity over maximum precision. Before writing, mentally list the two most obvious clues and avoid them; obvious clues collide and disappear. Use one-step-removed associations (category, context, function, opposite, famous example) that are still clear to the guesser but less likely to duplicate. As active player, pick a word number you believe most clue-givers will understand immediately, because confusion at word selection can waste the turn before clue quality even matters."
+          "content": "- **Avoid obvious first pick** — Mentally list the most obvious clue and do not use it.\n- **Use second-layer clues** — Prefer clues by function, category, or context to reduce duplication.\n- **Anchor early rounds** — In first 2-3 turns, choose broad but stable clue styles your group understands.\n- **Pick known words** — As active player, choose a 1-5 word index others are likely to recognize.\n- **Read survivor clues** — As guesser, treat rare surviving clues as stronger signals than obvious missing ones."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Writing the most obvious synonym every time. It often gets cancelled and leaves the guesser with weak leftovers.\n2) Using invalid clue forms (same family, disguised target word, translated target) and losing clue value for free.\n3) Trying to be so clever that clues become opaque. A unique clue is worthless if it cannot guide the guesser.\n4) Ignoring table meta: if your group repeatedly uses certain clue types, collisions become predictable unless you adapt.\n5) Guessing too quickly as active player. Taking a short moment to connect all surviving clues usually increases accuracy, especially after heavy clue cancellation."
+          "content": "- **Obvious-clue spam** — Repeating obvious synonyms causes mass cancellations.\n- **Invalid-family clues** — Using same-family words throws away clue slots.\n- **Over-clever obscurity** — Unique clues that nobody understands are effectively blanks.\n- **No adaptation** — Ignoring your group’s repeated clue habits increases collision rate.\n- **Instant guessing** — Guessing too fast misses combined meaning from the remaining clue set."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "1) Safety vs uniqueness: Do you write a very clear clue that might duplicate, or a more original clue that might survive but be weaker?\n2) Specificity vs breadth: Narrow clues can lock onto the right word but risk invalid overlap; broader clues survive more often but may not differentiate enough.\n3) Risk management near end of deck: In late turns, decide whether the active player should attempt a difficult guess or skip to avoid larger penalties from a wrong answer, especially with the final-turn penalty in mind."
+          "content": "- **Clarity vs uniqueness** — Choose between a safer but duplicative clue and a rarer clue with lower certainty.\n- **Risk vs preservation** — Late game, decide whether to guess or skip to avoid larger penalty swings.\n- **Specificity vs flexibility** — Pick narrow clues for precision or broader clues that survive cancellation more often."
         }
       ]
     }
@@ -91,11 +91,11 @@
   "metadata": {
     "schema_version": "2.0",
     "created_by": "dwarf",
-    "created_at": "2026-02-23T07:11:00Z",
+    "created_at": "2026-02-23T18:18:01Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
+    "revision": 2,
     "notes": "Primary source: Just One rulebook text provided in prompt, including setup, 4-phase turn flow, clue validity/cancellation rules, score table, and 3-player variant."
   }
 }

@@ -1,7 +1,9 @@
 {
   "game_id": "skull",
   "title": "Skull",
-  "aliases": ["Skull & Roses"],
+  "aliases": [
+    "Skull & Roses"
+  ],
   "publisher": "Space Cowboys",
   "player_count": {
     "min": 3,
@@ -29,17 +31,17 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "6 tribes total. Each tribe contains exactly 3 flower discs, 1 skull disc, and 1 card-playing mat. Total physical contents therefore include 24 discs (18 flower + 6 skull) and 6 mats. Base game supports 3–6 players."
+          "content": "#### Player-Count Audit (from rulebook)\n- **Base player range** — 3-6 players.\n- **3 players** — Fully legal, but listed in game tips as highly tactical and not recommended for beginners.\n- **4 players** — Uses normal base rules (same component distribution as 3-6).\n- **5 players** — Uses normal base rules (same component distribution as 3-6).\n- **6 players** — Uses normal base rules (same component distribution as 3-6).\n- **Variant (2 boxes)** — 7-10 players by combining two copies of the game.\n- **Variant (per player loadout)** — 2 tribes per player variant is listed.\n\n#### Tribe Components (per tribe)\n- **Flower discs** — 3 per tribe.\n- **Skull discs** — 1 per tribe.\n- **Playing mat** — 1 per tribe.\n\n#### Total Base Box Counts\n- **Tribes** — 6 total.\n- **Total discs** — 24 total (18 flower + 6 skull).\n- **Total mats** — 6 total."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Each player chooses one tribe and takes that tribe’s 4 discs and matching mat. Place your mat in front of you with the skull side visible. Keep your discs hidden in your hand so opponents cannot identify which disc you are about to play."
+          "content": "--- 3 Players ---\n- **Tribe choice** — Each player chooses 1 tribe.\n- **Disc count per player** — Take 4 discs (3 flowers + 1 skull).\n- **Mat setup** — Place your mat skull-side visible.\n- **Hand secrecy** — Keep discs hidden in hand.\n\n--- 4 Players ---\n- **Tribe choice** — Each player chooses 1 tribe.\n- **Disc count per player** — Take 4 discs (3 flowers + 1 skull).\n- **Mat setup** — Place your mat skull-side visible.\n- **Hand secrecy** — Keep discs hidden in hand.\n\n--- 5 Players ---\n- **Tribe choice** — Each player chooses 1 tribe.\n- **Disc count per player** — Take 4 discs (3 flowers + 1 skull).\n- **Mat setup** — Place your mat skull-side visible.\n- **Hand secrecy** — Keep discs hidden in hand.\n\n--- 6 Players ---\n- **Tribe choice** — Each player chooses 1 tribe.\n- **Disc count per player** — Take 4 discs (3 flowers + 1 skull).\n- **Mat setup** — Place your mat skull-side visible.\n- **Hand secrecy** — Keep discs hidden in hand."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "Choose a first player by any agreed method. Begin the first round at Step 1 (Turn Preparation): every player selects one disc from hand and places it face down on their own mat."
+          "content": "#### Round 1 Start\n- **First player** — Choose a first player by any agreed method.\n- **Immediate entry** — Start at Step 1 (Turn Preparation).\n\n#### Step 1 (Turn Preparation)\n1. **Choose disc** — Each player selects 1 disc from hand.\n2. **Place face down** — Each player places that disc on their own mat.\n3. **Advance phase** — Move to Step 2 (Adding Discs or Challenge)."
         }
       ]
     },
@@ -48,22 +50,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "Each round follows this 3-step sequence:\n1) Turn Preparation: every player places 1 face-down disc onto their own mat.\n2) Adding Discs or Challenge (clockwise from first player): on each turn, a player either adds one disc to their own stack or starts/continues bidding for a challenge.\n3) The Attempt: the final highest bidder (the Challenger) flips discs equal to their bid, following reveal-order rules.\nAfter the attempt resolves (success or failure), all discs are recollected as required, then a new round starts. The Challenger is first player of the new round unless elimination/failure first-player exceptions apply."
+          "content": "#### Round Sequence\n1. **Turn Preparation** — Every player places 1 face-down disc on their own mat.\n2. **Adding or Challenge** — Starting with first player and moving clockwise, players add discs or start/raise bidding.\n3. **The Attempt** — Final bidder (Challenger) flips discs equal to bid while following reveal-order rules.\n\n#### Round Reset\n- **After success/failure** — Resolve consequences immediately.\n- **Next round lead** — Challenger is first player of next round, except where failure exceptions change lead player.\n- **Repeat loop** — Return to Step 1 for the next round."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "During Step 2, the active player must choose one legal option:\n\nA) ADD A DISC\n- Place one disc from your hand face down on top of your own stack.\n- Place it slightly offset so all players can count how many discs are in your stack.\n- If you have no discs left in hand, you cannot add and must issue a challenge.\n\nB) CHALLENGE / BID\n- Announce a number of discs you intend to reveal from all mats combined.\n- Legal bid limits: bid cannot be 0 and cannot exceed total number of face-down discs currently on the table.\n- Clockwise from bidder, each player in bidding must either pass (slide mat toward center, leaving bidding) or raise bid.\n- Raising can jump by more than +1; a player may directly bid the maximum legal total.\n- Last remaining bidder becomes the Challenger.\n- Challenge scope includes all discs on all mats, including mats of players who passed bidding.\n\nStep 3 reveal rules (The Attempt):\n1) Challenger must reveal ALL of their own discs first.\n2) After their own stack is cleared, they may choose other players’ stacks in any order.\n3) Reveals are one-by-one and always from top disc of the chosen stack.\n4) Challenger does not need to clear an opponent’s entire stack unless needed to reach the bid count.\n5) If bid equals all discs on table, reveals still proceed one-by-one and stop immediately if a skull appears.\n\nOutcome checks:\n- Reveal any skull at any time: challenge fails immediately.\n- Reveal required number with no skull: challenge succeeds."
+          "content": "#### Step 2 Option A: Add a Disc\n- **Add action** — Place 1 face-down disc on top of your own stack.\n- **Visibility rule** — Offset discs so stack height is countable.\n- **No-disc condition** — If you have no discs in hand, you must challenge.\n\n#### Step 2 Option B: Challenge / Bid\n- **Bid declaration** — Announce how many total discs you will reveal.\n- **Minimum bid** — Cannot challenge for 0.\n- **Maximum bid** — Cannot exceed total discs currently on all mats.\n- **Bidding flow** — Clockwise, each player either raises the bid or passes.\n- **Pass action** — Slide mat toward center to show you are out of bidding.\n- **Raise amount** — You may increase by more than +1.\n- **Direct jump** — You may bid straight to the maximum legal number.\n- **Challenger identity** — Last remaining bidder becomes the Challenger.\n- **Scope rule** — Challenge includes discs on all mats, including passed players’ mats.\n\n#### Step 3: The Attempt (Reveal Rules)\n1. **Own stack first** — Challenger must reveal all of their own discs first.\n2. **Opponent choice** — After own discs, Challenger chooses opponents’ stacks in any order.\n3. **Top-only reveal** — Reveal from the top disc of a chosen stack, one disc at a time.\n4. **Partial stack allowed** — Challenger does not need to clear an opponent stack unless required by bid count.\n5. **All-discs bid case** — If bid equals total table discs, still reveal one-by-one and stop at first skull.\n\n#### Outcome Check\n- **Any skull revealed** — Attempt fails immediately.\n- **Bid count reached with no skull** — Attempt succeeds."
         },
         {
           "id": "special-mechanics",
           "title": "Special Mechanics",
-          "content": "Failure penalty and elimination system:\n- On failed challenge, stop revealing immediately.\n- All players collect their discs back to hand.\n- Challenger loses one disc permanently: Challenger shuffles their remaining discs face down; the owner of the skull that was revealed chooses one of those discs to remove without seeing its face.\n- If Challenger revealed their own skull, Challenger chooses which of their own remaining discs to lose.\n- If a player loses their last disc, they are eliminated.\n\nFirst-player transfer exceptions on failed attempts:\n- If eliminated after revealing another player’s skull, next first player is the owner of that skull.\n- If Challenger revealed their own skull, Challenger chooses who is next first player.\n\nMat progress tracker:\n- On first successful challenge, flip your mat to flower-side up to show one success.\n- A second successful challenge while already flower-side up wins immediately.\n\nSpecial one-disc case:\n- A player with only one disc left must call challenge instead of adding during adding phase.\n- During bidding, that player may still pass or raise as normal.\n- If that lone disc is revealed as a skull during a challenge, that player is eliminated.\n\nOfficial variants in provided rules text:\n- Combine two boxes for 7–10 players.\n- Two tribes per player variant."
+          "content": "#### Failed Attempt Resolution\n- **Immediate stop** — Do not reveal additional discs once a skull appears.\n- **Disc return** — All players take their discs back into hand.\n- **Penalty target** — Challenger loses 1 disc permanently.\n- **Penalty method** — Challenger shuffles remaining discs face down.\n- **Chooser rule (other skull)** — Owner of the revealed skull chooses which challenger disc is removed, unrevealed.\n- **Chooser rule (own skull)** — If challenger revealed own skull, challenger chooses which disc to lose.\n- **Elimination threshold** — Losing your last disc eliminates you.\n\n#### First-Player Transfer on Failure\n- **Other player’s skull flipped** — Next first player is that skull’s owner.\n- **Own skull flipped** — Challenger chooses next first player.\n\n#### Success Tracking\n- **First success** — Flip your mat to flower side up.\n- **Second success** — If already flower side up, you win immediately.\n\n#### Special One-Disc Case\n- **Adding phase** — A one-disc player must issue a challenge (cannot add).\n- **Bidding rights** — A one-disc player may still pass or raise during bidding.\n- **Elimination risk** — If that disc is revealed as a skull, that player is eliminated.\n\n#### Official Variants Listed\n--- 7-10 Players (Variant) ---\n- **Table size change** — Combine 2 boxes for 7-10 players.\n\n#### Official Variants Listed (continued)\n- **Two-tribes variant** — Play with 2 tribes per player (as listed in rulebook tips)."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "Skull has no VP scoring system; victory is condition-based. The game ends immediately when either condition is met:\n1) A player succeeds at their second challenge (tracked by flipping mat to flower side after first success, then winning on next success).\n2) Only one player remains not eliminated.\n\nThere are no point totals and therefore no point tiebreakers. If both win conditions appear to approach simultaneously, resolve strictly by sequence of play: the first condition achieved during normal resolution ends the game and determines the winner."
+          "content": "#### Win Conditions\n- **Condition 1** — Succeed at 2 challenges.\n- **Condition 2** — Be the only player not eliminated.\n\n#### Scoring Model\n- **VP system** — None.\n- **Point totals** — Not used.\n- **Tiebreakers** — None listed because victory is immediate-condition based.\n\n#### Resolution Timing\n- **Immediate end** — Game ends as soon as a win condition is met during normal resolution order."
         }
       ]
     },
@@ -72,31 +74,31 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "1) Track exact disc counts on every mat from turn one. Good Skull play starts with arithmetic before psychology.\n2) In early rounds, prioritize information over hero bids: force opponents to act, watch who bids aggressively after adding extra discs, and note who hesitates when totals are low.\n3) Use first-player pressure if you have it: starting bids can shape round tempo and force riskier overbids from others.\n4) Mix your opening patterns (flower-first vs skull-first) so opponents cannot map your stack habits.\n5) When your own stack is large, remember you must clear it first as Challenger—do not bid beyond what your own top sequence can realistically support."
+          "content": "#### Early-Round Priorities\n- **Count tracking** — Track exact disc totals on each mat from round 1.\n- **Information bids** — Make early bids that test opponents’ confidence instead of only max-risk pushes.\n- **First-player pressure** — If leading, force difficult bid decisions before stacks become predictable.\n- **Pattern mixing** — Alternate flower/skull timing so opponents cannot map your rhythm.\n- **Self-stack discipline** — Before bidding high, confirm your own top sequence is survivable because you must reveal it first.\n\n--- 3 Players ---\n- **Tactical density** — Expect tighter reads and faster punishment for predictable play.\n- **Beginner warning** — Rulebook tip flags 3-player as less beginner-friendly.\n\n--- 4-6 Players ---\n- **Signal noise** — Use table talk and timing shifts to create uncertainty among more observers.\n- **Stack spread** — Exploit the larger number of opponent stacks when choosing reveal order after clearing your own."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "1) Forgetting mandatory self-reveal order. New players often bid high, then realize they must clear their own risky stack first and self-destruct.\n2) Bidding without table-total awareness. Illegal or unrealistic bids happen when players lose track of total discs in play.\n3) Revealing too many discs from one opponent out of habit. The rules let you switch targets; use that flexibility to avoid obvious skull danger.\n4) Becoming predictable (always flower first, always skull second, etc.). Patterned play gets punished quickly once opponents notice.\n5) Panicking when down to one disc. One-disc players can still influence bids and force mistakes; automatic desperation bluffs often eliminate them faster."
+          "content": "- **Self-reveal oversight** — Forgetting you must flip all your own discs first leads to avoidable failed challenges.\n- **Bad bid math** — Losing track of total discs creates illegal or reckless bids.\n- **Single-target tunnel vision** — Revealing too deeply from one opponent stack ignores safer alternatives.\n- **Predictable sequencing** — Repeating the same flower/skull timing pattern makes your stack readable.\n- **One-disc panic** — Over-bluffing while on one disc often accelerates elimination instead of recovery."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "1) Add vs challenge timing: Add to increase uncertainty and future leverage, or challenge now before opponents stack safer flowers?\n2) Bid size calibration: Conservative bids preserve life; ambitious bids can secure fast wins but dramatically increase skull exposure risk.\n3) Target order during reveals: After clearing your own stack, choose opponents in an order that reflects observed behavior, stack depth, and current psychological pressure—not table position alone."
+          "content": "#### High-Impact Choices\n- **Add vs challenge** — Add to increase ambiguity, or challenge now before opponents stabilize with safer stacks.\n- **Bid ceiling** — Choose conservative survival bids versus aggressive two-win tempo bids.\n- **Reveal routing** — After your own stack, pick opponent reveal order by behavior reads, stack depth, and current pressure state."
         }
       ]
     }
   },
-  "total_token_count": 1710,
+  "total_token_count": 1760,
   "extensions": {},
   "metadata": {
     "schema_version": "2.0",
     "created_by": "orc",
-    "created_at": "2026-02-22T23:12:00-08:00",
+    "created_at": "2026-02-23T10:26:00-08:00",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
+    "revision": 2,
     "notes": "Primary source: provided Skull official rulebook text summary (setup, three-step round flow, challenge rules, failure handling, elimination, victory, and listed variants)."
   }
 }
