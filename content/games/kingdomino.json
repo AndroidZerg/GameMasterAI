@@ -1,0 +1,58 @@
+{
+  "game_id": "kingdomino",
+  "title": "Kingdomino",
+  "aliases": [
+    "Kingdomino Base"
+  ],
+  "publisher": "Blue Orange Games",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": 4
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 25
+  },
+  "complexity": "gateway",
+  "categories": [
+    "tile-drafting",
+    "kingdom-building",
+    "spatial"
+  ],
+  "source_url": "https://blueorangegames.eu/en/games/kingdomino",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "48 domino terrain tiles, 4 starting castle tiles, 8 wooden king meeples (2 per player color), and score pad. Optional 2-player variant uses 24-tile larger kingdoms with each player controlling two kings.",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "Each round players select one domino from the current market to reserve turn order for next round, then place their previously selected domino into their kingdom. Dominoes must match terrain on at least one side unless touching castle with any terrain. Lower-numbered chosen domino grants earlier pick next round. After 12 rounds, kingdoms score terrain area times crowns.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Setup creates shuffled stack of 48 dominoes; reveal number equal to player count and sort ascending for drafting row. Players place kings on this row in order; placement locks one tile for next turn. Then reveal next row similarly. Placement: add your reserved domino adjacent in a 5x5 kingdom grid limit (castle may shift within grid but final layout must fit 5x5). At least one half of placed domino must connect by matching terrain type to existing tile or connect to castle. If a domino cannot legally fit, it is discarded. In 2-player standard rules, each player uses one king in normal game; advanced “duel” can use two kings each and larger 7x7 with 24 dominoes.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "Scoring: each connected terrain region scores size (number of squares) multiplied by total crowns in that region. Regions with zero crowns score zero even if large. Sum all region scores for final score. Game ends after all dominoes drafted/placed (12 rounds at 4p, 24 tiles used; different counts by player number). Highest score wins; tie broken by largest single region then by shared victory per ruleset.",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "Drafting for turn order is as important as tile value—sometimes take a weaker low number to secure first pick next round. Avoid huge crownless regions; one crown can transform a terrain from worthless to explosive. Leave expansion “hooks” in multiple terrain types so future placements stay flexible inside 5x5 limit. Deny opponents critical crown tiles when you can take them without wrecking your plan. Periodically check your bounding box so you don’t self-block late high-value dominoes.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

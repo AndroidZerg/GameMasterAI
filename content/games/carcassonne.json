@@ -1,0 +1,58 @@
+{
+  "game_id": "carcassonne",
+  "title": "Carcassonne",
+  "aliases": [
+    "Carcassonne Base Game"
+  ],
+  "publisher": "Hans im Glück / Z-Man Games",
+  "player_count": {
+    "min": 2,
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": 6
+  },
+  "play_time_minutes": {
+    "min": 35,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "tile-placement",
+    "area-control",
+    "map-building"
+  ],
+  "source_url": "https://images.zmangames.com/filer_public/73/6f/736f4a38-5f5a-4d67-9f84-68f4459f57c1/zm7810_carcassonne_rules.pdf",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "72 land tiles (including one start tile), 40 meeples in 5 colors (8 per player), 1 scoring track around board edge, and rulebook. Some printings include 12 river tiles for optional setup variant; base rules use the standard start tile.",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "Each turn has three steps: place one drawn tile, optionally place one meeple on that newly placed tile, then score any completed features. Tiles must match adjacent edges (city to city, road to road, field to field). Meeples claim features and stay there until feature completion returns them. Game grows organically until no tiles remain.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Tile placement is mandatory if possible; rotate tile freely but all touching edges must match terrain types. If no legal placement exists, remove tile from game and draw next (rare). After placing a tile, you may deploy one meeple as knight (city), robber (road), monk (monastery), or farmer (field), but only if no meeple already occupies that connected feature anywhere in the joined network. Completed city scores 2 points per tile plus 2 per pennant; roads score 1 per tile; monastery scores 9 when surrounded by 8 tiles. When features complete, all tied majority players score full points and meeples return. Farmers remain until final scoring and do not return during play. Shared features can happen when separate claimed segments merge later; majority determines control. You may choose to place no meeple to conserve supply. With no meeples available, you still place tiles and score completed features already containing your pieces.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "During play: completed cities, roads, and monasteries score immediately. End game: after final tile, unfinished cities and roads score 1 point per tile (and city pennants still 1 each); unfinished monasteries score 1 for monastery tile plus surrounding placed tiles. Fields score 3 points per completed city they touch, credited to player(s) with most farmers in that field. Highest total wins; ties share victory.",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "Use early meeples on short roads/mini cities to recycle workers quickly instead of trapping all meeples in giant projects. Farms are powerful but long-term commitments—place farmers only where they can touch multiple likely completed cities. Watch tile distribution: if a city needs a rare cap piece, don’t overinvest meeples unless you can force completion yourself. Merge into opponent features when you can tie majority and steal full points. Keep at least one meeple in reserve for tactical monastery or last-turn scoring opportunities.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

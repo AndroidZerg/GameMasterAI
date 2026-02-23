@@ -1,0 +1,58 @@
+{
+  "game_id": "splendor",
+  "title": "Splendor",
+  "aliases": [
+    "Splendor Base"
+  ],
+  "publisher": "Space Cowboys",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": 4
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "engine-building",
+    "set-collection",
+    "tableau"
+  ],
+  "source_url": "https://www.spacecowboys.fr/splendor",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "40 development cards (level I/II/III decks), 10 noble tiles, 7 gem tokens each of emerald/sapphire/ruby/diamond/onyx (5 each in 2p, 4 each in 3p, 7 each in 4p), and 5 gold joker tokens.",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "On your turn choose one action: take gem tokens, reserve a card, or buy a development card. Purchased cards stay in front of you, granting permanent gem discounts and often points. Nobles visit automatically when your card bonuses meet their requirement. Play continues until a player reaches target prestige, then round ends for final comparison.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Token taking: either 3 different gem colors, or 2 of the same color only if at least 4 tokens of that color are available before taking. You may never exceed 10 tokens; discard down immediately if needed. Reserve action: take one face-up card or top card of a deck into hand; if gold token available, take one gold. Reserved cards are hidden to opponents and max 3 reserved at once. Buy action: pay card cost with tokens plus permanent discounts from your tableau; gold acts as wildcard. Refill face-up slot from same deck immediately after purchase/reserve. Nobles are not drafted; at end of your turn, if you satisfy one or more noble requirements, exactly one noble visits and grants 3 points (choose if multiple eligible). You cannot split one action into multiple buys/takes.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "Game-end trigger is any player reaching 15 or more prestige points at end of their turn. Continue until all players have taken equal turns in the round, then winner is highest prestige. Tie-break: tied player with fewest purchased development cards wins (more efficient engine). Points come from development cards (various values) and noble tiles (3 each).",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "Early game, prioritize cheap level I cards that create a discount triangle across colors rather than random buys. Reserve high-value cards only if you can realistically buy them soon; otherwise you tempo-loss yourself. Watch opponents’ noble races and cut one required color to delay their free 3 points. Keep token count flexible (7–9) so you can pivot to unexpected face-up deals without forced discards. A fast low-card 15-point line often beats a flashy level III plan.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

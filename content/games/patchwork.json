@@ -1,0 +1,58 @@
+{
+  "game_id": "patchwork",
+  "title": "Patchwork",
+  "aliases": [
+    "Patchwork Base"
+  ],
+  "publisher": "Lookout Games",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": 2
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "polyomino",
+    "time-track",
+    "economy"
+  ],
+  "source_url": "https://lookout-spiele.de/en/games/patchwork.html",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "1 time board, 2 quilt boards (9x9), 33 patch tiles, 5 special leather patches, 1 neutral pawn, 2 time tokens, and 50 button tokens (currency/points).",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "Players alternate turns based on who is behind on the time track. On a turn, either buy and place one of the next three patches around the neutral pawn or take income buttons by passing. Purchased patch cost is paid in buttons and advances your time token by its time cost. Game ends when both tokens reach track end, then final score applies.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Patch market is circular: neutral pawn marks current position; you may buy only one of the next three patches clockwise. After purchase, move neutral pawn to removed patch spot, pay buttons, place patch non-overlapping on your quilt board, then move your time token forward by printed time. If your token crosses or lands on button-income spaces, collect income equal to buttons shown on your quilt board. If you pass instead of buying, move to one space ahead of opponent and gain one button per space moved. Special 1x1 leather patches are gained by first player to pass specific track markers and must be placed immediately. 7x7 bonus tile (if included by edition) grants extra points to first player filling a 7x7 area.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "When both players reach final time-track space, score = buttons in hand minus 2 points for each empty square on quilt board, plus any 7x7 bonus if used. Higher score wins; tie usually goes to player who reached end first under official rules. No midgame points except income events and resources.",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "Tempo is everything: a cheap patch with low time can grant multiple buys before opponent moves again. Don’t chase perfect shape early—prioritize strong button-income patches to fund later efficiency. Passing is often powerful; taking buttons and position can beat a bad-value patch purchase. Protect central board flexibility to avoid isolated one-cell holes that cost final points. Track upcoming leather patch markers and plan moves to claim them when possible.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

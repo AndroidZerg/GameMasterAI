@@ -1,0 +1,58 @@
+{
+  "game_id": "azul",
+  "title": "Azul",
+  "aliases": [
+    "Azul (2017)"
+  ],
+  "publisher": "Next Move Games / Plan B",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": 4
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "pattern-building",
+    "drafting",
+    "set-collection"
+  ],
+  "source_url": "https://www.nextmovegames.com/en/home/azul/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "100 resin tiles (20 each in blue, yellow, red, black, white), 4 player boards (A side standard), 9 factory displays, 4 score markers, 1 first player token, and 1 cloth bag.",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "In each round players draft all tiles of one color from a factory or from the center. Chosen tiles are staged on one pattern line of matching length; overflow breaks and causes penalties. After all tiles are drafted, completed lines move one tile to the wall and score points. New factories refill and the next round begins.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Setup: fill each factory with 4 random tiles from bag. On your turn, choose source: one factory or center. If factory chosen, take all tiles of a single color from that factory; push remaining tiles to center. If center chosen, take all tiles of one color there and also take first player token if present (token gives next-round start and immediate -1 penalty). Place taken tiles onto one pattern line respecting constraints: each line accepts only one color; you cannot place a color in a line if that row already has that color on completed wall; excess tiles go to floor line. Wall-tiling phase: each fully filled pattern line moves exactly one tile to corresponding wall slot; remaining tiles from that line go to discard lid. Score placed tile by contiguous horizontal/vertical counts (1 alone, otherwise row-run + column-run). Floor penalties are applied each round by left-to-right negative values. Refill phase: return factories, draw 4 tiles each; if bag empty, refill bag from discard lid. Game can end mid-round trigger but finishes current round fully.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "Endgame triggers when any player completes at least one horizontal row on their wall during wall-tiling. Finish round, then apply bonuses: +2 per completed horizontal row, +7 per completed vertical column, +10 per complete set of 5 same-color tiles on wall. Add to running score after floor penalties; highest score wins, tie broken by most completed horizontal rows.",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "Avoid floor penalties at all costs—taking a slightly weaker color is usually better than eating multiple negatives. Build toward row completion timing so one round places several scoring tiles in connected clusters. Deny opponents key colors when they are one tile short of high-value lines. Track bag composition: late rounds often starve one color, so don’t overcommit impossible lines. First-player token is worth taking only when it secures an excellent first pick next round.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

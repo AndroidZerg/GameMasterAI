@@ -1,0 +1,58 @@
+{
+  "game_id": "codenames",
+  "title": "Codenames",
+  "aliases": [
+    "Codenames (2015)"
+  ],
+  "publisher": "Czech Games Edition",
+  "player_count": {
+    "min": 2,
+    "max": 8,
+    "recommended": 4,
+    "expansion_max": 8
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "party",
+  "categories": [
+    "word-game",
+    "team",
+    "deduction"
+  ],
+  "source_url": "https://czechgames.com/en/codenames/",
+  "source_verified": true,
+  "sections": {
+    "component_identification": {
+      "content": "200 double-sided word cards (400 codenames), 40 key cards, 16 agent cards in two colors, 1 double agent card, 7 innocent bystander cards, 1 assassin card, 1 card stand, 1 timer (in some editions), and rules.",
+      "token_count": 120
+    },
+    "core_game_loop": {
+      "content": "Two teams compete to contact all their agents first. Spymasters see a key card and give one-word clue plus number; operatives guess matching words on the table. Each guess reveals team agent, neutral, opponent, or assassin. Turn ends on mistake, pass, or after allowed guesses. Communication limits create the deduction puzzle.",
+      "token_count": 95
+    },
+    "detailed_rules": {
+      "content": "Setup 25 word cards in a 5x5 grid. Randomly choose key card orientation; one team starts and therefore has 9 agents, other has 8. Spymaster clue must be a single word with a number indicating how many cards it relates to; clue cannot be a visible grid word, derivative, or obvious letter-position hint under normal rules. Operatives may guess up to clue number plus one extra bonus guess, stopping anytime. If they reveal own color agent, they may continue; revealing bystander ends turn; revealing opponent agent ends turn and helps opponent; revealing assassin ends game instantly with loss. Spymasters must remain poker-faced and give no additional guidance beyond legal clue format. Guess order matters because teams can bank bonus guesses from earlier clues.",
+      "token_count": 470
+    },
+    "scoring_and_endgame": {
+      "content": "Win by revealing all your team’s agent cards. Lose immediately if your team reveals assassin. If both teams are close, current turn sequence still applies—no simultaneous victory. No point scoring: outcome is binary win/loss per round, often replayed best-of series.",
+      "token_count": 150
+    },
+    "beginner_strategy": {
+      "content": "As spymaster, favor precise two-card clues over risky four-card swings unless behind. Track your own previous clues to avoid giving opponents accidental meta-information. As operative, start with highest-confidence link and stop early when confidence drops; preserving tempo beats gifting the other team. Pay attention to words your opponents avoid—they may indicate assassin adjacency. Use “bonus guess” mostly to clean up obvious leftovers from prior clues, not wild speculation.",
+      "token_count": 170
+    }
+  },
+  "total_token_count": 1005,
+  "metadata": {
+    "created_by": "halfling",
+    "created_at": "2026-02-23T04:24:07Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
