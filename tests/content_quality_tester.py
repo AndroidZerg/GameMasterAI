@@ -12,6 +12,11 @@ import time
 import requests
 from datetime import datetime
 
+# Force UTF-8 output on Windows
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 API_URL = "http://localhost:8100"
 CONTENT_DIR = r"D:\GameMasterAI\content\games"
 RULEBOOK_DIR = r"D:\GameMasterAI\content\rulebook-text"
