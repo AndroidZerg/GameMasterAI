@@ -129,16 +129,17 @@ def test3_setup_sufficiency(game):
 
     # Check if those rules also exist in setup tab
     setup_tab = tabs.get("setup", {})
-    setup_pc_content = ""
+    setup_player_counts = set()
     for subtopic in setup_tab.get("subtopics", []):
         content = subtopic.get("content", "")
         sections = extract_pc_sections(content)
         for pc, header, body in sections:
-            setup_pc_content += f" {body} "
+            if body.strip():
+                setup_player_counts.add(pc)
 
     for tab_key, sid, pc, header, body in non_setup_rules:
         # Check if setup has ANY content for this player count
-        setup_has_pc = f"--- {pc} Player" in setup_pc_content or f"--- {pc} player" in setup_pc_content
+        setup_has_pc = pc in setup_player_counts
         if not setup_has_pc:
             warnings.append(
                 f"Setup missing — {tab_key.title()} > {sid} > \"{header}\" has setup-related rule not in Setup tab"
