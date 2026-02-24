@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.auth import get_optional_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
+from app.models.feedback import get_all_game_ratings
 from app.models.venues import get_venue_collection
 from app.services.knowledge import load_game
 
@@ -41,6 +42,13 @@ async def list_games(
         if collection:
             coll_set = set(collection)
             results = [g for g in results if g["game_id"] in coll_set]
+
+    # Attach average ratings
+    ratings = get_all_game_ratings()
+    for g in results:
+        avg = ratings.get(g["game_id"])
+        if avg is not None:
+            g["average_rating"] = avg
 
     return results
 

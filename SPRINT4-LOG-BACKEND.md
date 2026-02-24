@@ -28,3 +28,10 @@ Branch: sprint4/backend
 - GET /api/games/{game_id}/expansions — returns expansion list (empty array if none)
 - Each expansion has: name, adds_players (nullable), description
 - Covers: catan, ticket-to-ride, wingspan, carcassonne, dominion, pandemic, spirit-island, root, scythe, king-of-tokyo + 15 more
+
+## Phase B4: Customer Rating System
+- Upgraded feedback table: added reaction (loved/fun/okay/meh) and comment fields
+- POST /api/feedback now accepts rating 1-5 (stars) + backward compat with -1/1 thumbs
+- GET /api/games/{game_id}/rating — aggregate: average, total, distribution {1:n, 2:n, ...}
+- GET /api/games now includes average_rating field for each game with ratings
+- Schema migration via ALTER TABLE for backward compat
