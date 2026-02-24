@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, API_BASE } from "../services/api";
+import { useAuth } from "../contexts/AuthContext";
 
 const COMPLEXITY_COLORS = {
   party: "#a855f7",
@@ -481,6 +482,7 @@ export default function GameSelector() {
   const [apiStaffPicks, setApiStaffPicks] = useState(null);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { isLoggedIn, venueName } = useAuth();
 
   // Read filter state from URL params
   const [complexity, setComplexityState] = useState(searchParams.get("complexity") || "all");
@@ -643,14 +645,28 @@ export default function GameSelector() {
     ? (apiStaffPicks || STAFF_PICKS_FALLBACK.map((id) => allBaseGames.find((g) => g.game_id === id)).filter(Boolean))
     : [];
 
+  // Deterministic daily shuffle — same order all day, refreshes at midnight
+  const dailyShuffle = (arr) => {
+    if (arr.length <= 1) return arr;
+    const today = new Date();
+    let seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+    const shuffled = [...arr];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      seed = (seed * 16807 + 0) % 2147483647;
+      const j = seed % (i + 1);
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
   // Build genre carousels from all available games (before filtering)
   const allDisplayGames = allBaseGames;
   const genreCarousels = !search && !hasActiveFilters && allDisplayGames.length > 4
     ? [
-        { title: "Party Games", color: COMPLEXITY_COLORS.party, games: allDisplayGames.filter((g) => g.complexity === "party").slice(0, 12) },
-        { title: "Easy to Learn", color: COMPLEXITY_COLORS.gateway, games: allDisplayGames.filter((g) => g.complexity === "gateway").slice(0, 12) },
-        { title: "For Strategists", color: COMPLEXITY_COLORS.midweight, games: allDisplayGames.filter((g) => g.complexity === "midweight").slice(0, 12) },
-        { title: "Brain Burners", color: COMPLEXITY_COLORS.heavy, games: allDisplayGames.filter((g) => g.complexity === "heavy").slice(0, 12) },
+        { title: "Party Games", color: COMPLEXITY_COLORS.party, games: dailyShuffle(allDisplayGames.filter((g) => g.complexity === "party")).slice(0, 12) },
+        { title: "Easy to Learn", color: COMPLEXITY_COLORS.gateway, games: dailyShuffle(allDisplayGames.filter((g) => g.complexity === "gateway")).slice(0, 12) },
+        { title: "For Strategists", color: COMPLEXITY_COLORS.midweight, games: dailyShuffle(allDisplayGames.filter((g) => g.complexity === "midweight")).slice(0, 12) },
+        { title: "Brain Burners", color: COMPLEXITY_COLORS.heavy, games: dailyShuffle(allDisplayGames.filter((g) => g.complexity === "heavy")).slice(0, 12) },
       ].filter((c) => c.games.length > 0)
     : [];
 
@@ -664,9 +680,9 @@ export default function GameSelector() {
             GameMaster AI
           </h1>
         </div>
-        {venueConfig?.venue_name && (
+        {(isLoggedIn ? venueName : venueConfig?.venue_name) && (
           <p style={{ color: "var(--accent)", fontSize: "0.95rem", fontWeight: 600, marginBottom: "2px" }}>
-            at {venueConfig.venue_name}
+            at {isLoggedIn ? venueName : venueConfig.venue_name}
           </p>
         )}
         <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", marginBottom: "0" }}>
