@@ -1,0 +1,85 @@
+{
+  "game_id": "catan-seafarers",
+  "title": "Catan: Seafarers",
+  "aliases": ["Seafarers of Catan", "Catan Seafarers Expansion"],
+  "publisher": "Catan Studio",
+  "player_count": {"min": 3, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 150},
+  "complexity": "gateway",
+  "categories": ["resource-management", "trading", "network-building", "exploration"],
+  "source_url": "https://www.catan.com/seafarers",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **Requires base Catan game**\n- **6** sea frame pieces (new border)\n- **19** sea hex tiles\n- **11** terrain hexes (including gold fields)\n- **50** number tokens\n- **60** wooden ships (15 per player color)\n- **10** settlement/city pieces (extras for 5-6 player variant)\n- **1** pirate ship\n- **Scenario booklet** with multiple maps"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Choose a scenario** from the rulebook (each has a different map layout).\n2. **Build frame** using sea frame pieces per scenario instructions.\n3. **Place terrain hexes and sea hexes** according to the chosen scenario.\n4. **Place number tokens** on terrain hexes as instructed.\n5. **Place pirate ship** on any sea hex.\n6. **Gold field hexes** — When their number is rolled, players with adjacent settlements/cities choose any 1 resource (2 for cities)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Take ships** — Each player gets 15 ships in addition to standard Catan pieces.\n- **Starting placement** — Follow scenario instructions for initial settlement/road/ship placement.\n- **VP target** — Varies by scenario (often 12-14 instead of base game's 10)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Catan: Seafarers extends the base game with sea routes, islands to discover, the pirate, and new scenarios. Players build ships to sail between islands and establish new settlements across the sea."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Same as base Catan with additions:\n1. **Roll dice** — Produce resources (including gold fields).\n2. **Trade** — Domestic and maritime trades.\n3. **Build** — Roads, settlements, cities, ships, and buy development cards.\n4. **Move ships** (optional) — Move an open shipping route's last ship.\n\n#### Ships\n- **Cost** — 1 Wool + 1 Lumber.\n- **Placement** — Must connect to your existing network at a coastal intersection.\n- **Shipping routes** — Connected sequence of ships between two settlements/cities.\n- **Open vs closed routes** — A route is closed when both ends connect to settlements/cities. Open routes have a free end."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Building Ships\n- Ships are placed on edges between two sea hexes or between a sea hex and a land hex.\n- Ships connect to roads at coastal intersections.\n- Ships and roads form a continuous network for Longest Road.\n\n#### Moving Ships\n- On your turn, you may move 1 ship that is at the open end of a shipping route.\n- Cannot move a ship that was just placed this turn.\n- The ship must be placed in a new legal position connected to your network.\n\n#### Pirate\n- When a 7 is rolled, the active player may move either the robber OR the pirate.\n- **Pirate** is placed on a sea hex. Ships adjacent to the pirate hex cannot be built or moved.\n- The player may steal 1 resource from an opponent with a ship adjacent to the pirate.\n\n#### Gold Fields\n- When a gold field's number is rolled, each player with a settlement adjacent gets to choose any 1 resource from the bank (2 for cities)."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Longest Road\n- Ships count toward Longest Road. A continuous path of roads and ships combined counts.\n- Ships and roads connect at coastal settlements/cities.\n\n#### Discovering New Islands (some scenarios)\n- Place settlements on undiscovered islands to earn bonus VP.\n\n#### Scenario-Specific Rules\n- Each scenario introduces unique rules (fog islands, wonders, trade routes, etc.).\n- VP targets vary by scenario."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Victory Points\n- Same as base Catan: settlements (1), cities (2), Longest Road (2), Largest Army (2), VP cards (1 each).\n- **Additional VP** from scenario bonuses (island discovery, special achievements).\n\n#### Win Condition\n- First player to reach the scenario's VP target during their turn wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Wool + Lumber** are critical for ships — prioritize these resources.\n- **Sail early** — Reach new islands before opponents to claim the best spots.\n- **Gold fields** are very strong — settle adjacent when possible.\n- **Pirate vs Robber** — Use the pirate to disrupt opponents' shipping lanes."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Island hopping** — Establish settlements on multiple islands for diverse resources and bonuses.\n- **Shipping lane control** — Build long shipping routes to block opponents and claim Longest Road.\n- **Gold flexibility** — Gold fields let you choose resources, reducing trade dependence.\n- **Ship mobility** — Moving open-end ships lets you redirect expansion without building new ones."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

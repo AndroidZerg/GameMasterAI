@@ -1,0 +1,9 @@
+{
+  "game_id": "codenames-duet",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "agents_found", "label": "Agents Found", "points_each": 1, "type": "count", "description": "Number of agents correctly identified (need all 15)"},
+    {"id": "tokens_remaining", "label": "Timer Tokens Left", "points_each": 1, "type": "count", "description": "Number of timer tokens remaining at win"}
+  ],
+  "win_condition": "Find all 15 agents without hitting an assassin or running out of time"
+}

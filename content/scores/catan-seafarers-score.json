@@ -1,0 +1,13 @@
+{
+  "game_id": "catan-seafarers",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "settlements", "label": "Settlements", "points_each": 1, "type": "count", "description": "1 VP per settlement"},
+    {"id": "cities", "label": "Cities", "points_each": 2, "type": "count", "description": "2 VP per city"},
+    {"id": "vp_cards", "label": "VP Dev Cards", "points_each": 1, "type": "count", "description": "1 VP per Victory Point development card"},
+    {"id": "longest_road", "label": "Longest Road", "points_each": 2, "type": "boolean", "description": "2 VP for longest continuous road/ship path (5+)"},
+    {"id": "largest_army", "label": "Largest Army", "points_each": 2, "type": "boolean", "description": "2 VP for most knight cards played (3+)"},
+    {"id": "scenario_bonus", "label": "Scenario Bonus", "points_each": 1, "type": "count", "description": "Bonus VP from scenario-specific achievements"}
+  ],
+  "win_condition": "First to scenario VP target (varies, typically 12-14)"
+}

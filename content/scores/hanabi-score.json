@@ -1,0 +1,9 @@
+{
+  "game_id": "hanabi",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "firework_total", "label": "Firework Score", "points_each": 1, "type": "count", "description": "Sum of highest card in each of the 5 firework piles (max 25)"},
+    {"id": "fuses_remaining", "label": "Fuses Remaining", "points_each": 1, "type": "count", "description": "Number of fuse tokens remaining"}
+  ],
+  "win_condition": "Score as close to 25 as possible (cooperative high score)"
+}

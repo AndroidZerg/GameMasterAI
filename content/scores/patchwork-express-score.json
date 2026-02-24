@@ -1,0 +1,9 @@
+{
+  "game_id": "patchwork-express",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "buttons", "label": "Buttons", "points_each": 1, "type": "count", "description": "Total buttons remaining"},
+    {"id": "empty_spaces", "label": "Empty Spaces", "points_each": -2, "type": "count", "description": "-2 points per empty space on quilt board"}
+  ],
+  "win_condition": "Most points (buttons minus empty space penalty)"
+}

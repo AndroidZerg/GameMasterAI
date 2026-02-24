@@ -1,0 +1,85 @@
+{
+  "game_id": "hanabi",
+  "title": "Hanabi",
+  "aliases": [],
+  "publisher": "R&R Games",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 20, "max": 30},
+  "complexity": "gateway",
+  "categories": ["cooperative", "hand-management", "deduction", "card-game"],
+  "source_url": "https://www.rnrgames.com/hanabi",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **50 firework cards** in 5 colors (White, Red, Blue, Yellow, Green):\n  - Each color: three 1s, two 2s, two 3s, two 4s, one 5\n- **8 blue clock tokens** (information tokens)\n- **3 red fuse tokens** (mistake tokens)\n- **5 multicolor cards** (variant/expansion)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle all 50 cards.**\n2. **Deal cards** — Hold cards facing AWAY from you (you cannot see your own hand).\n   - 2-3 players: 5 cards each\n   - 4-5 players: 4 cards each\n3. **Place 8 blue tokens** (clock side up) and **3 red tokens** in the center.\n4. **Leave space** for 5 firework piles (one per color)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Hold cards outward** — You can see everyone else's cards but NOT your own.\n- **No revealing** — You cannot look at your own cards or reveal them accidentally."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Hanabi is a cooperative card game where players build 5 firework displays (one per color) from 1 to 5. The twist: you can't see your own cards. Teammates give limited hints to help you play the right cards."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, do exactly ONE action:\n\n1. **Give a hint** — Spend 1 blue token to tell another player about their cards.\n2. **Play a card** — Place a card from your hand onto a firework pile.\n3. **Discard a card** — Discard a card to regain 1 blue token."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Giving Hints\n- Flip 1 blue token to its used side.\n- Tell one other player about ALL cards in their hand of one specific color OR one specific number.\n- You MUST point to every card that matches.\n- Example: \"These two cards are blue\" or \"This card is a 3.\"\n- Cannot give a hint that applies to zero cards.\n\n#### Playing Cards\n- Choose a card from your hand (without looking) and place it on the corresponding firework pile.\n- **Success** — If the card is the next number needed (e.g., Blue 3 on a Blue pile showing 1-2), it stays.\n- **Bonus** — Completing a firework (playing the 5) returns 1 blue token.\n- **Failure** — If the card doesn't fit, it's discarded and 1 red fuse token is lost.\n\n#### Discarding\n- Remove a card from your hand (without looking at it first) to the discard pile.\n- Reclaim 1 blue token (flip from used to available).\n- Draw a new card from the deck."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **3 fuses = game over** — If all 3 red tokens are lost, the fireworks explode and everyone loses.\n- **Card uniqueness** — Each 5 exists only once per color; discarding a 5 makes that firework impossible to complete.\n- **Hint completeness** — When giving a hint, you must indicate ALL matching cards.\n- **No blue tokens** — If all 8 are used, you cannot give hints until someone discards."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### End Triggers\n- All 3 fuse tokens are lost (score = 0).\n- All 5 fireworks are completed (perfect score = 25).\n- The deck runs out — each player gets 1 final turn.\n\n#### Scoring\n- Sum the highest card played in each of the 5 firework piles.\n- **Maximum** 25 points (all five piles completed 1-5).\n- **Rating**: 0-5 horrible, 6-10 mediocre, 11-15 honorable, 16-20 excellent, 21-24 amazing, 25 legendary."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Prioritize 1s** — Get all five 1s played early to unlock the fireworks.\n- **Hint about playable cards** — Focus hints on cards that can be played immediately.\n- **Don't discard unknowns** — If you have no info about a card, it might be critical.\n- **Watch the discard pile** — Track which cards are gone to know what's still safe to play."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Conventions** — Groups develop hint conventions (e.g., hinting a number means \"play this\").\n- **Finesse plays** — Advanced technique: give a hint to one player that indirectly tells another what to play.\n- **Discard order** — Discard from the oldest/rightmost card if no information has been given about it.\n- **Save 5s** — Hint about 5s immediately to prevent accidental discards.\n- **Token management** — Balance hint-giving with discarding to maintain blue token supply."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
