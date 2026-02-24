@@ -15,3 +15,10 @@ Branch: sprint4/backend
   - demo@grouchyjohns.com / gmai2026 -> OK
   - demo@naturaltwentygames.com / gmai2026 -> OK
 - Protected endpoint (GET /api/stats with Bearer token) returns enhanced stats
+
+## Phase B2: F&B Menu System
+- Created content/menus/ with 3 venue menus: meepleville, knight-and-day, grouchy-johns
+- Created backend/app/api/routes/menu.py
+- GET /api/venue/menu — serves venue menu (auth, venue_id param, or default meepleville)
+- POST /api/admin/menu — update venue menu (auth required), saves to content/menus/{venue_id}.json
+- Venues without menus return {sections: [], message: "No menu configured"}
