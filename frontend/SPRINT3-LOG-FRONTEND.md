@@ -13,3 +13,23 @@
 - **Added**: Error correction level M for reliable scanning
 - **Improved**: Print CSS — page margins, card borders, page-break-inside: avoid
 - **Files**: `QRGeneratorPage.jsx`, `index.css`, `package.json`
+
+## A3: Named Score Tracker — Player Setup
+- **Added**: Player colors (10 colors) with clickable color picker dots
+- **Added**: Player avatars (10 emoji avatars) with tap-to-cycle
+- **Added**: Color-coded player borders throughout the scoring UI
+- **Files**: `ScoreTracker.jsx`
+
+## A4: Game-Specific Scoring Types
+- **Added**: `calculator` type — existing category-based scoring (count/boolean/manual)
+- **Added**: `cooperative` type — Win/Loss buttons with team display (Pandemic, The Crew)
+- **Added**: `elimination` type — Eliminate/Revive players with optional VP counter (King of Tokyo)
+- **Added**: Mock configs for cooperative games (Pandemic, The Crew) and elimination (King of Tokyo)
+- **Files**: `ScoreTracker.jsx`
+
+## A5: Results + Winner with Session POST
+- **Added**: POST to `/api/sessions` with game_id, players, scores, winner, timestamp
+- **Added**: Cooperative results screen (Victory/Defeat with team display)
+- **Added**: Player colors in results — winner row uses player color as background
+- **Added**: Avatar display throughout results
+- **Files**: `ScoreTracker.jsx`
