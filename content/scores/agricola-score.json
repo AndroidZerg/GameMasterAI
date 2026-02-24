@@ -6,72 +6,85 @@
     {
       "id": "fields",
       "label": "Fields",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points for plowed grain and vegetable fields"
     },
     {
       "id": "pastures",
       "label": "Pastures",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points for fenced pasture areas"
     },
     {
       "id": "grain",
       "label": "Grain",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points based on total grain harvested"
     },
     {
       "id": "vegetables",
       "label": "Vegetables",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points based on total vegetables harvested"
     },
     {
       "id": "sheep",
       "label": "Sheep",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points based on number of sheep"
     },
     {
       "id": "wild_boar",
       "label": "Wild Boar",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points based on number of wild boar"
     },
     {
       "id": "cattle",
       "label": "Cattle",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points based on number of cattle"
     },
     {
       "id": "unused_spaces",
       "label": "Unused Spaces",
       "type": "manual",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "Negative points for empty farmyard spaces"
     },
     {
       "id": "fenced_stables",
       "label": "Fenced Stables",
       "points_each": 1,
-      "type": "count"
+      "type": "count",
+      "description": "Points for stables in fenced pastures"
     },
     {
       "id": "rooms",
       "label": "Room Points",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from room points"
     },
     {
       "id": "family_members",
       "label": "Family Members",
       "points_each": 3,
       "type": "count",
-      "max": 5
+      "max": 5,
+      "description": "3 points per family member"
     },
     {
       "id": "card_points",
       "label": "Card Points (Occupations & Improvements)",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from card points (occupations & improvements)"
     },
     {
       "id": "begging_penalties",
       "label": "Begging Cards",
       "type": "manual",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "Points from begging cards"
     }
   ]
 }

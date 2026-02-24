@@ -26,7 +26,7 @@ from app.api.routes.export import router as export_router
 from app.api.routes.auth import router as auth_router
 from app.api.routes.analytics import router as analytics_router
 from app.api.routes.score_history import router as score_history_router
-from app.api.routes.extras import router as extras_router
+from app.api.routes.menu import router as menu_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -37,6 +37,7 @@ from app.models.venues import (
 )
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
+from app.models.house_rules import init_house_rules_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 
@@ -55,6 +56,7 @@ async def lifespan(app: FastAPI):
     init_venue_collections_table()
     init_analytics_table()
     init_score_history_table()
+    init_house_rules_table()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")
@@ -73,7 +75,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="GameMaster AI",
-    version="0.6.0",
+    version="0.7.0",
     description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, venue management, and auth.",
     lifespan=lifespan,
 )
@@ -95,7 +97,6 @@ app.add_middleware(
 app.include_router(auth_router)
 
 # --- Game endpoints ---
-app.include_router(extras_router)  # Must be before games_router so /games/featured, /games/staff-picks match before /games/{game_id}
 app.include_router(games_router)
 app.include_router(search_router)
 app.include_router(popular_router)
@@ -109,6 +110,7 @@ app.include_router(stats_router)
 
 # --- Venue & contact ---
 app.include_router(venue_router)
+app.include_router(menu_router)
 app.include_router(contact_router)
 
 # --- Analytics & Score History ---

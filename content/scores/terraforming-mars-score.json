@@ -7,33 +7,39 @@
     {
       "id": "terraform_rating",
       "label": "Terraform Rating",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from terraform rating"
     },
     {
       "id": "milestones",
       "label": "Milestone VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from milestone vp"
     },
     {
       "id": "awards",
       "label": "Award VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from award vp"
     },
     {
       "id": "greenery",
       "label": "Greenery Tiles",
       "points_each": 1,
-      "type": "count"
+      "type": "count",
+      "description": "1 point(s) per greenery tiles"
     },
     {
       "id": "city_adjacency",
       "label": "City VP (adjacent greenery)",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from city vp (adjacent greenery)"
     },
     {
       "id": "card_vp",
       "label": "Card VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from card vp"
     }
   ]
 }

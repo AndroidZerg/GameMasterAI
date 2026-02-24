@@ -1,13 +1,42 @@
-"""Game listing, search, detail, price, categories, filter, and reload endpoints."""
+"""Game listing, search, detail, price, categories, filter, expansions, featured, and reload endpoints."""
 
+import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.auth import get_optional_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
-from app.models.venues import get_venue_collection
+from app.models.feedback import get_all_game_ratings
+from app.models.house_rules import get_house_rules
+from app.models.venues import get_venue_collection, get_staff_picks
 from app.services.knowledge import load_game
+
+_EXPANSIONS_PATH = Path(__file__).resolve().parents[4] / "content" / "expansions.json"
+_EXPANSIONS: dict[str, list] = {}
+_HIGHLIGHTS_PATH = Path(__file__).resolve().parents[4] / "content" / "game-highlights.json"
+_HIGHLIGHTS: dict[str, str] = {}
+
+
+def _load_expansions():
+    global _EXPANSIONS
+    if _EXPANSIONS_PATH.exists():
+        try:
+            _EXPANSIONS = json.loads(_EXPANSIONS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            _EXPANSIONS = {}
+
+
+def _load_highlights():
+    global _HIGHLIGHTS
+    if _HIGHLIGHTS_PATH.exists():
+        try:
+            _HIGHLIGHTS = json.loads(_HIGHLIGHTS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            _HIGHLIGHTS = {}
 
 router = APIRouter(prefix="/api", tags=["games"])
 
@@ -28,6 +57,13 @@ async def list_games(
             coll_set = set(collection)
             results = [g for g in results if g["game_id"] in coll_set]
 
+    # Attach average ratings
+    ratings = get_all_game_ratings()
+    for g in results:
+        avg = ratings.get(g["game_id"])
+        if avg is not None:
+            g["average_rating"] = avg
+
     return results
 
 
@@ -44,14 +80,16 @@ async def filter_games_endpoint(
     max_players: Optional[int] = Query(None),
     category: Optional[str] = Query(None),
     max_play_time: Optional[int] = Query(None, description="Max play time in minutes"),
+    tag: Optional[str] = Query(None, description="Filter by tag: solo, great-for-2, family-friendly, party-game, brain-burner, quick-play, cooperative, mystery-deduction, large-group"),
 ):
-    """Filter games by complexity, player count, category, and play time. All params optional and combinable."""
+    """Filter games by complexity, player count, category, play time, and tags. All params optional and combinable."""
     return filter_games(
         complexity=complexity,
         min_players=min_players,
         max_players=max_players,
         category=category,
         max_play_time=max_play_time,
+        tag=tag,
     )
 
 
@@ -63,16 +101,90 @@ async def quick_games(
     return get_quick_games(max_time=max_time)
 
 
+@router.get("/games/staff-picks")
+async def staff_picks_games(
+    venue: Optional[dict] = Depends(get_optional_venue),
+):
+    """Return full game data for staff-picked games. Auth -> venue picks. No auth -> default top games."""
+    picks = []
+    if venue:
+        picks = get_staff_picks(venue["venue_id"])
+
+    if not picks:
+        all_games = search_games()
+        return all_games[:5]
+
+    all_games = search_games()
+    games_map = {g["game_id"]: g for g in all_games}
+    return [games_map[gid] for gid in picks if gid in games_map]
+
+
+@router.get("/games/featured")
+async def featured_game():
+    """Game of the Day — deterministic selection based on date hash."""
+    if not _HIGHLIGHTS:
+        _load_highlights()
+
+    games = search_games()
+    if not games:
+        return {"error": "No games available"}
+
+    # Hash today's date to pick a consistent game
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    idx = int(hashlib.md5(today.encode()).hexdigest(), 16) % len(games)
+    game = games[idx]
+    game_id = game["game_id"]
+
+    why_play = _HIGHLIGHTS.get(game_id, f"{game['title']} is a great game to try today.")
+
+    return {
+        **game,
+        "why_play": why_play,
+        "featured_date": today,
+    }
+
+
 @router.get("/games/{game_id}")
 async def get_game(game_id: str):
-    """Return the full game JSON including all tabs data and MSRP."""
+    """Return the full game JSON including all tabs data, MSRP, and scoring text."""
     game = load_game(game_id)
     if not game:
         raise HTTPException(status_code=404, detail=f"Game '{game_id}' not found")
     msrp = get_msrp(game_id)
     if msrp is not None:
         game["msrp"] = msrp
+    # Extract scoring/endgame text from rules subtopics
+    scoring_text = None
+    tabs = game.get("tabs", {})
+    rules = tabs.get("rules", {})
+    for subtopic in rules.get("subtopics", []):
+        if subtopic.get("id") == "endgame":
+            scoring_text = subtopic.get("content")
+            break
+    if scoring_text:
+        game["scoring_text"] = scoring_text
     return game
+
+
+@router.get("/games/{game_id}/expansions")
+async def get_game_expansions(game_id: str):
+    """Return expansion list for a game. Empty array if none listed."""
+    if not _EXPANSIONS:
+        _load_expansions()
+    return _EXPANSIONS.get(game_id, [])
+
+
+@router.get("/games/{game_id}/house-rules")
+async def get_game_house_rules(
+    game_id: str,
+    venue: Optional[dict] = Depends(get_optional_venue),
+):
+    """Get venue's house rules for a game. Returns null if none set."""
+    vid = venue["venue_id"] if venue else None
+    rules = get_house_rules(game_id, venue_id=vid)
+    if rules:
+        return rules
+    return {"game_id": game_id, "rule_text": None, "message": "No house rules set"}
 
 
 @router.get("/games/{game_id}/price")

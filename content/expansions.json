@@ -1,118 +1,335 @@
 {
-  "_meta": {
-    "description": "Board game expansion data for all games with notable expansions",
-    "last_updated": "2026-02-24"
-  },
   "catan": [
-    { "name": "Catan: Seafarers", "year": 1997, "description": "Explore islands, build ships, and discover gold rivers.", "players": "3-4" },
-    { "name": "Catan: Cities & Knights", "year": 1998, "description": "Defend Catan from barbarians and develop cities with commodities.", "players": "3-4" },
-    { "name": "Catan: Traders & Barbarians", "year": 2007, "description": "Five scenario variants including rivers, caravans, and barbarian attacks.", "players": "2-4" },
-    { "name": "Catan: 5-6 Player Extension", "year": 1996, "description": "Adds components to play with up to 6 players.", "players": "5-6" }
-  ],
-  "wingspan": [
-    { "name": "Wingspan: European Expansion", "year": 2019, "description": "81 European birds with new end-of-round goals and bonus cards.", "players": "1-5" },
-    { "name": "Wingspan: Oceania Expansion", "year": 2020, "description": "95 birds from Australia and New Zealand plus new player mats and food.", "players": "1-5" },
-    { "name": "Wingspan: Asia Expansion", "year": 2022, "description": "Duet mode for 2 players plus 90+ Asian birds.", "players": "1-2 (duet) / 1-5" }
+    {
+      "name": "5-6 Player Extension",
+      "adds_players": "5-6",
+      "description": "Allows up to 6 players to settle Catan with additional components."
+    },
+    {
+      "name": "Seafarers",
+      "adds_players": null,
+      "description": "Adds exploration on the high seas with ships, gold fields, and pirate islands."
+    },
+    {
+      "name": "Cities & Knights",
+      "adds_players": null,
+      "description": "Introduces city improvements, knights, barbarian invasions, and new development cards."
+    }
   ],
   "ticket-to-ride": [
-    { "name": "Ticket to Ride: Europe", "year": 2005, "description": "New map with tunnels, ferries, and stations across Europe.", "players": "2-5" },
-    { "name": "Ticket to Ride: Nordic Countries", "year": 2007, "description": "Standalone 2-3 player game set in Scandinavia.", "players": "2-3" },
-    { "name": "Ticket to Ride: 1910", "year": 2006, "description": "New destination tickets and full-size cards for the USA map.", "players": "2-5" }
+    {
+      "name": "Europe",
+      "adds_players": null,
+      "description": "New map featuring European cities, tunnels, ferries, and train stations."
+    },
+    {
+      "name": "1910",
+      "adds_players": null,
+      "description": "Adds larger cards and new destination tickets for the USA map."
+    }
   ],
-  "pandemic": [
-    { "name": "Pandemic: On the Brink", "year": 2009, "description": "Three new challenge modules: Virulent Strain, Mutation, and Bio-Terrorist.", "players": "2-5" },
-    { "name": "Pandemic: In the Lab", "year": 2013, "description": "New lab challenge adds a board for curing diseases.", "players": "1-6" },
-    { "name": "Pandemic: State of Emergency", "year": 2015, "description": "Hinterlands, Superbug, and Emergency Events challenge modules.", "players": "2-4" }
-  ],
-  "terraforming-mars": [
-    { "name": "Terraforming Mars: Hellas & Elysium", "year": 2017, "description": "Two new maps with different milestones and awards.", "players": "1-5" },
-    { "name": "Terraforming Mars: Prelude", "year": 2018, "description": "Fast-start cards that give your corporation a head start.", "players": "1-5" },
-    { "name": "Terraforming Mars: Colonies", "year": 2018, "description": "Colonize moons of Jupiter and Saturn for new resources.", "players": "1-5" },
-    { "name": "Terraforming Mars: Turmoil", "year": 2019, "description": "Political parties and global events affect the terraforming process.", "players": "1-5" }
-  ],
-  "root": [
-    { "name": "Root: The Riverfolk Expansion", "year": 2018, "description": "Adds the Riverfolk Company and Lizard Cult factions.", "players": "1-6" },
-    { "name": "Root: The Underworld Expansion", "year": 2020, "description": "Adds the Underground Duchy and Corvid Conspiracy plus 2 new maps.", "players": "1-6" },
-    { "name": "Root: The Marauder Expansion", "year": 2022, "description": "Lord of the Hundreds and Keepers in Iron factions plus hirelings.", "players": "1-6" }
-  ],
-  "dominion": [
-    { "name": "Dominion: Intrigue", "year": 2009, "description": "Choice-based action cards and new victory cards.", "players": "2-4" },
-    { "name": "Dominion: Seaside", "year": 2009, "description": "Duration cards that affect your next turn.", "players": "2-4" },
-    { "name": "Dominion: Prosperity", "year": 2010, "description": "Platinum and Colony cards for higher-value games.", "players": "2-4" }
-  ],
-  "spirit-island": [
-    { "name": "Spirit Island: Branch & Claw", "year": 2017, "description": "New spirits, event cards, and tokens for beasts and disease.", "players": "1-4" },
-    { "name": "Spirit Island: Jagged Earth", "year": 2020, "description": "10 new spirits, new adversaries, and scenarios.", "players": "1-6" },
-    { "name": "Spirit Island: Nature Incarnate", "year": 2023, "description": "8 new spirits with complex mechanics.", "players": "1-6" }
-  ],
-  "7-wonders": [
-    { "name": "7 Wonders: Cities", "year": 2012, "description": "Adds diplomacy, espionage, and city cards for team play up to 8.", "players": "2-8" },
-    { "name": "7 Wonders: Leaders", "year": 2011, "description": "Leader cards drafted before each age provide unique bonuses.", "players": "2-7" },
-    { "name": "7 Wonders: Armada", "year": 2018, "description": "Naval boards with four fleets that advance during the game.", "players": "2-7" }
+  "wingspan": [
+    {
+      "name": "European Expansion",
+      "adds_players": null,
+      "description": "Introduces 81 new bird cards featuring European species and new bonus cards."
+    },
+    {
+      "name": "Oceania Expansion",
+      "adds_players": null,
+      "description": "Adds 95 Oceania birds, new nectar resource, and a new end-of-round goal system."
+    }
   ],
   "carcassonne": [
-    { "name": "Carcassonne: Inns & Cathedrals", "year": 2002, "description": "Double-scoring inns on lakes and cathedral tiles, plus a big meeple.", "players": "2-6" },
-    { "name": "Carcassonne: Traders & Builders", "year": 2003, "description": "Trade goods, builder for double turns, and a pig for farm scoring.", "players": "2-6" }
+    {
+      "name": "Inns & Cathedrals",
+      "adds_players": "6",
+      "description": "Adds sixth player pieces, inns for roads, and cathedrals for cities."
+    },
+    {
+      "name": "Traders & Builders",
+      "adds_players": null,
+      "description": "Introduces builder and pig pieces, plus trade goods tokens for economic strategy."
+    }
+  ],
+  "dominion": [
+    {
+      "name": "Intrigue",
+      "adds_players": null,
+      "description": "Adds 26 new Kingdom cards with choice-based actions and Victory-Action hybrid cards."
+    },
+    {
+      "name": "Seaside",
+      "adds_players": null,
+      "description": "Introduces Duration cards that affect multiple turns and maritime-themed mechanics."
+    }
+  ],
+  "pandemic": [
+    {
+      "name": "On the Brink",
+      "adds_players": "5",
+      "description": "Adds 5th player, new roles, Virulent Strain challenge, and Bio-Terrorist mode."
+    },
+    {
+      "name": "In the Lab",
+      "adds_players": null,
+      "description": "Introduces lab boards for researching cures through sequence challenges."
+    }
+  ],
+  "spirit-island": [
+    {
+      "name": "Branch & Claw",
+      "adds_players": null,
+      "description": "Adds two new spirits, event cards, and token event mechanics for more variety."
+    },
+    {
+      "name": "Jagged Earth",
+      "adds_players": null,
+      "description": "Massive expansion with 10 new spirits, new adversary, and badlands tokens."
+    }
+  ],
+  "root": [
+    {
+      "name": "The Riverfolk Expansion",
+      "adds_players": "6",
+      "description": "Adds Riverfolk and Lizard Cult factions, plus second Vagabond for 6 players."
+    },
+    {
+      "name": "The Underworld Expansion",
+      "adds_players": null,
+      "description": "Introduces Underground Duchy and Corvid Conspiracy factions with unique mechanics."
+    }
   ],
   "scythe": [
-    { "name": "Scythe: Invaders from Afar", "year": 2016, "description": "Two new factions — Togawa Shogunate and Albion — for up to 7 players.", "players": "1-7" },
-    { "name": "Scythe: The Wind Gambit", "year": 2017, "description": "Airship modules and resolution tiles that change endgame scoring.", "players": "1-7" },
-    { "name": "Scythe: The Rise of Fenris", "year": 2018, "description": "8-episode campaign with persistent changes and new mechanics.", "players": "1-5" }
-  ],
-  "everdell": [
-    { "name": "Everdell: Pearlbrook", "year": 2019, "description": "River board with frog ambassador, adornment cards, and wonders.", "players": "1-4" },
-    { "name": "Everdell: Spirecrest", "year": 2020, "description": "Big critters and weather cards add new strategic depth.", "players": "1-4" },
-    { "name": "Everdell: Bellfaire", "year": 2020, "description": "5-6 player support, player powers, and market board.", "players": "1-6" }
-  ],
-  "agricola": [
-    { "name": "Agricola: Farmers of the Moor", "year": 2009, "description": "Heating requirements, horses, and forest/moor tiles.", "players": "1-5" },
-    { "name": "Agricola: Artifex Deck", "year": 2016, "description": "120 new occupation and minor improvement cards.", "players": "1-4" }
-  ],
-  "azul": [
-    { "name": "Azul: Stained Glass of Sintra", "year": 2018, "description": "Translucent tiles on a double-sided player board with shifting columns.", "players": "2-4" },
-    { "name": "Azul: Summer Pavilion", "year": 2019, "description": "Star-shaped pattern building with wild tiles and bonus rounds.", "players": "2-4" }
-  ],
-  "viticulture": [
-    { "name": "Viticulture: Tuscany Essential Edition", "year": 2016, "description": "Extended board with four seasons, special workers, and structures.", "players": "1-6" },
-    { "name": "Viticulture: Visit from the Rhine Valley", "year": 2018, "description": "80 new visitor cards for more variety.", "players": "1-6" }
-  ],
-  "clank": [
-    { "name": "Clank!: Sunken Treasures", "year": 2017, "description": "Underwater-themed board with new market items and flood mechanics.", "players": "2-4" },
-    { "name": "Clank!: The Mummy's Curse", "year": 2018, "description": "Pyramid dungeon with mummy that chases players.", "players": "2-4" }
-  ],
-  "lords-of-waterdeep": [
-    { "name": "Lords of Waterdeep: Scoundrels of Skullport", "year": 2013, "description": "Two modules — Undermountain and Skullport — with corruption mechanic.", "players": "2-6" }
+    {
+      "name": "Invaders from Afar",
+      "adds_players": "7",
+      "description": "Adds two new factions (Albion and Togawa) for up to 7 players."
+    },
+    {
+      "name": "The Wind Gambit",
+      "adds_players": null,
+      "description": "Introduces airships with unique abilities and alternative resolution tiles."
+    }
   ],
   "king-of-tokyo": [
-    { "name": "King of Tokyo: Power Up!", "year": 2012, "description": "Evolution cards give each monster unique abilities.", "players": "2-6" },
-    { "name": "King of Tokyo: Halloween", "year": 2013, "description": "Two new monsters and costume cards.", "players": "2-6" }
+    {
+      "name": "Power Up!",
+      "adds_players": null,
+      "description": "Adds unique evolution cards for each monster, giving them special abilities."
+    },
+    {
+      "name": "Halloween",
+      "adds_players": null,
+      "description": "Introduces two new monsters and Halloween-themed costume cards."
+    }
   ],
-  "cosmic-encounter": [
-    { "name": "Cosmic Encounter: Cosmic Incursion", "year": 2010, "description": "20 new aliens, reward deck, and 6th player support.", "players": "3-6" },
-    { "name": "Cosmic Encounter: Cosmic Conflict", "year": 2011, "description": "20 more aliens, hazard deck, and 7th player.", "players": "3-7" }
+  "azul": [
+    {
+      "name": "Stained Glass of Sintra",
+      "adds_players": null,
+      "description": "Standalone expansion with transparent panes and new scoring mechanisms."
+    },
+    {
+      "name": "Summer Pavilion",
+      "adds_players": null,
+      "description": "Standalone with wild tiles and new color-matching scoring patterns."
+    }
   ],
-  "great-western-trail": [
-    { "name": "Great Western Trail: Rails to the North", "year": 2018, "description": "Northern branch with new station tiles and branchlets.", "players": "2-4" }
+  "splendor": [
+    {
+      "name": "Cities of Splendor",
+      "adds_players": null,
+      "description": "Four expansions in one: Cities, Trading Posts, Orient, and Strongholds."
+    }
   ],
-  "brass-birmingham": [
-    { "name": "Brass: Lancashire", "year": 2007, "description": "The original Brass game set in Lancashire with cotton and ports.", "players": "2-4" }
+  "seven-wonders": [
+    {
+      "name": "Leaders",
+      "adds_players": null,
+      "description": "Adds 36 leader cards that provide unique abilities throughout the game."
+    },
+    {
+      "name": "Cities",
+      "adds_players": null,
+      "description": "Introduces city cards, diplomacy, and team play options."
+    },
+    {
+      "name": "Armada",
+      "adds_players": null,
+      "description": "Adds naval warfare and exploration mechanics with ship tokens."
+    }
   ],
-  "dead-of-winter": [
-    { "name": "Dead of Winter: The Long Night", "year": 2016, "description": "Standalone expansion with Raxxon, bandits, and unruly survivors.", "players": "2-5" }
+  "terraforming-mars": [
+    {
+      "name": "Prelude",
+      "adds_players": null,
+      "description": "Adds Prelude cards for faster starts and new corporations."
+    },
+    {
+      "name": "Colonies",
+      "adds_players": null,
+      "description": "Introduces colony tiles on other worlds and new trade mechanics."
+    },
+    {
+      "name": "Venus Next",
+      "adds_players": null,
+      "description": "Adds Venus board, new tags, and terraforming objectives for Venus."
+    }
   ],
   "betrayal-at-house-on-the-hill": [
-    { "name": "Betrayal at House on the Hill: Widow's Walk", "year": 2016, "description": "50 brand new haunts, new rooms, and an entirely new floor — the roof.", "players": "3-6" }
+    {
+      "name": "Widow's Walk",
+      "adds_players": null,
+      "description": "Adds roof tiles, 20 new haunts, and new room mechanics."
+    }
   ],
-  "mysterium": [
-    { "name": "Mysterium: Hidden Signs", "year": 2016, "description": "42 new vision cards, 6 characters, 6 locations, and 6 objects.", "players": "2-7" },
-    { "name": "Mysterium: Secrets & Lies", "year": 2017, "description": "New story cards mechanic and 6 new suspects/locations/objects.", "players": "2-7" }
+  "lords-of-waterdeep": [
+    {
+      "name": "Scoundrels of Skullport",
+      "adds_players": "6",
+      "description": "Adds Undermountain and Skullport modules with corruption mechanic and 6th player."
+    }
+  ],
+  "cosmic-encounter": [
+    {
+      "name": "Cosmic Incursion",
+      "adds_players": "6",
+      "description": "Adds 20 new aliens, rewards deck, and support for 6th player."
+    },
+    {
+      "name": "Cosmic Conflict",
+      "adds_players": "7",
+      "description": "Introduces 20 more aliens, hazard deck, and 7th player components."
+    }
+  ],
+  "clank": [
+    {
+      "name": "Sunken Treasures",
+      "adds_players": null,
+      "description": "Adds underwater SCUBA track and flooded tunnels to explore."
+    },
+    {
+      "name": "The Mummy's Curse",
+      "adds_players": null,
+      "description": "Egyptian-themed expansion with curses, market, and new mechanisms."
+    }
   ],
   "quacks-of-quedlinburg": [
-    { "name": "The Quacks of Quedlinburg: The Herb Witches", "year": 2019, "description": "New ingredient books, locoweed, and 5th player support.", "players": "2-5" },
-    { "name": "The Quacks of Quedlinburg: The Alchemists", "year": 2020, "description": "Essence tokens and alchemist mini-game.", "players": "2-4" }
+    {
+      "name": "The Herb Witches",
+      "adds_players": "5",
+      "description": "Adds 5th player, witch ingredient, and new ingredient books."
+    },
+    {
+      "name": "The Alchemists",
+      "adds_players": null,
+      "description": "Introduces three new ingredient sets with unique mechanics."
+    }
+  ],
+  "power-grid": [
+    {
+      "name": "Benelux/Central Europe",
+      "adds_players": null,
+      "description": "Double-sided board with Belgium, Netherlands, Luxembourg, and Central Europe maps."
+    },
+    {
+      "name": "France/Italy",
+      "adds_players": null,
+      "description": "New maps with unique power plant markets and regional mechanics."
+    }
+  ],
+  "villainous": [
+    {
+      "name": "Wicked to the Core",
+      "adds_players": null,
+      "description": "Adds Evil Queen, Hades, and Dr. Facilier with unique villain decks."
+    },
+    {
+      "name": "Perfectly Wretched",
+      "adds_players": null,
+      "description": "Introduces Cruella De Vil, Mother Gothel, and Pete as playable villains."
+    }
+  ],
+  "brass-birmingham": [
+    {
+      "name": "Iron Clays",
+      "adds_players": null,
+      "description": "Premium poker chip set designed for use with Brass games."
+    }
+  ],
+  "sagrada": [
+    {
+      "name": "The Great Facades - Passion",
+      "adds_players": null,
+      "description": "Adds Passion module with inspiration cards and rare glass dice."
+    },
+    {
+      "name": "The Great Facades - Life",
+      "adds_players": null,
+      "description": "Introduces Life module with new window patterns and mechanics."
+    }
+  ],
+  "dixit": [
+    {
+      "name": "Dixit: Odyssey",
+      "adds_players": "12",
+      "description": "Standalone expansion supporting up to 12 players with 84 new cards."
+    },
+    {
+      "name": "Dixit: Harmonies",
+      "adds_players": null,
+      "description": "Adds 84 new beautifully illustrated cards by Paul Echegoyen."
+    }
+  ],
+  "agricola": [
+    {
+      "name": "Farmers of the Moor",
+      "adds_players": null,
+      "description": "Adds heating, horses, and moor/forest expansion mechanics."
+    },
+    {
+      "name": "All Creatures Big and Small: Even More Buildings Big and Small",
+      "adds_players": null,
+      "description": "Expansion pack with new buildings for the 2-player version."
+    }
   ],
   "concordia": [
-    { "name": "Concordia: Salsa", "year": 2015, "description": "Salt as a universal resource plus two new maps (Byzantium & Hispania).", "players": "2-5" },
-    { "name": "Concordia: Venus", "year": 2018, "description": "Team variant for 4-6 players and new maps.", "players": "2-6" }
+    {
+      "name": "Salsa",
+      "adds_players": null,
+      "description": "Adds salt resource, forum tiles, and new maps for varied gameplay."
+    },
+    {
+      "name": "Britannia/Germania",
+      "adds_players": null,
+      "description": "Double-sided map featuring Britain and Germania regions."
+    }
+  ],
+  "great-western-trail": [
+    {
+      "name": "Rails to the North",
+      "adds_players": null,
+      "description": "Adds northern expansion with new buildings, objectives, and mechanics."
+    }
+  ],
+  "castles-of-burgundy": [
+    {
+      "name": "New Player Boards",
+      "adds_players": null,
+      "description": "Collection of alternative estate boards for increased variety."
+    }
+  ],
+  "everdell": [
+    {
+      "name": "Pearlbrook",
+      "adds_players": null,
+      "description": "Introduces underwater realm with pearls, wonders, and new critter cards."
+    },
+    {
+      "name": "Spirecrest",
+      "adds_players": null,
+      "description": "Adds weather cards, big critters, and mountain board expansion."
+    }
   ]
 }

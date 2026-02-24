@@ -71,9 +71,19 @@ def rebuild_db():
     games = scan_game_files()
     conn = _get_conn()
     conn.execute("DELETE FROM games")
+    # Fallback play times by complexity if missing from JSON
+    _PLAY_TIME_DEFAULTS = {
+        "party": {"min": 15, "max": 30},
+        "gateway": {"min": 30, "max": 60},
+        "midweight": {"min": 45, "max": 90},
+        "heavy": {"min": 90, "max": 180},
+    }
     for g in games:
         pc = g.get("player_count", {})
         pt = g.get("play_time_minutes", {})
+        if not pt.get("min") and not pt.get("max"):
+            complexity = g.get("complexity", "")
+            pt = _PLAY_TIME_DEFAULTS.get(complexity, {"min": 30, "max": 60})
         conn.execute(
             """INSERT OR REPLACE INTO games
                (game_id, title, aliases, player_count_min, player_count_max,
@@ -96,8 +106,42 @@ def rebuild_db():
     return len(games)
 
 
+def _generate_tags(row: sqlite3.Row, categories: list[str]) -> list[str]:
+    """Generate 'Best For' tags based on game metadata."""
+    tags = []
+    pmin = row["player_count_min"]
+    pmax = row["player_count_max"]
+    complexity = row["complexity"] or ""
+    pt_max = row["play_time_max"]
+    cats_lower = [c.lower() for c in categories]
+
+    if pmin == 1:
+        tags.append("Solo")
+    if pmin == 2 and pmax == 2:
+        tags.append("Great for 2")
+    elif pmin <= 2 and pmax >= 2:
+        tags.append("Great for 2")
+    if complexity in ("party", "gateway"):
+        tags.append("Family Friendly")
+    if complexity == "party":
+        tags.append("Party Game")
+    if complexity == "heavy":
+        tags.append("Brain Burner")
+    if pt_max and pt_max > 0 and pt_max <= 30:
+        tags.append("Quick Play")
+    if "cooperative" in cats_lower or "co-operative" in cats_lower:
+        tags.append("Cooperative")
+    if "deduction" in cats_lower:
+        tags.append("Mystery/Deduction")
+    if pmax and pmax >= 6:
+        tags.append("Large Group")
+
+    return tags
+
+
 def _row_to_dict(row: sqlite3.Row) -> dict:
     game_id = row["game_id"]
+    categories = json.loads(row["categories"])
     result = {
         "game_id": game_id,
         "title": row["title"],
@@ -105,7 +149,8 @@ def _row_to_dict(row: sqlite3.Row) -> dict:
         "player_count": {"min": row["player_count_min"], "max": row["player_count_max"]},
         "play_time_minutes": {"min": row["play_time_min"], "max": row["play_time_max"]},
         "complexity": row["complexity"],
-        "categories": json.loads(row["categories"]),
+        "categories": categories,
+        "tags": _generate_tags(row, categories),
     }
     msrp = get_msrp(game_id)
     if msrp is not None:
@@ -137,7 +182,7 @@ def search_games(search: Optional[str] = None, complexity: Optional[str] = None)
 
 def filter_games(complexity: Optional[str] = None, min_players: Optional[int] = None,
                  max_players: Optional[int] = None, category: Optional[str] = None,
-                 max_play_time: Optional[int] = None) -> list[dict]:
+                 max_play_time: Optional[int] = None, tag: Optional[str] = None) -> list[dict]:
     """Advanced game filtering with multiple combinable params."""
     conn = _get_conn()
     query = "SELECT * FROM games WHERE 1=1"
@@ -166,6 +211,11 @@ def filter_games(complexity: Optional[str] = None, min_players: Optional[int] = 
     if category:
         cat_lower = category.lower()
         results = [g for g in results if cat_lower in [c.lower() for c in g["categories"]]]
+
+    # Tag filter done in Python
+    if tag:
+        tag_lower = tag.lower().replace("-", " ")
+        results = [g for g in results if tag_lower in [t.lower() for t in g.get("tags", [])]]
 
     return results
 

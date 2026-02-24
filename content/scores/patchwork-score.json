@@ -8,20 +8,23 @@
       "id": "buttons",
       "label": "Buttons Remaining",
       "points_each": 1,
-      "type": "count"
+      "type": "count",
+      "description": "1 point(s) per buttons remaining"
     },
     {
       "id": "special_tile",
       "label": "7x7 Special Tile Bonus",
       "points_each": 7,
-      "type": "boolean"
+      "type": "boolean",
+      "description": "7 points if achieved"
     },
     {
       "id": "empty_spaces",
       "label": "Empty Spaces (-2 each)",
       "points_each": -2,
       "type": "count",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "-2 point(s) per empty spaces (-2 each)"
     }
   ]
 }
