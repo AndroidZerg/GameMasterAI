@@ -77,6 +77,8 @@ export default function MenuPage() {
     const loadMenu = async () => {
       try {
         const data = await fetchVenueMenu();
+        // Normalize: backend may use "sections" instead of "categories"
+        if (!data.categories && data.sections) data.categories = data.sections;
         setMenu(data);
         setActiveCategory(data.categories?.[0]?.name || null);
         setLoading(false);

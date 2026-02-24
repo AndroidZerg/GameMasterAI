@@ -717,7 +717,7 @@ export default function GameTeacher() {
   const [gameTitle, setGameTitle] = useState(gameId);
   const [activeTab, setActiveTab] = useState("setup");
   const [ttsState, setTtsState] = useState("idle");
-  const [showScoreTracker, setShowScoreTracker] = useState(false);
+  const [scoreState, setScoreState] = useState(null);
   const [gameLoading, setGameLoading] = useState(true);
   const [gameError, setGameError] = useState(null);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -842,19 +842,16 @@ export default function GameTeacher() {
             {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
             {activeTab === "score" && (
               <div>
-                <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
-                  <button
-                    onClick={() => setShowScoreTracker(true)}
-                    style={{
-                      flex: 1, padding: "14px", borderRadius: "12px",
-                      background: "var(--accent)", color: "#fff", border: "none",
-                      fontWeight: 700, fontSize: "1rem", cursor: "pointer",
-                      display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                    }}
-                  >
-                    <span>🏆</span> Open Score Tracker
-                  </button>
-                </div>
+                <ScoreTracker
+                  gameId={gameId}
+                  gameTitle={gameTitle}
+                  playerCount={gameData?.player_count}
+                  savedState={scoreState}
+                  onStateChange={setScoreState}
+                  onNewGame={() => navigate("/games")}
+                />
+                {/* Divider */}
+                <div style={{ height: "1px", background: "var(--border)", margin: "16px 0" }} />
                 <Leaderboard gameId={gameId} gameTitle={gameTitle} />
               </div>
             )}
@@ -872,16 +869,7 @@ export default function GameTeacher() {
         <GameRating gameId={gameId} gameTitle={gameTitle} />
       )}
 
-      {/* Score Tracker Modal */}
-      {showScoreTracker && (
-        <ScoreTracker
-          gameId={gameId}
-          gameTitle={gameTitle}
-          playerCount={gameData?.player_count}
-          onClose={() => setShowScoreTracker(false)}
-          onNewGame={() => navigate("/games")}
-        />
-      )}
+      {/* Score tracker is now rendered inline in the Score tab */}
     </div>
   );
 }

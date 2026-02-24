@@ -198,7 +198,7 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "80vh", padding: "20px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
       <h2 style={{ fontSize: "1.3rem", marginBottom: "20px", textAlign: "center", color: "var(--text-primary)" }}>
         {scoringType === "cooperative" ? "Who's playing?" : "How many players?"}
       </h2>
@@ -226,6 +226,7 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
         >+</button>
       </div>
 
+      {/* Player name inputs — colors auto-assigned, no color picker (Bug 3) */}
       <div style={{ width: "100%", maxWidth: "400px" }}>
         {players.map((player, i) => (
           <div
@@ -257,19 +258,6 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
                 color: "var(--text-primary)", fontSize: "1rem", outline: "none",
               }}
             />
-            <div style={{ display: "flex", gap: "4px", flexShrink: 0 }}>
-              {PLAYER_COLORS.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => updatePlayer(i, "color", c)}
-                  style={{
-                    width: "20px", height: "20px", borderRadius: "50%",
-                    background: c, border: player.color === c ? "2px solid #fff" : "2px solid transparent",
-                    cursor: "pointer", padding: 0,
-                  }}
-                />
-              ))}
-            </div>
           </div>
         ))}
       </div>
@@ -554,9 +542,11 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
 
   const getPlayerTotal = (pi) => {
     return categories.reduce((sum, cat) => {
-      const val = scores[pi]?.[cat.id] || 0;
-      if (cat.type === "boolean") return sum + (val ? cat.points_each : 0);
-      return sum + val * cat.points_each;
+      const value = Number(scores[pi]?.[cat.id]) || 0;
+      const points = Number(cat.points_each) || 1;
+      if (cat.type === "boolean") return sum + (value ? points : 0);
+      if (cat.type === "count") return sum + (value * points);
+      return sum + value; // manual type — value IS the points
     }, 0);
   };
 
@@ -632,9 +622,11 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
             display: "flex", flexDirection: "column", justifyContent: "center",
           }}>
             <span style={{ fontWeight: 600, fontSize: "0.85rem", color: "var(--text-primary)", lineHeight: 1.2 }}>{cat.name}</span>
-            <span style={{ fontSize: "0.65rem", color: "var(--text-secondary)", lineHeight: 1.2 }}>
-              {cat.type === "boolean" ? `${cat.points_each}pts (one)` : cat.type === "manual" ? "manual" : `${cat.points_each}pts ea`}
-            </span>
+            {(Number(cat.points_each) || 1) > 1 && cat.type !== "manual" && (
+              <span style={{ fontSize: "0.65rem", color: "var(--text-secondary)", lineHeight: 1.2 }}>
+                {cat.type === "boolean" ? `${cat.points_each}pts (exclusive)` : `${cat.points_each}pts each`}
+              </span>
+            )}
           </div>
 
           {/* Player cells */}
@@ -920,9 +912,11 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
   const totals = players.map((_, pi) =>
     categories
       ? categories.reduce((sum, cat) => {
-          const val = scores[pi]?.[cat.id] || 0;
-          if (cat.type === "boolean") return sum + (val ? cat.points_each : 0);
-          return sum + val * cat.points_each;
+          const value = Number(scores[pi]?.[cat.id]) || 0;
+          const points = Number(cat.points_each) || 1;
+          if (cat.type === "boolean") return sum + (value ? points : 0);
+          if (cat.type === "count") return sum + (value * points);
+          return sum + value; // manual type — value IS the points
         }, 0)
       : 0
   );
@@ -1011,8 +1005,9 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
             {categories && (
               <div style={{ marginTop: "8px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 {categories.map((cat) => {
-                  const val = scores[p.idx]?.[cat.id] || 0;
-                  const pts = cat.type === "boolean" ? (val ? cat.points_each : 0) : val * cat.points_each;
+                  const val = Number(scores[p.idx]?.[cat.id]) || 0;
+                  const points = Number(cat.points_each) || 1;
+                  const pts = cat.type === "boolean" ? (val ? points : 0) : cat.type === "count" ? val * points : val;
                   if (pts === 0) return null;
                   return (
                     <span key={cat.id} style={{
@@ -1059,7 +1054,7 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
 }
 
 /* ── Main ScoreTracker ───────────────────────────────────────── */
-export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, onNewGame }) {
+export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, onNewGame, savedState, onStateChange }) {
   const [phase, setPhase] = useState("setup");
   const [players, setPlayers] = useState([]);
   const [categories, setCategories] = useState(null);
@@ -1067,6 +1062,21 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
   const [winConditions, setWinConditions] = useState([]);
   const [scores, setScores] = useState({});
   const [coopResult, setCoopResult] = useState(null);
+
+  // Restore from savedState on mount (Bug 4: preserve scores across tab switches)
+  useEffect(() => {
+    if (savedState) {
+      if (savedState.players) setPlayers(savedState.players);
+      if (savedState.scores) setScores(savedState.scores);
+      if (savedState.phase) setPhase(savedState.phase);
+      if (savedState.coopResult !== undefined) setCoopResult(savedState.coopResult);
+    }
+  }, []);
+
+  // Save state up on any change (Bug 4)
+  useEffect(() => {
+    onStateChange?.({ players, scores, phase, coopResult });
+  }, [players, scores, phase, coopResult]);
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -1100,31 +1110,10 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
 
   return (
     <div style={{
-      position: "fixed", inset: 0, background: "var(--bg-primary)",
-      zIndex: 1000, display: "flex", flexDirection: "column",
+      display: "flex", flexDirection: "column", minHeight: 0,
     }}>
-      {/* Top bar */}
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "12px 16px", borderBottom: "1px solid var(--border)",
-        background: "var(--bg-secondary)", flexShrink: 0,
-      }}>
-        <h2 style={{ fontSize: "1.1rem", color: "var(--text-primary)", margin: 0, display: "flex", alignItems: "center", gap: "8px" }}>
-          <span>{"\u{1F3C6}"}</span>
-          <span>{gameTitle}</span>
-        </h2>
-        <button onClick={onClose} style={{
-          background: "none", border: "none", color: "var(--text-secondary)",
-          fontSize: "1.5rem", cursor: "pointer", padding: "4px 8px",
-          width: "44px", height: "44px", display: "flex",
-          alignItems: "center", justifyContent: "center",
-        }}>
-          {"\u2715"}
-        </button>
-      </div>
-
-      {/* Content */}
-      <div style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      {/* Content — renders inline in the Score tab */}
+      <div style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
         {phase === "setup" && (
           <PlayerSetup
             minPlayers={playerCount?.min || 2}
@@ -1152,10 +1141,10 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         )}
 
         {phase === "scoring" && scoringType === "calculator" && (
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+          <div style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
             <ScoringReference gameId={gameId} />
             <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} />
-            <div style={{ padding: "12px 16px", flexShrink: 0, borderTop: "1px solid var(--border)" }}>
+            <div style={{ padding: "12px 0", flexShrink: 0 }}>
               <button onClick={() => setPhase("results")} style={{
                 display: "block", width: "100%", padding: "14px",
                 borderRadius: "12px", background: "var(--accent)", color: "#fff",
@@ -1179,14 +1168,14 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         )}
 
         {phase === "scoring" && scoringType === "elimination" && (
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+          <div style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
             <EliminationTracker
               players={players}
               categories={categories}
               scores={scores}
               setScores={setScores}
             />
-            <div style={{ padding: "12px 16px", flexShrink: 0, borderTop: "1px solid var(--border)" }}>
+            <div style={{ padding: "12px 0", flexShrink: 0 }}>
               <button onClick={() => setPhase("results")} style={{
                 display: "block", width: "100%", padding: "14px",
                 borderRadius: "12px", background: "var(--accent)", color: "#fff",
@@ -1222,7 +1211,7 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
               setPhase("scoring");
             }}
             onNewGame={() => {
-              onClose();
+              if (onClose) onClose();
               if (onNewGame) onNewGame();
             }}
           />
