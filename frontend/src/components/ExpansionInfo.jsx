@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+import { fetchExpansions as apiFetchExpansions } from "../services/api";
 
 const MOCK_EXPANSIONS = {
   catan: [
@@ -47,12 +46,11 @@ export default function ExpansionInfo({ gameId, gameTitle }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const fetchExpansions = async () => {
+    const loadExpansions = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/games/${gameId}/expansions`);
-        if (res.ok) {
-          const data = await res.json();
-          setExpansions(data.expansions || []);
+        const data = await apiFetchExpansions(gameId);
+        if (data.expansions?.length) {
+          setExpansions(data.expansions);
           setLoading(false);
           return;
         }
@@ -60,7 +58,7 @@ export default function ExpansionInfo({ gameId, gameTitle }) {
       setExpansions(MOCK_EXPANSIONS[gameId] || []);
       setLoading(false);
     };
-    fetchExpansions();
+    loadExpansions();
   }, [gameId]);
 
   if (!loading && expansions.length === 0) return null;

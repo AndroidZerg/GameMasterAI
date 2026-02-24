@@ -70,11 +70,11 @@ function trackEvent(eventName, data) {
   } catch {}
 }
 
-// Staff picks — curated list of game IDs
-const STAFF_PICKS = ["wingspan", "azul", "codenames", "root", "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg"];
+// Staff picks — fallback curated list of game IDs
+const STAFF_PICKS_FALLBACK = ["wingspan", "azul", "codenames", "root", "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg"];
 
-// Deterministic "Game of the Day" based on date
-function getGameOfTheDay(games) {
+// Deterministic "Game of the Day" based on date (client-side fallback)
+function getGameOfTheDayFallback(games) {
   if (!games || games.length === 0) return null;
   const today = new Date();
   const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
@@ -442,6 +442,8 @@ export default function GameSelector() {
   const [venueConfig, setVenueConfig] = useState(null);
   const [collection, setCollection] = useState(null);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  const [apiFeatured, setApiFeatured] = useState(null);
+  const [apiStaffPicks, setApiStaffPicks] = useState(null);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -511,6 +513,17 @@ export default function GameSelector() {
           if (local && local.length > 0) setCollection(new Set(local));
         } catch {}
       });
+
+    // Fetch featured game and staff picks from API
+    fetch(`${API_BASE}/api/games/featured`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.game_of_the_day) setApiFeatured(data.game_of_the_day); })
+      .catch(() => {});
+
+    fetch(`${API_BASE}/api/games/staff-picks`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.picks?.length) setApiStaffPicks(data.picks); })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -589,11 +602,13 @@ export default function GameSelector() {
 
   const hasActiveFilters = complexity !== "all" || playerCount > 0 || playTime > 0 || bestFor !== "Any";
 
-  // Game of the Day + Staff Picks
+  // Game of the Day + Staff Picks (prefer API, fallback to client-side)
   const allBaseGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
-  const gameOfTheDay = !search && !hasActiveFilters ? getGameOfTheDay(allBaseGames) : null;
+  const gameOfTheDay = !search && !hasActiveFilters
+    ? (apiFeatured || getGameOfTheDayFallback(allBaseGames))
+    : null;
   const staffPickGames = !search && !hasActiveFilters
-    ? STAFF_PICKS.map((id) => allBaseGames.find((g) => g.game_id === id)).filter(Boolean)
+    ? (apiStaffPicks || STAFF_PICKS_FALLBACK.map((id) => allBaseGames.find((g) => g.game_id === id)).filter(Boolean))
     : [];
 
   // Build genre carousels from all available games (before filtering)

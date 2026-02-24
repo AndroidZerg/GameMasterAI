@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+import { fetchVenueMenu } from "../services/api";
 
 const MOCK_MENU = {
   venue_name: "Meepleville",
@@ -75,22 +74,19 @@ export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
-    const fetchMenu = async () => {
+    const loadMenu = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/venue/menu`);
-        if (res.ok) {
-          const data = await res.json();
-          setMenu(data);
-          setActiveCategory(data.categories?.[0]?.name || null);
-          setLoading(false);
-          return;
-        }
+        const data = await fetchVenueMenu();
+        setMenu(data);
+        setActiveCategory(data.categories?.[0]?.name || null);
+        setLoading(false);
+        return;
       } catch {}
       setMenu(MOCK_MENU);
       setActiveCategory(MOCK_MENU.categories[0]?.name || null);
       setLoading(false);
     };
-    fetchMenu();
+    loadMenu();
   }, []);
 
   if (loading) {

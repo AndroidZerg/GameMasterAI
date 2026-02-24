@@ -99,3 +99,30 @@ export async function reloadGames() {
   });
   return handleResponse(res);
 }
+
+// ── Public extras (no auth required) ──
+
+export async function fetchExpansions(gameId) {
+  const res = await fetch(`${API_BASE}/api/games/${gameId}/expansions`);
+  return handleResponse(res);
+}
+
+export async function fetchVenueMenu() {
+  const res = await fetch(`${API_BASE}/api/venue/menu`);
+  return handleResponse(res);
+}
+
+export async function fetchFeaturedGame() {
+  const res = await fetch(`${API_BASE}/api/games/featured`);
+  return handleResponse(res);
+}
+
+export async function fetchStaffPicks() {
+  const res = await fetch(`${API_BASE}/api/games/staff-picks`);
+  return handleResponse(res);
+}
+
+export async function fetchHouseRules() {
+  const res = await fetch(`${API_BASE}/api/venue/house-rules`);
+  return handleResponse(res);
+}

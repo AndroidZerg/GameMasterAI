@@ -26,6 +26,7 @@ from app.api.routes.export import router as export_router
 from app.api.routes.auth import router as auth_router
 from app.api.routes.analytics import router as analytics_router
 from app.api.routes.score_history import router as score_history_router
+from app.api.routes.extras import router as extras_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -94,6 +95,7 @@ app.add_middleware(
 app.include_router(auth_router)
 
 # --- Game endpoints ---
+app.include_router(extras_router)  # Must be before games_router so /games/featured, /games/staff-picks match before /games/{game_id}
 app.include_router(games_router)
 app.include_router(search_router)
 app.include_router(popular_router)
