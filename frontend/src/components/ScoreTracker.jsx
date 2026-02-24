@@ -656,7 +656,6 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
   const [scoringType, setScoringType] = useState("calculator");
   const [winConditions, setWinConditions] = useState([]);
   const [scores, setScores] = useState({});
-  const [noConfig, setNoConfig] = useState(false);
   const [coopResult, setCoopResult] = useState(null);
 
   useEffect(() => {
@@ -678,36 +677,15 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         setScoringType(mock.scoring_type || "calculator");
         setWinConditions(mock.win_conditions || []);
       } else {
-        setNoConfig(true);
+        // Generic fallback — simple manual total entry for any game
+        setCategories([
+          { id: "score", name: "Score", type: "manual", points_each: 1 },
+        ]);
+        setScoringType("calculator");
       }
     };
     fetchConfig();
   }, [gameId]);
-
-  if (noConfig) {
-    return (
-      <div style={{
-        position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)",
-        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
-      }}>
-        <div style={{
-          background: "var(--bg-card)", borderRadius: "16px", padding: "32px",
-          maxWidth: "400px", textAlign: "center", border: "1px solid var(--border)",
-        }}>
-          <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{"\u{1F3C6}"}</div>
-          <p style={{ color: "var(--text-primary)", marginBottom: "16px" }}>
-            Score tracker coming soon for <strong>{gameTitle}</strong>!
-          </p>
-          <button onClick={onClose} style={{
-            padding: "10px 24px", borderRadius: "10px", background: "var(--accent)",
-            color: "#fff", border: "none", fontWeight: 600, cursor: "pointer",
-          }}>
-            OK
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   if (scoringType !== "cooperative" && !categories) return null;
 
