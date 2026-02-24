@@ -5,6 +5,7 @@ import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
 import Leaderboard from "./Leaderboard";
 import GameRating from "./GameRating";
+import ExpansionInfo from "./ExpansionInfo";
 import {
   speakText,
   stopSpeaking,
@@ -834,6 +835,11 @@ export default function GameTeacher() {
           </div>
         )}
       </div>
+
+      {/* Expansions */}
+      {!gameLoading && !gameError && (
+        <ExpansionInfo gameId={gameId} gameTitle={gameTitle} />
+      )}
 
       {/* Game Rating */}
       {!gameLoading && !gameError && (
