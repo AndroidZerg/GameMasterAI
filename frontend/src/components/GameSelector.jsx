@@ -356,17 +356,28 @@ export default function GameSelector() {
 
   return (
     <div style={{ padding: "70px 20px 20px", maxWidth: "1200px", margin: "0 auto" }}>
-      <h1 style={{ textAlign: "center", fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "4px", color: "var(--text-primary)" }}>
-        {venueConfig ? `GameMaster AI at ${venueConfig.venue_name}` : "GameMaster AI"}
-      </h1>
-      <p style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: "4px", fontSize: "0.95rem" }}>
-        {venueConfig?.venue_tagline || "Tap a game to start learning"}
-      </p>
-      {displayGames.length > 0 && (
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: "20px", fontSize: "0.8rem" }}>
-          {displayGames.length} game{displayGames.length !== 1 ? "s" : ""} {hasActiveFilters ? "matching" : "available"}
+      {/* Header with branding */}
+      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "4px" }}>
+          <span style={{ fontSize: "1.5rem" }}>{"\u{1F3B2}"}</span>
+          <h1 style={{ fontSize: "clamp(1.3rem, 3.5vw, 1.8rem)", margin: 0, color: "var(--text-primary)", fontWeight: 800 }}>
+            GameMaster AI
+          </h1>
+        </div>
+        {venueConfig?.venue_name && (
+          <p style={{ color: "var(--accent)", fontSize: "0.95rem", fontWeight: 600, marginBottom: "2px" }}>
+            at {venueConfig.venue_name}
+          </p>
+        )}
+        <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", marginBottom: "0" }}>
+          {venueConfig?.venue_tagline || "Tap a game to start learning"}
         </p>
-      )}
+        {displayGames.length > 0 && (
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.75rem", marginTop: "4px" }}>
+            {displayGames.length} game{displayGames.length !== 1 ? "s" : ""} {hasActiveFilters ? "matching" : "available"}
+          </p>
+        )}
+      </div>
 
       {isOffline && (
         <div style={{ background: "#4a3a1a", borderRadius: "8px", padding: "8px 16px", marginBottom: "16px", textAlign: "center", fontSize: "0.85rem", color: "#f59e0b", border: "1px solid #5a4a2a" }}>

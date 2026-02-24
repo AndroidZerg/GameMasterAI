@@ -50,3 +50,9 @@
 - **Added**: Hidden scrollbar CSS for clean carousel appearance
 - **Added**: Carousels auto-hide when search or filters are active
 - **Files**: `GameSelector.jsx`, `index.css`
+
+## A8: Header Branding Restructure
+- **Redesigned**: Header layout with dice emoji icon + "GameMaster AI" title in centered row
+- **Added**: Venue name displayed in accent color below title
+- **Added**: Tagline and game count as separate subtle lines
+- **Files**: `GameSelector.jsx`
