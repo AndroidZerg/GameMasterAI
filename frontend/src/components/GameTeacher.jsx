@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { queryGame, fetchGame } from "../services/api";
+import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
 import {
@@ -559,8 +559,6 @@ export default function GameTeacher() {
     venue_name: "Meepleville",
     venue_tagline: "Las Vegas Board Game Cafe",
     accent_color: "#e94560",
-    show_buy_button: true,
-    buy_button_text: "Love this game? We sell it — ask staff!",
   });
   const [ttsRate, setTtsRate] = useState(() => {
     const saved = getRate();
@@ -570,21 +568,14 @@ export default function GameTeacher() {
 
   // Fetch venue config
   useEffect(() => {
-    const fetchVenue = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/api/venue`);
-        if (res.ok) {
-          const data = await res.json();
-          setVenueConfig(data);
-          if (data.accent_color) {
-            document.documentElement.style.setProperty("--accent", data.accent_color);
-          }
+    fetchVenueConfig()
+      .then((data) => {
+        setVenueConfig(data);
+        if (data.accent_color) {
+          document.documentElement.style.setProperty("--accent", data.accent_color);
         }
-      } catch {
-        // Use mock fallback
-      }
-    };
-    fetchVenue();
+      })
+      .catch(() => { /* Use mock fallback */ });
   }, []);
 
   useEffect(() => {
