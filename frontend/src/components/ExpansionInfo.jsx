@@ -145,7 +145,7 @@ export default function ExpansionInfo({ gameId, gameTitle }) {
                 {exp.description && (
                   <p style={{
                     color: "var(--text-secondary)", fontSize: "0.8rem",
-                    marginTop: "4px", lineHeight: 1.5, margin: 0, marginTop: "4px",
+                    lineHeight: 1.5, margin: "4px 0 0 0",
                   }}>
                     {exp.description}
                   </p>
