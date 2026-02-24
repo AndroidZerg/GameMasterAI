@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { queryGame, fetchGame } from "../services/api";
+import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
 import {
@@ -25,11 +25,27 @@ const TABS = [
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
-// Mock prices for demo
-const GAME_PRICES = {
-  catan: 44.99,
-  wingspan: 59.99,
-  "ticket-to-ride": 44.99,
+// Mock MSRP prices by complexity range
+const MSRP_PRICES = {
+  // Party games: $14.99 - $24.99
+  "codenames": 19.99, "skull": 14.99, "love-letter": 14.99, "coup": 14.99,
+  "one-night-ultimate-werewolf": 24.99, "dixit": 34.99, "just-one": 24.99,
+  "wavelength": 29.99, "sushi-go-party": 22.99, "telestrations": 19.99, "decrypto": 24.99,
+  // Gateway: $29.99 - $44.99
+  "catan": 44.99, "ticket-to-ride": 44.99, "azul": 39.99, "splendor": 39.99,
+  "kingdomino": 29.99, "carcassonne": 34.99, "pandemic": 44.99, "king-of-tokyo": 39.99,
+  "patchwork": 29.99, "takenoko": 44.99, "mysterium": 44.99,
+  // Midweight: $44.99 - $59.99
+  "wingspan": 59.99, "everdell": 59.99, "viticulture": 54.99, "dominion": 44.99,
+  "7-wonders": 49.99, "lords-of-waterdeep": 49.99, "quacks-of-quedlinburg": 44.99,
+  "clank": 54.99, "sagrada": 44.99, "the-crew": 14.99, "century-spice-road": 39.99,
+  "sheriff-of-nottingham": 39.99, "concordia": 59.99, "villainous": 39.99,
+  "above-and-below": 44.99, "photosynthesis": 39.99, "dead-of-winter": 54.99,
+  "castles-of-burgundy": 39.99, "cosmic-encounter": 49.99,
+  // Heavy: $54.99 - $79.99
+  "terraforming-mars": 69.99, "root": 59.99, "spirit-island": 79.99,
+  "brass-birmingham": 69.99, "great-western-trail": 69.99, "agricola": 59.99,
+  "power-grid": 44.99,
 };
 
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
@@ -512,24 +528,18 @@ function GameTimer() {
   );
 }
 
-/* ── Buy Banner ─────────────────────────────────────────────────── */
-function BuyBanner({ gameId, gameTitle, venueConfig }) {
-  if (!venueConfig?.show_buy_button) return null;
-
-  const price = GAME_PRICES[gameId];
-  const text = price
-    ? `Love ${gameTitle}? Buy it here — $${price.toFixed(2)}`
-    : venueConfig.buy_button_text || "Love this game? We sell it — ask staff!";
-
+/* ── MSRP Price Badge ──────────────────────────────────────────── */
+function PriceBadge({ gameId }) {
+  const price = MSRP_PRICES[gameId];
+  if (!price) return null;
   return (
-    <div style={{
-      background: "var(--bg-card)", borderRadius: "8px", padding: "8px 16px",
-      marginBottom: "12px", textAlign: "center", fontSize: "0.85rem",
-      color: "var(--text-secondary)", border: "1px solid var(--border)",
-      borderLeft: "3px solid var(--accent)",
+    <span style={{
+      fontSize: "0.8rem", color: "var(--text-secondary)", fontWeight: 500,
+      background: "var(--bg-card)", padding: "2px 10px", borderRadius: "999px",
+      border: "1px solid var(--border)", whiteSpace: "nowrap",
     }}>
-      {text}
-    </div>
+      ${price.toFixed(2)}
+    </span>
   );
 }
 
@@ -549,8 +559,6 @@ export default function GameTeacher() {
     venue_name: "Meepleville",
     venue_tagline: "Las Vegas Board Game Cafe",
     accent_color: "#e94560",
-    show_buy_button: true,
-    buy_button_text: "Love this game? We sell it — ask staff!",
   });
   const [ttsRate, setTtsRate] = useState(() => {
     const saved = getRate();
@@ -560,21 +568,14 @@ export default function GameTeacher() {
 
   // Fetch venue config
   useEffect(() => {
-    const fetchVenue = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/api/venue`);
-        if (res.ok) {
-          const data = await res.json();
-          setVenueConfig(data);
-          if (data.accent_color) {
-            document.documentElement.style.setProperty("--accent", data.accent_color);
-          }
+    fetchVenueConfig()
+      .then((data) => {
+        setVenueConfig(data);
+        if (data.accent_color) {
+          document.documentElement.style.setProperty("--accent", data.accent_color);
         }
-      } catch {
-        // Use mock fallback
-      }
-    };
-    fetchVenue();
+      })
+      .catch(() => { /* Use mock fallback */ });
   }, []);
 
   useEffect(() => {
@@ -606,11 +607,14 @@ export default function GameTeacher() {
   const tabs = gameData?.tabs || {};
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
         <button onClick={() => { stopSpeaking(); navigate("/app"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
-        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>{gameTitle}</h1>
+        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+          {gameTitle}
+          <PriceBadge gameId={gameId} />
+        </h1>
         <GameTimer />
         <PlaybackControls ttsState={ttsState} />
         <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
@@ -643,9 +647,6 @@ export default function GameTeacher() {
           </button>
         ))}
       </div>
-
-      {/* Buy Banner */}
-      <BuyBanner gameId={gameId} gameTitle={gameTitle} venueConfig={venueConfig} />
 
       {/* Tab Content */}
       <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column" }}>
