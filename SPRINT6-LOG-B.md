@@ -10,12 +10,12 @@
 | 2 | 136-145 (TtR Europe → Hanabi) | DONE | `3374d81` |
 | 3 | 146-155 (Point Salad → Onitama) | DONE | `15f434d` |
 | 4 | 156-165 (Hive → Flamme Rouge) | DONE | `ed79333` |
-| 5 | 166-175 (Jamaica → Gizmos) | IN PROGRESS | — |
-| 6 | 176-185 (Space Base → Gaia Project) | IN PROGRESS | — |
-| 7 | 186-195 (Feast for Odin → Anachrony) | IN PROGRESS | — |
-| 8 | 196-200 (Maracaibo → Sleeping Gods) | IN PROGRESS | — |
+| 5 | 166-175 (Jamaica → Gizmos) | DONE | `3b7723e` |
+| 6 | 176-185 (Space Base → Gaia Project) | DONE | `21316e5` |
+| 7 | 186-195 (Feast for Odin → Anachrony) | DONE | `3b7723e` |
+| 8 | 196-200 (Maracaibo → Sleeping Gods) | DONE | `3b7723e` |
 
-### Games Created (40/75 so far)
+### ALL 75 GAMES COMPLETE ✓
 
 126. risk
 127. chess
@@ -57,10 +57,46 @@
 163. quest-for-el-dorado
 164. downforce
 165. flamme-rouge
+166. jamaica
+167. celestia
+168. treasure-island
+169. survive-escape-from-atlantis
+170. king-of-new-york
+171. bunny-kingdom
+172. isle-of-cats
+173. nidavellir
+174. its-a-wonderful-world
+175. gizmos
+176. space-base
+177. cubitos
+178. quartz
+179. libertalia-winds-of-galecrest
+180. forgotten-waters
+181. nemesis
+182. eclipse-second-dawn
+183. twilight-imperium-4th-edition
+184. terra-mystica
+185. gaia-project
+186. feast-for-odin
+187. le-havre
+188. ora-et-labora
+189. caverna
+190. clans-of-caledonia
+191. barrage
+192. kanban-ev
+193. lisboa
+194. the-gallerist
+195. anachrony
+196. maracaibo
+197. paladins-of-the-west-kingdom
+198. dune-imperium
+199. oath
+200. sleeping-gods
 
 ### Notes
 - #143 Love Letter 2019: Created as `love-letter-2019` since `love-letter` already existed
-- #197 Paladins: Will check for Track A duplicate before creating
+- #197 Paladins: Created as `paladins-of-the-west-kingdom` (no Track A duplicate found)
 - Heavy games (181-185, 186-195) given extra rule detail
-- All files validated as proper JSON
+- All 150 files (75 games + 75 scores) validated as proper JSON
 - complexity values used: party, gateway, midweight, heavy
+- Total: 75 game files + 75 score files = 150 new files
