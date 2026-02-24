@@ -1,5 +1,6 @@
 """SQLite venue accounts model."""
 
+import json
 import sqlite3
 from datetime import datetime, timezone
 from typing import Optional
@@ -34,18 +35,11 @@ def init_venues_table():
         )
     """)
     # Add columns if upgrading from old schema
-    try:
-        conn.execute("ALTER TABLE venues ADD COLUMN address TEXT")
-    except sqlite3.OperationalError:
-        pass
-    try:
-        conn.execute("ALTER TABLE venues ADD COLUMN phone TEXT")
-    except sqlite3.OperationalError:
-        pass
-    try:
-        conn.execute("ALTER TABLE venues ADD COLUMN website TEXT")
-    except sqlite3.OperationalError:
-        pass
+    for col in ("address TEXT", "phone TEXT", "website TEXT", "staff_picks TEXT DEFAULT '[]'"):
+        try:
+            conn.execute(f"ALTER TABLE venues ADD COLUMN {col}")
+        except sqlite3.OperationalError:
+            pass
     conn.commit()
     conn.close()
 
@@ -116,7 +110,7 @@ def update_venue_login(venue_id: str):
 def update_venue_config(venue_id: str, **kwargs) -> Optional[dict]:
     conn = _get_conn()
     allowed = {"venue_name", "accent_color", "logo_url", "tagline", "default_theme",
-               "address", "phone", "website"}
+               "address", "phone", "website", "staff_picks"}
     sets = []
     params = []
     for k, v in kwargs.items():
@@ -131,6 +125,28 @@ def update_venue_config(venue_id: str, **kwargs) -> Optional[dict]:
     conn.commit()
     conn.close()
     return get_venue_by_id(venue_id)
+
+
+def get_staff_picks(venue_id: str) -> list[str]:
+    """Get venue's staff-picked game IDs."""
+    conn = _get_conn()
+    row = conn.execute("SELECT staff_picks FROM venues WHERE venue_id = ?", (venue_id,)).fetchone()
+    conn.close()
+    if row and row["staff_picks"]:
+        try:
+            return json.loads(row["staff_picks"])
+        except Exception:
+            return []
+    return []
+
+
+def set_staff_picks(venue_id: str, game_ids: list[str]):
+    """Set venue's staff picks."""
+    conn = _get_conn()
+    conn.execute("UPDATE venues SET staff_picks = ? WHERE venue_id = ?",
+                 (json.dumps(game_ids), venue_id))
+    conn.commit()
+    conn.close()
 
 
 def get_venue_collection(venue_id: str) -> list[str]:

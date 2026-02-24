@@ -11,7 +11,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from app.core.auth import get_optional_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
-from app.models.venues import get_venue_collection
+from app.models.venues import get_venue_collection, get_staff_picks
 from app.services.knowledge import load_game
 
 _EXPANSIONS_PATH = Path(__file__).resolve().parents[4] / "content" / "expansions.json"
@@ -98,6 +98,24 @@ async def quick_games(
 ):
     """Return games with max play time <= threshold. Default 30 minutes."""
     return get_quick_games(max_time=max_time)
+
+
+@router.get("/games/staff-picks")
+async def staff_picks_games(
+    venue: Optional[dict] = Depends(get_optional_venue),
+):
+    """Return full game data for staff-picked games. Auth -> venue picks. No auth -> default top games."""
+    picks = []
+    if venue:
+        picks = get_staff_picks(venue["venue_id"])
+
+    if not picks:
+        all_games = search_games()
+        return all_games[:5]
+
+    all_games = search_games()
+    games_map = {g["game_id"]: g for g in all_games}
+    return [games_map[gid] for gid in picks if gid in games_map]
 
 
 @router.get("/games/featured")

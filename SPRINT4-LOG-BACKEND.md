@@ -47,3 +47,10 @@ Branch: sprint4/backend
 - Selection: MD5 hash of date string -> deterministic daily pick
 - Created content/game-highlights.json with one-liners for all 50 games
 - Same game all day, changes at midnight UTC
+
+## Phase B7: Staff Picks + Venue Customization
+- Added staff_picks JSON column to venues table
+- GET /api/venue now includes staff_picks array
+- POST /api/admin/staff-picks — update venue's staff picks (auth required)
+- GET /api/games/staff-picks — returns full game data for picked games
+- Default: first 5 games alphabetically when no picks set

@@ -6,8 +6,9 @@ from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from app.core.auth import get_optional_venue
-from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues
+from app.core.auth import get_current_venue, get_optional_venue
+from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues, get_staff_picks, set_staff_picks
+from app.models.game import search_games
 
 router = APIRouter(prefix="/api", tags=["venue"])
 
@@ -31,6 +32,7 @@ async def get_venue_config(
         v = get_venue_by_id(venue["venue_id"])
         if v:
             coll = get_venue_collection(venue["venue_id"])
+            picks = get_staff_picks(venue["venue_id"])
             return {
                 "venue_id": v["venue_id"],
                 "venue_name": v["venue_name"],
@@ -42,6 +44,7 @@ async def get_venue_config(
                 "phone": v.get("phone", ""),
                 "website": v.get("website", ""),
                 "game_count": len(coll) if coll else 0,
+                "staff_picks": picks,
             }
 
     # Default: read from venue-config.json
@@ -63,6 +66,19 @@ async def get_venue_collection_public(
         if game_ids:
             return {"game_ids": game_ids, "game_count": len(game_ids)}
     return {"game_ids": [], "game_count": 0, "default": True}
+
+
+@router.post("/admin/staff-picks")
+async def update_staff_picks(
+    req: dict,
+    venue: dict = Depends(get_current_venue),
+):
+    """Update staff picks for venue. Body: {game_ids: ["catan", "wingspan", ...]}"""
+    game_ids = req.get("game_ids", [])
+    if not isinstance(game_ids, list):
+        raise HTTPException(status_code=400, detail="game_ids must be a list")
+    set_staff_picks(venue["venue_id"], game_ids)
+    return {"status": "ok", "staff_picks": game_ids}
 
 
 @router.get("/venues")
