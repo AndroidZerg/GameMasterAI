@@ -95,8 +95,18 @@ function getGameOfTheDayFallback(games) {
 
 function GameOfTheDay({ game, onClick }) {
   if (!game) return null;
-  const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
+  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
+  const triedPng = useState(false);
+
+  const handleImgError = () => {
+    if (!triedPng[0]) {
+      triedPng[0] = true;
+      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+    } else {
+      setImgError(true);
+    }
+  };
 
   return (
     <div
@@ -115,7 +125,7 @@ function GameOfTheDay({ game, onClick }) {
       <div style={{ height: "180px", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
         {!imgError && (
           <img
-            src={imgUrl} alt="" onError={() => setImgError(true)}
+            src={imgSrc} alt={game.title} onError={handleImgError}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         )}
@@ -173,10 +183,21 @@ function SkeletonCard({ small }) {
 }
 
 function GameCard({ game, onClick, small }) {
+  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
-  const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
+  const triedPng = useState(false);
   const fallbackColor = COMPLEXITY_COLORS[game.complexity] || "#666";
+
+  const handleImgError = () => {
+    if (!triedPng[0]) {
+      triedPng[0] = true;
+      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+    } else {
+      setImgError(true);
+      setImgLoading(false);
+    }
+  };
 
   return (
     <div
@@ -217,9 +238,9 @@ function GameCard({ game, onClick, small }) {
               }} />
             )}
             <img
-              src={imgUrl}
-              alt=""
-              onError={() => { setImgError(true); setImgLoading(false); }}
+              src={imgSrc}
+              alt={game.title}
+              onError={handleImgError}
               onLoad={() => setImgLoading(false)}
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />

@@ -669,13 +669,22 @@ function GameTimer() {
 
 /* ── Game Cover Thumbnail ─────────────────────────────────────── */
 function GameCoverThumb({ gameId }) {
+  const [src, setSrc] = useState(`${API_BASE}/api/images/${gameId}.jpg`);
   const [error, setError] = useState(false);
+  const triedPng = useState(false);
   if (error) return null;
   return (
     <img
-      src={`${API_BASE}/api/images/${gameId}.jpg`}
+      src={src}
       alt=""
-      onError={() => setError(true)}
+      onError={() => {
+        if (!triedPng[0]) {
+          triedPng[0] = true;
+          setSrc(`${API_BASE}/api/images/${gameId}.png`);
+        } else {
+          setError(true);
+        }
+      }}
       style={{
         width: "40px", height: "40px", borderRadius: "8px",
         objectFit: "cover", flexShrink: 0,

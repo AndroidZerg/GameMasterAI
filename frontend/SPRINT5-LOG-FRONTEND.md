@@ -21,3 +21,6 @@
 
 ### Phase A6: Fix Missing Play Time on Game Cards
 **Status:** DONE
+
+### Phase A7: Game Cover Art Display Fix
+**Status:** DONE
