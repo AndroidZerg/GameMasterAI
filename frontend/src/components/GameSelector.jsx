@@ -122,7 +122,7 @@ function GameOfTheDay({ game, onClick }) {
         animation: "fadeIn 0.3s ease-out",
       }}
     >
-      <div style={{ height: "180px", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
+      <div style={{ aspectRatio: "1 / 1", width: "100%", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
         {!imgError && (
           <img
             src={imgSrc} alt={game.title} onError={handleImgError}
@@ -221,7 +221,8 @@ function GameCard({ game, onClick, small }) {
     >
       <div
         style={{
-          height: small ? "100px" : "160px",
+          aspectRatio: "1 / 1",
+          width: "100%",
           background: imgError ? fallbackColor : "var(--bg-primary)",
           position: "relative",
           flexShrink: 0,
