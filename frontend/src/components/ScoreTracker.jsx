@@ -10,7 +10,7 @@ const PLAYER_AVATARS = [
   "\u{1F9D9}", "\u{1F9DC}", "\u{1F9DA}", "\u{1F9DE}", "\u{1F9DF}", "\u{1F9D1}\u200D\u{1F680}",
 ];
 
-// Mock scoring config for demo
+// Scoring configs per game — count (stepper × points), boolean (exclusive toggle), manual (calculator)
 const MOCK_SCORES = {
   catan: {
     game_title: "Catan",
@@ -45,6 +45,84 @@ const MOCK_SCORES = {
       { id: "longest_route", name: "Longest Route", type: "boolean", points_each: 10 },
     ],
   },
+  azul: {
+    game_title: "Azul",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tile_placement", name: "Tile Placement", type: "manual", points_each: 1 },
+      { id: "complete_rows", name: "Complete Rows", type: "count", points_each: 2 },
+      { id: "complete_columns", name: "Complete Columns", type: "count", points_each: 7 },
+      { id: "complete_colors", name: "Complete Colors", type: "count", points_each: 10 },
+      { id: "floor_penalty", name: "Floor Penalty", type: "manual", points_each: 1 },
+    ],
+  },
+  "7-wonders": {
+    game_title: "7 Wonders",
+    scoring_type: "calculator",
+    categories: [
+      { id: "military", name: "Military", type: "manual", points_each: 1 },
+      { id: "treasury", name: "Treasury", type: "manual", points_each: 1 },
+      { id: "wonder", name: "Wonder", type: "manual", points_each: 1 },
+      { id: "civilian", name: "Civilian", type: "manual", points_each: 1 },
+      { id: "science", name: "Science", type: "manual", points_each: 1 },
+      { id: "commerce", name: "Commerce", type: "manual", points_each: 1 },
+      { id: "guilds", name: "Guilds", type: "manual", points_each: 1 },
+    ],
+  },
+  "terraforming-mars": {
+    game_title: "Terraforming Mars",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tr", name: "Terraform Rating", type: "manual", points_each: 1 },
+      { id: "awards", name: "Awards", type: "manual", points_each: 1 },
+      { id: "milestones", name: "Milestones", type: "count", points_each: 5 },
+      { id: "greenery", name: "Greenery Tiles", type: "count", points_each: 1 },
+      { id: "city", name: "City Tiles", type: "manual", points_each: 1 },
+      { id: "vp_cards", name: "VP on Cards", type: "manual", points_each: 1 },
+    ],
+  },
+  splendor: {
+    game_title: "Splendor",
+    scoring_type: "calculator",
+    categories: [
+      { id: "card_points", name: "Card Points", type: "manual", points_each: 1 },
+      { id: "nobles", name: "Noble Tiles", type: "count", points_each: 3 },
+    ],
+  },
+  dominion: {
+    game_title: "Dominion",
+    scoring_type: "calculator",
+    categories: [
+      { id: "estates", name: "Estates", type: "count", points_each: 1 },
+      { id: "duchies", name: "Duchies", type: "count", points_each: 3 },
+      { id: "provinces", name: "Provinces", type: "count", points_each: 6 },
+      { id: "colonies", name: "Colonies", type: "count", points_each: 10 },
+      { id: "gardens", name: "Gardens / VP Cards", type: "manual", points_each: 1 },
+      { id: "curses", name: "Curses", type: "count", points_each: -1 },
+    ],
+  },
+  everdell: {
+    game_title: "Everdell",
+    scoring_type: "calculator",
+    categories: [
+      { id: "base_points", name: "Card Base Points", type: "manual", points_each: 1 },
+      { id: "prosperity", name: "Prosperity Cards", type: "manual", points_each: 1 },
+      { id: "events", name: "Events", type: "manual", points_each: 1 },
+      { id: "journey", name: "Journey Points", type: "manual", points_each: 1 },
+    ],
+  },
+  root: {
+    game_title: "Root",
+    scoring_type: "calculator",
+    categories: [
+      { id: "vp", name: "Victory Points", type: "manual", points_each: 1 },
+    ],
+  },
+  "spirit-island": {
+    game_title: "Spirit Island",
+    scoring_type: "cooperative",
+    win_conditions: ["Destroy all invaders or meet terror level victory condition before the island is overwhelmed"],
+  },
   pandemic: {
     game_title: "Pandemic",
     scoring_type: "cooperative",
@@ -60,6 +138,38 @@ const MOCK_SCORES = {
     scoring_type: "elimination",
     categories: [
       { id: "vp", name: "Victory Points", type: "count", points_each: 1 },
+    ],
+  },
+  coup: {
+    game_title: "Coup",
+    scoring_type: "elimination",
+    categories: [],
+  },
+  "love-letter": {
+    game_title: "Love Letter",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tokens", name: "Tokens of Affection", type: "count", points_each: 1 },
+    ],
+  },
+  sagrada: {
+    game_title: "Sagrada",
+    scoring_type: "calculator",
+    categories: [
+      { id: "public_obj", name: "Public Objectives", type: "manual", points_each: 1 },
+      { id: "private_obj", name: "Private Objective", type: "manual", points_each: 1 },
+      { id: "favor_tokens", name: "Favor Tokens", type: "count", points_each: 1 },
+      { id: "empty_penalty", name: "Empty Spaces", type: "count", points_each: -1 },
+    ],
+  },
+  carcassonne: {
+    game_title: "Carcassonne",
+    scoring_type: "calculator",
+    categories: [
+      { id: "cities", name: "City Points", type: "manual", points_each: 1 },
+      { id: "roads", name: "Road Points", type: "manual", points_each: 1 },
+      { id: "monasteries", name: "Monastery Points", type: "manual", points_each: 1 },
+      { id: "farms", name: "Farm Points", type: "manual", points_each: 1 },
     ],
   },
 };
@@ -339,6 +449,55 @@ const SCORING_REFERENCE = {
     "Start in Tokyo to earn 1 VP, stay for another turn = +2 VP",
     "Card effects can also award VP",
     "First to 20 VP or last monster standing wins!",
+  ],
+  azul: [
+    "Score points for each tile placed based on adjacent tiles",
+    "Complete row bonus = 2 points per completed horizontal row",
+    "Complete column bonus = 7 points per completed vertical column",
+    "Complete color bonus = 10 points for all 5 of one color",
+    "Floor line tiles subtract points (1,1,2,2,2,3,3)",
+  ],
+  "7-wonders": [
+    "Military: compare shields with neighbors, +/- tokens",
+    "Treasury: 1 VP per 3 coins",
+    "Wonder: VP printed on wonder stages",
+    "Civilian: blue card VP values",
+    "Science: sets of 3 different = 7 VP, pairs = square of count",
+    "Commerce: VP from yellow cards",
+    "Guilds: VP from purple cards based on conditions",
+  ],
+  "terraforming-mars": [
+    "Terraform Rating = your TR track position (starts at 20)",
+    "Milestones = 5 VP each (max 3 claimed per game)",
+    "Awards = 5 VP first, 2 VP second in each funded award",
+    "Greenery tiles = 1 VP each",
+    "City tiles = 1 VP per adjacent greenery",
+    "VP on cards = count all VP icons on played cards",
+  ],
+  splendor: [
+    "Card points = prestige points printed on development cards",
+    "Noble tiles = 3 VP each when visited by a noble",
+    "First to 15 points triggers final round",
+  ],
+  dominion: [
+    "Estates = 1 VP, Duchies = 3 VP, Provinces = 6 VP",
+    "Colonies = 10 VP (if using Prosperity)",
+    "Gardens = 1 VP per 10 cards in deck",
+    "Curses = -1 VP each",
+    "Count all VP cards in your deck at game end",
+  ],
+  sagrada: [
+    "Public objectives scored by all players",
+    "Private objective = sum of pips of your secret color",
+    "Favor tokens = 1 VP each remaining",
+    "Empty spaces = -1 VP each",
+  ],
+  carcassonne: [
+    "Completed cities = 2 pts per tile + 2 per pennant",
+    "Completed roads = 1 pt per tile",
+    "Completed monasteries = 9 pts (monastery + 8 surrounding)",
+    "Farms = 3 pts per completed city touching your farm",
+    "Incomplete features score half at game end",
   ],
 };
 

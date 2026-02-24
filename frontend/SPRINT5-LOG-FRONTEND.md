@@ -24,3 +24,6 @@
 
 ### Phase A7: Game Cover Art Display Fix
 **Status:** DONE
+
+### Phase A8: Score Tracker — Specific Scoring Configs
+**Status:** DONE
