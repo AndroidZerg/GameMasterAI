@@ -1,0 +1,85 @@
+{
+  "game_id": "flamme-rouge",
+  "title": "Flamme Rouge",
+  "aliases": [],
+  "publisher": "Lautapelit",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 30, "max": 45},
+  "complexity": "gateway",
+  "categories": ["racing", "hand-management", "deck-management"],
+  "source_url": "https://lautapelit.fi/en/flamme-rouge",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **Modular track tiles** (straights, curves, hills)\n- **2 cyclist miniatures per player** (Rouleur and Sprinteur)\n- **15 Rouleur cards** per player (values: 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7)\n- **15 Sprinteur cards** per player (values: 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 9, 9, 9)\n- **Exhaustion cards** (value 2)\n- **Energy cards** per player deck"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Build track** — Connect track tiles to form the race course.\n2. **Mark finish line** on the last tile.\n3. **Place cyclists** on the starting grid (positions determined by player order).\n4. **Each player** shuffles their Rouleur deck and Sprinteur deck separately."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **2 cyclists** per player: Rouleur (steady) and Sprinteur (explosive).\n- **2 separate decks** of 15 cards each.\n- **No hand** — Draw 4 each turn."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Flamme Rouge is a cycling race game. Manage two riders (Rouleur and Sprinteur) with separate decks. Play cards to move, draft behind other riders, and avoid exhaustion. First rider across the finish wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "All players act simultaneously:\n1. **Draw 4** for your Sprinteur — Pick 1, shuffle rest back.\n2. **Draw 4** for your Rouleur — Pick 1, shuffle rest back.\n3. **Reveal** — All players reveal chosen cards.\n4. **Move** — Move cyclists forward by their card values (front cyclist moves first).\n5. **Slipstream** — After movement, check for drafting.\n6. **Exhaustion** — Cyclists in front without anyone directly behind gain 1 exhaustion card."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Movement\n- Rouleur cards: consistent values (3-7).\n- Sprinteur cards: extreme values (2-2-2 or 9-9-9).\n- Move forward exactly the number of spaces on the played card.\n- Cannot move through occupied spaces; stack behind if blocked.\n\n#### Slipstream (Drafting)\n- After all movement, any cyclist with exactly 1 empty space between them and the next cyclist ahead moves forward 1 space for free.\n- Check repeatedly until no more slipstream moves are possible.\n\n#### Exhaustion\n- Any cyclist who is at the front of a group (no one directly ahead in the same lane or adjacent lane) receives 1 exhaustion card into their deck.\n- Exhaustion cards have value 2 (very weak)."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Two lanes** — Track is 2 lanes wide. Cyclists can be side by side.\n- **Narrow sections** — Some track sections narrow to 1 lane.\n- **Hills** — Uphill: max card value of 5. Downhill: minimum value of 5.\n- **Exhaustion dilutes** — More exhaustion cards weaken your deck over time.\n- **No deck reshuffling** — When your deck runs out, you only draw from remaining cards."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Winning\n- First cyclist (of any player) to cross the finish line wins for their team.\n- If multiple cyclists cross on the same turn, the one furthest past the line wins.\n\n#### No points — pure race."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Draft behind others** — Slipstream gives free movement and avoids exhaustion.\n- **Save Sprinteur 9s** — Don't waste your sprint cards early.\n- **Avoid leading** — Being in front causes exhaustion.\n- **Rouleur consistency** — Use the Rouleur for steady progress."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Peloton riding** — Stay in the pack to draft and avoid exhaustion.\n- **Sprint timing** — Save high Sprinteur cards for the final stretch.\n- **Deck management** — Avoid exhaustion cards to keep your deck efficient.\n- **Team coordination** — Use one cyclist to block while the other positions for a breakaway."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

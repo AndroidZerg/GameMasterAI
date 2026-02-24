@@ -1,0 +1,11 @@
+{
+  "game_id": "backgammon",
+  "scoring_type": "race",
+  "categories": [
+    {"id": "single", "label": "Single Win", "points_each": 1, "type": "boolean", "description": "Normal win — bore off all checkers first"},
+    {"id": "gammon", "label": "Gammon", "points_each": 2, "type": "boolean", "description": "Opponent bore off zero checkers"},
+    {"id": "backgammon", "label": "Backgammon", "points_each": 3, "type": "boolean", "description": "Opponent has checkers on bar or in winner's home board"},
+    {"id": "cube_value", "label": "Doubling Cube", "points_each": 1, "type": "count", "description": "Multiply win value by cube value (1, 2, 4, 8, 16, 32, 64)"}
+  ],
+  "win_condition": "Bear off all 15 checkers first"
+}

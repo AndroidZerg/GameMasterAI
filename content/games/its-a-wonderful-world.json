@@ -1,0 +1,85 @@
+{
+  "game_id": "its-a-wonderful-world",
+  "title": "It's a Wonderful World",
+  "aliases": ["IAWW"],
+  "publisher": "La Boîte de Jeu",
+  "player_count": {"min": 1, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 30, "max": 60},
+  "complexity": "gateway",
+  "categories": ["card-drafting", "engine-building", "resource-management"],
+  "source_url": "https://boardgamegeek.com/boardgame/271324/its-a-wonderful-world",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "It's a Wonderful World includes:\n\n- **150 development cards** (projects to draft and build)\n- **5 empire cards** (player boards with starting production)\n- **170 resource cubes** in 5 types:\n  - **White** (Materials)\n  - **Black** (Energy)\n  - **Green** (Science)\n  - **Yellow** (Gold)\n  - **Blue** (Exploration)\n- **75 character tokens** (Financiers and Generals — used for VP and bonus production)\n- **Krystallium tokens** (wild resource)\n- **Round tracker** (the game lasts 4 rounds)\n- **Score pad**"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Shuffle the **development card deck** and place it centrally.\n2. Organize **resource cubes** by type in accessible supply piles.\n3. Place **character tokens** (Financiers and Generals) in their own supply piles.\n4. Place **Krystallium tokens** in a supply.\n5. Set the **round tracker** to Round 1 (the game has 4 rounds).\n6. Give each player an **empire card** (all identical for first game; variable powers for advanced play)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1. Each player receives their **empire card** which shows:\n   - Starting production capabilities (typically 1 of each basic resource)\n   - A recycling bonus\n   - Slots for placing completed development cards\n2. Deal **7 development cards** to each player for the first draft.\n3. Players start with **no resources** — production begins after the first drafting phase.\n4. In solo mode, a modified deal-and-select mechanism replaces drafting."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "It's a Wonderful World is a **card-drafting engine-building** game where you develop an empire by constructing projects that increase your resource production.\n\nOver **4 rounds**, you draft development cards, then produce resources in a **fixed order** to complete those cards. Completed cards increase your production for future rounds, creating a compounding engine.\n\nResources are produced in a strict order: **Materials → Energy → Science → Gold → Exploration**. This production order is critical — resources produced early in the chain can immediately be placed on cards, completing them in time to boost later production in the same round.\n\nThe player with the most **victory points** from completed cards and character tokens wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round has 2 phases:\n\n### Phase 1: Drafting\n1. Each player receives **7 development cards**.\n2. Choose **1 card** to keep. Pass the remaining 6 to the next player.\n3. Repeat until all 7 cards are drafted.\n4. For each drafted card, you must choose:\n   - **Construct it**: Place it in your construction area to build over time.\n   - **Recycle it**: Discard it to gain a single resource cube of the type shown on the card's recycling bonus.\n\n### Phase 2: Production\nProduce resources in this **strict fixed order**:\n1. **Materials (White)**: Each production icon on your empire card and completed cards produces 1 white cube. Place cubes on cards under construction or save them.\n2. **Energy (Black)**: Same process.\n3. **Science (Green)**: Same process.\n4. **Gold (Yellow)**: Same process.\n5. **Exploration (Blue)**: Same process.\n\nWhen a card under construction has **all its required resources** placed on it, it is **immediately completed** — flip it to your empire and add its production to your engine. This can happen mid-production phase!\n\n**Bonus**: During each resource production step, the player who produces the **most** of that resource gains a **Financier or General token** (worth 1 VP and sometimes bonus production)."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Drafting Cards\nEach card shows:\n- **Construction cost**: Resources needed to complete it (cubes of various types)\n- **Production bonus**: What the card produces each round once completed\n- **Victory points**: VP value when completed\n- **Recycling bonus**: What resource you get if you discard the card\n\n### Constructing Cards\n- Place drafted cards in your **construction zone**.\n- During production, place cubes on cards to fulfill their costs.\n- Once fully paid, the card is **completed immediately** and joins your empire.\n- There is **no limit** to how many cards you can have under construction.\n\n### Recycling\n- Discard a drafted card to receive **one resource cube** of the type shown.\n- Recycling is done during the draft phase. The cube goes to your supply to place on constructions.\n\n### Krystallium (Wild Resource)\nSome completed cards produce **Krystallium** tokens. Krystallium is a **wild resource** — it can substitute for any resource type when constructing cards.\n\n### Supremacy Bonus\nDuring each production step, the player who produces the **most** of that resource type gains a **character token**:\n- Materials/Energy → **General** (1 VP + sometimes military bonus)\n- Science/Gold/Exploration → **Financier** (1 VP + sometimes financial bonus)\n\nTies: all tied players gain the bonus."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Production Order is Key\nThe fixed production order (Materials → Energy → Science → Gold → Exploration) means:\n- A card completed during Materials production adds its Energy/Science/Gold/Exploration production THIS round.\n- A card completed during Exploration production won't help until next round.\n- **Plan your construction costs** so cards complete early in the production chain.\n\n### Unused Resources\nResources that aren't placed on cards at the **end of the production phase are lost**. Every 5 unused resources convert to 1 Krystallium token.\n\n### Empire Card Variants\nIn advanced play, each empire card has a **unique side** with different starting production and special abilities, creating asymmetric starts.\n\n### Chaining Completions\nIf a card completes during production and its new production helps complete another card, that **second card also completes immediately**. Long chains of completions in a single production step are possible and extremely powerful.\n\n### Character Token Scoring\nFinanciers and Generals each score **1 VP** at game end. Some development cards also have synergies with character tokens."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "After **4 rounds** of drafting and production, calculate final scores:\n\n### Scoring\n1. **Completed development cards**: Each completed card shows a VP value (typically 1–10+ VP).\n2. **Character tokens**: Each Financier and General is worth **1 VP**.\n3. **Uncompleted cards**: Worth **0 points** (no penalty, but wasted investment).\n\n### Winning\nThe player with the **highest total VP** wins.\n\n### Tiebreaker\nIf tied, the player with the **most character tokens** wins. If still tied, the player with the **most completed cards** wins.\n\n### Typical Score Ranges\n- Beginner games: 40–70 points\n- Experienced games: 80–120+ points\n- The engine-building nature means scores can vary dramatically based on how well the production chain is optimized."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Production order matters most**: Focus on cards that complete early in the production chain (Materials, Energy) so their output helps this round.\n- **Recycle aggressively**: Don't try to build every card you draft. Recycling weak cards for cubes is often better.\n- **Build your engine in rounds 1–2**: Early production increases compound over 4 rounds. A card built in round 1 produces 4 times.\n- **Watch construction costs**: A card costing 8 resources is rarely worth building in round 3. Prioritize efficient cards early.\n- **Don't hoard resources**: Unused cubes are mostly wasted. Place them on constructions even if the card won't complete this round."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Chain completion**: Design your construction pipeline so completing one card immediately triggers another. Round 2 chains can be devastating.\n- **Supremacy farming**: Focus production on 1–2 resource types to win supremacy bonuses consistently. Character tokens add up.\n- **Pivot late**: Rounds 3–4 are for high-VP cards regardless of production value. You don't need production from cards built in round 4.\n- **Resource focus**: Specializing in 2–3 resource types makes your production more efficient than spreading thin.\n- **Recycle for timing**: Sometimes recycling a card for 1 cube now is better than building a card worth 3 VP later. Tempo is everything.\n- **Krystallium strategy**: Cards producing Krystallium give incredible flexibility. They're rare but powerful — draft them when available.\n- **Deny opponents**: If you see a card that perfectly fits an opponent's engine, consider hate-drafting it (or recycling it for the cube)."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

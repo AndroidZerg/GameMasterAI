@@ -1,0 +1,11 @@
+{
+  "game_id": "jamaica",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "track_position", "label": "Track Position", "points_each": 1, "type": "value", "description": "Points based on your final position on the race track (can be negative if behind start)"},
+    {"id": "gold", "label": "Gold Doubloons", "points_each": 1, "type": "count", "description": "Each gold doubloon in your cargo holds is worth 1 point"},
+    {"id": "treasures", "label": "Treasure Cards", "points_each": 1, "type": "value", "description": "Total point value of all treasure cards collected (positive treasures)"},
+    {"id": "cursed_treasures", "label": "Cursed Treasures", "points_each": -1, "type": "value", "description": "Negative points from cursed treasure cards"}
+  ],
+  "win_condition": "Player with the highest total score wins. Tiebreaker goes to the player furthest along the track."
+}

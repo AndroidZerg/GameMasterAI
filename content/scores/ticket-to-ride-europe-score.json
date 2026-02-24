@@ -1,0 +1,12 @@
+{
+  "game_id": "ticket-to-ride-europe",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "route_points", "label": "Route Points", "points_each": 1, "type": "count", "description": "Points from claimed routes (scored during game)"},
+    {"id": "completed_tickets", "label": "Completed Tickets", "points_each": 1, "type": "count", "description": "Sum of completed destination ticket values"},
+    {"id": "failed_tickets", "label": "Failed Tickets", "points_each": -1, "type": "count", "description": "Subtract value of incomplete destination tickets"},
+    {"id": "unused_stations", "label": "Unused Stations", "points_each": 4, "type": "count", "description": "4 points per unbuilt train station"},
+    {"id": "longest_route", "label": "European Express", "points_each": 10, "type": "boolean", "description": "10 points for longest continuous path"}
+  ],
+  "win_condition": "Most points wins"
+}

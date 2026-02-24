@@ -1,0 +1,8 @@
+{
+  "game_id": "cockroach-poker",
+  "scoring_type": "elimination",
+  "categories": [
+    {"id": "face_up_max", "label": "Max Same Type", "points_each": 1, "type": "count", "description": "Most face-up cards of any single type (4 = lose)"}
+  ],
+  "win_condition": "Don't be the player who collects 4 of the same type"
+}

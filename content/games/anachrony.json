@@ -1,0 +1,85 @@
+{
+  "game_id": "anachrony",
+  "title": "Anachrony",
+  "aliases": [],
+  "publisher": "Mindclash Games",
+  "player_count": {"min": 1, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 120},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "resource-management", "science-fiction", "engine-building"],
+  "source_url": "https://mindclashgames.com/our-games/anachrony/",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 main game board** — Central board with worker placement spaces, timeline track, and paradox tracker.\n- **4 faction boards** — Asymmetric player boards (Path of Harmony, Path of Dominance, Path of Progress, Path of Salvation).\n- **1 timeline board** — Tracks the approach of the asteroid impact and time rifts.\n\n#### Worker Types\n- **4 worker types** — Scientists (blue), Engineers (orange), Administrators (white), Geniuses (gold/wild). Each type accesses specific action spaces.\n- **Exosuits** — Powered frames required for workers to access the main board. Without an exosuit, a worker cannot leave your faction base.\n\n#### Resources\n- **Basic resources** — Water, neutronium, gold, uranium (titanium in some editions).\n- **Energy cores** — Power exosuits and buildings.\n- **Breakthrough tokens** — Scientific advances worth VP.\n\n#### Other Components\n- **Superproject tiles** — Major constructions worth significant VP.\n- **Building tiles** — Faction-specific buildings providing abilities.\n- **Time travel tokens** — Resources borrowed from the future.\n- **Paradox tokens** — Accumulated when failing to repay time-borrowed resources.\n- **Anomaly tiles** — Negative effects from paradoxes.\n- **Evacuation tiles** — End-game scoring related to the timeline."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Main Board Setup\n1. **Place main board** — Set the central board with all action spaces visible.\n2. **Timeline** — Set the timeline marker on era 1. The asteroid impact occurs at a fixed era.\n3. **Superprojects** — Randomly select and display superproject tiles.\n4. **Resource supply** — Organize all resources, energy cores, and tokens.\n5. **Building display** — Place available buildings in their supply.\n6. **Exosuit supply** — Place the shared exosuit supply on the board.\n\n#### Timeline Setup\n- **Pre-impact eras** — The game begins before the asteroid impact.\n- **Impact era** — A specific era triggers the impact, changing available actions.\n- **Post-impact eras** — Fewer actions available; evacuation becomes critical."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Faction Selection\n- **Choose a faction** — Each player selects one of 4 asymmetric factions.\n- **Faction board** — Take the corresponding faction board with unique starting buildings and abilities.\n- **Starting workers** — Each faction begins with a set of workers (varies by faction).\n- **Starting resources** — Small starting allocation of resources (varies by faction).\n- **Exosuits** — Each player starts with a limited number of exosuit slots.\n\n#### Faction Abilities\n- **Path of Harmony** — Bonus to morale and worker management.\n- **Path of Dominance** — Military and aggressive action bonuses.\n- **Path of Progress** — Scientific and technological advantages.\n- **Path of Salvation** — Resource efficiency and time travel bonuses."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nAnachrony is set in a post-apocalyptic future where four factions compete to build a new civilization before (and after) a devastating asteroid impact. The signature mechanic is time travel: players can borrow resources from the future to use in the present, but must repay them later or suffer paradoxes. Workers require exosuits to perform actions on the main board, creating a tight economy of suit management.\n\n#### Game Arc\n- **4-7 eras** — The game spans multiple eras. An asteroid impact occurs mid-game, changing available actions.\n- **Pre-impact** — Build infrastructure, gather resources, recruit workers, borrow from the future.\n- **Impact** — The asteroid hits. Some action spaces become unavailable. Urgency increases.\n- **Post-impact** — Evacuate your faction, complete superprojects, repay time debts. Game ends shortly after impact.\n- **Time travel** — Borrowing resources from the future provides a powerful early boost but creates obligations."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Era Structure (Each Era)\n1. **Paradox phase** — Resolve any paradox effects from unpaid time debts.\n2. **Preparation phase** — Power up exosuits with energy cores. Each exosuit requires 1 energy core. Recruit new workers.\n3. **Warp phase (Time Travel)** — Optionally request resources from the future. Draw warp tiles showing what you can borrow.\n4. **Action phase** — Players take turns placing workers in exosuits on main board action spaces OR using faction board actions (no exosuit needed).\n5. **Clean-up phase** — Return workers and exosuits. Check timeline advancement.\n\n#### Action Phase Details\n- **Main board actions** — Require an exosuit + matching worker type. Limited spaces per action.\n- **Faction board actions** — Use workers directly on your faction board. No exosuit needed.\n- **Turn order** — Determined by the timeline track (earliest position goes first).\n\n#### Main Board Action Spaces\n- **Construct** — Build buildings on your faction board using resources.\n- **Recruit** — Gain new workers of specific types.\n- **Research** — Acquire breakthrough tokens for VP and abilities.\n- **Mine** — Gather resources (type depends on the era).\n- **Purify water** — Essential resource for worker upkeep.\n- **Trade** — Exchange resources at the market.\n\n#### Faction Board Actions\n- **Use buildings** — Activate buildings you've constructed for their special effects.\n- **Internal actions** — Faction-specific actions that don't require exosuits."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Time Travel (Warp)\n- **Borrowing from the future** — During the Warp phase, you may request specific resources from the future. You receive them immediately for use this era.\n- **Warp tiles** — Draw warp tiles that show available future loans. Select which to take.\n- **Repayment** — In a later era, you must send resources back through time (pay the exact amount borrowed). If you repay on time, no penalty.\n- **Paradox** — If you fail to repay, you gain paradox tokens. Too many paradoxes cause anomalies (permanent negative effects).\n- **Strategic borrowing** — Borrowing in era 1-2 gives a huge tempo advantage but creates obligations.\n\n#### Exosuit Management\n- **Limited suits** — You start with few exosuit slots. Building more requires resources.\n- **Energy requirement** — Each exosuit needs 1 energy core per era to function.\n- **Worker pairing** — Each main board space requires a specific worker type. The exosuit carries that worker.\n- **Tight constraint** — Managing exosuit availability and energy is a core challenge.\n\n#### Building Construction\n- **Buildings** — Place on your faction board to gain permanent or triggered abilities.\n- **Cost** — Resources (water, gold, neutronium, etc.).\n- **Building types** — Production buildings (generate resources), military buildings (combat bonuses), scientific buildings (research bonuses).\n\n#### Superprojects\n- **Endgame goals** — Large constructions requiring significant resource investment.\n- **VP value** — Superprojects are worth major VP (often 5-15 points).\n- **Competition** — Limited superprojects available. First to complete claims it.\n\n#### Evacuation\n- **Post-impact action** — After the asteroid hits, players can evacuate workers and resources.\n- **Evacuation VP** — Evacuating specific combinations scores VP.\n- **Timing** — Evacuation is only available post-impact. Planning ahead is essential."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Paradox System\n- **Paradox tokens** — Gained when you fail to repay time-borrowed resources.\n- **Accumulation** — Paradoxes accumulate. At certain thresholds, you draw anomaly tiles.\n- **Anomalies** — Permanent negative effects (reduced actions, lost resources, VP penalties).\n- **Prevention** — Always repay on time, or accept strategic paradoxes when the benefit outweighs the penalty.\n\n#### Asteroid Impact\n- **Mid-game event** — The impact occurs at a fixed era (typically era 4 or 5).\n- **Board changes** — Some main board action spaces become unavailable or change.\n- **Urgency** — Post-impact eras are fewer. Players must wrap up quickly.\n- **Evacuation opens** — Evacuation actions become available.\n\n#### Worker Types\n- **Scientists** — Access research and advanced technology spaces.\n- **Engineers** — Access construction and building spaces.\n- **Administrators** — Access trade, recruitment, and political spaces.\n- **Geniuses** — Wild workers that can fill any role but are rare and expensive.\n\n#### Morale\n- **Track** — Faction morale affects various actions and scoring.\n- **Increase** — Certain actions and buildings boost morale.\n- **Decrease** — Harsh actions, paradoxes, and starvation reduce morale.\n- **VP impact** — Morale position affects end-game scoring."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **Final era** — The game ends after the last post-impact era (typically era 6 or 7).\n\n#### Final Scoring\n- **Superprojects** — VP from completed superprojects.\n- **Breakthroughs** — VP from research breakthrough tokens.\n- **Buildings** — VP from constructed buildings.\n- **Evacuation** — VP from successfully evacuated workers and resources.\n- **Timeline position** — VP based on position on the timeline track.\n- **Morale** — VP or penalties based on morale track position.\n- **Remaining resources** — Small VP for leftover resources.\n- **Paradox penalties** — Negative VP from accumulated paradoxes and anomalies.\n- **Water penalties** — Unpaid water debts cost VP.\n\n#### Winner\n- **Highest VP** — Player with the most victory points wins.\n- **Tiebreaker** — Player with fewer paradox tokens."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Borrow wisely** — Time travel is powerful but paradoxes are punishing. Borrow only what you can repay.\n- **Exosuits are the bottleneck** — Invest in more exosuit capacity early. Without suits, your workers sit idle.\n- **Energy management** — You need energy every era for exosuits. Build a reliable energy source.\n- **Match workers to needs** — Plan which worker types you need and recruit accordingly.\n- **Don't ignore superprojects** — They are worth the most VP. Start gathering their resources early.\n- **Prepare for impact** — Know when the asteroid hits and plan your evacuation strategy in advance."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Aggressive Time Travel\n- **Goal** — Borrow heavily in early eras for a massive resource advantage.\n- **Key actions** — Maximum warp borrowing, rapid building, accept some paradox risk.\n- **Risk** — Paradox accumulation can spiral. Must repay before anomalies trigger.\n\n#### Strategy 2: Superproject Rush\n- **Goal** — Focus on completing superprojects for large VP payoffs.\n- **Key actions** — Mine resources, trade efficiently, claim superprojects before opponents.\n- **Benefit** — Superprojects are the highest individual VP sources.\n\n#### Strategy 3: Faction Engine\n- **Goal** — Build many faction buildings to create a powerful economic engine.\n- **Key actions** — Construct buildings early, use faction abilities heavily.\n- **Benefit** — Compound returns from building synergies over many eras.\n\n#### Strategy 4: Research Focus\n- **Goal** — Accumulate breakthroughs for VP and unlock powerful abilities.\n- **Key actions** — Prioritize research spaces, use scientists heavily.\n- **Benefit** — Breakthroughs provide both immediate abilities and end-game VP.\n\n#### General Principles\n- **Plan for the impact** — Everything changes at impact. Have a clear plan for both phases.\n- **Worker diversity** — Having the right mix of worker types prevents bottlenecks.\n- **Deny key spaces** — With limited main board spaces, blocking opponents is a valid tactic."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

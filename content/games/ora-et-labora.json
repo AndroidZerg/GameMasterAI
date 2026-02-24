@@ -1,0 +1,85 @@
+{
+  "game_id": "ora-et-labora",
+  "title": "Ora et Labora",
+  "aliases": ["Ora & Labora"],
+  "publisher": "Lookout Games",
+  "player_count": {"min": 1, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 60, "max": 180},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "resource-management", "tile-placement", "economic", "engine-building"],
+  "source_url": "https://lookout-spiele.de/en/games/ora-et-labora.html",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards and Wheels\n- **1 production wheel** — Central mechanism that tracks resource availability. Goods become more plentiful over time.\n- **Game board strips** — Landscape strips forming each player's territory.\n- **Building cards** — Various buildings that can be constructed and used.\n\n#### Resources\n- **Basic goods** — Wood, clay, peat, grain, livestock, coins.\n- **Processed goods** — Flour, bread, wine, beer, whiskey, meat, ceramic, bricks, straw, ornaments, books, relics.\n- **Energy** — Peat, wood, and coal serve as energy for processing.\n\n#### Tiles\n- **Landscape tiles** — Forest, moor, coastal, hillside, and plains. Expand your territory.\n- **Building tiles** — Cloisters, settlements, and various production buildings.\n- **Settlement tiles** — Required for settlement formation scoring.\n\n#### Other Components\n- **Prior and lay brother tokens** — Workers for each player.\n- **Clergy markers** — Placed on buildings to use them.\n- **Round marker** — Tracks game progress through 24/25 rounds (depending on variant)."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Production Wheel Setup\n1. **Assemble the production wheel** — Place the wheel in the center of the table. The wheel has a rotating arm that advances each round.\n2. **Set starting positions** — Place goods markers on the wheel at their starting values. As the wheel turns, each good's production value increases.\n3. **Goods tracks** — Each good has a track on the wheel showing how many of that resource are generated when you take the production action.\n\n#### Landscape Setup\n1. **Starting landscape** — Each player begins with a heartland strip containing a few basic terrain tiles.\n2. **Available landscapes** — Place additional landscape tiles in a supply sorted by type.\n3. **Building display** — Sort available buildings by cost and place them where all players can see.\n\n#### Variant Selection\n- **France variant** — Focuses on wine production and cloisters.\n- **Ireland variant** — Focuses on whiskey production and different building set.\n- **Choose one** — Players agree on France or Ireland before setup, as building sets differ."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Components\n- **Heartland** — Each player takes their starting landscape strip.\n- **Clergy** — Each player receives 1 Prior and 2 Lay Brothers.\n- **Starting resources** — Players receive a small starting allocation of basic goods (varies slightly by turn order).\n- **Coin** — Starting player gets fewer coins; later players get compensation coins.\n\n#### Territory\n- **Landscape grid** — Your territory is arranged in a grid pattern. Buildings and landscapes are placed in this grid.\n- **Expansion** — Throughout the game you purchase additional landscape strips to expand your territory."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nOra et Labora (\"Pray and Work\") is a resource management and building game themed around medieval monastery life. Players manage a monastic estate, producing goods, constructing buildings, and forming settlements. The unique production wheel mechanism means goods become more plentiful as the game progresses, creating natural pacing.\n\n#### Game Arc\n- **24-25 rounds** — Game length depends on variant (France vs. Ireland).\n- **Settlement scoring** — At fixed intervals, players score their settlements (groups of connected buildings meeting specific criteria).\n- **Escalating power** — Buildings become more powerful and expensive over time.\n- **Territory growth** — Players expand their landscape grids throughout the game."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Advance the wheel** — At the start of each round, rotate the production wheel one notch. This increases the production value of all goods by 1.\n2. **Active player's turn** — The active player takes exactly ONE action.\n3. **Pass to next player** — Play passes clockwise.\n\n#### Available Actions (Choose One)\n1. **Fell trees / Cut peat** — Remove a forest or moor tile from your landscape to gain wood or peat (amount based on production wheel).\n2. **Use a building** — Place one of your clergy members on a building to activate it. You can use your own buildings for free, or pay to use opponents' buildings.\n3. **Build a building** — Pay the resource cost to construct a building and place it on an empty space in your landscape.\n4. **Buy a landscape** — Pay coins to acquire a new landscape strip and attach it to your territory.\n\n#### Clergy Placement\n- **Prior** — Your Prior can be placed on any building (your own or opponents').\n- **Lay Brothers** — Lay Brothers can only be placed on your own buildings.\n- **Recall** — After all your clergy are placed, you must recall all of them before placing any again. This creates a natural pacing to building use.\n- **Using opponents' buildings** — You must pay the owner a usage fee to use their building with your Prior."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Production Wheel Mechanism\n- **Accumulation** — Each good on the wheel increases by 1 each round that no one takes it.\n- **Taking production** — When you use a production building, you take goods equal to the current wheel value for that resource, then reset it to 0.\n- **Timing** — Waiting longer gives more goods, but opponents may take them first.\n\n#### Building Construction\n- **Cost** — Buildings cost combinations of resources (wood, clay, stone, coins, etc.).\n- **Placement** — Buildings must be placed on valid terrain in your landscape grid.\n- **Adjacency** — Some buildings have placement requirements regarding adjacent tiles.\n- **Building types** — Production buildings, processing buildings, civic buildings, and religious buildings (cloisters).\n\n#### Processing Chains\n- **Grain chain** — Grain → Flour (Grain Mill) → Bread (Bakery, requires energy).\n- **Livestock chain** — Livestock → Meat (Slaughterhouse, requires energy).\n- **Clay chain** — Clay → Ceramic or Bricks (Pottery, requires energy).\n- **Wood chain** — Wood serves as building material and energy source.\n- **France: Wine** — Grapes → Wine (Winery). Wine is very valuable.\n- **Ireland: Whiskey** — Grain → Whiskey (Distillery). Whiskey is very valuable.\n\n#### Landscape Expansion\n- **Purchase** — Buy landscape strips with coins during your turn.\n- **Coastal, hillside, plains** — Each type provides different terrain for buildings.\n- **Strategic value** — More territory means more room for buildings and settlements."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Settlement Scoring\n- **Settlement formation** — A settlement is a connected group of buildings that includes at least one house/dwelling.\n- **Scoring triggers** — Settlements are scored at fixed points during the game (after specific rounds).\n- **Settlement requirements** — Each settlement must contain specific building types to qualify for scoring.\n- **Multiple settlements** — You can form multiple settlements in your territory.\n\n#### Cloisters\n- **Religious buildings** — Cloisters are special buildings that score bonus points and provide powerful abilities.\n- **Cloister adjacency** — Cloisters score bonuses based on the buildings adjacent to them.\n- **Variant differences** — France and Ireland have different cloister buildings.\n\n#### France vs. Ireland\n- **France** — Features wine production, different cloister set, emphasis on ornamental goods.\n- **Ireland** — Features whiskey production, different building mix, slightly different scoring emphasis.\n- **Core rules identical** — The production wheel, clergy, and landscape mechanics work the same in both.\n\n#### Coins\n- **Currency** — Coins are used to buy landscapes, pay building usage fees, and occasionally as building costs.\n- **Income** — Some buildings generate coins when used.\n- **Not VP** — Coins do not count directly as victory points."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **Final round** — After the last round (24 or 25), the game ends.\n- **Final settlement scoring** — One last settlement scoring phase occurs.\n\n#### Scoring Categories\n- **Settlement values** — Points from all settlement scoring phases throughout the game.\n- **Building values** — Each building in your territory has a printed VP value.\n- **Goods conversion** — Certain high-value goods (wine, whiskey, relics, books, ornaments) can be converted to VP at specific rates.\n- **Unsettled buildings** — Buildings not part of any settlement may score reduced or no points.\n\n#### Winner\n- **Highest total** — Player with the most victory points wins.\n- **Tiebreaker** — The player with more remaining goods wins ties."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Watch the production wheel** — Timing when to take goods is crucial. Letting values build up is good, but don't let opponents take a huge haul.\n- **Expand your landscape early** — More territory means more room for buildings and settlements.\n- **Plan your clergy carefully** — You only have 3 clergy members. Don't place them all quickly without a plan for recall.\n- **Build settlements incrementally** — Don't wait until the last scoring round. Score at every opportunity.\n- **Process your goods** — Raw goods are worth little. Converting grain to bread or clay to bricks multiplies their value."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Settlement Focus\n- **Goal** — Maximize settlement scoring by building dense clusters of buildings.\n- **Key actions** — Build houses early, cluster buildings for adjacency, score at every opportunity.\n\n#### Strategy 2: Production Engine\n- **Goal** — Build an efficient processing chain to generate high-value goods.\n- **Key actions** — Focus on grain/wine/whiskey production buildings. Time wheel takes for maximum output.\n\n#### Strategy 3: Cloister Network\n- **Goal** — Build multiple cloisters with strong adjacency bonuses.\n- **Key actions** — Plan landscape layout to maximize cloister adjacencies. Religious buildings often have high VP values.\n\n#### General Principles\n- **Clergy management** — Having your clergy recalled at the right time (when you need to act) is critical. Don't waste placements.\n- **Deny opponents** — Using an opponent's building costs you money but denies them the action.\n- **Watch scoring rounds** — Know when settlement scoring occurs and prepare accordingly."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

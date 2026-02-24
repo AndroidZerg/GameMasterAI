@@ -1,0 +1,85 @@
+{
+  "game_id": "gin-rummy",
+  "title": "Rummy / Gin Rummy",
+  "aliases": ["Gin", "Rummy", "Gin Rummy"],
+  "publisher": "Public Domain",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 45},
+  "complexity": "gateway",
+  "categories": ["card-game", "set-collection", "hand-management", "classic"],
+  "source_url": "https://bicyclecards.com/how-to-play/gin-rummy",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** standard 52-card deck\n- **Pen and paper** for scoring\n- **Card values** — Face cards (K, Q, J) = 10 points; Aces = 1 point; Number cards = face value"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Deal 10 cards** each face down.\n2. **Place remaining cards** face down as the stock pile.\n3. **Flip top card** of stock pile face up beside it to start the discard pile.\n4. **Non-dealer** may take the face-up card or pass. If they pass, dealer may take it or pass, then non-dealer draws from stock."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Determine dealer** — Draw cards; lower card deals.\n- **10 cards each** — Pick up and sort your hand.\n- **Organize melds** — Look for sets (3-4 of same rank) and runs (3+ consecutive same suit)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Gin Rummy is a two-player card game. Form your hand into melds (sets and runs) to reduce your deadwood (unmelded cards). Knock when your deadwood count is low enough, or go Gin with zero deadwood."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On each turn:\n1. **Draw** — Take the top card from either the discard pile or the stock pile.\n2. **Meld mentally** — Rearrange your hand looking for melds.\n3. **Discard** — Place one card face up on the discard pile.\n\nPlay alternates until someone knocks, goes Gin, or the stock is exhausted."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Melds\n- **Set** — 3 or 4 cards of the same rank (e.g., 7♠ 7♥ 7♦).\n- **Run** — 3 or more consecutive cards of the same suit (e.g., 4♠ 5♠ 6♠).\n- A card can only be part of one meld.\n\n#### Knocking\n- You may knock if your deadwood totals 10 points or less.\n- Lay down your hand, separating melds from deadwood.\n- Opponent then lays off: they may add their unmelded cards to your melds.\n- Compare deadwood totals. Knocker scores the difference.\n\n#### Gin\n- If you knock with zero deadwood, you've gone Gin.\n- Opponent cannot lay off cards.\n- You score opponent's deadwood + 25 bonus points.\n\n#### Undercut\n- If the opponent's deadwood is equal to or less than the knocker's, the opponent scores the difference + 25 bonus points."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Stockout** — If only 2 cards remain in the stock and no one has knocked, the hand is a draw (no score).\n- **Big Gin** — Some play that if you have 11 cards all in melds after drawing, score 31 bonus.\n- **Aces low only** — Aces are always low (A-2-3 is valid; Q-K-A is not).\n- **No picking up and putting back** — If you take the discard, you cannot discard that same card."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Hand Scoring\n- **Knock** — Knocker scores difference in deadwood (knocker's minus opponent's).\n- **Gin** — 25 bonus + opponent's full deadwood.\n- **Undercut** — 25 bonus to opponent + deadwood difference.\n\n#### Game Scoring\n- Play to 100 points across multiple hands.\n- **Game bonus** — Winner gets 100 bonus points at end.\n- **Box bonus** — 25 bonus points per hand won.\n- **Shutout (schneider)** — If loser scored 0, all bonuses are doubled."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Keep low deadwood** — Prioritize discarding high-value cards that aren't part of melds.\n- **Watch the discard pile** — Pay attention to what your opponent takes and discards.\n- **Don't hold speculative cards too long** — If a card hasn't formed a meld in several turns, discard it.\n- **Knock early** — A quick knock with low deadwood is often better than waiting for Gin."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Triangle cards** — Cards that can form both a set and a run (e.g., 7♥ with 6♥ 8♥ and 7♠ 7♦) are most flexible.\n- **Read opponent** — If they take from the discard pile, note what they likely need.\n- **Defensive discarding** — Avoid giving your opponent cards they need. Discard cards they've already discarded.\n- **Knock timing** — Knock early if your deadwood is low; waiting risks an undercut.\n- **Middle cards** — 5s, 6s, 7s have the most meld potential; extremes (Aces, Kings) have less."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

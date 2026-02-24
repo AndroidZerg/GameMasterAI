@@ -1,0 +1,9 @@
+{
+  "game_id": "scout",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "scouted_points", "label": "Scouted Points", "points_each": 1, "type": "count", "description": "+1 per card opponents scouted from your shows"},
+    {"id": "remaining_penalty", "label": "Cards Remaining", "points_each": -1, "type": "count", "description": "-1 per card left in hand at round end"}
+  ],
+  "win_condition": "Most points after all rounds"
+}

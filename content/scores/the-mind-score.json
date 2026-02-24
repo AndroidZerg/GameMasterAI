@@ -1,0 +1,9 @@
+{
+  "game_id": "the-mind",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "levels_completed", "label": "Levels Completed", "points_each": 1, "type": "count", "description": "Number of levels successfully completed"},
+    {"id": "lives_remaining", "label": "Lives Remaining", "points_each": 1, "type": "count", "description": "Number of lives left at game end"}
+  ],
+  "win_condition": "Complete all levels without losing all lives"
+}

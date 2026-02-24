@@ -1,0 +1,9 @@
+{
+  "game_id": "hanamikoji",
+  "scoring_type": "area_majority",
+  "categories": [
+    {"id": "geisha_won", "label": "Geisha Won", "points_each": 1, "type": "count", "description": "Number of Geisha with your favor (need 4 to win)"},
+    {"id": "charm_total", "label": "Charm Total", "points_each": 1, "type": "count", "description": "Total charm of won Geisha (need 11 to win)"}
+  ],
+  "win_condition": "Win 4+ Geisha or 11+ charm points"
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "risk",
+  "title": "Risk",
+  "aliases": ["Risk: Global Domination"],
+  "publisher": "Hasbro",
+  "player_count": {"min": 2, "max": 6, "recommended": 4},
+  "play_time_minutes": {"min": 120, "max": 480},
+  "complexity": "gateway",
+  "categories": ["area-control", "dice-combat", "strategy", "wargame"],
+  "source_url": "https://www.hasbro.com/risk",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** game board (world map with 42 territories in 6 continents)\n- **6** sets of army pieces (Infantry, Cavalry, Artillery in 6 colors)\n- **56** Risk cards (42 territory cards + 2 wild cards)\n- **2** dice (red attack dice)\n- **3** dice (white defense dice)\n- **1** Golden Cavalry piece (first territory card trade-in bonus marker)\n- **Mission cards** (optional variant)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Place the board** — Unfold the game board showing the world map.\n2. **Separate armies** — Each player takes one complete set of colored army pieces.\n3. **Deal territory cards** — Shuffle the 42 territory cards and deal them evenly. Each player places one Infantry on each territory they received.\n4. **Place remaining armies** — Starting armies depend on player count:\n   - **2 players** — 40 armies each\n   - **3 players** — 35 armies each\n   - **4 players** — 30 armies each\n   - **5 players** — 25 armies each\n   - **6 players** — 20 armies each\n5. **Deploy remaining** — After initial placement, players take turns placing remaining armies one at a time on owned territories.\n6. **Shuffle Risk deck** — Collect territory cards back, add wilds, shuffle for draw pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Choose color** — Each player selects an army color.\n- **Count armies** — Take starting armies based on player count.\n- **Claim territories** — Place 1 army on each dealt territory.\n- **Fortify** — Place remaining armies on owned territories in turn order.\n- **Army equivalents** — 1 Cavalry = 5 Infantry, 1 Artillery = 10 Infantry."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Risk is a classic strategy game of global conquest. Players deploy armies, attack enemy territories, and attempt to complete their objective — either world domination (control all 42 territories) or a secret mission depending on variant."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn has 3 phases:\n\n#### 1. Reinforce\n- **Territory bonus** — Receive armies equal to total territories owned ÷ 3 (minimum 3).\n- **Continent bonus** — If you control an entire continent, receive its bonus:\n  - Asia: 7, North America: 5, Europe: 5, Africa: 3, South America: 2, Australia: 2\n- **Card trade-in** — Trade matching sets of Risk cards for bonus armies (escalating value).\n- **Place armies** — Deploy all new armies on any owned territories.\n\n#### 2. Attack (Optional)\n- **Declare attack** — Choose an owned territory with 2+ armies to attack an adjacent enemy territory.\n- **Attacker rolls** — Up to 3 red dice (must have at least 1 more army than dice rolled).\n- **Defender rolls** — Up to 2 white dice (must have at least as many armies as dice rolled).\n- **Compare dice** — Match highest vs highest, then second highest vs second highest. Ties go to defender.\n- **Remove casualties** — Loser of each comparison removes 1 army.\n- **Conquer** — If defender loses all armies, attacker moves in (at least as many as dice rolled).\n- **Draw card** — If you conquered at least 1 territory this turn, draw 1 Risk card.\n\n#### 3. Fortify (Optional)\n- **Move armies** — Move any number of armies from one owned territory to one connected owned territory.\n- **One move only** — You may only make one fortify move per turn."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Card Sets for Trade-in\n- **3 of a kind** — 3 Infantry, 3 Cavalry, or 3 Artillery cards.\n- **One of each** — 1 Infantry + 1 Cavalry + 1 Artillery.\n- **Wild cards** — A wild card can substitute for any type.\n- **Escalating value** — 1st set: 4 armies, 2nd: 6, 3rd: 8, 4th: 10, 5th: 12, 6th: 15, then +5 each.\n- **Territory bonus** — If a traded card matches a territory you own, place 2 extra armies there.\n- **Mandatory trade** — Must trade if holding 5+ cards at start of turn.\n\n#### Combat Details\n- **Blitz option** — Some versions allow rolling repeatedly until attacker stops or territory is conquered.\n- **Retreat** — Attacker may stop attacking at any time.\n- **Capital rule** (variant) — Some editions include capital cities for bonus armies."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Elimination\n- When you eliminate a player, you take all their Risk cards.\n- If this gives you 6+ cards, you must immediately trade in sets.\n\n#### 2-Player Variant\n- A neutral third army is placed on the board.\n- Each player attacks neutral territories as normal but neutral armies never attack.\n\n#### Mission Variant\n- Each player draws a secret mission card at start.\n- First player to complete their mission wins (instead of total domination)."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Standard Victory\n- **World domination** — Control all 42 territories.\n\n#### Mission Victory\n- Complete your secret mission card objective.\n\n#### Timed Game Variant\n- Set a time limit; player controlling most territories when time expires wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Hold a continent** — Australia is easiest to defend (1 entry point, 2 bonus armies).\n- **Don't spread thin** — Concentrate armies rather than spreading 1 per territory.\n- **Attack to earn cards** — Conquer at least 1 territory per turn to draw a Risk card.\n- **Defend chokepoints** — Place extra armies on continent borders.\n- **Watch card timing** — Trade in cards at optimal moments for maximum army surges."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Continent priority** — Australia first, then South America or Africa for manageable defense.\n- **Turtle vs aggression** — Turtling builds strength but lets opponents grow; balance defense with selective strikes.\n- **Eliminate weak players** — Taking out a player gives you their cards, potentially triggering a massive army surge.\n- **Card escalation** — Late-game card trade-ins are worth huge armies; timing trades is critical.\n- **Alliance politics** — Temporary truces help, but remember only one player wins."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "game_id": "kanban-ev",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP from meetings, car production, certifications, and training",
+  "categories": [
+    {
+      "id": "meeting_scores",
+      "label": "Meeting Scores",
+      "type": "manual",
+      "description": "VP earned during Sandra's periodic performance meetings"
+    },
+    {
+      "id": "completed_cars",
+      "label": "Completed Cars",
+      "type": "manual",
+      "description": "VP for cars in your garage, with bonuses for upgrades"
+    },
+    {
+      "id": "certifications",
+      "label": "Certifications",
+      "type": "manual",
+      "description": "VP for certifications earned through testing"
+    },
+    {
+      "id": "training_bonuses",
+      "label": "Training Bonuses",
+      "type": "manual",
+      "description": "Bonus VP for high training levels in departments"
+    },
+    {
+      "id": "set_bonuses",
+      "label": "Set Bonuses",
+      "type": "manual",
+      "description": "VP for diverse car collections or cross-department certifications"
+    }
+  ]
+}

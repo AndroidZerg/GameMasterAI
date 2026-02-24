@@ -1,0 +1,9 @@
+{
+  "game_id": "ethnos",
+  "scoring_type": "area_majority",
+  "categories": [
+    {"id": "territory_control", "label": "Territory Control", "points_each": 1, "type": "count", "description": "Points from controlling territories each age"},
+    {"id": "band_size_bonus", "label": "Band Size Bonus", "points_each": 1, "type": "count", "description": "Bonus points for large bands (3+: 1/3/6/10 pts)"}
+  ],
+  "win_condition": "Most points after 3 ages"
+}

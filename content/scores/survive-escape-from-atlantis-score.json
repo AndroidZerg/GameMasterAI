@@ -1,0 +1,8 @@
+{
+  "game_id": "survive-escape-from-atlantis",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "surviving_explorers", "label": "Surviving Explorers", "points_each": 1, "type": "value", "description": "Sum of hidden point values (1-6) on the bottom of each explorer who reached a corner island safely"}
+  ],
+  "win_condition": "Player with the highest total value of surviving explorers wins. Tiebreaker: player with the single highest-value surviving explorer."
+}

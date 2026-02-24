@@ -1,0 +1,105 @@
+{
+  "game_id": "caverna",
+  "scoring_type": "calculator",
+  "win_condition": "Most victory points after 12 rounds and final harvest",
+  "categories": [
+    {
+      "id": "sheep",
+      "label": "Sheep",
+      "type": "manual",
+      "description": "Points based on number of sheep (0 sheep = -2 VP)"
+    },
+    {
+      "id": "donkeys",
+      "label": "Donkeys",
+      "type": "manual",
+      "description": "Points based on number of donkeys (0 donkeys = -2 VP)"
+    },
+    {
+      "id": "wild_boar",
+      "label": "Wild Boar",
+      "type": "manual",
+      "description": "Points based on number of wild boar (0 = -2 VP)"
+    },
+    {
+      "id": "cattle",
+      "label": "Cattle",
+      "type": "manual",
+      "description": "Points based on number of cattle (0 = -2 VP)"
+    },
+    {
+      "id": "dogs",
+      "label": "Dogs",
+      "type": "manual",
+      "description": "Points based on number of dogs"
+    },
+    {
+      "id": "grain",
+      "label": "Grain",
+      "type": "manual",
+      "description": "Points based on grain quantity (0 = -1 VP)"
+    },
+    {
+      "id": "vegetables",
+      "label": "Vegetables",
+      "type": "manual",
+      "description": "Points based on vegetable quantity (0 = -1 VP)"
+    },
+    {
+      "id": "rubies",
+      "label": "Rubies",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per ruby"
+    },
+    {
+      "id": "dwarves",
+      "label": "Dwarves",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per dwarf"
+    },
+    {
+      "id": "unused_spaces",
+      "label": "Unused Spaces",
+      "points_each": -1,
+      "type": "count",
+      "is_penalty": true,
+      "description": "-1 VP per empty space on home board"
+    },
+    {
+      "id": "gold",
+      "label": "Gold",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per gold coin"
+    },
+    {
+      "id": "pastures",
+      "label": "Pastures",
+      "points_each": 2,
+      "type": "count",
+      "description": "2 VP per fenced pasture"
+    },
+    {
+      "id": "mines",
+      "label": "Mines",
+      "type": "manual",
+      "description": "3 VP per ore mine, 4 VP per ruby mine"
+    },
+    {
+      "id": "furnishing_tiles",
+      "label": "Furnished Caverns",
+      "type": "manual",
+      "description": "VP from furnishing tile printed values and parlor bonuses"
+    },
+    {
+      "id": "begging_penalties",
+      "label": "Begging Tokens",
+      "points_each": -3,
+      "type": "count",
+      "is_penalty": true,
+      "description": "-3 VP per begging token"
+    }
+  ]
+}

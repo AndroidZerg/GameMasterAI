@@ -1,0 +1,85 @@
+{
+  "game_id": "clans-of-caledonia",
+  "title": "Clans of Caledonia",
+  "aliases": ["CoC"],
+  "publisher": "Karma Games",
+  "player_count": {"min": 1, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 90},
+  "complexity": "midweight",
+  "categories": ["economic", "area-control", "resource-management", "engine-building"],
+  "source_url": "https://karmagames.be/clans-of-caledonia",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 modular game board** — Composed of 4 double-sided hex map tiles creating a variable map of Scotland.\n- **4 player boards** — Track production units, prices, and export contracts.\n- **1 market board** — Central market with fluctuating buy/sell prices for all trade goods.\n\n#### Player Components (Per Player)\n- **Workers** — Woodcutters, miners, fishermen (basic production).\n- **Production buildings** — Bakeries, dairies, distilleries, fields (grain), pastures (sheep/cattle).\n- **Merchants** — Placed on the board for trade bonuses.\n- **Shipping tokens** — Determine river/loch crossing range.\n\n#### Other Components\n- **Export contracts** — Cards requiring specific goods combinations for VP and bonuses.\n- **Port bonuses** — Tiles placed on port spaces offering special trades.\n- **Scoring tiles** — 5 random scoring tiles (1 per round) determine end-of-round bonus scoring.\n- **Clan tiles** — 9 asymmetric clan powers for variable setup.\n- **Money** — Pound coins in various denominations.\n- **Goods tokens** — Whisky, cheese, bread, grain, sheep, cattle, milk, wool, wood, ore, fish."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Map Assembly\n1. **Choose 4 map tiles** — Select and arrange 4 hex map tiles to form the game board. Each tile is double-sided for variety.\n2. **Port bonuses** — Randomly place port bonus tiles on port spaces around the board edges.\n3. **Market board** — Place the market board nearby. Set all goods prices to their starting positions.\n\n#### Scoring and Contracts\n1. **Scoring tiles** — Randomly draw 5 scoring tiles and place them on the round track (1 per round).\n2. **Export contracts** — Shuffle export contract cards. Deal a face-up display of contracts.\n3. **Round marker** — Place on round 1.\n\n#### Starting Player\n- **Determine randomly** — Starting player receives the start player token."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Clan Selection\n- **Draft clans** — In reverse turn order, each player selects a clan tile. Each clan has a unique asymmetric power affecting production, trade, or scoring.\n- **Starting money** — Each player receives starting money (amount varies by clan and turn order).\n\n#### Initial Placement\n- **Place 2 starting units** — In turn order, each player places 1 unit on the map. Then in reverse order, place a second unit.\n- **Unit costs** — Starting units are placed for free (or at reduced cost depending on clan).\n- **Adjacency matters** — Placement establishes your starting territory. Expanding later costs money based on distance.\n\n#### Player Board\n- **Track setup** — All production units start on the player board in their slots. As you place them on the map, you reveal income/production values underneath.\n- **Shipping track** — Starts at 0. Upgrade to cross rivers and lochs."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nClans of Caledonia is an economic strategy game set in 19th-century Scotland. Players represent historic Scottish clans producing and trading whisky, cheese, and bread. The game features a dynamic market where prices fluctuate based on player actions, asymmetric clan powers, and territorial expansion on a modular hex map.\n\n#### Game Arc\n- **5 rounds** — The game plays over exactly 5 rounds.\n- **Escalating production** — As players place more units, production increases.\n- **Market dynamics** — Buying goods raises prices; selling lowers them. Timing trades is critical.\n- **Export contracts** — Completing contracts provides VP and immediate bonuses."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Preparation phase** — Replenish export contracts, advance round marker.\n2. **Action phase** — Players take turns performing one action at a time until all players pass.\n3. **Production phase** — All production units on the map generate their goods simultaneously.\n4. **Scoring phase** — Score the round's scoring tile (each round has a different scoring condition).\n5. **Clean-up** — Adjust turn order (player with least money goes first next round).\n\n#### Available Actions (Choose One Per Turn)\n1. **Trade** — Buy or sell goods on the market at current prices. Prices shift after each trade.\n2. **Place a unit** — Pay money to place a production unit, worker, or merchant from your player board onto the map.\n3. **Upgrade shipping** — Pay to advance your shipping track, allowing you to reach more distant hex spaces.\n4. **Fulfill an export contract** — Pay the required goods to complete a contract, gaining VP and bonuses.\n5. **Take an export contract** — Reserve a contract from the display.\n6. **Pass** — Stop taking actions for this round. Once you pass, you cannot act again until next round.\n\n#### Passing Incentive\n- **Turn order** — The player with the least money at end of round goes first next round.\n- **Early pass bonus** — Some scoring tiles reward passing early."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Unit Placement\n- **Workers** — Woodcutters (produce wood), miners (produce ore), fishermen (produce fish). Basic production units.\n- **Fields** — Produce grain each round. Grain is used for bread and whisky.\n- **Pastures** — Sheep pastures produce wool and milk. Cattle pastures produce milk.\n- **Processing buildings** — Bakeries (grain → bread), dairies (milk → cheese), distilleries (grain → whisky).\n- **Merchants** — Provide neighborhood bonuses and trade advantages.\n\n#### Placement Cost\n- **Base cost** — Each unit has a cost shown on the player board (revealed when placed).\n- **Distance cost** — You must connect to your existing network. Each hex of distance costs additional money. Rivers/lochs require shipping upgrades to cross.\n\n#### Market Trading\n- **Buy** — Pay the current market price for a good. The price of that good increases by 1.\n- **Sell** — Receive the current market price for a good. The price decreases by 1.\n- **Price range** — Prices have minimum and maximum bounds.\n- **Strategic timing** — Buy when prices are low, sell when high. Watch what opponents need.\n\n#### Export Contracts\n- **Requirements** — Each contract requires specific goods (e.g., 2 whisky + 1 bread).\n- **Rewards** — VP and an immediate bonus (money, goods, free unit placement, etc.).\n- **Limited supply** — Contracts are drawn from a deck. Competition for the best ones is fierce."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Asymmetric Clan Powers\n- **9 unique clans** — Each clan has a distinct power. Examples:\n  - **Clan MacDonald** — Cheaper unit placement.\n  - **Clan Campbell** — Bonus money from export contracts.\n  - **Clan Stuart** — Upgraded shipping from the start.\n  - **Clan Buchanan** — Earn money when other players build near you.\n- **Balance** — Clans are designed for competitive balance but encourage different strategies.\n\n#### Neighborhood Bonuses\n- **Adjacent hexes** — When you place a unit adjacent to another player's unit, both players may receive a neighborhood bonus (varies by unit type).\n- **Merchants** — Merchants amplify neighborhood bonuses.\n\n#### Scoring Tiles\n- **5 random tiles** — One per round, scored at end of each round.\n- **Variable conditions** — Examples: most settlements adjacent to rivers, most different goods produced, most export contracts fulfilled, highest shipping level.\n- **Ranked scoring** — Players are ranked on each condition; higher rank = more VP.\n\n#### Shipping\n- **Level 0** — Can only place adjacent to existing units (no water crossing).\n- **Level 1+** — Each level allows crossing 1 additional water space (river or loch).\n- **Cost** — Upgrading costs money and is a significant investment."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **After round 5** — The game ends after the 5th round's scoring phase.\n\n#### Final Scoring\n- **Export contract VP** — Points from all fulfilled contracts.\n- **Round scoring tile VP** — Points earned from each round's scoring tile.\n- **Remaining money** — Every 5 pounds = 1 VP.\n- **Hops and cotton** — Bonus VP from specific goods or conditions (clan-dependent).\n- **Settlement bonuses** — Points based on territorial presence.\n\n#### Winner\n- **Highest VP total** — Player with the most victory points wins.\n- **Tiebreaker** — Player with more money remaining."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Lean into your clan power** — Your asymmetric ability should heavily influence your strategy.\n- **Watch the scoring tiles** — Knowing what scores each round lets you plan 2-3 rounds ahead.\n- **Don't overspend on expansion** — Distance costs add up fast. Expand efficiently by targeting adjacent hexes.\n- **Time your market trades** — Buy before opponents drive prices up. Sell before they flood the market.\n- **Fulfill contracts early** — Contract bonuses compound over the game. Early contracts give more value.\n- **Upgrade shipping selectively** — Only invest in shipping if it opens up valuable positions or clan synergies."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Whisky Engine\n- **Goal** — Build distilleries and grain fields to produce high-value whisky for contracts and market sales.\n- **Key units** — Fields, distilleries.\n- **Risk** — Whisky requires grain investment and time to process.\n\n#### Strategy 2: Market Manipulation\n- **Goal** — Buy low, sell high. Use the market to generate money for rapid expansion.\n- **Key actions** — Frequent trading, watching opponent needs.\n- **Benefit** — Financial flexibility enables opportunistic play.\n\n#### Strategy 3: Territorial Dominance\n- **Goal** — Spread across the map to score neighborhood bonuses and control scoring tile conditions.\n- **Key units** — Merchants, cheap workers, shipping upgrades.\n- **Benefit** — Presence on the map drives round scoring and limits opponents.\n\n#### General Principles\n- **Production over hoarding** — Goods on your board do nothing; goods produced each round compound.\n- **Adapt to scoring tiles** — Rigidly following one plan when scoring tiles favor another approach loses games.\n- **Money is tight** — Every pound matters. Avoid wasteful actions."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

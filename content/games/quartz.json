@@ -1,0 +1,45 @@
+{
+  "game_id": "quartz",
+  "title": "Quartz",
+  "aliases": [],
+  "publisher": "Thundergryph Games",
+  "player_count": {"min": 3, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 20, "max": 30},
+  "complexity": "party",
+  "categories": ["push-your-luck", "mining", "party", "bluffing"],
+  "source_url": "https://thundergryph.com/games/quartz/",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {"id": "components", "title": "Components", "content": "- **1 cloth bag** for drawing gems\n- **Gem tokens**: various colored crystals with different values\n  - Amber (yellow) — $1\n  - Amethyst (purple) — $2\n  - Emerald (green) — $3\n  - Sapphire (blue) — $4\n  - Ruby (red) — $5\n  - **Obsidian (black)** — worthless, causes busting\n- **Action cards** (dealt to each player)\n- **Player screens/carts** (to hide your collected gems)\n- **Coin tokens** (for final scoring)\n- **Round tracker**"},
+        {"id": "board-setup", "title": "Board Setup", "content": "1. Place **all gem tokens** into the cloth bag and mix thoroughly.\n2. Set the round tracker to **Day 1** (the game lasts 5 days).\n3. Place coin tokens in a supply pile.\n4. Shuffle the action card deck."},
+        {"id": "player-setup", "title": "Player Setup", "content": "1. Each player takes a **player screen/mining cart** to hide gems behind.\n2. Deal each player **2 action cards** from the deck.\n3. Choose a starting player randomly.\n4. You're ready to mine!"}
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {"id": "overview", "title": "Game Overview", "content": "Quartz is a push-your-luck mining game played over **5 days** (rounds). Each day, miners draw gems from a shared bag, hoping to collect valuable crystals. But beware — drawing **obsidian** causes you to bust and lose all gems collected that day!\n\nAfter 5 days, the player with the most money wins."},
+        {"id": "turn-structure", "title": "Turn Structure", "content": "Each day proceeds in turns, going clockwise:\n\nOn your turn, you must do **one** of the following:\n\n### 1. Draw a Gem\n- Reach into the bag and draw **one gem** without looking.\n- If it is a **colored gem**: Place it behind your screen. Your turn ends; play passes clockwise.\n- If it is **obsidian**: You **bust**! You must leave the mine immediately. Return all gems you collected this day to the bag. You receive a **consolation prize of $2**. You take no more turns this day.\n- If you draw a **second obsidian** on a different turn the same day, you also bust (each obsidian drawn is separate).\n\n### 2. Leave the Mine Voluntarily\n- You choose to stop mining for the day.\n- **Sell all gems** you collected this day for their listed values.\n- You take no more turns this day.\n\n### 3. Play an Action Card\n- Instead of drawing, play one action card from your hand for its effect.\n- Action cards can do things like: peek at gems before drawing, force another player to draw, swap gems, protect from obsidian, steal gems, etc.\n- After resolving the card, your turn ends."},
+        {"id": "key-actions", "title": "Key Actions", "content": "### Selling Gems\nWhen you leave the mine (voluntarily or at day's end), sell your collected gems:\n- Amber = $1, Amethyst = $2, Emerald = $3, Sapphire = $4, Ruby = $5\n- Take coins from the supply equal to the total value.\n\n### Action Cards\nAction cards add interaction and strategy:\n- **Peek**: Look at 2 gems in the bag before deciding to draw.\n- **Swap**: Exchange a gem behind your screen with one from another player.\n- **Shield**: Protect yourself — if you draw obsidian this turn, ignore it.\n- **Sabotage**: Force another player to draw a gem on your turn.\n- **Steal**: Take a gem from another player's collection.\n\nYou draw new action cards at the start of each new day."},
+        {"id": "special-rules", "title": "Special Rules", "content": "### Duplicate Obsidian Rule\nIf you draw obsidian, you bust and leave. Each obsidian is an independent bust trigger.\n\n### End of a Day\nA day ends when **all players** have either busted or voluntarily left the mine. Return all remaining gems to the bag, shuffle, and start the next day.\n\n### Action Card Draw\nAt the start of each new day (Days 2-5), each player draws **1 new action card**.\n\n### Last Player Standing\nIf you are the last player still in the mine, you may continue drawing gems (risk vs. reward with no competition)."},
+        {"id": "endgame", "title": "Scoring and Endgame", "content": "After **Day 5** is completed, the game ends.\n\n- Count up all coins earned across all 5 days.\n- The player with the **most money** wins.\n- In case of a tie, the tied player who earned more money on Day 5 wins."}
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {"id": "beginner-tips", "title": "Beginner Tips", "content": "- **Know when to leave**. If you've collected 2-3 good gems, leaving with guaranteed money is often better than risking a bust.\n- **Count the obsidian**. The bag has a fixed number of obsidian tokens. If several have already been drawn, the bag is safer.\n- **Save action cards** for critical moments — don't waste them early.\n- **Watch other players**. If they're busting and returning gems to the bag, the gem distribution changes."},
+        {"id": "key-strategies", "title": "Key Strategies", "content": "- **Bag counting**: Track how many obsidian tokens are left in the bag vs. total gems remaining. This tells you your bust probability.\n- **Aggressive early, conservative late**: On Days 1-2, you can afford to push your luck. On Days 4-5, protecting your earnings matters more.\n- **Action card timing**: Shield cards are best used when the bag is dangerous. Sabotage cards are best used when an opponent has a big haul.\n- **Consolation awareness**: The $2 consolation for busting isn't nothing — sometimes a risky draw has good expected value even accounting for the bust."}
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

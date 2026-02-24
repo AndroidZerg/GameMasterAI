@@ -1,0 +1,14 @@
+{
+  "game_id": "eclipse-second-dawn",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "controlled_sectors", "label": "Controlled Sectors", "points_each": 1, "type": "count", "description": "VP from all controlled hex tiles (1-4 VP each depending on location)"},
+    {"id": "reputation_tiles", "label": "Reputation Tiles", "points_each": 1, "type": "count", "description": "VP from reputation tiles earned by winning combat (1-4 VP each)"},
+    {"id": "ambassador_tiles", "label": "Ambassador Tiles", "points_each": 1, "type": "count", "description": "1 VP per ambassador tile from active diplomatic agreements"},
+    {"id": "tech_track_vp", "label": "Technology Tracks", "points_each": 1, "type": "count", "description": "VP earned from progress along the three technology tracks"},
+    {"id": "discovery_vp", "label": "Discovery Tiles", "points_each": 1, "type": "count", "description": "VP from discovery tiles with end-game scoring value"},
+    {"id": "traitor_penalty", "label": "Traitor Card Penalty", "points_each": -2, "type": "count", "description": "-2 VP if holding the Traitor card at game end (0 or 1)"},
+    {"id": "species_bonus", "label": "Species Bonus", "points_each": 1, "type": "count", "description": "VP from faction-specific scoring conditions, if any"}
+  ],
+  "win_condition": "Player with the most total VP after 9 rounds wins"
+}

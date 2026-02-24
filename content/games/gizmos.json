@@ -1,0 +1,85 @@
+{
+  "game_id": "gizmos",
+  "title": "Gizmos",
+  "aliases": [],
+  "publisher": "CMON",
+  "player_count": {"min": 2, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 40, "max": 50},
+  "complexity": "gateway",
+  "categories": ["engine-building", "marble-drafting", "combo", "tableau-building"],
+  "source_url": "https://boardgamegeek.com/boardgame/246192/gizmos",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "Gizmos includes:\n\n- **1 energy dispenser** (a 3D marble dispenser tower)\n- **52 energy marbles** in 4 colors: red, blue, yellow, black\n- **108 gizmo cards** in 3 levels (I, II, III) with varying costs and effects\n- **4 player dashboards** with energy ring (storage), archive slot, and gizmo display areas\n- **4 summary cards** (player aids)\n- **Victory point tokens**\n\nThe energy dispenser is the centerpiece — marbles are loaded in and 6 are visible in the tray at the bottom for drafting."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Assemble the **energy dispenser** and load all 52 marbles into it. They roll down and **6 marbles** are visible in the tray at the bottom.\n2. Separate gizmo cards by level (I, II, III) and shuffle each deck.\n3. Deal face-up gizmo cards into a **display**:\n   - **Level I**: 4 face-up cards\n   - **Level II**: 3 face-up cards\n   - **Level III**: 2 face-up cards\n4. Place the remaining decks face down as draw piles.\n5. Set victory point tokens in a supply if needed."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1. Each player takes a **dashboard** with:\n   - An **energy ring** that holds up to **5 marbles** (expandable with gizmos).\n   - An **archive area** that holds up to **1 card** (expandable with gizmos).\n   - Slots for built gizmos organized by trigger type.\n2. Each player starts with a **starter gizmo** (already built) that provides a basic ability.\n3. Each player draws **random starting energy** — typically **0 marbles** (all energy must be picked during the game).\n4. Determine a starting player randomly. Play proceeds clockwise."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Gizmos is an **engine-building** game where you collect energy marbles and use them to build gizmo machines. Each gizmo you build adds a new triggered ability to your engine.\n\nThe magic of Gizmos is **chain reactions**: when you perform an action, your built gizmos may trigger, which may trigger other gizmos, creating cascading combos. A well-built engine turns a single action into a flurry of free picks, builds, and points.\n\nThe game ends when any player builds their **4th Level III gizmo** or their **16th gizmo total**. The player with the most **victory points** wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, perform **one action** (then resolve all triggered gizmos):\n\n### Action 1: Pick\nTake **1 energy marble** from the 6 visible in the dispenser tray and add it to your energy ring. A new marble rolls down to replace it.\n\n### Action 2: File\nTake **1 gizmo card** from the face-up display and place it in your **archive**. (You can build it later without it being available to opponents.) Your archive has a **limited capacity** (starts at 1, expandable).\n\n### Action 3: Build\nBuild a gizmo card by paying its **energy cost** (discard marbles of the required colors from your energy ring). You can build from:\n- The **face-up display**, or\n- Your **archive**\n\nPlace the built gizmo on your dashboard in the appropriate trigger category. You now have that ability permanently.\n\n### Action 4: Research\nDraw cards from the **top of a level deck** (I, II, or III) — draw a number of cards equal to your research limit (starts at 3, expandable). Choose **1 card** to file in your archive or build immediately. Return the rest to the bottom of the deck.\n\nAfter your action, **resolve all triggered gizmos** before the next player's turn."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Gizmo Types (by trigger)\nEach gizmo triggers on a specific condition:\n\n- **Pick triggers** (when you pick a marble): \"When you pick a red marble, gain 1 additional marble from the dispenser.\"\n- **File triggers** (when you file a card): \"When you file a card, pick 1 marble from the dispenser.\"\n- **Build triggers** (when you build a gizmo): \"When you build a Level II gizmo, gain 1 VP.\"\n- **Converter triggers** (activate during your turn): \"Convert 1 yellow marble into any 2 marbles of your choice.\"\n- **Upgrade triggers** (passive): \"Your energy ring holds 2 additional marbles\" or \"Your archive holds 1 additional card.\"\n\n### Chain Reactions\nThis is the heart of the game:\n1. You **Pick** a red marble → a pick-trigger gizmo fires, giving you a free blue marble.\n2. Gaining the blue marble → another pick-trigger fires, giving you a free yellow marble.\n3. And so on.\n\nA single Pick action can cascade into picking 3–4 marbles. A single Build action can trigger free picks, VP bonuses, and more builds.\n\n### Energy Costs\n- **Level I gizmos**: Cost 1 marble (any color or a specific color).\n- **Level II gizmos**: Cost 2–3 marbles.\n- **Level III gizmos**: Cost 4–5 marbles.\n\nHigher-level gizmos have more powerful effects and more VP."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Energy Ring Limit\nYou can hold a maximum number of marbles in your energy ring (starts at **5**). Upgrade gizmos increase this. If you would gain a marble but your ring is full, the marble goes back to the dispenser.\n\n### Archive Limit\nYou can hold a limited number of cards in your archive (starts at **1**). Upgrade gizmos increase this. If your archive is full, you cannot file new cards.\n\n### Research Limit\nWhen you research, you draw a number of cards equal to your research limit (starts at **3**). Upgrade gizmos increase this.\n\n### Marble Dispenser\nThe dispenser always has **6 visible marbles** in the tray. When one is taken, a new one rolls down randomly. If the dispenser runs out, return all spent marbles to it.\n\n### Build Limit per Turn\nThere is **no limit** to how many gizmos can trigger in a chain. However, each specific gizmo can only trigger **once per turn** (no infinite loops).\n\n### Display Refill\nWhen a card is taken from the face-up display, immediately replace it from the corresponding level's draw pile."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "### Game End Trigger\nThe game ends when any player achieves either:\n- Built their **4th Level III gizmo**, OR\n- Built their **16th gizmo total** (across all levels)\n\nFinish the current round so all players have had the same number of turns.\n\n### Scoring\nEach gizmo card has a **VP value** printed on it:\n- **Starter gizmo**: 0 VP\n- **Level I**: 0–1 VP\n- **Level II**: 1–3 VP\n- **Level III**: 3–7 VP\n\nAdditionally, some gizmos grant **bonus VP tokens** during the game (from build triggers, etc.).\n\n### Final Calculation\n1. Sum VP from all **built gizmo cards**.\n2. Add any **bonus VP tokens** earned.\n3. Cards in your archive or unbuilt are worth **0 VP**.\n\n### Winning\nThe player with the **highest VP total** wins. Tiebreaker: most total gizmos built."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Build early, build often**: Every gizmo makes your engine stronger. Level I gizmos are cheap and start your combos.\n- **Pick triggers are king**: Gizmos that trigger when you pick marbles create the longest chains, since picking leads to more picking.\n- **Expand your energy ring**: Running out of marble storage limits your combos. Upgrade capacity early.\n- **Don't ignore Level I cards**: They're cheap and many have powerful trigger effects that form the backbone of combos.\n- **Watch the colors**: Focus your engine on 1–2 marble colors. Gizmos that trigger on specific colors are stronger when you draft those colors consistently."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Combo engine**: Focus on pick-triggers that chain into each other. Build 3–4 pick-triggers that feed each other, then every Pick action floods your ring with marbles.\n- **Color specialization**: Concentrate on gizmos and energy of one color. A red-focused engine with \"when you pick red\" triggers becomes incredibly efficient.\n- **Converter engine**: Build converter gizmos that transform cheap marbles into expensive ones. This lets you build Level III gizmos cheaply.\n- **Rush strategy**: Race to 4 Level III gizmos by building an efficient marble-collection engine and focusing on expensive builds.\n- **Wide strategy**: Build many Level I–II gizmos quickly, aiming for the 16-gizmo trigger. Each small gizmo contributes VP and trigger effects.\n- **File-and-build**: Use file triggers to gain resources, then build from archive to control which cards you access without opponents sniping them.\n- **Deny key cards**: If you see a gizmo that would supercharge an opponent's engine, file it or build it yourself — even if it's not ideal for you."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "kanban-ev",
+  "title": "Kanban EV",
+  "aliases": ["Kanban"],
+  "publisher": "Eagle-Gryphon Games",
+  "player_count": {"min": 1, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 60, "max": 120},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "resource-management", "economic", "hand-management"],
+  "source_url": "https://www.eaglegames.net/Kanban-EV-p/102265.htm",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 factory board** — Central board depicting 5 factory departments arranged vertically: Design, Logistics, Assembly, R&D, and Testing & Innovation.\n- **1 meeting board** — Tracks Sandra's position and upcoming meeting schedule.\n- **4 player boards** — Track your personal garage of completed cars and certifications.\n\n#### Department Components\n- **Car tiles** — Represent electric vehicles in various stages of completion. Different car models in different colors.\n- **Part tiles** — Components needed to assemble cars (batteries, motors, seats, etc.).\n- **Design blueprints** — Cards showing car designs available for production.\n- **R&D tokens** — Innovation upgrades for car models.\n- **Certification tokens** — Earned by demonstrating expertise in departments.\n\n#### Other Components\n- **Sandra meeple** — The factory manager who moves between departments and triggers meetings.\n- **Worker meeples** — 1 per player, placed in departments.\n- **Shift clock** — Tracks passage of shifts within a week.\n- **VP tokens** — Score markers.\n- **Training cubes** — Track expertise in each department.\n- **Week marker** — Tracks game progress."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Factory Setup\n1. **Place the factory board** — Set the board centrally with all 5 departments visible.\n2. **Stock departments** — Place starting car tiles, parts, and designs in their respective departments.\n3. **Sandra placement** — Place Sandra in her starting department (varies by scenario).\n4. **Meeting schedule** — Set up the meeting board showing when meetings occur.\n5. **Shift clock** — Set to the starting time.\n\n#### Sandra's Difficulty\n- **Friendly Sandra** — Easier mode; Sandra is more lenient during meetings.\n- **Tough Sandra** — Harder mode; Sandra penalizes underperformers more harshly.\n- **Choose before play** — Players agree on Sandra's difficulty level."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Personal Setup\n- **Worker** — Each player takes their worker meeple.\n- **Player board** — Take a personal garage board.\n- **Starting position** — Place your worker in any starting department.\n- **Training track** — All training cubes start at the bottom (untrained) in each department.\n- **Starting resources** — Players begin with a small allocation of parts and/or designs depending on turn order.\n\n#### Turn Order\n- **Initial order** — Determined randomly. Turn order can shift based on where players position themselves in the factory."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nKanban EV simulates working in an electric vehicle factory. Players are factory workers moving between departments to design cars, acquire parts, assemble vehicles, and innovate. Sandra, the demanding factory manager, roams the factory and holds periodic meetings where she evaluates performance. Your goal is to impress Sandra and score the most points through efficient work and meeting performance.\n\n#### Game Arc\n- **Multiple weeks** — The game spans several work weeks (number depends on player count).\n- **Meeting rhythm** — Sandra periodically calls meetings that score points based on your accomplishments.\n- **Department mastery** — Training in departments improves your abilities when working there.\n- **Car completion** — Designing, building, and testing cars is the primary path to points."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\n1. **Move your worker** — Move your worker to any ONE of the 5 factory departments (you cannot stay in the same department).\n2. **Perform department action** — Execute the action of the department you moved to.\n3. **Sandra check** — If Sandra is in the same department as you, she observes your work (can be good or bad depending on your performance).\n4. **Shift clock advance** — Advance the shift clock. When it completes a full cycle, a meeting is triggered.\n\n#### Department Actions\n- **Design** — Acquire car blueprints/designs. Choose from available design cards. Training here lets you take better designs.\n- **Logistics** — Acquire parts (batteries, motors, seats, chassis). More training = access to better/more parts.\n- **Assembly** — Combine a design + required parts to assemble a car. The car moves to your garage. Training reduces parts needed.\n- **R&D** — Upgrade car models with innovations. Apply upgrades to car designs for bonus VP. Training gives access to better upgrades.\n- **Testing & Innovation** — Test completed cars for VP and certifications. Certifications prove department expertise.\n\n#### Sandra's Movement\n- **Follows a pattern** — Sandra moves through departments on a set schedule.\n- **Observation** — When Sandra is in your department, she evaluates whether you are working efficiently.\n- **Meetings** — Periodically, Sandra calls everyone to a meeting to evaluate overall performance."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Car Production Pipeline\n1. **Design** — Visit the Design department to acquire a car blueprint specifying which parts are needed.\n2. **Parts** — Visit Logistics to collect the required parts (battery, motor, seats, etc.).\n3. **Assembly** — Visit Assembly with a design + all required parts to build the car.\n4. **Testing** — Visit Testing to score VP for completed cars and earn certifications.\n\n#### Training and Certification\n- **Training cubes** — Working in a department can advance your training level there.\n- **Training benefits** — Higher training levels unlock more powerful department actions.\n- **Certifications** — Earned through Testing. Required for meetings and end-game scoring.\n- **Department mastery** — Mastering a department makes your actions there significantly more efficient.\n\n#### Meetings\n- **Trigger** — Meetings occur when the shift clock completes a cycle.\n- **Scoring** — During meetings, Sandra evaluates players based on various criteria:\n  - Cars in your garage.\n  - Certifications earned.\n  - Training levels.\n  - Innovation contributions.\n- **Friendly Sandra** — Gives partial credit; focuses on rewarding accomplishments.\n- **Tough Sandra** — Penalizes players who fall behind; creates more competitive pressure.\n\n#### Garage Management\n- **Car display** — Completed cars go to your personal garage.\n- **Car diversity** — Having different car models is typically worth more than duplicates.\n- **Upgraded cars** — Cars with R&D upgrades score more during meetings and at game end."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Sandra Rules\n- **Department presence** — Sandra being in your department when you work there can trigger special interactions.\n- **Approval** — If Sandra sees you being productive (assembling cars, completing tests), she gives approval bonuses.\n- **Disapproval** — If Sandra sees you idle or underperforming, she may apply penalties (in tough mode).\n- **Movement prediction** — Sandra's movement is predictable. Plan your department visits to align (or avoid) her.\n\n#### Shift Overtime\n- **Extra shifts** — Some actions allow you to take overtime, giving you bonus actions but at a cost.\n- **Burnout risk** — Overworking can lead to diminishing returns.\n\n#### Lean Manufacturing\n- **Waste reduction** — The game rewards efficiency. Taking only what you need (just-in-time production) is more valuable than hoarding parts.\n- **Kanban board** — The factory tracks car production across departments, and bottlenecks in the system affect all players.\n\n#### End-of-Week Effects\n- **Weekly reset** — Certain factory conditions reset at the end of each work week.\n- **New supply** — Fresh designs and parts become available."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **Final meeting** — The game ends after the last scheduled meeting (determined by player count/week track).\n\n#### Scoring Sources\n- **Meeting scores** — VP earned at each meeting based on Sandra's evaluation.\n- **Completed cars** — VP for each car in your garage. Upgraded cars score more.\n- **Certifications** — VP for certifications earned.\n- **Training levels** — Bonus VP for high training in departments.\n- **Set bonuses** — VP for having diverse car collections or certifications across departments.\n\n#### Winner\n- **Highest VP** — Player with the most victory points wins.\n- **Tiebreaker** — Player with more completed cars."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Complete cars before meetings** — Meetings are the primary scoring events. Have cars ready.\n- **Train in 2-3 departments** — Spreading training too thin is inefficient. Focus on a production pipeline.\n- **Watch Sandra** — Know where Sandra will be and plan around her. In tough mode, avoid her when unprepared.\n- **Don't hoard parts** — Parts in your supply don't score. Assemble cars as quickly as possible.\n- **Certifications matter** — They score at meetings and at game end. Don't neglect the Testing department."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Assembly Line Focus\n- **Goal** — Maximize car production throughput.\n- **Key actions** — Efficient cycling between Design → Logistics → Assembly.\n- **Benefit** — More cars = more meeting points and end-game VP.\n\n#### Strategy 2: R&D Specialist\n- **Goal** — Upgrade car models for premium VP per car.\n- **Key actions** — Heavy R&D investment, selective car building with upgrades.\n- **Benefit** — Fewer but higher-value cars.\n\n#### Strategy 3: Certification Hunter\n- **Goal** — Earn maximum certifications across departments.\n- **Key actions** — Testing department visits, cross-department training.\n- **Benefit** — Strong meeting performance and end-game bonuses.\n\n#### General Principles\n- **Meeting timing** — Plan your production cycle around meeting dates.\n- **Flexibility** — If a department is crowded, pivot to an open one rather than waiting.\n- **Sandra management** — Use Sandra's presence to your advantage rather than avoiding her."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

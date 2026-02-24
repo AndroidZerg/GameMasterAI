@@ -1,0 +1,85 @@
+{
+  "game_id": "bunny-kingdom",
+  "title": "Bunny Kingdom",
+  "aliases": [],
+  "publisher": "IELLO",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 40, "max": 60},
+  "complexity": "gateway",
+  "categories": ["card-drafting", "area-control", "territory-building"],
+  "source_url": "https://boardgamegeek.com/boardgame/184921/bunny-kingdom",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "Bunny Kingdom includes:\n\n- **1 game board** with a 10×10 grid of territories\n- **182 exploration cards** (territory cards, building cards, provision cards, and parchment/secret objective cards)\n- **144 rabbit figurines** (36 per player in 4 colors)\n- **24 city tokens** (strength 1, 2, and 3)\n- **36 building tokens** (farms, sky towers, etc.)\n- **Resource tokens** for the 5 resource types: wood, fish, carrots, mushrooms, and gems\n- **Score track** around the board edge"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Place the **game board** in the center of the table.\n2. The board shows a **10×10 grid** with coordinates (columns A–J, rows 1–10). Each territory has a terrain type and may produce a resource.\n3. Place the **basic resource tokens** on their printed territories (some territories already show resources).\n4. Place **city tokens** and **building tokens** in separate supply piles.\n5. Shuffle the **exploration deck** thoroughly.\n6. Set score markers for each player at **0** on the score track."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1. Each player takes all **rabbit figurines** of their chosen color.\n2. In a 4-player game, deal **10 cards** to each player from the exploration deck.\n3. In a 3-player game, deal **12 cards** each.\n4. In a 2-player game, deal **10 cards** each (with modified drafting rules).\n5. Players look at their cards but keep them hidden from opponents.\n6. The game is played over **4 rounds** of card drafting and scoring."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "In Bunny Kingdom, players are rabbit lords vying for control of a vast territory. Through **card drafting**, you claim territories on the grid, construct cities, gather resources, and pursue secret objectives.\n\nThe core scoring mechanism is **fiefdoms** — connected groups of your territories. Each fiefdom scores:\n\n> **Fiefdom Score = Strength × Wealth**\n\n- **Strength** = total city tower levels in the fiefdom\n- **Wealth** = number of different resource types produced in the fiefdom\n\nThe game lasts **4 rounds**, with scoring at the end of each round. After the 4th round, secret **parchment cards** (objectives) are also scored."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round follows this structure:\n\n### 1. Draft Cards\nFrom your hand of cards, **choose 2 cards** to keep. Place them face down in front of you. Pass the remaining cards to the next player (alternate direction each round: left, right, left, right).\n\nRepeat until all cards are drafted (typically 5 drafting steps per round).\n\n### 2. Play Cards\nOnce all cards are drafted, reveal and play your kept cards:\n\n- **Territory cards** (e.g., \"B4\", \"G7\"): Place one of your rabbits on the matching grid space. You now control that territory.\n- **Building cards** (cities, farms): Place the corresponding building token on one of your controlled territories.\n- **Provision cards** (resources): Add the resource to one of your territories that doesn't already have a resource.\n- **Parchment cards** (secret objectives): Keep face down until end of game.\n\n### 3. Score Fiefdoms\nAt the end of each round, score every fiefdom:\n- A **fiefdom** is a group of your territories connected orthogonally (not diagonally).\n- **Strength** = sum of all city levels in that fiefdom (a territory without a city contributes 0).\n- **Wealth** = number of **distinct resource types** in that fiefdom.\n- Score = Strength × Wealth for each fiefdom.\n- A fiefdom with no cities scores **0** (regardless of resources).\n\n### 4. New Round\nDeal new cards and begin the next round."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Territory Control\n- Play a territory card to place your rabbit on that grid space.\n- Territories produce a **resource** if they have one (printed or added).\n- Connected territories form **fiefdoms** for scoring.\n- Each territory can only be controlled by **one player**.\n\n### Building Cities\n- **City cards** let you place a city token on one of your territories.\n- Cities have levels: **1, 2, or 3 towers**.\n- Multiple cities in one fiefdom add their levels together for Strength.\n- A fiefdom **must have at least one city** to score.\n\n### Adding Resources\n- **Provision cards** add a resource type to a territory.\n- Each unique resource type in a fiefdom increases its Wealth by 1.\n- The 5 resource types are: **wood, fish, carrots, mushrooms, and gems**.\n- A fiefdom with all 5 resource types has Wealth = 5.\n\n### Sky Towers\n- **Sky Tower** buildings provide a special connection: they link the territory to **every other sky tower** on the board, even if not adjacent. This can merge distant territories into one fiefdom.\n\n### Parchment Cards\n- Secret objectives scored only at game end.\n- Examples: bonus points for controlling territories in a specific row, having a certain number of fiefdoms, or collecting specific resources."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Contested Territories\nIf a territory card is drafted but that territory is already occupied, the card is **wasted** — you cannot place there. (In practice, you'd avoid drafting a territory someone already controls.)\n\n### Sky Tower Connections\nSky Towers create **virtual connections** between all territories containing sky towers. Two distant territories both with sky towers are treated as one fiefdom for scoring, dramatically boosting Strength and Wealth.\n\n### Camp Tokens\nSome territories have **camps** printed on them. Camps act as **level-1 cities** (Strength 1) if you control them, without needing a city card.\n\n### Draft Direction\n- **Round 1**: Pass left\n- **Round 2**: Pass right\n- **Round 3**: Pass left\n- **Round 4**: Pass right\n\n### 2-Player Variant\nIn a 2-player game, each drafting step involves choosing 2 cards and **discarding 1** face down (removed from the game), creating more hidden information.\n\n### Luxury Resources\n**Gems** are rare and not printed on any territory — they can only come from provision cards. A fiefdom with gems gains a significant Wealth advantage."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "### Round Scoring (Rounds 1–4)\nAfter each round, calculate:\n- **Each fiefdom**: Strength × Wealth\n- Sum all fiefdom scores and add to your running total.\n\n### Final Scoring (After Round 4)\nAfter the 4th round's normal fiefdom scoring:\n1. Reveal all **parchment cards** (secret objectives).\n2. Score each parchment based on its condition (e.g., \"3 VP per fiefdom with 3+ Wealth\").\n3. Add parchment points to your total.\n\n### Winning\nThe player with the **highest total score** across all 4 rounds plus parchment bonuses wins.\n\n### Scoring Example\nA fiefdom with a level-2 city and a level-1 city (Strength = 3), producing wood, fish, and carrots (Wealth = 3), scores **3 × 3 = 9 points** that round."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Cities are essential**: A fiefdom without a city scores 0. Always draft enough city cards.\n- **Connect your territories**: Two small fiefdoms score much less than one large one. Prioritize adjacency.\n- **Diverse resources matter**: Strength × Wealth means adding one new resource type multiplies your entire Strength. A fiefdom with Wealth 4 is vastly better than Wealth 2.\n- **Don't ignore parchments**: Secret objectives can be worth 10–20+ points at game end. Draft parchments that align with your board position.\n- **Watch the board**: Pay attention to which territories opponents control. Don't let them merge fiefdoms cheaply."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Mega-fiefdom**: Focus on building one massive connected fiefdom with high-level cities and all 5 resource types. Strength 5 × Wealth 5 = 25 points per round.\n- **Sky Tower bridge**: Use sky towers to connect distant territory clusters. Two fiefdoms with complementary resources become one powerhouse.\n- **Hate-drafting**: Take territory cards that would connect an opponent's fiefdoms, even if you don't need them.\n- **Parchment synergy**: Draft parchment cards early and build your board state to maximize them. A parchment worth 20 points can decide the game.\n- **Early cities**: Getting cities into your fiefdoms in rounds 1–2 means they score every round, compounding value.\n- **Resource provision timing**: Save provision cards for the fiefdom where adding a new resource type creates the biggest multiplier increase.\n- **Gem hoarding**: Gems are only available through provision cards. Controlling the only fiefdom with gems gives you a Wealth advantage no one else can easily match."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

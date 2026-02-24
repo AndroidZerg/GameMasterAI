@@ -1,0 +1,85 @@
+{
+  "game_id": "caverna",
+  "title": "Caverna: The Cave Farmers",
+  "aliases": ["Caverna"],
+  "publisher": "Lookout Games",
+  "player_count": {"min": 1, "max": 7, "recommended": 4},
+  "play_time_minutes": {"min": 30, "max": 210},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "farming", "resource-management", "tile-placement"],
+  "source_url": "https://lookout-spiele.de/en/games/caverna.html",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 central action board** — Holds all action spaces. Additional action strips added based on player count.\n- **7 home boards** — Double-sided player boards with forest/field side and cave/tunnel side.\n- **1 supply board** — Organizes resources and furnishing tiles.\n\n#### Tiles\n- **48 furnishing tiles** — Placed in caves to provide special abilities and scoring. Available to all players from the start.\n- **Landscape tiles** — Meadow, field, cavern, tunnel, deep tunnel, ore mine, ruby mine tiles.\n\n#### Resources and Animals\n- **Wood, stone, ore, food, grain, vegetables, rubies** — Standard resource tokens.\n- **Sheep, donkeys, wild boar, cattle, dogs** — Animal tokens.\n- **Dwarf workers** — 5-6 per player in player colors.\n- **Fences** — For pasture building.\n- **Stable tokens** — Placed in pastures or caves to hold animals.\n\n#### Cards\n- **Round cards** — Define new action spaces revealed each round.\n- **No occupation/improvement cards** — Unlike Agricola, Caverna has no random cards. All options are available from the start."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Central Board\n1. **Place action board** — Set the main board with starting action spaces.\n2. **Add action strips** — Add additional action space strips based on player count.\n3. **Round card setup** — Shuffle round cards within each stage, then stack stages in order. Round cards reveal new action spaces each round.\n4. **Furnishing tiles** — Lay out all 48 furnishing tiles face up near the board. All are available from round 1.\n5. **Resource supply** — Sort all resources, animals, and tiles into accessible supply piles.\n\n#### Player Count Scaling\n- **1-2 players** — Use a smaller subset of action spaces.\n- **3 players** — Standard action board.\n- **4-7 players** — Add extra action strips for more spaces."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Home Board\n- **Take a home board** — Each player takes 1 double-sided home board.\n- **Forest/field side** — The left half represents outdoor terrain with forests and meadows.\n- **Cave/tunnel side** — The right half represents underground terrain with caverns.\n- **Starting dwelling** — Place the starting dwelling cave tile on the designated cave space. Your first 2 dwarves live here.\n- **Starting dwarves** — Place 2 dwarf meeples on the starting dwelling.\n\n#### Starting Resources\n- **Food** — Each player starts with a small amount of food (varies by player order).\n- **Later players** — Players after the first player receive additional starting food as compensation.\n\n#### Weapons\n- **No starting weapons** — Dwarves start unarmed. Weapons are acquired through action spaces."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nCaverna is the spiritual successor to Agricola. Players are dwarf families who farm the land above ground and mine the caves below. Unlike Agricola, there are no hidden cards — every option is visible and available to all players from the beginning. This creates a more open, strategic (less tactical) game.\n\n#### Game Arc\n- **12 rounds** — Played over 12 rounds in stages.\n- **Harvest phases** — Occur at the end of certain rounds (similar to Agricola).\n- **Worker growth** — Players start with 2 dwarves and can grow to 5-6.\n- **Dual development** — Players must develop both their farm (fields, pastures, animals, crops) and their cave (tunnels, mines, furnished rooms)."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Sequence\n1. **Reveal round card** — Flip the next round card and place the new action space it describes.\n2. **Replenish** — Add accumulated resources to action spaces with replenishment icons.\n3. **Work phase** — Starting with the first player, each player places 1 dwarf on an available action space and immediately resolves it. Continue clockwise until all dwarves are placed.\n4. **Return dwarves** — All dwarves return home.\n5. **Harvest check** — If this round triggers a harvest, resolve the harvest phase.\n\n#### Harvest Phase\n1. **Field phase** — Remove 1 grain/vegetable from each sown field (harvest the crop).\n2. **Feeding phase** — Feed each dwarf 2 food. Newborn dwarves (gained this round) require only 1 food.\n3. **Breeding phase** — For each animal type where you have at least 2, gain 1 additional animal of that type.\n\n#### Starvation\n- **Begging tokens** — If you cannot feed all dwarves, take 1 begging token per missing food.\n- **Penalty** — Each begging token is -3 VP at game end."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Farming Actions\n- **Plow a field** — Convert a meadow space on your board into a field.\n- **Sow crops** — Place grain or vegetable tokens on empty fields. They accumulate and are harvested 1 at a time.\n- **Build fences** — Enclose pastures on your outdoor terrain to hold animals.\n- **Build stables** — Place stables in pastures (doubles capacity) or in caves (holds 1 animal without fences).\n\n#### Cave Actions\n- **Dig tunnels** — Convert cave spaces into tunnel tiles to expand underground.\n- **Mine ore/rubies** — Dig ore mines or ruby mines in tunnel spaces for ongoing resource generation.\n- **Furnish caverns** — Convert tunnel spaces to caverns and place furnishing tiles for abilities and scoring.\n\n#### Expeditions\n- **Arm a dwarf** — Use an action space to give a dwarf a weapon (strength 1-14).\n- **Go on expedition** — Armed dwarves can go on expeditions instead of normal actions. Choose rewards based on weapon strength: higher strength = more/better rewards.\n- **Expedition rewards** — Include resources, animals, furnishing tiles, building actions, and more.\n- **Weapon upgrades** — After each expedition, the dwarf's weapon strength increases by 1.\n\n#### Animal Husbandry\n- **5 animal types** — Sheep, donkeys, wild boar, cattle, dogs.\n- **Dogs as shepherds** — Dogs don't need pastures. Each dog can guard sheep in meadows (1 dog = up to 2 sheep in an unfenced meadow).\n- **Pasture capacity** — Each fenced pasture space holds 2 animals. Stables double this to 4.\n- **Mine donkeys** — Donkeys can be placed in ore mines (1 per mine) without pastures.\n\n#### Family Growth\n- **Living space required** — To gain a new dwarf, you must have an unoccupied dwelling space.\n- **Dwellings** — Build through furnishing tiles in caves or specific action spaces.\n- **Maximum** — Up to 5-6 dwarves depending on dwellings built."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Furnishing Tiles (48 Available)\n- **Always visible** — All furnishing tiles are available from round 1. No random dealing.\n- **Placement** — Furnishing tiles go in cavern spaces (converted from tunnels) in your cave.\n- **Types** — Dwellings (provide living space), parlors (scoring bonuses), storage rooms (resource benefits), chambers (special abilities), and more.\n- **One each** — Each furnishing tile can only be claimed by one player.\n\n#### Rubies\n- **Wildcard resource** — Rubies are extremely flexible. They can be converted to any resource at favorable rates.\n- **Ruby mine** — Provides 1 ruby per harvest after being built.\n- **Ruby actions** — Some furnishing tiles give bonuses for rubies.\n\n#### Donkeys in Mines\n- **Ore mine capacity** — Each ore mine can hold 1 donkey.\n- **Donkeys don't need pastures** — They live in the mines.\n- **Ore production** — Donkeys in mines generate ore during harvest.\n\n#### Dogs\n- **Shepherd ability** — 1 dog in a meadow space allows up to 2 sheep to be kept there without fences.\n- **Additional dogs** — More dogs in the same space allow more sheep.\n- **Cave dogs** — Dogs can also live in cave dwelling rooms."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **After round 12** — The game ends after the final harvest in round 12.\n\n#### Scoring Categories\n- **Animals** — Score points for each animal type based on quantity (similar to Agricola's banded scoring): 0 of a type = -2 VP.\n- **Grain** — Points based on grain quantity. 0 grain = -1 VP.\n- **Vegetables** — Points based on vegetable quantity. 0 vegetables = -1 VP.\n- **Rubies** — 1 VP per ruby.\n- **Dwarves** — 1 VP per dwarf.\n- **Unused spaces** — -1 VP per empty space on your home board (farm and cave sides both count).\n- **Gold/coins** — 1 VP per gold.\n- **Furnished caverns** — VP from furnishing tile values.\n- **Pastures** — 2 VP per pasture (fenced area).\n- **Ore mines** — 3 VP per ore mine.\n- **Ruby mines** — 4 VP per ruby mine (some editions score differently).\n- **Parlor bonuses** — Various end-game scoring bonuses from parlor furnishing tiles.\n- **Begging penalties** — -3 VP per begging token.\n\n#### Winner\n- **Highest total** — Player with the most victory points wins.\n- **Tiebreaker** — Most animals total."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Cover your board** — Empty spaces cost -1 VP each, and your board is large. Fill both sides steadily.\n- **Don't neglect feeding** — Each dwarf needs 2 food at harvest. Plan ahead with grain, animals, or expeditions.\n- **Expeditions are powerful** — Armed dwarves get stronger over time and provide flexible rewards.\n- **Rubies are flexible** — If in doubt, take rubies. They convert to anything you need.\n- **Start with a food engine** — Before expanding, ensure you can feed your growing family.\n- **Scan the furnishing tiles** — All 48 tiles are available from round 1. Find ones that complement your plan."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Expedition Focus\n- **Goal** — Arm dwarves early and use expeditions for flexible rewards.\n- **Key actions** — Weapon acquisition, repeated expeditions, weapon upgrades.\n- **Benefit** — Expeditions provide multiple rewards per action and scale with weapon strength.\n\n#### Strategy 2: Cave Development\n- **Goal** — Focus on mining and furnishing for high-value cave scoring.\n- **Key tiles** — Ore mines, ruby mines, high-VP furnishing tiles.\n- **Benefit** — Mines provide ongoing resources; furnishing tiles can score 4-8+ VP each.\n\n#### Strategy 3: Pastoral Farming\n- **Goal** — Build extensive pastures and breed many animals.\n- **Key actions** — Fence building, stable placement, animal acquisition.\n- **Benefit** — Animals breed for free at harvest, creating compounding value.\n\n#### Strategy 4: Crop Engine\n- **Goal** — Heavy investment in fields with grain and vegetable production.\n- **Key actions** — Plowing, sowing, food conversion buildings.\n- **Benefit** — Crops solve feeding permanently and score points.\n\n#### General Principles\n- **Diversify** — Caverna rewards breadth across all categories. Having 0 of any animal type costs -2 VP.\n- **Grow family early** — More dwarves = more actions. Prioritize dwelling space.\n- **Watch the round card reveals** — New actions each round change what's possible."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

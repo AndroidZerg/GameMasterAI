@@ -1,0 +1,85 @@
+{
+  "game_id": "scout",
+  "title": "Scout",
+  "aliases": ["SCOUT"],
+  "publisher": "Oink Games",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 15, "max": 20},
+  "complexity": "gateway",
+  "categories": ["card-game", "hand-management", "climbing"],
+  "source_url": "https://oinkgames.com/en/games/analog/scout",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **45 double-ended cards** — Each card has two different numbers (one on each end). Cards range from 1-10.\n- **5 Scout & Show tokens** (1 per player)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle all 45 cards.**\n2. **Deal evenly** based on player count (some cards may be removed).\n3. **IMPORTANT** — Pick up your hand without rearranging the card order! You may flip the entire hand upside down once, but cannot reorder individual cards.\n4. **Each player** takes 1 Scout & Show token."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Hold cards as dealt** — Do NOT rearrange card order.\n- **Choose orientation** — You may flip your entire hand once to pick which end of each card faces up.\n- **1 Scout & Show token** — Can be used once per round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Scout is a climbing card game where you can't rearrange your hand. Play sets or sequences to beat the current play, or scout (take) a card from the current play to improve your hand. First to empty their hand or the last player standing scores."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, do ONE of:\n1. **Show** — Play a set of cards that beats the current showing.\n2. **Scout** — Take 1 card from the current showing and add it to your hand.\n3. **Scout & Show** — Do both (once per round, using your token)."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Showing Cards\n- Play a group of adjacent cards from your hand.\n- Must beat the current showing by being either:\n  - **Same number of cards, higher value** (sets beat same-size sets of lower value; runs beat same-size runs of lower value)\n  - **More cards** (any valid group of more cards beats fewer cards)\n- Valid groups: single card, set of same number, or consecutive run.\n- Cards played must be adjacent in your hand.\n\n#### Scouting\n- Take 1 card from either end of the current showing.\n- Choose which orientation (which number faces up).\n- Insert it anywhere in your hand.\n- The player who showed those cards gets 1 point chip.\n\n#### Scout & Show Token\n- Once per round, Scout first then immediately Show.\n- Flip your token to used side."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **No rearranging** — You never reorder cards in your hand (except inserting scouted cards).\n- **Double-ended cards** — When scouting, choose which end faces up.\n- **Adjacency** — Cards played must be next to each other in your hand.\n- **Round end** — If all other players consecutively scout (no one beats you), the round ends."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Round End\n- A player empties their hand, OR\n- All other players scout consecutively (no one beats the current show).\n\n#### Scoring\n- **+1 point** per card you showed that opponents scouted from.\n- **-1 point** per card remaining in your hand.\n- The player who went out (or whose show wasn't beaten) gains bonus points.\n\n#### Game End\n- Play rounds equal to the number of players. Highest total score wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Initial flip matters** — Look at both orientations of your hand carefully before choosing.\n- **Scout to improve** — Insert scouted cards strategically to create adjacency for big plays.\n- **Save your token** — Use Scout & Show at a pivotal moment.\n- **Big plays early** — Playing many cards at once is hard to beat."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Build runs** — Scout cards to extend consecutive sequences in your hand.\n- **Timing** — Let others show first, then beat them with a stronger play.\n- **Scout from weakness** — When scouting, take cards that deny opponents while helping you.\n- **Go out fast** — Points from remaining cards are penalties; prioritize emptying your hand."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "game_id": "cribbage",
+  "scoring_type": "race",
+  "categories": [
+    {"id": "fifteens", "label": "Fifteens", "points_each": 2, "type": "count", "description": "Each combination of cards totaling 15"},
+    {"id": "pairs", "label": "Pairs", "points_each": 2, "type": "count", "description": "Each pair of same-rank cards"},
+    {"id": "runs", "label": "Runs", "points_each": 1, "type": "count", "description": "Points from sequences of 3+ consecutive ranks"},
+    {"id": "flush", "label": "Flush", "points_each": 1, "type": "count", "description": "4 or 5 cards of same suit (4 or 5 points)"},
+    {"id": "nobs", "label": "Nobs", "points_each": 1, "type": "boolean", "description": "Jack matching starter card suit"},
+    {"id": "pegging", "label": "Pegging Points", "points_each": 1, "type": "count", "description": "Points scored during the play phase"}
+  ],
+  "win_condition": "First to 121 points"
+}

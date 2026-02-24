@@ -1,0 +1,9 @@
+{
+  "game_id": "risk",
+  "scoring_type": "elimination",
+  "categories": [
+    {"id": "territories", "label": "Territories Controlled", "points_each": 1, "type": "count", "description": "Number of territories controlled at end"},
+    {"id": "continents", "label": "Continents Controlled", "points_each": 1, "type": "count", "description": "Number of complete continents controlled"}
+  ],
+  "win_condition": "Control all 42 territories or complete secret mission"
+}

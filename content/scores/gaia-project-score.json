@@ -1,0 +1,12 @@
+{
+  "game_id": "gaia-project",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "ingame_vp", "label": "In-Game VP", "points_each": 1, "type": "count", "description": "VP earned during 6 rounds from building, round scoring tiles, power actions, technology tiles, research bonuses, and Federations"},
+    {"id": "research_track_vp", "label": "Research Track VP", "points_each": 1, "type": "count", "description": "End-game VP from positions on the 6 research tracks (escalating VP per level reached)"},
+    {"id": "final_scoring_1", "label": "Final Scoring Tile 1", "points_each": 1, "type": "count", "description": "VP from the first Final scoring tile category (18/12/6/0 for 1st/2nd/3rd/4th)"},
+    {"id": "final_scoring_2", "label": "Final Scoring Tile 2", "points_each": 1, "type": "count", "description": "VP from the second Final scoring tile category (18/12/6/0 for 1st/2nd/3rd/4th)"},
+    {"id": "leftover_resources", "label": "Leftover Resources", "points_each": 1, "type": "count", "description": "VP from converting remaining resources (every 3 Ore/Credits/Knowledge = 1 VP, each Q.I.C. = 1 VP)"}
+  ],
+  "win_condition": "Player with the most total VP after 6 rounds and final scoring wins"
+}

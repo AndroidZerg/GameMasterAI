@@ -1,0 +1,85 @@
+{
+  "game_id": "pandemic-hot-zone",
+  "title": "Pandemic: Hot Zone",
+  "aliases": ["Pandemic Hot Zone North America", "Pandemic Hot Zone"],
+  "publisher": "Z-Man Games",
+  "player_count": {"min": 2, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 20, "max": 30},
+  "complexity": "gateway",
+  "categories": ["cooperative", "hand-management", "set-collection"],
+  "source_url": "https://www.zmangames.com/en/games/pandemic-hot-zone-north-america",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** compact game board (North America map with 24 cities)\n- **24** city cards\n- **4** epidemic cards\n- **4** role cards with pawns\n- **24** disease cubes (3 colors: blue, yellow, red — 8 each)\n- **3** cure markers\n- **1** infection rate marker\n- **1** outbreak marker"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Place board** in center.\n2. **Set infection rate** marker to first position (2).\n3. **Set outbreak** marker to 0.\n4. **Shuffle city cards** — Deal initial infections: flip 3 cards at a time, placing 3, 2, then 1 cube on each city drawn.\n5. **Prepare player deck** — Shuffle city cards, divide into piles equal to epidemic card count, add 1 epidemic card per pile, stack without shuffling within each pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Choose roles** — Each player takes a role card with unique ability.\n- **Deal player cards** — 2 players: 4 each, 3 players: 3 each, 4 players: 2 each.\n- **Start position** — All players begin in Atlanta.\n- **Difficulty** — Use 3-4 epidemic cards based on desired difficulty."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Pandemic: Hot Zone is a compact cooperative game. Work together to cure 3 diseases before outbreaks overwhelm North America. A streamlined version of Pandemic designed for quick play."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each player's turn:\n1. **Take 4 actions** — Move, treat disease, share knowledge, or discover a cure.\n2. **Draw 2 player cards** — From the player deck. Resolve epidemics immediately.\n3. **Infect cities** — Draw cards equal to the current infection rate and add 1 cube to each city."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Actions (4 per turn)\n- **Drive/Ferry** — Move to an adjacent connected city.\n- **Direct Flight** — Discard a city card to move to that city.\n- **Charter Flight** — Discard the card matching your current city to move anywhere.\n- **Treat Disease** — Remove 1 disease cube from your current city (all cubes of that color if cured).\n- **Share Knowledge** — Give or take a city card matching your current city with another player there.\n- **Discover a Cure** — At a research station, discard 4 cards of the same color to cure that disease.\n\n#### Epidemics\n- **Increase** — Move infection rate marker up.\n- **Infect** — Draw bottom card of infection deck, place 3 cubes on that city.\n- **Intensify** — Shuffle infection discard pile, place on top of infection deck."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Outbreaks\n- If a city would get a 4th cube of one color, an outbreak occurs.\n- No 4th cube is placed; instead, each connected city gets +1 cube of that color.\n- Chain outbreaks are possible (but each city outbreaks only once per chain).\n\n#### Roles\n- Each role has a unique ability (e.g., Medic removes all cubes of one color as 1 action).\n\n#### Research Stations\n- Some scenarios have fixed stations; others let players build them."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win\n- Cure all 3 diseases (you do NOT need to remove all cubes).\n\n#### Lose\n- **8 outbreaks** — Outbreak marker reaches 8.\n- **Cubes depleted** — Can't place a cube when needed.\n- **Player deck empty** — Can't draw 2 player cards."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Communicate openly** — Share information about your cards and planned moves.\n- **Prioritize hotspots** — Focus on cities with 3 cubes to prevent outbreaks.\n- **Get cards together** — Share knowledge to collect matching colors for cures.\n- **Treat cured diseases** — The Medic becomes much more efficient once a disease is cured."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Cure order** — Prioritize curing the most dangerous disease first.\n- **Card management** — Plan trades so you're not wasting cards on flights.\n- **Epidemic preparation** — After reshuffling the infection discard, recently infected cities will be hit again.\n- **Role synergy** — Combine abilities for maximum efficiency."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

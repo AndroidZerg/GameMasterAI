@@ -1,0 +1,56 @@
+{
+  "game_id": "anachrony",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP from superprojects, breakthroughs, buildings, evacuation, and morale",
+  "categories": [
+    {
+      "id": "superprojects",
+      "label": "Superprojects",
+      "type": "manual",
+      "description": "VP from completed superproject tiles"
+    },
+    {
+      "id": "breakthroughs",
+      "label": "Breakthroughs",
+      "type": "manual",
+      "description": "VP from research breakthrough tokens"
+    },
+    {
+      "id": "buildings",
+      "label": "Buildings",
+      "type": "manual",
+      "description": "VP from constructed faction buildings"
+    },
+    {
+      "id": "evacuation",
+      "label": "Evacuation",
+      "type": "manual",
+      "description": "VP from evacuated workers and resources"
+    },
+    {
+      "id": "timeline",
+      "label": "Timeline Position",
+      "type": "manual",
+      "description": "VP based on position on the timeline track"
+    },
+    {
+      "id": "morale",
+      "label": "Morale",
+      "type": "manual",
+      "description": "VP or penalties based on morale track position"
+    },
+    {
+      "id": "remaining_resources",
+      "label": "Remaining Resources",
+      "type": "manual",
+      "description": "Small VP for leftover resources"
+    },
+    {
+      "id": "paradox_penalties",
+      "label": "Paradox Penalties",
+      "type": "manual",
+      "is_penalty": true,
+      "description": "Negative VP from paradoxes and anomaly tiles"
+    }
+  ]
+}

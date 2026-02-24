@@ -1,0 +1,13 @@
+{
+  "game_id": "sushi-go",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "maki", "label": "Maki Rolls", "points_each": 1, "type": "count", "description": "Most maki icons: 6 pts, second: 3 pts"},
+    {"id": "tempura", "label": "Tempura Sets", "points_each": 5, "type": "count", "description": "5 pts per pair of Tempura"},
+    {"id": "sashimi", "label": "Sashimi Sets", "points_each": 10, "type": "count", "description": "10 pts per trio of Sashimi"},
+    {"id": "dumplings", "label": "Dumplings", "points_each": 1, "type": "count", "description": "1/3/6/10/15 pts for 1/2/3/4/5+ dumplings"},
+    {"id": "nigiri", "label": "Nigiri", "points_each": 1, "type": "count", "description": "Egg 1, Salmon 2, Squid 3 (×3 with Wasabi)"},
+    {"id": "pudding", "label": "Pudding", "points_each": 1, "type": "count", "description": "Most: +6 pts, Fewest: -6 pts at game end"}
+  ],
+  "win_condition": "Most points after 3 rounds"
+}

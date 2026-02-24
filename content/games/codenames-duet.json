@@ -1,0 +1,85 @@
+{
+  "game_id": "codenames-duet",
+  "title": "Codenames: Duet",
+  "aliases": ["Codenames Duet"],
+  "publisher": "Czech Games Edition",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 30},
+  "complexity": "party",
+  "categories": ["cooperative", "word-game", "deduction", "party"],
+  "source_url": "https://czechgames.com/en/codenames-duet",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **200** word cards (double-sided)\n- **1** card stand\n- **11** green agent cards\n- **1** double agent card\n- **3** assassin cards\n- **7** innocent bystander cards\n- **1** timer token\n- **11** timer tokens (numbered)\n- **Key cards** (double-sided with different grids per side)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Lay out 25 word cards** in a 5×5 grid.\n2. **Place a key card** in the stand between players — each player sees their own side.\n3. **Place timer tokens** — Start with 9 tokens (adjustable for difficulty).\n4. **Each player** sees different information on the key card."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Sit across from each other** with the key card stand between you.\n- **Each player's key card side** shows 9 green agents, 3 assassins, and 13 bystanders — but the grids differ per side.\n- **3 agents overlap** — Both sides share some green positions.\n- **15 total agents** to find (9 + 9 − 3 shared = 15)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Codenames: Duet is a cooperative 2-player word association game. Take turns giving one-word clues to help your partner identify secret agents among the 25 words. Find all 15 agents before running out of turns or hitting an assassin."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Players alternate as clue-giver and guesser:\n\n1. **Give a clue** — Say one word and one number. The word relates to agent words on your side of the key. The number tells how many words relate.\n2. **Partner guesses** — Touch word cards one at a time:\n   - **Green (agent)** — Correct! Cover with green card. May continue guessing.\n   - **Beige (bystander)** — Wrong. Turn ends. Remove 1 timer token.\n   - **Black (assassin)** — Instant loss!\n3. **Partner may stop guessing** at any time (costs 1 timer token).\n4. **Switch roles** — The other player now gives a clue."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Clue Rules\n- **One word only** — Your clue must be a single word.\n- **Number** — Indicates how many words on the grid relate to your clue.\n- **No pointing, gestures, or extra hints**.\n- **Can't use** any word visible on the grid as a clue.\n\n#### Timer Tokens\n- Start with 9 (standard difficulty).\n- Remove 1 when your partner guesses a bystander or voluntarily stops.\n- When all tokens are gone, you get one final turn each.\n\n#### Sudden Death\n- After timer tokens run out, each player gets 1 final turn.\n- You must correctly guess at least 1 agent or you lose."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Overlapping agents** — 3 positions are agents on both sides. When found, they count for both players.\n- **Assassins differ per side** — A word that's an assassin for one player might be a bystander for the other.\n- **Campaign mode** — Play through a series of missions with increasing difficulty (fewer timer tokens, more assassins).\n- **Unlimited guesses** — You may guess up to the clue number + 1 (to catch up on previous clues)."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win\n- Find all 15 agents before running out of timer tokens and final turns.\n\n#### Lose\n- **Assassin** — Either player guesses an assassin word.\n- **Time out** — Timer tokens depleted and final turns used without finding all agents."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Avoid assassins** — Check your side carefully. Clues that could lead to assassin words are dangerous.\n- **Multi-word clues** — Try to link 2-3 words per clue for efficiency.\n- **Trust your partner** — If they give a clue you're unsure about, think harder before guessing randomly.\n- **Save tokens** — Don't guess wildly. Stopping voluntarily is better than hitting a bystander."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Prioritize assassin avoidance** — Your clue must not lead your partner toward words that are assassins on their side.\n- **Efficient clues** — You need to average 2+ words per clue to win with standard tokens.\n- **Read the board** — Consider what your partner's clues tell you about their side of the key.\n- **Campaign scaling** — In harder missions, be more conservative and precise with clues."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

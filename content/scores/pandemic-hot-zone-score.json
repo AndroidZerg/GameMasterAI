@@ -1,0 +1,9 @@
+{
+  "game_id": "pandemic-hot-zone",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "diseases_cured", "label": "Diseases Cured", "points_each": 1, "type": "count", "description": "Number of diseases cured (need all 3 to win)"},
+    {"id": "outbreaks", "label": "Outbreaks", "points_each": 1, "type": "count", "description": "Number of outbreaks that occurred"}
+  ],
+  "win_condition": "Cure all 3 diseases before 8 outbreaks or deck runs out"
+}

@@ -1,0 +1,9 @@
+{
+  "game_id": "nemesis",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "survived", "label": "Survived", "points_each": 0, "type": "checkbox", "description": "Player survived (escaped via pod or hibernation, and passed contamination check)"},
+    {"id": "objective_complete", "label": "Secret Objective Complete", "points_each": 0, "type": "checkbox", "description": "Player's secret objective condition was fulfilled at game end"}
+  ],
+  "win_condition": "Semi-cooperative: each player wins individually if they survived AND their secret objective is fulfilled. Multiple players or zero players can win."
+}

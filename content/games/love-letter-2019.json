@@ -1,0 +1,85 @@
+{
+  "game_id": "love-letter-2019",
+  "title": "Love Letter (2019 Edition)",
+  "aliases": ["Love Letter 2019", "Love Letter New Edition"],
+  "publisher": "Z-Man Games",
+  "player_count": {"min": 2, "max": 6, "recommended": 4},
+  "play_time_minutes": {"min": 15, "max": 30},
+  "complexity": "party",
+  "categories": ["deduction", "bluffing", "card-game", "family"],
+  "source_url": "https://www.zmangames.com/en/games/love-letter",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **21 cards** (expanded from original 16):\n  - **1** Spy (0)\n  - **2** Guards (1)\n  - **2** Priests (2)\n  - **2** Barons (3)\n  - **2** Handmaids (4)\n  - **2** Princes (5)\n  - **2** Chancellors (6) — new in 2019\n  - **1** King (7)\n  - **1** Countess (8)\n  - **1** Princess (9)\n  - **Plus extras for 5-6 players**\n- **Token of affection cubes** (for tracking wins)\n- **Reference cards**"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle all cards** for the current player count.\n2. **Remove 1 card** face down (unknown to all players).\n3. **In 2-player games** — Also remove 3 additional cards face up.\n4. **Deal 1 card** to each player.\n5. **Place remaining cards** as draw pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **1 card in hand** — Keep it secret.\n- **Tokens** nearby for scoring across rounds.\n- **Wins needed** — Based on player count (e.g., 2 players: 6 tokens, 4 players: 4 tokens)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Love Letter is a fast deduction card game. Each round, draw a card, play a card, and use its effect. Last player standing or highest card when the deck runs out wins the round."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Draw 1 card** from the draw pile (you now have 2 cards).\n2. **Play 1 card** face up and resolve its effect.\n3. If you're eliminated, discard your remaining card face up."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Card Effects\n- **Spy (0)** — No immediate effect. If you're the only player who played or discarded a Spy and you're still in the round, gain 1 token of affection.\n- **Guard (1)** — Name a non-Guard card. Choose another player. If they have that card, they're eliminated.\n- **Priest (2)** — Look at another player's hand.\n- **Baron (3)** — Compare hands with another player. Lower card is eliminated (tie = no effect).\n- **Handmaid (4)** — You cannot be targeted until your next turn.\n- **Prince (5)** — Choose a player (can be yourself). They discard their hand and draw a new card. If they discard the Princess, they're eliminated.\n- **Chancellor (6)** — Draw 2 cards from the deck, choose 1 to keep, put the other 2 at the bottom of the deck.\n- **King (7)** — Trade hands with another player.\n- **Countess (8)** — Must be played if you also hold a King or Prince.\n- **Princess (9)** — If you play or discard this card for any reason, you're eliminated."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Countess forced play** — If you hold the Countess with a King or Prince, you must play the Countess.\n- **Protection** — Handmaid protection lasts until the start of your next turn. If all other players are protected, you may still target a protected player.\n- **Empty deck** — If you can't draw, the round ends immediately."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Round End\n- Round ends when the draw pile is empty or only 1 player remains.\n- If multiple players remain, the player with the highest card wins the round.\n- Ties: all tied players get a token.\n\n#### Game End\n- First player to reach the required number of tokens wins.\n- Token targets: 2 players: 6, 3 players: 5, 4 players: 4, 5 players: 3, 6 players: 3."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Track played cards** — Know what's still in the deck.\n- **Guard guesses** — Use information from Priests, Barons, and played cards to make educated Guard guesses.\n- **Handmaid for safety** — Play Handmaid when you're holding a high card.\n- **Princess is risky** — Holding the Princess wins comparisons but Prince effects eliminate you."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Card counting** — With 21 cards and 1 removed, tracking what's played gives huge informational advantage.\n- **Countess bluff** — Playing the Countess when you don't have a King/Prince can mislead opponents.\n- **Baron timing** — Use Baron when you hold a high card for easy eliminations.\n- **Chancellor value** — The Chancellor gives you card selection, improving your options significantly.\n- **Target the leader** — Focus elimination attempts on whoever has the most tokens."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "le-havre",
+  "title": "Le Havre",
+  "aliases": [],
+  "publisher": "Lookout Games",
+  "player_count": {"min": 1, "max": 5, "recommended": 3},
+  "play_time_minutes": {"min": 30, "max": 150},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "resource-management", "economic", "engine-building"],
+  "source_url": "https://lookout-spiele.de/en/games/le-havre.html",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards and Cards\n- **1 game board** — Central board with harbor area, supply track, and round overview.\n- **33 building cards** — Standard buildings available in every game.\n- **36 special building cards** — Shuffled and dealt; vary each game.\n- **7 round overview cards** — One for each round showing supply and ships.\n- **Start buildings** — Construction Firm, Building Firm (already in play at start).\n\n#### Resources (Goods)\n- **Basic goods** — Francs (coins), fish, wood, clay, iron, grain, cattle.\n- **Processed goods** — Smoked fish, charcoal, bricks, steel, bread, meat, leather, coke.\n- **Food tokens** — Various denominations.\n- **Energy tokens** — Used for processing.\n\n#### Other Components\n- **Ships** — Wooden and iron ships of various values. Required for feeding.\n- **Player markers** — 1 per player.\n- **Round marker** — Tracks current round.\n- **Loan cards** — Available when players need emergency funds.\n- **Supply chits** — Track goods arriving at the harbor."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Central Board\n1. **Place the game board** — Set it in the center of the table.\n2. **Sort standard buildings** — Place all 33 standard buildings in a face-up display, sorted by number.\n3. **Deal special buildings** — Shuffle the 36 special buildings. Deal a number based on player count and place face up in a separate row.\n4. **Round cards** — Place the 7 round overview cards in order. Each shows what goods appear at the harbor and what ships become available.\n5. **Supply area** — Place all goods tokens sorted by type near the board.\n6. **Starting buildings** — Place the Construction Firm and Building Firm as already-built buildings in the town.\n\n#### Harbor Setup\n- **Goods arrival** — Each round, goods tokens are added to the supply spaces on the board according to a fixed offer cycle.\n- **Two offer spaces** — The board has 7 supply columns; goods rotate through them cyclically."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Resources by Player Count\n--- 1 Player ---\n- **Starting goods** — 5 Francs, 1 coal (or charcoal).\n\n--- 2 Players ---\n- **Starting goods** — Each player: 5 Francs, 1 coal.\n\n--- 3 Players ---\n- **Starting goods** — Each player: 5 Francs, 1 coal.\n\n--- 4 Players ---\n- **Starting goods** — Each player: 4 Francs, 1 coal.\n\n--- 5 Players ---\n- **Starting goods** — Each player: 4 Francs, 1 coal.\n\n#### Player Pieces\n- **Take marker** — Each player takes 1 player marker in their color.\n- **Personal supply** — Keep your goods visible in front of you.\n- **No hand of cards** — All buildings are public information."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nLe Havre is an economic engine-building game set in the harbor city of Le Havre. Players collect goods that arrive at the harbor, use buildings to process raw materials into valuable goods, construct new buildings, and buy ships. The goal is to accumulate the most wealth (Francs + building values + ship values) by the end of the game.\n\n#### Game Arc\n- **Variable rounds** — Number of rounds depends on player count (approximately 20 turns per player across the game).\n- **Escalating buildings** — More powerful buildings become available as the game progresses.\n- **Feeding pressure** — Players must feed their workers at fixed intervals, creating tension between building wealth and ensuring survival.\n- **Ship-building** — Ships provide both food supply capacity and victory points."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\nOn your turn, you must do exactly two things in order:\n\n1. **Supply** — Move the supply arrow forward one space. Add the goods shown on that supply space to the corresponding offer space on the board. Goods accumulate if not taken.\n2. **Take one main action** — Choose ONE of the following:\n   - **Take all goods from one offer space** — Collect every good token on one of the supply spaces. That space is then empty.\n   - **Use a building** — Place your worker in any building (yours, an opponent's, or a neutral town building) and use its ability. If you use another player's building, you must pay them an entry fee (usually 1 food or 1 Franc).\n\n#### Building Actions (Examples)\n- **Processing buildings** — Convert raw goods (e.g., wood to charcoal in the Charburner, clay to bricks in the Brickworks, iron to steel in the Steel Mill).\n- **Production buildings** — Generate new goods (e.g., Fishery produces fish).\n- **Selling buildings** — Convert goods to Francs at the Marketplace.\n- **Ship-building** — Use the Wharf or Shipping Line to construct ships.\n\n#### Building Occupation\n- **One worker per building** — Only one player may occupy a building at a time.\n- **Eviction** — When a new player uses an occupied building, the previous player's marker is returned. There is no blocking — you can always use any building.\n\n#### Feeding Rounds\n- **Harvest intervals** — At specific points during the game (marked on round cards), a feeding phase occurs.\n- **Food requirement** — You must pay a food cost (increases as the game progresses: 2 food, then more later).\n- **Ships help** — Ships provide a permanent food supply each harvest. A wooden ship provides 2 food per harvest; iron ships provide more.\n- **Loans** — If you cannot feed, you must take Loan cards. Each loan is -7 Francs at game end. Loans can be repaid during the game for 5 Francs each."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Constructing Buildings\n- **Building action** — Use the Construction Firm or Building Firm to build a building from the available supply by paying its resource cost.\n- **Ownership** — The building goes into your personal tableau. You own it for scoring and entry fee income.\n- **Cost** — Buildings cost combinations of wood, clay, iron, bricks, steel, and/or Francs.\n- **Immediate use** — You may NOT use a building on the same turn you construct it (unless a special ability allows it).\n\n#### Processing Chains\n- **Wood chain** — Wood → Charcoal (via Charburner). Charcoal is energy + food.\n- **Clay chain** — Clay → Bricks (via Brickworks). Bricks are essential for advanced buildings.\n- **Iron chain** — Iron → Steel (via Steel Mill, requires energy). Steel needed for iron ships.\n- **Grain chain** — Grain → Bread (via Bakehouse, requires energy). Bread is efficient food.\n- **Cattle chain** — Cattle → Meat + Hides (via Abattoir). Meat is food; Hides → Leather.\n- **Fish chain** — Fish → Smoked Fish (via Smokehouse, requires energy).\n\n#### Shipping\n- **Wooden ships** — Cost wood and require the Wharf. Worth moderate VP and provide 2 food per harvest.\n- **Iron ships** — Cost iron/steel. Worth high VP and provide more food per harvest.\n- **Luxury liner** — The most expensive and valuable ship.\n\n#### Selling Goods\n- **Marketplace** — Sell goods for Francs at fixed rates.\n- **Franc value** — Francs count directly toward your final wealth score."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Loans\n- **Forced loans** — If you cannot pay food during a feeding round, you take 1 Loan card per missing food.\n- **Loan value** — Each Loan card is worth -7 Francs at game end.\n- **Repayment** — You may repay a Loan at any time during your turn by paying 5 Francs. The card is then removed.\n- **Strategic loans** — Sometimes taking a loan early is worthwhile to invest in a powerful building.\n\n#### Entry Fees\n- **Using others' buildings** — When you use a building owned by another player, you pay them an entry fee (typically 1 food or 1 Franc, shown on the building).\n- **Your own buildings** — Using your own buildings is free.\n- **Town buildings** — Neutral buildings (not owned by anyone) are free to use.\n\n#### Special Buildings\n- **Variable setup** — Special buildings change each game, creating different strategic landscapes.\n- **Powerful effects** — Some special buildings offer unique conversion chains or victory point opportunities not available through standard buildings.\n\n#### End-Game Buildings\n- **Late-game entries** — Some buildings enter play only in later rounds, offering powerful but expensive options.\n- **Church and Town Hall** — High-value buildings that can swing final scores significantly."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **Fixed length** — The game ends after a set number of rounds determined by player count.\n- **Final feeding** — There is one last feeding phase at the end.\n\n#### Final Scoring\n- **Francs in hand** — All Francs count at face value.\n- **Building values** — Each building you own has a printed Franc value. Total all your buildings.\n- **Ship values** — Each ship you own has a printed Franc value. Total all your ships.\n- **Loans** — Subtract 7 Francs per outstanding Loan card.\n- **Goods** — Leftover goods in your supply are worth nothing (only Francs count).\n\n#### Wealth Calculation\n**Final Score = Francs + Building Values + Ship Values - (7 × Loans)**\n\n#### Winner\n- **Highest wealth** — The player with the highest total wealth wins.\n- **Tiebreaker** — Player with more goods (by quantity) wins ties."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Build a ship early** — Ships solve your feeding problem permanently. Even one wooden ship reduces pressure enormously.\n- **Process goods, don't hoard raw materials** — Raw goods are worth nothing at game end. Always be converting.\n- **Watch the supply cycle** — Goods accumulate on offer spaces. Taking a large pile at the right moment is very efficient.\n- **Don't fear loans** — A well-timed loan that lets you build a key building can pay for itself many times over.\n- **Prioritize the Brickworks** — Bricks are needed for many mid-game buildings. Getting brick production early opens up your options.\n- **Count the feeding rounds** — Know when feeding is coming so you are not caught without food."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Ship Rush\n- **Goal** — Build ships as quickly as possible to solve food and generate VP.\n- **Key buildings** — Wharf, Steel Mill, Shipping Line.\n- **Risk** — High initial investment; slow start on buildings.\n\n#### Strategy 2: Building Empire\n- **Goal** — Buy many buildings for their VP values and entry fee income.\n- **Key actions** — Frequent construction, Franc generation.\n- **Benefit** — Opponents paying entry fees generates passive income.\n\n#### Strategy 3: Processing Chain\n- **Goal** — Build efficient conversion chains to maximize value from raw goods.\n- **Key buildings** — Smokehouse, Bakehouse, Brickworks, Steel Mill, Tannery.\n- **Benefit** — Every good you take becomes worth significantly more.\n\n#### General Principles\n- **Tempo matters** — Each turn is precious. Avoid wasted turns taking small amounts of goods when you could be building or processing.\n- **Watch opponents** — If someone is about to take a huge pile of goods, consider taking it first even if it's not optimal.\n- **Balance food and growth** — Don't let feeding consume all your resources, but don't ignore it either."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "cribbage",
+  "title": "Cribbage",
+  "aliases": ["Crib"],
+  "publisher": "Public Domain",
+  "player_count": {"min": 2, "max": 4, "recommended": 2},
+  "play_time_minutes": {"min": 20, "max": 45},
+  "complexity": "gateway",
+  "categories": ["card-game", "hand-management", "classic"],
+  "source_url": "https://bicyclecards.com/how-to-play/cribbage",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** standard 52-card deck\n- **1** cribbage board with pegging holes (usually tracks to 121 points)\n- **Pegs** — 2 per player (for tracking score on the board)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Place cribbage board** between players.\n2. **Each player takes 2 pegs** of their color.\n3. **Starting position** — All pegs start in the starting holes.\n4. **Target** — First player to reach 121 points (twice around the board) wins."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Cut for deal** — Each player cuts the deck; lowest card deals first.\n- **Deal 6 cards** each (in a 2-player game).\n- **Discard to crib** — Each player discards 2 cards face down to form the crib (4 cards). The crib belongs to the dealer.\n- **Cut for starter** — Non-dealer cuts the remaining deck; dealer flips the top card of the bottom half as the starter card.\n- **His Heels** — If the starter card is a Jack, dealer immediately pegs 2 points."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Cribbage is a card game for 2-4 players combining hand play (pegging) with hand scoring. Players take turns playing cards to a running count, scoring for combinations. Then hands and the crib are scored separately. First to 121 points wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each hand has two phases:\n\n#### Phase 1: The Play (Pegging)\n- Non-dealer plays first, placing a card face up and announcing its value.\n- Players alternate playing cards, keeping a running total.\n- **Face cards** = 10, **Aces** = 1, number cards = face value.\n- **Cannot exceed 31** — If you can't play without exceeding 31, say \"Go.\"\n- When both players say Go (or total reaches 31), the count resets to 0.\n- Last card played before a Go or 31 earns 1 point (or 2 for exactly 31).\n\n#### Phase 2: The Show (Scoring Hands)\n- Non-dealer scores hand first, then dealer scores hand, then dealer scores crib.\n- Each hand is scored using the 4 hand cards + the starter card (5 cards total).\n- The crib also uses 4 crib cards + the starter card."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Pegging Scores (During Play)\n- **15** — Playing a card that makes the running total exactly 15: 2 points.\n- **Pair** — Playing a card matching the rank of the previous card: 2 points.\n- **Pair Royal** — Third card of same rank in a row: 6 points.\n- **Double Pair Royal** — Fourth card of same rank: 12 points.\n- **Run** — Playing a card that completes a sequence of 3+ consecutive ranks (in any order): 1 point per card in the run.\n- **31** — Reaching exactly 31: 2 points.\n- **Go / Last Card** — Last to play before a Go: 1 point.\n\n#### Hand Scoring (During Show)\n- **15s** — Each combination of cards totaling 15: 2 points each.\n- **Pairs** — Each pair of same-rank cards: 2 points per pair.\n- **Runs** — Each sequence of 3+ consecutive ranks: 1 point per card.\n- **Flush** — 4 cards of same suit in hand: 4 points (5 if starter matches: 5 points). In the crib, flush only counts if all 5 are same suit.\n- **Nobs** — Jack of the same suit as the starter card: 1 point."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **His Heels** — If starter card is a Jack, dealer pegs 2 immediately.\n- **Muggins** (optional) — If a player misses points, opponent may claim them by calling \"Muggins.\"\n- **Skunking** — If winner reaches 121 before loser reaches 91, it's a skunk (counts as double win in some games).\n- **Double skunk** — Loser fails to reach 61 points."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Winning\n- First player to peg 121 points (or past) wins immediately.\n- Points can be scored during pegging or during the show.\n- If non-dealer reaches 121 during the show, they win even if dealer's hand/crib would also reach 121.\n\n#### Dealing Alternates\n- Dealer alternates each hand. Dealing is an advantage because of the crib."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Keep cards that work together** — Hold cards that form 15s, pairs, and runs.\n- **Be careful what you give the crib** — Don't give the dealer (or yourself as non-dealer) good scoring cards.\n- **Avoid giving 5s to opponent's crib** — 5s combine with face cards for easy 15s.\n- **Lead low** — Leading with a low card makes it harder for the opponent to score 15."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Count your outs** — Before discarding to crib, calculate potential points for each option.\n- **Pegging defense** — Play cards that avoid giving pairs and 15s (avoid playing cards close to 5 or 10 in count).\n- **Board position** — When ahead, play conservatively; when behind, take risks for bigger pegging scores.\n- **Magic 15** — Cards totaling 15 are the most common scoring combination; keep them whenever possible.\n- **Dealer vs pone** — As dealer, be more aggressive keeping good crib cards."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "barrage",
+  "title": "Barrage",
+  "aliases": [],
+  "publisher": "Cranio Creations",
+  "player_count": {"min": 1, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 120},
+  "complexity": "heavy",
+  "categories": ["worker-placement", "resource-management", "economic", "engine-building", "area-control"],
+  "source_url": "https://www.craniocreations.it/prodotto/barrage",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 main game board** — Map of the Alps showing mountain basins, rivers flowing downhill, dam positions, conduit routes, and powerhouse locations.\n- **4 company boards** — Player boards tracking construction resources (excavators, concrete mixers), technology tiles, and executive officers.\n- **1 energy track** — Tracks energy produced by each player and determines turn order.\n- **1 management board** — Wheel mechanism for recycling construction machinery.\n\n#### Construction Pieces (Per Player)\n- **Dams** — Base dams (level 1), elevation pieces (level 2, 3). Placed in basins to hold water.\n- **Conduits** — Connect basins to powerhouses. Route water for power generation.\n- **Powerhouses** — Generate energy when water flows through. Different capacities.\n\n#### Other Components\n- **Water drops** — Blue tokens representing water in the system.\n- **Excavators and concrete mixers** — Construction machinery needed to build. Spent when building and slowly recycled.\n- **Technology tiles** — Upgrades that improve building efficiency or provide special abilities.\n- **Contract tiles** — Fulfill for VP and bonuses.\n- **Executive officer tiles** — Asymmetric leader abilities for each company.\n- **Round tokens** — Mark the 5 rounds.\n- **VP tokens** — Track victory points."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Main Board\n1. **Place the map board** — The Alps map shows interconnected basins at different elevations.\n2. **Water placement** — Place starting water drops in headwater basins as indicated.\n3. **Neutral dams** — Place neutral dam pieces on designated starting positions.\n4. **Contract tiles** — Shuffle and deal contract tiles into the display slots.\n5. **Technology tiles** — Sort technology tiles and place in their supply.\n6. **Management wheel** — Set the construction wheel to its starting position.\n\n#### Round Setup\n- **5 rounds** — Place round markers. Each round has specific water replenishment.\n- **Headwater sources** — At the start of each round, new water drops are added to headwater basins.\n- **Turn order** — Determined by position on the energy track (lowest energy goes first)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Company Board Setup\n- **Choose a company** — Each player takes a company board with starting resources.\n- **Starting machinery** — Each player begins with a set number of excavators and concrete mixers.\n- **Executive officer** — Each player selects (or is dealt) an executive officer providing a unique power.\n- **Starting structures** — Players may have a starting dam or conduit based on company.\n- **Credits** — Each player starts with a small number of credits (money).\n\n#### Construction Wheel\n- **Machinery recycling** — The construction wheel slowly returns spent machinery. Built structures cost machinery that enters the wheel and comes back in 2-3 rounds.\n- **Planning ahead** — You must plan construction knowing machinery won't be immediately available again."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nBarrage is a deeply strategic game about building a hydroelectric empire in the Alps. Players represent energy companies competing to build dams, conduits, and powerhouses to generate the most electricity. The signature mechanic is that water flows downhill — after you use water to generate power, it flows into a lower basin where an opponent's dam may capture it. This creates intense spatial competition and timing decisions.\n\n#### Game Arc\n- **5 rounds** — Short, brutal rounds with extremely tight action economy.\n- **Construction machinery** — Your excavators and concrete mixers are spent when building and recycle slowly via the construction wheel. Running out of machinery means you cannot build.\n- **Escalating infrastructure** — Early-game building creates the network that generates mid-to-late-game energy.\n- **Water flow** — Water starts in mountain headwaters and flows down through the system, potentially powering multiple players' infrastructure."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Water replenishment** — Add new water drops to headwater basins as shown on the round marker.\n2. **Income** — Players receive income (credits) based on their current position.\n3. **Action phase** — Starting with the player lowest on the energy track, players take turns placing workers on action spaces. Each player has a limited number of engineers (workers).\n4. **Water flow resolution** — After all actions, water flows downhill from any basins that produced energy.\n5. **Round scoring** — Check for contract fulfillment and bonus VP.\n6. **Construction wheel advance** — Rotate the wheel one notch, returning some spent machinery to players.\n\n#### Action Spaces\n- **Construction spaces** — Build dams, conduits, or powerhouses by spending machinery and credits.\n- **Technology spaces** — Acquire technology tiles to improve efficiency.\n- **Contract spaces** — Take contract tiles or fulfill existing ones.\n- **Water management** — Manipulate water placement or flow.\n- **External works** — Produce energy using special external contract mechanisms.\n- **Turbine room** — Place a turbine to activate a dam-conduit-powerhouse network and produce energy.\n\n#### Engineer Placement\n- **Limited workers** — Each player has only 12 engineers total (not all available each round).\n- **Blocking** — Most action spaces allow only 1 player per round.\n- **Turn order advantage** — Going first (lowest on energy track) lets you claim key spaces."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Building Infrastructure\n- **Dams** — Placed in basins at specific elevations. Hold water drops. Can be elevated (level 1 → 2 → 3) to hold more water. Higher dams hold more but cost more machinery.\n- **Conduits** — Connect a basin (with your dam) to a powerhouse. The longer the conduit, the more energy generated but the more it costs.\n- **Powerhouses** — Receive water from conduits and convert it to energy. Each has a capacity (number of water drops it can process per activation).\n\n#### Producing Energy\n- **Activation** — Use the Turbine Room action to activate one of your production networks: dam → conduit → powerhouse.\n- **Energy output** — Energy produced = number of water drops × conduit multiplier.\n- **Water flow** — After production, the water drops flow downhill to the next lower basin. If an opponent has a dam there, they now hold that water.\n\n#### Construction Costs\n- **Excavators** — Required for conduits (1 per section) and dams.\n- **Concrete mixers** — Required for dams and powerhouses.\n- **Credits** — Additional monetary cost for most structures.\n- **Machinery recycling** — Spent machinery enters the construction wheel and returns in 2-3 rounds. This is the core constraint of the game.\n\n#### Technology Tiles\n- **Efficiency upgrades** — Reduce construction costs or increase energy output.\n- **Special abilities** — New action options or modified rules for your company.\n- **Limited supply** — Some technologies are one-per-player. First come, first served.\n\n#### Contracts\n- **Requirements** — Produce a certain amount of energy in a single activation.\n- **Rewards** — VP and immediate bonuses (credits, machinery, VP).\n- **Fulfillment timing** — You must produce the required energy in one activation to fulfill a contract."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Water Flow\n- **Downhill movement** — After energy production, water drops move from the powerhouse exit to the next lower basin on the river.\n- **Opponent capture** — If an opponent has a dam in that lower basin, they now control the water.\n- **Multi-use water** — A single water drop can generate energy for multiple players as it flows down the mountain.\n- **Strategic positioning** — Building below opponents is powerful because you get their used water for free.\n\n#### Construction Wheel\n- **Recycling mechanism** — The wheel has multiple slots. Spent machinery enters the wheel at the current position and comes out 2-3 rounds later.\n- **Planning constraint** — You cannot build if you don't have the required machinery. Planning ahead for machinery availability is essential.\n- **Tight economy** — This is the primary constraint. Running out of excavators or mixers freezes your construction.\n\n#### Executive Officers\n- **Asymmetric powers** — Each officer provides a unique game-changing ability.\n- **Examples** — Extra machinery return, bonus energy on activation, cheaper construction, additional workers.\n- **Strategic alignment** — Choose an officer that complements your positional strategy on the map.\n\n#### External Works\n- **Alternative energy** — Some action spaces let you produce energy without your own dam-conduit-powerhouse network.\n- **Contracts** — External works can fulfill contracts.\n- **Opportunity cost** — Using external works means not building your own infrastructure."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- **After round 5** — The game ends after the 5th round.\n\n#### Final Scoring\n- **Energy track VP** — Points based on your position on the energy track.\n- **Contract VP** — Points from fulfilled contracts throughout the game.\n- **Objective tiles** — End-game objectives revealed at the start (score for specific achievements like most dams, highest elevation structures, etc.).\n- **Building bonuses** — Some structures and technologies provide end-game VP.\n- **Credits** — Remaining credits may be worth VP (at a poor conversion rate).\n\n#### Winner\n- **Highest VP** — Player with the most victory points wins.\n- **Tiebreaker** — Player higher on the energy track."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Machinery is everything** — You will constantly feel short on excavators and concrete mixers. Plan 2 rounds ahead for what you need.\n- **Build below opponents** — Positioning your dams below an opponent's powerhouse exit gives you free water.\n- **Don't overbuild early** — Each structure costs machinery that takes rounds to return. Build only what you can activate.\n- **Contracts drive VP** — Raw energy production matters less than contract fulfillment. Always have a contract to work toward.\n- **Turn order is tactical** — Being lower on the energy track lets you act first. Sometimes producing less energy is strategically better.\n- **Technology matters** — A well-timed technology tile can save you machinery over multiple rounds."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Downstream Parasitism\n- **Goal** — Build infrastructure below opponents to capture their used water.\n- **Key actions** — Position dams in lower basins, build conduits to your powerhouses.\n- **Benefit** — Free water every time opponents produce energy.\n\n#### Strategy 2: High Elevation Monopoly\n- **Goal** — Control headwater basins with tall dams to hold maximum water.\n- **Key actions** — Rush to build and elevate dams in mountain basins.\n- **Benefit** — You control when water enters the system and can time activations for maximum contract value.\n\n#### Strategy 3: Technology Rush\n- **Goal** — Acquire key technology tiles to reduce costs and increase efficiency.\n- **Key actions** — Prioritize technology action spaces early.\n- **Benefit** — Lower construction costs compound over the entire game.\n\n#### General Principles\n- **Every action is precious** — With only ~12 actions per round and 5 rounds, there is zero room for wasted turns.\n- **Watch the wheel** — Know exactly when your machinery returns and plan construction accordingly.\n- **Block strategically** — Preventing an opponent from building in a key location can be worth more than your own construction."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

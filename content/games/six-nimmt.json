@@ -1,0 +1,85 @@
+{
+  "game_id": "six-nimmt",
+  "title": "6 Nimmt! / Take 5",
+  "aliases": ["Take 5", "6 Nimmt", "6 nimmt!", "Take 6"],
+  "publisher": "Amigo Spiele",
+  "player_count": {"min": 2, "max": 10, "recommended": 6},
+  "play_time_minutes": {"min": 20, "max": 45},
+  "complexity": "party",
+  "categories": ["card-game", "hand-management", "simultaneous-play"],
+  "source_url": "https://www.amigo-spiele.de/6nimmt",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **104 numbered cards** (1-104)\n- Each card has 1-7 bull heads (penalty points):\n  - Cards ending in 5: 2 bulls\n  - Cards ending in 0: 3 bulls\n  - Doubles (11, 22, 33...): 5 bulls\n  - Card 55: 7 bulls\n  - All others: 1 bull"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle all 104 cards.**\n2. **Deal 10 cards** to each player.\n3. **Place 4 cards** face up in a column — these start 4 rows."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **10 cards in hand** — Keep hidden.\n- **All players play simultaneously** each round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "6 Nimmt! is a simultaneous card game. Play cards onto 4 rows. If your card becomes the 6th in a row, you take that row's bull head penalties. Lowest penalty total wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "All players act simultaneously:\n1. **Choose** — Everyone secretly selects 1 card from their hand.\n2. **Reveal** — All selected cards are flipped face up at the same time.\n3. **Place cards** — Starting with the lowest number, each card is placed according to placement rules.\n4. **Repeat** for 10 rounds until all cards are played."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Card Placement Rules\n- Each card must go on the row whose current last card is the closest lower number.\n- Example: If rows end in 12, 37, 55, 80 and you play 42, it goes on the 37 row.\n\n#### 6th Card Rule\n- If your card would be the 6th card in a row, you take all 5 existing cards as penalty.\n- Your card then becomes the new start of that row.\n\n#### Lowest Card Rule\n- If your card is lower than all 4 row-ending cards, you must choose a row to take.\n- Take all cards from your chosen row as penalty.\n- Your card starts a new row.\n\n#### Bull Heads (Penalty Points)\n- 1 bull: most cards\n- 2 bulls: cards ending in 5 (5, 15, 25...)\n- 3 bulls: cards ending in 0 (10, 20, 30...)\n- 5 bulls: double numbers (11, 22, 33...)\n- 7 bulls: card 55"
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Simultaneous play** — No turn order for selection; all choose at once.\n- **Resolution order** — Cards are resolved lowest to highest.\n- **Multi-round game** — Play multiple hands. Shuffle and redeal each hand.\n- **66 points elimination** (variant) — Player reaching 66 bulls is eliminated."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Hand End\n- After 10 rounds, count bull heads collected.\n\n#### Game End\n- Play multiple hands. Player who reaches 66 bull heads triggers game end.\n- **Lowest total bull heads wins.**"
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Play middle cards early** — Very low and very high cards are safest to hold.\n- **Count row lengths** — Watch which rows are close to 5 cards.\n- **Avoid 5th position** — If a row has 4 cards, playing there risks triggering the 6th card.\n- **Low cards are dangerous** — If all rows are high, a low card forces you to take a row."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Gap reading** — Play cards that leave large gaps to reduce chances of other cards landing on your row.\n- **Row control** — Try to play 5th card on a row with few bulls, so the 6th card penalty goes to someone else.\n- **Sacrifice rows** — If forced to take, choose the row with fewest bull heads.\n- **Card counting** — With more players, track which numbers have been played."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

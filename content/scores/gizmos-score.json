@@ -1,0 +1,9 @@
+{
+  "game_id": "gizmos",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "gizmo_cards", "label": "Built Gizmo Cards", "points_each": 1, "type": "value", "description": "Sum of VP values printed on all built gizmo cards across all levels"},
+    {"id": "bonus_vp", "label": "Bonus VP Tokens", "points_each": 1, "type": "count", "description": "VP tokens earned from build-trigger gizmos and other effects during the game"}
+  ],
+  "win_condition": "Player with the highest total VP wins. Tiebreaker: most total gizmos built."
+}

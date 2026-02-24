@@ -1,0 +1,85 @@
+{
+  "game_id": "survive-escape-from-atlantis",
+  "title": "Survive: Escape from Atlantis",
+  "aliases": ["Survive", "Escape from Atlantis"],
+  "publisher": "Stronghold Games",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 60},
+  "complexity": "gateway",
+  "categories": ["survival", "movement", "take-that", "modular-board"],
+  "source_url": "https://boardgamegeek.com/boardgame/2653/survive-escape-from-atlantis",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "Survive: Escape from Atlantis includes:\n\n- **40 land tiles** (16 beach/low, 16 forest/mid, 8 mountain/high) — each with an effect on the underside\n- **40 explorer meeples** (10 per player in 4 colors), each with a **hidden number** (1–6) on the bottom\n- **5 sea serpent** figures\n- **6 shark** figures\n- **5 whale** figures\n- **12 boat tokens** (small boats that carry up to 3 explorers)\n- **1 creature die** (used to move sea creatures)\n- **4 corner island tiles** (safe land destinations)\n- **1 volcano tile** (placed at the center of the island)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Place the **4 corner islands** (safe destinations) at the four corners of the board.\n2. Build the **island of Atlantis** in the center of the board by randomly placing land tiles:\n   - **Mountains** (darkest) go in the center.\n   - **Forests** (medium) surround the mountains.\n   - **Beaches** (lightest) form the outer ring.\n3. Place the **volcano tile** at the very center of the island.\n4. Place **sea serpents, sharks, and whales** in their designated starting ocean spaces (marked on the board).\n5. Place the **boats** on designated coastal spaces around the island."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1. Each player receives **10 explorer meeples** of their color.\n2. **Secretly look at the numbers** on the bottom of each meeple (values 1–6). These represent how many points that explorer is worth if they survive. You get one 6, one 5, one 4, etc.\n3. Players take turns placing **one explorer at a time** on any land tile on the island (maximum 1 per tile, though variants allow more). Placement order matters — remember which of your high-value explorers go where.\n4. Once all explorers are placed, the game begins with the player who placed last.\n\n**Important**: Once placed, you are **not allowed** to look at the numbers on the bottom of your meeples again during the game. You must remember which explorers are most valuable!"
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "The island of Atlantis is **sinking into the ocean**! Players must evacuate their explorers to the safety of the four corner islands before they are devoured by sea monsters or drowned.\n\nEach turn, the island loses one tile — starting with beaches, then forests, then mountains. The waters fill with **sea serpents, sharks, and whales** that threaten swimmers and boats.\n\nEach explorer has a **hidden point value** (1–6) on their base. Players must remember which of their explorers are most valuable and prioritize saving them. The player who saves the most valuable explorers wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, perform these steps **in order**:\n\n### 1. Play a Tile (if you have one)\nIf you have any previously collected land tiles with special effects, you may play one now.\n\n### 2. Move Explorers (3 movement points)\nYou have **3 movement points** to spend across your explorers:\n- **On land**: Moving from one tile to an adjacent tile costs 1 point.\n- **Swimming**: Moving one sea space costs 1 point. Swimmers are vulnerable to sharks and sea serpents.\n- **By boat**: If your explorer is on a boat, you may move the boat 1 space per movement point. A boat can carry up to **3 explorers** (from any combination of players). The player with the **most explorers** on a boat controls it.\n\n### 3. Remove a Land Tile\nRemove one **land tile** from the island, following the sinking order:\n- First, all **beach tiles** must be removed (in any order you choose).\n- Then **forest tiles**.\n- Then **mountain tiles**.\n\nFlip the removed tile to see its **effect** (see Special Rules). Any explorer on that tile becomes a **swimmer** in that sea space.\n\n### 4. Roll the Creature Die\nRoll the die and move **one creature** of the indicated type (sea serpent, shark, or whale) up to the number of spaces shown:\n- **Sea serpent**: Moves 1 space. Destroys boats AND eats all swimmers in its space.\n- **Shark**: Moves 1–2 spaces. Eats swimmers but ignores boats.\n- **Whale**: Moves 1–3 spaces. Destroys boats (passengers become swimmers) but does not eat swimmers."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Boat Movement\n- Boats hold up to **3 explorers** from any players.\n- The player with the **majority of explorers** on a boat controls it.\n- If tied, the active player decides if they're one of the tied players; otherwise, no one moves it.\n- A boat reaching a **corner island** safely delivers all explorers aboard.\n\n### Swimming\n- Explorers in the water without a boat are **swimmers**.\n- Swimmers move **1 space per movement point** and are extremely vulnerable.\n- Sharks **eat swimmers** in their space.\n- Sea serpents **eat swimmers** in their space.\n\n### Creature Attacks\n- **Sea Serpent** in a space with a boat: The boat and all aboard are **destroyed**.\n- **Sea Serpent** in a space with swimmers: All swimmers are **eaten**.\n- **Shark** in a space with swimmers: All swimmers are **eaten**.\n- **Shark** in a space with a boat: Nothing happens — sharks ignore boats.\n- **Whale** in a space with a boat: The boat is **destroyed**, passengers become swimmers.\n- **Whale** in a space with swimmers: Nothing happens — whales ignore swimmers.\n\n### Reaching Safety\nAn explorer that reaches any **corner island** is **safe** for the rest of the game and scores their hidden point value."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Land Tile Effects\nWhen a tile is removed, flip it to reveal an effect. Effects come in two types:\n\n**Immediate effects** (green border) — resolve immediately:\n- **Boat**: Place a new boat in that sea space.\n- **Shark/Whale/Sea Serpent appears**: Place that creature in the space.\n- **Whirlpool**: All explorers and boats in adjacent spaces are destroyed.\n\n**Saved effects** (red border) — keep the tile to play on a future turn:\n- **Dolphin**: One of your swimmers moves 3 spaces safely (ignoring creatures).\n- **Boat movement**: Move any one boat 3 extra spaces.\n- **Creature removal**: Remove one creature from the board.\n\n### The Volcano\nWhen the **last mountain tile** is removed, the volcano erupts. The game ends **immediately**. Any explorer not yet on a corner island is lost.\n\n### Player Elimination\nIf all of a player's explorers are destroyed or safely landed, that player continues to take turns (removing tiles and rolling the creature die) to influence the game."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "The game ends when either:\n- The **volcano erupts** (last mountain tile removed), or\n- All explorers from all players are either safe or destroyed.\n\n### Scoring\n1. Each player flips over their **surviving explorers** (those who reached corner islands).\n2. Add up the **hidden values** on the bottom of each surviving explorer.\n3. The player with the **highest total** wins.\n\n### Tiebreaker\nIf tied, the player with the **single most valuable surviving explorer** wins.\n\n### Key Insight\nThe numbers are distributed as follows per player: one 6, one 5, one 4, two 3s, two 2s, and three 1s. Saving your 6-value explorer is worth more than saving three 1-value explorers."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Remember your high-value explorers**: Your 5 and 6 explorers are critical. Place them where you can remember them and prioritize their escape.\n- **Get on boats early**: Swimming is extremely dangerous. An explorer on a boat is much safer.\n- **Use creature movement offensively**: On step 4, you choose WHICH creature of that type to move. Send sharks toward opponents' swimmers.\n- **Beaches sink first**: Don't leave valuable explorers on beach tiles. They'll be swimming very soon.\n- **Control boats with majority**: If you have 2 explorers on a 3-person boat, you control it. This is powerful."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Placement is critical**: Place high-value explorers near boats and near corner islands. Place low-value explorers in the center as decoys.\n- **Boat politics**: Load boats with your explorers to gain control. You can sail a boat away from an opponent's explorer who needs rescue.\n- **Targeted sinking**: When choosing which tile to remove, pick tiles that strand opponents' explorers or create monsters near their swimmers.\n- **Creature manipulation**: The creature die roll is mandatory, but you choose which individual creature to move. Always move monsters toward opponents and away from your explorers.\n- **Sacrifice the expendables**: Let your low-value explorers act as bait or blockers while your high-value ones escape.\n- **Watch for whirlpool tiles**: Whirlpool effects can devastate a cluster of boats and swimmers. Spread your explorers across different routes.\n- **Late-game mountains**: Mountains sink last. An explorer on a mountain buys significant time, but they still need an escape route."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
