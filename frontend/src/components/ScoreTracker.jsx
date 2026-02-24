@@ -537,7 +537,7 @@ function ScoringReference({ gameId }) {
 }
 
 /* ── Spreadsheet Score Entry ───────────────────────────────────── */
-function SpreadsheetScoring({ players, categories, scores, setScores }) {
+function SpreadsheetScoring({ players, categories, scores, setScores, playerNames, setPlayerNames, categoryNames, setCategoryNames }) {
   const [calcOpen, setCalcOpen] = useState(null); // { pi, catId }
 
   const getPlayerTotal = (pi) => {
@@ -591,11 +591,17 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
             border: `2px solid ${p.color}`,
           }}>
             <div style={{ fontSize: "1.3rem" }}>{p.avatar}</div>
-            <div style={{
-              fontSize: "0.8rem", fontWeight: 600, color: p.color,
-              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              maxWidth: "100%",
-            }}>{p.name}</div>
+            <input
+              type="text"
+              value={playerNames[i] ?? p.name}
+              onChange={(e) => setPlayerNames((prev) => ({ ...prev, [i]: e.target.value }))}
+              style={{
+                fontSize: "0.8rem", fontWeight: 600, color: p.color,
+                maxWidth: "100%", width: "100%",
+                background: "transparent", border: "none", outline: "none",
+                textAlign: "center", padding: "0 2px", boxSizing: "border-box",
+              }}
+            />
           </div>
         ))}
       </div>
@@ -621,7 +627,16 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
             minHeight: "44px",
             display: "flex", flexDirection: "column", justifyContent: "center",
           }}>
-            <span style={{ fontWeight: 600, fontSize: "0.85rem", color: "var(--text-primary)", lineHeight: 1.2 }}>{cat.name}</span>
+            <input
+              type="text"
+              value={categoryNames[cat.id] ?? cat.name}
+              onChange={(e) => setCategoryNames((prev) => ({ ...prev, [cat.id]: e.target.value }))}
+              style={{
+                fontWeight: 600, fontSize: "0.85rem", color: "var(--text-primary)", lineHeight: 1.2,
+                background: "transparent", border: "none", outline: "none",
+                padding: 0, width: "100%", boxSizing: "border-box",
+              }}
+            />
             {(Number(cat.points_each) || 1) > 1 && cat.type !== "manual" && (
               <span style={{ fontSize: "0.65rem", color: "var(--text-secondary)", lineHeight: 1.2 }}>
                 {cat.type === "boolean" ? `${cat.points_each}pts (exclusive)` : `${cat.points_each}pts each`}
@@ -737,8 +752,8 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
       {calcOpen && (
         <MiniCalculator
           value={scores[calcOpen.pi]?.[calcOpen.catId] || 0}
-          playerName={players[calcOpen.pi]?.name}
-          catName={categories.find((c) => c.id === calcOpen.catId)?.name}
+          playerName={playerNames[calcOpen.pi] ?? players[calcOpen.pi]?.name}
+          catName={categoryNames[calcOpen.catId] ?? categories.find((c) => c.id === calcOpen.catId)?.name}
           onSave={(val) => {
             updateScore(calcOpen.pi, calcOpen.catId, val);
             setCalcOpen(null);
@@ -1062,6 +1077,8 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
   const [winConditions, setWinConditions] = useState([]);
   const [scores, setScores] = useState({});
   const [coopResult, setCoopResult] = useState(null);
+  const [playerNames, setPlayerNames] = useState({});
+  const [categoryNames, setCategoryNames] = useState({});
 
   // Restore from savedState on mount (Bug 4: preserve scores across tab switches)
   useEffect(() => {
@@ -1143,7 +1160,7 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         {phase === "scoring" && scoringType === "calculator" && (
           <div style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
             <ScoringReference gameId={gameId} />
-            <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} />
+            <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} playerNames={playerNames} setPlayerNames={setPlayerNames} categoryNames={categoryNames} setCategoryNames={setCategoryNames} />
             <div style={{ padding: "12px 0", flexShrink: 0 }}>
               <button onClick={() => setPhase("results")} style={{
                 display: "block", width: "100%", padding: "14px",

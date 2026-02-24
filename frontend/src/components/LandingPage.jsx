@@ -119,7 +119,7 @@ export default function LandingPage() {
         <h2 style={{ fontSize: "1.8rem", marginBottom: "32px", fontWeight: 700 }}>How It Works</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px" }}>
           {[
-            { step: "1", title: "Pick a Game", desc: "Browse the library on the tablet and tap the game your table chose." },
+            { step: "1", title: "Pick a Game", desc: "Browse the library on any device and tap the game your table chose." },
             { step: "2", title: "Follow the Guide", desc: "Step-by-step Setup, Rules, and Strategy guides tailored to player count." },
             { step: "3", title: "Ask Anything", desc: "Mid-game question? Just ask the AI — it knows every edge case." },
           ].map((s) => (
@@ -156,18 +156,18 @@ export default function LandingPage() {
             {
               name: "Starter",
               price: "$99",
-              features: ["25 games", "1 tablet", "Basic support", "Dark mode UI"],
+              features: ["25 games", "1 device", "Basic support", "Dark mode UI"],
             },
             {
               name: "Standard",
               price: "$199",
-              features: ["50 games", "4 tablets", "Custom branding", "Game sales prompts", "Analytics dashboard"],
+              features: ["50 games", "Up to 4 devices", "Custom branding", "Game sales prompts", "Analytics dashboard"],
               highlight: true,
             },
             {
               name: "Premium",
               price: "$349",
-              features: ["Unlimited games", "Unlimited tablets", "Priority support", "Advanced analytics", "API access"],
+              features: ["Unlimited games", "Unlimited devices", "Priority support", "Advanced analytics", "API access"],
             },
           ].map((plan) => (
             <div
