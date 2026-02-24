@@ -46,6 +46,8 @@ function getBestForTags(game) {
   const tags = [];
   const min = game.player_count?.min || 1;
   const max = game.player_count?.max || 4;
+  const time = getPlayTime(game);
+  const cats = game.categories || [];
   if (min === 1) tags.push("Solo");
   if (min <= 2 && max >= 2) tags.push("Great for 2");
   if (max >= 5 && (game.complexity === "party" || max >= 6)) tags.push("Party");
@@ -53,7 +55,13 @@ function getBestForTags(game) {
     if (max >= 3) tags.push("Family");
   }
   if (game.complexity === "heavy") tags.push("Brain Burner");
-  return tags.slice(0, 2); // Max 2 tags
+  if (game.complexity === "midweight" || game.complexity === "heavy") tags.push("For Strategists");
+  if (min <= 2 && max <= 2) tags.push("Date Night");
+  if (game.complexity === "party" || (game.complexity === "gateway" && time <= 30)) tags.push("Kids");
+  if (max >= 7) tags.push("Large Group");
+  if (time <= 25) tags.push("Quick Filler");
+  if (cats.includes("campaign") || cats.includes("legacy-elements") || cats.includes("legacy")) tags.push("Campaign");
+  return tags;
 }
 
 const BEST_FOR_COLORS = {
@@ -62,6 +70,12 @@ const BEST_FOR_COLORS = {
   "Party": "#a855f7",
   "Family": "#22c55e",
   "Brain Burner": "#ef4444",
+  "For Strategists": "#3b82f6",
+  "Date Night": "#f43f5e",
+  "Kids": "#facc15",
+  "Large Group": "#14b8a6",
+  "Quick Filler": "#f97316",
+  "Campaign": "#8b5cf6",
 };
 
 const COMPLEXITY_OPTIONS = ["all", "party", "gateway", "midweight", "heavy"];
@@ -341,106 +355,58 @@ const PLAY_TIME_OPTIONS = [
   { label: "90m+", value: 91 },
 ];
 
-const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner"];
+const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner", "For Strategists", "Date Night", "Kids", "Large Group", "Quick Filler", "Campaign"];
 
 function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
+  const pillStyle = (active, color) => ({
+    padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+    fontWeight: active ? 700 : 400,
+    background: active ? (color || "var(--accent)") : "var(--bg-secondary)",
+    color: active ? "#fff" : "var(--text-secondary)",
+    border: "1px solid " + (active ? "transparent" : "var(--border)"),
+    cursor: "pointer",
+  });
+  const rowStyle = { display: "flex", flexWrap: "wrap", width: "100%", gap: "4px", alignItems: "center", marginBottom: "8px" };
+  const labelStyle = { fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px", whiteSpace: "nowrap" };
+
   return (
     <div style={{ marginBottom: "16px" }}>
-      {/* Row 1: Complexity + Player count */}
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginBottom: "8px" }}>
-        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
-          {COMPLEXITY_OPTIONS.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setComplexity(opt)}
-              style={{
-                padding: "6px 14px",
-                borderRadius: "999px",
-                fontSize: "0.8rem",
-                fontWeight: complexity === opt ? 700 : 400,
-                background: complexity === opt
-                  ? (opt === "all" ? "var(--accent)" : COMPLEXITY_COLORS[opt])
-                  : "var(--bg-secondary)",
-                color: complexity === opt ? "#fff" : "var(--text-secondary)",
-                border: "1px solid " + (complexity === opt ? "transparent" : "var(--border)"),
-                cursor: "pointer",
-                textTransform: "capitalize",
-              }}
-            >
-              {opt === "all" ? "All" : opt}
-            </button>
-          ))}
-        </div>
-
-        <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
-
-        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Players:</span>
-          {PLAYER_COUNT_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => setPlayerCount(opt.value)}
-              style={{
-                padding: "6px 12px",
-                borderRadius: "999px",
-                fontSize: "0.8rem",
-                fontWeight: playerCount === opt.value ? 700 : 400,
-                background: playerCount === opt.value ? "var(--accent)" : "var(--bg-secondary)",
-                color: playerCount === opt.value ? "#fff" : "var(--text-secondary)",
-                border: "1px solid " + (playerCount === opt.value ? "transparent" : "var(--border)"),
-                cursor: "pointer",
-              }}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+      {/* Row 1: Best for */}
+      <div style={rowStyle}>
+        <span style={labelStyle}>Best for:</span>
+        {BEST_FOR_OPTIONS.map((opt) => (
+          <button key={opt} onClick={() => setBestFor(opt)}
+            style={pillStyle(bestFor === opt, BEST_FOR_COLORS[opt])}>{opt}</button>
+        ))}
       </div>
 
-      {/* Row 2: Play time */}
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginBottom: "8px" }}>
-        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
-          {PLAY_TIME_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => setPlayTime(opt.value)}
-              style={{
-                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                fontWeight: playTime === opt.value ? 700 : 400,
-                background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
-                color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
-                border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
-                cursor: "pointer",
-              }}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+      {/* Row 2: Players */}
+      <div style={rowStyle}>
+        <span style={labelStyle}>Players:</span>
+        {PLAYER_COUNT_OPTIONS.map((opt) => (
+          <button key={opt.value} onClick={() => setPlayerCount(opt.value)}
+            style={pillStyle(playerCount === opt.value)}>{opt.label}</button>
+        ))}
+      </div>
 
-        <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+      {/* Row 3: Time */}
+      <div style={rowStyle}>
+        <span style={labelStyle}>Time:</span>
+        {PLAY_TIME_OPTIONS.map((opt) => (
+          <button key={opt.value} onClick={() => setPlayTime(opt.value)}
+            style={pillStyle(playTime === opt.value)}>{opt.label}</button>
+        ))}
+      </div>
 
-        {/* Best for */}
-        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
-          {BEST_FOR_OPTIONS.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setBestFor(opt)}
-              style={{
-                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                fontWeight: bestFor === opt ? 700 : 400,
-                background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
-                color: bestFor === opt ? "#fff" : "var(--text-secondary)",
-                border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
-                cursor: "pointer",
-              }}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
+      {/* Row 4: Difficulty */}
+      <div style={rowStyle}>
+        <span style={labelStyle}>Difficulty:</span>
+        {COMPLEXITY_OPTIONS.map((opt) => (
+          <button key={opt} onClick={() => setComplexity(opt)}
+            style={{ ...pillStyle(complexity === opt, opt === "all" ? undefined : COMPLEXITY_COLORS[opt]), textTransform: "capitalize" }}>
+            {opt === "all" ? "All" : opt}
+          </button>
+        ))}
       </div>
     </div>
   );
