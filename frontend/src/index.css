@@ -136,4 +136,6 @@ a:focus-visible {
 @media print {
   body { background: white !important; color: black !important; }
   .no-print { display: none !important; }
+  .qr-card { box-shadow: none !important; border: 1px solid #ddd !important; }
+  @page { margin: 0.5in; }
 }
