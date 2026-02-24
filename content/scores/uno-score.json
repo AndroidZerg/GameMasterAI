@@ -1,0 +1,10 @@
+{
+  "game_id": "uno",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "number_cards", "label": "Number Cards", "points_each": 1, "type": "count", "description": "Sum of face values of number cards (0-9) in opponents' hands"},
+    {"id": "action_cards", "label": "Action Cards", "points_each": 20, "type": "count", "description": "Skip, Reverse, and Draw Two cards in opponents' hands"},
+    {"id": "wild_cards", "label": "Wild Cards", "points_each": 50, "type": "count", "description": "Wild and Wild Draw Four cards in opponents' hands"}
+  ],
+  "win_condition": "First to 500 points across multiple rounds"
+}

@@ -1,0 +1,9 @@
+{
+  "game_id": "skip-bo",
+  "scoring_type": "race",
+  "categories": [
+    {"id": "win_bonus", "label": "Win Bonus", "points_each": 25, "type": "boolean", "description": "25 points for emptying your stock pile first"},
+    {"id": "opponent_remaining", "label": "Opponent Stock Remaining", "points_each": 5, "type": "count", "description": "5 points per card left in each opponent's stock pile"}
+  ],
+  "win_condition": "First to empty stock pile (or first to 500 points)"
+}

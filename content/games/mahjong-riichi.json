@@ -1,0 +1,85 @@
+{
+  "game_id": "mahjong-riichi",
+  "title": "Mahjong (Riichi)",
+  "aliases": ["Japanese Mahjong", "Riichi Mahjong", "Maajan"],
+  "publisher": "Public Domain",
+  "player_count": {"min": 4, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 180},
+  "complexity": "heavy",
+  "categories": ["tile-game", "set-collection", "hand-management", "classic"],
+  "source_url": "https://riichi.wiki",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **136 tiles** total:\n  - **Suited tiles (108)**: 3 suits (Characters/Manzu, Circles/Pinzu, Bamboo/Souzu) × 9 ranks × 4 copies each\n  - **Honor tiles (28)**: 4 Wind tiles (East, South, West, North) × 4 copies + 3 Dragon tiles (White, Green, Red) × 4 copies\n- **Scoring sticks (tenbo)**: 10,000-point sticks, 5,000-point sticks, 1,000-point sticks, 100-point sticks\n- **Dice** (2)\n- **Seat wind marker** and **round wind marker**\n- **Riichi sticks** (1,000-point sticks used for declaring riichi)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Build walls** — Shuffle all 136 tiles face down. Each player builds a wall 17 tiles long and 2 tiles high.\n2. **Determine dealer (East)** — Roll dice, count players counterclockwise to find first East.\n3. **Break wall** — Dealer rolls dice, counts from right end of their wall, and breaks the wall at that point.\n4. **Deal tiles** — Starting from the break, deal 4 tiles at a time counterclockwise until each player has 12, then 1 more each (dealer gets 14, others get 13).\n5. **Set dead wall** — Separate 14 tiles (7 stacks) from the end of the wall as the dead wall.\n6. **Flip dora indicator** — Flip the 3rd tile from the end of the dead wall face up.\n7. **Starting points** — Each player starts with 25,000 points."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Sort hand** — Arrange your 13 tiles (hidden from others).\n- **Seat winds** — Players are assigned East, South, West, North winds based on seating.\n- **Dealer (East)** — Takes the first turn. Starts with 14 tiles.\n- **Round wind** — Starts as East Round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Riichi Mahjong is a 4-player tile game. Players draw and discard tiles to complete a winning hand of 14 tiles — typically 4 sets (melds) plus 1 pair. Hands are scored based on which scoring patterns (yaku) they contain. A full game consists of at least an East Round and a South Round (8 hands minimum)."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Play proceeds counterclockwise:\n1. **Draw** — Draw 1 tile from the wall (or claim a discard — see below).\n2. **Optional: Declare Kan** — If you have 4 of the same tile, you may declare a kan (quad).\n3. **Discard** — Place 1 tile face up in your discard area.\n\n#### Claiming Discards\nWhen any player discards, others may claim it (priority order):\n- **Ron (win)** — Highest priority. Claim the discard to complete your winning hand.\n- **Pon** — Claim to make a triplet (3 of a kind). Any player may pon.\n- **Chi** — Claim to make a sequence (3 consecutive suited tiles). Only the player to the right (next in turn) may chi.\n- **Claiming interrupts** normal turn order. After claiming, the claimer discards and play continues from them."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Winning Hand Structure\n- **Standard**: 4 melds + 1 pair (14 tiles total).\n- **Melds**: Sequences (3 consecutive same-suit) or Triplets (3 identical tiles).\n- **Must have yaku** — A winning hand must contain at least 1 scoring pattern (yaku).\n\n#### Tsumo (Self-draw Win)\n- Complete your hand by drawing from the wall. All other players pay.\n\n#### Ron (Discard Win)\n- Complete your hand using another player's discard. That player pays full value.\n\n#### Riichi Declaration\n- When your hand is tenpai (1 tile from winning) and fully closed (no claimed tiles), you may declare riichi.\n- Place a 1,000-point stick on the table.\n- You cannot change your hand after declaring (only discard drawn tiles).\n- Riichi itself is a yaku worth 1 han.\n\n#### Kan (Quad)\n- **Closed kan** — 4 of the same tile in hand, all concealed.\n- **Open kan** — Add a drawn tile to an existing open triplet.\n- **Added kan** — Add the 4th tile to your own open pon.\n- After any kan, draw a replacement tile from the dead wall and flip another dora indicator.\n\n#### Dora\n- The flipped dora indicator shows a tile; the next tile in sequence is the dora.\n- Each dora in a winning hand adds 1 han to the score (but dora alone is not a yaku)."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Furiten\n- If any of your winning tiles is in your own discard pile, you cannot win by ron (only tsumo).\n- Temporary furiten: if you pass on a ron opportunity, you cannot ron until your next turn.\n\n#### Exhaustive Draw\n- If the wall runs out (14 tiles remain as dead wall), the hand is a draw.\n- Tenpai players receive points from non-tenpai players (3,000 point pool).\n\n#### Dealer Rotation\n- If the dealer wins or is tenpai at a draw, they remain dealer (renchan) and a bonus counter is added.\n- Otherwise, dealership passes to the next player.\n\n#### Scoring Basics\n- **Han** — Scoring multipliers from yaku and dora.\n- **Fu** — Base points from hand composition and wait type.\n- Points = fu × 2^(2+han), with caps at mangan (2,000/4,000 base) and above.\n- **Mangan**: 3 han/70fu or 4 han/30fu+. **Haneman**: 6-7 han. **Baiman**: 8-10 han. **Sanbaiman**: 11-12 han. **Yakuman**: 13+ han."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- After completing East Round and South Round (or when a player drops below 0 points).\n- Player with the most points at end wins.\n\n#### Common Yaku (Scoring Patterns)\n- **Riichi** (1 han) — Declared tenpai with closed hand.\n- **Tsumo** (1 han) — Win by self-draw with closed hand.\n- **Pinfu** (1 han) — Closed hand, all sequences, valueless pair, two-sided wait.\n- **Tanyao** (1 han) — All tiles numbered 2-8 (no terminals or honors).\n- **Iipeiko** (1 han) — Two identical sequences in closed hand.\n- **Yakuhai** (1 han each) — Triplet of dragons, seat wind, or round wind.\n- **Toitoi** (2 han) — All triplets.\n- **Honitsu** (3 han closed / 2 open) — One suit plus honors.\n- **Chinitsu** (6 han closed / 5 open) — One suit only."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Keep your hand closed** — Calling pon/chi opens your hand and limits yaku options.\n- **Aim for tanyao** — All simples (2-8) is the easiest yaku to build.\n- **Declare riichi when ready** — Riichi is a free yaku that also enables ippatsu and ura dora.\n- **Watch discards** — Track what's been discarded to know which tiles are safe and which waits are live.\n- **Defend when behind** — If an opponent declares riichi, consider folding (discarding safe tiles)."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Efficiency** — Maximize tile acceptance (the number of tiles that improve your hand).\n- **Push vs fold** — Decide whether to pursue your hand or play defensively based on risk.\n- **Suji defense** — Use mathematical patterns to identify safer discards against riichi.\n- **Point situation** — Adjust strategy in later rounds based on standings (go for big hands when behind).\n- **Dealer advantage** — Dealer pays/receives 1.5× and can repeat; play more aggressively as dealer."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

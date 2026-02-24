@@ -1,0 +1,10 @@
+{
+  "game_id": "gin-rummy",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "deadwood_diff", "label": "Deadwood Difference", "points_each": 1, "type": "count", "description": "Difference in deadwood points between players"},
+    {"id": "gin_bonus", "label": "Gin Bonus", "points_each": 25, "type": "boolean", "description": "25 points for going Gin (0 deadwood)"},
+    {"id": "undercut_bonus", "label": "Undercut Bonus", "points_each": 25, "type": "boolean", "description": "25 points if opponent's deadwood ≤ knocker's deadwood"}
+  ],
+  "win_condition": "First to 100 points across multiple hands"
+}

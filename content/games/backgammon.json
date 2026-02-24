@@ -1,0 +1,85 @@
+{
+  "game_id": "backgammon",
+  "title": "Backgammon",
+  "aliases": [],
+  "publisher": "Public Domain",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 60},
+  "complexity": "gateway",
+  "categories": ["abstract-strategy", "dice", "race", "classic"],
+  "source_url": "https://usbgf.org/backgammon-basics",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** backgammon board (24 narrow triangles called points, numbered 1-24)\n- **15** white/light checkers\n- **15** black/dark checkers\n- **2** pairs of dice (one per player)\n- **1** doubling cube (faces showing 2, 4, 8, 16, 32, 64)\n- **2** dice cups"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "The board has 4 quadrants of 6 points each. Each player sets up their 15 checkers as follows (from that player's perspective):\n\n- **2 checkers** on the 24-point\n- **5 checkers** on the 13-point\n- **3 checkers** on the 8-point\n- **5 checkers** on the 6-point\n\nThe bar divides the board into inner (home) and outer boards. Players move in opposite directions."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Determine first player** — Each player rolls one die; higher number goes first, using both numbers rolled.\n- **Reroll ties** — If both roll the same number, roll again.\n- **Direction** — Players move in opposite directions around the board toward their home board."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Backgammon is a two-player race game. Move all 15 of your checkers into your home board, then bear them off. First player to bear off all checkers wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1. **Roll dice** — Roll both dice.\n2. **Move checkers** — Use each die value as a separate move. You may move one checker for both dice or two different checkers.\n3. **Use both dice** — You must use both numbers if legally possible. If only one can be used, use the higher one.\n4. **Doubles** — Rolling doubles gives you 4 moves of that value instead of 2.\n\n#### Moving Rules\n- Move checkers forward (toward your home board) by the exact number shown on each die.\n- A checker may land on any point that is: empty, occupied by your own checkers, or occupied by exactly 1 opponent checker (a blot).\n- A point with 2+ opponent checkers is blocked — you cannot land there."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Hitting\n- Landing on a point with a single opponent checker (blot) sends it to the bar.\n- The hit checker must re-enter from the opponent's home board before any other moves.\n\n#### Entering from the Bar\n- Roll dice and enter on a point in the opponent's home board matching a die value (points 1-6 for that player).\n- Must enter all checkers from bar before moving any other checker.\n- If no legal entry point exists, you lose your turn.\n\n#### Bearing Off\n- Once ALL 15 of your checkers are in your home board (points 1-6), you may bear off.\n- Use a die roll matching a point number to remove a checker from that point.\n- If no checker is on the point rolled, you must make a legal move with a checker on a higher point. If none exist, remove from the highest occupied point.\n- If a checker is hit during bearing off, it must re-enter and return to the home board before bearing off resumes.\n\n#### Doubling Cube\n- Before rolling, a player may propose to double the stakes.\n- Opponent may accept (take) or refuse (drop, losing at current stakes).\n- The player who accepted owns the cube and only they can propose the next redouble."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Gammon and Backgammon\n- **Gammon** — If winner bears off all checkers before opponent bears off any, the game is worth double.\n- **Backgammon** — If winner bears off all and opponent still has checkers on the bar or in winner's home board, worth triple.\n\n#### Crawford Rule (Match Play)\n- When one player is 1 point from winning the match, the doubling cube cannot be used for that single game.\n\n#### Automatic Doubles (Optional)\n- If both players roll the same number on the opening roll, the stakes are automatically doubled."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Winning\n- First player to bear off all 15 checkers wins.\n\n#### Match Scoring\n- Single game: 1 point × doubling cube value.\n- Gammon: 2 points × doubling cube value.\n- Backgammon: 3 points × doubling cube value.\n- Match is played to a predetermined number of points."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Make points** — Build consecutive blocked points (a prime) to trap opponent checkers.\n- **Don't leave blots** — Avoid leaving single checkers where they can be hit.\n- **Secure your home board** — Build points in your home board to make re-entry difficult for opponents.\n- **Balance running and blocking** — Pure racing works when ahead; build primes when behind."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Prime strategy** — Build a wall of 6 consecutive points to completely block opponent checkers.\n- **Blitz strategy** — Aggressively hit opponent blots and close your home board.\n- **Running game** — When ahead in the race (pip count), run your back checkers forward.\n- **Back game** — When far behind, hold 2+ points in opponent's home board hoping to hit late.\n- **Doubling cube timing** — Offer the cube when you have about 70% winning chances."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

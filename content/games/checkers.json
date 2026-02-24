@@ -1,0 +1,85 @@
+{
+  "game_id": "checkers",
+  "title": "Checkers",
+  "aliases": ["Draughts", "English Draughts", "American Checkers"],
+  "publisher": "Public Domain",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 60},
+  "complexity": "gateway",
+  "categories": ["abstract-strategy", "perfect-information", "classic"],
+  "source_url": "https://www.usacheckers.com",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** checkerboard (8×8 grid of alternating light and dark squares)\n- **12** dark checkers (one player)\n- **12** light checkers (other player)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Orient board** — Place with a dark square in each player's lower-left corner.\n2. **Place pieces** — Each player places their 12 checkers on the dark squares of their closest 3 rows.\n3. **Middle rows empty** — Rows 4 and 5 start empty."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Dark moves first** — The player with darker pieces takes the first turn.\n- **12 pieces each** — All pieces start as regular men (not kings)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Checkers is a two-player abstract strategy game. Players move their pieces diagonally on dark squares, jumping and capturing opponent pieces. The goal is to capture all enemy pieces or block them so they cannot move."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "- Players alternate turns.\n- On your turn, move one piece diagonally forward one square to an empty dark square.\n- **Jumping** — If an opponent's piece is diagonally adjacent and the square beyond is empty, you must jump over it (capturing it).\n- **Multiple jumps** — If after jumping you can jump again with the same piece, you must continue jumping.\n- **Forced capture** — If a jump is available, you must take it (you cannot make a regular move instead)."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Regular Men\n- Move diagonally forward only (1 square).\n- Capture by jumping diagonally forward over an adjacent opponent piece.\n\n#### Kings\n- Created when a regular piece reaches the opponent's back row (last rank).\n- Marked by stacking a captured piece on top (or flipping the piece).\n- Can move and capture diagonally both forward and backward.\n- A piece that becomes a king during a multi-jump stops; its turn ends."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Mandatory jumps** — You must jump if able. If multiple jump options exist, you may choose which.\n- **Removal** — Jumped pieces are removed from the board immediately.\n- **No backward moves for men** — Only kings can move backward.\n- **Touching rule** (tournament) — If you touch a piece, you must move it if legal."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win Conditions\n- **Capture all pieces** — Opponent has no pieces remaining.\n- **Block all pieces** — Opponent has pieces but no legal moves.\n\n#### Draw\n- By mutual agreement.\n- If neither player can force a win (e.g., each has 1 king).\n- Tournament rules: draw after 40 moves without a capture or king promotion."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Control the center** — Center pieces have more movement options.\n- **Protect your back row** — Don't move back row pieces early; they block opponent kings.\n- **King your pieces** — Getting kings is a major advantage.\n- **Trade wisely** — When ahead in pieces, trade evenly to simplify toward a win."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Dog hole trap** — Force opponent pieces into corners where they have fewer options.\n- **Bridge position** — Two kings can beat one king by controlling key squares.\n- **Sacrifice for position** — Sometimes giving up a piece to gain a double jump is worth it.\n- **Tempo** — Having the move can be an advantage or disadvantage depending on position."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

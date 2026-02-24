@@ -1,0 +1,85 @@
+{
+  "game_id": "uno",
+  "title": "Uno",
+  "aliases": ["UNO"],
+  "publisher": "Mattel",
+  "player_count": {"min": 2, "max": 10, "recommended": 4},
+  "play_time_minutes": {"min": 15, "max": 45},
+  "complexity": "party",
+  "categories": ["card-game", "hand-management", "family"],
+  "source_url": "https://www.mattelgames.com/uno",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "**112 cards** total:\n- **Number cards**: 0-9 in 4 colors (Red, Yellow, Green, Blue) — one 0 and two of each 1-9 per color (76 cards)\n- **Action cards**: 2 each per color of Skip, Reverse, and Draw Two (24 cards)\n- **Wild cards**: 4 Wild + 4 Wild Draw Four (8 cards)\n- **4 blank customizable cards** (optional)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle** all 112 cards.\n2. **Deal 7 cards** to each player.\n3. **Place remaining cards** face down as the draw pile.\n4. **Flip top card** face up to start the discard pile.\n5. **If first card is action/wild** — Apply its effect (Wild Draw Four is reshuffled back)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Hold 7 cards** — Keep your hand hidden from other players.\n- **Determine first player** — Player left of the dealer goes first.\n- **Play direction** — Clockwise to start."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Uno is a fast-paced card game where players try to be the first to empty their hand. Play cards by matching color, number, or symbol with the top of the discard pile. Call \"Uno!\" when you have one card left."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Play a card** — Match the top discard by color, number, or symbol. Or play a Wild card.\n2. **Or draw** — If you can't (or don't want to) play, draw 1 card from the draw pile. You may play it immediately if it's a legal match.\n3. **Say \"Uno!\"** — When you play your second-to-last card, you must call \"Uno!\" before the next player starts their turn. If caught not calling it, draw 2 penalty cards."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Action Cards\n- **Skip** — Next player loses their turn.\n- **Reverse** — Reverses direction of play. In 2-player games, acts as a Skip.\n- **Draw Two (+2)** — Next player draws 2 cards and loses their turn.\n\n#### Wild Cards\n- **Wild** — Play on any card. Declare the color that play continues with.\n- **Wild Draw Four** — Play when you have no card matching the current color. Declare a new color. Next player draws 4 cards and loses their turn.\n- **Challenge** — The player forced to draw 4 may challenge. If the Wild Draw Four was played illegally (player had a matching color), the player who played it draws 4 instead. If the challenge fails, the challenger draws 6 total."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **\"Uno!\" penalty** — Failure to call Uno: draw 2 cards if caught before the next player plays.\n- **Stacking** — Official rules do NOT allow stacking Draw Twos or Wild Draw Fours.\n- **Draw pile empty** — Reshuffle the discard pile (except top card) to form a new draw pile.\n- **Multiple rounds** — Play multiple rounds; first player to 500 cumulative points wins the game."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Round End\n- Round ends when a player plays their last card.\n- That player scores points for all cards remaining in opponents' hands.\n\n#### Point Values\n- **Number cards** — Face value (0-9).\n- **Skip, Reverse, Draw Two** — 20 points each.\n- **Wild, Wild Draw Four** — 50 points each.\n\n#### Game End\n- First player to 500 points wins the overall game."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Play action cards first** — They're worth more points if caught in your hand.\n- **Change color to your strength** — Use Wilds to switch to a color you have many of.\n- **Watch opponents' card counts** — Target players close to going out with Draw Twos and Skips.\n- **Remember to say Uno!** — Practice the habit of calling it immediately."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Hold Wilds** — Save Wild cards for when you're stuck or about to go out.\n- **Color control** — Keep play in a color you dominate.\n- **Target the leader** — Use action cards against the player closest to going out.\n- **Bluffing with Wild Draw Four** — Sometimes worth playing even with matching colors if you're willing to risk a challenge.\n- **Count cards** — Note which colors and numbers have been heavily played."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

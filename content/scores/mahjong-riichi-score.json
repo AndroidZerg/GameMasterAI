@@ -1,0 +1,10 @@
+{
+  "game_id": "mahjong-riichi",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "han", "label": "Han (Multipliers)", "points_each": 1, "type": "count", "description": "Total han from yaku and dora"},
+    {"id": "fu", "label": "Fu (Base Points)", "points_each": 1, "type": "count", "description": "Base points from hand composition"},
+    {"id": "hands_won", "label": "Hands Won", "points_each": 1, "type": "count", "description": "Number of hands won during the game"}
+  ],
+  "win_condition": "Most points after East and South rounds"
+}

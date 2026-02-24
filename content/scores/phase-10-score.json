@@ -1,0 +1,12 @@
+{
+  "game_id": "phase-10",
+  "scoring_type": "race",
+  "categories": [
+    {"id": "phase_reached", "label": "Phase Reached", "points_each": 1, "type": "count", "description": "Highest phase completed (1-10)"},
+    {"id": "penalty_low", "label": "Low Cards (1-9)", "points_each": 5, "type": "count", "description": "5 penalty points each for cards 1-9 remaining"},
+    {"id": "penalty_high", "label": "High Cards (10-12)", "points_each": 10, "type": "count", "description": "10 penalty points each for cards 10-12 remaining"},
+    {"id": "penalty_skip", "label": "Skip Cards", "points_each": 15, "type": "count", "description": "15 penalty points for each Skip card remaining"},
+    {"id": "penalty_wild", "label": "Wild Cards", "points_each": 25, "type": "count", "description": "25 penalty points for each Wild card remaining"}
+  ],
+  "win_condition": "First to complete Phase 10; lowest penalty score breaks ties"
+}

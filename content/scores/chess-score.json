@@ -1,0 +1,8 @@
+{
+  "game_id": "chess",
+  "scoring_type": "elimination",
+  "categories": [
+    {"id": "result", "label": "Game Result", "points_each": 1, "type": "enum", "description": "Win (1), Draw (0.5), Loss (0)"}
+  ],
+  "win_condition": "Checkmate the opponent's King"
+}
