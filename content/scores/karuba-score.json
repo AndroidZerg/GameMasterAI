@@ -1,0 +1,11 @@
+{
+  "game_id": "karuba",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP wins",
+  "tiebreaker": "Most temples reached, then shared victory",
+  "categories": [
+    {"id": "temple_tokens", "label": "Temple Treasure Tokens", "type": "manual", "description": "VP from temple tokens claimed (5/4/3/2 per temple reached first through fourth)"},
+    {"id": "gold_nuggets", "label": "Gold Nuggets", "points_each": 2, "type": "count", "description": "2 VP per gold nugget collected"},
+    {"id": "crystals", "label": "Crystals", "points_each": 1, "type": "count", "description": "1 VP per crystal collected"}
+  ]
+}

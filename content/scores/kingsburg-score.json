@@ -1,0 +1,11 @@
+{
+  "game_id": "kingsburg",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 5 years wins",
+  "tiebreaker": "Most total resources remaining, then most buildings constructed",
+  "categories": [
+    {"id": "building_vp", "label": "Building VP", "type": "manual", "description": "VP printed on each constructed building"},
+    {"id": "ingame_vp", "label": "In-Game VP (advisors, battles, bonuses)", "type": "manual", "description": "VP accumulated during the game from advisors, battle victories, and special effects"},
+    {"id": "resource_bonus", "label": "Leftover Resources (3:1 VP)", "type": "manual", "description": "Every 3 remaining resources (any combo) = 1 VP"}
+  ]
+}

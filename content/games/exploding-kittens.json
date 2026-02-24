@@ -1,0 +1,93 @@
+{
+  "game_id": "exploding-kittens",
+  "title": "Exploding Kittens",
+  "aliases": ["EK"],
+  "publisher": "Exploding Kittens LLC",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 10, "max": 20},
+  "complexity": "party",
+  "categories": ["hand-management", "take-that", "humor", "party"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Card Types\n- **Exploding Kitten cards** — 4 cards (one fewer than the number of possible players).\n- **Defuse cards** — 6 cards total.\n- **Attack cards** — 4 cards.\n- **Skip cards** — 4 cards.\n- **Favor cards** — 4 cards.\n- **Shuffle cards** — 4 cards.\n- **See the Future cards** — 5 cards.\n- **Nope cards** — 5 cards.\n- **Cat cards** — 5 types with 4 cards each (20 total): Tacocat, Rainbow-Ralphing Cat, Hairy Potato Cat, Beard Cat, Cattermelon.\n\n#### Total\n- **Deck size** — 56 cards in the base game."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n- **No board** — Exploding Kittens has no game board.\n- **Draw pile** — Place the shuffled deck face down in the center of the table.\n- **Discard pile** — Leave space next to the draw pile for played cards.\n- **Player hands** — Each player holds their hand of cards privately."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Dealing\n1. **Remove Exploding Kittens** — Take all Exploding Kitten cards and all Defuse cards out of the deck.\n2. **Deal Defuse cards** — Give 1 Defuse card to each player.\n3. **Shuffle remaining Defuse cards** — Put the leftover Defuse cards back into the deck.\n4. **Deal hand** — Deal 7 cards face down to each player (so each player starts with 8 cards including their Defuse).\n5. **Insert Exploding Kittens** — Insert enough Exploding Kitten cards back into the deck so there is 1 fewer than the number of players.\n6. **Shuffle the deck** — Shuffle the draw pile thoroughly.\n\n#### Example\n- **4 players** — Insert 3 Exploding Kitten cards into the deck."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Rulebook suggestion** — The player who most recently touched a real cat goes first, or choose randomly.\n- **Turn direction** — Play proceeds clockwise.\n\n#### Ready to Play\n- Each player should have a hand of 8 cards (7 dealt + 1 Defuse).\n- The draw pile sits in the center with Exploding Kittens shuffled in.\n- Remaining Defuse cards are also shuffled into the draw pile."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### On Your Turn\n1. **Play cards (optional)** — You may play as many action cards as you want from your hand, one at a time, resolving each before playing the next. You are never forced to play a card.\n2. **Draw a card (mandatory)** — End your turn by drawing the top card of the draw pile. If you draw an Exploding Kitten, you must immediately deal with it or you are eliminated.\n\n#### Drawing an Exploding Kitten\n- **If you have a Defuse** — Play your Defuse card to the discard pile. Then secretly reinsert the Exploding Kitten card anywhere in the draw pile (top, bottom, or middle). Your turn ends.\n- **If you have no Defuse** — You are eliminated. Discard all your cards face up. The Exploding Kitten stays out of the draw pile.\n\n#### Important\n- You must draw to end your turn (unless a card effect like Skip or Attack cancels it).\n- There is no hand limit."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Action Cards\n- **Attack** — End your turn without drawing. The next player must take 2 turns in a row (play/draw, then play/draw again). Attacks stack: if the next player also plays an Attack, the following player takes 4 turns.\n- **Skip** — End your turn without drawing a card. If you owe multiple turns (from Attack), this only cancels one of them.\n- **Favor** — Force another player to give you 1 card from their hand. They choose which card to give you.\n- **Shuffle** — Shuffle the draw pile.\n- **See the Future** — Privately peek at the top 3 cards of the draw pile without changing their order.\n- **Nope** — Cancel any action card played by any player (except Exploding Kitten and Defuse). Can be played at any time, even on other players' turns. A Nope on a Nope cancels the Nope (double negative).\n\n#### Cat Card Combos\n- **Matching pair (2 of a kind)** — Play any 2 identical Cat cards to steal 1 random card from another player's hand.\n- **Matching trio (3 of a kind)** — Play any 3 identical Cat cards to name a card type and demand it from a target player. If they have it, they must give it to you. If not, you get nothing.\n- **Cat cards have no individual effect** — They are only useful as pairs or triples."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Nope Timing\n- **Instant play** — Nope can be played at any time before an action card resolves, even during another player's turn.\n- **Nope chains** — Multiple Nope cards can be played in sequence. An odd number of Nopes cancels the action; an even number lets it resolve.\n- **Cannot Nope** — Defuse cards and Exploding Kitten cards cannot be Noped.\n\n#### Defuse Placement\n- **Secret reinsertion** — When you Defuse an Exploding Kitten, you may place it anywhere in the draw pile without revealing where.\n- **Strategic placement** — You can place it on top to trap the next player, or bury it deep for safety.\n\n#### Elimination\n- **Out of the game** — When you explode, you are eliminated and take no more turns.\n- **Cards discarded** — All your remaining cards go face up to the discard pile.\n- **Shrinking deck** — As players are eliminated, both the Exploding Kitten and that player's cards leave the game, making the deck thinner."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning\n- **Last player standing** — The last player who has not exploded wins the game.\n- **No points** — There is no scoring system. It is purely an elimination game.\n\n#### Game Length\n- Games typically last 10-20 minutes depending on player count.\n- With fewer players, the deck is thinner and games are faster.\n\n#### Variants\n- **Multiple rounds** — Some groups play best-of-3 or track wins across multiple games.\n- **Expansions** — Imploding Kittens (adds 6th player, Imploding Kitten card), Streaking Kittens (adds hidden Exploding Kitten hold), Barking Kittens (adds shared card combos)."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Save your Defuse** — Your Defuse card is your lifeline. Never use it frivolously or trade it away unless absolutely necessary.\n- **Play See the Future often** — Early information about the draw pile is valuable and low-cost.\n- **Collect cat pairs** — Stealing cards from opponents can net you extra Defuse cards.\n- **Use Shuffles proactively** — If you see an Exploding Kitten near the top, shuffle before drawing."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Holding too many Nopes** — Nope cards are powerful but holding 3-4 means you have fewer useful action cards.\n- **Forgetting to draw** — You must always end your turn by drawing (unless Skip or Attack cancels it).\n- **Wasting Attacks early** — Attacks become more lethal later when the deck is thin and Exploding Kittens are more likely.\n- **Trading away Defuse** — Never willingly give up your Defuse through Favor unless you have a second one.\n- **Not counting cards** — Track how many Exploding Kittens and Defuses have been seen. This tells you the actual danger level."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **When to Nope** — Save Nopes for truly dangerous moments (opponent stealing your Defuse, blocking a critical Attack near endgame).\n- **Defuse placement** — After defusing, putting the Exploding Kitten on top punishes the next player but they might have a Skip or Attack to dodge it.\n- **Attack vs. Skip** — Attack is generally stronger because it forces the next player to draw twice, but Skip is safer when you just need to survive one turn.\n- **Target selection** — When using Favor or cat pairs to steal, target the player most likely to have a Defuse card.\n- **Late game math** — Count remaining cards in the draw pile and remaining Exploding Kittens. If the odds are bad, use every tool to avoid drawing."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

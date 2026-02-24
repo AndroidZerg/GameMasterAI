@@ -1,0 +1,93 @@
+{
+  "game_id": "istanbul",
+  "title": "Istanbul",
+  "aliases": [],
+  "publisher": "AEG / Pegasus Spiele",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 40, "max": 60},
+  "complexity": "midweight",
+  "categories": ["pick-up-and-deliver", "racing", "modular-board"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board Tiles\n- **Location tiles** — 16 double-sided tiles forming a 4x4 bazaar grid.\n- **Locations include** — Wainwright, Fabric Warehouse, Spice Warehouse, Fruit Warehouse, Post Office, Caravansary, Sultan's Palace, Small Market, Large Market, Police Station, Fountain, Black Market, Tea House, Small Mosque, Great Mosque, Gemstone Dealer.\n\n#### Player Components (per player)\n- **Merchant disc** — 1 large disc (your merchant).\n- **Assistant discs** — 4 small discs (your assistants).\n- **Wheelbarrow tile** — 1 tile showing goods capacity (starts with space for 2 of each good, expandable).\n- **Wheelbarrow extensions** — 3 extension tiles (purchased at Wainwright).\n\n#### Other Components\n- **Rubies** — Gemstone tokens (the victory objective).\n- **Goods indicators** — Tokens for fabric, spices, fruit, and blue jewelry on wheelbarrows.\n- **Coins (Lira)** — Various denominations.\n- **Bonus cards** — Dealt at Caravansary.\n- **Demand tiles** — For Small and Large Market.\n- **Mosque tiles** — Ability tiles at mosques.\n- **Family member** — 1 neutral pawn per player.\n- **Governor & Smuggler** — 2 neutral pawns placed on the board."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Grid Setup\n1. **Arrange tiles** — Place the 16 location tiles in a 4x4 grid. For first game, use the recommended layout from the rulebook. For experienced players, randomize.\n2. **Place Governor** — Put the Governor pawn on the Police Station tile.\n3. **Place Smuggler** — Put the Smuggler pawn on the Police Station tile.\n4. **Market demand** — Randomly place demand tiles on the Small Market and Large Market.\n5. **Mosque tiles** — Place 2 Mosque ability tiles on each Mosque (Small Mosque and Great Mosque), accessible side up.\n6. **Rubies** — Place rubies on the Sultan's Palace, Gemstone Dealer, Small Mosque, and Great Mosque as indicated.\n7. **Coin supply** — Place Lira near the board."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n1. **Merchant and assistants** — Stack your merchant disc on top of your 4 assistant discs to form a stack.\n2. **Starting position** — Place your entire stack on the Fountain tile.\n3. **Wheelbarrow** — Take your wheelbarrow tile. Starting capacity: 2 of each good type (fabric, spices, fruit, jewelry).\n4. **Starting goods** — Begin with 0 goods on your wheelbarrow.\n5. **Starting money** — Receive starting Lira based on player order: 1st player gets 2 Lira, 2nd gets 3 Lira, 3rd gets 4 Lira, etc.\n6. **Family member** — Place your family member pawn on the Police Station.\n7. **Rubies** — Start with 0 rubies."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Random selection** — Choose a starting player randomly.\n- **Turn order** — Play proceeds clockwise.\n\n#### Ruby Target\n- **2-3 players** — First to collect 5 rubies wins.\n- **4 players** — First to collect 5 rubies wins.\n- **5 players** — First to collect 5 rubies wins.\n\n#### Starting State\n- All players' stacks begin at the Fountain.\n- All family members begin at the Police Station.\n- Governor and Smuggler begin at the Police Station."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### On Your Turn\n1. **Move** — Move your merchant (and stack) 1 or 2 spaces orthogonally (not diagonally). You must move; you cannot stay in place.\n2. **Drop off or pick up an assistant** — At your destination, you must either leave 1 assistant from your stack OR pick up 1 of your assistants already at that location. You cannot take a location's action without this exchange.\n3. **Perform location action** — Carry out the action of the tile you landed on.\n4. **Encounter other merchants** — If other players' merchants (not assistants) are on the same tile, you may pay them 2 Lira each, or they catch a ride (no payment needed in some variants). If you land on the Governor or Smuggler, you may interact with them.\n\n#### Assistant Management\n- **Running out** — If you have no assistants left in your stack and no assistants at your destination, you cannot take actions at most locations.\n- **Fountain** — Moving to the Fountain picks up ALL your assistants from everywhere on the board, returning them to your stack."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Warehouse Locations\n- **Fabric Warehouse** — Fill your wheelbarrow with fabric to maximum capacity.\n- **Spice Warehouse** — Fill your wheelbarrow with spices to maximum capacity.\n- **Fruit Warehouse** — Fill your wheelbarrow with fruit to maximum capacity.\n\n#### Market Locations\n- **Small Market / Large Market** — Sell specific combinations of goods for Lira as shown on the demand tile. After selling, roll the demand die to set new prices.\n\n#### Key Locations\n- **Wainwright** — Pay 7 Lira to add a wheelbarrow extension (+1 capacity for each good type). After 3 extensions, gain 1 ruby.\n- **Sultan's Palace** — Deliver a specific combination of goods to receive 1 ruby. Required goods increase with each ruby taken.\n- **Gemstone Dealer** — Pay Lira to buy 1 ruby. Price increases with each purchase (12, 13, 14... Lira).\n- **Small Mosque / Great Mosque** — Pay specific goods to gain Mosque tiles (permanent abilities). Collecting 2 tiles from one Mosque earns 1 ruby.\n- **Post Office** — Gain a fixed set of goods and/or Lira.\n- **Caravansary** — Draw 2 bonus cards, keep 1.\n- **Tea House** — Name a number (3-12), another player rolls 2 dice; if the roll meets or exceeds your number, gain that many Lira.\n- **Black Market** — Gain 1 good of your choice plus roll dice for a bonus good. Can sell blue jewelry here.\n- **Police Station** — Send your family member to any location to use that location's action.\n- **Fountain** — Recall all your assistants back to your stack."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Governor & Smuggler\n- **Governor** — If you land on the Governor's tile, you may pay 2 Lira to gain 1 bonus card or use the Governor to take any 1 good.\n- **Smuggler** — If you land on the Smuggler's tile, you may pay 2 Lira to gain 1 good of your choice.\n- **Movement** — After interacting, move the Governor/Smuggler to any other tile.\n\n#### Family Member\n- From the Police Station, send your family member to any tile to perform that tile's action remotely.\n- Your family member stays at that tile. If another player's merchant lands on your family member, they must pay you 2 Lira and your family member returns to the Police Station.\n\n#### Mosque Abilities\n- **Small Mosque tiles** — Reroll dice at markets, extra Lira at Tea House, etc.\n- **Great Mosque tiles** — Return an assistant to your stack, gain goods when using Fountain, etc.\n- Collecting both tiles from either Mosque earns a ruby.\n\n#### Bonus Cards\n- Gained at Caravansary. Provide one-time effects: free goods, extra movement, Lira, or can be used as wild goods at Sultan's Palace."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning\n- **Race to rubies** — The game ends immediately when a player collects their 5th ruby.\n- That player wins. There is no final round.\n\n#### Ruby Sources (6 possible)\n1. **Sultan's Palace** — Deliver goods.\n2. **Gemstone Dealer** — Pay increasing Lira.\n3. **Wainwright** — After buying all 3 extensions.\n4. **Small Mosque** — Collect both tiles.\n5. **Great Mosque** — Collect both tiles.\n6. **Collecting 5 bonus cards** — Grants 1 ruby.\n\n#### Tiebreaker\n- If two players reach 5 rubies in the same round, the player who reached it first (earlier in turn order that round) wins. Then: most Lira, most goods."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Wainwright first** — Expanding your wheelbarrow early lets you carry more goods for the rest of the game, and completing all 3 extensions earns a ruby.\n- **Warehouse route** — Plan a path that efficiently loops through warehouses, markets, and ruby locations.\n- **Mosque tiles early** — Their permanent abilities compound over many turns.\n- **Manage assistants** — Minimize wasted trips to the Fountain. Plan routes that pick up assistants as you go."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Running out of assistants** — If you leave all assistants behind with no pickup route, you waste turns going to the Fountain.\n- **Ignoring the Gemstone Dealer** — Buying rubies for Lira is straightforward and should not be overlooked.\n- **Tunnel vision on one ruby source** — You need 5 rubies from different sources. Diversify your approach.\n- **Forgetting family member** — The family member is a free remote action that many players underuse.\n- **Poor movement planning** — Moving 2 spaces is often better than 1. Plan 2-3 turns ahead to minimize wasted movement."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Wheelbarrow vs. speed** — Fully upgrading the wheelbarrow (3 visits + Lira) gives 1 ruby but costs tempo. Sometimes 2 extensions is enough.\n- **Which Mosque tiles** — Choose tiles that synergize with your planned route and strategy.\n- **When to Fountain** — Return for assistants only when your route truly requires it, not prematurely.\n- **Sultan's Palace timing** — Goods requirements increase per ruby. Early Sultan visits are cheaper.\n- **Blocking opponents** — Landing on opponents' merchants costs them 2 Lira. Positioning to block key locations is strong in tight games."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

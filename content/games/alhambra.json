@@ -1,0 +1,93 @@
+{
+  "game_id": "alhambra",
+  "title": "Alhambra",
+  "aliases": ["Der Palast von Alhambra"],
+  "publisher": "Queen Games",
+  "player_count": {"min": 2, "max": 6, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 60},
+  "complexity": "gateway",
+  "categories": ["tile-placement", "set-collection", "city-building"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Building Tiles\n- **54 building tiles** — 6 types, 9 tiles each, with walls on 0-3 sides:\n  - Pavilion (blue)\n  - Seraglio (red)\n  - Arcade (brown)\n  - Chamber (white)\n  - Garden (green)\n  - Tower (purple)\n- Each tile has a purchase price (1-13) and walls printed on specific edges.\n\n#### Currency Cards\n- **108 money cards** — 4 currencies (Denars, Dirham, Ducats, Gulden) in various denominations (1-9).\n\n#### Other Components\n- **Tile supply board** — Central board showing 4 building market slots.\n- **Starting tile** — 1 fountain tile per player (starting piece for personal Alhambra).\n- **Scoring cards** — 2 cards shuffled into the money deck to trigger scoring rounds.\n- **Reserve board** — Each player has a personal reserve area.\n- **Score track** — For tracking VP."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Central Market Setup\n1. **Building bag** — Place all 54 building tiles in the bag and mix.\n2. **Fill market** — Draw 4 tiles and place 1 on each of the 4 market spaces on the supply board. Each space corresponds to one of the 4 currencies.\n3. **Money card deck** — Shuffle all money cards. Insert the 2 scoring cards: one into the first third of the deck, one into the last third.\n4. **Money display** — Reveal 4 money cards face up next to the deck.\n5. **Score track** — Place near the board with all player markers on 0."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n1. **Starting tile** — Each player receives 1 fountain starting tile and places it in front of them. This is the beginning of their Alhambra.\n2. **Starting money** — Deal money cards face down to each player until they have a total value of at least 20. Players keep their money cards hidden.\n3. **Reserve board** — Each player has a personal reserve area for tiles not yet placed.\n4. **Score marker** — Place on the 0 space of the score track."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Least money** — The player with the lowest total currency value goes first.\n- **Ties** — Youngest player breaks ties.\n- **Turn order** — Play proceeds clockwise.\n\n#### Ready State\n- 4 building tiles on the market, each assigned to a currency.\n- 4 money cards face up available.\n- Each player has their fountain tile and starting money in hand."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### On Your Turn — Choose 1 of 3 Actions\n1. **Take money** — Take 1 or more money cards from the face-up display. You may take 1 card of any value, OR multiple cards only if their total value is 5 or less.\n2. **Buy a building tile** — Pay the price of a tile from the market using the matching currency (the currency assigned to that market slot). Place the tile in your Alhambra or reserve. If you pay exact change (no overpayment), you immediately take another full turn.\n3. **Redesign your Alhambra** — Do one of the following: (a) place a tile from your reserve into your Alhambra, (b) remove a tile from your Alhambra to your reserve, or (c) swap a tile between your Alhambra and reserve. Only 1 redesign action per turn.\n\n#### After Your Action\n- Refill the building market to 4 tiles from the bag.\n- Refill the money display to 4 cards from the deck.\n- If a scoring card is revealed while refilling money, a scoring round occurs immediately."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Buying Rules\n- **Currency matching** — You must pay with the currency that matches the tile's market slot. You cannot mix currencies.\n- **Overpayment** — You receive no change. If a tile costs 7 and you pay 9, you lose the extra 2.\n- **Exact change bonus** — If you pay the exact price, you take another complete turn immediately. This can chain: exact change on the bonus turn grants yet another turn.\n\n#### Placement Rules\n- **Walls must align** — When placing a tile in your Alhambra, walls on adjacent edges must match: wall-to-wall or open-to-open. You cannot place a walled edge against an open edge of an existing tile.\n- **Accessibility** — Every tile must be reachable from the fountain by moving through open edges (no jumping over walls). You must be able to walk to every tile.\n- **Orthogonal only** — Tiles are placed orthogonally adjacent to existing tiles.\n- **No gaps** — You may have an irregular shape, but all tiles must be connected.\n\n#### Reserve\n- Tiles in your reserve do not count for scoring but are available for later placement.\n- You may buy tiles and place them directly in the reserve if you cannot or do not want to place them yet."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Three Scoring Rounds\n- **1st scoring** — Triggered by the first scoring card drawn from the money deck. Score majorities in each building type. Only the player with the most of each type scores.\n- **2nd scoring** — Triggered by the second scoring card. Score 1st and 2nd place majorities in each building type.\n- **3rd scoring (final)** — At game end. Score 1st, 2nd, and 3rd place majorities.\n\n#### Majority Scoring Table\n| Building Type | 1st Scoring | 2nd Scoring | 3rd Scoring |\n|---|---|---|---|\n| Pavilion | 1 | 8/1 | 16/8/1 |\n| Seraglio | 2 | 9/2 | 17/9/2 |\n| Arcade | 3 | 10/3 | 18/10/3 |\n| Chamber | 4 | 11/4 | 19/11/4 |\n| Garden | 5 | 12/5 | 20/12/5 |\n| Tower | 6 | 13/6 | 21/13/6 |\n\n#### Longest Wall\n- At each scoring round, the player with the longest contiguous outer wall segment around their Alhambra scores bonus VP equal to the length (number of wall segments).\n- Walls on the outer perimeter that connect in a continuous line count. Inner walls and gaps break the chain."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End\n- The game ends when the building tile bag is empty and the market cannot be fully refilled.\n- Complete the current round so all players have an equal number of turns.\n- Perform the 3rd and final scoring round.\n\n#### Final Scoring\n- **Building majorities** — Score 1st, 2nd, and 3rd place for all 6 building types.\n- **Longest wall** — Score wall length bonus.\n- **Ties in majority** — If players tie, add the tied positions' points together and divide equally (round down).\n\n#### Winner\n- The player with the most VP on the score track wins.\n- **Tiebreaker** — Most building tiles in your Alhambra. Then most money card value remaining."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Collect money first** — Take a turn or two to build a strong currency hand before buying. Multiple small cards (total 5 or less) give you more flexibility for exact change.\n- **Prioritize exact change** — Extra turns from exact change are the most powerful mechanic. Hold onto small denomination cards.\n- **Target 2-3 building types** — You cannot win majorities in everything. Focus on 2-3 types and dominate them.\n- **Walls matter early** — Place tiles with walls on the outside perimeter of your Alhambra. The longest wall bonus compounds over 3 scoring rounds."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Overpaying regularly** — Losing coins to overpayment adds up. Plan purchases for exact change when possible.\n- **Ignoring wall placement** — Placing walls facing inward creates accessibility problems and wastes wall bonus potential.\n- **Blocking yourself** — Poor tile placement can make it impossible to expand your Alhambra without redesign turns.\n- **Spreading too thin** — Competing for all 6 building types means winning none. Focus your efforts.\n- **Forgetting the reserve** — If you cannot place a tile legally, use the reserve. Do not skip buying just because placement is tricky."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Money vs. buying** — Taking money cards is tempo-negative but enables exact change plays later. Balance accumulation with purchasing.\n- **Which building types to pursue** — Towers score the most per majority but are heavily contested. Lower types like Pavilion are cheaper but score less.\n- **Wall orientation** — When placing tiles, consider both the building type count AND how the walls contribute to your longest outer wall.\n- **When to redesign** — Spending a turn to fix placement is costly but sometimes necessary to unlock better wall configurations.\n- **Timing vs. scoring cards** — Scoring can trigger at unpredictable times. Stay competitive in your chosen building types at all times."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

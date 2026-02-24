@@ -1,0 +1,93 @@
+{
+  "game_id": "kingsburg",
+  "title": "Kingsburg",
+  "aliases": [],
+  "publisher": "Fantasy Flight Games / Z-Man",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 90},
+  "complexity": "midweight",
+  "categories": ["dice-placement", "resource-management", "building"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board\n- **Main board** — Shows 18 numbered advisor spaces (1-18) arranged in a row, plus a King's Envoy track and season track.\n\n#### Per Player\n- **Player board** — Personal building board with 20 building slots organized in 5 rows.\n- **Dice** — 3 standard dice in player color.\n- **Tokens** — Resource cubes (gold, wood, stone) and building markers.\n- **Disc** — 1 scoring disc.\n\n#### Shared Components\n- **Year track** — Tracks 5 years of gameplay.\n- **Season track** — 4 seasons per year (Spring, Summer, Autumn, Winter).\n- **King's Envoy token** — Awarded to the player who rolls lowest.\n- **King's reinforcement tokens** — +1 military strength tokens.\n- **Enemy cards** — 25 cards (5 per year), revealed in Winter for battle.\n- **Resource tokens** — Gold, wood, and stone cubes.\n- **Plus-two token** — White bonus die."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Central Board Setup\n1. **Place the board** — Set the main board in the center showing all 18 advisors.\n2. **Season marker** — Place on Spring of Year 1.\n3. **Enemy deck** — Shuffle enemy cards. Deal 1 face down on each of the 5 Winter spaces (one per year). Return remaining cards to the box.\n4. **Resource supply** — Place gold, wood, and stone cubes in general supply piles.\n5. **King's Envoy** — Place near the board for the lowest roller bonus.\n\n#### Advisor Layout (numbered 1-18)\n- Advisors provide escalating rewards. Lower numbers give modest resources; higher numbers give better combinations of resources, military, and VP."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n1. **Player board** — Take 1 building board. It shows 20 buildings in 5 rows, each with a cost and benefit.\n2. **Dice** — Take 3 dice in your player color.\n3. **Starting resources** — Begin with 0 resources (no gold, wood, or stone).\n4. **Scoring disc** — Place on 0 on the score track.\n5. **Buildings** — No buildings constructed at start.\n\n#### Building Board Rows\n- **Row 1** — Basic buildings (cheap, modest VP and abilities).\n- **Row 2** — Intermediate buildings.\n- **Row 3** — Advanced buildings.\n- **Row 4** — Superior buildings.\n- **Row 5** — Elite buildings (expensive, powerful VP and military).\n- Buildings in lower rows must generally be built before those in higher rows within the same column."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Game Structure\n- **5 years** — Each year has 4 seasons: Spring (productive), Summer (productive), Autumn (productive), Winter (battle).\n- **15 productive seasons** — Dice are placed on advisors during Spring, Summer, and Autumn.\n- **5 Winters** — Battles occur every Winter.\n\n#### First Player\n- All players roll dice simultaneously. The player with the lowest total goes first in the first season."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Productive Season (Spring, Summer, Autumn)\n1. **Roll dice** — All players roll their 3 dice simultaneously.\n2. **Determine order** — The player with the lowest total goes first. Ties broken by fewest dice used (then by previous turn order). The lowest roller also receives the King's Envoy.\n3. **Place dice on advisors** — In turn order, each player places 1 or more dice on an advisor space. The dice total must equal the advisor's number. Each advisor can only be claimed by 1 player per season.\n4. **Collect rewards** — After all players have placed, each player collects resources/benefits from their chosen advisors (in ascending order).\n5. **Build (optional)** — Each player may construct 1 building by paying its resource cost.\n\n#### Dice Placement Rules\n- You may use 1, 2, or 3 dice to influence a single advisor (the sum must equal the advisor number).\n- Each advisor can hold only 1 player's dice.\n- You may influence multiple advisors in a single season if you have dice remaining.\n- You must place all 3 dice each season (you cannot hold dice back)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Advisor Rewards (examples)\n- **Advisor 1 (Jester)** — 1 gold. If no other player chose the Jester, gain 1 VP.\n- **Advisor 2 (Squire)** — 1 wood.\n- **Advisor 3 (Architect)** — 1 wood OR 1 gold.\n- **Advisor 4 (Merchant)** — 1 wood + 1 gold.\n- **Advisor 5 (Sergeant)** — 1 stone OR +1 military.\n- **Advisor 6 (Alchemist)** — Transmute resources (trade any 2 for any 1) plus 1 gold.\n- **Advisor 7-10** — Increasingly valuable combinations of wood, stone, gold.\n- **Advisor 11-14** — Multiple resources plus military strength or VP.\n- **Advisor 15-17** — Large resource hauls plus VP.\n- **Advisor 18 (Queen)** — 2 gold + 2 wood + 2 stone + 1 VP.\n\n#### Building\n- After collecting resources, you may build 1 building from your player board by paying its cost.\n- Buildings provide: VP, military strength, resource production, and/or special abilities.\n- Build from bottom rows upward within each column. Row 1 must be built before Row 2, etc."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### King's Envoy\n- Awarded to the lowest roller each season.\n- **Benefit** — The King's Envoy lets you build an extra building during the build phase OR lets you influence an advisor already claimed by another player (share a space).\n- Powerful for catch-up.\n\n#### Winter Battle\n- At the end of each year, reveal the enemy card for that Winter.\n- Each enemy has a strength value (varies by year, getting harder).\n- **Your military** = base military from buildings + any King's reinforcement tokens + dice roll bonus.\n- **Win** — If your military meets or exceeds the enemy strength, gain the victory reward (VP, resources).\n- **Lose** — If below, suffer a penalty (lose buildings, resources, or VP).\n- **Tie** — No reward, no penalty.\n\n#### Plus-Two Token\n- Some advisors or buildings grant the +2 token, which adds a virtual +2 to one die in a future season.\n\n#### Market Bonus\n- Certain building abilities grant free resources at the start of specific seasons."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End\n- The game ends after the Winter battle of Year 5.\n\n#### Final Scoring\n- **Building VP** — VP printed on each constructed building.\n- **In-game VP** — VP accumulated during the game from advisors, battles won, and special effects.\n- **Remaining resources** — Every 3 resources (any combination) = 1 VP.\n- **No negative VP** — Score cannot go below 0.\n\n#### Winner\n- The player with the most VP wins.\n- **Tiebreaker** — Most total resources remaining. Then most buildings constructed."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Build cheap buildings fast** — Row 1 buildings are inexpensive and unlock access to higher rows. The Statue (Row 1) gives +1 VP per season and compounds over 5 years.\n- **Balance resources** — Buildings require combinations of wood, stone, and gold. Avoid hoarding one type.\n- **Military investment** — Year 1 enemies are weak, but they escalate fast. Start building military by Year 2 at the latest.\n- **Low rolls are not bad** — Going first and getting the King's Envoy can be more valuable than high advisor rewards."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Ignoring Winter** — Losing battles in Years 3-5 destroys buildings you spent the whole game constructing. Military matters.\n- **Always chasing high advisors** — High-numbered advisors require all 3 dice, meaning you can only visit 1 advisor that season. Two mid-range advisors often yield more total resources.\n- **Not building every season** — Unused resources are wasted tempo. Build something every productive season if possible.\n- **Neglecting building abilities** — Some buildings grant ongoing bonuses (extra resources, rerolls, military). These compound over the remaining years.\n- **Forgetting advisor order resolution** — Advisors resolve in ascending numerical order. Plan accordingly."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **1 big advisor vs. 2-3 small** — Placing all 3 dice on Advisor 15 (for example) gets a huge reward, but splitting dice across Advisors 5, 4, and 3 might give more total resources.\n- **King's Envoy usage** — Use it to build an extra building (especially valuable in early years) or to share an advisor space that was taken.\n- **Military vs. economy** — Over-investing in military wastes VP from buildings. Under-investing risks losing buildings in Winter.\n- **Building path** — Each column requires building from bottom to top. Plan your column progression to reach high-VP buildings by Year 4-5.\n- **Race for contested advisors** — If you know an opponent needs a specific advisor, consider blocking them even if the reward is suboptimal for you."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

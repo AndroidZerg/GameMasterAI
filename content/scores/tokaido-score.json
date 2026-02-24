@@ -1,0 +1,17 @@
+{
+  "game_id": "tokaido",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP at journey's end wins",
+  "tiebreaker": "Most achievement cards, then most coins remaining",
+  "categories": [
+    {"id": "sea_panorama", "label": "Sea Panorama VP", "type": "manual", "description": "VP from Sea panorama cards collected (1+2+3+4+5 = max 15)"},
+    {"id": "mountain_panorama", "label": "Mountain Panorama VP", "type": "manual", "description": "VP from Mountain panorama cards collected (1+2+3+4 = max 10)"},
+    {"id": "paddy_panorama", "label": "Paddy Panorama VP", "type": "manual", "description": "VP from Paddy panorama cards collected (1+2+3 = max 6)"},
+    {"id": "temple_donations", "label": "Temple Donation Bonus", "type": "manual", "description": "VP from temple majority scoring (10/7/4/2/1 by rank)"},
+    {"id": "hot_springs", "label": "Hot Springs VP", "type": "manual", "description": "VP from Hot Spring cards (2 or 3 each)"},
+    {"id": "encounters", "label": "Encounter VP", "type": "manual", "description": "VP from Encounter cards collected"},
+    {"id": "souvenir_sets", "label": "Souvenir Set VP", "type": "manual", "description": "VP from souvenir sets (1/3/5/7 per set of 1/2/3/4 types)"},
+    {"id": "meals", "label": "Meals", "points_each": 6, "type": "count", "description": "6 VP per meal eaten at inns"},
+    {"id": "achievements", "label": "Achievement Bonuses", "type": "manual", "description": "3 VP each for leading Gourmet, Bather, Chatterbox, or Collector"}
+  ]
+}

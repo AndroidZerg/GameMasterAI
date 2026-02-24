@@ -1,0 +1,93 @@
+{
+  "game_id": "tokaido",
+  "title": "Tokaido",
+  "aliases": ["Tokaido Base"],
+  "publisher": "Funforge",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 60},
+  "complexity": "gateway",
+  "categories": ["set-collection", "point-to-point-movement", "travel"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board & Tokens\n- **Game board** — 1 long board depicting the East Sea Road from Kyoto to Edo with various stop locations.\n- **Traveler tiles** — 10 Traveler tiles (each with a unique character and special ability).\n- **Traveler pawns** — 5 colored pawns.\n\n#### Cards\n- **Meal cards** — 25 cards (various dishes worth 1-3 VP, grouped by inn).\n- **Hot Spring cards** — 12 cards (worth 2 or 3 VP).\n- **Souvenir cards** — 24 cards (4 types: small objects, clothing, art, food/drink).\n- **Encounter cards** — 14 cards (various one-time bonuses).\n\n#### Panorama Cards\n- **Sea panorama** — 5 cards (numbered 1-5).\n- **Mountain panorama** — 4 cards (numbered 1-4).\n- **Paddy panorama** — 3 cards (numbered 1-3).\n\n#### Coins & Donation Tokens\n- **Coins** — Denomination tokens of 1 and 3.\n- **Temple donation tokens** — 1, 2, and 3 value tokens."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Setup\n1. **Place the board** — Unfold the board showing the road from Kyoto (start) to Edo (end) with 4 intermediate inns.\n2. **Meal cards** — Shuffle meal cards and deal face-down piles at each of the 4 intermediate inns and the final inn at Edo.\n3. **Souvenir cards** — Shuffle and place the souvenir deck face down near the board.\n4. **Hot Spring cards** — Shuffle and place face down near the hot spring spaces.\n5. **Encounter cards** — Shuffle and place face down near the encounter spaces.\n6. **Panorama stacks** — Sort panorama cards by type (Sea, Mountain, Paddy) and place near the board.\n7. **Coin supply** — Place all coins in a general supply.\n8. **Temple** — Leave space for the temple donation area."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Character Selection\n1. **Deal travelers** — Deal 2 random Traveler tiles to each player.\n2. **Choose one** — Each player secretly chooses 1 Traveler and returns the other face down.\n3. **Reveal** — All players reveal their chosen Traveler simultaneously.\n4. **Receive starting coins** — Each player receives coins as indicated on their Traveler tile (varies by character, typically 2-7 coins).\n\n#### Starting Position\n- All players place their pawns at the first inn (Kyoto) at the start of the road.\n- Stack pawns in the inn space; order will be determined by who is furthest behind."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Determining First Player\n- **Furthest behind goes first** — The player whose pawn is in the last position (furthest from Edo) takes the next turn. At the start, the player on top of the pawn stack at Kyoto goes last; the player on the bottom goes first.\n- **Ties** — If multiple pawns share a space, the one on top of the stack is considered further behind and goes first.\n\n#### Player Count Adjustments\n- **2 players** — Use a neutral dummy traveler that moves and blocks spaces.\n- **3 players** — Each location space can hold only 1 player (except inns).\n- **4-5 players** — Some spaces are marked with a 2-player icon, allowing 2 players to visit on 4-5 player games.\n\n#### Inns\n- Players must stop at each inn in order. You cannot skip past an inn."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Core Mechanic: Furthest Behind Goes Next\n- **No fixed turn order** — The player whose pawn is furthest from Edo always takes the next turn.\n- **Movement** — On your turn, move your pawn forward to any unoccupied space between your current position and the next inn.\n- **Mandatory inn stops** — You must stop at each inn. Once at an inn, you cannot move until all other players have also arrived.\n- **Multiple turns** — If you move only 1 space forward, you may still be the furthest behind and take another turn immediately.\n\n#### At Each Location\n- When you land on a space, you immediately perform that location's action.\n- You may skip over spaces to move further ahead, but you cannot visit skipped locations.\n\n#### Inn Phase\n- When all players arrive at an inn, each player (in arrival order) must buy 1 meal card from those available at that inn. Each meal is unique — you cannot eat the same meal twice during the entire journey. Meals cost 1-3 coins and are worth 6 VP each regardless of cost."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Location Types\n- **Hot Springs** — Draw a Hot Spring card (worth 2 or 3 VP).\n- **Temple** — Donate 1, 2, or 3 coins to the temple. Place donation tokens on your Traveler. VP scored at each scoring round.\n- **Encounter** — Draw an Encounter card and resolve it immediately (various bonuses: free souvenir, free donation, coins, VP, etc.).\n- **Farm** — Receive 3 coins from the supply.\n- **Panorama (Sea)** — Take the next numbered Sea panorama card. The nth card is worth n VP (1st = 1 VP, 2nd = 2 VP... 5th = 5 VP). Total: 15 VP for complete set.\n- **Panorama (Mountain)** — Take the next numbered Mountain panorama card. Worth 1-4 VP progressively. Total: 10 VP for complete set.\n- **Panorama (Paddy)** — Take the next numbered Paddy panorama card. Worth 1-3 VP progressively. Total: 6 VP for complete set.\n- **Shop** — Draw 3 souvenir cards and may buy 1 (costs 1-3 coins). Souvenirs score in sets of unique types.\n\n#### Souvenir Set Scoring\n- **1 unique type** — 1 VP.\n- **2 unique types** — 3 VP.\n- **3 unique types** — 5 VP.\n- **4 unique types** — 7 VP.\n- Additional complete sets score separately."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Traveler Abilities\n- Each Traveler has a unique power that provides a permanent advantage, such as: cheaper shopping, extra coins from farms, bonus panorama VP, free temple donations, meal discounts, etc.\n- Abilities are active for the entire game and shape your strategy.\n\n#### Achievement Cards\n- **Gourmet** — Player who spent the most on meals gains bonus VP.\n- **Bather** — Player with the most Hot Spring cards gains bonus VP.\n- **Chatterbox** — Player with the most Encounter cards gains bonus VP.\n- **Collector** — Player who spent the most on souvenirs gains bonus VP.\n\n#### Dummy Player (2 players)\n- The neutral traveler moves automatically to the nearest available space when it would be furthest behind.\n- It blocks spaces but does not collect items or score points."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End\n- The game ends when all players arrive at the final inn in Edo.\n- One last meal is purchased at Edo.\n\n#### Final Scoring\n- **Panoramas** — VP as printed on collected panorama cards.\n- **Temple donations** — The player with the most total donation value scores 10 VP, second most scores 7 VP, third scores 4 VP, fourth scores 2 VP, fifth scores 1 VP.\n- **Hot Springs** — VP as printed on collected cards.\n- **Encounter cards** — VP as printed on collected cards.\n- **Souvenir sets** — 1/3/5/7 VP per set of 1/2/3/4 unique types.\n- **Meals** — 6 VP per meal eaten.\n- **Achievement bonuses** — 3 VP each to the player who leads in each achievement category.\n\n#### Tiebreaker\n- The player with the most achievement cards wins ties. If still tied, the player with the most coins remaining wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Move slowly** — The key to Tokaido is staying behind. Moving just 1 space at a time lets you visit more locations.\n- **Prioritize farms early** — Coins fuel everything else. Hitting farms in the first leg builds your bankroll for later shops and meals.\n- **Start a panorama early** — Panoramas are progressive (more VP for later cards), so starting early lets you complete full sets.\n- **Match your Traveler ability** — If your character gives souvenir discounts, prioritize shops. If they give temple bonuses, focus on donations."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Rushing ahead** — Moving far ahead gives you fewer total location visits. The trailing player gets more turns.\n- **Ignoring the temple** — Temple donations accumulate and the majority bonus (10 VP) is one of the biggest scoring categories.\n- **Incomplete panoramas** — Starting a panorama and not finishing it wastes the lower-VP early cards. Plan your route to complete sets.\n- **Running out of coins** — Without money, you cannot buy souvenirs or meals. Balance spending with farm visits.\n- **Skipping meals** — Meals are 6 VP each if you can afford them. Passing on meals is very costly in VP."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Which space to visit** — When multiple good spaces are open, weigh the VP value against staying behind for more future turns.\n- **When to jump ahead** — Sometimes jumping to an inn first gives you first pick of meals and blocks opponents from key spaces.\n- **Souvenir buying** — Completing a 4th unique type for 7 VP is very efficient. Avoid buying duplicates of types you already have.\n- **Temple investment** — The majority scoring means you need to either commit heavily to temple or ignore it. Half-measures lose.\n- **Panorama completion** — Completing all 3 panoramas is near-impossible. Focus on 1-2 and try to complete them fully."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
