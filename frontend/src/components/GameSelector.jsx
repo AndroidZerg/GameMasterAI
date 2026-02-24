@@ -222,10 +222,11 @@ function GameCard({ game, onClick, small }) {
     >
       <div
         style={{
-          aspectRatio: "1 / 1",
-          width: "100%",
-          background: imgError ? fallbackColor : "var(--bg-primary)",
           position: "relative",
+          width: "100%",
+          aspectRatio: "1 / 1",
+          overflow: "hidden",
+          background: imgError ? fallbackColor : "var(--bg-primary)",
           flexShrink: 0,
         }}
       >
@@ -237,14 +238,37 @@ function GameCard({ game, onClick, small }) {
                 background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)",
                 backgroundSize: "200% 100%",
                 animation: "shimmer 1.5s infinite",
+                zIndex: 2,
               }} />
             )}
+            {/* Blurred background fill */}
+            <img
+              src={imgSrc}
+              alt=""
+              style={{
+                position: "absolute",
+                top: 0, left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                filter: "blur(20px) brightness(0.4)",
+                transform: "scale(1.1)",
+              }}
+            />
+            {/* Actual image — full, no crop */}
             <img
               src={imgSrc}
               alt={game.title}
               onError={handleImgError}
               onLoad={() => setImgLoading(false)}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                zIndex: 1,
+                display: "block",
+              }}
             />
           </>
         )}
