@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { queryGame, fetchGame } from "../services/api";
 import VoiceButton from "./VoiceButton";
+import ScoreTracker from "./ScoreTracker";
 import {
   speakText,
   stopSpeaking,
@@ -13,6 +14,8 @@ import {
   setOnRateChange,
 } from "./ResponseDisplay";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+
 const TABS = [
   { key: "setup", label: "Setup" },
   { key: "rules", label: "Rules" },
@@ -22,23 +25,28 @@ const TABS = [
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
+// Mock prices for demo
+const GAME_PRICES = {
+  catan: 44.99,
+  wingspan: 59.99,
+  "ticket-to-ride": 44.99,
+};
+
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
 function InlineMarkdown({ text }) {
   if (!text) return null;
 
-  // Parse **bold** — rest pattern (bold-prefix bullet)
   const boldPrefixMatch = text.match(/^\*\*(.+?)\*\*\s*—\s*(.+)$/);
   if (boldPrefixMatch) {
     return (
       <>
         <strong style={{ color: "#a5b4fc" }}>{boldPrefixMatch[1]}</strong>
-        <span style={{ color: "#999", margin: "0 6px" }}>—</span>
+        <span style={{ color: "var(--text-secondary)", margin: "0 6px" }}>—</span>
         <span>{boldPrefixMatch[2]}</span>
       </>
     );
   }
 
-  // Parse any **bold** segments in regular text
   const parts = [];
   let remaining = text;
   let key = 0;
@@ -61,117 +69,62 @@ function classifyParagraph(text) {
   const trimmed = text.trim();
   if (!trimmed) return null;
 
-  // Player-count divider: --- 2 Players ---
   const lines0 = trimmed.split("\n");
   if (/^---\s+.+\s+---$/.test(lines0[0].trim())) {
     const label = lines0[0].trim().replace(/^---\s+/, "").replace(/\s+---$/, "");
     return { type: "player-count-divider", text: label, raw: trimmed };
   }
 
-  // Sub-header: #### Header Text (possibly followed by bullet/numbered items)
   if (/^#{1,4}\s+/.test(trimmed)) {
     const lines = trimmed.split("\n");
     const headerText = lines[0].replace(/^#{1,4}\s+/, "");
-
-    // If there are additional lines after the header, it's a compound block
     if (lines.length > 1) {
       const restLines = lines.slice(1).filter((l) => l.trim());
       const bulletLines = restLines.filter((l) => l.trim().startsWith("- "));
       const numberedLines = restLines.filter((l) => /^\d+[\).]\s/.test(l.trim()));
-
       if (bulletLines.length > 0) {
-        return {
-          type: "subheader-bullet",
-          header: headerText,
-          items: bulletLines.map((l) => l.trim().replace(/^- /, "")),
-          raw: trimmed,
-        };
+        return { type: "subheader-bullet", header: headerText, items: bulletLines.map((l) => l.trim().replace(/^- /, "")), raw: trimmed };
       }
       if (numberedLines.length > 0) {
         const numMatch = numberedLines[0].trim().match(/^(\d+)[\).]/);
-        const startNum = numMatch ? parseInt(numMatch[1], 10) : 1;
-        return {
-          type: "subheader-numbered",
-          header: headerText,
-          items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")),
-          startNum,
-          raw: trimmed,
-        };
+        return { type: "subheader-numbered", header: headerText, items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")), startNum: numMatch ? parseInt(numMatch[1], 10) : 1, raw: trimmed };
       }
     }
-
     return { type: "sub-header", text: headerText, raw: trimmed };
   }
 
   const lines = trimmed.split("\n");
   const bulletLines = lines.filter((l) => l.trim().startsWith("- "));
   const numberedLines = lines.filter((l) => /^\d+[\).]\s/.test(l.trim()));
-  const headerLines = lines.filter(
-    (l) =>
-      l.trim() &&
-      !l.trim().startsWith("- ") &&
-      !/^\d+[\).]\s/.test(l.trim())
-  );
+  const headerLines = lines.filter((l) => l.trim() && !l.trim().startsWith("- ") && !/^\d+[\).]\s/.test(l.trim()));
 
-  // Pure numbered (single or multi) — supports both "1)" and "1."
   if (numberedLines.length > 0 && headerLines.length === 0) {
     const numMatch = numberedLines[0].trim().match(/^(\d+)[\).]/);
-    const startNum = numMatch ? parseInt(numMatch[1], 10) : 1;
-    return {
-      type: "numbered",
-      items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")),
-      startNum,
-      raw: trimmed,
-    };
+    return { type: "numbered", items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")), startNum: numMatch ? parseInt(numMatch[1], 10) : 1, raw: trimmed };
   }
-  // Pure bullet
   if (bulletLines.length > 0 && headerLines.length === 0) {
-    return {
-      type: "bullet",
-      items: bulletLines.map((l) => l.trim().replace(/^- /, "")),
-      raw: trimmed,
-    };
+    return { type: "bullet", items: bulletLines.map((l) => l.trim().replace(/^- /, "")), raw: trimmed };
   }
-  // Mixed header + bullets
   if (bulletLines.length > 0 && headerLines.length > 0) {
-    return {
-      type: "header-bullet",
-      headers: headerLines.map((l) => l.trim()),
-      items: bulletLines.map((l) => l.trim().replace(/^- /, "")),
-      raw: trimmed,
-    };
+    return { type: "header-bullet", headers: headerLines.map((l) => l.trim()), items: bulletLines.map((l) => l.trim().replace(/^- /, "")), raw: trimmed };
   }
-  // Mixed header + numbered
   if (numberedLines.length > 0 && headerLines.length > 0) {
     const numMatch = numberedLines[0].trim().match(/^(\d+)[\).]/);
-    const startNum = numMatch ? parseInt(numMatch[1], 10) : 1;
-    return {
-      type: "header-numbered",
-      headers: headerLines.map((l) => l.trim()),
-      items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")),
-      startNum,
-      raw: trimmed,
-    };
+    return { type: "header-numbered", headers: headerLines.map((l) => l.trim()), items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")), startNum: numMatch ? parseInt(numMatch[1], 10) : 1, raw: trimmed };
   }
-  // Header-like (ends with ":")
   if (trimmed.endsWith(":") && trimmed.length < 60) {
     return { type: "header", text: trimmed, raw: trimmed };
   }
-  // Plain paragraph
   return { type: "paragraph", text: trimmed, raw: trimmed };
 }
 
-/* ── Merge consecutive numbered/bullet blocks into single lists ── */
+/* ── Merge consecutive numbered/bullet blocks ───────────────────── */
 function mergeBlocks(blocks) {
   const merged = [];
   for (const block of blocks) {
     if (!block) continue;
     const prev = merged[merged.length - 1];
-    if (
-      block.type === "numbered" &&
-      prev?.type === "numbered" &&
-      block.startNum === prev.startNum + prev.items.length
-    ) {
+    if (block.type === "numbered" && prev?.type === "numbered" && block.startNum === prev.startNum + prev.items.length) {
       prev.items.push(...block.items);
       continue;
     }
@@ -184,10 +137,9 @@ function mergeBlocks(blocks) {
   return merged;
 }
 
-/* ── Render formatted content with all patterns ───────────────── */
+/* ── Render formatted content ───────────────────────────────────── */
 function FormattedContent({ content }) {
   if (!content) return null;
-
   const paragraphs = content.split("\n\n");
   const classified = paragraphs.map(classifyParagraph).filter(Boolean);
   const blocks = mergeBlocks(classified);
@@ -195,288 +147,107 @@ function FormattedContent({ content }) {
   return (
     <div>
       {blocks.map((block, i) => {
-        // Player-count divider: --- 2 Players ---
         if (block.type === "player-count-divider") {
           return (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                margin: "16px 0 8px 0",
-              }}
-            >
-              <div style={{ flex: 1, height: "1px", background: "#444" }} />
-              <span
-                style={{
-                  fontWeight: 700,
-                  fontSize: "0.9rem",
-                  color: "#a5b4fc",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {block.text}
-              </span>
-              <div style={{ flex: 1, height: "1px", background: "#444" }} />
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", margin: "16px 0 8px 0" }}>
+              <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+              <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#a5b4fc", textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>{block.text}</span>
+              <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
             </div>
           );
         }
 
-        // Sub-header: #### Header
         if (block.type === "sub-header") {
           return (
-            <h4
-              key={i}
-              style={{
-                margin: "16px 0 6px 0",
-                fontSize: "0.95rem",
-                fontWeight: 700,
-                color: "#ccc",
-                borderBottom: "1px solid #333",
-                paddingBottom: "4px",
-              }}
-            >
+            <h4 key={i} style={{ margin: "16px 0 6px 0", fontSize: "0.95rem", fontWeight: 700, color: "var(--text-secondary)", borderBottom: "1px solid var(--border)", paddingBottom: "4px" }}>
               {block.text}
             </h4>
           );
         }
 
-        // Sub-header + bullet list
         if (block.type === "subheader-bullet") {
           return (
             <div key={i}>
-              <h4
-                style={{
-                  margin: "16px 0 6px 0",
-                  fontSize: "0.95rem",
-                  fontWeight: 700,
-                  color: "#ccc",
-                  borderBottom: "1px solid #333",
-                  paddingBottom: "4px",
-                }}
-              >
-                {block.header}
-              </h4>
-              <ul
-                style={{
-                  margin: "4px 0 8px 0",
-                  paddingLeft: "20px",
-                  listStyleType: "disc",
-                }}
-              >
-                {block.items.map((item, j) => (
-                  <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                    <InlineMarkdown text={item} />
-                  </li>
-                ))}
+              <h4 style={{ margin: "16px 0 6px 0", fontSize: "0.95rem", fontWeight: 700, color: "var(--text-secondary)", borderBottom: "1px solid var(--border)", paddingBottom: "4px" }}>{block.header}</h4>
+              <ul style={{ margin: "4px 0 8px 0", paddingLeft: "20px", listStyleType: "disc" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
               </ul>
             </div>
           );
         }
 
-        // Sub-header + numbered list
         if (block.type === "subheader-numbered") {
           return (
             <div key={i}>
-              <h4
-                style={{
-                  margin: "16px 0 6px 0",
-                  fontSize: "0.95rem",
-                  fontWeight: 700,
-                  color: "#ccc",
-                  borderBottom: "1px solid #333",
-                  paddingBottom: "4px",
-                }}
-              >
-                {block.header}
-              </h4>
-              <ol
-                start={block.startNum}
-                style={{
-                  margin: "4px 0 8px 0",
-                  paddingLeft: "24px",
-                  listStyleType: "decimal",
-                }}
-              >
-                {block.items.map((item, j) => (
-                  <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                    <InlineMarkdown text={item} />
-                  </li>
-                ))}
+              <h4 style={{ margin: "16px 0 6px 0", fontSize: "0.95rem", fontWeight: 700, color: "var(--text-secondary)", borderBottom: "1px solid var(--border)", paddingBottom: "4px" }}>{block.header}</h4>
+              <ol start={block.startNum} style={{ margin: "4px 0 8px 0", paddingLeft: "24px", listStyleType: "decimal" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
               </ol>
             </div>
           );
         }
 
-        // Bullet list (with bold-prefix support)
         if (block.type === "bullet") {
           return (
-            <ul
-              key={i}
-              style={{
-                margin: "8px 0",
-                paddingLeft: "20px",
-                listStyleType: "disc",
-              }}
-            >
-              {block.items.map((item, j) => (
-                <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                  <InlineMarkdown text={item} />
-                </li>
-              ))}
+            <ul key={i} style={{ margin: "8px 0", paddingLeft: "20px", listStyleType: "disc" }}>
+              {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
             </ul>
           );
         }
 
-        // Numbered list
         if (block.type === "numbered") {
           return (
-            <ol
-              key={i}
-              start={block.startNum}
-              style={{
-                margin: "8px 0",
-                paddingLeft: "24px",
-                listStyleType: "decimal",
-              }}
-            >
-              {block.items.map((item, j) => (
-                <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                  <InlineMarkdown text={item} />
-                </li>
-              ))}
+            <ol key={i} start={block.startNum} style={{ margin: "8px 0", paddingLeft: "24px", listStyleType: "decimal" }}>
+              {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
             </ol>
           );
         }
 
-        // Header + bullet list
         if (block.type === "header-bullet") {
           return (
             <div key={i}>
-              {block.headers.map((h, j) => (
-                <p
-                  key={`h${j}`}
-                  style={{
-                    margin: "8px 0 4px 0",
-                    fontWeight: 600,
-                    color: "#ccc",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  <InlineMarkdown text={h} />
-                </p>
-              ))}
-              <ul
-                style={{
-                  margin: "4px 0 8px 0",
-                  paddingLeft: "20px",
-                  listStyleType: "disc",
-                }}
-              >
-                {block.items.map((item, j) => (
-                  <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                    <InlineMarkdown text={item} />
-                  </li>
-                ))}
+              {block.headers.map((h, j) => (<p key={`h${j}`} style={{ margin: "8px 0 4px 0", fontWeight: 600, color: "var(--text-secondary)", lineHeight: 1.6 }}><InlineMarkdown text={h} /></p>))}
+              <ul style={{ margin: "4px 0 8px 0", paddingLeft: "20px", listStyleType: "disc" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
               </ul>
             </div>
           );
         }
 
-        // Header + numbered list
         if (block.type === "header-numbered") {
           return (
             <div key={i}>
-              {block.headers.map((h, j) => (
-                <p
-                  key={`h${j}`}
-                  style={{
-                    margin: "8px 0 4px 0",
-                    fontWeight: 600,
-                    color: "#ccc",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  <InlineMarkdown text={h} />
-                </p>
-              ))}
-              <ol
-                start={block.startNum}
-                style={{
-                  margin: "4px 0 8px 0",
-                  paddingLeft: "24px",
-                  listStyleType: "decimal",
-                }}
-              >
-                {block.items.map((item, j) => (
-                  <li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}>
-                    <InlineMarkdown text={item} />
-                  </li>
-                ))}
+              {block.headers.map((h, j) => (<p key={`h${j}`} style={{ margin: "8px 0 4px 0", fontWeight: 600, color: "var(--text-secondary)", lineHeight: 1.6 }}><InlineMarkdown text={h} /></p>))}
+              <ol start={block.startNum} style={{ margin: "4px 0 8px 0", paddingLeft: "24px", listStyleType: "decimal" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
               </ol>
             </div>
           );
         }
 
-        // Section header (ends with :)
         if (block.type === "header") {
-          return (
-            <p
-              key={i}
-              style={{
-                margin: "12px 0 4px 0",
-                fontWeight: 600,
-                color: "#ccc",
-                fontSize: "0.95rem",
-              }}
-            >
-              {block.text}
-            </p>
-          );
+          return (<p key={i} style={{ margin: "12px 0 4px 0", fontWeight: 600, color: "var(--text-secondary)", fontSize: "0.95rem" }}>{block.text}</p>);
         }
 
-        // Regular paragraph
-        return (
-          <p key={i} style={{ margin: "8px 0", lineHeight: 1.6 }}>
-            <InlineMarkdown text={block.text} />
-          </p>
-        );
+        return (<p key={i} style={{ margin: "8px 0", lineHeight: 1.6 }}><InlineMarkdown text={block.text} /></p>);
       })}
     </div>
   );
 }
 
-/* ── Persistent Speed Selector (always visible) ──────────────── */
+/* ── Speed Selector ─────────────────────────────────────────────── */
 function SpeedSelector({ rate, onRateChange }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "2px",
-        background: "#1a1a2e",
-        borderRadius: "8px",
-        padding: "2px",
-        border: "1px solid #333",
-      }}
-    >
+    <div style={{ display: "flex", alignItems: "center", gap: "2px", background: "var(--bg-primary)", borderRadius: "8px", padding: "2px", border: "1px solid var(--border)" }}>
       {SPEED_OPTIONS.map((speed) => (
         <button
           key={speed}
           onClick={() => onRateChange(speed)}
           style={{
-            padding: "4px 8px",
-            fontSize: "0.75rem",
-            fontFamily: "monospace",
-            borderRadius: "6px",
-            border: "none",
-            cursor: "pointer",
+            padding: "4px 8px", fontSize: "0.75rem", fontFamily: "monospace", borderRadius: "6px", border: "none", cursor: "pointer",
             fontWeight: rate === speed ? 700 : 400,
-            background: rate === speed ? "#646cff" : "transparent",
-            color: rate === speed ? "#fff" : "#888",
+            background: rate === speed ? "var(--accent)" : "transparent",
+            color: rate === speed ? "#fff" : "var(--text-secondary)",
             transition: "all 0.15s",
           }}
         >
@@ -487,141 +258,51 @@ function SpeedSelector({ rate, onRateChange }) {
   );
 }
 
-/* ── TTS Playback Controls (visible during playback) ─────────── */
+/* ── Playback Controls ──────────────────────────────────────────── */
 function PlaybackControls({ ttsState }) {
   if (ttsState !== "playing" && ttsState !== "paused") return null;
-
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "2px",
-        background: "#1a1a2e",
-        borderRadius: "8px",
-        padding: "2px 4px",
-        border: "1px solid #333",
-      }}
-    >
-      <button
-        onClick={() =>
-          ttsState === "paused" ? resumeSpeaking() : pauseSpeaking()
-        }
-        title={ttsState === "paused" ? "Resume" : "Pause"}
-        style={{
-          background: "none",
-          border: "none",
-          color: "#ccc",
-          cursor: "pointer",
-          fontSize: "0.95rem",
-          padding: "4px 6px",
-        }}
-      >
+    <div style={{ display: "flex", alignItems: "center", gap: "2px", background: "var(--bg-primary)", borderRadius: "8px", padding: "2px 4px", border: "1px solid var(--border)" }}>
+      <button onClick={() => (ttsState === "paused" ? resumeSpeaking() : pauseSpeaking())} title={ttsState === "paused" ? "Resume" : "Pause"} style={{ background: "none", border: "none", color: "var(--text-secondary)", cursor: "pointer", fontSize: "0.95rem", padding: "4px 6px" }}>
         {ttsState === "paused" ? "▶" : "⏸"}
       </button>
-      <button
-        onClick={() => stopSpeaking()}
-        title="Stop"
-        style={{
-          background: "none",
-          border: "none",
-          color: "#ef4444",
-          cursor: "pointer",
-          fontSize: "0.95rem",
-          padding: "4px 6px",
-        }}
-      >
-        ⏹
-      </button>
+      <button onClick={() => stopSpeaking()} title="Stop" style={{ background: "none", border: "none", color: "var(--accent-dark)", cursor: "pointer", fontSize: "0.95rem", padding: "4px 6px" }}>⏹</button>
     </div>
   );
 }
 
-/* ── Section Speaker Button ───────────────────────────────────── */
+/* ── Section Speaker Button ─────────────────────────────────────── */
 function SectionSpeaker({ content, ttsState }) {
   const isActive = ttsState === "playing" || ttsState === "paused";
-
   return (
     <button
-      onClick={(e) => {
-        e.stopPropagation();
-        if (isActive) {
-          stopSpeaking();
-        } else {
-          speakText(content);
-        }
-      }}
+      onClick={(e) => { e.stopPropagation(); isActive ? stopSpeaking() : speakText(content); }}
       title={isActive ? "Stop reading" : "Read this section"}
-      style={{
-        background: "none",
-        border: "none",
-        cursor: "pointer",
-        fontSize: "1.1rem",
-        padding: "4px 8px",
-        borderRadius: "6px",
-        color: isActive ? "#f59e0b" : "#888",
-        transition: "color 0.2s",
-        flexShrink: 0,
-      }}
+      aria-label={isActive ? "Stop reading aloud" : "Read this section aloud"}
+      style={{ background: "none", border: "none", cursor: "pointer", fontSize: "1.1rem", padding: "4px 8px", borderRadius: "6px", color: isActive ? "#f59e0b" : "var(--text-secondary)", transition: "color 0.2s", flexShrink: 0 }}
     >
       {isActive ? "⏹" : "🔊"}
     </button>
   );
 }
 
-/* ── Accordion subtopic component ────────────────────────────── */
+/* ── Accordion Subtopic ─────────────────────────────────────────── */
 function Subtopic({ title, content, ttsState }) {
   const [open, setOpen] = useState(false);
-
   return (
-    <div
-      style={{
-        marginBottom: "8px",
-        borderRadius: "10px",
-        border: "1px solid #333",
-        overflow: "hidden",
-      }}
-    >
+    <div style={{ marginBottom: "8px", borderRadius: "10px", border: "1px solid var(--border)", overflow: "hidden" }}>
       <button
         onClick={() => setOpen(!open)}
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "12px 16px",
-          background: open ? "#2a2a4a" : "#1a1a2e",
-          color: "#eee",
-          border: "none",
-          borderRadius: 0,
-          cursor: "pointer",
-          fontSize: "1rem",
-          fontWeight: 600,
-          textAlign: "left",
-          gap: "8px",
-        }}
+        aria-expanded={open}
+        aria-label={`${title} section`}
+        style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: open ? "var(--bg-card)" : "var(--bg-primary)", color: "var(--text-primary)", border: "none", borderRadius: 0, cursor: "pointer", fontSize: "1rem", fontWeight: 600, textAlign: "left", gap: "8px" }}
       >
         <span style={{ flex: 1 }}>{title}</span>
         <SectionSpeaker content={content} ttsState={ttsState} />
-        <span
-          style={{
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            transition: "transform 0.2s",
-            fontSize: "0.8rem",
-          }}
-        >
-          ▼
-        </span>
+        <span style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s", fontSize: "0.8rem" }}>▼</span>
       </button>
       {open && (
-        <div
-          style={{
-            padding: "14px 16px",
-            background: "#12122a",
-            color: "#ddd",
-            fontSize: "0.95rem",
-          }}
-        >
+        <div style={{ padding: "14px 16px", background: "var(--bg-secondary)", color: "var(--text-primary)", fontSize: "0.95rem" }}>
           <FormattedContent content={content} />
         </div>
       )}
@@ -629,31 +310,75 @@ function Subtopic({ title, content, ttsState }) {
   );
 }
 
-/* ── Tab content panel for Setup / Rules / Strategy ──────────── */
+/* ── Accordion Panel ────────────────────────────────────────────── */
 function AccordionPanel({ subtopics, ttsState }) {
   if (!subtopics || subtopics.length === 0) {
-    return (
-      <div style={{ color: "#666", textAlign: "center", padding: "40px 0" }}>
-        Content not yet available.
-      </div>
-    );
+    return (<div style={{ color: "var(--text-secondary)", textAlign: "center", padding: "40px 0" }}>Content not yet available.</div>);
   }
-
   return (
     <div style={{ padding: "4px 0" }}>
-      {subtopics.map((st) => (
-        <Subtopic
-          key={st.id}
-          title={st.title}
-          content={st.content}
-          ttsState={ttsState}
-        />
-      ))}
+      {subtopics.map((st) => (<Subtopic key={st.id} title={st.title} content={st.content} ttsState={ttsState} />))}
     </div>
   );
 }
 
-/* ── Q&A Chat Panel ──────────────────────────────────────────── */
+/* ── Feedback Buttons ───────────────────────────────────────────── */
+function FeedbackButtons({ gameId, question, response }) {
+  const [voted, setVoted] = useState(null);
+  const [showThanks, setShowThanks] = useState(false);
+
+  const handleVote = async (rating) => {
+    setVoted(rating);
+    setShowThanks(true);
+    setTimeout(() => setShowThanks(false), 2000);
+    try {
+      await fetch(`${API_BASE}/api/feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ game_id: gameId, question, response, rating }),
+      });
+    } catch {
+      // Silently ignore
+    }
+  };
+
+  if (showThanks) {
+    return <span style={{ fontSize: "0.8rem", color: "var(--accent)", marginTop: "4px", display: "inline-block" }}>Thanks!</span>;
+  }
+
+  return (
+    <div style={{ display: "flex", gap: "4px", marginTop: "4px" }}>
+      <button
+        onClick={() => handleVote(1)}
+        disabled={voted !== null}
+        style={{
+          background: "none", border: "none", cursor: voted !== null ? "default" : "pointer",
+          fontSize: "0.9rem", padding: "2px 6px",
+          opacity: voted !== null ? 0.4 : 1,
+          color: voted === 1 ? "var(--accent)" : "var(--text-secondary)",
+        }}
+        title="Helpful" aria-label="Rate response as helpful"
+      >
+        👍
+      </button>
+      <button
+        onClick={() => handleVote(-1)}
+        disabled={voted !== null}
+        style={{
+          background: "none", border: "none", cursor: voted !== null ? "default" : "pointer",
+          fontSize: "0.9rem", padding: "2px 6px",
+          opacity: voted !== null ? 0.4 : 1,
+          color: voted === -1 ? "var(--accent)" : "var(--text-secondary)",
+        }}
+        title="Not helpful" aria-label="Rate response as not helpful"
+      >
+        👎
+      </button>
+    </div>
+  );
+}
+
+/* ── Q&A Chat Panel ─────────────────────────────────────────────── */
 function QAPanel({ gameId, gameTitle }) {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState([]);
@@ -667,49 +392,33 @@ function QAPanel({ gameId, gameTitle }) {
   const handleSubmit = async (questionText) => {
     const question = (questionText || input).trim();
     if (!question || loading) return;
-
+    if (!navigator.onLine) {
+      setHistory((prev) => [...prev, { role: "user", content: question }, { role: "error", content: "Requires internet connection — please check your network and try again." }]);
+      setInput("");
+      return;
+    }
     setInput("");
     setHistory((prev) => [...prev, { role: "user", content: question }]);
     setLoading(true);
-
     try {
       const result = await queryGame(gameId, question);
-      const answer = result.answer;
-      setHistory((prev) => [...prev, { role: "assistant", content: answer }]);
+      setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question }]);
     } catch (err) {
-      setHistory((prev) => [
-        ...prev,
-        { role: "error", content: err.message || "Something went wrong" },
-      ]);
+      setHistory((prev) => [...prev, { role: "error", content: err.message || "Something went wrong" }]);
     } finally {
       setLoading(false);
     }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit();
-    }
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); }
   };
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}
-    >
-      <div
-        style={{
-          flex: 1,
-          overflowY: "auto",
-          marginBottom: "12px",
-          padding: "12px",
-          background: "#1a1a2e",
-          borderRadius: "12px",
-          border: "1px solid #333",
-        }}
-      >
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
+      <div style={{ flex: 1, overflowY: "auto", marginBottom: "12px", padding: "12px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border)" }}>
         {history.length === 0 ? (
-          <p style={{ color: "#666", textAlign: "center", marginTop: "40px" }}>
+          <p style={{ color: "var(--text-secondary)", textAlign: "center", marginTop: "40px" }}>
             Ask a question about {gameTitle} to get started!
           </p>
         ) : (
@@ -717,69 +426,31 @@ function QAPanel({ gameId, gameTitle }) {
             <div
               key={i}
               style={{
-                marginBottom: "12px",
-                padding: "10px 14px",
-                borderRadius: "10px",
-                background:
-                  msg.role === "user"
-                    ? "#2a2a4a"
-                    : msg.role === "error"
-                    ? "#4a1a1a"
-                    : "#0f2a0f",
+                marginBottom: "12px", padding: "10px 14px", borderRadius: "10px",
+                background: msg.role === "user" ? "var(--bg-card)" : msg.role === "error" ? "#4a1a1a" : "#0f2a0f",
                 maxWidth: msg.role === "user" ? "80%" : "100%",
                 marginLeft: msg.role === "user" ? "auto" : 0,
-                lineHeight: 1.5,
-                fontSize: "0.95rem",
+                lineHeight: 1.5, fontSize: "0.95rem",
               }}
             >
-              {msg.role === "user" && (
-                <div
-                  style={{
-                    fontSize: "0.75rem",
-                    color: "#888",
-                    marginBottom: "4px",
-                  }}
-                >
-                  You
-                </div>
-              )}
+              {msg.role === "user" && (<div style={{ fontSize: "0.75rem", color: "var(--text-secondary)", marginBottom: "4px" }}>You</div>)}
               {msg.role === "assistant" && (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    fontSize: "0.75rem",
-                    color: "#4ade80",
-                    marginBottom: "4px",
-                  }}
-                >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.75rem", color: "#4ade80", marginBottom: "4px" }}>
                   <span>GameMaster AI</span>
-                  <button
-                    onClick={() => speakText(msg.content)}
-                    title="Read aloud"
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      fontSize: "0.9rem",
-                      color: "#888",
-                      padding: "2px 4px",
-                    }}
-                  >
-                    🔊
-                  </button>
+                  <button onClick={() => speakText(msg.content)} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.9rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>
                 </div>
               )}
               <FormattedContent content={msg.content} />
+              {msg.role === "assistant" && (
+                <FeedbackButtons gameId={gameId} question={msg.question} response={msg.content} />
+              )}
             </div>
           ))
         )}
         {loading && (
-          <div
-            style={{ padding: "10px 14px", color: "#888", fontStyle: "italic" }}
-          >
-            Thinking...
+          <div style={{ padding: "10px 14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ width: "18px", height: "18px", border: "2px solid var(--border)", borderTopColor: "var(--accent)", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite", flexShrink: 0 }} />
+            <span>Thinking...</span>
           </div>
         )}
         <div ref={historyEndRef} />
@@ -787,36 +458,11 @@ function QAPanel({ gameId, gameTitle }) {
 
       <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
         <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} />
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder={`Ask about ${gameTitle}...`}
-          disabled={loading}
-          style={{
-            flex: 1,
-            padding: "14px 16px",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "2px solid #333",
-            background: "#1a1a2e",
-            color: "#eee",
-            outline: "none",
-          }}
+        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading} aria-label={`Ask a question about ${gameTitle}`}
+          style={{ flex: 1, padding: "14px 16px", fontSize: "1rem", borderRadius: "12px", border: "2px solid var(--border)", background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none" }}
         />
-        <button
-          onClick={() => handleSubmit()}
-          disabled={loading || !input.trim()}
-          style={{
-            padding: "14px 24px",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            background: loading || !input.trim() ? "#333" : "#646cff",
-            color: "#fff",
-            border: "none",
-            fontWeight: 600,
-          }}
+        <button onClick={() => handleSubmit()} disabled={loading || !input.trim()} aria-label="Submit question"
+          style={{ padding: "14px 24px", fontSize: "1rem", borderRadius: "12px", background: loading || !input.trim() ? "var(--border)" : "var(--accent)", color: "#fff", border: "none", fontWeight: 600 }}
         >
           Ask
         </button>
@@ -825,7 +471,69 @@ function QAPanel({ gameId, gameTitle }) {
   );
 }
 
-/* ── Main GameTeacher Component ──────────────────────────────── */
+/* ── Game Timer ─────────────────────────────────────────────────── */
+function GameTimer() {
+  const [running, setRunning] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (running) {
+      intervalRef.current = setInterval(() => setElapsed((e) => e + 1), 1000);
+    } else {
+      clearInterval(intervalRef.current);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [running]);
+
+  const formatTime = (s) => {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
+  };
+
+  return (
+    <button
+      onClick={() => setRunning(!running)}
+      title={running ? "Pause timer" : elapsed > 0 ? "Resume timer" : "Start timer"}
+      style={{
+        display: "flex", alignItems: "center", gap: "4px",
+        padding: "4px 10px", borderRadius: "8px",
+        background: running ? "var(--bg-card)" : "transparent",
+        border: "1px solid var(--border)",
+        color: running ? "var(--accent)" : "var(--text-secondary)",
+        fontSize: "0.8rem", fontFamily: "monospace", cursor: "pointer",
+      }}
+    >
+      <span>{running ? "⏸" : "⏱"}</span>
+      {elapsed > 0 && <span>{formatTime(elapsed)}</span>}
+    </button>
+  );
+}
+
+/* ── Buy Banner ─────────────────────────────────────────────────── */
+function BuyBanner({ gameId, gameTitle, venueConfig }) {
+  if (!venueConfig?.show_buy_button) return null;
+
+  const price = GAME_PRICES[gameId];
+  const text = price
+    ? `Love ${gameTitle}? Buy it here — $${price.toFixed(2)}`
+    : venueConfig.buy_button_text || "Love this game? We sell it — ask staff!";
+
+  return (
+    <div style={{
+      background: "var(--bg-card)", borderRadius: "8px", padding: "8px 16px",
+      marginBottom: "12px", textAlign: "center", fontSize: "0.85rem",
+      color: "var(--text-secondary)", border: "1px solid var(--border)",
+      borderLeft: "3px solid var(--accent)",
+    }}>
+      {text}
+    </div>
+  );
+}
+
+/* ── Main GameTeacher Component ──────────────────────────────────── */
 export default function GameTeacher() {
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -833,106 +541,102 @@ export default function GameTeacher() {
   const [gameTitle, setGameTitle] = useState(gameId);
   const [activeTab, setActiveTab] = useState("setup");
   const [ttsState, setTtsState] = useState("idle");
+  const [showScoreTracker, setShowScoreTracker] = useState(false);
+  const [gameLoading, setGameLoading] = useState(true);
+  const [gameError, setGameError] = useState(null);
+  const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  const [venueConfig, setVenueConfig] = useState({
+    venue_name: "Meepleville",
+    venue_tagline: "Las Vegas Board Game Cafe",
+    accent_color: "#e94560",
+    show_buy_button: true,
+    buy_button_text: "Love this game? We sell it — ask staff!",
+  });
   const [ttsRate, setTtsRate] = useState(() => {
     const saved = getRate();
-    // If saved rate is no longer valid (e.g. 1.5x removed), reset to 1.0x
-    if (!SPEED_OPTIONS.includes(saved)) {
-      setRate(1.0);
-      return 1.0;
-    }
+    if (!SPEED_OPTIONS.includes(saved)) { setRate(1.0); return 1.0; }
     return saved;
   });
 
+  // Fetch venue config
   useEffect(() => {
-    setOnStateChange((state) => {
-      setTtsState(state);
-    });
-    setOnRateChange((rate) => {
-      setTtsRate(rate);
-    });
-    return () => {
-      setOnStateChange(null);
-      setOnRateChange(null);
+    const fetchVenue = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/venue`);
+        if (res.ok) {
+          const data = await res.json();
+          setVenueConfig(data);
+          if (data.accent_color) {
+            document.documentElement.style.setProperty("--accent", data.accent_color);
+          }
+        }
+      } catch {
+        // Use mock fallback
+      }
     };
+    fetchVenue();
   }, []);
 
   useEffect(() => {
+    setOnStateChange((state) => setTtsState(state));
+    setOnRateChange((rate) => setTtsRate(rate));
+    return () => { setOnStateChange(null); setOnRateChange(null); };
+  }, []);
+
+  // Online/offline detection
+  useEffect(() => {
+    const goOnline = () => setIsOffline(false);
+    const goOffline = () => setIsOffline(true);
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+    return () => { window.removeEventListener("online", goOnline); window.removeEventListener("offline", goOffline); };
+  }, []);
+
+  useEffect(() => {
+    setGameLoading(true);
+    setGameError(null);
     fetchGame(gameId)
-      .then((data) => {
-        setGameData(data);
-        setGameTitle(data.title || gameId);
-      })
-      .catch(() => {
-        setGameTitle(gameId);
-      });
+      .then((data) => { setGameData(data); setGameTitle(data.title || gameId); })
+      .catch(() => { setGameTitle(gameId); setGameError("GameMaster is taking a break — try again in a moment"); })
+      .finally(() => setGameLoading(false));
     return () => stopSpeaking();
   }, [gameId]);
 
-  const handleRateChange = (newRate) => {
-    setRate(newRate);
-    setTtsRate(newRate);
-  };
-
+  const handleRateChange = (newRate) => { setRate(newRate); setTtsRate(newRate); };
   const tabs = gameData?.tabs || {};
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px" }}>
       {/* Header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-          marginBottom: "12px",
-        }}
-      >
-        <button
-          onClick={() => {
-            stopSpeaking();
-            navigate("/");
-          }}
-          style={{ padding: "8px 16px", fontSize: "0.9rem" }}
-        >
-          ← Games
-        </button>
-        <h1 style={{ flex: 1, fontSize: "1.5rem", margin: 0 }}>{gameTitle}</h1>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
+        <button onClick={() => { stopSpeaking(); navigate("/app"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
+        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>{gameTitle}</h1>
+        <GameTimer />
         <PlaybackControls ttsState={ttsState} />
         <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
       </div>
 
+      {/* Venue branding subtitle */}
+      <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "8px" }}>
+        GameMaster AI at {venueConfig.venue_name}
+      </p>
+
+      {/* Offline banner */}
+      {isOffline && (
+        <div style={{ background: "#4a3a1a", borderRadius: "8px", padding: "8px 16px", marginBottom: "8px", textAlign: "center", fontSize: "0.85rem", color: "#f59e0b", border: "1px solid #5a4a2a" }}>
+          You're offline — some features may not work
+        </div>
+      )}
+
       {/* Tab Bar */}
-      <div
-        style={{
-          display: "flex",
-          gap: "8px",
-          marginBottom: "16px",
-          flexWrap: "wrap",
-        }}
-      >
+      <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
         {TABS.map((t) => (
-          <button
-            key={t.key}
-            onClick={() => setActiveTab(t.key)}
+          <button key={t.key} onClick={() => setActiveTab(t.key)} role="tab" aria-selected={activeTab === t.key} aria-label={`${t.label} tab`}
             style={{
-              padding: "8px 20px",
-              borderRadius: "999px",
-              border:
-                activeTab === t.key
-                  ? "2px solid #646cff"
-                  : "2px solid #333",
-              background: activeTab === t.key ? "#646cff" : "#1a1a2e",
-              color: "#fff",
-              fontWeight: activeTab === t.key ? 700 : 400,
-              fontSize: "0.95rem",
+              padding: "8px 20px", borderRadius: "999px",
+              border: activeTab === t.key ? "2px solid var(--accent)" : "2px solid var(--border)",
+              background: activeTab === t.key ? "var(--accent)" : "var(--bg-primary)",
+              color: "#fff", fontWeight: activeTab === t.key ? 700 : 400, fontSize: "0.95rem",
             }}
           >
             {t.label}
@@ -940,32 +644,62 @@ export default function GameTeacher() {
         ))}
       </div>
 
+      {/* Buy Banner */}
+      <BuyBanner gameId={gameId} gameTitle={gameTitle} venueConfig={venueConfig} />
+
       {/* Tab Content */}
-      <div
-        style={{
-          flex: 1,
-          overflowY: "auto",
-          minHeight: 0,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        {activeTab === "setup" && (
-          <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />
-        )}
-        {activeTab === "rules" && (
-          <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />
-        )}
-        {activeTab === "strategy" && (
-          <AccordionPanel
-            subtopics={tabs.strategy?.subtopics}
-            ttsState={ttsState}
-          />
-        )}
-        {activeTab === "qa" && (
-          <QAPanel gameId={gameId} gameTitle={gameTitle} />
+      <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column" }}>
+        {gameLoading ? (
+          <div style={{ padding: "16px 0" }}>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} style={{ height: "52px", marginBottom: "8px", borderRadius: "10px", background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)", backgroundSize: "200% 100%", animation: "shimmer 1.5s infinite" }} />
+            ))}
+          </div>
+        ) : gameError ? (
+          <div style={{ textAlign: "center", padding: "40px 20px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginBottom: "16px" }}>{gameError}</p>
+            <button onClick={() => { setGameError(null); setGameLoading(true); fetchGame(gameId).then((data) => { setGameData(data); setGameTitle(data.title || gameId); }).catch(() => setGameError("GameMaster is taking a break — try again in a moment")).finally(() => setGameLoading(false)); }}
+              aria-label="Retry loading game" style={{ padding: "12px 28px", borderRadius: "12px", background: "var(--accent)", color: "#fff", border: "none", fontWeight: 600, cursor: "pointer" }}>
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div style={{ animation: "fadeIn 0.25s ease-out" }}>
+            {activeTab === "setup" && <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />}
+            {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
+            {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
+            {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
+          </div>
         )}
       </div>
+
+      {/* Score FAB */}
+      <button
+        onClick={() => setShowScoreTracker(true)}
+        style={{
+          position: "fixed", bottom: "24px", right: "24px",
+          width: "56px", height: "56px", borderRadius: "50%",
+          background: "var(--accent)", color: "#fff",
+          border: "none", fontSize: "1.5rem", cursor: "pointer",
+          boxShadow: "0 4px 12px rgba(233, 69, 96, 0.4)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          zIndex: 100,
+        }}
+        title="Score Tracker"
+      >
+        🏆
+      </button>
+
+      {/* Score Tracker Modal */}
+      {showScoreTracker && (
+        <ScoreTracker
+          gameId={gameId}
+          gameTitle={gameTitle}
+          playerCount={gameData?.player_count}
+          onClose={() => setShowScoreTracker(false)}
+          onNewGame={() => navigate("/app")}
+        />
+      )}
     </div>
   );
 }

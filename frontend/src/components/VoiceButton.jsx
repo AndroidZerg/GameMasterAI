@@ -50,7 +50,7 @@ export default function VoiceButton({ onResult, disabled }) {
         height: "52px",
         borderRadius: "50%",
         border: "none",
-        background: listening ? "#ef4444" : "#646cff",
+        background: listening ? "var(--accent-dark)" : "var(--accent)",
         color: "#fff",
         fontSize: "1.4rem",
         display: "flex",
@@ -61,6 +61,7 @@ export default function VoiceButton({ onResult, disabled }) {
         flexShrink: 0,
       }}
       title={listening ? "Stop listening" : "Tap to speak"}
+      aria-label={listening ? "Stop voice input" : "Start voice input"}
     >
       🎤
     </button>

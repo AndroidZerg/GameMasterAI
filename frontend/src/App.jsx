@@ -1,14 +1,36 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { useKioskMode } from "./hooks/useKioskMode";
+import IdlePrompt from "./components/IdlePrompt";
 import GameSelector from "./components/GameSelector";
 import GameTeacher from "./components/GameTeacher";
+import LandingPage from "./components/LandingPage";
+import QRGeneratorPage from "./components/QRGeneratorPage";
+import VenueStatsPage from "./components/VenueStatsPage";
+
+function AppShell() {
+  const navigate = useNavigate();
+  const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
+    navigate("/app");
+  });
+
+  return (
+    <>
+      {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/app" element={<GameSelector />} />
+        <Route path="/game/:gameId" element={<GameTeacher />} />
+        <Route path="/admin/qr" element={<QRGeneratorPage />} />
+        <Route path="/admin/stats" element={<VenueStatsPage />} />
+      </Routes>
+    </>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<GameSelector />} />
-        <Route path="/game/:gameId" element={<GameTeacher />} />
-      </Routes>
+      <AppShell />
     </BrowserRouter>
   );
 }
