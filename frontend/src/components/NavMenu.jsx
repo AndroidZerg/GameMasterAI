@@ -13,6 +13,7 @@ const ADMIN_ITEMS = [
   { path: "/admin/qr", label: "QR Codes", icon: "\u{1F4F1}" },
   { path: "/admin/settings", label: "Venue Settings", icon: "\u2699\uFE0F" },
   { path: "/admin/collection", label: "Game Collection", icon: "\u{1F3AE}" },
+  { path: "/admin/customize", label: "Customize Home", icon: "\u2728" },
 ];
 
 export default function NavMenu() {

@@ -129,3 +129,37 @@ export async function fetchHouseRules() {
   const res = await fetch(`${API_BASE}/api/venue/house-rules`);
   return handleResponse(res);
 }
+
+// ── Admin: Featured & Staff Picks ──
+
+export async function fetchAdminFeatured() {
+  const res = await fetch(`${API_BASE}/api/admin/featured`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function saveAdminFeatured(body) {
+  const res = await fetch(`${API_BASE}/api/admin/featured`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify(body),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchAdminStaffPicks() {
+  const res = await fetch(`${API_BASE}/api/admin/staff-picks`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function saveAdminStaffPicks(gameIds) {
+  const res = await fetch(`${API_BASE}/api/admin/staff-picks`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ game_ids: gameIds }),
+  });
+  return handleResponse(res);
+}

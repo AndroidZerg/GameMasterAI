@@ -6,19 +6,36 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 
-from app.core.auth import get_optional_venue
+from app.core.auth import get_optional_venue, get_current_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection, get_staff_picks
 from app.services.knowledge import load_game
 
-_EXPANSIONS_PATH = Path(__file__).resolve().parents[4] / "content" / "expansions.json"
+_CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
+_EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
 _EXPANSIONS: dict[str, list] = {}
-_HIGHLIGHTS_PATH = Path(__file__).resolve().parents[4] / "content" / "game-highlights.json"
+_HIGHLIGHTS_PATH = _CONTENT_ROOT / "game-highlights.json"
 _HIGHLIGHTS: dict[str, str] = {}
+_ADMIN_CONFIG_PATH = _CONTENT_ROOT / "admin-config.json"
+
+
+def _load_admin_config() -> dict:
+    """Load admin config from JSON file."""
+    try:
+        if _ADMIN_CONFIG_PATH.exists():
+            return json.loads(_ADMIN_CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {"featured": {"mode": "auto"}, "staff_picks": []}
+
+
+def _save_admin_config(config: dict):
+    """Save admin config to JSON file."""
+    _ADMIN_CONFIG_PATH.write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
 
 
 def _load_expansions():
@@ -105,14 +122,22 @@ async def quick_games(
 async def staff_picks_games(
     venue: Optional[dict] = Depends(get_optional_venue),
 ):
-    """Return full game data for staff-picked games. Auth -> venue picks. No auth -> default top games."""
+    """Return full game data for staff-picked games. Checks admin config, then venue picks, then default."""
     picks = []
-    if venue:
+
+    # 1. Check admin-config.json first
+    config = _load_admin_config()
+    if config.get("staff_picks"):
+        picks = config["staff_picks"]
+
+    # 2. Fall back to venue-specific picks
+    if not picks and venue:
         picks = get_staff_picks(venue["venue_id"])
 
+    # 3. Fall back to top games
     if not picks:
         all_games = search_games()
-        return all_games[:5]
+        return all_games[:8]
 
     all_games = search_games()
     games_map = {g["game_id"]: g for g in all_games}
@@ -121,7 +146,7 @@ async def staff_picks_games(
 
 @router.get("/games/featured")
 async def featured_game():
-    """Game of the Day — deterministic selection based on date hash."""
+    """Game of the Day — admin manual pick or deterministic auto-rotation."""
     if not _HIGHLIGHTS:
         _load_highlights()
 
@@ -129,8 +154,20 @@ async def featured_game():
     if not games:
         return {"error": "No games available"}
 
-    # Hash today's date to pick a consistent game
+    games_map = {g["game_id"]: g for g in games}
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # Check admin config for manual override
+    config = _load_admin_config()
+    featured_cfg = config.get("featured", {})
+    if featured_cfg.get("mode") == "manual" and featured_cfg.get("game_id"):
+        manual_id = featured_cfg["game_id"]
+        if manual_id in games_map:
+            game = games_map[manual_id]
+            why_play = _HIGHLIGHTS.get(manual_id, f"{game['title']} is a great game to try today.")
+            return {**game, "why_play": why_play, "featured_date": today, "featured_mode": "manual"}
+
+    # Auto mode — hash today's date to pick a consistent game
     idx = int(hashlib.md5(today.encode()).hexdigest(), 16) % len(games)
     game = games[idx]
     game_id = game["game_id"]
@@ -141,6 +178,7 @@ async def featured_game():
         **game,
         "why_play": why_play,
         "featured_date": today,
+        "featured_mode": "auto",
     }
 
 
@@ -201,3 +239,55 @@ async def reload_games():
     """Re-scan the games directory and rebuild the SQLite database."""
     count = rebuild_db()
     return {"status": "ok", "games_loaded": count}
+
+
+# ── Admin: Featured Game ──────────────────────────────────────────
+
+@router.get("/admin/featured")
+async def get_admin_featured(venue: dict = Depends(get_current_venue)):
+    """Get current featured game config."""
+    config = _load_admin_config()
+    return config.get("featured", {"mode": "auto"})
+
+
+@router.post("/admin/featured")
+async def set_admin_featured(request: Request, venue: dict = Depends(get_current_venue)):
+    """Set featured game. Body: {game_id: "pandemic"} or {auto: true}"""
+    body = await request.json()
+    config = _load_admin_config()
+
+    if body.get("auto"):
+        config["featured"] = {"mode": "auto"}
+    elif body.get("game_id"):
+        config["featured"] = {"mode": "manual", "game_id": body["game_id"]}
+    else:
+        raise HTTPException(status_code=400, detail="Provide game_id or auto: true")
+
+    _save_admin_config(config)
+    return {"status": "ok", "featured": config["featured"]}
+
+
+# ── Admin: Staff Picks ────────────────────────────────────────────
+
+@router.get("/admin/staff-picks")
+async def get_admin_staff_picks(venue: dict = Depends(get_current_venue)):
+    """Get current staff picks list."""
+    config = _load_admin_config()
+    return {"staff_picks": config.get("staff_picks", [])}
+
+
+@router.post("/admin/staff-picks")
+async def set_admin_staff_picks(request: Request, venue: dict = Depends(get_current_venue)):
+    """Set staff picks. Body: {game_ids: ["wingspan", "azul", ...]}"""
+    body = await request.json()
+    game_ids = body.get("game_ids", [])
+
+    if not isinstance(game_ids, list):
+        raise HTTPException(status_code=400, detail="game_ids must be an array")
+    if len(game_ids) > 10:
+        raise HTTPException(status_code=400, detail="Maximum 10 staff picks allowed")
+
+    config = _load_admin_config()
+    config["staff_picks"] = game_ids
+    _save_admin_config(config)
+    return {"status": "ok", "staff_picks": game_ids}

@@ -1,0 +1,442 @@
+import { useState, useEffect, useRef } from "react";
+import {
+  fetchGames,
+  fetchAdminFeatured,
+  saveAdminFeatured,
+  fetchAdminStaffPicks,
+  saveAdminStaffPicks,
+  API_BASE,
+} from "../services/api";
+import Breadcrumb from "./Breadcrumb";
+
+export default function CustomizeHomePage() {
+  const [allGames, setAllGames] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [toast, setToast] = useState("");
+
+  // Featured state
+  const [featuredMode, setFeaturedMode] = useState("auto");
+  const [featuredGameId, setFeaturedGameId] = useState("");
+  const [featuredSearch, setFeaturedSearch] = useState("");
+  const [showFeaturedDropdown, setShowFeaturedDropdown] = useState(false);
+  const [savingFeatured, setSavingFeatured] = useState(false);
+
+  // Staff picks state
+  const [staffPicks, setStaffPicks] = useState([]);
+  const [picksSearch, setPicksSearch] = useState("");
+  const [showPicksDropdown, setShowPicksDropdown] = useState(false);
+  const [savingPicks, setSavingPicks] = useState(false);
+
+  const featuredRef = useRef(null);
+  const picksRef = useRef(null);
+
+  useEffect(() => {
+    Promise.all([fetchGames(), fetchAdminFeatured(), fetchAdminStaffPicks()])
+      .then(([games, featured, picks]) => {
+        setAllGames(games);
+        setFeaturedMode(featured.mode || "auto");
+        setFeaturedGameId(featured.game_id || "");
+        setStaffPicks(picks.staff_picks || []);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (featuredRef.current && !featuredRef.current.contains(e.target)) {
+        setShowFeaturedDropdown(false);
+      }
+      if (picksRef.current && !picksRef.current.contains(e.target)) {
+        setShowPicksDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(""), 3000);
+  };
+
+  const gamesMap = {};
+  allGames.forEach((g) => { gamesMap[g.game_id] = g; });
+
+  const getGameTitle = (id) => gamesMap[id]?.title || id;
+
+  // ── Featured game save ──
+  const handleSaveFeatured = async () => {
+    setSavingFeatured(true);
+    try {
+      if (featuredMode === "auto") {
+        await saveAdminFeatured({ auto: true });
+      } else {
+        await saveAdminFeatured({ game_id: featuredGameId });
+      }
+      showToast("Featured game saved!");
+    } catch {
+      showToast("Failed to save featured game");
+    }
+    setSavingFeatured(false);
+  };
+
+  // ── Staff picks save ──
+  const handleSavePicks = async () => {
+    setSavingPicks(true);
+    try {
+      await saveAdminStaffPicks(staffPicks);
+      showToast("Staff picks saved!");
+    } catch {
+      showToast("Failed to save staff picks");
+    }
+    setSavingPicks(false);
+  };
+
+  const addPick = (gameId) => {
+    if (staffPicks.length >= 10) return;
+    if (staffPicks.includes(gameId)) return;
+    setStaffPicks([...staffPicks, gameId]);
+    setPicksSearch("");
+    setShowPicksDropdown(false);
+  };
+
+  const removePick = (gameId) => {
+    setStaffPicks(staffPicks.filter((id) => id !== gameId));
+  };
+
+  const movePick = (index, dir) => {
+    const arr = [...staffPicks];
+    const newIdx = index + dir;
+    if (newIdx < 0 || newIdx >= arr.length) return;
+    [arr[index], arr[newIdx]] = [arr[newIdx], arr[index]];
+    setStaffPicks(arr);
+  };
+
+  // ── Filtered search results ──
+  const featuredResults = featuredSearch.trim()
+    ? allGames.filter((g) => g.title.toLowerCase().includes(featuredSearch.toLowerCase())).slice(0, 8)
+    : [];
+
+  const picksResults = picksSearch.trim()
+    ? allGames
+        .filter((g) => g.title.toLowerCase().includes(picksSearch.toLowerCase()))
+        .filter((g) => !staffPicks.includes(g.game_id))
+        .slice(0, 8)
+    : [];
+
+  const inputStyle = {
+    width: "100%",
+    padding: "12px 14px",
+    borderRadius: "10px",
+    border: "1px solid var(--border)",
+    background: "var(--bg-secondary)",
+    color: "var(--text-primary)",
+    fontSize: "1rem",
+    outline: "none",
+    boxSizing: "border-box",
+  };
+
+  const btnStyle = (disabled) => ({
+    width: "100%",
+    padding: "14px",
+    borderRadius: "12px",
+    background: disabled ? "var(--border)" : "var(--accent)",
+    color: "#fff",
+    border: "none",
+    fontSize: "1.05rem",
+    fontWeight: 700,
+    cursor: disabled ? "not-allowed" : "pointer",
+  });
+
+  const dropdownStyle = {
+    position: "absolute",
+    top: "100%",
+    left: 0,
+    right: 0,
+    background: "var(--bg-card)",
+    border: "1px solid var(--border)",
+    borderRadius: "10px",
+    marginTop: "4px",
+    maxHeight: "240px",
+    overflowY: "auto",
+    zIndex: 10,
+  };
+
+  const dropdownItemStyle = {
+    padding: "10px 14px",
+    cursor: "pointer",
+    fontSize: "0.95rem",
+    color: "var(--text-primary)",
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    borderBottom: "1px solid var(--border)",
+  };
+
+  if (loading) {
+    return (
+      <div style={{ padding: "80px 20px", maxWidth: "600px", margin: "0 auto" }}>
+        <div style={{ height: "200px", borderRadius: "16px", background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)", backgroundSize: "200% 100%", animation: "shimmer 1.5s infinite" }} />
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding: "70px 20px 40px", maxWidth: "600px", margin: "0 auto" }}>
+      <Breadcrumb items={[{ label: "Admin" }, { label: "Customize Home" }]} />
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "var(--text-primary)" }}>
+        Customize Home
+      </h1>
+
+      {/* Toast */}
+      {toast && (
+        <div style={{ background: "var(--accent)", color: "#fff", padding: "10px 16px", borderRadius: "10px", marginBottom: "16px", textAlign: "center", fontSize: "0.9rem", animation: "fadeIn 0.2s ease-out" }}>
+          {toast}
+        </div>
+      )}
+
+      {/* ── SECTION 1: Game of the Day ── */}
+      <div style={{ background: "var(--bg-card)", borderRadius: "16px", padding: "24px", border: "1px solid var(--border)", marginBottom: "24px" }}>
+        <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+          <span>{"\u2B50"}</span> Game of the Day
+        </h2>
+
+        {/* Mode toggle */}
+        <div style={{ marginBottom: "16px" }}>
+          <label style={{ display: "block", marginBottom: "6px", fontSize: "0.9rem", color: "var(--text-secondary)" }}>Mode</label>
+          <div style={{ display: "flex", gap: "8px" }}>
+            {[
+              { value: "auto", label: "Auto-Rotate" },
+              { value: "manual", label: "Manual Pick" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setFeaturedMode(opt.value)}
+                style={{
+                  padding: "8px 20px",
+                  borderRadius: "999px",
+                  fontSize: "0.9rem",
+                  background: featuredMode === opt.value ? "var(--accent)" : "var(--bg-secondary)",
+                  color: featuredMode === opt.value ? "#fff" : "var(--text-secondary)",
+                  border: featuredMode === opt.value ? "2px solid var(--accent)" : "2px solid var(--border)",
+                  fontWeight: featuredMode === opt.value ? 600 : 400,
+                  cursor: "pointer",
+                }}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Manual game search */}
+        {featuredMode === "manual" && (
+          <div ref={featuredRef} style={{ position: "relative", marginBottom: "16px" }}>
+            <label style={{ display: "block", marginBottom: "6px", fontSize: "0.9rem", color: "var(--text-secondary)" }}>
+              Select Game
+            </label>
+
+            {/* Currently selected */}
+            {featuredGameId && (
+              <div style={{
+                display: "flex", alignItems: "center", gap: "10px",
+                padding: "10px 14px", borderRadius: "10px",
+                background: "var(--bg-secondary)", border: "1px solid var(--accent)",
+                marginBottom: "10px",
+              }}>
+                <img
+                  src={`${API_BASE}/api/images/${featuredGameId}.jpg`}
+                  alt=""
+                  style={{ width: "36px", height: "36px", borderRadius: "6px", objectFit: "cover" }}
+                  onError={(e) => { e.target.style.display = "none"; }}
+                />
+                <span style={{ flex: 1, fontWeight: 600, color: "var(--text-primary)" }}>
+                  {getGameTitle(featuredGameId)}
+                </span>
+                <button
+                  onClick={() => setFeaturedGameId("")}
+                  style={{ background: "none", border: "none", color: "var(--text-secondary)", cursor: "pointer", fontSize: "1.2rem" }}
+                >
+                  {"\u2715"}
+                </button>
+              </div>
+            )}
+
+            <input
+              type="text"
+              value={featuredSearch}
+              onChange={(e) => { setFeaturedSearch(e.target.value); setShowFeaturedDropdown(true); }}
+              onFocus={() => setShowFeaturedDropdown(true)}
+              placeholder="Search for a game..."
+              style={inputStyle}
+            />
+
+            {showFeaturedDropdown && featuredResults.length > 0 && (
+              <div style={dropdownStyle}>
+                {featuredResults.map((g) => (
+                  <div
+                    key={g.game_id}
+                    onClick={() => {
+                      setFeaturedGameId(g.game_id);
+                      setFeaturedSearch("");
+                      setShowFeaturedDropdown(false);
+                    }}
+                    style={dropdownItemStyle}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "var(--bg-secondary)"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                  >
+                    <img
+                      src={`${API_BASE}/api/images/${g.game_id}.jpg`}
+                      alt=""
+                      style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "cover" }}
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <span>{g.title}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {featuredMode === "auto" && (
+          <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "16px" }}>
+            A different game is automatically featured each day based on the date.
+          </p>
+        )}
+
+        <button onClick={handleSaveFeatured} disabled={savingFeatured || (featuredMode === "manual" && !featuredGameId)} style={btnStyle(savingFeatured || (featuredMode === "manual" && !featuredGameId))}>
+          {savingFeatured ? "Saving..." : "Save Featured Game"}
+        </button>
+      </div>
+
+      {/* ── SECTION 2: Staff Picks ── */}
+      <div style={{ background: "var(--bg-card)", borderRadius: "16px", padding: "24px", border: "1px solid var(--border)", marginBottom: "24px" }}>
+        <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "4px", display: "flex", alignItems: "center", gap: "8px" }}>
+          <span>{"\u{1F3AF}"}</span> Staff Picks
+        </h2>
+        <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "16px" }}>
+          Choose up to 10 games to highlight on the home page. Drag to reorder.
+        </p>
+
+        {/* Current picks list */}
+        {staffPicks.length > 0 && (
+          <div style={{ marginBottom: "16px" }}>
+            {staffPicks.map((gameId, idx) => (
+              <div
+                key={gameId}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  padding: "8px 12px",
+                  borderRadius: "10px",
+                  background: "var(--bg-secondary)",
+                  marginBottom: "6px",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)", fontWeight: 600, width: "20px", textAlign: "center" }}>
+                  {idx + 1}
+                </span>
+                <img
+                  src={`${API_BASE}/api/images/${gameId}.jpg`}
+                  alt=""
+                  style={{ width: "36px", height: "36px", borderRadius: "6px", objectFit: "cover" }}
+                  onError={(e) => { e.target.style.display = "none"; }}
+                />
+                <span style={{ flex: 1, fontSize: "0.95rem", fontWeight: 500, color: "var(--text-primary)" }}>
+                  {getGameTitle(gameId)}
+                </span>
+                <div style={{ display: "flex", gap: "2px" }}>
+                  <button
+                    onClick={() => movePick(idx, -1)}
+                    disabled={idx === 0}
+                    style={{
+                      background: "none", border: "none", cursor: idx === 0 ? "default" : "pointer",
+                      color: idx === 0 ? "var(--border)" : "var(--text-secondary)", fontSize: "1rem", padding: "4px",
+                    }}
+                  >
+                    {"\u25B2"}
+                  </button>
+                  <button
+                    onClick={() => movePick(idx, 1)}
+                    disabled={idx === staffPicks.length - 1}
+                    style={{
+                      background: "none", border: "none", cursor: idx === staffPicks.length - 1 ? "default" : "pointer",
+                      color: idx === staffPicks.length - 1 ? "var(--border)" : "var(--text-secondary)", fontSize: "1rem", padding: "4px",
+                    }}
+                  >
+                    {"\u25BC"}
+                  </button>
+                </div>
+                <button
+                  onClick={() => removePick(gameId)}
+                  style={{ background: "none", border: "none", color: "#e94560", cursor: "pointer", fontSize: "1.1rem", padding: "4px" }}
+                >
+                  {"\u2715"}
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Add game search */}
+        {staffPicks.length < 10 && (
+          <div ref={picksRef} style={{ position: "relative", marginBottom: "16px" }}>
+            <input
+              type="text"
+              value={picksSearch}
+              onChange={(e) => { setPicksSearch(e.target.value); setShowPicksDropdown(true); }}
+              onFocus={() => setShowPicksDropdown(true)}
+              placeholder="Search to add a game..."
+              style={inputStyle}
+            />
+
+            {showPicksDropdown && picksResults.length > 0 && (
+              <div style={dropdownStyle}>
+                {picksResults.map((g) => (
+                  <div
+                    key={g.game_id}
+                    onClick={() => addPick(g.game_id)}
+                    style={dropdownItemStyle}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "var(--bg-secondary)"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                  >
+                    <img
+                      src={`${API_BASE}/api/images/${g.game_id}.jpg`}
+                      alt=""
+                      style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "cover" }}
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <span>{g.title}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+          <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+            {staffPicks.length}/10 picks selected
+          </span>
+          {staffPicks.length > 0 && (
+            <button
+              onClick={() => setStaffPicks([])}
+              style={{ background: "none", border: "none", color: "#e94560", cursor: "pointer", fontSize: "0.85rem", fontWeight: 600 }}
+            >
+              Clear All
+            </button>
+          )}
+        </div>
+
+        <button onClick={handleSavePicks} disabled={savingPicks} style={btnStyle(savingPicks)}>
+          {savingPicks ? "Saving..." : "Save Staff Picks"}
+        </button>
+      </div>
+    </div>
+  );
+}

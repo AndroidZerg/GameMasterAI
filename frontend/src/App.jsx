@@ -14,6 +14,7 @@ import QRGeneratorPage from "./components/QRGeneratorPage";
 import VenueStatsPage from "./components/VenueStatsPage";
 import VenueSettingsPage from "./components/VenueSettingsPage";
 import CollectionManagerPage from "./components/CollectionManagerPage";
+import CustomizeHomePage from "./components/CustomizeHomePage";
 import MenuPage from "./components/MenuPage";
 
 function AuthWatcher() {
@@ -53,6 +54,7 @@ function AppShell() {
         <Route path="/admin/stats" element={<ProtectedRoute><VenueStatsPage /></ProtectedRoute>} />
         <Route path="/admin/settings" element={<ProtectedRoute><VenueSettingsPage /></ProtectedRoute>} />
         <Route path="/admin/collection" element={<ProtectedRoute><CollectionManagerPage /></ProtectedRoute>} />
+        <Route path="/admin/customize" element={<ProtectedRoute><CustomizeHomePage /></ProtectedRoute>} />
       </Routes>
     </>
   );
