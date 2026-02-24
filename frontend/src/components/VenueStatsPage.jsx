@@ -170,10 +170,29 @@ export default function VenueStatsPage() {
     border: "1px solid var(--border)",
   };
 
+  const [inquiries, setInquiries] = useState([]);
+  const [inquiriesLoading, setInquiriesLoading] = useState(false);
+
+  const loadInquiries = async () => {
+    setInquiriesLoading(true);
+    try {
+      const token = localStorage.getItem("gmai_token");
+      const res = await fetch(`${API_BASE}/api/admin/inquiries`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setInquiries(data.inquiries || []);
+      }
+    } catch { /* ignore */ }
+    setInquiriesLoading(false);
+  };
+
   const tabs = [
     { key: "overview", label: "Overview" },
     { key: "activity", label: "Activity" },
     { key: "leaderboard", label: "Leaderboard" },
+    { key: "inquiries", label: "Inquiries" },
   ];
 
   return (
@@ -269,6 +288,74 @@ export default function VenueStatsPage() {
       {/* Leaderboard Tab */}
       {activeTab === "leaderboard" && (
         <TopScores scores={stats.top_scores} />
+      )}
+
+      {/* Inquiries Tab */}
+      {activeTab === "inquiries" && (
+        <div style={{
+          background: "var(--bg-card)", borderRadius: "16px", padding: "20px",
+          border: "1px solid var(--border)",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+            <h2 style={{ fontSize: "1.1rem", color: "var(--text-primary)", margin: 0 }}>Demo Requests</h2>
+            <button
+              onClick={loadInquiries}
+              disabled={inquiriesLoading}
+              style={{
+                padding: "6px 16px", borderRadius: "8px", fontSize: "0.85rem",
+                background: "var(--bg-primary)", color: "var(--text-secondary)",
+                border: "1px solid var(--border)", cursor: "pointer",
+              }}
+            >
+              {inquiriesLoading ? "Loading..." : "Refresh"}
+            </button>
+          </div>
+          {inquiries.length === 0 && !inquiriesLoading && (
+            <p style={{ color: "var(--text-secondary)", textAlign: "center", padding: "20px 0" }}>
+              No inquiries yet. Click Refresh to load.
+            </p>
+          )}
+          {inquiries.length > 0 && (
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
+                <thead>
+                  <tr>
+                    {["Date", "Name", "Email", "Venue", "Message"].map((h) => (
+                      <th key={h} style={{
+                        textAlign: "left", padding: "8px 10px", borderBottom: "2px solid var(--border)",
+                        color: "var(--text-secondary)", fontSize: "0.8rem", fontWeight: 600,
+                        whiteSpace: "nowrap",
+                      }}>
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {inquiries.map((inq, i) => (
+                    <tr key={i}>
+                      <td style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", whiteSpace: "nowrap", color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+                        {inq.submitted_at ? new Date(inq.submitted_at).toLocaleDateString() : "—"}
+                      </td>
+                      <td style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", color: "var(--text-primary)", fontWeight: 500 }}>
+                        {inq.name}
+                      </td>
+                      <td style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", color: "var(--accent)" }}>
+                        <a href={`mailto:${inq.email}`} style={{ color: "var(--accent)", textDecoration: "none" }}>{inq.email}</a>
+                      </td>
+                      <td style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", color: "var(--text-secondary)" }}>
+                        {inq.venue || "—"}
+                      </td>
+                      <td style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", color: "var(--text-secondary)", maxWidth: "250px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {inq.message || "—"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       )}
 
       <p style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "0.8rem", marginTop: "16px" }}>
