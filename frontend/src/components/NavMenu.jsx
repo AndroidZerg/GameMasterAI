@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 const PUBLIC_ITEMS = [
   { path: "/", label: "Home", icon: "\u{1F3E0}" },
   { path: "/games", label: "Games", icon: "\u{1F3B2}" },
+  { path: "/join", label: "Join a Game", icon: "\u{1F91D}" },
   { path: "/menu", label: "Menu", icon: "\u{1F354}" },
 ];
 

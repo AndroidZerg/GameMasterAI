@@ -78,7 +78,7 @@ const BEST_FOR_COLORS = {
   "Campaign": "#8b5cf6",
 };
 
-const COMPLEXITY_OPTIONS = ["all", "party", "gateway", "midweight", "heavy"];
+const COMPLEXITY_OPTIONS = ["all", "gateway", "midweight", "heavy"];
 const PLAYER_COUNT_OPTIONS = [
   { label: "Any", value: 0 },
   { label: "2", value: 2 },

@@ -16,6 +16,8 @@ import VenueSettingsPage from "./components/VenueSettingsPage";
 import CollectionManagerPage from "./components/CollectionManagerPage";
 import CustomizeHomePage from "./components/CustomizeHomePage";
 import MenuPage from "./components/MenuPage";
+import LobbyJoin from "./components/LobbyJoin";
+import LobbyScoreTracker from "./components/LobbyScoreTracker";
 
 function AuthWatcher() {
   const { logout } = useAuth();
@@ -48,6 +50,9 @@ function AppShell() {
         <Route path="/games" element={<GameSelector />} />
         <Route path="/app" element={<Navigate to="/games" replace />} />
         <Route path="/game/:gameId" element={<GameTeacher />} />
+        <Route path="/join/:code" element={<LobbyJoin />} />
+        <Route path="/join" element={<LobbyJoin />} />
+        <Route path="/lobby/:lobbyId" element={<LobbyScoreTracker />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin/qr" element={<ProtectedRoute><QRGeneratorPage /></ProtectedRoute>} />

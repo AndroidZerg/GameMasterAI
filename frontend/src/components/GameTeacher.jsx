@@ -6,6 +6,7 @@ import ScoreTracker from "./ScoreTracker";
 import Leaderboard from "./Leaderboard";
 import GameRating from "./GameRating";
 import ExpansionInfo from "./ExpansionInfo";
+import LobbyCreate from "./LobbyCreate";
 import {
   speakText,
   stopSpeaking,
@@ -25,6 +26,7 @@ const TABS = [
   { key: "strategy", label: "Strategy" },
   { key: "qa", label: "Q&A" },
   { key: "score", label: "Score" },
+  { key: "play", label: "Play Together" },
 ];
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
@@ -873,6 +875,9 @@ export default function GameTeacher() {
                 <div style={{ height: "1px", background: "var(--border)", margin: "16px 0" }} />
                 <Leaderboard gameId={gameId} gameTitle={gameTitle} />
               </div>
+            )}
+            {activeTab === "play" && (
+              <LobbyCreate gameId={gameId} gameTitle={gameTitle} />
             )}
           </div>
         )}

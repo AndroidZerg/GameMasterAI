@@ -27,6 +27,7 @@ from app.api.routes.auth import router as auth_router
 from app.api.routes.analytics import router as analytics_router
 from app.api.routes.score_history import router as score_history_router
 from app.api.routes.menu import router as menu_router
+from app.api.routes.lobby import router as lobby_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -120,6 +121,9 @@ app.include_router(score_history_router)
 # --- Admin ---
 app.include_router(admin_router)
 app.include_router(export_router)
+
+# --- Lobby ---
+app.include_router(lobby_router)
 
 # --- Misc ---
 app.include_router(dashboard_router)

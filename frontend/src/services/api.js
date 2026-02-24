@@ -171,3 +171,55 @@ export async function saveAdminStaffPicks(gameIds) {
   });
   return handleResponse(res);
 }
+
+// ── Lobby endpoints (no auth required) ──
+
+export async function createLobby(gameId, hostName) {
+  const res = await fetch(`${API_BASE}/api/lobby/create`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ game_id: gameId, host_name: hostName }),
+  });
+  return handleResponse(res);
+}
+
+export async function joinLobby(code, playerName) {
+  const res = await fetch(`${API_BASE}/api/lobby/join`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code, player_name: playerName }),
+  });
+  return handleResponse(res);
+}
+
+export async function getLobbyState(lobbyId) {
+  const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}`);
+  return handleResponse(res);
+}
+
+export async function updateLobbyScores(lobbyId, playerId, scores) {
+  const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}/scores`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ player_id: playerId, scores }),
+  });
+  return handleResponse(res);
+}
+
+export async function kickPlayer(lobbyId, hostId, kickPlayerId) {
+  const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}/kick`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ host_id: hostId, kick_player_id: kickPlayerId }),
+  });
+  return handleResponse(res);
+}
+
+export async function leaveLobby(lobbyId, playerId) {
+  const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}/leave`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ player_id: playerId }),
+  });
+  return handleResponse(res);
+}
