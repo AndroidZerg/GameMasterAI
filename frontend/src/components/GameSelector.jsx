@@ -355,7 +355,7 @@ const PLAY_TIME_OPTIONS = [
   { label: "90m+", value: 91 },
 ];
 
-const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner", "For Strategists", "Date Night", "Campaign"];
+const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Date Night", "Campaign"];
 
 function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
   const pillStyle = (active, color) => ({
