@@ -38,3 +38,22 @@ def create_contact(name: str, venue_name: str, email: str, message: str) -> int:
     conn.commit()
     conn.close()
     return contact_id
+
+
+def get_all_contacts() -> list[dict]:
+    """Return all contacts, newest first."""
+    conn = _get_conn()
+    rows = conn.execute(
+        "SELECT name, venue_name, email, message, created_at FROM contacts ORDER BY id DESC"
+    ).fetchall()
+    conn.close()
+    return [
+        {
+            "name": r["name"],
+            "venue": r["venue_name"] or "",
+            "email": r["email"],
+            "message": r["message"] or "",
+            "submitted_at": r["created_at"],
+        }
+        for r in rows
+    ]

@@ -20,30 +20,11 @@ _EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
 _EXPANSIONS: dict[str, list] = {}
 _HIGHLIGHTS_PATH = _CONTENT_ROOT / "game-highlights.json"
 _HIGHLIGHTS: dict[str, str] = {}
-_ADMIN_CONFIG_PATH = _CONTENT_ROOT / "admin-config.json"
-
-
-def _load_admin_config() -> dict:
-    """Load full admin config (keyed by venue_id) from JSON file."""
-    try:
-        if _ADMIN_CONFIG_PATH.exists():
-            return json.loads(_ADMIN_CONFIG_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        pass
-    return {"_default": {"featured": {"mode": "auto"}, "staff_picks": []}}
-
-
-def _save_admin_config(config: dict):
-    """Save full admin config to JSON file."""
-    _ADMIN_CONFIG_PATH.write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
-
-
-def _get_venue_admin_config(venue_id: Optional[str] = None) -> dict:
-    """Get admin config for a specific venue, falling back to _default."""
-    config = _load_admin_config()
-    if venue_id and venue_id in config:
-        return config[venue_id]
-    return config.get("_default", {"featured": {"mode": "auto"}, "staff_picks": []})
+from app.core.github_config import (
+    load_admin_config as _load_admin_config,
+    save_admin_config as _save_admin_config,
+    get_venue_config as _get_venue_admin_config,
+)
 
 
 def _load_expansions():

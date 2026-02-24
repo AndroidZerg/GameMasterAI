@@ -1,9 +1,7 @@
 """Contact form endpoint with Telegram notifications."""
 
-import json
 import os
 from datetime import datetime, timezone
-from pathlib import Path
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Request
@@ -13,31 +11,13 @@ from slowapi import Limiter
 from slowapi.util import get_remote_address
 
 from app.core.auth import get_current_venue
-from app.models.contacts import create_contact
+from app.models.contacts import create_contact, get_all_contacts
 
 router = APIRouter(prefix="/api", tags=["contact"])
 limiter = Limiter(key_func=get_remote_address)
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-
-_INQUIRIES_PATH = Path(__file__).resolve().parents[4] / "content" / "inquiries.json"
-
-
-def _load_inquiries() -> list[dict]:
-    if _INQUIRIES_PATH.exists():
-        try:
-            return json.loads(_INQUIRIES_PATH.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError):
-            return []
-    return []
-
-
-def _save_inquiries(inquiries: list[dict]):
-    _INQUIRIES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    _INQUIRIES_PATH.write_text(
-        json.dumps(inquiries, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
 
 
 def _send_telegram(name: str, email: str, venue: str, message: str, timestamp: str):
@@ -82,19 +62,8 @@ async def submit_contact(req: ContactRequest, request: Request):
     message = (req.message or "").strip()
     timestamp = datetime.now(timezone.utc).isoformat()
 
-    # Save to SQLite (existing)
+    # Save to SQLite
     create_contact(name=name, venue_name=venue, email=email, message=message)
-
-    # Save to inquiries.json
-    inquiries = _load_inquiries()
-    inquiries.append({
-        "name": name,
-        "email": email,
-        "venue": venue,
-        "message": message,
-        "submitted_at": timestamp,
-    })
-    _save_inquiries(inquiries)
 
     # Telegram notification (fire-and-forget)
     _send_telegram(name, email, venue, message, timestamp)
@@ -104,7 +73,5 @@ async def submit_contact(req: ContactRequest, request: Request):
 
 @router.get("/admin/inquiries")
 async def get_inquiries(venue: dict = Depends(get_current_venue)):
-    """Return all contact inquiries, newest first. Admin only."""
-    inquiries = _load_inquiries()
-    inquiries.reverse()
-    return {"inquiries": inquiries}
+    """Return all contact inquiries from SQLite, newest first. Admin only."""
+    return {"inquiries": get_all_contacts()}
