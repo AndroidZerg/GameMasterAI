@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetchGames, fetchVenueConfig, fetchVenueCollection, API_BASE } from "../services/api";
 
@@ -29,6 +29,18 @@ const PLAY_TIMES = {
 };
 
 // "Best for" tags derived from player count and complexity
+// Fallback play time estimates by complexity
+const COMPLEXITY_TIME_ESTIMATES = {
+  party: 20,
+  gateway: 45,
+  midweight: 75,
+  heavy: 120,
+};
+
+function getPlayTime(game) {
+  return PLAY_TIMES[game.game_id] || COMPLEXITY_TIME_ESTIMATES[game.complexity] || 45;
+}
+
 function getBestForTags(game) {
   const tags = [];
   const min = game.player_count?.min || 1;
@@ -83,8 +95,18 @@ function getGameOfTheDayFallback(games) {
 
 function GameOfTheDay({ game, onClick }) {
   if (!game) return null;
-  const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
+  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
+  const triedPng = useRef(false);
+
+  const handleImgError = () => {
+    if (!triedPng.current) {
+      triedPng.current = true;
+      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+    } else {
+      setImgError(true);
+    }
+  };
 
   return (
     <div
@@ -103,7 +125,7 @@ function GameOfTheDay({ game, onClick }) {
       <div style={{ height: "180px", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
         {!imgError && (
           <img
-            src={imgUrl} alt="" onError={() => setImgError(true)}
+            src={imgSrc} alt={game.title} onError={handleImgError}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         )}
@@ -133,11 +155,9 @@ function GameOfTheDay({ game, onClick }) {
             <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
               {game.player_count?.min}-{game.player_count?.max} players
             </span>
-            {PLAY_TIMES[game.game_id] && (
-              <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
-                {PLAY_TIMES[game.game_id]} min
-              </span>
-            )}
+            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
+              {getPlayTime(game)} min
+            </span>
           </div>
         </div>
       </div>
@@ -163,10 +183,21 @@ function SkeletonCard({ small }) {
 }
 
 function GameCard({ game, onClick, small }) {
+  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
-  const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
+  const triedPng = useRef(false);
   const fallbackColor = COMPLEXITY_COLORS[game.complexity] || "#666";
+
+  const handleImgError = () => {
+    if (!triedPng.current) {
+      triedPng.current = true;
+      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+    } else {
+      setImgError(true);
+      setImgLoading(false);
+    }
+  };
 
   return (
     <div
@@ -207,9 +238,9 @@ function GameCard({ game, onClick, small }) {
               }} />
             )}
             <img
-              src={imgUrl}
-              alt=""
-              onError={() => { setImgError(true); setImgLoading(false); }}
+              src={imgSrc}
+              alt={game.title}
+              onError={handleImgError}
               onLoad={() => setImgLoading(false)}
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
@@ -250,11 +281,9 @@ function GameCard({ game, onClick, small }) {
             <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
               {game.player_count?.min}-{game.player_count?.max}p
             </span>
-            {PLAY_TIMES[game.game_id] && (
-              <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
-                {PLAY_TIMES[game.game_id]}min
-              </span>
-            )}
+            <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+              {getPlayTime(game)}min
+            </span>
           </div>
         )}
         {!small && (
@@ -288,9 +317,6 @@ const PLAY_TIME_OPTIONS = [
 const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner"];
 
 function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
-  const [expanded, setExpanded] = useState(false);
-  const hasAdvanced = playTime > 0 || bestFor !== "Any";
-
   return (
     <div style={{ marginBottom: "16px" }}>
       {/* Row 1: Complexity + Player count */}
@@ -342,70 +368,53 @@ function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, pla
             </button>
           ))}
         </div>
-
-        {/* More filters toggle */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          style={{
-            padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-            background: hasAdvanced ? "var(--accent)" : "var(--bg-secondary)",
-            color: hasAdvanced ? "#fff" : "var(--text-secondary)",
-            border: "1px solid " + (hasAdvanced ? "transparent" : "var(--border)"),
-            cursor: "pointer", fontWeight: hasAdvanced ? 700 : 400,
-          }}
-        >
-          {expanded ? "Less" : "More"} {hasAdvanced ? `(${(playTime > 0 ? 1 : 0) + (bestFor !== "Any" ? 1 : 0)})` : ""}
-        </button>
       </div>
 
-      {/* Row 2: Advanced filters (play time + best for) */}
-      {expanded && (
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", animation: "fadeIn 0.2s ease-out" }}>
-          {/* Play time */}
-          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
-            {PLAY_TIME_OPTIONS.map((opt) => (
-              <button
-                key={opt.value}
-                onClick={() => setPlayTime(opt.value)}
-                style={{
-                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                  fontWeight: playTime === opt.value ? 700 : 400,
-                  background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
-                  color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
-                  border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
-                  cursor: "pointer",
-                }}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-
-          <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
-
-          {/* Best for */}
-          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
-            {BEST_FOR_OPTIONS.map((opt) => (
-              <button
-                key={opt}
-                onClick={() => setBestFor(opt)}
-                style={{
-                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                  fontWeight: bestFor === opt ? 700 : 400,
-                  background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
-                  color: bestFor === opt ? "#fff" : "var(--text-secondary)",
-                  border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
-                  cursor: "pointer",
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
+      {/* Row 2: Play time */}
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginBottom: "8px" }}>
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
+          {PLAY_TIME_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setPlayTime(opt.value)}
+              style={{
+                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                fontWeight: playTime === opt.value ? 700 : 400,
+                background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
+                color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
-      )}
+
+        <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+
+        {/* Best for */}
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
+          {BEST_FOR_OPTIONS.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setBestFor(opt)}
+              style={{
+                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                fontWeight: bestFor === opt ? 700 : 400,
+                background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
+                color: bestFor === opt ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+              }}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -582,8 +591,7 @@ export default function GameSelector() {
   }
   if (playTime > 0) {
     displayGames = displayGames.filter((g) => {
-      const t = PLAY_TIMES[g.game_id];
-      if (!t) return true; // Include games without time data
+      const t = getPlayTime(g);
       if (playTime === 30) return t < 30;
       if (playTime === 60) return t >= 30 && t <= 60;
       if (playTime === 90) return t > 60 && t <= 90;

@@ -3,16 +3,14 @@ import { useState, useEffect } from "react";
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
 
 const PLAYER_COLORS = [
-  "#e94560", "#3b82f6", "#22c55e", "#f59e0b", "#a855f7", "#06b6d4", "#f97316", "#ec4899",
-  "#84cc16", "#6366f1",
+  "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
 ];
 
 const PLAYER_AVATARS = [
-  "\u{1F9D9}", "\u{1F9DC}", "\u{1F9DA}", "\u{1F9DE}", "\u{1F9DF}", "\u{1F9D1}\u200D\u{1F680}", "\u{1F9D1}\u200D\u{1F3A8}", "\u{1F977}",
-  "\u{1F9B8}", "\u{1F9B9}",
+  "\u{1F9D9}", "\u{1F9DC}", "\u{1F9DA}", "\u{1F9DE}", "\u{1F9DF}", "\u{1F9D1}\u200D\u{1F680}",
 ];
 
-// Mock scoring config for demo
+// Scoring configs per game — count (stepper × points), boolean (exclusive toggle), manual (calculator)
 const MOCK_SCORES = {
   catan: {
     game_title: "Catan",
@@ -47,6 +45,84 @@ const MOCK_SCORES = {
       { id: "longest_route", name: "Longest Route", type: "boolean", points_each: 10 },
     ],
   },
+  azul: {
+    game_title: "Azul",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tile_placement", name: "Tile Placement", type: "manual", points_each: 1 },
+      { id: "complete_rows", name: "Complete Rows", type: "count", points_each: 2 },
+      { id: "complete_columns", name: "Complete Columns", type: "count", points_each: 7 },
+      { id: "complete_colors", name: "Complete Colors", type: "count", points_each: 10 },
+      { id: "floor_penalty", name: "Floor Penalty", type: "manual", points_each: 1 },
+    ],
+  },
+  "7-wonders": {
+    game_title: "7 Wonders",
+    scoring_type: "calculator",
+    categories: [
+      { id: "military", name: "Military", type: "manual", points_each: 1 },
+      { id: "treasury", name: "Treasury", type: "manual", points_each: 1 },
+      { id: "wonder", name: "Wonder", type: "manual", points_each: 1 },
+      { id: "civilian", name: "Civilian", type: "manual", points_each: 1 },
+      { id: "science", name: "Science", type: "manual", points_each: 1 },
+      { id: "commerce", name: "Commerce", type: "manual", points_each: 1 },
+      { id: "guilds", name: "Guilds", type: "manual", points_each: 1 },
+    ],
+  },
+  "terraforming-mars": {
+    game_title: "Terraforming Mars",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tr", name: "Terraform Rating", type: "manual", points_each: 1 },
+      { id: "awards", name: "Awards", type: "manual", points_each: 1 },
+      { id: "milestones", name: "Milestones", type: "count", points_each: 5 },
+      { id: "greenery", name: "Greenery Tiles", type: "count", points_each: 1 },
+      { id: "city", name: "City Tiles", type: "manual", points_each: 1 },
+      { id: "vp_cards", name: "VP on Cards", type: "manual", points_each: 1 },
+    ],
+  },
+  splendor: {
+    game_title: "Splendor",
+    scoring_type: "calculator",
+    categories: [
+      { id: "card_points", name: "Card Points", type: "manual", points_each: 1 },
+      { id: "nobles", name: "Noble Tiles", type: "count", points_each: 3 },
+    ],
+  },
+  dominion: {
+    game_title: "Dominion",
+    scoring_type: "calculator",
+    categories: [
+      { id: "estates", name: "Estates", type: "count", points_each: 1 },
+      { id: "duchies", name: "Duchies", type: "count", points_each: 3 },
+      { id: "provinces", name: "Provinces", type: "count", points_each: 6 },
+      { id: "colonies", name: "Colonies", type: "count", points_each: 10 },
+      { id: "gardens", name: "Gardens / VP Cards", type: "manual", points_each: 1 },
+      { id: "curses", name: "Curses", type: "count", points_each: -1 },
+    ],
+  },
+  everdell: {
+    game_title: "Everdell",
+    scoring_type: "calculator",
+    categories: [
+      { id: "base_points", name: "Card Base Points", type: "manual", points_each: 1 },
+      { id: "prosperity", name: "Prosperity Cards", type: "manual", points_each: 1 },
+      { id: "events", name: "Events", type: "manual", points_each: 1 },
+      { id: "journey", name: "Journey Points", type: "manual", points_each: 1 },
+    ],
+  },
+  root: {
+    game_title: "Root",
+    scoring_type: "calculator",
+    categories: [
+      { id: "vp", name: "Victory Points", type: "manual", points_each: 1 },
+    ],
+  },
+  "spirit-island": {
+    game_title: "Spirit Island",
+    scoring_type: "cooperative",
+    win_conditions: ["Destroy all invaders or meet terror level victory condition before the island is overwhelmed"],
+  },
   pandemic: {
     game_title: "Pandemic",
     scoring_type: "cooperative",
@@ -64,10 +140,43 @@ const MOCK_SCORES = {
       { id: "vp", name: "Victory Points", type: "count", points_each: 1 },
     ],
   },
+  coup: {
+    game_title: "Coup",
+    scoring_type: "elimination",
+    categories: [],
+  },
+  "love-letter": {
+    game_title: "Love Letter",
+    scoring_type: "calculator",
+    categories: [
+      { id: "tokens", name: "Tokens of Affection", type: "count", points_each: 1 },
+    ],
+  },
+  sagrada: {
+    game_title: "Sagrada",
+    scoring_type: "calculator",
+    categories: [
+      { id: "public_obj", name: "Public Objectives", type: "manual", points_each: 1 },
+      { id: "private_obj", name: "Private Objective", type: "manual", points_each: 1 },
+      { id: "favor_tokens", name: "Favor Tokens", type: "count", points_each: 1 },
+      { id: "empty_penalty", name: "Empty Spaces", type: "count", points_each: -1 },
+    ],
+  },
+  carcassonne: {
+    game_title: "Carcassonne",
+    scoring_type: "calculator",
+    categories: [
+      { id: "cities", name: "City Points", type: "manual", points_each: 1 },
+      { id: "roads", name: "Road Points", type: "manual", points_each: 1 },
+      { id: "monasteries", name: "Monastery Points", type: "manual", points_each: 1 },
+      { id: "farms", name: "Farm Points", type: "manual", points_each: 1 },
+    ],
+  },
 };
 
+/* ── Player Setup Screen ─────────────────────────────────────── */
 function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
-  const [numPlayers, setNumPlayers] = useState(minPlayers || 2);
+  const [numPlayers, setNumPlayers] = useState(Math.max(minPlayers || 2, 2));
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
@@ -89,39 +198,35 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "80vh", padding: "20px" }}>
       <h2 style={{ fontSize: "1.3rem", marginBottom: "20px", textAlign: "center", color: "var(--text-primary)" }}>
         {scoringType === "cooperative" ? "Who's playing?" : "How many players?"}
       </h2>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "24px" }}>
         <button
-          onClick={() => setNumPlayers(Math.max(minPlayers || 1, numPlayers - 1))}
+          onClick={() => setNumPlayers(Math.max(minPlayers || 2, numPlayers - 1))}
           style={{
-            width: "44px", height: "44px", borderRadius: "50%",
+            width: "48px", height: "48px", borderRadius: "50%",
             background: "var(--bg-secondary)", color: "var(--text-primary)",
             border: "1px solid var(--border)", fontSize: "1.3rem",
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", padding: 0,
           }}
-        >
-          -
-        </button>
-        <span style={{ fontSize: "2rem", fontWeight: 700, minWidth: "40px", textAlign: "center" }}>{numPlayers}</span>
+        >-</button>
+        <span style={{ fontSize: "2.5rem", fontWeight: 700, minWidth: "50px", textAlign: "center", color: "var(--text-primary)" }}>{numPlayers}</span>
         <button
-          onClick={() => setNumPlayers(Math.min(maxPlayers || 10, numPlayers + 1))}
+          onClick={() => setNumPlayers(Math.min(maxPlayers || 6, numPlayers + 1))}
           style={{
-            width: "44px", height: "44px", borderRadius: "50%",
+            width: "48px", height: "48px", borderRadius: "50%",
             background: "var(--bg-secondary)", color: "var(--text-primary)",
             border: "1px solid var(--border)", fontSize: "1.3rem",
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", padding: 0,
           }}
-        >
-          +
-        </button>
+        >+</button>
       </div>
 
-      <div style={{ maxWidth: "360px", margin: "0 auto" }}>
+      <div style={{ width: "100%", maxWidth: "400px" }}>
         {players.map((player, i) => (
           <div
             key={i}
@@ -141,9 +246,7 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
                 cursor: "pointer", padding: "4px", flexShrink: 0,
               }}
               title="Change avatar"
-            >
-              {player.avatar}
-            </button>
+            >{player.avatar}</button>
             <input
               type="text"
               value={player.name}
@@ -155,7 +258,7 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
               }}
             />
             <div style={{ display: "flex", gap: "4px", flexShrink: 0 }}>
-              {PLAYER_COLORS.slice(0, 5).map((c) => (
+              {PLAYER_COLORS.map((c) => (
                 <button
                   key={c}
                   onClick={() => updatePlayer(i, "color", c)}
@@ -174,7 +277,7 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
       <button
         onClick={() => onStart(players)}
         style={{
-          display: "block", width: "100%", maxWidth: "360px",
+          display: "block", width: "100%", maxWidth: "400px",
           margin: "20px auto 0", padding: "14px",
           borderRadius: "12px", background: "var(--accent)",
           color: "#fff", border: "none", fontSize: "1.05rem",
@@ -187,163 +290,480 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
   );
 }
 
-function ScoreEntry({ players, categories, scores, setScores }) {
-  const getPlayerTotal = (playerIdx) => {
-    return categories.reduce((sum, cat) => {
-      const val = scores[playerIdx]?.[cat.id] || 0;
-      if (cat.type === "boolean") return sum + (val ? cat.points_each : 0);
-      return sum + val * cat.points_each;
-    }, 0);
+/* ── Mini Calculator Overlay ──────────────────────────────────── */
+function MiniCalculator({ value, onSave, onClose, playerName, catName }) {
+  const [display, setDisplay] = useState(String(value || 0));
+  const [pendingOp, setPendingOp] = useState(null);
+  const [pendingVal, setPendingVal] = useState(null);
+
+  const handleNum = (n) => {
+    setDisplay((prev) => (prev === "0" ? String(n) : prev + String(n)));
   };
 
-  const updateScore = (playerIdx, catId, value) => {
-    setScores((prev) => {
-      const next = { ...prev };
-      next[playerIdx] = { ...(next[playerIdx] || {}), [catId]: value };
-      return next;
-    });
+  const handleOp = (op) => {
+    const current = parseFloat(display) || 0;
+    if (pendingOp && pendingVal !== null) {
+      const result = calcOp(pendingVal, current, pendingOp);
+      setDisplay(String(result));
+      setPendingVal(result);
+    } else {
+      setPendingVal(current);
+    }
+    setPendingOp(op);
+    setDisplay("0");
   };
 
-  const handleBooleanToggle = (playerIdx, catId) => {
-    setScores((prev) => {
-      const next = { ...prev };
-      players.forEach((_, pi) => {
-        next[pi] = { ...(next[pi] || {}), [catId]: false };
-      });
-      next[playerIdx] = { ...(next[playerIdx] || {}), [catId]: true };
-      return next;
-    });
+  const calcOp = (a, b, op) => {
+    if (op === "+") return a + b;
+    if (op === "-") return a - b;
+    if (op === "*") return a * b;
+    if (op === "/") return b !== 0 ? a / b : 0;
+    return b;
   };
+
+  const handleEquals = () => {
+    if (pendingOp && pendingVal !== null) {
+      const current = parseFloat(display) || 0;
+      const result = calcOp(pendingVal, current, pendingOp);
+      setDisplay(String(result));
+      setPendingOp(null);
+      setPendingVal(null);
+    }
+  };
+
+  const handleClear = () => {
+    setDisplay("0");
+    setPendingOp(null);
+    setPendingVal(null);
+  };
+
+  const handleRound = (dir) => {
+    const val = parseFloat(display) || 0;
+    setDisplay(String(dir === "up" ? Math.ceil(val) : Math.floor(val)));
+  };
+
+  const handleDone = () => {
+    let final = parseFloat(display) || 0;
+    if (pendingOp && pendingVal !== null) {
+      final = calcOp(pendingVal, final, pendingOp);
+    }
+    onSave(Math.round(final));
+  };
+
+  const btnStyle = (bg, color) => ({
+    width: "100%", height: "48px", borderRadius: "8px",
+    background: bg || "var(--bg-card)", color: color || "var(--text-primary)",
+    border: "1px solid var(--border)", fontSize: "1.1rem",
+    fontWeight: 600, cursor: "pointer", padding: 0,
+    display: "flex", alignItems: "center", justifyContent: "center",
+  });
 
   return (
-    <div style={{ padding: "10px 0" }}>
-      {categories.map((cat) => (
-        <div
-          key={cat.id}
-          style={{
-            marginBottom: "16px", background: "var(--bg-secondary)",
-            borderRadius: "12px", padding: "12px 16px",
-            border: "1px solid var(--border)",
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-            <span style={{ fontWeight: 600, color: "var(--text-primary)" }}>{cat.name}</span>
-            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
-              {cat.type === "boolean"
-                ? `${cat.points_each} pts (one player)`
-                : cat.type === "manual"
-                ? "manual entry"
-                : `${cat.points_each} pts each`}
-            </span>
-          </div>
-
-          {cat.type === "count" &&
-            players.map((player, pi) => (
-              <div key={pi} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                <span style={{ fontSize: "1rem", flexShrink: 0 }}>{player.avatar}</span>
-                <span style={{ flex: 1, fontSize: "0.9rem", color: player.color, fontWeight: 500 }}>{player.name}</span>
-                <button
-                  onClick={() => updateScore(pi, cat.id, Math.max(0, (scores[pi]?.[cat.id] || 0) - 1))}
-                  aria-label={`Decrease ${cat.name} for ${player.name}`}
-                  style={{
-                    width: "44px", height: "44px", borderRadius: "8px",
-                    background: "var(--bg-card)", color: "var(--text-primary)",
-                    border: "1px solid var(--border)", fontSize: "1.2rem",
-                    padding: 0, cursor: "pointer", display: "flex",
-                    alignItems: "center", justifyContent: "center",
-                  }}
-                >-</button>
-                <span key={scores[pi]?.[cat.id] || 0} style={{ minWidth: "32px", textAlign: "center", fontWeight: 700, fontSize: "1.1rem", animation: "numberPop 0.2s ease-out" }}>
-                  {scores[pi]?.[cat.id] || 0}
-                </span>
-                <button
-                  onClick={() => updateScore(pi, cat.id, (scores[pi]?.[cat.id] || 0) + 1)}
-                  aria-label={`Increase ${cat.name} for ${player.name}`}
-                  style={{
-                    width: "44px", height: "44px", borderRadius: "8px",
-                    background: "var(--bg-card)", color: "var(--text-primary)",
-                    border: "1px solid var(--border)", fontSize: "1.2rem",
-                    padding: 0, cursor: "pointer", display: "flex",
-                    alignItems: "center", justifyContent: "center",
-                  }}
-                >+</button>
-                <span style={{ fontSize: "0.8rem", color: player.color, minWidth: "40px", textAlign: "right" }}>
-                  = {(scores[pi]?.[cat.id] || 0) * cat.points_each}
-                </span>
-              </div>
-            ))}
-
-          {cat.type === "boolean" &&
-            players.map((player, pi) => (
-              <button
-                key={pi}
-                onClick={() => handleBooleanToggle(pi, cat.id)}
-                style={{
-                  display: "flex", alignItems: "center", gap: "8px",
-                  width: "100%", padding: "8px 12px", marginBottom: "4px",
-                  borderRadius: "8px",
-                  background: scores[pi]?.[cat.id] ? player.color : "var(--bg-card)",
-                  color: scores[pi]?.[cat.id] ? "#fff" : "var(--text-secondary)",
-                  border: scores[pi]?.[cat.id] ? `1px solid ${player.color}` : "1px solid var(--border)",
-                  fontSize: "0.9rem", cursor: "pointer", textAlign: "left",
-                  fontWeight: scores[pi]?.[cat.id] ? 600 : 400,
-                }}
-              >
-                <span>{player.avatar}</span>
-                <span>{player.name} {scores[pi]?.[cat.id] ? `(+${cat.points_each} pts)` : ""}</span>
-              </button>
-            ))}
-
-          {cat.type === "manual" &&
-            players.map((player, pi) => (
-              <div key={pi} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                <span style={{ fontSize: "1rem", flexShrink: 0 }}>{player.avatar}</span>
-                <span style={{ flex: 1, fontSize: "0.9rem", color: player.color, fontWeight: 500 }}>{player.name}</span>
-                <input
-                  type="number"
-                  value={scores[pi]?.[cat.id] || 0}
-                  onChange={(e) => updateScore(pi, cat.id, parseInt(e.target.value) || 0)}
-                  style={{
-                    width: "70px", padding: "6px 10px", borderRadius: "8px",
-                    border: "1px solid var(--border)", background: "var(--bg-card)",
-                    color: "var(--text-primary)", fontSize: "0.95rem",
-                    textAlign: "center", outline: "none",
-                  }}
-                />
-              </div>
-            ))}
-        </div>
-      ))}
-
-      {/* Running totals */}
+    <div style={{
+      position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)",
+      zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center",
+      padding: "20px",
+    }} onClick={onClose}>
       <div style={{
-        background: "var(--bg-card)", borderRadius: "12px",
-        padding: "16px", border: "2px solid var(--accent)", marginTop: "8px",
-      }}>
-        <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--accent)" }}>Running Totals</h3>
-        {players.map((player, pi) => (
-          <div key={pi} style={{
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            padding: "6px 0",
-            borderBottom: pi < players.length - 1 ? "1px solid var(--border)" : "none",
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span>{player.avatar}</span>
-              <span style={{ color: player.color, fontWeight: 500 }}>{player.name}</span>
-            </div>
-            <span style={{ fontWeight: 700, fontSize: "1.1rem", color: player.color }}>{getPlayerTotal(pi)}</span>
-          </div>
-        ))}
+        background: "var(--bg-primary)", borderRadius: "16px",
+        padding: "16px", width: "100%", maxWidth: "300px",
+        border: "1px solid var(--border)",
+      }} onClick={(e) => e.stopPropagation()}>
+        <div style={{ textAlign: "center", marginBottom: "8px" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+            {playerName} — {catName}
+          </span>
+        </div>
+        {/* Display */}
+        <div style={{
+          background: "var(--bg-card)", borderRadius: "10px",
+          padding: "12px 16px", marginBottom: "12px",
+          textAlign: "right", border: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: "1.6rem", fontWeight: 700, color: "var(--text-primary)" }}>
+            {display}
+          </span>
+        </div>
+
+        {/* Numpad */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px" }}>
+          {[7,8,9].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("/")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>÷</button>
+          {[4,5,6].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("*")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>×</button>
+          {[1,2,3].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("-")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>−</button>
+          <button onClick={handleClear} style={btnStyle("var(--bg-secondary)", "#ef4444")}>C</button>
+          <button onClick={() => handleNum(0)} style={btnStyle()}>0</button>
+          <button onClick={handleEquals} style={btnStyle("var(--bg-secondary)", "var(--text-primary)")}>=</button>
+          <button onClick={() => handleOp("+")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>+</button>
+        </div>
+
+        {/* Round up/down */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", marginTop: "8px" }}>
+          <button onClick={() => handleRound("down")} style={btnStyle("var(--bg-secondary)", "var(--text-secondary)")}>⌊ Round Down</button>
+          <button onClick={() => handleRound("up")} style={btnStyle("var(--bg-secondary)", "var(--text-secondary)")}>⌈ Round Up</button>
+        </div>
+
+        {/* Done */}
+        <button onClick={handleDone} style={{
+          width: "100%", padding: "14px", borderRadius: "10px",
+          background: "var(--accent)", color: "#fff", border: "none",
+          fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
+          marginTop: "10px",
+        }}>
+          Done
+        </button>
       </div>
     </div>
   );
 }
 
+/* ── Scoring Reference (How to Score) ────────────────────────── */
+const SCORING_REFERENCE = {
+  catan: [
+    "Settlements = 1 VP each",
+    "Cities = 2 VP each (upgrade from settlement)",
+    "Longest Road = 2 VP (5+ connected roads, must be longest)",
+    "Largest Army = 2 VP (3+ knights played, must be largest)",
+    "VP Cards = 1 VP each (revealed from dev cards)",
+    "First to 10 VP wins!",
+  ],
+  wingspan: [
+    "Bird Points = face value on each bird card played",
+    "Bonus Cards = points from end-game bonus cards",
+    "End-of-Round Goals = points earned per round objective",
+    "Eggs = 1 point per egg on bird cards",
+    "Cached Food = 1 point per food token cached on bird cards",
+    "Tucked Cards = 1 point per card tucked under bird cards",
+  ],
+  "ticket-to-ride": [
+    "Route Points = points from claimed routes (varies by length)",
+    "Completed Tickets = add face value of completed destination tickets",
+    "Failed Tickets = subtract face value of incomplete tickets",
+    "Longest Route Bonus = 10 points for longest continuous path",
+  ],
+  "king-of-tokyo": [
+    "Earn VP by rolling three-of-a-kind (1s=1, 2s=2, 3s=3 VP)",
+    "Each extra matching die beyond 3 = +1 VP",
+    "Start in Tokyo to earn 1 VP, stay for another turn = +2 VP",
+    "Card effects can also award VP",
+    "First to 20 VP or last monster standing wins!",
+  ],
+  azul: [
+    "Score points for each tile placed based on adjacent tiles",
+    "Complete row bonus = 2 points per completed horizontal row",
+    "Complete column bonus = 7 points per completed vertical column",
+    "Complete color bonus = 10 points for all 5 of one color",
+    "Floor line tiles subtract points (1,1,2,2,2,3,3)",
+  ],
+  "7-wonders": [
+    "Military: compare shields with neighbors, +/- tokens",
+    "Treasury: 1 VP per 3 coins",
+    "Wonder: VP printed on wonder stages",
+    "Civilian: blue card VP values",
+    "Science: sets of 3 different = 7 VP, pairs = square of count",
+    "Commerce: VP from yellow cards",
+    "Guilds: VP from purple cards based on conditions",
+  ],
+  "terraforming-mars": [
+    "Terraform Rating = your TR track position (starts at 20)",
+    "Milestones = 5 VP each (max 3 claimed per game)",
+    "Awards = 5 VP first, 2 VP second in each funded award",
+    "Greenery tiles = 1 VP each",
+    "City tiles = 1 VP per adjacent greenery",
+    "VP on cards = count all VP icons on played cards",
+  ],
+  splendor: [
+    "Card points = prestige points printed on development cards",
+    "Noble tiles = 3 VP each when visited by a noble",
+    "First to 15 points triggers final round",
+  ],
+  dominion: [
+    "Estates = 1 VP, Duchies = 3 VP, Provinces = 6 VP",
+    "Colonies = 10 VP (if using Prosperity)",
+    "Gardens = 1 VP per 10 cards in deck",
+    "Curses = -1 VP each",
+    "Count all VP cards in your deck at game end",
+  ],
+  sagrada: [
+    "Public objectives scored by all players",
+    "Private objective = sum of pips of your secret color",
+    "Favor tokens = 1 VP each remaining",
+    "Empty spaces = -1 VP each",
+  ],
+  carcassonne: [
+    "Completed cities = 2 pts per tile + 2 per pennant",
+    "Completed roads = 1 pt per tile",
+    "Completed monasteries = 9 pts (monastery + 8 surrounding)",
+    "Farms = 3 pts per completed city touching your farm",
+    "Incomplete features score half at game end",
+  ],
+};
+
+function ScoringReference({ gameId }) {
+  const [open, setOpen] = useState(false);
+  const tips = SCORING_REFERENCE[gameId];
+  if (!tips) return null;
+
+  return (
+    <div style={{
+      margin: "0 8px 8px", borderRadius: "10px",
+      border: "1px solid var(--border)", overflow: "hidden",
+    }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%", display: "flex", justifyContent: "space-between",
+          alignItems: "center", padding: "10px 14px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "none", cursor: "pointer", fontSize: "0.85rem",
+          fontWeight: 600, textAlign: "left",
+        }}
+      >
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span>📋</span>
+          <span>How to Score</span>
+        </span>
+        <span style={{
+          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.2s", fontSize: "0.7rem",
+        }}>▼</span>
+      </button>
+      {open && (
+        <div style={{ padding: "10px 14px", background: "var(--bg-card)" }}>
+          {tips.map((tip, i) => (
+            <div key={i} style={{
+              display: "flex", gap: "8px", marginBottom: "6px",
+              fontSize: "0.8rem", lineHeight: 1.5,
+              color: "var(--text-secondary)",
+            }}>
+              <span style={{ color: "var(--accent)", flexShrink: 0 }}>•</span>
+              <span>{tip}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Spreadsheet Score Entry ───────────────────────────────────── */
+function SpreadsheetScoring({ players, categories, scores, setScores }) {
+  const [calcOpen, setCalcOpen] = useState(null); // { pi, catId }
+
+  const getPlayerTotal = (pi) => {
+    return categories.reduce((sum, cat) => {
+      const val = scores[pi]?.[cat.id] || 0;
+      if (cat.type === "boolean") return sum + (val ? cat.points_each : 0);
+      return sum + val * cat.points_each;
+    }, 0);
+  };
+
+  const updateScore = (pi, catId, value) => {
+    setScores((prev) => {
+      const next = { ...prev };
+      next[pi] = { ...(next[pi] || {}), [catId]: value };
+      return next;
+    });
+  };
+
+  const handleBooleanToggle = (pi, catId) => {
+    setScores((prev) => {
+      const next = { ...prev };
+      players.forEach((_, idx) => {
+        next[idx] = { ...(next[idx] || {}), [catId]: false };
+      });
+      next[pi] = { ...(next[pi] || {}), [catId]: true };
+      return next;
+    });
+  };
+
+  // Column width calculation
+  const colCount = players.length;
+  const labelWidth = "140px";
+
+  return (
+    <div style={{ flex: 1, overflowX: "auto", overflowY: "auto", padding: "0 8px" }}>
+      {/* Player header row */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: `${labelWidth} repeat(${colCount}, 1fr)`,
+        gap: "4px",
+        position: "sticky", top: 0, zIndex: 10,
+        background: "var(--bg-primary)", paddingBottom: "8px",
+      }}>
+        <div />
+        {players.map((p, i) => (
+          <div key={i} style={{
+            textAlign: "center", padding: "8px 4px",
+            borderRadius: "8px", background: p.color + "22",
+            border: `2px solid ${p.color}`,
+          }}>
+            <div style={{ fontSize: "1.3rem" }}>{p.avatar}</div>
+            <div style={{
+              fontSize: "0.8rem", fontWeight: 600, color: p.color,
+              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              maxWidth: "100%",
+            }}>{p.name}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Category rows */}
+      {categories.map((cat) => (
+        <div
+          key={cat.id}
+          style={{
+            display: "grid",
+            gridTemplateColumns: `${labelWidth} repeat(${colCount}, 1fr)`,
+            gap: "4px",
+            marginBottom: "4px",
+            alignItems: "center",
+          }}
+        >
+          {/* Category label */}
+          <div style={{
+            padding: "8px 10px",
+            background: "var(--bg-secondary)",
+            borderRadius: "8px",
+            border: "1px solid var(--border)",
+            minHeight: "44px",
+            display: "flex", flexDirection: "column", justifyContent: "center",
+          }}>
+            <span style={{ fontWeight: 600, fontSize: "0.85rem", color: "var(--text-primary)", lineHeight: 1.2 }}>{cat.name}</span>
+            <span style={{ fontSize: "0.65rem", color: "var(--text-secondary)", lineHeight: 1.2 }}>
+              {cat.type === "boolean" ? `${cat.points_each}pts (one)` : cat.type === "manual" ? "manual" : `${cat.points_each}pts ea`}
+            </span>
+          </div>
+
+          {/* Player cells */}
+          {players.map((player, pi) => (
+            <div key={pi} style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              padding: "4px", minHeight: "44px",
+              background: "var(--bg-secondary)", borderRadius: "8px",
+              border: "1px solid var(--border)",
+            }}>
+              {cat.type === "count" && (
+                <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                  <button
+                    onClick={() => updateScore(pi, cat.id, Math.max(0, (scores[pi]?.[cat.id] || 0) - 1))}
+                    aria-label={`Decrease ${cat.name} for ${player.name}`}
+                    style={{
+                      width: "32px", height: "32px", borderRadius: "6px",
+                      background: "var(--bg-card)", color: "var(--text-primary)",
+                      border: "1px solid var(--border)", fontSize: "1rem",
+                      padding: 0, cursor: "pointer", display: "flex",
+                      alignItems: "center", justifyContent: "center",
+                    }}
+                  >-</button>
+                  <span style={{
+                    minWidth: "28px", textAlign: "center", fontWeight: 700,
+                    fontSize: "1rem", color: "var(--text-primary)",
+                  }}>
+                    {scores[pi]?.[cat.id] || 0}
+                  </span>
+                  <button
+                    onClick={() => updateScore(pi, cat.id, (scores[pi]?.[cat.id] || 0) + 1)}
+                    aria-label={`Increase ${cat.name} for ${player.name}`}
+                    style={{
+                      width: "32px", height: "32px", borderRadius: "6px",
+                      background: "var(--bg-card)", color: "var(--text-primary)",
+                      border: "1px solid var(--border)", fontSize: "1rem",
+                      padding: 0, cursor: "pointer", display: "flex",
+                      alignItems: "center", justifyContent: "center",
+                    }}
+                  >+</button>
+                </div>
+              )}
+
+              {cat.type === "boolean" && (
+                <button
+                  onClick={() => handleBooleanToggle(pi, cat.id)}
+                  style={{
+                    width: "100%", maxWidth: "80px", height: "32px", borderRadius: "6px",
+                    background: scores[pi]?.[cat.id] ? player.color : "var(--bg-card)",
+                    color: scores[pi]?.[cat.id] ? "#fff" : "var(--text-secondary)",
+                    border: scores[pi]?.[cat.id] ? "none" : "1px solid var(--border)",
+                    fontSize: "0.75rem", cursor: "pointer", fontWeight: 600,
+                    padding: 0,
+                  }}
+                >
+                  {scores[pi]?.[cat.id] ? `+${cat.points_each}` : "—"}
+                </button>
+              )}
+
+              {cat.type === "manual" && (
+                <button
+                  onClick={() => setCalcOpen({ pi, catId: cat.id })}
+                  style={{
+                    width: "70px", padding: "4px 6px", borderRadius: "6px",
+                    border: "1px solid var(--border)", background: "var(--bg-card)",
+                    color: "var(--text-primary)", fontSize: "0.95rem",
+                    textAlign: "center", cursor: "pointer", fontWeight: 600,
+                  }}
+                >
+                  {scores[pi]?.[cat.id] || 0}
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+      ))}
+
+      {/* Totals row */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: `${labelWidth} repeat(${colCount}, 1fr)`,
+        gap: "4px",
+        marginTop: "8px",
+        position: "sticky", bottom: 0,
+        background: "var(--bg-primary)", paddingTop: "4px",
+      }}>
+        <div style={{
+          padding: "10px", background: "var(--accent)",
+          borderRadius: "8px", color: "#fff", fontWeight: 700,
+          fontSize: "0.9rem", display: "flex", alignItems: "center",
+        }}>
+          TOTAL
+        </div>
+        {players.map((p, pi) => (
+          <div key={pi} style={{
+            textAlign: "center", padding: "10px 4px",
+            background: p.color + "22", borderRadius: "8px",
+            border: `2px solid ${p.color}`,
+          }}>
+            <span style={{ fontSize: "1.4rem", fontWeight: 800, color: p.color }}>
+              {getPlayerTotal(pi)}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Calculator overlay */}
+      {calcOpen && (
+        <MiniCalculator
+          value={scores[calcOpen.pi]?.[calcOpen.catId] || 0}
+          playerName={players[calcOpen.pi]?.name}
+          catName={categories.find((c) => c.id === calcOpen.catId)?.name}
+          onSave={(val) => {
+            updateScore(calcOpen.pi, calcOpen.catId, val);
+            setCalcOpen(null);
+          }}
+          onClose={() => setCalcOpen(null)}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ── Cooperative Tracker ──────────────────────────────────────── */
 function CooperativeTracker({ players, winConditions, onFinish }) {
   const [won, setWon] = useState(null);
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <div style={{ padding: "20px", textAlign: "center", flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <h3 style={{ color: "var(--text-primary)", marginBottom: "16px" }}>Cooperative Mode</h3>
       <div style={{
         background: "var(--bg-secondary)", borderRadius: "12px",
@@ -371,9 +791,7 @@ function CooperativeTracker({ players, winConditions, onFinish }) {
               background: "#22c55e", color: "#fff", border: "none",
               fontWeight: 700, fontSize: "1.1rem", cursor: "pointer",
             }}
-          >
-            We Won!
-          </button>
+          >We Won!</button>
           <button
             onClick={() => { setWon(false); onFinish(false); }}
             style={{
@@ -381,9 +799,7 @@ function CooperativeTracker({ players, winConditions, onFinish }) {
               background: "#ef4444", color: "#fff", border: "none",
               fontWeight: 700, fontSize: "1.1rem", cursor: "pointer",
             }}
-          >
-            We Lost
-          </button>
+          >We Lost</button>
         </div>
       ) : (
         <div style={{
@@ -401,7 +817,8 @@ function CooperativeTracker({ players, winConditions, onFinish }) {
   );
 }
 
-function EliminationTracker({ players, categories, scores, setScores, onFinish }) {
+/* ── Elimination Tracker ─────────────────────────────────────── */
+function EliminationTracker({ players, categories, scores, setScores }) {
   const [eliminated, setEliminated] = useState(new Set());
 
   const updateScore = (playerIdx, catId, value) => {
@@ -423,7 +840,7 @@ function EliminationTracker({ players, categories, scores, setScores, onFinish }
   const alive = players.filter((_, i) => !eliminated.has(i));
 
   return (
-    <div style={{ padding: "10px 0" }}>
+    <div style={{ padding: "10px 16px", flex: 1 }}>
       <div style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         marginBottom: "16px", padding: "0 4px",
@@ -458,14 +875,14 @@ function EliminationTracker({ players, categories, scores, setScores, onFinish }
             <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <button
                 onClick={() => updateScore(pi, categories[0].id, Math.max(0, (scores[pi]?.[categories[0].id] || 0) - 1))}
-                style={{ width: "32px", height: "32px", borderRadius: "6px", background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border)", fontSize: "1rem", padding: 0, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+                style={{ width: "36px", height: "36px", borderRadius: "6px", background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border)", fontSize: "1rem", padding: 0, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
               >-</button>
               <span style={{ minWidth: "28px", textAlign: "center", fontWeight: 700, fontSize: "1rem" }}>
                 {scores[pi]?.[categories[0].id] || 0}
               </span>
               <button
                 onClick={() => updateScore(pi, categories[0].id, (scores[pi]?.[categories[0].id] || 0) + 1)}
-                style={{ width: "32px", height: "32px", borderRadius: "6px", background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border)", fontSize: "1rem", padding: 0, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+                style={{ width: "36px", height: "36px", borderRadius: "6px", background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border)", fontSize: "1rem", padding: 0, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
               >+</button>
             </div>
           )}
@@ -498,6 +915,7 @@ function EliminationTracker({ players, categories, scores, setScores, onFinish }
   );
 }
 
+/* ── Results Screen ──────────────────────────────────────────── */
 function ResultsScreen({ players, categories, scores, scoringType, coopResult, onPlayAgain, onNewGame, gameId, gameTitle }) {
   const totals = players.map((_, pi) =>
     categories
@@ -516,7 +934,6 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
   const winnerTotal = sorted[0]?.total;
   const confettiColors = ["#e94560", "#ff6b81", "#a855f7", "#22c55e", "#3b82f6", "#f59e0b"];
 
-  // POST session data
   useEffect(() => {
     const postSession = async () => {
       try {
@@ -528,10 +945,7 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
             game_title: gameTitle,
             scoring_type: scoringType,
             players: players.map((p, i) => ({
-              name: p.name,
-              avatar: p.avatar,
-              color: p.color,
-              score: totals[i],
+              name: p.name, avatar: p.avatar, color: p.color, score: totals[i],
             })),
             winner: scoringType === "cooperative"
               ? (coopResult ? "team_win" : "team_loss")
@@ -545,8 +959,7 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
   }, []);
 
   return (
-    <div style={{ padding: "20px", position: "relative", overflow: "hidden" }}>
-      {/* Confetti particles */}
+    <div style={{ padding: "20px", position: "relative", overflow: "hidden", flex: 1 }}>
       {confettiColors.map((color, i) =>
         Array.from({ length: 4 }).map((_, j) => (
           <div
@@ -633,24 +1046,21 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
           flex: 1, padding: "14px", borderRadius: "12px",
           background: "var(--accent)", color: "#fff", border: "none",
           fontWeight: 600, cursor: "pointer", fontSize: "1rem",
-        }}>
-          Play Again
-        </button>
+        }}>Play Again</button>
         <button onClick={onNewGame} style={{
           flex: 1, padding: "14px", borderRadius: "12px",
           background: "var(--bg-secondary)", color: "var(--text-primary)",
           border: "1px solid var(--border)", fontWeight: 600,
           cursor: "pointer", fontSize: "1rem",
-        }}>
-          New Game
-        </button>
+        }}>New Game</button>
       </div>
     </div>
   );
 }
 
+/* ── Main ScoreTracker ───────────────────────────────────────── */
 export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, onNewGame }) {
-  const [phase, setPhase] = useState("setup"); // setup | scoring | results
+  const [phase, setPhase] = useState("setup");
   const [players, setPlayers] = useState([]);
   const [categories, setCategories] = useState(null);
   const [scoringType, setScoringType] = useState("calculator");
@@ -677,7 +1087,6 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         setScoringType(mock.scoring_type || "calculator");
         setWinConditions(mock.win_conditions || []);
       } else {
-        // Generic fallback — simple manual total entry for any game
         setCategories([
           { id: "score", name: "Score", type: "manual", points_each: 1 },
         ]);
@@ -691,30 +1100,35 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
 
   return (
     <div style={{
-      position: "fixed", inset: 0, background: "rgba(0,0,0,0.9)",
-      zIndex: 1000, overflowY: "auto",
+      position: "fixed", inset: 0, background: "var(--bg-primary)",
+      zIndex: 1000, display: "flex", flexDirection: "column",
     }}>
+      {/* Top bar */}
       <div style={{
-        maxWidth: "500px", margin: "0 auto", minHeight: "100vh",
-        background: "var(--bg-primary)", padding: "16px",
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "12px 16px", borderBottom: "1px solid var(--border)",
+        background: "var(--bg-secondary)", flexShrink: 0,
       }}>
-        {/* Header */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-          <h2 style={{ fontSize: "1.2rem", color: "var(--text-primary)", margin: 0 }}>
-            {"\u{1F3C6}"} {gameTitle}
-          </h2>
-          <button onClick={onClose} style={{
-            background: "none", border: "none", color: "var(--text-secondary)",
-            fontSize: "1.5rem", cursor: "pointer", padding: "4px 8px",
-          }}>
-            {"\u2715"}
-          </button>
-        </div>
+        <h2 style={{ fontSize: "1.1rem", color: "var(--text-primary)", margin: 0, display: "flex", alignItems: "center", gap: "8px" }}>
+          <span>{"\u{1F3C6}"}</span>
+          <span>{gameTitle}</span>
+        </h2>
+        <button onClick={onClose} style={{
+          background: "none", border: "none", color: "var(--text-secondary)",
+          fontSize: "1.5rem", cursor: "pointer", padding: "4px 8px",
+          width: "44px", height: "44px", display: "flex",
+          alignItems: "center", justifyContent: "center",
+        }}>
+          {"\u2715"}
+        </button>
+      </div>
 
+      {/* Content */}
+      <div style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
         {phase === "setup" && (
           <PlayerSetup
-            minPlayers={playerCount?.min || 1}
-            maxPlayers={playerCount?.max || 10}
+            minPlayers={playerCount?.min || 2}
+            maxPlayers={Math.min(playerCount?.max || 6, 6)}
             scoringType={scoringType}
             onStart={(playerData) => {
               setPlayers(playerData);
@@ -738,16 +1152,19 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         )}
 
         {phase === "scoring" && scoringType === "calculator" && (
-          <>
-            <ScoreEntry players={players} categories={categories} scores={scores} setScores={setScores} />
-            <button onClick={() => setPhase("results")} style={{
-              display: "block", width: "100%", padding: "14px", marginTop: "16px",
-              borderRadius: "12px", background: "var(--accent)", color: "#fff",
-              border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
-            }}>
-              Calculate Winner
-            </button>
-          </>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+            <ScoringReference gameId={gameId} />
+            <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} />
+            <div style={{ padding: "12px 16px", flexShrink: 0, borderTop: "1px solid var(--border)" }}>
+              <button onClick={() => setPhase("results")} style={{
+                display: "block", width: "100%", padding: "14px",
+                borderRadius: "12px", background: "var(--accent)", color: "#fff",
+                border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
+              }}>
+                Calculate Winner
+              </button>
+            </div>
+          </div>
         )}
 
         {phase === "scoring" && scoringType === "cooperative" && (
@@ -762,22 +1179,23 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
         )}
 
         {phase === "scoring" && scoringType === "elimination" && (
-          <>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
             <EliminationTracker
               players={players}
               categories={categories}
               scores={scores}
               setScores={setScores}
-              onFinish={() => setPhase("results")}
             />
-            <button onClick={() => setPhase("results")} style={{
-              display: "block", width: "100%", padding: "14px", marginTop: "16px",
-              borderRadius: "12px", background: "var(--accent)", color: "#fff",
-              border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
-            }}>
-              End Game
-            </button>
-          </>
+            <div style={{ padding: "12px 16px", flexShrink: 0, borderTop: "1px solid var(--border)" }}>
+              <button onClick={() => setPhase("results")} style={{
+                display: "block", width: "100%", padding: "14px",
+                borderRadius: "12px", background: "var(--accent)", color: "#fff",
+                border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
+              }}>
+                End Game
+              </button>
+            </div>
+          </div>
         )}
 
         {phase === "results" && (
