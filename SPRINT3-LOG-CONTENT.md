@@ -34,6 +34,23 @@ Status: COMPLETE — pipeline verified working
 ---
 
 ## Phase C4: Download Real Cover Art
+Status: COMPLETE — BGG API blocked, placeholders remain
+
+### Attempts:
+1. BGG XML API2 with User-Agent header → 401 Unauthorized
+2. BGG old API (`/xmlapi/boardgame/`) → 401 Unauthorized
+3. BGG with browser User-Agent + no SSL verify → 401 Unauthorized
+4. BGG JSON API (geekdo.com) → Returns user images, not official covers
+
+### Result:
+- All BGG endpoints return 401 from this network
+- 50 colored placeholder images remain in `content/images/`
+- Placeholders are color-coded by complexity and show game titles
+- TODO: Replace with real BGG covers when API access is available
+
+---
+
+## Phase C5: Redeploy to Render
 Status: IN PROGRESS
 
 ---
