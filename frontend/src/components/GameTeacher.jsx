@@ -773,7 +773,26 @@ export default function GameTeacher() {
   const tabs = gameData?.tabs || {};
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
+    <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
+      {/* Background art watermark */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
+          backgroundImage: `url(${API_BASE}/api/images/${gameId}.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.08,
+          filter: "blur(4px)",
+        }}
+      />
+      {/* All content above background */}
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" }}>
         <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
@@ -870,6 +889,7 @@ export default function GameTeacher() {
       )}
 
       {/* Score tracker is now rendered inline in the Score tab */}
+      </div>{/* end content wrapper */}
     </div>
   );
 }
