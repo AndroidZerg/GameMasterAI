@@ -9,6 +9,48 @@ const COMPLEXITY_COLORS = {
   heavy: "#ef4444",
 };
 
+// Estimated play times by game ID
+const PLAY_TIMES = {
+  "codenames": 15, "skull": 20, "love-letter": 20, "coup": 15,
+  "one-night-ultimate-werewolf": 10, "dixit": 30, "just-one": 20,
+  "wavelength": 30, "sushi-go-party": 20, "telestrations": 30, "decrypto": 30,
+  "catan": 75, "ticket-to-ride": 60, "azul": 35, "splendor": 30,
+  "kingdomino": 20, "carcassonne": 40, "pandemic": 45, "king-of-tokyo": 30,
+  "patchwork": 25, "takenoko": 45, "mysterium": 45,
+  "wingspan": 60, "everdell": 60, "viticulture": 75, "dominion": 30,
+  "7-wonders": 30, "lords-of-waterdeep": 75, "quacks-of-quedlinburg": 45,
+  "clank": 60, "sagrada": 40, "the-crew": 20, "century-spice-road": 40,
+  "sheriff-of-nottingham": 60, "concordia": 90, "villainous": 50,
+  "above-and-below": 60, "photosynthesis": 45, "dead-of-winter": 90,
+  "castles-of-burgundy": 75, "cosmic-encounter": 60,
+  "terraforming-mars": 120, "root": 90, "spirit-island": 120,
+  "brass-birmingham": 120, "great-western-trail": 120, "agricola": 90,
+  "power-grid": 120,
+};
+
+// "Best for" tags derived from player count and complexity
+function getBestForTags(game) {
+  const tags = [];
+  const min = game.player_count?.min || 1;
+  const max = game.player_count?.max || 4;
+  if (min === 1) tags.push("Solo");
+  if (min <= 2 && max >= 2) tags.push("Great for 2");
+  if (max >= 5 && (game.complexity === "party" || max >= 6)) tags.push("Party");
+  if (game.complexity === "party" || game.complexity === "gateway") {
+    if (max >= 3) tags.push("Family");
+  }
+  if (game.complexity === "heavy") tags.push("Brain Burner");
+  return tags.slice(0, 2); // Max 2 tags
+}
+
+const BEST_FOR_COLORS = {
+  "Solo": "#6366f1",
+  "Great for 2": "#ec4899",
+  "Party": "#a855f7",
+  "Family": "#22c55e",
+  "Brain Burner": "#ef4444",
+};
+
 const COMPLEXITY_OPTIONS = ["all", "party", "gateway", "midweight", "heavy"];
 const PLAYER_COUNT_OPTIONS = [
   { label: "Any", value: 0 },
@@ -116,7 +158,7 @@ function GameCard({ game, onClick, small }) {
           {game.title}
         </h3>
         {!small && (
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginTop: "4px" }}>
+          <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center", marginTop: "4px" }}>
             <span
               style={{
                 background: COMPLEXITY_COLORS[game.complexity] || "#666",
@@ -130,9 +172,29 @@ function GameCard({ game, onClick, small }) {
             >
               {game.complexity}
             </span>
-            <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>
-              {game.player_count?.min}-{game.player_count?.max} players
+            <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+              {game.player_count?.min}-{game.player_count?.max}p
             </span>
+            {PLAY_TIMES[game.game_id] && (
+              <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+                {PLAY_TIMES[game.game_id]}min
+              </span>
+            )}
+          </div>
+        )}
+        {!small && (
+          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", marginTop: "4px" }}>
+            {getBestForTags(game).map((tag) => (
+              <span key={tag} style={{
+                fontSize: "0.65rem", padding: "1px 6px", borderRadius: "999px",
+                background: (BEST_FOR_COLORS[tag] || "#666") + "22",
+                color: BEST_FOR_COLORS[tag] || "#666",
+                border: `1px solid ${(BEST_FOR_COLORS[tag] || "#666")}44`,
+                fontWeight: 600,
+              }}>
+                {tag}
+              </span>
+            ))}
           </div>
         )}
       </div>
