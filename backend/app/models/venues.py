@@ -223,22 +223,33 @@ _DEMO_VENUES = [
 
 
 def seed_all_venues(password_hash: str) -> list[str]:
-    """Seed all demo venues. Returns list of newly created venue_ids."""
+    """Seed all demo venues with UPSERT — always ensures correct data.
+
+    If a venue already exists, updates its password_hash and metadata.
+    Returns list of venue_ids that were created or updated.
+    """
+    conn = _get_conn()
     seeded = []
+    now = datetime.now(timezone.utc).isoformat()
     for v in _DEMO_VENUES:
-        existing = get_venue_by_id(v["venue_id"])
-        if existing:
-            continue
-        create_venue(
-            venue_id=v["venue_id"],
-            venue_name=v["venue_name"],
-            email=v["email"],
-            password_hash=password_hash,
-            tagline=v["tagline"],
-            accent_color=v["accent_color"],
-            address=v.get("address", ""),
-            phone=v.get("phone", ""),
-            website=v.get("website", ""),
+        conn.execute(
+            """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline,
+               accent_color, address, phone, website, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(venue_id) DO UPDATE SET
+                 venue_name = excluded.venue_name,
+                 email = excluded.email,
+                 password_hash = excluded.password_hash,
+                 tagline = excluded.tagline,
+                 accent_color = excluded.accent_color,
+                 address = excluded.address,
+                 phone = excluded.phone,
+                 website = excluded.website""",
+            (v["venue_id"], v["venue_name"], v["email"], password_hash, v["tagline"],
+             v["accent_color"], v.get("address", ""), v.get("phone", ""),
+             v.get("website", ""), now),
         )
         seeded.append(v["venue_id"])
+    conn.commit()
+    conn.close()
     return seeded
