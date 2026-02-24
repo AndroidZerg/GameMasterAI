@@ -22,3 +22,9 @@ Branch: sprint4/backend
 - GET /api/venue/menu — serves venue menu (auth, venue_id param, or default meepleville)
 - POST /api/admin/menu — update venue menu (auth required), saves to content/menus/{venue_id}.json
 - Venues without menus return {sections: [], message: "No menu configured"}
+
+## Phase B3: Expansion Data
+- Created content/expansions.json with expansion data for 25+ popular games
+- GET /api/games/{game_id}/expansions — returns expansion list (empty array if none)
+- Each expansion has: name, adds_players (nullable), description
+- Covers: catan, ticket-to-ride, wingspan, carcassonne, dominion, pandemic, spirit-island, root, scythe, king-of-tokyo + 15 more

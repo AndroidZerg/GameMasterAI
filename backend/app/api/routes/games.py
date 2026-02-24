@@ -1,5 +1,7 @@
-"""Game listing, search, detail, price, categories, filter, and reload endpoints."""
+"""Game listing, search, detail, price, categories, filter, expansions, and reload endpoints."""
 
+import json
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -8,6 +10,18 @@ from app.core.auth import get_optional_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.venues import get_venue_collection
 from app.services.knowledge import load_game
+
+_EXPANSIONS_PATH = Path(__file__).resolve().parents[4] / "content" / "expansions.json"
+_EXPANSIONS: dict[str, list] = {}
+
+
+def _load_expansions():
+    global _EXPANSIONS
+    if _EXPANSIONS_PATH.exists():
+        try:
+            _EXPANSIONS = json.loads(_EXPANSIONS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            _EXPANSIONS = {}
 
 router = APIRouter(prefix="/api", tags=["games"])
 
@@ -73,6 +87,14 @@ async def get_game(game_id: str):
     if msrp is not None:
         game["msrp"] = msrp
     return game
+
+
+@router.get("/games/{game_id}/expansions")
+async def get_game_expansions(game_id: str):
+    """Return expansion list for a game. Empty array if none listed."""
+    if not _EXPANSIONS:
+        _load_expansions()
+    return _EXPANSIONS.get(game_id, [])
 
 
 @router.get("/games/{game_id}/price")
