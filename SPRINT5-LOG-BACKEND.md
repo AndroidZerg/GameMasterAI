@@ -15,3 +15,11 @@ Branch: sprint5/backend
 - Each now has full category descriptions explaining how to count points
 - scythe uses tiered_calculator type with popularity tiers
 - 50/50 score configs verified present
+
+## Phase B3: Enhance Score Config Descriptions
+- Created backend/fix_scores.py with hand-written descriptions for 29 games
+- Script adds description field to every category missing one
+- Fallback: auto-generates description from label/type if not in DESCRIPTIONS dict
+- Also adds win_description/scoring_note for cooperative/elimination/team_race types
+- Result: 29 configs updated, 0 still missing descriptions
+- All 50 score configs now have descriptions on every category

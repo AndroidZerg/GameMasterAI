@@ -8,31 +8,36 @@
       "id": "estates",
       "label": "Estates",
       "points_each": 1,
-      "type": "count"
+      "type": "count",
+      "description": "1 point(s) per estates"
     },
     {
       "id": "duchies",
       "label": "Duchies",
       "points_each": 3,
-      "type": "count"
+      "type": "count",
+      "description": "3 point(s) per duchies"
     },
     {
       "id": "provinces",
       "label": "Provinces",
       "points_each": 6,
-      "type": "count"
+      "type": "count",
+      "description": "6 point(s) per provinces"
     },
     {
       "id": "curses",
       "label": "Curses",
       "points_each": -1,
       "type": "count",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "-1 point(s) per curses"
     },
     {
       "id": "kingdom_vp",
       "label": "Kingdom Victory Cards",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from kingdom victory cards"
     }
   ]
 }

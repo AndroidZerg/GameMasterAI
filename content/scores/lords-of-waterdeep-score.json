@@ -7,29 +7,34 @@
     {
       "id": "quest_vp",
       "label": "Quest VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from quest vp"
     },
     {
       "id": "building_vp",
       "label": "Building VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from building vp"
     },
     {
       "id": "intrigue_vp",
       "label": "Intrigue VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from intrigue vp"
     },
     {
       "id": "lord_bonus",
       "label": "Lord Bonus VP",
-      "type": "manual"
+      "type": "manual",
+      "description": "Bonus points from your secret Lord card"
     },
     {
       "id": "mandatory_quest_penalty",
       "label": "Incomplete Mandatory Quests (-4 each)",
       "points_each": -4,
       "type": "count",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "-4 point(s) per incomplete mandatory quests (-4 each)"
     }
   ]
 }

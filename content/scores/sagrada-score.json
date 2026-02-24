@@ -7,35 +7,41 @@
     {
       "id": "public_objective_1",
       "label": "Public Objective 1",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from public objective 1"
     },
     {
       "id": "public_objective_2",
       "label": "Public Objective 2",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from public objective 2"
     },
     {
       "id": "public_objective_3",
       "label": "Public Objective 3",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from public objective 3"
     },
     {
       "id": "private_objective",
       "label": "Private Objective (matching color pip sum)",
-      "type": "manual"
+      "type": "manual",
+      "description": "Points from your private color objective"
     },
     {
       "id": "favor_tokens",
       "label": "Unspent Favor Tokens",
       "points_each": 1,
-      "type": "count"
+      "type": "count",
+      "description": "Points from remaining favor tokens"
     },
     {
       "id": "empty_spaces",
       "label": "Empty Spaces (-1 each)",
       "points_each": -1,
       "type": "count",
-      "is_penalty": true
+      "is_penalty": true,
+      "description": "-1 point(s) per empty spaces (-1 each)"
     }
   ]
 }
