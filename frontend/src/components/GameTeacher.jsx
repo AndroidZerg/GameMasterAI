@@ -4,6 +4,7 @@ import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
 import Leaderboard from "./Leaderboard";
+import GameRating from "./GameRating";
 import {
   speakText,
   stopSpeaking,
@@ -833,6 +834,11 @@ export default function GameTeacher() {
           </div>
         )}
       </div>
+
+      {/* Game Rating */}
+      {!gameLoading && !gameError && (
+        <GameRating gameId={gameId} gameTitle={gameTitle} />
+      )}
 
       {/* Score FAB */}
       <button
