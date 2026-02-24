@@ -1,0 +1,110 @@
+{
+  "game_id": "monopoly",
+  "title": "Monopoly",
+  "aliases": [
+    "Monopoly Classic",
+    "Monopoly Original",
+    "Monopoly Standard Edition"
+  ],
+  "publisher": "Hasbro",
+  "player_count": {
+    "min": 2,
+    "max": 8,
+    "recommended": 5,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 180
+  },
+  "complexity": "gateway",
+  "categories": [
+    "economic",
+    "trading",
+    "negotiation",
+    "classic"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference (Step 0 Audit)\n- **Standard game** — 2 to 8 players.\n- **Recommended** — 4 to 5 players for best balance of interaction and game length.\n\n#### Board\n- **Game board** — 1 folding board with a square track of 40 spaces.\n\n#### Money\n- **Monopoly money** — Bills in denominations: $1, $5, $10, $20, $50, $100, $500.\n- **Total bank supply** — The bank starts with a large supply of each denomination (varies by edition, bank never runs out — make extra bills from paper if needed).\n\n#### Property Cards\n- **Title deed cards** — 28 property cards: 22 color-group streets, 4 railroads, 2 utilities.\n\n#### Buildings\n- **Houses** — 32 green plastic houses.\n- **Hotels** — 12 red plastic hotels.\n\n#### Cards\n- **Community Chest** — 16 cards.\n- **Chance** — 16 cards.\n\n#### Other Components\n- **Dice** — 2 standard six-sided dice.\n- **Player tokens** — 8 metal tokens (varies by edition: car, top hat, dog, iron, battleship, etc.).\n- **Rulebook** — 1 rulebook."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Track (40 Spaces)\n- **GO (corner)** — Starting/passing corner. Collect $200 when passing or landing on GO.\n- **Properties** — 22 colored street properties in 8 color groups (2-3 per group).\n- **Railroads** — 4 railroad spaces (Reading, Pennsylvania, B&O, Short Line).\n- **Utilities** — 2 utility spaces (Electric Company, Water Works).\n- **Community Chest** — 3 spaces triggering a Community Chest card draw.\n- **Chance** — 3 spaces triggering a Chance card draw.\n- **Tax spaces** — Income Tax ($200) and Luxury Tax ($100).\n- **Jail / Just Visiting (corner)** — Landing on \"Just Visiting\" has no penalty. Sent to Jail is different.\n- **Free Parking (corner)** — No official effect (common house rule: collect accumulated money).\n- **Go to Jail (corner)** — Landing here sends you directly to Jail without passing GO.\n\n#### Color Groups\n- **Brown (dark purple)** — Mediterranean Ave, Baltic Ave (2 properties).\n- **Light Blue** — Oriental Ave, Vermont Ave, Connecticut Ave (3 properties).\n- **Pink (magenta)** — St. Charles Place, States Ave, Virginia Ave (3 properties).\n- **Orange** — St. James Place, Tennessee Ave, New York Ave (3 properties).\n- **Red** — Kentucky Ave, Indiana Ave, Illinois Ave (3 properties).\n- **Yellow** — Atlantic Ave, Ventnor Ave, Marvin Gardens (3 properties).\n- **Green** — Pacific Ave, North Carolina Ave, Pennsylvania Ave (3 properties).\n- **Dark Blue** — Park Place, Boardwalk (2 properties)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Money\n- **Each player receives $1,500** distributed as:\n  - 2 x $500\n  - 2 x $100\n  - 2 x $50\n  - 6 x $20\n  - 5 x $10\n  - 5 x $5\n  - 5 x $1\n\n#### Banker\n- **Select a banker** — One player manages the bank's money, property cards, houses, and hotels.\n- **Bank is separate** — The banker must keep bank money strictly separate from their personal funds.\n\n#### Token Placement\n- **Choose a token** — Each player selects a metal playing piece.\n- **Place on GO** — All tokens start on the GO corner.\n\n#### Determining First Player\n- **Roll dice** — Each player rolls both dice. Highest total goes first.\n- **Turn order** — Play proceeds clockwise."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Pre-Game Setup\n1. **Shuffle cards** — Shuffle Community Chest and Chance decks separately. Place face-down on their designated board spaces.\n2. **Organize bank** — Sort all remaining money, property title deeds, houses, and hotels near the board.\n3. **All properties unowned** — Title deed cards start in the bank, not dealt to players.\n\n#### First Turn\n1. **Roll both dice** — The first player rolls.\n2. **Move** — Advance your token clockwise that many spaces.\n3. **Resolve space** — Follow the rules for the space you land on.\n4. **Doubles rule** — If you roll doubles, take your turn, then roll again. Three consecutive doubles = go directly to Jail."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\n1. **Roll both dice** — Roll 2 six-sided dice.\n2. **Move** — Advance your token clockwise the total number of spaces shown.\n3. **Pass GO** — If you pass or land on GO, collect $200 from the bank.\n4. **Resolve the space** — Take action based on where you land (see Actions & Options).\n5. **Doubles** — If you rolled doubles, take another full turn after resolving. Three doubles in a row = go directly to Jail.\n6. **End turn** — If no doubles, play passes clockwise.\n\n#### Between Turns\n- **Trading** — Players may trade properties, cash, and Get Out of Jail Free cards with each other at any time, even between turns.\n- **Building** — You may buy houses/hotels between turns (on your own color groups) during your turn or between other players' turns."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Landing on Unowned Property\n- **Buy it** — Pay the listed price to the bank and receive the title deed card.\n- **Decline to buy** — If you choose not to buy, the bank immediately auctions the property to all players (including you). Bidding starts at any amount. Highest bidder pays the bank and receives the deed.\n\n#### Landing on Owned Property\n- **Pay rent** — Pay the owner the rent shown on the title deed.\n- **Base rent** — Printed on the card for an undeveloped property.\n- **Color group bonus** — If the owner holds all properties in a color group (with no mortgages), base rent on undeveloped properties is doubled.\n- **Houses** — Rent increases significantly with each house (1-4 houses).\n- **Hotel** — Maximum development. Highest rent tier.\n- **Railroad rent** — $25 for 1 railroad, $50 for 2, $100 for 3, $200 for all 4.\n- **Utility rent** — 1 utility: 4x dice roll. Both utilities: 10x dice roll.\n\n#### Landing on Special Spaces\n- **Community Chest** — Draw top card, follow instructions, return card to bottom of deck.\n- **Chance** — Draw top card, follow instructions, return card to bottom of deck.\n- **Income Tax** — Pay $200 to the bank.\n- **Luxury Tax** — Pay $100 to the bank.\n- **Go to Jail** — Move directly to Jail. Do not pass GO. Do not collect $200.\n- **Free Parking** — Nothing happens (official rules). No money is collected.\n- **Just Visiting** — If you land on the Jail space normally, you are \"Just Visiting\" with no penalty.\n\n#### Mortgage\n- **Mortgage a property** — Flip the title deed to its mortgage side and collect the mortgage value from the bank.\n- **No rent** — Mortgaged properties cannot collect rent.\n- **Unmortgage** — Pay the mortgage value plus 10% interest to the bank and flip the deed back.\n- **Cannot build** — You cannot build on any property in a color group if any property in that group is mortgaged."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Building Houses and Hotels\n- **Complete color group required** — You must own all properties in a color group (none mortgaged) before building.\n- **Even building rule** — Houses must be built evenly across the group. You cannot place a second house on any property until all properties in the group have one house.\n- **Hotel upgrade** — After 4 houses on each property in the group, you may upgrade to a hotel (return 4 houses + pay hotel price).\n- **Building shortage** — If the bank runs out of houses, no more houses can be built. This is intentional. Players may not substitute.\n- **Selling buildings** — Sell houses/hotels back to the bank at half purchase price. Hotels must be downgraded evenly.\n\n#### Jail\n- **How you go to Jail** — Land on \"Go to Jail\" space, draw a \"Go to Jail\" card, or roll 3 consecutive doubles.\n- **In Jail** — You cannot move but may still collect rent, trade, and build.\n- **Getting out of Jail** (choose one at the start of your turn):\n  - Pay $50 before rolling.\n  - Use a Get Out of Jail Free card.\n  - Roll doubles on your turn (you move but do not get an extra turn for doubles).\n- **3-turn limit** — If you have not rolled doubles after 3 turns in Jail, you must pay $50 and move the amount shown on your third roll.\n\n#### Trading\n- **What can be traded** — Properties (unmortgaged or mortgaged), cash, and Get Out of Jail Free cards.\n- **No building trades** — Houses and hotels cannot be traded; they must be sold back to the bank.\n- **No loans** — Players cannot loan money to each other. Deals must be completed immediately.\n- **Mortgaged property trades** — When receiving a mortgaged property, you may pay off the mortgage immediately or pay 10% interest now and the full mortgage + 10% later to unmortgage.\n\n#### Bankruptcy\n- **Owed to the bank** — If you cannot pay the bank, sell buildings at half price and mortgage properties. If still unable to pay, you are bankrupt. All your assets go to the bank; properties are auctioned.\n- **Owed to a player** — If you cannot pay another player, all your assets transfer to that player (who must immediately pay 10% interest on any mortgaged properties received, or unmortgage them)."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Standard Endgame\n- **Last player standing** — The game ends when all but one player have gone bankrupt. The remaining player wins.\n\n#### Speed/Timed Rules (Official Variant)\n- **Time limit** — Set a timer before starting (e.g., 60 or 90 minutes).\n- **Richest player wins** — When time expires, each player totals their assets:\n  - Cash on hand.\n  - Properties at printed purchase price (mortgaged properties at half).\n  - Houses at purchase price.\n  - Hotels at purchase price plus 4 houses' worth.\n- **Highest total wins.**\n\n#### Scoring Model\n- **Elimination format** — Standard Monopoly has no point system. Players are eliminated by bankruptcy.\n- **Asset counting** — Only used in timed/speed variants.\n\n#### Tiebreaker (Timed Game)\n- **Cash tiebreaker** — If total assets are tied, the player with more cash on hand wins.\n- **If still tied** — The player with more properties wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Property Acquisition\n- **Buy everything early** — In the early game, buy every property you land on. Having properties gives trading leverage and prevents opponents from completing color groups.\n- **Auctions are opportunities** — If someone declines a property, bid aggressively on properties that complete or block color groups.\n- **Target the orange group** — Statistically, St. James Place, Tennessee Ave, and New York Ave are landed on most frequently (due to Jail placement and dice probabilities).\n\n#### Cash Management\n- **Keep a reserve** — Maintain at least $200-300 for rent payments. Going broke early from overbidding is a common trap.\n- **Mortgaging is fine** — Do not be afraid to mortgage low-value properties to fund house building on a complete color group."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Not buying properties** — Passing on early purchases to \"save money\" is almost always wrong. Properties generate income; cash sitting idle does not.\n- **Ignoring auctions** — When a player declines to buy, the auction often sells the property below face value. Always participate.\n- **Uneven trading** — Trading away a property that completes an opponent's color group without getting equivalent value (or completing your own group) is a losing move.\n- **Building too slowly** — Once you have a color group, build to 3 houses per property as quickly as possible. The rent jump from 2 to 3 houses is massive.\n- **Staying in Jail too early** — In the early game, you want to move around the board and buy properties. Pay $50 to get out quickly. In the late game, Jail is safe (you collect rent while avoiding opponents' hotels).\n- **House rules that extend the game** — Free Parking money, no auctions, and loans between players all make the game significantly longer than intended."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: When to Trade?\n- **Trade to complete** — A fair trade that gives both players a complete color group is usually worth it. The player who builds first has the advantage.\n- **Block trades** — Sometimes holding a single property to prevent an opponent from completing their group is more valuable than any trade offer.\n\n#### Decision 2: Where to Build?\n- **3 houses is the sweet spot** — Rent increases most dramatically from 2 to 3 houses. Prioritize getting all properties in a group to 3 houses before going to 4 or hotels.\n- **Housing shortage strategy** — With only 32 houses in the game, building 4 houses on each property (without upgrading to hotels) can lock out other players from building.\n\n#### Decision 3: Jail Strategy\n- **Early game — get out fast** — You need to be moving and buying. Pay $50 or use a card immediately.\n- **Late game — stay in** — When the board is full of opponents' hotels, Jail is the safest place. Collect rent while opponents land on your properties. Try to roll doubles; if not, pay after 3 turns.\n\n#### Decision 4: Mortgage or Sell Buildings?\n- **Mortgage undeveloped properties first** — Mortgaging costs only 10% interest. Selling buildings at half price is a steeper loss.\n- **Keep income properties active** — Never mortgage a property in a developed color group (you cannot collect rent on any of them if one is mortgaged)."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

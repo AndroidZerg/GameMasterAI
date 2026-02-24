@@ -1,0 +1,109 @@
+{
+  "game_id": "trivial-pursuit",
+  "title": "Trivial Pursuit",
+  "aliases": [
+    "Trivial Pursuit Classic",
+    "Trivial Pursuit Master Edition",
+    "TP"
+  ],
+  "publisher": "Hasbro",
+  "player_count": {
+    "min": 2,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 120
+  },
+  "complexity": "gateway",
+  "categories": [
+    "trivia",
+    "family",
+    "classic"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference (Step 0 Audit)\n- **Standard game** — 2 to 6 players (individuals or teams).\n- **Team variant** — Any number of players can form teams.\n\n#### Board\n- **Game board** — 1 circular board with a spoke-and-wheel layout.\n- **Outer ring** — Continuous track of colored spaces forming the wheel.\n- **Spokes** — 6 spokes connecting the outer ring to the center hub.\n- **Category headquarters** — 6 spaces where the spokes meet the outer ring, one per category color.\n- **Center hub** — Final destination to win the game.\n\n#### Cards\n- **Question cards** — Approximately 400 cards (2,400 questions total — 6 questions per card, one per category).\n- **Card box** — 1 card holder.\n\n#### Player Pieces\n- **Playing pieces** — 6 circular pie-shaped token holders (\"wheels\" or \"cheese wedges\").\n- **Scoring wedges** — 36 small plastic wedges (6 per player, one in each category color).\n\n#### Other Components\n- **Die** — 1 standard six-sided die.\n- **Rulebook** — 1 rulebook.\n\n#### The 6 Categories\n- **Blue** — Geography.\n- **Pink** — Entertainment.\n- **Yellow** — History.\n- **Brown** — Art & Literature.\n- **Green** — Science & Nature.\n- **Orange** — Sports & Leisure."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Wheel-and-Spoke Design\n- **Outer ring** — A circular track of colored spaces. Each space corresponds to one of the 6 trivia categories.\n- **6 spokes** — Straight paths from the outer ring to the center hub. Each spoke is a single category color.\n- **Category headquarters** — 6 special spaces at the outer ring where each spoke begins. These are the \"wedge\" spaces — answer correctly here to earn that color's pie wedge.\n- **Center hub** — The final space. Players must reach this space to attempt the winning question.\n\n#### Space Colors\n- **Category-colored spaces** — Each space on the board is one of the 6 category colors, determining what type of question is asked.\n- **Roll spaces** — Some editions include \"Roll Again\" spaces on the outer ring.\n\n#### Movement\n- **Any direction** — Players may move in any direction along the outer ring or down any spoke (toward or away from center).\n- **Hub entry** — To enter the center hub, a player must land on it by exact count."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Pieces\n- **Choose a playing piece** — Each player selects one pie-shaped token holder.\n- **Empty wedge slots** — The token starts with all 6 wedge slots empty.\n- **Place on center hub** — All players begin on the center hub space.\n\n#### Determining First Player\n- **Roll the die** — Each player rolls once. Highest roll goes first.\n- **Ties** — Tied players re-roll.\n- **Turn order** — Play proceeds clockwise from the first player."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Turn\n1. **Roll the die** — The first player rolls the die.\n2. **Move** — Move that many spaces in any direction along connected paths (outer ring or spokes).\n3. **Answer** — Another player reads the question matching the color of the space landed on.\n4. **Correct** — Roll again and take another turn.\n5. **Incorrect** — Turn ends. Next player goes.\n\n#### Starting from the Hub\n- **Spoke choice** — From the center hub, the player chooses which spoke to move along.\n- **Category targeting** — Players typically head toward the category headquarters they need."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\n1. **Roll** — Roll the die.\n2. **Move** — Move exactly that number of spaces in any single direction (no reversing mid-move).\n3. **Question** — An opponent reads the question from the card matching the color of the space you landed on.\n4. **Answer** — Give your answer.\n5. **Correct answer** — Roll again (take another turn). If on a category headquarters, also earn that wedge.\n6. **Incorrect answer** — Turn ends. Play passes clockwise.\n\n#### Continuous Turns\n- **Streak play** — As long as you answer correctly, you keep rolling and moving.\n- **No limit** — There is no cap on consecutive correct answers in a single turn."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Movement Rules\n- **Direction** — Move in any direction along connected paths but do not reverse direction during a single move.\n- **Outer ring** — Move clockwise or counter-clockwise.\n- **Spokes** — Move toward or away from the center hub.\n- **Transition** — You may move from the outer ring onto a spoke (or vice versa) during a single move if the paths connect.\n- **Exact landing** — You must use the exact die roll; you cannot stop short.\n\n#### Answering Questions\n- **Category match** — The question category matches the color of the space you are on.\n- **Reader** — The player to your left (or any opponent) reads the question.\n- **Time limit** — No official time limit in standard rules. House rules may impose one.\n- **Final answer** — Once you give your answer, it cannot be changed.\n\n#### Earning Wedges\n- **Category headquarters only** — You can only earn a wedge by landing on a category headquarters space AND answering correctly.\n- **One per category** — You earn 1 wedge per category. Earning a second of the same color is not possible.\n- **Already have it** — If you land on a headquarters for a wedge you already own, answer correctly to roll again (no extra reward).\n- **Insert wedge** — Place the colored wedge into your playing piece when earned."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Roll Again Spaces\n- **Certain editions** — Some board versions have \"Roll Again\" spaces. Landing here grants an immediate re-roll without answering a question.\n\n#### Center Hub\n- **Entry requirement** — You must have all 6 wedges before entering (or re-entering) the center hub for the final question.\n- **Exact roll** — You must land on the hub by exact die count.\n- **Final question** — Opponents choose which category the final question comes from.\n- **Correct** — You win the game.\n- **Incorrect** — Your turn ends. On your next turn, you must leave the hub and return again.\n\n#### Team Play\n- **Team formation** — Players may form teams. The team discusses before giving one answer.\n- **Single piece** — Each team uses one playing piece.\n\n#### Question Card Handling\n- **Read and discard** — After a question is read (regardless of answer), place that card at the back of the box.\n- **No repeats** — Do not reuse cards during a single game session."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning Condition\n- **Collect all 6 wedges** — Earn one wedge from each of the 6 category headquarters.\n- **Return to center hub** — Move to the center hub by exact die roll.\n- **Final question** — Opponents choose the category for your final question.\n- **Correct answer** — You win the game immediately.\n- **Incorrect answer** — Leave the hub on your next turn and try again later.\n\n#### Scoring Model\n- **No points** — Trivial Pursuit does not use a point system.\n- **Binary progress** — You either have a wedge or you do not. 6 wedges + final question = victory.\n- **Race format** — First player to complete all 6 wedges and answer the final question wins.\n\n#### Tiebreaker\n- **No ties** — Only one player can win the final question first. Simultaneous wins are not possible in turn-based play."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Route Planning\n- **Weakest categories first** — Head for your weakest category headquarters early. If you fail, you have more chances later.\n- **Efficient pathing** — Plan your route to pass through multiple headquarters in sequence rather than zigzagging.\n- **Spoke awareness** — Moving along spokes is the fastest way to cross the board.\n\n#### Knowledge Assessment\n- **Know your strengths** — Identify which 2-3 categories you are strongest in and save those for when you need momentum (correct answers = more rolls).\n- **Team balance** — In team play, pair players with complementary category strengths."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Random movement** — Moving without a target headquarters wastes turns. Always aim for a headquarters you need.\n- **Avoiding weak categories** — Circling the board to dodge your weakest category delays progress. You must eventually face all 6.\n- **Forgetting direction flexibility** — Players often move only clockwise. Remember you can move in any direction and use spokes to cut across.\n- **Hub approach without all wedges** — Moving toward the center without all 6 wedges wastes movement.\n- **Overthinking the final question** — Opponents will choose your weakest category. Accept this and prepare mentally."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Which Direction to Move?\n- **Toward headquarters** — If a needed headquarters is within 1-2 rolls, head straight for it.\n- **Through strong categories** — Route through spaces of your strongest categories to maximize consecutive correct answers and maintain momentum.\n\n#### Decision 2: Spoke vs Ring?\n- **Spoke shortcut** — Spokes allow fast hub-to-ring and ring-to-hub movement. Use them when the headquarters you need is on the opposite side of the board.\n- **Ring cruise** — Stay on the outer ring when multiple nearby headquarters are still needed.\n\n#### Decision 3: Final Question Category (Opponents' Choice)\n- **Opponent strategy** — Choose the category the answering player is weakest in.\n- **Observation** — Track which categories each player has struggled with during the game."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
