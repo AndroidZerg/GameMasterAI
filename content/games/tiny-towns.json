@@ -1,0 +1,101 @@
+{
+  "game_id": "tiny-towns",
+  "title": "Tiny Towns",
+  "aliases": [],
+  "publisher": "AEG",
+  "player_count": {
+    "min": 1,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 60
+  },
+  "complexity": "gateway",
+  "categories": ["pattern-building", "puzzle", "city-building"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player Components\n- **Player boards** — 1 per player; each is a 4x4 grid (16 spaces).\n- **Building cards** — 7 types of buildings, each showing a resource pattern and scoring rule.\n- **Monument cards** — Unique buildings; each player selects 1 at game start.\n\n#### Resources\n- **Resource cubes** — 5 types: Wood (brown), Wheat (yellow), Brick (red), Glass (blue), Stone (gray).\n- **Quantity** — Enough cubes for all players to place simultaneously.\n\n#### Building Miniatures\n- **Wooden buildings** — Small colored wooden pieces representing constructed buildings.\n- **Types** — Cottage (blue), Chapel (yellow), Tavern (red), Theater (orange), Factory (gray), Trading Post (green), Well (purple), and others depending on card selection.\n\n#### Other\n- **Master Builder hammer** — Token passed to indicate the Master Builder.\n- **Resource cards** — 5 cards (one per resource type) for the Master Builder to choose from."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Distribute boards** — Give each player a 4x4 grid board.\n2. **Select building cards** — Choose 1 card per building type (7 total). Each type offers multiple options for variety.\n3. **Display buildings** — Place selected building cards face up where all players can see them.\n4. **Monument selection** — Deal 2 monument cards to each player; each player secretly chooses 1 and returns the other.\n5. **Resource supply** — Place all resource cubes in accessible shared piles.\n6. **Building supply** — Place building miniatures in shared supply.\n7. **Master Builder token** — Give the hammer to a starting player."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Each Player Begins With\n- **Empty 4x4 grid** — All 16 spaces are empty.\n- **1 monument card** — Kept secret until built.\n- **No resources** — Resources are placed during the game.\n\n#### Solo Variant\n- **Solo mode** — Draw resource cards from a shuffled deck instead of using a Master Builder.\n- **3 face-up cards** — On your turn, choose 1 of 3 revealed resource cards; refill.\n\n--- 2-6 Players ---\n- **Standard Master Builder** — One player names a resource; all must place it."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Master Builder goes first** — The Master Builder names a resource type.\n2. **All players place** — Every player (including the Master Builder) takes that resource cube and places it on any empty space on their grid.\n3. **Optional construction** — After placing, any player may construct a building if the correct pattern is present on their board.\n4. **Pass the hammer** — After all players have placed and optionally built, pass the Master Builder token clockwise.\n5. **Continue** — The new Master Builder names the next resource."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Each Turn\n1. **Master Builder names a resource** — Choose one of the 5 resource types.\n2. **All players simultaneously place** — Take a cube of that resource and place it on any empty space on your 4x4 grid.\n3. **Optional construction** — After placement, any player may construct one or more buildings.\n4. **Pass Master Builder** — Rotate the hammer clockwise.\n\n#### Construction\n- **Pattern matching** — If resources on your grid match the exact pattern shown on a building card (in any orientation/rotation), you may construct.\n- **Remove resources** — Remove the resource cubes used in the pattern.\n- **Place building** — Put the corresponding building miniature on one of the spaces that was part of the pattern.\n- **Multiple builds** — You may construct multiple buildings in one turn if multiple patterns are complete.\n- **Pattern flexibility** — Patterns can be rotated but not mirrored."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Master Builder Choice\n- **Resource selection** — Name any of the 5 resource types.\n- **Strategic naming** — Choose resources that help you while hindering opponents.\n- **Information** — You can see opponents' boards; use this to name unhelpful resources for them.\n\n#### Placement Rules\n- **Any empty space** — Resource cubes can go on any unoccupied grid space.\n- **No stacking** — Only 1 cube or 1 building per space.\n- **Mandatory placement** — You must place the named resource even if it hurts your plans.\n\n#### Building Rules\n- **Pattern match** — Resources must match the building card's pattern exactly.\n- **Orientation** — Patterns may be rotated 90, 180, or 270 degrees.\n- **Building placement** — The building miniature goes on any one of the spaces that held the pattern's resources.\n- **Multiple copies** — You may build the same building type multiple times.\n- **Monuments** — Your unique monument works like other buildings but only you can build it.\n\n#### Building Types & Scoring\n- **Cottage** — Scores if fed (adjacent to a completed Farm-type building).\n- **Chapel** — Scores incrementally based on number of fed Cottages when built.\n- **Tavern** — Scores in sets (1/2/3/4/5 Taverns = 2/5/9/14/20 points).\n- **Theater** — Scores based on number of unique building types in the same row and column.\n- **Factory** — Allows naming your own resource once per turn when placed.\n- **Other buildings** — Vary by selected card; each has unique scoring conditions."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Factory Building\n- **Personal resource** — When you have a Factory, on each turn after the Master Builder names a resource, you may additionally place a resource of your own choice.\n- **Placement order** — Place the Master Builder's resource first, then your Factory resource.\n- **Multiple Factories** — Multiple Factories do not stack (still only 1 extra resource per turn).\n\n#### Monument\n- **Unique building** — Each player has a different monument with a unique scoring rule.\n- **Secret until built** — Keep your monument card hidden until you construct it.\n- **One per game** — You can only build your monument once.\n- **Powerful scoring** — Monuments typically score high points with specific conditions.\n\n#### Grid Management\n- **Space is precious** — The 4x4 grid has only 16 spaces; every placement matters.\n- **Unused resources** — Resources stuck on the grid that cannot form patterns become dead spaces.\n- **Empty space penalty** — Each empty space at game end is -1 VP.\n- **Impossible positions** — Sometimes the Master Builder forces resources that clog your grid.\n\n#### Town Hall Variant\n- **Open resource selection** — Instead of a Master Builder, draw resource cards from a shared deck.\n- **All players choose** — Each player picks from available resources, adding variety."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Trigger\n- **Grid full** — The game ends for a player when their 4x4 grid is completely full (all 16 spaces occupied by resources or buildings).\n- **Other players continue** — Players with open spaces keep playing.\n- **Game ends** — When all players' grids are full, proceed to scoring.\n\n#### Scoring\n- **Building VP** — Each building scores based on its card's rules.\n- **Cottage VP** — Each fed cottage scores its printed value.\n- **Chapel VP** — Scores based on fed cottages at time of construction.\n- **Tavern VP** — Set collection: 1/2/3/4/5 taverns = 2/5/9/14/20 points.\n- **Theater VP** — Points for unique building types in same row and column.\n- **Factory VP** — Often scores a flat amount.\n- **Monument VP** — Scores based on monument card's unique condition.\n- **Other buildings** — Score per their selected card.\n- **Empty space penalty** — Each empty grid space at game end = -1 VP.\n\n#### Winner\n- **Most VP wins** — Add all building scores, subtract empty space penalties.\n- **Tiebreaker** — Player with fewer empty spaces wins; if still tied, shared victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Plan your layout** — Mentally map where buildings will go before placing resources; the grid fills fast.\n- **Build Factories early** — Getting an extra resource per turn is a significant advantage.\n- **Start in corners** — Build patterns from edges and corners to avoid trapping yourself.\n- **Know your monument** — Design your grid around your monument's scoring condition.\n- **Watch the Master Builder** — Anticipate what resources opponents will name and pre-position accordingly."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring grid space** — Placing resources without a plan leads to dead cubes filling your grid.\n- **Chasing too many building types** — Spreading resources thin prevents completing any pattern.\n- **Forgetting the empty penalty** — Dead spaces cost -1 each; a grid with 4 empty spaces loses 4 points.\n- **Ignoring opponents' boards** — As Master Builder, naming resources that help opponents wastes your advantage.\n- **Building in the center** — Central buildings block adjacency paths and restrict future placement options.\n- **Neglecting Cottages** — Cottages are a reliable point engine; ignoring them misses easy VP."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Master Builder resource naming** — Choose resources that advance your pattern while stalling opponents.\n- **When to build** — Whether to complete a pattern now or wait for a better building placement position.\n- **Building placement within pattern** — Which space in the pattern to place the building affects future adjacency scoring.\n- **Monument timing** — Build early for utility or late when scoring conditions are optimized.\n- **Accept dead spaces vs force builds** — Sometimes building a low-value building is better than leaving resources stranded."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

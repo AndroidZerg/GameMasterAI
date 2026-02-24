@@ -1,0 +1,106 @@
+{
+  "game_id": "werewords",
+  "title": "Werewords",
+  "aliases": [],
+  "publisher": "Bezier Games",
+  "player_count": {
+    "min": 4,
+    "max": 10,
+    "recommended": 7,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 10,
+    "max": 15
+  },
+  "complexity": "party",
+  "categories": [
+    "word-game",
+    "social-deduction",
+    "party",
+    "app-driven"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Role tokens** — Mayor, Seer, Werewolf, and Villager tokens (enough for all player counts).\n- **Yes/No/Maybe tokens** — Small tokens used by the Mayor to answer questions.\n- **So Close token** — Token indicating a guess is very near the correct answer.\n- **Correct token** — Token confirming the word has been guessed.\n- **App** — Free companion app (required) that manages word selection, timer, and night phase audio.\n\n#### Roles\n- **Mayor** — Knows the secret word. Answers yes/no/maybe/so-close to the village's questions. Cannot speak beyond token responses.\n- **Seer** — Knows the secret word. Tries to subtly guide the village toward the correct guess without being identified by the Werewolf.\n- **Werewolf** — Knows the secret word. Tries to steer the village away from the answer without being obvious.\n- **Villagers** — Do not know the secret word. Ask questions and try to guess it.\n\n#### Optional Roles\n- **Beholder** — Knows who the Seer is but not the word.\n- **Minion** — Knows who the Werewolf is; tries to help derail guessing.\n- **Additional Werewolf** — For larger groups.\n\n#### Player-Count Scaling\n--- 4-5 Players ---\n- **Roles** — 1 Mayor, 1 Seer, 1 Werewolf, rest Villagers.\n\n--- 6-8 Players ---\n- **Roles** — 1 Mayor, 1 Seer, 1 Werewolf, optional Beholder or Minion, rest Villagers.\n\n--- 9-10 Players ---\n- **Roles** — Consider adding a second Werewolf or additional optional roles."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **Download and open the app** — The app is required for gameplay.\n2. **Select player count** — Enter the number of players in the app.\n3. **Choose word difficulty** — Select easy, medium, hard, or ridiculous difficulty in the app.\n4. **Choose word category** — Select a category or use random.\n5. **Distribute role tokens** — Shuffle and deal role tokens face-down to each player.\n6. **Place answer tokens centrally** — Set Yes, No, Maybe, So Close, and Correct tokens within the Mayor's reach.\n\n#### No Physical Board\n- **App is the board** — The app manages the secret word, timer, and game flow.\n- **Token-based interaction** — The Mayor uses physical tokens to answer questions."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Assignment\n1. **Deal role tokens** — Each player receives a face-down role token.\n2. **View secretly** — Look at your role without revealing it.\n\n#### Night Phase (App-Guided)\n1. **App instructs eyes closed** — All players close their eyes.\n2. **Mayor wakes** — The app shows the secret word to the Mayor.\n3. **Werewolf wakes** — The app shows the secret word to the Werewolf (and any Minions see the Werewolf).\n4. **Seer wakes** — The app shows the secret word to the Seer.\n5. **Beholder wakes (if in play)** — The Seer identifies themselves to the Beholder.\n6. **All open eyes** — Day phase begins immediately.\n\n#### Key Information Access\n- **Knows the word** — Mayor, Seer, Werewolf.\n- **Does not know the word** — Villagers, Beholder, Minion."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Starting the Round\n1. **App starts timer** — The village has approximately 4 minutes to guess the secret word.\n2. **Questions begin** — Any player may ask the Mayor a yes-or-no question about the secret word.\n3. **Mayor responds** — The Mayor places a Yes, No, Maybe, or So Close token to answer.\n4. **Continue asking** — Players take turns asking questions rapidly.\n\n#### First Question Tips\n- **Start broad** — \"Is it a living thing?\" or \"Can you find it indoors?\" to quickly narrow the category.\n- **Everyone participates** — All players should ask questions, including the Seer and Werewolf (who already know the answer)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Day Phase (Timed)\n1. **Ask questions** — Players ask the Mayor yes-or-no questions about the secret word.\n2. **Mayor answers** — Responds with Yes, No, Maybe, or So Close tokens only. No speaking.\n3. **Guess attempts** — At any point, a player may attempt to guess the word directly.\n4. **Timer running** — The app counts down approximately 4 minutes.\n\n#### Question Flow\n- **No strict turn order** — Questions flow organically; players speak up when they have a question.\n- **One question at a time** — Wait for the Mayor's response before the next question.\n- **Token limit** — The Mayor has a limited supply of each token type; when tokens run out, no more answers of that type.\n\n#### Round End Triggers\n- **Word guessed correctly** — A player says the exact word; Mayor places the Correct token. Proceed to Werewolf accusation phase.\n- **Timer expires** — The village failed to guess. Proceed to Werewolf identification phase.\n- **Tokens exhausted** — If the Mayor runs out of all answer tokens, the round may end (app-dependent)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Villager Actions\n- **Ask questions** — Formulate yes-or-no questions to narrow down the secret word.\n- **Guess the word** — Attempt to say the exact word at any time.\n- **Observe behavior** — Watch for the Seer (who asks leading questions) and the Werewolf (who asks misleading questions).\n\n#### Seer Actions\n- **Guide subtly** — Ask questions that lead the village toward the correct answer without being too obvious.\n- **Stay hidden** — If the Werewolf identifies the Seer, the Werewolf team can win even if the word is guessed.\n- **Balance helpfulness** — Too helpful and you are identified; too subtle and the village may not guess in time.\n\n#### Werewolf Actions\n- **Mislead subtly** — Ask questions that pull the village in the wrong direction.\n- **Stay hidden** — If the village identifies you as the Werewolf, the village can win even if they fail to guess the word.\n- **Do not overdo it** — Blatantly bad questions draw suspicion.\n\n#### Mayor Actions\n- **Answer honestly** — Place tokens truthfully based on the secret word.\n- **Use So Close** — When a guess is very near the correct answer.\n- **Cannot speak** — The Mayor communicates only through tokens.\n- **Mayor as Werewolf** — If the Mayor is also the Werewolf (possible in some configurations), they may give misleading answers."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Two-Phase Endgame\nThe round resolves differently depending on whether the word was guessed:\n\n#### If the Word IS Guessed (Village Phase)\n1. **Werewolf team gets a chance** — The Werewolf (and allies) may identify the Seer.\n2. **Discussion** — Brief discussion about who the Seer might be.\n3. **Werewolf points** — The Werewolf chooses one player they believe is the Seer.\n4. **If correct** — Werewolf team wins despite the word being guessed.\n5. **If incorrect** — Village team wins.\n\n#### If the Word is NOT Guessed (Werewolf Phase)\n1. **Village gets a chance** — The village may identify the Werewolf.\n2. **Discussion** — Brief discussion about who the Werewolf might be.\n3. **Village votes** — Players vote on who they think is the Werewolf.\n4. **If correct** — Village team wins despite not guessing the word.\n5. **If incorrect** — Werewolf team wins.\n\n#### App Integration\n- **Word selection** — The app picks the secret word from the selected category and difficulty.\n- **Timer management** — The app handles the countdown and audio cues.\n- **Night phase audio** — The app provides narration for the night phase, telling players when to wake and sleep.\n- **Multiple rounds** — Play multiple rounds in succession for a longer session.\n\n#### Speed and Accessibility\n- **Fast rounds** — Each round is approximately 4-5 minutes.\n- **Low barrier** — No reading required during gameplay; all interaction is verbal.\n- **Scales well** — Works across a wide player count without significant downtime."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Village Team Victory\n- **Word guessed AND Seer not identified** — Village correctly guesses the word and the Werewolf fails to identify the Seer.\n- **Word not guessed BUT Werewolf identified** — Village fails the word but correctly votes to identify the Werewolf.\n\n#### Werewolf Team Victory\n- **Word not guessed AND Werewolf not identified** — Village fails the word and fails to identify the Werewolf.\n- **Word guessed BUT Seer identified** — Village guesses the word but the Werewolf correctly identifies the Seer.\n\n#### No Point Scoring\n- **Team win/loss** — Each round produces a winner (Village or Werewolf team).\n- **No VP** — There are no victory points or cumulative scoring.\n- **Multiple rounds** — Groups typically play several rounds, informally tracking wins per team.\n\n#### Post-Round\n- **Reveal roles** — All players show their role tokens.\n- **Reveal the word** — The app displays the secret word if it was not guessed.\n- **Shuffle and re-deal** — Redistribute role tokens for the next round."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Village Priorities\n- **Start with broad categories** — Narrow the domain quickly (person, place, thing, action, etc.).\n- **Build on previous answers** — Each question should follow logically from the last response.\n- **Watch question quality** — Notice who asks productive questions (possible Seer) and who asks tangential ones (possible Werewolf).\n\n#### Seer Priorities\n- **Ask leading questions** — Frame questions that push the village toward the answer without giving it away.\n- **Timing matters** — If the village is stuck, risk a more direct hint. If progress is good, stay subtle.\n- **Avoid being last to ask** — The Seer asking the question right before someone guesses correctly is a strong tell.\n\n#### Werewolf Priorities\n- **Ask plausible wrong questions** — Steer the village toward a wrong category or meaning.\n- **Blend timing** — Ask questions at a natural pace; hesitation or rushing is suspicious.\n- **Sabotage gently** — One or two misleading questions are enough; constant misdirection is obvious."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Mistake 1 — Seer Being Too Obvious\n- **Why it fails** — If the Werewolf identifies the Seer, the village loses even after guessing the word.\n- **Fix** — Distribute helpful questions across the round; do not cluster all your hints together.\n\n#### Mistake 2 — Werewolf Asking Clearly Bad Questions\n- **Why it fails** — Absurd questions make you an obvious candidate during the identification phase.\n- **Fix** — Ask questions that sound reasonable but point in the wrong direction.\n\n#### Mistake 3 — Not Watching Other Players' Questions\n- **Why it fails** — Identifying the Seer or Werewolf is critical to the endgame and requires observation.\n- **Fix** — Pay attention to who asks helpful vs unhelpful questions throughout the round.\n\n#### Mistake 4 — Wasting Time on Narrow Questions Too Early\n- **Why it fails** — Asking hyper-specific questions before narrowing the category wastes the limited timer.\n- **Fix** — Use binary-search style questioning: broad first, then progressively narrow.\n\n#### Mistake 5 — Mayor Giving Ambiguous Answers\n- **Why it fails** — Overusing Maybe tokens frustrates the village and wastes time.\n- **Fix** — Commit to Yes or No when possible; reserve Maybe for genuinely ambiguous cases."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1 — Seer: How Directly to Help\n- **Direct hint** — Asks a question that nearly gives away the answer; risks Werewolf identification.\n- **Subtle nudge** — Asks a question that gently steers without revealing knowledge; slower but safer.\n\n#### Decision 2 — Werewolf: How Aggressively to Mislead\n- **Aggressive** — Ask multiple misleading questions; high impact but high risk of detection.\n- **Passive** — Ask neutral questions and let the timer run out; lower risk but less effective.\n\n#### Decision 3 — Village: Guess Now or Ask More Questions\n- **Guess early** — Saves time if correct; wastes the attempt if wrong.\n- **Keep asking** — Narrows the answer further but risks the timer expiring.\n\n#### Decision 4 — Endgame: Who to Accuse\n- **Behavioral read** — Accuse the player whose questions were most suspicious (helpful or unhelpful depending on the phase).\n- **Process of elimination** — Rule out confirmed Villagers and focus on remaining candidates."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

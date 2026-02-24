@@ -1,0 +1,15 @@
+{
+  "game_id": "jaipur",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "diamond_tokens", "label": "Diamond Tokens", "points_each": 1, "type": "manual", "description": "Sum of all diamond goods tokens collected"},
+    {"id": "gold_tokens", "label": "Gold Tokens", "points_each": 1, "type": "manual", "description": "Sum of all gold goods tokens collected"},
+    {"id": "silver_tokens", "label": "Silver Tokens", "points_each": 1, "type": "manual", "description": "Sum of all silver goods tokens collected"},
+    {"id": "cloth_tokens", "label": "Cloth Tokens", "points_each": 1, "type": "manual", "description": "Sum of all cloth goods tokens collected"},
+    {"id": "spice_tokens", "label": "Spice Tokens", "points_each": 1, "type": "manual", "description": "Sum of all spice goods tokens collected"},
+    {"id": "leather_tokens", "label": "Leather Tokens", "points_each": 1, "type": "manual", "description": "Sum of all leather goods tokens collected"},
+    {"id": "bonus_tokens", "label": "Bonus Tokens", "points_each": 1, "type": "manual", "description": "Sum of all bonus tokens (3/4/5-good bonuses)"},
+    {"id": "camel_bonus", "label": "Camel Token", "points_each": 5, "type": "boolean", "description": "5 rupees if you have more camels than opponent"}
+  ],
+  "win_condition": "Highest total rupees wins the round; first to win 2 rounds wins the game"
+}

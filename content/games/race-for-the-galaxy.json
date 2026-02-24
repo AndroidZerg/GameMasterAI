@@ -1,0 +1,109 @@
+{
+  "game_id": "race-for-the-galaxy",
+  "title": "Race for the Galaxy",
+  "aliases": [
+    "RftG",
+    "Race"
+  ],
+  "publisher": "Rio Grande Games",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 60
+  },
+  "complexity": "midweight",
+  "categories": [
+    "hand-management",
+    "engine-building",
+    "sci-fi",
+    "simultaneous"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 2 to 4 players.\n- **Setup scaling** — VP chip pool and phase card availability scale by player count.\n- **Solo mode** — Not included in the base game.\n\n#### Cards\n- **Game cards** — 114 cards total (worlds and developments).\n- **Starting worlds** — 5 starting world cards (1 per player, 1 extra).\n- **Action cards** — 4 sets of 7 action/phase cards (one set per player).\n\n#### Tokens\n- **VP chips** — VP chip pool (12 per player): 1-point and 5-point chips.\n- **Goods tokens** — Cards placed face down on worlds represent produced goods.\n\n#### Card Types\n- **Developments** — Diamond-shaped cost icon; pay by discarding cards from hand.\n- **Worlds (non-military)** — Circle cost icon; pay by discarding cards from hand.\n- **Military worlds** — Red circle with number; require military strength instead of card payment.\n- **Production worlds** — Colored halo; produce goods during Produce phase.\n- **Windfall worlds** — Colored halo with outline; receive one good when settled, then only via special abilities."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **VP chip pool** — Place VP chips in the center: 12 chips per player.\n2. **Draw deck** — Shuffle all non-starting game cards into a face-down draw deck.\n3. **Discard pile** — Designate a discard area.\n4. **Phase summary** — Place the phase summary card where all players can see it.\n5. **Player areas** — Each player needs space for their tableau (played cards), hand, and action cards.\n\n--- 2 Players ---\n- **VP pool** — 24 VP chips total.\n- **Phase selection** — Each player selects 1 action card per round.\n\n--- 3 Players ---\n- **VP pool** — 36 VP chips total.\n\n--- 4 Players ---\n- **VP pool** — 48 VP chips total."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Action cards** — Each player takes 1 set of 7 action cards.\n- **Starting world** — Deal 1 random starting world to each player; place it face up as the first card in your tableau.\n- **Starting hand** — Deal 6 cards from the draw deck to each player.\n- **Discard 2** — Each player discards 2 cards, keeping 4 in hand.\n- **Cards as currency** — Cards in hand serve as both potential tableau cards and payment currency."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Beginning Play\n- **Simultaneous selection** — All players simultaneously select 1 action card face down.\n- **Reveal** — All selected action cards are revealed simultaneously.\n- **Active phases** — Only the phases that were selected by at least one player are carried out.\n- **Phase order** — Resolve phases in numerical order: I (Explore), II (Develop), III (Settle), IV (Consume), V (Produce).\n- **First round** — Begin the first round immediately after setup."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Select phase** — Each player secretly chooses 1 of 7 action cards and places it face down.\n2. **Reveal** — All chosen cards are revealed simultaneously.\n3. **Resolve phases** — Execute only the chosen phases in order (I through V).\n4. **Reclaim** — Players take back their action cards.\n5. **Repeat** — Begin a new round until an end condition is met.\n\n#### Phase Order\n- **Phase I: Explore** — Draw cards from the deck, keep some.\n- **Phase II: Develop** — Play a development card by discarding cards.\n- **Phase III: Settle** — Play a world card by discarding cards or using military.\n- **Phase IV: Consume** — Use consume powers to trade goods for cards or convert goods to VP chips.\n- **Phase V: Produce** — Place goods on production worlds.\n\n#### Chooser Bonus\n- **Privilege** — The player who selected a phase gets an enhanced bonus for that phase.\n- **Everyone participates** — All players perform each active phase, not just the chooser."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Phase I: Explore\n- **Base action** — Draw 2 cards, keep 1.\n- **Explore +5 bonus** — Draw 7 cards, keep 1 (chooser of Explore +5).\n- **Explore +1,+1 bonus** — Draw 3 cards, keep 2 (chooser of Explore +1,+1).\n\n#### Phase II: Develop\n- **Base action** — Play 1 development from hand; pay its cost by discarding that many cards from hand.\n- **Chooser bonus** — Pay 1 fewer card when developing.\n\n#### Phase III: Settle\n- **Non-military world** — Play 1 world from hand; pay its cost by discarding that many cards.\n- **Military world** — Play 1 military world if your total military strength meets or exceeds the world's defense.\n- **Military cost** — Military worlds cost no cards; you must simply have enough military icons in your tableau.\n- **Chooser bonus** — Draw 1 card after settling.\n\n#### Phase IV: Consume\n- **Consume powers** — Activate consume powers on your tableau cards. Each power must consume specific good types.\n- **VP conversion** — Most consume powers trade goods for VP chips.\n- **Trade option** — Chooser of Consume: Trade sells 1 good for cards (draw cards equal to the good's trade value) before consuming.\n- **Consume: 2x VP** — Chooser of Consume: 2x VP doubles all VP chips earned this phase.\n- **Mandatory** — All goods must be consumed if consume powers are available.\n\n#### Phase V: Produce\n- **Production** — Place 1 good (face-down card from deck) on each of your production worlds that has no good.\n- **Windfall exception** — Windfall worlds do not produce during normal Produce.\n- **Chooser bonus** — Chooser may produce on 1 windfall world as well."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Cards as Currency\n- **Dual purpose** — Every card can be played into your tableau or discarded as payment for another card.\n- **Hand management** — Deciding what to keep and what to spend is the central tension.\n- **No money** — There is no separate currency; cards are the only payment method.\n\n#### Military Strength\n- **Cumulative** — Military strength is the sum of all military icons across your tableau.\n- **Free placement** — Military worlds are placed without discarding cards if you meet the strength requirement.\n- **Temporary military** — Some cards provide temporary military boosts for a single settle action.\n\n#### Simultaneous Play\n- **No turn order** — All players act simultaneously within each phase.\n- **Hidden selection** — Phase selection is secret, creating a guessing/reading metagame.\n- **Phase economy** — Selecting a phase your opponents also want gives them free benefit.\n\n#### Six-Cost Developments\n- **Endgame scoring** — 6-cost developments have special endgame VP bonuses based on tableau composition.\n- **Expensive** — Cost 6 cards to play (5 with chooser bonus), making them a major investment.\n- **Examples** — Score bonus VP for military worlds, production worlds, specific good types, etc."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Triggers (either one)\n- **Tableau size** — Any player places their 12th card in their tableau.\n- **VP pool empty** — The VP chip pool runs out.\n\n#### Final Round\n- **Complete the round** — Finish the current round through all active phases.\n- **VP chips can go negative** — If the pool empties mid-phase, use substitutes; no VP is lost.\n\n#### Scoring\n- **Tableau card VP** — Sum VP printed on all developments and worlds in your tableau.\n- **VP chips** — Add all VP chips accumulated during the game.\n- **6-cost development bonuses** — Calculate endgame bonus VP from any 6-cost developments.\n- **Total** — Sum all sources; highest total wins.\n\n#### Tiebreaker\n- **Cards plus goods** — Player with the most cards in hand plus goods on worlds wins ties."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Read your starting world** — Your starting world dictates your early strategy (military, production, or development focus).\n- **Plan a consume engine** — Producing and consuming goods for VP chips is the most reliable scoring path.\n- **Keep flexible cards** — Early on, keep cards that work in multiple strategies rather than committing too hard.\n- **Watch opponents** — Predict which phases opponents will choose to get free actions.\n- **Phase selection efficiency** — Choose phases that benefit you more than your opponents."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Overcommitting to military** — Military lets you settle for free but does not generate VP on its own.\n- **Ignoring consume powers** — Without consume abilities, produced goods sit unused and score nothing.\n- **Spending key cards as payment** — Discarding a card you need to play later is a common regret.\n- **Neglecting 6-cost developments** — These provide massive endgame bonuses but require early planning.\n- **Phase selection without reading the table** — Choosing Produce when no one has goods wastes an opportunity."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Produce/Consume vs Develop/Settle\n- **Produce/Consume loop** — Generates steady VP chips each round.\n- **Develop/Settle rush** — Races to 12 tableau cards to end the game on your terms.\n\n#### Decision 2: Military vs Peaceful Settling\n- **Military** — Saves cards when settling but requires military infrastructure.\n- **Peaceful** — Costs more cards but gives more flexibility in world choice.\n\n#### Decision 3: When to Trigger Endgame\n- **End early** — If your engine is ahead, rush to 12 cards or deplete the VP pool.\n- **Stall** — If behind, avoid triggering end conditions and build toward big late-game scoring."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

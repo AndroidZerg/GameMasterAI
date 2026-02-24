@@ -1,0 +1,105 @@
+{
+  "game_id": "sequence",
+  "title": "Sequence",
+  "aliases": [],
+  "publisher": "Jax Ltd",
+  "player_count": {
+    "min": 2,
+    "max": 12,
+    "recommended": 6,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "strategy",
+    "family",
+    "team"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board\n- **1 game board** — 10x10 grid with 96 card images plus 4 free corner spaces. Each card from the deck (excluding Jacks) appears exactly twice on the board.\n\n#### Cards\n- **2 standard decks of playing cards** — 104 cards total. Jacks serve as special action cards. All other cards correspond to board spaces.\n\n#### Chips\n- **50 blue chips** — For one player/team.\n- **50 green chips** — For a second player/team.\n- **50 red chips** — For a third player/team (3-team games).\n- **35 bonus chips** — Not used in standard play."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Place the board** — Set the game board in the center of the table where all players can reach it.\n2. **Note the corners** — The 4 corner spaces are free spaces that count for every player. They are already marked and do not need chips.\n3. **Board grid** — The 10x10 grid shows images of playing cards. Each non-Jack card appears in exactly 2 locations on the board.\n4. **No initial chips** — The board starts completely empty (aside from the printed corner free spaces)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Team Formation\n- **2 players** — Each player plays individually. Each takes one color of chips.\n- **3 players** — Each player plays individually with one color each.\n- **4 players** — Two teams of 2. Teammates sit across from each other.\n- **6 players** — Two teams of 3, or three teams of 2. Teammates alternate seating.\n- **8-12 players** — Two or three teams, divided as evenly as possible.\n\n#### Card Deal\n- Shuffle both decks together into one draw pile.\n- **2 players** — Deal 7 cards each.\n- **3-4 players** — Deal 6 cards each.\n- **6 players** — Deal 5 cards each.\n- **8-12 players** — Deal 4 cards each.\n\n#### Chip Distribution\n- Each player/team takes all chips of their assigned color.\n- **2 teams** — Use blue and green.\n- **3 teams** — Use blue, green, and red."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Cut for first player** — Each player cuts the deck. Lowest card goes first (Aces low).\n2. **Play direction** — Turns proceed clockwise.\n3. **Hand management** — Players should keep cards hidden from opponents (teammates may not share card information).\n4. **No table talk** — Teammates cannot communicate about cards or strategy during play.\n5. **Begin play** — The first player plays a card and places a chip, then draws a replacement card."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1. **Play a card** — Place one card from your hand face up on the discard pile.\n2. **Place or remove a chip** — Place one of your chips on a matching board space, OR use a Jack's special ability.\n3. **Draw a card** — Draw one card from the draw pile to refill your hand.\n4. **Announce sequences** — If you completed a sequence (5 in a row), announce it.\n5. **Next player** — Play passes clockwise.\n\n#### Important Timing Rule\n- You must play your card and place your chip before drawing. If you draw first (out of order), you lose your turn and cannot place a chip."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Playing a Card\n- Choose any card from your hand. Find one of the two matching spaces on the board and place your chip there.\n- Since each card appears twice on the board, you choose which of the two available spaces to claim.\n- If both spaces for a card are already occupied (by any color chip), the card is **dead**. You may discard it and draw a replacement on your turn, but you still forfeit placing a chip.\n\n#### Jacks (Special Cards)\n- **Two-Eyed Jacks (J with both eyes visible)** — Wild card. Place your chip on any open space on the board.\n- **One-Eyed Jacks (J with one eye visible)** — Remove one opponent's chip from any board space. You cannot remove a chip that is part of a completed sequence.\n\n#### Dead Cards\n- If you hold a card whose both board positions are occupied, you may turn it in on your turn.\n- Place the dead card on the discard pile, announce it is dead, and draw a new card. This uses your turn.\n\n#### What is a Sequence?\n- **5 chips in a row** — Horizontal, vertical, or diagonal.\n- **Free corners count** — The 4 corner spaces act as chips for every player.\n- **Shared spaces** — One chip can be part of multiple sequences for the same player/team, but only if it was part of a completed and declared sequence.\n- **Locked chips** — Once a chip is part of a completed sequence, it cannot be removed by a One-Eyed Jack."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Team Communication\n- **No table talk** — Teammates may not signal, hint, or discuss which cards they hold or what spaces they are targeting.\n- **No card sharing** — Players cannot show their hands to teammates.\n- **Observation only** — You may draw conclusions from teammates' plays but cannot ask or instruct.\n\n#### Deck Recycling\n- If the draw pile is exhausted, shuffle the discard pile to form a new draw pile.\n\n#### Overlap Sequences\n- A single chip may serve as part of two different sequences. For example, if you complete a horizontal sequence and later also form a vertical sequence sharing one chip, both count.\n- However, you still need separate sequences to meet the win condition. Two sequences sharing 4 out of 5 chips do not count as 2 distinct sequences.\n\n#### Corner Strategy\n- Free corner spaces are powerful. Any sequence passing through a corner effectively needs only 4 chips instead of 5.\n- Both/all teams can use the same corners."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **2 players or 2 teams** — First to complete **2 sequences** wins.\n- **3 players or 3 teams** — First to complete **1 sequence** wins.\n\n#### Sequence Requirements\n- Each sequence must be exactly 5 in a row (horizontal, vertical, or diagonal) of your color chips and/or free corner spaces.\n- Two sequences may share at most 1 chip between them.\n\n#### Scoring Model\n- **No points** — Sequence is a race game. The first to meet the sequence requirement wins immediately.\n- **No tiebreaker needed** — Only one player/team can complete the winning sequence on their turn."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Target corners** — Build sequences that run through corner free spaces. This gives you a built-in head start (only 4 chips needed).\n- **Claim the center** — Central board positions offer more directional options for building sequences.\n- **Build two threats at once** — Place chips that contribute to multiple potential sequences. This forces opponents to choose which to block.\n- **Hold your Jacks** — Two-Eyed Jacks are most valuable late in a sequence build. Don't waste them early on uncontested spaces."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Tunnel vision on one line** — Opponents will block an obvious 3-in-a-row. Spread your chips to create multiple threats.\n- **Wasting Two-Eyed Jacks early** — Playing a wild card when you have plenty of playable cards is wasteful. Save it for the finishing move.\n- **Ignoring defense** — Letting opponents reach 4 in a row without using a One-Eyed Jack to disrupt is a losing strategy.\n- **Table talk in team games** — Communicating strategy to teammates is against the rules and can result in penalty.\n- **Forgetting dead cards** — Holding onto dead cards wastes turns. Check both board positions and trade in dead cards promptly.\n- **Overlooking diagonal sequences** — Players tend to focus on horizontal and vertical lines but diagonals are equally valid and often less defended."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Offense vs. defense** — Decide whether to extend your own sequence or block an opponent's growing line. Blocking at 3-in-a-row is usually the right call.\n- **Which board space for duplicates** — Each card has 2 positions. Choose the one that best contributes to your sequence plans or disrupts an opponent's territory.\n- **When to use One-Eyed Jacks** — Removing a chip from a completed sequence is impossible. Time your removal to break up opponent progress before they finish.\n- **Dead card timing** — If you suspect both positions of a card are taken, check and trade in the dead card rather than holding it for multiple turns.\n- **Sequence overlap planning** — Plan your second sequence to share exactly one chip with the first when possible. This is efficient and hard for opponents to predict."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "game_id": "descent-legends-of-the-dark",
+  "title": "Descent: Legends of the Dark",
+  "aliases": [
+    "Descent LotD",
+    "Descent 3rd Edition"
+  ],
+  "publisher": "Fantasy Flight Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 120,
+    "max": 180
+  },
+  "complexity": "heavy",
+  "categories": [
+    "cooperative",
+    "campaign",
+    "dungeon-crawl",
+    "app-driven"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 1 to 4 players.\n- **Scaling** — The companion app adjusts enemy count and difficulty based on player count.\n- **Solo mode** — Fully supported; control 1-2 heroes.\n\n#### Required App\n- **Descent companion app** — Required for play; manages enemies, story, map reveals, and combat resolution.\n- **Platforms** — Available on iOS, Android, and Steam.\n\n#### Heroes (6 Available)\n- **Hero figures** — 6 detailed plastic hero miniatures.\n- **Hero cards** — Each hero has a unique set of skill cards.\n- **Weapon cards** — Double-sided weapon cards that flip between two configurations.\n\n#### 3D Terrain\n- **Terrain pieces** — 3D cardboard terrain: walls, doors, staircases, bookshelves, barrels, trees, and more.\n- **Map tiles** — Modular map tiles assembled as directed by the app.\n- **Elevation** — 3D terrain creates multi-level environments.\n\n#### Enemy Components\n- **Enemy figures** — Plastic miniatures for various enemy types.\n- **Enemy activation** — Managed entirely by the app.\n\n#### Other Components\n- **Condition tokens** — Various status effect tokens (poison, stun, etc.).\n- **Fatigue tokens** — Track hero fatigue.\n- **Damage tokens** — Track damage on enemies and heroes.\n- **Exploration tokens** — Mark points of interest on the map.\n- **Loot tokens** — Collectible treasure during quests."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Quest Setup\n1. **Launch app** — Open the companion app and select the quest.\n2. **App instructions** — The app guides all setup step by step.\n3. **Place map tiles** — Assemble map tiles as shown by the app (the map reveals progressively during play).\n4. **Build 3D terrain** — Place 3D terrain pieces on the tiles as directed.\n5. **Place tokens** — Add exploration tokens, doors, and other markers per app instructions.\n6. **Place heroes** — Set hero miniatures on starting positions shown in the app.\n7. **Initial enemies** — Place enemy figures where the app indicates.\n\n#### Progressive Reveal\n- **Fog of war** — The full map is not shown at start; new areas are revealed as heroes explore.\n- **App manages layout** — The app tells you exactly which tiles and terrain to place when areas are revealed."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Hero Selection\n- **Choose heroes** — Each player selects a hero from the 6 available.\n- **Skill cards** — Take your hero's starting skill cards.\n- **Weapon cards** — Equip starting weapons (each weapon card has 2 sides with different abilities).\n- **Fatigue track** — Set fatigue to 0.\n- **Health** — Set health to your hero's maximum as shown in the app.\n\n#### Campaign Continuity\n- **Persistent heroes** — Heroes carry skills, weapons, and upgrades between quests.\n- **Crafted items** — Equipment crafted between quests is available at the start of each quest.\n- **App tracks progress** — All campaign state is saved in the app.\n\n--- 1 Player ---\n- **Solo play** — Control 1 or 2 heroes; the app adjusts difficulty.\n\n--- 2-4 Players ---\n- **One hero each** — Each player controls exactly 1 hero."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Campaign Start\n- **Tutorial quest** — The first quest serves as a tutorial, introducing core mechanics.\n- **Narrative intro** — The app presents the story narrative before and during quests.\n- **16 quests** — The main campaign consists of 16 quests with branching story paths.\n\n#### Each Quest Start\n- **App narration** — Read or listen to the quest introduction in the app.\n- **Setup map** — Follow app instructions to build the starting area.\n- **Select skills** — Choose which skill cards to bring for this quest.\n- **Begin play** — The app directs when to start and manages turn flow."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Hero phase** — Each hero takes a turn in any player-chosen order.\n2. **Darkness phase** — The app activates enemies, advances the threat timer, and triggers story events.\n\n#### Hero Turn\n- **3 actions** — Each hero gets 3 actions per turn.\n- **Action types** — Move, attack, interact, use skill, ready weapon, explore.\n- **Repeat actions** — You may take the same action multiple times.\n- **Free actions** — Some abilities are free actions and do not cost an action.\n\n#### Darkness Phase\n- **App-controlled** — Press the end-turn button in the app.\n- **Enemy activation** — The app shows each enemy's actions (movement and attacks).\n- **Story events** — Narrative events and environmental changes may trigger.\n- **Threat advancement** — The threat/doom tracker may advance, adding urgency."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Movement\n- **Move action** — Move up to your speed value in spaces.\n- **Terrain interaction** — 3D terrain affects movement (stairs, blocked paths, elevated positions).\n- **Elevation** — Moving between levels costs additional movement.\n\n#### Combat\n- **Attack action** — Use your equipped weapon to attack an enemy.\n- **Weapon sides** — Each weapon card has 2 sides; flip to access different attack abilities.\n- **Dice pool** — Roll dice based on your weapon and skill cards.\n- **App resolution** — Input results into the app; it calculates damage and effects.\n- **Surge results** — Special surge symbols on dice trigger bonus effects.\n\n#### Interaction\n- **Explore tokens** — Interact with exploration tokens to discover items, secrets, or story elements.\n- **Doors** — Open doors to reveal new areas of the map.\n- **Objects** — Interact with 3D terrain objects for various effects.\n\n#### Skills\n- **Skill cards** — Play skill cards for special abilities during your turn.\n- **Exhaust** — Used skill cards are exhausted (flipped face down) until recovered.\n- **Fatigue cost** — Some powerful skills cost fatigue to activate.\n\n#### Ready Weapon\n- **Flip weapon** — Spend an action to flip your weapon card to its other side, changing your available attack."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Fatigue System\n- **Pushing limits** — Heroes can gain fatigue to power abilities or push beyond normal limits.\n- **Fatigue track** — As fatigue accumulates, heroes become weaker.\n- **Fatigue threshold** — Crossing fatigue thresholds applies penalties.\n- **Recovery** — Fatigue can be reduced through rest actions and certain skills.\n\n#### Weapon Flipping\n- **Dual configuration** — Every weapon has 2 sides representing different fighting styles or modes.\n- **Tactical choice** — Flipping between sides mid-quest adapts to different combat situations.\n- **Upgrade paths** — Weapons can be upgraded between quests, improving both sides.\n\n#### App-Driven Narrative\n- **Branching story** — Decisions made during quests affect the campaign narrative.\n- **Hidden information** — The app manages enemy AI, hidden rooms, and surprise events.\n- **Puzzle elements** — Some quests include puzzles managed by the app.\n- **Save system** — Campaign progress saves automatically in the app.\n\n#### Crafting System\n- **Between quests** — Use materials found during quests to craft and upgrade equipment.\n- **Recipes** — Discover crafting recipes throughout the campaign.\n- **Upgrade weapons** — Improve weapon cards to unlock stronger abilities on both sides."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Quest Victory\n- **Complete objective** — Each quest has objectives managed by the app (defeat a boss, escape, investigate, etc.).\n- **App declares outcome** — The app announces victory or defeat based on game state.\n\n#### Quest Defeat\n- **All heroes defeated** — If all heroes are knocked out, the quest is lost.\n- **Timer expired** — Some quests have a doom/threat timer; running out means failure.\n- **Retry** — Failed quests can be replayed; the campaign continues either way with narrative consequences.\n\n#### Campaign Completion\n- **16 quests** — The main campaign concludes after the final quest.\n- **Branching endings** — Campaign choices affect the ending narrative.\n- **No competitive scoring** — Fully cooperative with no VP or scoring system.\n- **Replayability** — Different choices lead to different quest paths and outcomes."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Explore early** — Revealing the map quickly gives your team more tactical options.\n- **Manage fatigue** — Do not exhaust your heroes in the first few rooms; pace your fatigue spending.\n- **Coordinate hero order** — Choose turn order each round to maximize synergy (tanks go first, support follows).\n- **Flip weapons situationally** — Switch weapon sides based on whether you need area damage, single-target power, or utility.\n- **Interact with everything** — Exploration tokens often provide critical items or story progression."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring fatigue management** — Overusing fatigue abilities early leaves heroes weakened for boss encounters.\n- **Not flipping weapons** — Sticking to one weapon side misses half your tactical options.\n- **Rushing through rooms** — Leaving exploration tokens uncollected means missing items and story content.\n- **Poor turn order** — Not thinking about hero activation order wastes potential combos.\n- **Forgetting 3D terrain rules** — Elevation and terrain features affect movement and line of sight."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Speed vs Thoroughness\n- **Rush objectives** — Minimize time in dangerous areas to reduce damage taken.\n- **Explore fully** — Clear rooms and interact with everything for maximum rewards.\n\n#### Decision 2: Fatigue Spending\n- **Push now** — Spend fatigue for powerful abilities in current combat.\n- **Conserve** — Save fatigue capacity for harder encounters later in the quest.\n\n#### Decision 3: Crafting Priorities\n- **Upgrade weapons** — Improve combat effectiveness for the whole campaign.\n- **Craft items** — Consumable items provide flexible solutions to varied challenges."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

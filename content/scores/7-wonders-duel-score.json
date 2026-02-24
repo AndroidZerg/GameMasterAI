@@ -1,0 +1,15 @@
+{
+  "game_id": "7-wonders-duel",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "blue_cards", "label": "Civic Cards (Blue)", "points_each": 1, "type": "manual", "description": "Sum of VP from all blue civic cards"},
+    {"id": "green_cards", "label": "Science Cards (Green)", "points_each": 1, "type": "manual", "description": "VP printed on green science cards"},
+    {"id": "yellow_cards", "label": "Commerce Cards (Yellow)", "points_each": 1, "type": "manual", "description": "VP from yellow commerce cards"},
+    {"id": "guild_cards", "label": "Guild Cards (Purple)", "points_each": 1, "type": "manual", "description": "VP from purple guild cards based on conditions"},
+    {"id": "wonders", "label": "Wonders", "points_each": 1, "type": "manual", "description": "VP printed on each built Wonder"},
+    {"id": "progress_tokens", "label": "Progress Tokens", "points_each": 1, "type": "manual", "description": "VP from progress tokens (Philosophy, Mathematics, Agriculture, etc.)"},
+    {"id": "coins", "label": "Coins", "points_each": 1, "type": "manual", "description": "1 VP per 3 coins (rounded down)"},
+    {"id": "military", "label": "Military Track", "points_each": 1, "type": "manual", "description": "VP from conflict pawn position: 0, 2, 5, or 10"}
+  ],
+  "win_condition": "Military supremacy, science supremacy, or most VP after Age III"
+}

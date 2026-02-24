@@ -1,0 +1,21 @@
+{
+  "game_id": "taboo",
+  "scoring_type": "calculator",
+  "win_condition": "Team with the most total points wins",
+  "categories": [
+    {
+      "id": "correct_guesses",
+      "label": "Correct Guesses",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 point(s) per correctly guessed card"
+    },
+    {
+      "id": "penalties",
+      "label": "Penalties (Buzzes & Passes)",
+      "points_each": -1,
+      "type": "count",
+      "description": "-1 point(s) per buzzed or passed card"
+    }
+  ]
+}

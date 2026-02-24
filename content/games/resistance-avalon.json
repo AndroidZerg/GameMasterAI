@@ -1,0 +1,108 @@
+{
+  "game_id": "resistance-avalon",
+  "title": "The Resistance: Avalon",
+  "aliases": [
+    "Avalon",
+    "The Resistance: Avalon"
+  ],
+  "publisher": "Indie Boards & Cards",
+  "player_count": {
+    "min": 5,
+    "max": 10,
+    "recommended": 8,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "social-deduction",
+    "hidden-role",
+    "bluffing"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Character cards** — Loyal Servants of Arthur (Good), Minions of Mordred (Evil), Merlin (Good), Assassin (Evil).\n- **Optional character cards** — Percival, Morgana, Oberon, Mordred (each adds a layer of complexity).\n- **Team tokens** — Approve and Reject vote tokens (1 pair per player).\n- **Quest cards** — Success and Fail cards used during missions (multiple per player).\n- **Leader token** — Crown-shaped token indicating the current mission Leader.\n- **Vote track markers** — 5 markers for tracking consecutive rejected teams.\n- **Round track** — Board or card showing 5 mission rounds with team sizes.\n- **Score markers** — Tokens to track mission results (Good/Evil).\n- **Lady of the Lake token** — Optional loyalty investigation mechanic.\n\n#### Player-Count Team Composition\n--- 5 Players ---\n- **Good** — 3 (including Merlin). **Evil** — 2 (including Assassin).\n- **Mission sizes** — 2, 3, 2, 3, 3.\n\n--- 6 Players ---\n- **Good** — 4. **Evil** — 2.\n- **Mission sizes** — 2, 3, 4, 3, 4.\n\n--- 7 Players ---\n- **Good** — 4. **Evil** — 3.\n- **Mission sizes** — 2, 3, 3, 4*, 4. (*4th mission requires 2 Fails.)\n\n--- 8 Players ---\n- **Good** — 5. **Evil** — 3.\n- **Mission sizes** — 3, 4, 4, 5*, 5. (*4th mission requires 2 Fails.)\n\n--- 9 Players ---\n- **Good** — 6. **Evil** — 3.\n- **Mission sizes** — 3, 4, 4, 5*, 5. (*4th mission requires 2 Fails.)\n\n--- 10 Players ---\n- **Good** — 6. **Evil** — 4.\n- **Mission sizes** — 3, 4, 4, 5*, 5. (*4th mission requires 2 Fails.)"
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **Place round track** — Shows 5 mission rounds with team sizes for your player count.\n2. **Set vote track** — Place 5 markers in a row to track consecutive rejected teams (5 rejections = Evil auto-wins).\n3. **Prepare quest cards** — Give each player 1 Success card and 1 Fail card (Good players will only use Success).\n4. **Place team tokens** — Give each player 1 Approve and 1 Reject vote token.\n5. **Score area** — Designate a space to track mission results (pass/fail) for each of the 5 rounds."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Distribution\n1. **Select characters** — Choose which character cards to include based on player count and desired complexity.\n2. **Minimum required** — Merlin (Good) and Assassin (Evil) are always included.\n3. **Shuffle and deal** — Each player receives one character card face-down and views it secretly.\n\n#### Night Phase (Eyes Closed)\n1. **All close eyes** — Everyone extends a fist forward.\n2. **Evil reveals** — Minions of Mordred open eyes and identify each other (except Oberon, who keeps eyes closed).\n3. **Evil closes eyes** — Minions close eyes.\n4. **Merlin sees Evil** — Merlin opens eyes; Evil players extend thumbs so Merlin can identify them (Mordred, if in play, does NOT extend thumb).\n5. **Merlin closes eyes** — Merlin closes eyes.\n6. **Percival sees Merlin** (if in play) — Percival opens eyes; Merlin and Morgana both extend thumbs (Percival does not know which is real).\n7. **All open eyes** — Game begins.\n\n#### Optional Characters\n- **Percival** (Good) — Sees Merlin (and Morgana if in play); protects Merlin by creating cover.\n- **Morgana** (Evil) — Appears as Merlin to Percival; sows confusion.\n- **Oberon** (Evil) — Does not know who other Evil players are; they do not know Oberon.\n- **Mordred** (Evil) — Hidden from Merlin; Merlin does not see Mordred as Evil during night phase."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Determining First Leader\n- **Random selection** — Choose a starting Leader randomly.\n- **Give Leader token** — The starting Leader receives the crown token.\n- **Clockwise rotation** — The Leader token passes clockwise after each team vote (approved or rejected).\n\n#### First Mission\n1. **Leader proposes team** — The Leader selects players for Mission 1 (team size per round track).\n2. **Table votes** — All players vote Approve or Reject simultaneously.\n3. **Proceed based on vote** — Majority Approve: mission proceeds. Majority Reject: leadership passes clockwise, vote track advances."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Phase 1: Team Building\n1. **Leader proposes** — The current Leader selects a team of the required size for the current mission.\n2. **Discussion** — Open discussion about the proposed team. Anyone may argue for or against.\n3. **Vote** — All players simultaneously reveal Approve or Reject.\n4. **Majority Approve** — Team is locked in; proceed to Phase 2.\n5. **Majority Reject (or tie)** — Team is rejected. Advance the vote track by 1. Pass Leader token clockwise. New Leader proposes a new team.\n\n#### Phase 2: Quest\n1. **Team members play quest cards** — Each team member secretly selects Success or Fail and places it face-down.\n2. **Shuffle and reveal** — Collect all quest cards, shuffle them, then reveal.\n3. **Determine outcome** —\n   - **All Success** — Mission succeeds (Good point).\n   - **One or more Fail** — Mission fails (Evil point).\n   - **Exception** — 4th mission with 7+ players requires 2 Fail cards to fail.\n4. **Record result** — Place a pass or fail marker on the round track.\n5. **Pass Leader** — Leader token passes clockwise for the next mission.\n\n#### Important Rule\n- **Good players MUST play Success** — Loyal Servants and Merlin can only play Success cards. They cannot sabotage.\n- **Evil players choose** — Minions and the Assassin may play either Success or Fail."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Leader Actions\n- **Propose team** — Select exactly the number of players shown for the current mission.\n- **Include self** — The Leader may include themselves on the team.\n- **Any combination** — There are no restrictions on team composition (same players can go on consecutive missions).\n\n#### Voter Actions\n- **Approve** — Support the proposed team.\n- **Reject** — Oppose the proposed team.\n- **Simultaneous reveal** — Everyone reveals at the same time to prevent bandwagoning.\n\n#### Quest Card Actions\n- **Success** — Good players must always play this. Evil players play this to appear trustworthy.\n- **Fail** — Only Evil players can play this. Sabotages the mission for their team.\n\n#### Discussion Actions\n- **Claim roles** — Players may claim any character (truthfully or falsely).\n- **Accuse** — Point out suspicious voting or mission patterns.\n- **Analyze** — Track who has been on failed missions and voting patterns.\n- **Lie freely** — There are no rules against deception during discussion."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Five Consecutive Rejections\n- **Auto-fail** — If 5 consecutive team proposals are rejected (vote track fills), Evil wins automatically.\n- **Pressure mechanism** — Forces the table to approve teams even if suspicious, preventing indefinite blocking.\n- **Reset** — The vote track resets to 0 after any mission is conducted (pass or fail).\n\n#### Fourth Mission Exception (7+ players)\n- **Two Fails required** — The 4th mission requires 2 Fail cards to fail instead of the usual 1.\n- **Strategic implication** — Evil needs to get 2 members on the team, or the mission will succeed even with 1 Evil member.\n\n#### Assassin's Final Gambit\n- **Trigger** — If Good wins 3 missions, the game does NOT end immediately.\n- **Assassination** — The Assassin (with Evil team consultation) gets one chance to identify Merlin.\n- **Correct identification** — If the Assassin correctly names Merlin, Evil wins despite losing 3 missions.\n- **Incorrect identification** — If the Assassin names the wrong player, Good wins.\n- **Core tension** — Merlin knows all Evil players but must be subtle; being too helpful makes you a target.\n\n#### Lady of the Lake (Optional)\n- **Loyalty check** — The player holding the Lady of the Lake token may investigate one other player's loyalty.\n- **Token passes** — After investigation, the Lady token passes to the investigated player.\n- **May lie** — The investigator may report the result honestly or lie.\n- **Cannot re-investigate** — Players who previously held the Lady cannot be investigated again."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Good Team Victory\n- **3 successful missions** — Good must win 3 of 5 missions AND survive the Assassin's attempt to identify Merlin.\n\n#### Evil Team Victory\n- **3 failed missions** — Evil wins immediately upon failing 3 missions.\n- **5 rejected teams** — Evil wins if 5 consecutive team proposals are rejected.\n- **Assassinate Merlin** — Even after Good wins 3 missions, Evil wins if the Assassin correctly identifies Merlin.\n\n#### No Point Scoring\n- **Team win/loss** — The game ends in victory for either Good or Evil.\n- **No VP** — There are no victory points or scoring categories.\n\n#### Game End Sequence\n1. **Announce trigger** — Declare how the game ended (3rd mission win/fail, 5 rejections, or assassination).\n2. **Assassin phase (if applicable)** — Evil team deliberates and Assassin names a player as Merlin.\n3. **Reveal roles** — All players reveal their character cards.\n4. **Declare winner** — Good or Evil wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Good Team Priorities\n- **Vote patterns matter** — Track who approves and rejects which teams; Evil players often approve teams containing Evil members.\n- **Mission results analysis** — A failed mission guarantees at least one Evil player was on the team.\n- **Protect Merlin** — If you are Merlin, do not be too specific too early; guide the team subtly.\n- **Build a trusted core** — Identify 2-3 players you believe are Good and propose teams around them.\n\n#### Evil Team Priorities\n- **Split suspicion** — Avoid having all Evil players on the same failed mission; rotate who sabotages.\n- **Vote like Good** — Reject teams that include you to look like a cautious Good player.\n- **Create doubt** — Accuse trusted Good players to fracture the Good team's coalition.\n- **Track Merlin** — Watch for players who seem to know too much too early.\n\n#### Merlin Priorities\n- **Feed information indirectly** — Suggest voting against Evil players without stating certainty.\n- **Appear analytical** — Frame your knowledge as logical deduction, not definitive knowledge.\n- **Distribute suspicion** — Do not focus accusations on one Evil player; spread attention to avoid revealing your perfect information."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Mistake 1 — Merlin Being Too Obvious\n- **Why it fails** — If Merlin clearly identifies all Evil players, the Assassin will easily identify Merlin after 3 Good missions.\n- **Fix** — Merlin should appear to learn information gradually, not reveal everything at once.\n\n#### Mistake 2 — Approving Every Team\n- **Why it fails** — Letting suboptimal teams go on missions gives Evil easy opportunities to sabotage.\n- **Fix** — Reject suspicious teams, but be mindful of the 5-rejection auto-loss.\n\n#### Mistake 3 — Evil Players Always Failing Missions\n- **Why it fails** — A player who is on every failed mission is easily identified.\n- **Fix** — Evil players should sometimes play Success to build trust, then sabotage at critical moments.\n\n#### Mistake 4 — Ignoring Vote History\n- **Why it fails** — Voting patterns contain the most reliable information in the game.\n- **Fix** — Track every vote and look for players who consistently approve teams with Evil members.\n\n#### Mistake 5 — Good Players Arguing Publicly About Merlin's Identity\n- **Why it fails** — Open discussion about who Merlin might be helps the Assassin.\n- **Fix** — Keep Merlin speculation private or vague."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1 — Team Composition\n- **Safe team** — Propose players who have been on successful missions.\n- **Information team** — Include untested players to learn whether they are Good or Evil.\n\n#### Decision 2 — Evil: Fail or Succeed on This Mission\n- **Fail** — Moves Evil closer to winning 3 missions but increases suspicion on team members.\n- **Succeed** — Builds trust for future missions but gives Good a point.\n\n#### Decision 3 — Approve or Reject the Proposed Team\n- **Approve** — Moves the game forward and prevents the vote track from advancing.\n- **Reject** — Blocks a suspicious team but risks the 5-rejection auto-loss.\n\n#### Decision 4 — Assassin: Who Is Merlin?\n- **Behavioral analysis** — Target the player who seemed to know the most throughout the game.\n- **Process of elimination** — Rule out players who were wrong about Evil identities.\n- **Reverse psychology** — Consider players who were notably quiet or cautious, as Merlin often plays this way."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

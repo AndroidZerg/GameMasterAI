@@ -1,0 +1,109 @@
+{
+  "game_id": "7-wonders-duel",
+  "title": "7 Wonders Duel",
+  "aliases": [
+    "7 Wonders Duel (2015)",
+    "Seven Wonders Duel",
+    "7WD"
+  ],
+  "publisher": "Repos Production",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "midweight",
+  "categories": [
+    "card-drafting",
+    "civilization",
+    "engine-building"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Card Components\n- **Age I cards** — 23 cards (20 used per game). Brown and grey resource cards, red military cards, green science cards, blue civic cards, yellow commerce cards.\n- **Age II cards** — 23 cards (20 used per game). Same types as Age I but stronger.\n- **Age III cards** — 20 cards (includes 7 Guild cards, of which 3 are randomly selected per game, totaling 16 cards + 3 guilds = 17 face-up slots used from a pool of 20).\n- **Guild cards** — 7 total, 3 randomly chosen each game. Purple cards scored at end based on specific conditions.\n\n#### Wonder Cards\n- **Wonder cards** — 12 total. Each player selects 4 during setup (8 total in play).\n- Each Wonder provides a powerful one-time bonus when constructed.\n\n#### Tokens and Tracks\n- **Military board** — 1 board with a track showing the conflict pawn's position between two capitals.\n- **Conflict pawn** — 1 pawn starting at the center of the military track.\n- **Military tokens** — Placed at specific thresholds on the military track (values of 2 and 5).\n- **Progress tokens** — 10 total, 5 randomly placed face up on the board each game. Earned through science pairs.\n\n#### Other Components\n- **Coin tokens** — Values of 1, 3, and 6. Serve as currency.\n- **Score pad** — For final scoring if no supremacy victory occurs.\n- **Rulebook and quick reference cards.**"
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Military Board Setup\n1. Place the military board between the two players.\n2. Set the conflict pawn on the center space (neutral position).\n3. Place military tokens face down at the 3rd, 6th, and 9th spaces on each side (2-point tokens at 3 and 6, 5-point token at 9 from center).\n\n#### Progress Token Setup\n1. Shuffle all 10 progress tokens face down.\n2. Randomly select 5 and place them face up on the designated spaces on the board.\n3. Return the remaining 5 to the box unseen.\n\n#### Wonder Selection\n1. Shuffle the 12 Wonder cards.\n2. Deal 4 face up between the players.\n3. First player (randomly determined) picks 1 Wonder. Second player picks 2 Wonders. First player takes the remaining 1.\n4. Deal 4 more face up. Second player picks 1, first player picks 2, second player takes the last 1.\n5. Each player now has exactly 4 Wonders.\n\n#### Card Display\n- Age I and Age II card layouts are arranged in a pyramid/overlapping structure with some cards face down and some face up.\n- Age III uses a different layout pattern.\n- Only fully revealed (uncovered) cards may be drafted."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### What Each Player Starts With\n- **Coins** — 7 coins each.\n- **Wonder cards** — 4 Wonders selected during setup, placed face up in their play area.\n- **No starting cards** — Players begin with no Age cards.\n\n#### Player Areas\n- **Card tableau** — Where built cards are placed, organized by color for easy reference.\n- **Wonder row** — Where the 4 Wonder cards are displayed. Built Wonders are tucked under with the spent card.\n- **Coin supply** — Personal coins kept visible.\n\n#### Bank\n- All remaining coins form the bank, available to all players."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Age I Card Structure\n1. Remove 3 random Age I cards unseen (20 of 23 are used).\n2. Arrange 20 cards in the Age I structure: Row 1 has 2 cards face down, Row 2 has 3 cards face up overlapping Row 1, Row 3 has 4 cards face down, Row 4 has 5 cards face up. Cards in lower rows overlap cards in higher rows.\n3. A card is available to draft only when no other card is covering any part of it.\n\n#### Determining First Player\n- Choose randomly who goes first.\n- The first player also gets to pick first during Wonder selection.\n\n#### Game Flow\n- The game proceeds through 3 Ages.\n- After all cards in an Age are drafted, set up the next Age's card display.\n- The game may end during any Age if a supremacy condition is met."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### On Your Turn\nChoose one available card from the display (a card not covered by any other card) and do one of three things:\n\n1. **Build the card** — Pay the card's cost (resources and/or coins) and place it in your tableau. You gain its benefits permanently.\n2. **Discard the card** — Place it face down in a discard pile and gain 2 coins + 1 coin per yellow (commerce) card you have built.\n3. **Build a Wonder** — Pay the Wonder's cost and tuck the drafted card face down under the Wonder to show it is built. Gain the Wonder's bonus. The drafted card's printed effect is ignored.\n\n#### Card Costs\n- **Resource costs** — Shown on the left side of the card. You must produce the required resources from your brown/grey cards or buy them.\n- **Chain symbol** — Some cards show a chain (free building) symbol. If you have the prerequisite card (shown by matching symbol), you build for free.\n- **Coin costs** — Some cards cost only coins.\n\n#### Buying Resources\n- If you lack a required resource, you may buy it from the bank for 2 coins + 1 coin per matching resource your opponent produces.\n- Example: If you need 1 stone and your opponent has 2 stone-producing cards, it costs 2 + 2 = 4 coins per stone."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Card Types and Effects\n- **Brown cards (raw resources)** — Produce wood, stone, clay, or ore. Some produce a choice of resources.\n- **Grey cards (manufactured goods)** — Produce glass, papyrus. Essential for Age II and III cards.\n- **Red cards (military)** — Provide shield symbols. Immediately move the conflict pawn toward your opponent by the number of shields shown.\n- **Green cards (science)** — Show one of 7 different scientific symbols. Collecting a matching pair earns a progress token. Collecting 6 different symbols wins by science supremacy.\n- **Blue cards (civic)** — Worth victory points at end of game (2 to 7 VP).\n- **Yellow cards (commerce)** — Provide coins, resource discounts, or production. Some give VP at end.\n- **Purple cards (guilds, Age III only)** — Worth variable VP based on conditions (e.g., per brown card both players have).\n\n#### Building Wonders\n- Each player has 4 Wonders but only 7 total can be built in a game (once someone builds their 4th, the 8th is blocked).\n- Wonder effects include: extra turns, resource production, military shields, coins, VP, destroying opponent's resources, and more.\n- Some Wonders grant an extra turn (play again immediately).\n\n#### Revealing Hidden Cards\n- When both cards covering a face-down card are removed, immediately flip it face up. It becomes available for drafting."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Military Track\n- When you build a red card, move the conflict pawn toward your opponent by the number of shields on the card.\n- **Military tokens** — When the pawn crosses certain thresholds (3rd and 6th space from center on each side), the opponent loses coins equal to the token's value (2 or 5). Flip the token; it only triggers once.\n- **Military supremacy** — If the pawn reaches the opponent's capital (9th space), you win immediately.\n\n#### Science and Progress Tokens\n- There are 7 different science symbols across the green cards.\n- **Matching pair** — When you collect two cards with the same symbol, immediately choose one of the available progress tokens.\n- **Progress tokens** provide powerful permanent effects:\n  - **Agriculture** — 6 coins + 4 VP.\n  - **Architecture** — Wonders cost 2 fewer resources.\n  - **Economy** — Opponent pays you instead of bank for purchased resources.\n  - **Law** — Counts as a science symbol of any type.\n  - **Masonry** — Blue cards cost 2 fewer resources.\n  - **Mathematics** — 3 VP per progress token you have at end.\n  - **Philosophy** — 7 VP.\n  - **Strategy** — Military cards gain +1 shield.\n  - **Theology** — All future Wonders you build grant an extra turn.\n  - **Urbanism** — Gain 6 coins whenever you chain-build.\n- **Science supremacy** — If you collect 6 of the 7 different science symbols, you win immediately.\n\n#### Chain Building\n- Many Age II and III cards show a chain symbol (small icon) that matches a symbol on a cheaper Age I or II card.\n- If you have the prerequisite card, you build the chained card for free regardless of its printed cost."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Instant Victory Conditions\nThe game can end immediately during any Age:\n1. **Military supremacy** — The conflict pawn reaches the opponent's capital space. That player loses.\n2. **Science supremacy** — A player collects 6 different science symbols. That player wins.\n\n#### Points Victory (End of Age III)\nIf no supremacy occurs by the end of Age III, total victory points:\n- **Blue cards** — Face value VP.\n- **Green cards** — Some provide VP.\n- **Yellow cards** — Some provide VP based on conditions.\n- **Purple cards (Guilds)** — VP based on card-specific conditions.\n- **Wonders** — VP printed on each built Wonder.\n- **Progress tokens** — VP from tokens that grant points.\n- **Coins** — 1 VP per 3 coins (rounded down).\n- **Military track** — VP based on conflict pawn position: 0 (center), 2, 5, or 10 VP for the player the pawn is closest to. If on opponent's side, that player gets 0.\n\n#### Tiebreaker\n- If tied on VP, the player with more points from blue cards wins.\n- If still tied, the game is a draw (extremely rare)."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Age I Goals\n- **Resources first** — Brown and grey cards are critical. Without resources, you'll spend heavily buying from the bank.\n- **Prioritize grey resources** — Glass and papyrus are produced by fewer cards and needed frequently in later Ages.\n- **Don't ignore military** — Even 1-2 shield cards in Age I can create pressure and claim military tokens.\n- **Look for chains** — Note which Age I cards chain into powerful Age II/III cards.\n\n#### Wonder Selection\n- Choose Wonders that complement your strategy.\n- Wonders that grant extra turns are very strong — they let you draft 2 cards in a row.\n- Resource-producing Wonders reduce dependence on buying from your opponent.\n- Consider what your opponent chose and plan accordingly."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Neglecting Resource Production\n- Without your own resources, you pay 2+ coins per resource to the bank. This adds up quickly and can bankrupt you.\n- Players who skip resource cards in Age I often struggle to build anything in Ages II and III.\n\n#### Ignoring the Military Threat\n- Allowing your opponent to push the conflict pawn unchecked can lead to sudden defeat.\n- Even if you don't plan a military strategy, you need enough shields to prevent supremacy.\n\n#### Hoarding Cards\n- Building cards you don't need just to deny your opponent is sometimes correct, but not always.\n- Discarding for coins or building a Wonder with an unwanted card is often better.\n\n#### Forgetting Science Supremacy\n- Players focused on points sometimes let their opponent quietly collect science symbols. Track your opponent's green cards carefully.\n- Denying a 5th or 6th science symbol to your opponent is critical."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Build vs. Discard vs. Wonder\n- **Build** when the card directly helps your strategy or denies a critical card from your opponent.\n- **Discard** when you need coins urgently and the card isn't useful to either player.\n- **Wonder** when you have a powerful Wonder ready and the available card isn't worth building but would help your opponent.\n\n#### Which Supremacy Path to Pursue\n- **Military supremacy** is easier to threaten but harder to achieve because your opponent can respond with their own shields.\n- **Science supremacy** is harder to set up but difficult for your opponent to stop if they don't draft green cards preemptively.\n- **Points** is the default fallback — diversify across blue, guild, and wonder VP.\n\n#### Denying vs. Building\n- Sometimes the best play is taking a card your opponent desperately needs, even if it doesn't help you.\n- Pay attention to which cards are available and which face-down cards might be revealed by your choices.\n- Uncovering a face-down card that's perfect for your opponent can be costly — plan ahead."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

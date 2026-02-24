@@ -1,0 +1,19 @@
+{
+  "game_id": "dice-throne",
+  "scoring_type": "elimination",
+  "win_condition": "Reduce opponent's hero to 0 HP. Last hero standing wins in multiplayer. In timed games, most remaining HP wins",
+  "categories": [
+    {
+      "id": "hero_health",
+      "label": "Hero Health",
+      "type": "info",
+      "description": "Track remaining hero HP (typically starts at 50). Reduced to 0 = eliminated"
+    },
+    {
+      "id": "status_effects",
+      "label": "Active Status Effects",
+      "type": "info",
+      "description": "Track active status effects on each player (poison, burn, blind, freeze, shield, etc.)"
+    }
+  ]
+}

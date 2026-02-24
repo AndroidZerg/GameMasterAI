@@ -1,0 +1,12 @@
+{
+  "game_id": "forbidden-island",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "earth_stone", "label": "The Earth Stone", "points_each": 1, "type": "boolean", "description": "Collected by discarding 4 Earth Stone cards at Temple of the Moon or Temple of the Sun"},
+    {"id": "statue_of_wind", "label": "The Statue of the Wind", "points_each": 1, "type": "boolean", "description": "Collected by discarding 4 Wind cards at Howling Garden or Whispering Garden"},
+    {"id": "crystal_of_fire", "label": "The Crystal of Fire", "points_each": 1, "type": "boolean", "description": "Collected by discarding 4 Fire cards at Cave of Embers or Cave of Shadows"},
+    {"id": "oceans_chalice", "label": "The Ocean's Chalice", "points_each": 1, "type": "boolean", "description": "Collected by discarding 4 Ocean cards at Coral Palace or Tidal Palace"},
+    {"id": "escaped", "label": "Escaped Island", "points_each": 1, "type": "boolean", "description": "All players at Fools' Landing and Helicopter Lift played"}
+  ],
+  "win_condition": "Collect all 4 treasures, gather at Fools' Landing, and play Helicopter Lift to escape"
+}

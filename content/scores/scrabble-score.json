@@ -1,0 +1,10 @@
+{
+  "game_id": "scrabble",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "word_scores", "label": "Word Scores", "points_each": 1, "type": "manual", "description": "Total points from all words played (letter values x premium multipliers)"},
+    {"id": "bingo_bonuses", "label": "Bingo Bonuses", "points_each": 50, "type": "count", "description": "50-point bonus each time all 7 rack tiles are used in one turn"},
+    {"id": "endgame_bonus", "label": "Endgame Bonus/Penalty", "points_each": 1, "type": "manual", "description": "Going-out player adds opponents' remaining tile values; others subtract their own remaining tile values"}
+  ],
+  "win_condition": "Highest total score after endgame adjustment"
+}

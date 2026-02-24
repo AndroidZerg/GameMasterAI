@@ -1,0 +1,45 @@
+{
+  "game_id": "architects-of-the-west-kingdom",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP at end of game",
+  "tiebreaker": "Most remaining silver",
+  "categories": [
+    {
+      "id": "buildings",
+      "label": "Building VP",
+      "type": "manual",
+      "description": "Victory points printed on constructed building cards"
+    },
+    {
+      "id": "cathedral",
+      "label": "Cathedral VP",
+      "type": "manual",
+      "description": "Victory points earned from marble contributions to the cathedral"
+    },
+    {
+      "id": "virtue",
+      "label": "Virtue Track VP",
+      "type": "manual",
+      "description": "VP bonus or penalty based on position on the virtue track"
+    },
+    {
+      "id": "debt",
+      "label": "Debt Penalty",
+      "points_each": -2,
+      "type": "count",
+      "description": "Each unpaid debt card is worth -2 VP"
+    },
+    {
+      "id": "gold",
+      "label": "Gold VP",
+      "type": "manual",
+      "description": "VP from remaining gold tokens"
+    },
+    {
+      "id": "apprentice_bonuses",
+      "label": "Apprentice Bonus VP",
+      "type": "manual",
+      "description": "End-game VP from apprentice card abilities"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "game_id": "mice-and-mystics",
+  "title": "Mice and Mystics",
+  "aliases": [],
+  "publisher": "Plaid Hat Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 90
+  },
+  "complexity": "gateway",
+  "categories": [
+    "cooperative",
+    "adventure",
+    "campaign",
+    "fantasy"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 1 to 4 players.\n- **Scaling** — Minion surge count scales by player count.\n- **Solo mode** — Supported; control multiple mice.\n\n#### Characters (6 Mice Heroes)\n- **Collin** — Prince turned mouse; warrior with sword abilities.\n- **Maginos** — Court wizard; casts spells using cheese.\n- **Tilda** — Healer; restores health and buffs allies.\n- **Nez** — Tinker; crafts equipment and uses ranged attacks.\n- **Filch** — Scamp; stealthy thief with surprise attacks.\n- **Lily** — Archer; ranged attacker with bow abilities.\n\n#### Miniatures\n- **Hero miniatures** — 6 detailed mouse hero miniatures.\n- **Minion miniatures** — Rats, roaches, centipedes, spider, and cat (Brodie) miniatures.\n\n#### Tiles and Tokens\n- **Room tiles** — Double-sided modular tiles forming the castle map.\n- **Search tokens** — Tokens placed in rooms to discover items.\n- **Cheese tokens** — Shared cheese wheel and individual cheese tracking.\n- **Page marker** — Tracks the chapter timer on the page track.\n\n#### Cards\n- **Ability cards** — Unique ability cards for each mouse hero.\n- **Search cards** — Items discovered by searching rooms.\n- **Encounter cards** — Events drawn when the page marker advances.\n- **Story cards** — Narrative cards for each chapter.\n- **Initiative cards** — Determine turn order for heroes and minions.\n\n#### Dice\n- **Custom dice** — Dice with sword, shield, bow, and cheese symbols."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Chapter Setup\n1. **Read chapter intro** — Read the story card narrative for the current chapter.\n2. **Select room tiles** — Set out the room tiles indicated by the chapter setup.\n3. **Place starting tile** — Put the first room tile in the center of the table.\n4. **Place tokens** — Add search tokens, mouse holes, and other markers as indicated.\n5. **Place minions** — Set up starting enemy minions as described in the chapter.\n6. **Page track** — Set the page marker to the starting position on the page track.\n7. **Cheese wheel** — Set the minion cheese wheel to 0.\n\n#### Room Exploration\n- **New rooms** — As mice move through mouse holes or doorways, place new room tiles.\n- **Tile connections** — Tiles connect through specific entry points described in the chapter."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Character Selection\n- **Choose mice** — Each player selects a mouse hero (some chapters require specific mice).\n- **Ability cards** — Take your mouse's starting ability cards.\n- **Equipment** — Equip any items carried over from previous chapters (if applicable).\n- **Health** — Set health to your mouse's maximum.\n\n--- 1 Player ---\n- **Control multiple** — Control 2 or more mice to have a functional party.\n\n--- 2 Players ---\n- **2 mice each** — Each player may control 2 mice, or control 1 each.\n\n--- 3-4 Players ---\n- **1 mouse each** — Each player typically controls 1 mouse."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Beginning a Chapter\n- **Story narrative** — Read the chapter introduction from the storybook.\n- **Initiative order** — Determine turn order using initiative cards.\n- **Page track** — The page track starts at the position indicated and advances when cheese fills the wheel.\n- **Objective** — Each chapter has a specific story objective to complete.\n- **Begin play** — Start with the first mouse hero's turn in initiative order."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Determine initiative** — Arrange initiative cards for heroes and minion groups.\n2. **Take turns** — Heroes and minion groups alternate based on initiative order.\n3. **End of round** — Check for end-of-round effects and story triggers.\n\n#### Hero Turn\n- **Move** — Move up to your speed value in spaces.\n- **Action** — Perform 1 action: attack, search, explore, use ability, or share items.\n- **Free actions** — Equip items, use certain abilities.\n- **Scurry** — Instead of a normal action, move additional spaces equal to your speed.\n\n#### Minion Turn\n- **AI behavior** — Minions move toward and attack the nearest mouse hero.\n- **Surge** — When the minion cheese wheel fills, a surge occurs: new minions appear and the page advances."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Combat\n- **Melee attack** — Roll dice equal to your attack value; each sword symbol is 1 hit.\n- **Ranged attack** — Roll dice; each bow symbol is 1 hit (ranged weapons use bow faces).\n- **Defense** — Defender rolls dice; each shield symbol blocks 1 hit.\n- **Cheese symbols** — Any cheese rolled adds to the roller's cheese total (heroes keep theirs; minion cheese goes to the cheese wheel).\n\n#### Searching\n- **Search action** — On a space with a search token, draw a search card to find items or story elements.\n- **Equip** — Found items can be equipped immediately or given to another mouse in the same space.\n- **Item limits** — Each mouse can carry a limited number of items.\n\n#### Special Abilities\n- **Cheese cost** — Many abilities cost cheese tokens from your personal supply.\n- **Ability cards** — Each mouse has unique abilities powered by cheese.\n- **Sharing cheese** — Mice on the same space can freely share cheese tokens.\n\n#### Exploration\n- **Move through exits** — Moving through a mouse hole or doorway reveals the next room tile.\n- **New minions** — The chapter instructions indicate which minions appear in newly explored rooms."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Cheese Wheel (Timer Mechanic)\n- **Minion cheese** — When minions roll cheese symbols, cheese is added to the shared cheese wheel.\n- **Wheel fills** — When the cheese wheel reaches its limit, it resets and a minion surge occurs.\n- **Page advances** — Each surge advances the page marker on the page track.\n- **Chapter failure** — If the page marker reaches the end of the track before the objective is met, the chapter is lost.\n\n#### Mouse Capture\n- **Knocked out** — A mouse reduced to 0 health is captured (not eliminated).\n- **Captured state** — Captured mice are placed on the chapter page and miss turns.\n- **Rescue** — Other mice can rescue captured allies by reaching specific locations or completing tasks.\n- **All captured** — If all mice are captured simultaneously, the chapter is lost.\n\n#### Cheese as Currency\n- **Dual purpose** — Cheese rolled on dice during attacks and defense is also the fuel for special abilities.\n- **Hero cheese** — Heroes collect cheese they roll personally.\n- **Spending cheese** — Spend cheese to activate ability cards and special powers.\n\n#### Campaign Persistence\n- **Items carry over** — Found items persist between chapters.\n- **Story continuity** — Chapter outcomes affect narrative but all chapters are replayable.\n- **Level-up** — Mice can gain new ability cards between chapters."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Chapter Victory\n- **Complete objective** — Each chapter has a story objective (rescue an ally, reach a location, defeat a boss, etc.).\n- **Victory narrative** — Read the victory text from the storybook.\n\n#### Chapter Defeat\n- **Page track exhausted** — The page marker reaches the final position.\n- **All captured** — All mice are captured at the same time.\n- **Retry** — Failed chapters can be replayed immediately.\n\n#### Campaign Completion\n- **11 chapters** — The campaign consists of 11 story chapters.\n- **Narrative resolution** — The campaign concludes with the final chapter's story outcome.\n- **No competitive scoring** — Fully cooperative; success is completing the story."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Move with purpose** — The page track creates time pressure; do not waste turns exploring unnecessarily.\n- **Search early** — Items found through searching can significantly boost your party's combat effectiveness.\n- **Stick together** — Mice can share cheese and items when on the same space; splitting up is risky.\n- **Manage cheese** — Accumulate cheese early for critical ability uses in boss encounters.\n- **Know your roles** — Tilda heals, Maginos casts, Collin tanks, Nez supports from range."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring the page track** — The timer is the real threat; unnecessary fights advance the cheese wheel.\n- **Wasting cheese on minor abilities** — Save cheese for critical moments and boss fights.\n- **Splitting the party** — Isolated mice are vulnerable and cannot share cheese or items.\n- **Fighting every minion** — Sometimes running past enemies is better than engaging.\n- **Forgetting defense rolls** — Defenders always roll dice; shield symbols block damage."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Fight vs Flight\n- **Engage enemies** — Clear rooms to explore safely and collect search tokens.\n- **Run past** — Save time on the page track by avoiding unnecessary combat.\n\n#### Decision 2: Cheese Spending\n- **Use abilities now** — Spend cheese on abilities to handle current threats.\n- **Save for later** — Bank cheese for powerful abilities needed in the chapter climax.\n\n#### Decision 3: Search vs Move\n- **Search rooms** — Searching finds items that help in current and future chapters.\n- **Keep moving** — Advancing toward the objective respects the time pressure of the page track."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

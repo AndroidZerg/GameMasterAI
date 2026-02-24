@@ -1,0 +1,101 @@
+{
+  "game_id": "arkham-horror-lcg",
+  "title": "Arkham Horror: The Card Game",
+  "aliases": ["Arkham Horror LCG", "AHLCG", "Arkham LCG"],
+  "publisher": "Fantasy Flight Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 120
+  },
+  "complexity": "heavy",
+  "categories": ["cooperative", "campaign", "deck-construction", "horror"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Set Contents\n- **Investigator cards** — 5 investigators with unique abilities, stats, and signature cards.\n- **Player cards** — ~100 cards across 5 classes (Guardian, Seeker, Rogue, Mystic, Survivor) plus Neutral.\n- **Scenario cards** — 3 scenarios forming \"Night of the Zealot\" campaign.\n- **Act deck cards** — Goals players must complete.\n- **Agenda deck cards** — Doom clock threat that advances bad events.\n- **Location cards** — Double-sided cards representing explorable locations.\n- **Enemy cards** — Monsters and cultists.\n- **Treachery cards** — Encounter deck hazards.\n- **Chaos tokens** — 16 tokens drawn from chaos bag for skill tests.\n- **Resource tokens** — Currency for playing cards.\n- **Clue/doom tokens** — Dual-sided tokens (clue on one side, doom on other).\n- **Horror/damage tokens** — Track mental and physical harm.\n- **Mini cards** — Investigator mini-cards for tracking location."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Select scenario** — Choose the scenario from the campaign being played.\n2. **Build chaos bag** — Add tokens matching the chosen difficulty (Easy, Standard, Hard, Expert).\n3. **Set aside act deck** — Place act cards in order, act 1 on top.\n4. **Set aside agenda deck** — Place agenda cards in order, agenda 1 on top.\n5. **Place starting location(s)** — Put the scenario's initial location(s) face up.\n6. **Build encounter deck** — Combine scenario encounter sets as instructed; shuffle.\n7. **Place doom on agenda** — Some scenarios start with doom; follow instructions.\n8. **Set aside special cards** — Some enemies, locations, or story assets start set aside.\n9. **Supply tokens** — Place resource, clue, doom, damage, and horror tokens in shared pools."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Deck Construction\n- **Deck size** — Each investigator requires exactly 30 cards (excluding signature cards and weaknesses).\n- **Class restriction** — Each investigator specifies which class(es) they can include.\n- **Level restriction** — At campaign start, only level 0 cards are allowed.\n- **Signature cards** — Add investigator's required signature asset(s) and weakness(es) to deck.\n- **Basic weakness** — Draw 1 random basic weakness and add it to deck.\n\n#### At the Table\n- **Place investigator card** — Set investigator card face up with full health and sanity.\n- **Set resources** — Take 5 resources.\n- **Draw opening hand** — Draw 5 cards.\n- **Mulligan** — You may set aside any number of cards, draw replacements, then shuffle set-aside cards back.\n- **Place mini-card** — Put investigator mini-card at starting location.\n\n--- Solo (1 Player) ---\n- **Single investigator** — Play one investigator; some scenarios are harder solo.\n\n--- 2 Players ---\n- **Standard play** — Each player builds a separate deck; recommended starting configuration.\n\n--- 3-4 Players ---\n- **Two core sets recommended** — A single core set has limited copies of key player cards."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Read scenario intro** — Read the campaign/scenario flavor text aloud.\n2. **Place investigators** — All investigators start at the designated starting location.\n3. **Collect clues** — Place clue tokens on locations equal to their clue value (per investigator scaling).\n4. **Lead investigator** — Choose one player as lead investigator for resolving ties and decisions.\n5. **Begin first round** — Start with the Mythos phase (skipped on round 1 in most scenarios) or Investigation phase as scenario directs."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Phases (in order)\n1. **Mythos Phase** — (Skipped on round 1.) Advance doom, check agenda threshold, draw 1 encounter card per investigator.\n2. **Investigation Phase** — Each investigator takes a turn with 3 actions.\n3. **Enemy Phase** — Engaged enemies attack (deal damage and/or horror).\n4. **Upkeep Phase** — Ready all exhausted cards, draw 1 card, gain 1 resource.\n\n#### Mythos Phase Detail\n- **Place doom** — Add 1 doom to current agenda.\n- **Check doom threshold** — If total doom on agenda + all cards in play meets/exceeds threshold, advance agenda (bad things happen).\n- **Draw encounter cards** — Each investigator draws 1 encounter card and resolves it (enemies engage, treacheries resolve).\n\n#### Investigation Phase Detail\n- **Turn order** — Lead investigator chooses turn order each round.\n- **3 actions per turn** — Each investigator gets 3 actions on their turn.\n- **Free actions** — Some card abilities grant free actions (lightning bolt icon) that do not count toward the 3-action limit."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Basic Actions (cost 1 action each)\n- **Draw** — Draw 1 card from your deck.\n- **Resource** — Gain 1 resource.\n- **Play a card** — Play an asset or event from hand, paying its resource cost.\n- **Activate** — Use an action ability on a card in play (arrow icon).\n- **Investigate** — Test intellect against location's shroud value; if successful, discover 1 clue.\n- **Move** — Move to a connected location.\n- **Engage** — Engage an enemy at your location (pull it to you from another investigator).\n- **Evade** — Test agility vs enemy's evade value; if successful, exhaust and disengage from the enemy.\n- **Fight** — Test combat vs enemy's fight value; if successful, deal 1 damage (or weapon's damage).\n\n#### Skill Tests\n1. **Determine skill and difficulty** — Identify which skill (willpower, intellect, combat, agility) and the test's difficulty value.\n2. **Commit cards** — Investigators at the same location may commit cards with matching skill icons.\n3. **Draw chaos token** — Draw 1 token from the chaos bag and apply its modifier.\n4. **Determine success** — Skill value + committed icons + token modifier >= difficulty = success.\n5. **Apply results** — Resolve success/failure effects.\n\n#### Chaos Token Types\n- **Number tokens** — Apply as modifier (+1, 0, -1, -2, etc.).\n- **Elder Sign** — Investigator's personal special effect (usually positive).\n- **Skull, Cultist, Tablet, Elder Thing** — Scenario-specific negative effects.\n- **Auto-fail** — Automatic failure regardless of skill value.\n- **Blessing/Curse** — (With expansions) draw again with +2 or -2."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Doom Clock\n- **Doom threshold** — Each agenda card has a doom threshold printed on it.\n- **Doom accumulation** — 1 doom is added per round, plus card effects may add more.\n- **Agenda advance** — When total doom meets threshold, the agenda advances: remove all doom, flip agenda, resolve its effects (often very bad).\n- **Campaign pressure** — The doom clock creates urgency to complete act objectives before the agenda overwhelms you.\n\n#### Act Deck Progression\n- **Clue spending** — Most acts advance by spending collected clues (usually scaled by investigator count).\n- **Act advance** — When conditions are met, advance the act (good progress) by flipping or replacing the act card.\n\n#### Damage & Horror\n- **Health** — Each investigator has a health value; damage tokens track physical harm.\n- **Sanity** — Each investigator has a sanity value; horror tokens track mental harm.\n- **Defeat** — If damage equals health or horror equals sanity, the investigator is defeated.\n- **Allies absorb** — Ally assets can soak damage and horror up to their printed values.\n\n#### Engagement & Enemies\n- **Hunter enemies** — Move toward nearest investigator during enemy phase.\n- **Engaged enemies** — Attack the engaged investigator during enemy phase.\n- **Aloof enemies** — Do not automatically engage; must be engaged manually.\n- **Attack of opportunity** — Taking non-fight, non-evade actions while engaged provokes enemy attacks.\n\n#### Campaign Mechanics\n- **XP rewards** — Earn XP at scenario end based on victory display cards and scenario resolution.\n- **Deck upgrades** — Spend XP to add higher-level cards or swap cards between scenarios.\n- **Trauma** — Defeated investigators gain physical or mental trauma, starting subsequent scenarios with that much damage/horror.\n- **Resolution** — Different scenario outcomes lead to different campaign branches and narrative consequences."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Scenario Resolution\n- **Win by completing acts** — Advance through all act cards to reach a successful resolution.\n- **Lose by agenda** — If the agenda advances past its final card, a negative resolution occurs.\n- **Investigator defeat** — Defeated investigators are eliminated for the remainder of the scenario.\n- **Resolution text** — Read the matching resolution entry in the campaign guide.\n\n#### Campaign Scoring\n- **XP earned** — Sum victory points of defeated enemies/locations in the victory display, plus scenario bonus XP.\n- **Trauma** — Record any physical or mental trauma for each investigator.\n- **Campaign log** — Note story decisions, allies gained, enemies made.\n- **Final scenario** — The last scenario of a campaign determines overall success or failure.\n\n#### No VP Tally\n- **Cooperative outcome** — There is no competitive score; the team either succeeds or fails each scenario.\n- **Campaign arc** — Success is measured by surviving the full campaign and achieving the best possible resolution."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Mulligan aggressively** — Look for key assets (weapons for Guardians, investigation tools for Seekers) in your opening hand.\n- **Play assets early** — Spend early actions setting up crucial assets before the encounter deck ramps up.\n- **Split responsibilities** — Assign clue-gathering to high-intellect investigators and combat to high-combat investigators.\n- **Manage the doom clock** — Count remaining rounds before the agenda advances and plan accordingly.\n- **Save resources for critical tests** — Do not over-commit resources early; the hardest tests come later."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring the doom clock** — Spending too many actions drawing cards or gaining resources while doom accumulates.\n- **Over-splitting the party** — Spreading investigators across too many locations leaves everyone vulnerable.\n- **Forgetting attacks of opportunity** — Taking non-combat actions while engaged with enemies provokes free attacks.\n- **Hoarding cards for skill tests** — Committing too few cards to critical tests leads to wasted actions on failures.\n- **Neglecting soak assets** — Allies that absorb damage and horror are essential for survival, not optional.\n- **Poor XP spending** — Upgrading flashy but situational cards instead of reliable core upgrades."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Fight vs evade** — Decide whether to spend actions killing an enemy or evading to buy time for clue gathering.\n- **Commit vs hold** — Weigh committing skill cards now for a sure pass against saving them for future critical tests.\n- **Rush vs setup** — Balance spending early turns playing assets against immediately pursuing scenario objectives.\n- **Risk the chaos bag** — Determine if your skill value gives acceptable odds or if you need to commit more icons.\n- **Resign vs push forward** — Some scenarios allow resignation; weigh partial credit against risking defeat and trauma."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

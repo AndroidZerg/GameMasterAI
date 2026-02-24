@@ -1,0 +1,93 @@
+{
+  "game_id": "karuba",
+  "title": "Karuba",
+  "aliases": [],
+  "publisher": "HABA",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 30, "max": 40},
+  "complexity": "gateway",
+  "categories": ["tile-placement", "racing", "simultaneous"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Per Player\n- **Board** — 1 jungle board (a grid for placing tiles).\n- **Jungle tiles** — 36 tiles numbered 1-36, each showing path segments (straight, curves, T-junctions, crossroads).\n- **Adventurers** — 4 adventurer meeples in 4 colors (matching the 4 temples).\n- **Temples** — 4 temple pieces in 4 colors.\n\n#### Shared Components\n- **Gold nuggets** — Worth 2 VP each.\n- **Crystals** — Worth 1 VP each.\n- **Temple treasure tokens** — Placed at temples, values 5, 4, 3, 2 (first arrival gets highest).\n\n#### Tile Details\n- Every player has an identical set of 36 tiles.\n- Tiles show paths that connect edges of the tile in various configurations."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Setup\n1. **Each player takes a board** — Place your personal jungle board in front of you.\n2. **Place temples** — One player (the expedition leader) places the 4 colored temples on specific edge spaces of their board. All other players copy the exact same temple positions on their boards.\n3. **Place adventurers** — The expedition leader places the 4 colored adventurers on edge spaces of the opposite side of the board from the temples. All other players copy the exact same adventurer positions.\n4. **Color matching** — Each adventurer must reach the temple of the same color to score.\n\n#### Important\n- Temples go on the beach (top or right edge) and adventurers on the opposite edge (bottom or left).\n- All players must have identical starting positions."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n1. **Sort tiles** — Arrange your 36 numbered tiles face up so you can find any number quickly.\n2. **Board placement** — Position your board and place adventurers and temples as directed by the expedition leader.\n3. **No starting resources** — Players begin with no gold or crystals.\n\n#### Treasure Setup\n- Place gold nuggets and crystals on specific tile spaces as indicated in the rules (certain path intersections on the board have printed treasure symbols).\n- Place temple treasure tokens at each temple in descending order: 5 on top, then 4, 3, 2."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Expedition Leader\n- **Choose one player** — This player draws tile numbers each round.\n- **Simultaneous play** — Despite the leader drawing tiles, all players act simultaneously.\n\n#### Starting State\n- Each player has an empty board with 4 adventurers on one edge and 4 temples on the opposite edge.\n- 36 numbered tiles ready to be placed.\n- Treasures (gold and crystals) on the board.\n- Temple treasure tokens stacked at each temple (5/4/3/2)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Each Round\n1. **Draw a tile** — The expedition leader randomly draws one of their remaining tiles and announces the number.\n2. **All players find that tile** — Every player locates the tile with the matching number from their personal set.\n3. **Choose: Place OR Discard** — Each player independently decides to either:\n   - **Place the tile** on their board in any empty space (any orientation), OR\n   - **Discard the tile** to move one adventurer along connected paths.\n\n#### Simultaneous Decisions\n- All players make their choice at the same time. There is no turn order.\n- Players may make different choices from each other (one places, another discards).\n\n#### 36 Rounds\n- The game lasts exactly 36 rounds (one for each tile number)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Placing a Tile\n- Place the drawn tile on any empty space on your board.\n- You may rotate the tile to any orientation.\n- Paths do not need to connect to existing paths (but unconnected paths are useless).\n- Plan paths that link adventurers to their matching temples.\n\n#### Discarding a Tile to Move\n- Discard the tile and count the number of path exits on it (2, 3, or 4).\n- Move one adventurer that many spaces along connected paths on your board.\n- **Straight tile (2 exits)** — Move 2 steps.\n- **T-junction (3 exits)** — Move 3 steps.\n- **Crossroads (4 exits)** — Move 4 steps.\n- Adventurers can only move along connected, continuous path segments.\n- An adventurer may not pass through another adventurer (they block the path).\n\n#### Collecting Treasures\n- If an adventurer moves onto or through a space with a gold nugget or crystal, they collect it.\n- Each treasure can only be collected once (remove it from the board)."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Temple Arrival\n- When an adventurer reaches their matching colored temple, they stop and claim the top temple treasure token.\n- **First arrival** — Gets 5 VP token.\n- **Second arrival** — Gets 4 VP token.\n- **Third arrival** — Gets 3 VP token.\n- **Fourth arrival** — Gets 2 VP token.\n- The first player to get any adventurer to its matching temple across all players gets the highest remaining token for that color.\n\n#### Blocking\n- Adventurers block each other. You cannot move through a space occupied by another adventurer.\n- Plan paths to avoid bottlenecks.\n\n#### Path Connectivity\n- Paths must physically connect from tile to tile for movement.\n- Dead ends are wasted. Ensure continuous routes from adventurers to temples.\n\n#### No Take-Backs\n- Once a tile is placed or discarded, the decision is final."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End\n- The game ends after all 36 tiles have been drawn and resolved.\n- OR the game can end early if all players agree no further useful moves are possible.\n\n#### Scoring\n- **Temple treasure tokens** — VP value of tokens claimed (5, 4, 3, or 2 per temple reached).\n- **Gold nuggets** — 2 VP each.\n- **Crystals** — 1 VP each.\n- **Unreached temples** — 0 VP for adventurers that did not reach their temple.\n\n#### Winner\n- The player with the most total VP wins.\n- **Tiebreaker** — The player who reached more temples wins. If still tied, share the victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Build paths first** — In the early rounds, prioritize placing tiles to create path networks. You need connected routes before you can move.\n- **Focus on 1-2 adventurers first** — Trying to build 4 complete paths simultaneously is inefficient. Create routes for your most direct adventurer-temple pairs first.\n- **Treasure intersections** — Route paths through gold nuggets (2 VP) when possible. Even a slight detour for gold is worthwhile.\n- **Keep tiles flexible** — In early rounds, place tiles that open up multiple routing options rather than committing to a single narrow path."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Discarding too early** — Discarding tiles for movement before paths are complete wastes movement potential.\n- **Discarding too late** — Waiting too long to discard means adventurers cannot cover the distance to temples before tiles run out.\n- **Ignoring temple race** — The difference between the 5 VP and 2 VP temple token is huge. Racing for first arrival matters.\n- **Blocking your own paths** — Placing an adventurer in a bottleneck position blocks your other adventurers.\n- **Forgetting tile orientation** — You can rotate tiles freely. Always check if a rotation creates a better connection."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Place vs. discard** — The core decision every round. Place tiles when paths are incomplete; discard when routes are ready and movement is needed.\n- **Which adventurer to move** — Prioritize the adventurer closest to claiming a high-value (5 or 4 VP) temple token.\n- **Crossroads tiles** — 4-exit tiles give 4 movement when discarded but also create the best path intersections. Save high-exit tiles for movement in the late game.\n- **Treasure collection vs. speed** — Sometimes skipping a crystal (1 VP) to reach the temple first (5 vs 2 VP = 3 VP swing) is the better play.\n- **Abandoning adventurers** — Sometimes it is better to accept that one adventurer will not reach their temple and focus resources on the other three."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

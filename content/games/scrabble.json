@@ -1,0 +1,108 @@
+{
+  "game_id": "scrabble",
+  "title": "Scrabble",
+  "aliases": [
+    "Scrabble Classic",
+    "Scrabble Original"
+  ],
+  "publisher": "Hasbro / Mattel",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 90
+  },
+  "complexity": "gateway",
+  "categories": [
+    "word-game",
+    "strategy",
+    "classic"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference (Step 0 Audit)\n- **Standard game** — 2 to 4 players.\n- **Recommended** — 2 players for competitive play.\n\n#### Board\n- **Game board** — 1 folding board with a 15x15 grid (225 squares).\n- **Premium squares** — Double Letter Score (light blue), Triple Letter Score (dark blue), Double Word Score (pink), Triple Word Score (red).\n- **Center star** — The center square is marked with a star and counts as a Double Word Score.\n\n#### Tiles\n- **Letter tiles** — 100 tiles total.\n- **Letter distribution** — Weighted by English frequency: E x12, A x9, I x9, O x8, N x6, R x6, T x6, L x4, S x4, U x4, D x4, G x3, and so on.\n- **Blank tiles** — 2 blank tiles (wild — represent any letter, worth 0 points).\n- **Point values** — Printed on each tile. 1 pt: E, A, I, O, N, R, T, L, S, U. 2 pt: D, G. 3 pt: B, C, M, P. 4 pt: F, H, V, W, Y. 5 pt: K. 8 pt: J, X. 10 pt: Q, Z.\n\n#### Other Components\n- **Tile bag** — 1 drawstring cloth bag.\n- **Tile racks** — 4 wooden or plastic letter racks (1 per player).\n- **Rulebook** — 1 rulebook."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Grid\n- **15x15 grid** — 225 total squares arranged in a symmetric pattern.\n- **Center star** — The exact center square (row 8, column 8) has a star. It is a Double Word Score square.\n\n#### Premium Square Layout (Symmetric)\n- **Triple Word Score (red)** — 8 squares, located at the four corners and mid-edges of the board.\n- **Double Word Score (pink)** — 17 squares, forming diagonal lines from the corners toward the center.\n- **Triple Letter Score (dark blue)** — 12 squares, scattered in a symmetric pattern.\n- **Double Letter Score (light blue)** — 24 squares, scattered in a symmetric pattern.\n- **Regular squares** — Remaining squares have no bonus.\n\n#### Tile Bag\n- **Central draw pile** — Place all 100 tiles in the bag and mix thoroughly. The bag stays accessible to all players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Draw\n- **Rack** — Each player takes 1 tile rack.\n- **Initial tiles** — Each player draws 7 tiles from the bag without looking, places them on their rack.\n- **Hidden information** — Players keep their rack tiles hidden from opponents.\n\n#### Determining First Player\n- **Draw method** — Each player draws 1 tile from the bag. Closest to 'A' goes first (blank beats all).\n- **Return and redraw** — Return those tiles to the bag, remix, then each player draws their 7 starting tiles.\n- **Turn order** — Play proceeds clockwise from the starting player."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Word\n- **Center star** — The first word must be placed so that one letter covers the center star.\n- **Direction** — The first word must be placed either horizontally (left to right) or vertically (top to bottom).\n- **Minimum length** — The first word must be at least 2 letters.\n- **Double Word Score** — Because the center star is a Double Word Score, the first word's total letter value is doubled.\n\n#### After First Word\n- **Draw to 7** — The first player draws tiles from the bag to refill their rack to 7 tiles.\n- **Next player** — Play passes clockwise."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Options (Choose One)\n1. **Play a word** — Place 1 or more tiles on the board to form a new valid word, then draw back to 7 tiles.\n2. **Exchange tiles** — Swap any number of tiles from your rack for new tiles from the bag (must have 7+ tiles in bag). This uses your entire turn; you score 0 points.\n3. **Pass** — Score 0 points and change nothing. Play moves to the next player.\n\n#### Word Placement Rules\n- **Single line** — All tiles placed in one turn must be in a single row or single column.\n- **Connected** — At least one tile must be adjacent to (and form a word with) an existing tile on the board (except the first word).\n- **All words valid** — Every new horizontal and vertical word formed by the placement must be a valid dictionary word.\n- **No gaps** — Tiles placed in a row/column must be contiguous (existing board tiles may fill gaps).\n\n#### After Playing\n- **Score the turn** — Calculate points for all newly formed words this turn.\n- **Draw tiles** — Draw from the bag until you have 7 tiles (or the bag is empty).\n- **Next player** — Play passes clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Scoring a Word\n- **Base value** — Sum the point values of all letters in each newly formed word.\n- **Letter premiums** — If a tile is placed on a Double Letter Score, that tile's value is doubled. Triple Letter Score triples it.\n- **Word premiums** — If a tile is placed on a Double Word Score, the entire word's value is doubled after letter premiums. Triple Word Score triples the entire word.\n- **Multiple premiums** — If a word covers two word-premium squares, multiply accordingly (e.g., double then triple = x6).\n- **Premium applies once** — Premium squares only count on the turn the tile is first placed on them. They have no effect on subsequent turns.\n- **Blank tiles** — Always worth 0 points, even on premium squares.\n\n#### Bingo Bonus\n- **All 7 tiles** — If a player uses all 7 tiles from their rack in a single turn, they earn a **50-point bonus** on top of the word score.\n\n#### Challenging a Word\n- **Challenge** — After a word is played (before the next player's turn), any player may challenge its validity.\n- **Dictionary check** — Look up the word in the agreed-upon dictionary.\n- **Invalid word** — The player removes their tiles, scores 0 for that turn, and loses their turn.\n- **Valid word** — The challenger loses their next turn (in tournament rules). House rules may vary.\n\n#### Blank Tiles\n- **Wildcard** — A blank tile can represent any letter. The player declares the letter when placing it.\n- **Permanent** — Once placed, a blank remains that letter for the rest of the game.\n- **Worth 0** — Blank tiles always score 0 points."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Tile Exchange\n- **Minimum bag requirement** — At least 7 tiles must remain in the bag to exchange.\n- **Process** — Place unwanted tiles face-down, draw the same number of new tiles, then mix the old tiles back into the bag.\n- **Full turn cost** — You cannot play a word and exchange in the same turn.\n\n#### Valid Words\n- **Dictionary** — Use an agreed-upon dictionary (Official Scrabble Players Dictionary for North America, Collins Scrabble Words internationally).\n- **Allowed** — Any word in the official word list, including archaic, obscure, and informal words.\n- **Not allowed** — Proper nouns, abbreviations, prefixes/suffixes standing alone, hyphenated words, words requiring apostrophes.\n\n#### Parallel Word Formation\n- **Cross-words** — Placing tiles parallel to an existing word can form multiple 2-letter words simultaneously. All must be valid.\n- **Hooks** — Adding a single letter to the front or back of an existing word (e.g., adding S to CART to make CARTS) while also forming a perpendicular word.\n\n#### Two-Letter Words\n- **Strategic importance** — The official word list contains many valid 2-letter words (AA, AB, AD, AE, AG, AH, AI, AL, AM, AN, etc.). Knowledge of these is essential for advanced play."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Endgame Trigger\n- **Bag empty + tiles out** — The game ends when the tile bag is empty AND one player places their last tile. That player \"goes out.\"\n- **All players pass** — The game also ends if all players pass consecutively (no one can or wants to play).\n\n#### Endgame Scoring Adjustment\n- **Going-out bonus** — The player who goes out adds the total value of all opponents' remaining rack tiles to their score.\n- **Remaining tile penalty** — Each other player subtracts the total value of their own unplayed rack tiles from their score.\n\n#### Winning\n- **Highest score wins** — The player with the highest cumulative score wins.\n- **Tiebreaker** — If tied, the player with the highest score before the endgame adjustment wins.\n\n#### Scoring Model\n- **Score sources** — Word scores (letter values + premium multipliers), bingo bonuses (50 pts each), endgame adjustment.\n- **Typical scores** — Casual games: 200-350 points. Competitive games: 350-500+ points."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Tile Management\n- **Balance your rack** — Aim for a mix of vowels and consonants. Ideal ratio is roughly 3 consonants to 2 vowels with flexible tiles.\n- **Keep high-value tiles accessible** — Hold S, blank, and common letters for bingo opportunities.\n- **Dump duplicates** — If you have 3 of the same letter, exchange or play to improve rack composition.\n\n#### Board Position\n- **Open vs closed** — Playing toward premium squares opens scoring for you but also for opponents. Balance offensive and defensive placement.\n- **First word** — Maximize the center Double Word Score. A 4-5 letter word using a high-value letter is ideal."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Playing the S cheaply** — The S tile is extremely valuable for hooking onto existing words. Never use it for fewer than 10+ extra points.\n- **Ignoring 2-letter words** — Not knowing valid 2-letter words severely limits placement options and parallel plays.\n- **Chasing the Triple Word** — Forcing a weak word onto a Triple Word Score when a stronger word elsewhere scores more.\n- **Hoarding blanks** — Holding a blank too long waiting for a bingo. If no bingo materializes in 2-3 turns, use it.\n- **Opening the board recklessly** — Placing tiles near Triple Word squares without blocking gives opponents easy high-scoring opportunities.\n- **Forgetting cross-words** — When placing tiles, failing to verify that all newly formed perpendicular words are valid."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Play or Exchange?\n- **Play** — If you can score 20+ points, generally play rather than exchange.\n- **Exchange** — If your rack is severely imbalanced (all vowels, all consonants, or Q without U) and no decent word exists, exchange.\n\n#### Decision 2: Offensive vs Defensive\n- **Offensive** — Open the board toward Triple Word squares when you can reach them next turn.\n- **Defensive** — Block premium squares when your opponent is likely to exploit them. Close down open lanes.\n\n#### Decision 3: Bingo Hunting\n- **Push for bingo** — When you have 5-6 good tiles and 1-2 blanks, invest a turn to exchange the weak tiles and aim for the 50-point bonus.\n- **Take the points** — When the board is tight or the bag is nearly empty, reliable points beat speculative bingo attempts.\n\n#### Decision 4: Endgame Tile Management\n- **Go out first** — In the endgame, prioritize emptying your rack to gain the going-out bonus and avoid the penalty.\n- **Avoid high-value leftovers** — Q (10 pts) and Z (10 pts) stuck on your rack at game end is a 20-point swing against you."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

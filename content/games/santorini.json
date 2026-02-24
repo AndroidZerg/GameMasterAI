@@ -1,0 +1,108 @@
+{
+  "game_id": "santorini",
+  "title": "Santorini",
+  "aliases": [
+    "Santorini (2016)",
+    "Santorini: New York"
+  ],
+  "publisher": "Roxley Games",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "abstract",
+    "strategy",
+    "grid-movement"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Game board** — A 5x5 grid (25 spaces) with a cliff base that holds the grid elevated.\n- **Worker figures** — 2 workers per player. In a 2-player game, each player has 2 workers in their color (typically blue and white in the base game).\n- **Building blocks (Level 1)** — 22 wide, flat blocks representing the first floor.\n- **Building blocks (Level 2)** — 18 medium blocks representing the second floor.\n- **Building blocks (Level 3)** — 14 smaller blocks representing the third floor.\n- **Dome pieces** — 18 blue dome caps that seal a building at the top.\n- **God Power cards** — 30 cards, each depicting a Greek god or hero with a unique ability (used in advanced play).\n- **Golden Fleece expansion token** — 1 token (included in some editions).\n\n#### Building Stack\nA complete building tower consists of 4 pieces stacked:\n1. **Level 1** (ground floor) — largest block.\n2. **Level 2** — medium block placed on Level 1.\n3. **Level 3** — small block placed on Level 2.\n4. **Dome** — blue cap placed on Level 3, completing the building."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Setup\n1. **Assemble the board** — Place the cliff base on the table and set the 5x5 grid on top.\n2. **Sort building pieces** — Organize Level 1, Level 2, Level 3, and dome pieces into separate piles near the board.\n3. **Prepare God Power cards** — If playing with god powers, shuffle the deck and deal according to the chosen variant.\n\n#### Grid Details\n- **25 spaces** — Arranged in a 5-by-5 grid.\n- **Each space** — Can hold one building of up to 4 levels (3 floors + dome) and optionally one worker.\n- **Adjacency** — Each space is adjacent to its horizontal, vertical, and diagonal neighbors (up to 8 adjacent spaces)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Worker Placement (2-Player Game)\n1. The starting player places both of their workers on any two unoccupied spaces.\n2. The second player then places both of their workers on any two remaining unoccupied spaces.\n- Workers may be placed on any empty space — there are no restrictions on starting positions.\n\n#### Worker Placement (3-4 Player Game)\n- In a 3-player game, each player has 2 workers. Place in turn order.\n- In a 4-player game, players form 2 teams of 2. Each player controls 1 worker. Teammates sit across from each other.\n\n#### God Power Setup (Advanced)\n1. The starting player draws a number of God Power cards equal to the number of players plus one.\n2. The second player chooses their god power first.\n3. The starting player takes one of the remaining powers.\n4. Discard unchosen cards."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Determining First Player\n- Choose randomly or by agreement.\n- The first player places workers first but also acts first each round.\n\n#### Basic Game vs. God Powers\n- **Basic game** — Play without god powers. Recommended for the first game.\n- **God Powers** — Add asymmetric abilities that change the rules for each player. Recommended after learning the basics.\n\n#### Before Turn 1 Checklist\n- Board assembled with all spaces empty.\n- Building pieces sorted and accessible.\n- All workers placed on the board.\n- If using god powers, each player has their card visible."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Two Mandatory Steps\nOn your turn, you must perform both steps in order:\n1. **Move** — Move one of your workers to an adjacent space.\n2. **Build** — With the worker you just moved, build one level on an adjacent space.\n\nBoth steps are mandatory. If you cannot complete both steps, you lose the game.\n\n#### Movement Rules\n- Move to any of the 8 adjacent spaces (horizontal, vertical, diagonal).\n- You may move to the same level, one level down (any number of levels down), or one level up.\n- **You may NOT move up more than one level at a time.** You can step from ground to Level 1, from Level 1 to Level 2, or from Level 2 to Level 3 — but not from ground to Level 2.\n- You may move down any number of levels (e.g., from Level 3 to ground).\n- You cannot move to a space occupied by another worker (yours or opponent's).\n- You cannot move to a space with a dome.\n\n#### Building Rules\n- After moving, your worker must build on one adjacent space.\n- Build the next level on that space: if empty, place Level 1; if Level 1 exists, place Level 2; if Level 2, place Level 3; if Level 3, place a dome.\n- You cannot build on a space occupied by any worker.\n- You cannot build on a space that already has a dome."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Move Options\n- You choose which of your 2 workers to move.\n- The chosen worker moves exactly one space (to an adjacent space).\n- You may move to a lower level without restriction.\n- You may move to the same level.\n- You may move up exactly one level.\n- You may NOT move up two or more levels.\n\n#### Build Options\n- After moving, the same worker builds on one adjacent space.\n- Build the appropriate next level for that space.\n- You can build on any level including ground level (starting a new building) or on top of an existing Level 3 (placing a dome).\n\n#### What You Cannot Do\n- Move a worker and then build with the other worker.\n- Skip either the move or the build step.\n- Move to or build on a space with a dome.\n- Move to a space with any worker.\n- Build on a space with any worker."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Domes\n- Domes are placed on top of Level 3 buildings.\n- A domed space is permanently blocked — no worker can move there, and no further building can occur.\n- Domes are a key defensive tool: place them to block your opponent's advancement.\n\n#### God Powers (Advanced Variant)\nGod powers modify the basic rules for the player who holds them. Examples include:\n- **Apollo** — Your worker may move into an opponent's space, swapping positions.\n- **Artemis** — Your worker may move one additional time (but not back to its starting space).\n- **Atlas** — Your worker may build a dome at any level instead of the normal block.\n- **Demeter** — Your worker may build one additional time (but not on the same space).\n- **Hephaestus** — Your worker may build one additional block on top (but not a dome).\n- **Hermes** — If your workers don't move up, they may each move any number of times.\n- **Minotaur** — Your worker may move into an opponent's space, pushing them one space in the same direction.\n- **Pan** — You also win if your worker moves down two or more levels.\n- **Prometheus** — If your worker doesn't move up, it may build both before and after moving.\n\n#### 3-4 Player Variants\n- In 3-player games, when one player is eliminated, their workers and buildings remain on the board.\n- In 4-player team games, either teammate reaching Level 3 wins for the team."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Move to Level 3** — If one of your workers moves UP onto a Level 3 space, you win immediately. The worker must move up to Level 3 (moving from Level 2 to Level 3). Being built under does not count.\n\n#### Lose Condition\n- **Cannot complete your turn** — If neither of your workers can perform a legal move followed by a legal build, you lose. This means you are boxed in or blocked.\n\n#### Important Clarifications\n- You must move UP to Level 3 to win. If a worker is already on Level 3 and moves to another Level 3 space, that does not trigger a win.\n- Building a Level 3 block under your worker does not win the game. The winning move occurs during the movement step.\n- If you move to Level 3 and build, you win before your opponent gets another turn.\n\n#### No Scoring\n- Santorini has no points or scoring. It is a pure win/lose abstract strategy game."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Worker Placement\n- Place workers near the center of the board — central spaces have up to 8 adjacent spaces, while corners have only 3.\n- Avoid placing both workers adjacent to each other initially; spread them to cover more territory.\n- Don't place on the very edge or corners unless you have a specific god power that benefits from it.\n\n#### Early Building\n- Build near your workers to create stepping stones you can use later.\n- Start building in multiple areas to give yourself options.\n- Don't build towers near your opponent's workers unless you're confident you can cap them with domes."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Building for Your Opponent\n- The biggest beginner mistake is building Level 2 and Level 3 towers near your opponent's workers. They can use your buildings to win.\n- Before building, always check if your opponent could use that level to advance toward a win.\n\n#### Neglecting Defense\n- Focusing only on climbing and forgetting to place domes to block your opponent.\n- If your opponent has a worker on Level 2 near a Level 2 space, you should dome that space or block their path.\n\n#### Trapping Yourself\n- Building too many domes around your own workers, restricting your own movement.\n- Always ensure both workers have escape routes.\n\n#### Forgetting the Lose Condition\n- If you cannot move and build, you lose. Watch for situations where your workers are getting boxed in."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### When to Build Up vs. Dome\n- **Build up** when the tower is near your workers and far from your opponent's.\n- **Dome (cap with Level 3 + dome)** when your opponent threatens to use a tower. Sometimes building Level 3 and then doming it is better than letting your opponent use it.\n\n#### Which Worker to Move\n- Consider both workers each turn. One might have an offensive opportunity (climbing toward Level 3) while the other might need to play defense (blocking or doming).\n\n#### Creating a Fork\n- The most powerful tactic is creating a situation where you threaten to win in two different ways on your next turn, and your opponent can only block one.\n- Build two separate towers to Level 2 with a worker adjacent to both. Your opponent must dome one, but you move to the other.\n\n#### Controlling Height\n- Try to occupy higher ground. A worker on Level 2 with adjacent Level 2 spaces is very dangerous.\n- Keep your opponent at ground level by doming their paths upward."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

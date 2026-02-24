@@ -1,0 +1,93 @@
+{
+  "game_id": "machi-koro",
+  "title": "Machi Koro",
+  "aliases": ["Machi Koro 1"],
+  "publisher": "IDW Games / Pandasaurus",
+  "player_count": {"min": 2, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 30, "max": 45},
+  "complexity": "gateway",
+  "categories": ["dice", "engine-building", "city-building"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Cards\n- **Establishment cards** — 108 cards across 15 types of establishments.\n- **Landmark cards** — 4 types, one set per player: Train Station (4 coins), Shopping Mall (10 coins), Amusement Park (16 coins), Radio Tower (22 coins).\n- **Starting establishments** — Each player begins with Wheat Field (blue, activation 1) and Bakery (green, activation 2-3).\n\n#### Other Components\n- **Coins** — Denomination tokens of 1, 5, and 10.\n- **Dice** — 2 standard six-sided dice.\n\n#### Establishment Types by Color\n- **Blue (Primary Industry)** — Activate on anyone's turn: Wheat Field (1), Ranch (2), Forest (5), Mine (9), Apple Orchard (10).\n- **Green (Secondary Industry)** — Activate on your turn only: Bakery (2-3), Convenience Store (4), Cheese Factory (7), Furniture Factory (8), Fruit and Vegetable Market (11-12).\n- **Red (Restaurants)** — Activate on other players' turns, steal coins: Café (3), Family Restaurant (9-10).\n- **Purple (Major Establishments)** — Activate on your turn only, limit 1 each: Stadium (6), TV Station (6), Business Center (6)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Market Setup\n1. **Separate by type** — Sort all establishment cards into stacks by name.\n2. **Create the marketplace** — Lay out all 15 establishment types in the center of the table, stacked so the cost and activation number are visible.\n3. **Coin supply** — Place all coins in a general supply accessible to all players.\n\n#### Play Area\n- Each player has a personal tableau area for their purchased establishments and landmarks.\n- Landmarks are placed face down (under construction) in front of each player."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Starting Items\n1. **Starting establishments** — Receive 1 Wheat Field and 1 Bakery (placed face up).\n2. **Starting landmarks** — Receive 1 of each landmark card (Train Station, Shopping Mall, Amusement Park, Radio Tower), placed face down to show they are not yet built.\n3. **Starting coins** — Receive 3 coins from the supply.\n\n#### Player Count Notes\n- **2-4 players** — Same setup for all player counts.\n- The game works best at 3 players for balanced market competition."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Random selection** — Choose a starting player randomly.\n- **Turn order** — Play proceeds clockwise.\n\n#### Initial State\n- Each player has: 1 Wheat Field, 1 Bakery, 4 unbuilt landmarks, and 3 coins.\n- The marketplace has all 15 establishment types available for purchase.\n- All players start with only 1 die available (until Train Station is built)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Phases (in order)\n1. **Roll dice** — Roll 1 die (or 2 dice if you have built your Train Station). You may never choose to roll 2 dice unless Train Station is built.\n2. **Earn income** — All establishments that match the rolled number activate. Resolution order: Red cards (opponents steal from active player), then Blue cards (all players collect from bank), then Green cards (active player collects from bank), then Purple cards (active player activates special ability).\n3. **Build** — You may purchase 1 establishment from the marketplace OR build 1 of your unbuilt landmarks by paying its cost. You may only build 1 thing per turn.\n\n#### Important Rules\n- If you owe coins to a Red card and cannot pay the full amount, pay what you can.\n- Red cards activate in reverse turn order (player to the active player's right collects first).\n- You may purchase multiple copies of any establishment except Purple (limit 1 each of Stadium, TV Station, Business Center)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Blue Establishments (Anyone's Turn)\n- **Wheat Field (1)** — Earn 1 coin from the bank.\n- **Ranch (2)** — Earn 1 coin from the bank.\n- **Forest (5)** — Earn 1 coin from the bank.\n- **Mine (9)** — Earn 5 coins from the bank.\n- **Apple Orchard (10)** — Earn 3 coins from the bank.\n\n#### Green Establishments (Your Turn Only)\n- **Bakery (2-3)** — Earn 1 coin from the bank.\n- **Convenience Store (4)** — Earn 3 coins from the bank.\n- **Cheese Factory (7)** — Earn 3 coins per Ranch you own.\n- **Furniture Factory (8)** — Earn 3 coins per Mine and Forest you own.\n- **Fruit and Vegetable Market (11-12)** — Earn 2 coins per Wheat Field and Apple Orchard you own.\n\n#### Red Establishments (Others' Turns)\n- **Café (3)** — Take 1 coin from the active player.\n- **Family Restaurant (9-10)** — Take 2 coins from the active player.\n\n#### Purple Establishments (Your Turn Only)\n- **Stadium (6)** — Collect 2 coins from each opponent.\n- **TV Station (6)** — Take 5 coins from any one opponent.\n- **Business Center (6)** — Trade 1 of your non-purple establishments for 1 of an opponent's non-purple establishments."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Landmark Abilities\n- **Train Station (4 coins)** — You may choose to roll 1 or 2 dice on your turn.\n- **Shopping Mall (10 coins)** — Your Café and Bakery-type establishments (green and red with bread/cup icons) earn +1 coin each time they activate.\n- **Amusement Park (16 coins)** — If you roll doubles (with 2 dice), you take another turn after this one.\n- **Radio Tower (22 coins)** — Once per turn, you may choose to reroll your dice.\n\n#### Payment Rules\n- **Insufficient funds** — If you cannot fully pay what a Red card demands, pay as much as you can. You never go into debt.\n- **Bank is unlimited** — The bank never runs out of money. Use substitutes if needed.\n- **Red card order** — Multiple Red card owners collect in reverse turn order from the active player."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning the Game\n- **Race to landmarks** — The first player to build all 4 of their landmarks (Train Station, Shopping Mall, Amusement Park, Radio Tower) immediately wins.\n- **No points** — There is no scoring. It is a race to complete all landmarks.\n\n#### Game End\n- The game ends immediately when a player builds their 4th and final landmark on the build phase of their turn.\n- There is no final round for other players.\n\n#### Typical Game Length\n- Games last 30-45 minutes, sometimes shorter with aggressive strategies."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game Strategy\n- **Build Train Station first** — Access to 2 dice opens up powerful high-number establishments (Cheese Factory, Mine, Furniture Factory).\n- **Stack low-cost blue cards** — Wheat Fields and Ranches provide reliable income on everyone's turn.\n- **Convenience Store rush** — If you roll 4s often early, Convenience Store gives excellent return at 3 coins for a 2-coin investment.\n- **Avoid expensive cards early** — Focus on income generation before saving for landmarks."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Ignoring Red cards** — Red establishments can devastate the leading player and slow them down. At least a few Cafés help.\n- **Building landmarks too early** — Shopping Mall is tempting but useless without enough green/red cards to benefit from the +1 bonus.\n- **Over-diversifying** — Spreading purchases across too many numbers means nothing activates consistently. Focus on a few key numbers.\n- **Forgetting activation order** — Red resolves before Green and Purple. You might lose coins before you earn them.\n- **Neglecting engine synergy** — Cheese Factory without Ranches or Furniture Factory without Mines/Forests is wasted money."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **1 die vs. 2 dice** — After building Train Station, consider your establishment spread. If most cards are 1-6, keep rolling 1 die. Switch to 2 dice only when you have strong 7+ establishments.\n- **Cheese Factory vs. Furniture Factory** — Cheese Factory (7) combos with Ranches (2). Furniture Factory (8) combos with Mines (9) and Forests (5). Choose based on what numbers you are already invested in.\n- **When to go aggressive** — Red cards and Stadium/TV Station can cripple the leader. If someone is close to winning, invest in denial.\n- **Landmark order** — Train Station first is standard. Shopping Mall before or after Amusement Park depends on your card mix. Radio Tower is often last but its reroll can be clutch."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "game_id": "stone-age",
+  "title": "Stone Age",
+  "aliases": [],
+  "publisher": "Hans im Gluck / Z-Man",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 90},
+  "complexity": "midweight",
+  "categories": ["worker-placement", "dice", "resource-management", "civilization"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board\n- **Game board** — Central board showing worker placement locations: Hunting Grounds, Forest, Clay Pit, Quarry, River (gold), Farm, Tool Maker, Mating Hut, Civilization Card slots (4), and Building tiles.\n\n#### Per Player\n- **Workers** — Start with 5 worker meeples (expandable to 10 maximum).\n- **Player board** — Tracks food production (farm level), tools, and resource storage.\n- **Score marker** — For the VP track.\n\n#### Shared Components\n- **Resources** — Wood, clay (brick), stone, gold tokens.\n- **Food tokens** — Various denominations.\n- **Dice** — 7 dice (shared among all players for resource gathering rolls).\n- **Civilization cards** — 36 cards providing immediate bonuses and end-game multiplier scoring.\n- **Building tiles** — 4 stacks of building tiles (worth VP when constructed).\n- **Tool tokens** — Value 1 and 2 tool tiles for each player.\n- **Farm track marker** — Tracks each player's agriculture level."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Setup\n1. **Place the board** — Central board showing all placement locations.\n2. **Civilization cards** — Shuffle and deal 4 face up in the card display slots. Stack remaining cards as a draw pile.\n3. **Building stacks** — Create building tile stacks equal to the number of players. Each stack has 7 tiles. Reveal the top tile of each stack.\n4. **Resource supply** — Place wood, clay, stone, gold, and food tokens near the board.\n5. **Tool supply** — Place tool tokens near the board.\n\n#### Player Count Adjustments\n- **2 players** — 2 building stacks. Certain placement locations have reduced worker capacity.\n- **3 players** — 3 building stacks.\n- **4 players** — 4 building stacks. Full worker capacity at all locations."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Starting Items\n1. **Workers** — Receive 5 worker meeples.\n2. **Food** — Receive 12 food tokens.\n3. **Player board** — Take a player board. Set farm track to 0.\n4. **Tools** — Start with no tools (0/0/0 on tool slots).\n5. **Score marker** — Place on 0 on the VP track.\n6. **No starting resources** — Begin with no wood, clay, stone, or gold."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Random selection** — Choose randomly. Play proceeds clockwise.\n\n#### Starting State\n- Each player: 5 workers, 12 food, no resources, no tools, farm at level 0.\n- 4 civilization cards face up.\n- Building stacks set up and top tiles revealed.\n- All board locations are empty and available."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Place workers** — Starting with the first player and going clockwise, each player places 1 or more workers on a single location. Continue around the table until all players have placed all their workers.\n2. **Resolve workers** — Starting with the first player, each player resolves all of their placed workers, one location at a time in any order.\n3. **Feed workers** — Each player must pay 1 food per worker. Farm level reduces this need (farm produces food automatically). Workers you cannot feed cost 10 VP penalty.\n\n#### Placement Rules\n- **One location per placement** — On your turn during placement, you place workers at exactly 1 location.\n- **Hunting Grounds** — Unlimited workers from any number of players.\n- **Forest, Clay Pit, Quarry, River** — Maximum 7 workers total (across all players).\n- **Farm** — Exactly 1 worker, 1 player per round.\n- **Tool Maker** — Exactly 1 worker, 1 player per round.\n- **Mating Hut** — Exactly 2 workers from 1 player per round.\n- **Civilization Cards** — 1 worker per card slot, 1 player per slot.\n- **Buildings** — 1 worker per building stack, 1 player per stack."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Resource Gathering (Dice-Based)\n- **Roll dice** — Roll 1 die per worker placed at that resource location.\n- **Divide total by resource cost:**\n  - Food (Hunting Grounds): total / 2\n  - Wood (Forest): total / 3\n  - Clay (Clay Pit): total / 4\n  - Stone (Quarry): total / 5\n  - Gold (River): total / 6\n- Round down. The result is how many of that resource you receive.\n- **Tools** — After rolling, you may add tool values to the total (each tool used once per round, then flipped to used side).\n\n#### Farm\n- Place 1 worker to increase your farm level by 1 (maximum 10).\n- Each farm level produces 1 food automatically during the feeding phase, reducing or eliminating the need to hunt.\n\n#### Tool Maker\n- Place 1 worker to gain 1 tool level. Tools fill 3 slots on your player board (each can hold values 1-4, for a maximum of 12 total tool value).\n\n#### Mating Hut\n- Place 2 workers to gain 1 new worker (added to your supply for next round). Maximum 10 workers.\n\n#### Civilization Cards\n- Place 1 worker on a card slot. Pay resources equal to the card's position (1st slot = top resource on card, 2nd slot = top 2 resources, etc.) to claim the card.\n- Cards provide immediate bonuses (resources, tools, food, VP) and end-game scoring multipliers.\n\n#### Buildings\n- Place 1 worker on a building stack. Pay the resource combination shown on the top tile to score its VP immediately."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Tools\n- **3 tool slots** — Each slot holds a tool of increasing value (1, then upgraded to 2, then 3, then 4).\n- **Usage** — When gathering resources, add any number of your tool values to the dice total. Each tool can only be used once per round.\n- **Flip to used** — After using a tool, flip it to show it is spent for the round. Tools reset at the start of the next round.\n\n#### Feeding\n- **1 food per worker** — You must pay food equal to your number of workers.\n- **Farm production** — Your farm level provides that many free food each round.\n- **Starvation penalty** — If you cannot feed all workers, you lose 10 VP (you may choose to starve intentionally). You never lose workers.\n\n#### Civilization Card Multipliers\n- Cards show symbols for end-game scoring:\n  - **Green (tool multiplier)** — VP = tool level x number of these cards.\n  - **Green (farmer multiplier)** — VP = farm level x number of these cards.\n  - **Green (builder multiplier)** — VP = number of buildings x number of these cards.\n  - **Green (shaman multiplier)** — VP = number of workers x number of these cards.\n  - **Sand (unique set)** — Collect unique background patterns for escalating VP (1/4/9/16/25/36... = n-squared).\n\n#### Dice Probability\n- Average die roll is 3.5 per die. With 3 workers at the Quarry (stone, cost 5): expected 3.5 x 3 / 5 = 2.1 stone = 2 stone."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End Trigger\n- The game ends when either: at least 1 civilization card stack is exhausted (cannot refill to 4 cards), OR at least 1 building tile stack is exhausted.\n- Finish the current round (all players complete placement, resolution, and feeding).\n\n#### Final Scoring\n1. **In-game VP** — VP accumulated from buildings and card bonuses during play.\n2. **Civilization card multipliers** — Calculate end-game scoring from all collected civilization cards.\n3. **Remaining resources** — Each resource (wood, clay, stone, gold) is worth 1 VP. Each food is worth 1 VP.\n\n#### Winner\n- The player with the most total VP wins.\n- **Tiebreaker** — Most total resources + food remaining. Then most farm level + tool level."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Mating Hut first** — Getting to 10 workers as fast as possible gives you more actions every round. Workers are the most important early investment.\n- **Farm early** — Each farm level saves 1 food per round for the rest of the game. The compounding value is enormous.\n- **Tool Maker** — Tools improve every dice roll for the entire game. Getting to tool level 3-4 early is very efficient.\n- **Grab multiplier cards** — Civilization cards with multipliers (tools, farms, buildings, workers) are most powerful when collected early, as you build toward maximizing the multiplier.\n- **Do not over-hunt** — Food from hunting is inefficient compared to farming. Transition to farm-based food as soon as possible."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Staying at 5 workers** — Players who never visit the Mating Hut fall behind on actions. More workers = more resources and more options.\n- **Ignoring tools** — Without tools, dice rolls are unpredictable. Tools smooth out variance and increase average yields.\n- **Not diversifying civilization cards** — The unique-set scoring (n-squared) scales incredibly well. Even 1-2 unique cards are efficient.\n- **Over-investing in gold** — Gold (divide by 6) is very unreliable without tools and many workers. Focus on wood and clay early.\n- **Starving intentionally too often** — The 10 VP penalty is steep. Build farm level to avoid this."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Workers vs. tools vs. farm** — The three permanent investments compete for the same worker slots. Balance based on what opponents leave open.\n- **Buildings vs. civilization cards** — Buildings give immediate VP but no end-game bonus. Civilization cards give smaller immediate effects but can generate huge end-game multipliers.\n- **Resource allocation** — Spend resources on buildings for VP now, or save for expensive civilization cards with better multipliers.\n- **When to use tools** — Tools are once per round. Use them on your most important gathering roll (typically the resource you need most for a building or card purchase).\n- **Blocking opponents** — Placing workers on the Farm, Tool Maker, or Mating Hut before opponents can deny them critical upgrades."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

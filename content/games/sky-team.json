@@ -1,0 +1,101 @@
+{
+  "game_id": "sky-team",
+  "title": "Sky Team",
+  "aliases": [],
+  "publisher": "Scorpion Masque",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 20
+  },
+  "complexity": "gateway",
+  "categories": ["cooperative", "dice-placement", "communication-limited"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Airport board** — Double-sided board representing the approach; one side per airport/scenario.\n- **Cockpit board** — Central board with dice placement slots for both players.\n- **Airplane standee** — Tracks the plane's position on the approach track.\n- **Approach track** — Shows altitude levels the plane must descend through.\n\n#### Dice\n- **8 dice total** — 4 orange dice (Captain/Pilot) and 4 blue dice (First Officer/Co-pilot).\n- **Standard d6** — Values 1-6 on each die.\n\n#### Tokens & Markers\n- **Airplane tokens** — Traffic planes on the approach that must be cleared.\n- **Axis marker** — Tracks the plane's balance (tilt left or right).\n- **Speed marker** — Tracks the plane's current speed.\n- **Landing gear tokens** — 3 tokens to deploy sequentially.\n- **Flap tokens** — 2 tokens to deploy sequentially.\n- **Brake marker** — Tracks braking power for final approach.\n- **Coffee tokens** — Allow re-rolling a die (limited supply).\n\n#### Scenario Components\n- **Airport cards** — Different airports with unique challenges and module additions.\n- **Module cards** — Add mechanics like wind, ice, kerosene, interns, etc."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Select airport** — Choose an airport card (Montreal for beginners).\n2. **Place cockpit board** — Set the cockpit board between both players.\n3. **Place approach board** — Set up the approach track beside the cockpit.\n4. **Position airplane** — Place the airplane standee at the top of the approach track.\n5. **Set axis** — Place the axis marker at the center (balanced) position.\n6. **Place traffic** — Place airplane tokens on the approach track as indicated by the airport card.\n7. **Landing gear** — Place 3 landing gear tokens in their undeployed positions.\n8. **Flaps** — Place 2 flap tokens in their undeployed positions.\n9. **Set speed** — Place the speed marker at the starting position.\n10. **Coffee tokens** — Place the indicated number of coffee tokens in the supply."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Roles\n- **Captain (Pilot)** — Sits on the left; uses orange dice.\n- **First Officer (Co-pilot)** — Sits on the right; uses blue dice.\n- **Permanent roles** — Players keep the same role for the entire game.\n\n#### Dice\n- **4 dice each** — Each player takes their 4 colored dice.\n- **Secret rolls** — Dice are rolled behind a screen or hidden from partner.\n\n#### Communication Restriction\n- **No discussing dice values** — Players cannot reveal, hint at, or discuss their specific dice values.\n- **General strategy allowed** — You may discuss strategy, priorities, and preferences in general terms.\n- **Trust-based** — The game relies on reading your partner and making educated guesses."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Both players roll** — Each player secretly rolls their 4 dice behind their screen.\n2. **Simultaneously reveal** — Both players reveal all dice at the same time.\n3. **Alternating placement** — Starting with the Captain, players alternate placing 1 die at a time on cockpit slots.\n4. **Complete the round** — After all 8 dice are placed, resolve the round's effects.\n5. **Begin approach** — The plane descends and the next round begins."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Roll dice** — Both players secretly roll their 4 dice.\n2. **Reveal simultaneously** — Show all dice to each other at the same time.\n3. **Place dice alternately** — Starting with the Captain, alternate placing 1 die per turn into cockpit slots.\n4. **Resolve round** — After all 8 dice are placed, check: axis balance, speed, approach advancement, traffic clearance.\n5. **Advance airplane** — Move the plane down the approach track by the number of spaces equal to the current speed.\n6. **Check for failure** — If any failure condition is triggered, the game ends in a loss.\n7. **Next round** — If the plane has not landed and has not crashed, begin a new round.\n\n#### Number of Rounds\n- **Variable** — Depends on the airport; typically 4-7 rounds before landing.\n- **Speed determines descent** — Higher speed means fewer rounds but harder to control."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Cockpit Slots\n- **Axis (Captain + Co-pilot)** — Both players place 1 die each on axis. The difference determines tilt direction and magnitude. Goal: keep balanced.\n- **Engines (Captain or Co-pilot)** — Place dice to control speed. Higher values = faster descent; lower values = slower.\n- **Landing Gear (numbered)** — Deploy landing gear by placing dice meeting minimum value requirements (must deploy in order).\n- **Flaps (numbered)** — Deploy flaps by placing dice meeting minimum value requirements (must deploy in order).\n- **Radio** — Place a die to clear traffic planes from the approach. Die value must meet or exceed the traffic plane's value.\n- **Brakes** — Place a die to add braking power for the final landing.\n- **Concentration** — Place a die to gain coffee tokens (re-roll ability).\n\n#### Axis Balance\n- **Captain's axis die** — Tilts the plane one direction.\n- **Co-pilot's axis die** — Tilts the other direction.\n- **Balance check** — If the axis marker goes too far in either direction, the plane crashes.\n- **Target** — Keep the axis marker near center.\n\n#### Coffee Tokens\n- **Re-roll** — Spend a coffee token to re-roll 1 of your dice before placing it.\n- **Limited supply** — Coffee tokens are scarce; use wisely.\n- **Earned via concentration** — Place a die on the concentration slot to gain tokens."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Communication Limitation\n- **No dice discussion** — The core tension comes from not knowing your partner's dice values.\n- **Allowed communication** — General priorities (\"I can handle radio this round\"), preferences, and strategy.\n- **Forbidden communication** — Specific numbers, exact values, or pointing at specific dice.\n\n#### Traffic Management\n- **Approach planes** — Traffic airplanes sit on the approach track at specific altitudes.\n- **Collision risk** — If your plane descends to a space occupied by traffic, you crash.\n- **Clearing traffic** — Use the radio slot to remove traffic planes (die value must meet their requirement).\n- **Planning ahead** — Clear traffic before descending to those altitudes.\n\n#### Landing Requirements\n- **All gear deployed** — All 3 landing gear tokens must be deployed before landing.\n- **All flaps deployed** — Both flap tokens must be deployed before landing.\n- **Speed at or below limit** — Speed must not exceed the landing threshold.\n- **Axis balanced** — The axis must be at center or within tolerance.\n- **Approach clear** — No traffic planes in the landing zone.\n\n#### Modules (Advanced Play)\n- **Wind** — Shifts the axis unpredictably between rounds.\n- **Ice** — Blocks cockpit slots until cleared.\n- **Kerosene** — Adds fuel management; run out and you crash.\n- **Interns** — Adds a third die-placement slot type with special rules.\n- **Campaign airports** — Progressively harder airports with more modules."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Safe landing** — The plane reaches the end of the approach track with all landing requirements met.\n\n#### Loss Conditions\n- **Axis crash** — The axis marker reaches the extreme position in either direction.\n- **Traffic collision** — The plane descends to a space with uncleared traffic.\n- **Overshoot** — The plane's speed is too high to stop at the runway.\n- **Incomplete deployment** — Landing gear or flaps are not fully deployed when the plane reaches the runway.\n- **Approach overrun** — The plane descends past the end of the approach track.\n\n#### Scoring\n- **Binary outcome** — The game is a cooperative win or loss; no point scoring.\n- **Campaign progression** — Successfully landing unlocks harder airports and new modules.\n- **Difficulty scaling** — Each airport has a difficulty rating from beginner to expert."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Balance the axis first** — Crashing from axis imbalance is the most common loss; prioritize axis dice early.\n- **Communicate priorities** — Tell your partner which slots you can or want to fill (without revealing numbers).\n- **Start clearing traffic early** — Do not wait until the plane is about to reach traffic planes.\n- **Deploy gear and flaps gradually** — Spread deployment across rounds rather than rushing or delaying.\n- **Manage speed** — A controlled, moderate speed gives more rounds to set up for landing."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring the axis** — Even one unbalanced round can crash the plane.\n- **Descending too fast** — High speed leaves fewer rounds to deploy gear, clear traffic, and set up brakes.\n- **Hinting at dice values** — Breaking communication rules undermines the game's core challenge.\n- **Saving coffee tokens** — Using a re-roll at the right moment can save the game; do not hoard them.\n- **Forgetting landing requirements** — Reaching the runway without gear, flaps, or brakes deployed is an instant loss.\n- **Not reading your partner** — Pay attention to which slots they fill and what that implies about their remaining dice."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Which die to place first** — Leading with axis or engine sets expectations for your partner.\n- **Speed control** — Fast descent reduces rounds but increases pressure; slow descent gives time but risks running out of approach track.\n- **Radio vs other slots** — Clearing traffic is mandatory but competes with gear, flaps, and brakes for dice.\n- **When to use coffee** — Re-rolling can fix a bad situation, but tokens are limited.\n- **Trusting your partner** — Sometimes you must commit a die to a suboptimal slot, trusting your partner to cover a critical one."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

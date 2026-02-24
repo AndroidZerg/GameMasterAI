@@ -1,0 +1,17 @@
+{
+  "game_id": "stone-age",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP wins",
+  "tiebreaker": "Most total resources + food remaining, then most farm level + tool level",
+  "categories": [
+    {"id": "building_vp", "label": "Building VP", "type": "manual", "description": "VP scored from building tiles during the game"},
+    {"id": "card_immediate_vp", "label": "Civilization Card Immediate VP", "type": "manual", "description": "VP scored from civilization card immediate bonuses"},
+    {"id": "card_tool_multiplier", "label": "Tool Multiplier Cards", "type": "manual", "description": "VP = tool level x number of tool-multiplier cards"},
+    {"id": "card_farm_multiplier", "label": "Farm Multiplier Cards", "type": "manual", "description": "VP = farm level x number of farm-multiplier cards"},
+    {"id": "card_building_multiplier", "label": "Building Multiplier Cards", "type": "manual", "description": "VP = number of buildings x number of building-multiplier cards"},
+    {"id": "card_worker_multiplier", "label": "Worker Multiplier Cards", "type": "manual", "description": "VP = number of workers x number of worker-multiplier cards"},
+    {"id": "card_unique_sets", "label": "Unique Civilization Card Sets", "type": "manual", "description": "VP = n-squared for n unique background patterns collected"},
+    {"id": "remaining_resources", "label": "Remaining Resources & Food", "type": "manual", "description": "1 VP per remaining resource (wood, clay, stone, gold) and food"},
+    {"id": "starvation_penalty", "label": "Starvation Penalty", "points_each": -10, "type": "count", "is_penalty": true, "description": "-10 VP each time you could not feed all workers"}
+  ]
+}

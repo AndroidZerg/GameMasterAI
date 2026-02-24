@@ -1,0 +1,10 @@
+{
+  "game_id": "blokus",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "unplaced_squares", "label": "Unplaced Squares", "points_each": -1, "type": "count", "description": "Total squares in pieces you did not place (-1 each)"},
+    {"id": "all_pieces_bonus", "label": "All Pieces Placed Bonus", "points_each": 15, "type": "boolean", "description": "+15 if you placed all 21 pieces"},
+    {"id": "monomino_last_bonus", "label": "Monomino Last Bonus", "points_each": 5, "type": "boolean", "description": "+5 extra if the monomino was your last piece (in addition to all-pieces bonus, total +20)"}
+  ],
+  "win_condition": "Highest score wins (fewest unplaced squares or all-pieces bonus)"
+}

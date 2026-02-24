@@ -1,0 +1,15 @@
+{
+  "game_id": "alhambra",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 3 scoring rounds wins",
+  "tiebreaker": "Most building tiles in Alhambra, then most money card value",
+  "categories": [
+    {"id": "pavilion_majority", "label": "Pavilion Majority VP", "type": "manual", "description": "VP from Pavilion majority (up to 16/8/1 in final scoring)"},
+    {"id": "seraglio_majority", "label": "Seraglio Majority VP", "type": "manual", "description": "VP from Seraglio majority (up to 17/9/2 in final scoring)"},
+    {"id": "arcade_majority", "label": "Arcade Majority VP", "type": "manual", "description": "VP from Arcade majority (up to 18/10/3 in final scoring)"},
+    {"id": "chamber_majority", "label": "Chamber Majority VP", "type": "manual", "description": "VP from Chamber majority (up to 19/11/4 in final scoring)"},
+    {"id": "garden_majority", "label": "Garden Majority VP", "type": "manual", "description": "VP from Garden majority (up to 20/12/5 in final scoring)"},
+    {"id": "tower_majority", "label": "Tower Majority VP", "type": "manual", "description": "VP from Tower majority (up to 21/13/6 in final scoring)"},
+    {"id": "longest_wall", "label": "Longest Wall Bonus", "type": "manual", "description": "VP equal to the length of your longest contiguous outer wall"}
+  ]
+}

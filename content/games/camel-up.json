@@ -1,0 +1,106 @@
+{
+  "game_id": "camel-up",
+  "title": "Camel Up",
+  "aliases": ["Camel Cup"],
+  "publisher": "eggertspiele / Plan B Games",
+  "player_count": {
+    "min": 3,
+    "max": 8,
+    "recommended": 5,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "betting",
+    "dice",
+    "racing",
+    "family"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Camels & Track\n- **5 colored camels** — Stackable camel figures in blue, green, orange, white, and yellow.\n- **1 race track** — Modular track with 16 numbered spaces forming a loop.\n- **1 pyramid dice shaker** — Cardboard pyramid that dispenses one die at a time.\n\n#### Dice\n- **5 colored dice** — One matching each camel. Each die has faces: 1, 1, 1, 2, 2, 3.\n\n#### Betting Cards & Tiles\n- **5 leg betting tiles per camel** — Stacked in descending value (5, 3, 2, 2, 2) for each camel color.\n- **5 overall winner cards** — One per player, each showing all 5 camel colors for final winner bet.\n- **5 overall loser cards** — One per player, each showing all 5 camel colors for final loser bet.\n\n#### Desert Tiles & Coins\n- **Player desert tiles** — One per player, double-sided (oasis/mirage).\n- **Egyptian pound coins** — Currency in 1s and 5s.\n- **1 leg starting player marker** — Indicates current starting player."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Assemble the track** — Connect track pieces to form a 16-space racing loop.\n2. **Place the pyramid** — Set the dice pyramid near the track.\n3. **Load all 5 dice** — Place all 5 colored dice inside the pyramid.\n4. **Arrange leg betting tiles** — For each camel color, stack the 5 leg betting tiles in order (5 on top, then 3, 2, 2, 2) near the track.\n5. **Set up winner/loser areas** — Create face-down discard areas for overall winner and overall loser bets.\n6. **Place camels** — Roll each die once and place each camel on the matching numbered space (1, 2, or 3). If multiple camels land on the same space, stack them in the order they were rolled (later camels on top).\n7. **Return dice to pyramid** — After placing all camels, reload all 5 dice into the pyramid."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Resources\n- **Coins** — Each player receives 3 Egyptian pounds.\n- **Desert tile** — Each player takes 1 double-sided desert tile.\n- **Betting cards** — Each player takes a set of 5 overall race betting cards (one for each camel color).\n\n#### Player Count Notes\n- **3 players** — Standard setup.\n- **4-8 players** — Standard setup. More players means leg betting tiles run out faster, creating urgency to bet early."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Determine starting player** — Give the starting player marker to the youngest player (or choose randomly).\n2. **Camels are on the track** — All 5 camels should be placed on spaces 1-3 based on initial die rolls.\n3. **First leg begins** — The starting player takes the first turn of the first leg.\n4. **Game structure** — The race consists of multiple legs. A leg ends when all 5 dice have been rolled from the pyramid. The race ends when any camel crosses or lands on space 16."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, choose exactly **one** of the following four actions:\n\n1. **Take a leg betting tile** — Pick the top tile from any camel's stack to bet on that camel winning the current leg.\n2. **Place your desert tile** — Put your desert tile (oasis or mirage side) on an empty track space.\n3. **Roll a pyramid die** — Shake the pyramid and release one die. Move the corresponding camel.\n4. **Place an overall race bet** — Put one of your betting cards face down on the winner or loser pile.\n\nAfter completing your action, play passes clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Leg Betting\n- Take the top tile from any camel color's stack. The first tile taken is worth 5 if correct, then 3, then 2, etc.\n- At leg end: if that camel finished first, you earn the tile's value. If second, you earn 1 coin. If any other position, you lose 1 coin.\n\n#### Desert Tile Placement\n- Place your tile on any empty track space (no camel, no other desert tile, not space 1).\n- **Oasis side (+1)** — A camel landing here moves 1 additional space forward.\n- **Mirage side (-1)** — A camel landing here moves 1 space backward.\n- When any camel lands on your desert tile, you earn 1 coin from the bank regardless of which side is showing.\n- Your tile stays until you choose to move it on a future turn or the leg ends.\n\n#### Rolling a Pyramid Die\n- Shake the pyramid and pop out 1 random die. Move the matching camel forward the number shown (1, 2, or 3).\n- Collect 1 coin from the bank as payment for rolling.\n- The used die stays out of the pyramid for the rest of the leg.\n- **Stacking rule** — If a camel lands on a space occupied by another camel, it goes on top of the stack.\n- **Carrying rule** — When a camel moves, it carries all camels that are on top of it. The entire sub-stack moves together.\n\n#### Overall Race Bets\n- Place one of your 5 betting cards face down on either the overall winner or overall loser pile.\n- Earlier correct bets pay more: 1st correct = 8 coins, 2nd = 5, 3rd = 3, 4th = 2, all others = 1.\n- Incorrect bets lose 1 coin each."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Camel Stacking\n- Camels stack on top of each other when sharing a space.\n- The camel on top of a stack is considered to be **in the lead** among camels on that space.\n- When a camel moves, it picks up every camel above it in the stack (but not those below). The entire group lands on the destination and goes on top of any camels already there.\n- **Mirage interaction** — If a camel moves backward onto an occupied space due to a mirage tile, it goes to the bottom of the existing stack instead of the top.\n\n#### Leg End\n- A leg ends when all 5 dice have been rolled out of the pyramid.\n- **Score leg bets** — Determine which camel is in first place (farthest along the track; if tied, highest in stack). Score all leg betting tiles.\n- **Return desert tiles** — All desert tiles return to their owners.\n- **Reset dice** — Place all 5 dice back in the pyramid.\n- **New starting player** — Pass the starting player marker clockwise.\n- Begin the next leg.\n\n#### Race End Trigger\n- The race ends immediately when any camel crosses or reaches space 16.\n- Finish scoring the current leg, then score overall race bets."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Final Scoring\n1. **Score final leg** — Pay out leg betting tiles as normal for the leg in which a camel crossed space 16.\n2. **Score overall winner bets** — Reveal the winner pile in order (first placed on bottom). The camel in first place is the winner. Award 8, 5, 3, 2, 1 coins for correct bets in order. Incorrect bets lose 1 coin.\n3. **Score overall loser bets** — Same process for the camel in last place. Award 8, 5, 3, 2, 1 coins for correct bets. Incorrect bets lose 1 coin.\n4. **Count coins** — Each player totals their Egyptian pounds.\n\n#### Win Condition\n- **Most coins wins** — The player with the most Egyptian pounds is the winner.\n- **Tiebreaker** — If tied, the tied player with the most remaining overall bet cards wins. If still tied, players share the victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Bet early for value** — The first leg betting tile is worth 5 coins. If any camel has a strong lead, grab that tile immediately before someone else does.\n- **Watch starting positions** — Camels that start on top of a stack get carried forward for free. Bet on camels with favorable stacking.\n- **Save overall bets for information** — Don't rush overall winner/loser bets on the first leg. Wait until stacking patterns and positions become clearer.\n- **Roll when uncertain** — If no bet looks appealing, rolling is a safe 1-coin income that also reveals information for future bets."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Late leg bets** — Taking a 2-value leg tile is rarely worth the risk of losing 1 coin. Bet early or don't bet.\n- **Ignoring stacking dynamics** — A camel on top of a stack in the middle of the pack can surge to first if the bottom camel rolls a 3. Always consider carry potential.\n- **Too many overall bets** — Each wrong overall bet costs 1 coin. Placing 3-4 speculative bets can wipe out your winnings.\n- **Forgetting desert tile income** — A well-placed desert tile in the path of camels can earn steady passive income each leg.\n- **Misjudging last place** — The overall loser bet is just as valuable as the winner bet. Track the trailing camel carefully."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Bet vs. roll timing** — Betting locks in information but rolling generates guaranteed income and reveals dice. Decide based on confidence in camel positions.\n- **Desert tile side selection** — Oasis helps leading camels extend leads, mirage slows them. Choose based on which camels you have bet on.\n- **Overall bet timing** — Earlier bets pay more but carry more risk. The sweet spot is usually after leg 1 or 2 when leaders emerge.\n- **Stack reading** — Analyze which dice remain in the pyramid and what outcomes benefit your bets. Count rolled vs. unrolled dice to assess probabilities.\n- **Camel position vs. stack position** — A camel in second place but on top of the first-place stack is actually co-leading. Factor in vertical position when betting."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "game_id": "clue",
+  "title": "Clue",
+  "aliases": [
+    "Cluedo",
+    "Clue Classic",
+    "Cluedo Classic"
+  ],
+  "publisher": "Hasbro",
+  "player_count": {
+    "min": 3,
+    "max": 6,
+    "recommended": 5,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 60
+  },
+  "complexity": "gateway",
+  "categories": [
+    "deduction",
+    "mystery",
+    "classic"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference (Step 0 Audit)\n- **Standard game** — 3 to 6 players.\n- **Recommended** — 5 players for best deduction experience.\n\n#### Board\n- **Game board** — 1 mansion board showing 9 rooms connected by hallways and secret passages.\n\n#### Cards (21 total)\n- **Suspect cards** — 6 cards: Miss Scarlet, Colonel Mustard, Mrs. White, Reverend Green, Mrs. Peacock, Professor Plum.\n- **Weapon cards** — 6 cards: Candlestick, Knife, Lead Pipe, Revolver, Rope, Wrench.\n- **Room cards** — 9 cards: Kitchen, Ballroom, Conservatory, Billiard Room, Library, Study, Hall, Lounge, Dining Room.\n\n#### Player Pieces\n- **Character tokens** — 6 colored tokens (one per suspect).\n- **Weapon tokens** — 6 miniature weapon pieces.\n\n#### Other Components\n- **Confidential envelope** — 1 envelope labeled \"Confidential\" or \"Case File.\"\n- **Detective notepads** — Pad of deduction sheets (one sheet per player per game).\n- **Dice** — 1 or 2 standard six-sided dice (varies by edition).\n- **Rulebook** — 1 rulebook."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Mansion Layout\n- **9 rooms** — Kitchen, Ballroom, Conservatory, Billiard Room, Library, Study, Hall, Lounge, Dining Room.\n- **Hallways** — Spaces connecting rooms. Players must traverse hallways to move between rooms.\n- **Doorways** — Each room has 1 or more doorways connecting to adjacent hallways.\n\n#### Secret Passages\n- **Diagonal corners** — 2 pairs of rooms have secret passages allowing instant travel between them:\n  - Kitchen to Study (and vice versa).\n  - Conservatory to Lounge (and vice versa).\n- **No roll needed** — Using a secret passage does not require a die roll and counts as your move for the turn.\n\n#### Starting Positions\n- **Designated squares** — Each character has a specific starting square on the outer edge of the board, marked with their color or name."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Case File Setup\n1. **Separate by type** — Sort the 21 cards into 3 piles: suspects, weapons, rooms.\n2. **Draw the solution** — Without looking, draw 1 card from each pile (1 suspect, 1 weapon, 1 room).\n3. **Seal the envelope** — Place these 3 cards face-down in the Confidential envelope. This is the solution.\n4. **Shuffle and deal** — Shuffle all remaining 18 cards together and deal them evenly to all players.\n5. **Uneven hands** — If cards do not divide evenly, some players will have 1 extra card. This is normal.\n\n#### Player Preparation\n- **Character selection** — Each player chooses a suspect character and takes the matching token.\n- **Detective notepad** — Each player takes 1 sheet from the detective notepad.\n- **Mark own cards** — Immediately cross off all cards in your own hand on your notepad. These cannot be the solution.\n- **Place tokens** — Put all 6 character tokens on their starting positions (even unused characters — they can still be suggested).\n- **Place weapons** — Put 1 weapon token in each of 6 different rooms (random assignment)."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- **Miss Scarlet starts** — The player controlling Miss Scarlet goes first (she is closest to the first room).\n- **If not in play** — If Miss Scarlet is not a player character, the player to her left on the board goes first.\n- **Turn order** — Play proceeds clockwise.\n\n#### First Turn\n1. **Roll** — Roll the die/dice.\n2. **Move** — Move your token up to that many spaces toward a room.\n3. **Enter a room** — If you reach a room's doorway, enter the room and stop (even if you have movement remaining).\n4. **Make a Suggestion** — If in a room, you may make a Suggestion."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\n1. **Roll the dice** — Roll and move your token up to that many spaces.\n2. **Movement options** — Move through hallways toward a room, use a secret passage (no roll needed), or stay in your current room.\n3. **Enter a room** — Entering a room ends your movement.\n4. **Make a Suggestion** — If you are in a room, you may make a Suggestion naming that room, any suspect, and any weapon.\n5. **Disprove process** — Starting with the player to your left, each player checks if they hold any of the 3 named cards. The first player who can must secretly show you exactly 1 matching card.\n6. **Record information** — Mark your notepad based on what you learn.\n7. **End turn** — Play passes clockwise.\n\n#### Movement Rules\n- **Hallway spaces** — Count each hallway square as 1 movement point.\n- **No backtracking** — You cannot pass through a space you already occupied this turn.\n- **Hallway blocking** — Only 1 token can occupy a hallway space. You cannot move through an occupied hallway space.\n- **Room capacity** — Any number of tokens can be in a room simultaneously.\n- **Doorway entry** — Entering a room through its doorway costs 1 movement point."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Making a Suggestion\n- **Room restriction** — You must name the room you are currently in.\n- **Any suspect and weapon** — You may name any suspect and any weapon regardless of their current location.\n- **Move named pieces** — The named suspect token and weapon token are moved into the room where you are making the Suggestion.\n- **Purpose** — Suggestions are how you gather information by seeing which players can (or cannot) disprove them.\n\n#### Disproving a Suggestion\n- **Left to right** — Starting with the player to the suggester's left, each player checks their hand.\n- **Must show** — If a player holds 1 or more of the 3 named cards, they MUST show exactly 1 card secretly to the suggester.\n- **Choice** — If a player holds 2 or 3 matching cards, they choose which one to show.\n- **Cannot show** — If a player holds none of the 3 cards, they say \"I cannot disprove\" and the check passes to the next player.\n- **Stops at first** — Once one player shows a card, no further players are asked.\n- **None can disprove** — If no player can show a card, the Suggestion stands undisproven (strong evidence for an Accusation).\n\n#### Making an Accusation\n- **Any time on your turn** — You may make an Accusation instead of or in addition to a Suggestion.\n- **Any combination** — Name any suspect, weapon, and room (you do not need to be in the named room).\n- **Check the envelope** — Secretly look at the 3 cards in the Confidential envelope.\n- **Correct** — You win the game immediately. Show the cards to all players.\n- **Incorrect** — Return the cards to the envelope without revealing them. You are eliminated from the game but still participate in disproving other players' Suggestions.\n- **One chance** — You only get one Accusation per game. An incorrect Accusation eliminates you."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Detective Notepad\n- **Tracking tool** — Use the notepad grid to mark information you learn each turn.\n- **Cross off cards you hold** — These are definitely not in the envelope.\n- **Mark shown cards** — When a player shows you a card, cross it off.\n- **Track who showed what** — Advanced players note which player showed a card and from which Suggestion.\n- **Process of elimination** — When 5 of 6 suspects are eliminated, the 6th must be in the envelope.\n\n#### Secret Passages\n- **Instant travel** — Using a secret passage counts as your entire move for the turn (no die roll).\n- **Kitchen-Study** — Move instantly between Kitchen and Study.\n- **Conservatory-Lounge** — Move instantly between Conservatory and Lounge.\n- **Then Suggest** — After using a secret passage, you may make a Suggestion in the room you arrived in.\n\n#### Moved by Suggestion\n- **Pulled into a room** — If another player's Suggestion names your character, your token is moved to that room.\n- **On your next turn** — You may choose to stay in that room (and make a Suggestion there) or leave.\n\n#### Eliminated Players\n- **Still participate** — Eliminated players still show cards to disprove Suggestions.\n- **No movement** — Eliminated players do not roll, move, or make Suggestions/Accusations.\n- **Token stays** — Their token remains on the board and can still be named in Suggestions."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning Condition\n- **Correct Accusation** — The first player to make a correct Accusation (matching all 3 envelope cards) wins immediately.\n\n#### Losing Condition\n- **Wrong Accusation** — A player who makes an incorrect Accusation is eliminated. They remain to disprove Suggestions but cannot win.\n\n#### Game End Scenarios\n- **Winner found** — A correct Accusation ends the game instantly.\n- **All eliminated** — If all players except one have been eliminated by incorrect Accusations, the last remaining player wins by default.\n- **All eliminated including last** — In rare cases, if every player makes an incorrect Accusation, the last eliminated player is sometimes considered the winner (house rule).\n\n#### Scoring Model\n- **No points** — Clue has no scoring system.\n- **Binary outcome** — You either solve the mystery correctly or you do not.\n- **Race format** — First correct Accusation wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Information Gathering\n- **Suggest cards you hold** — Include 1 or 2 of your own cards in early Suggestions. If a player shows you a card, you learn which specific card they hold (since you know the others are yours).\n- **Vary your Suggestions** — Change 1 element at a time between Suggestions to isolate which card was shown.\n- **Visit different rooms** — Move to new rooms each turn to test different room cards.\n\n#### Notepad Organization\n- **Mark everything** — Record not just card eliminations but WHO showed you a card and WHEN.\n- **Track non-shows** — When a player says \"I cannot disprove,\" note that they do NOT hold any of those 3 cards. This negative information is extremely valuable."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Premature Accusation** — Making an Accusation with less than full certainty. You only get one chance — be sure.\n- **Ignoring negative information** — Failing to track when players CANNOT disprove. This is as valuable as seeing a card.\n- **Predictable Suggestions** — Always suggesting your most-suspected answer tips off opponents about your deduction progress.\n- **Not using secret passages** — Forgetting about Kitchen-Study and Conservatory-Lounge shortcuts wastes turns.\n- **Poor notepad hygiene** — Sloppy tracking leads to logical errors and wasted Suggestions.\n- **Showing the wrong card** — When you must disprove, choose carefully. Show the card that reveals the least new information to the asker."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Which Card to Show When Disproving?\n- **Show known cards** — If the suggester has already seen a card from you, show the same one again to avoid revealing new information.\n- **Show common cards** — Show a card that other players likely also hold or have already seen.\n\n#### Decision 2: When to Accuse?\n- **High certainty** — Only accuse when you have eliminated all but 1 suspect, 1 weapon, and 1 room through your notepad.\n- **Urgency factor** — If another player seems close to solving, you may need to risk an Accusation with slightly less certainty.\n\n#### Decision 3: Movement Priority\n- **Room variety** — Prioritize visiting rooms whose cards you have not yet eliminated.\n- **Secret passage loops** — Use Kitchen-Study or Conservatory-Lounge to alternate between rooms without rolling, making a Suggestion every turn.\n- **Blocking** — Position yourself in hallways to slow opponents (only 1 token per hallway space)."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

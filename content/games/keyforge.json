@@ -1,0 +1,101 @@
+{
+  "game_id": "keyforge",
+  "title": "KeyForge",
+  "aliases": ["KeyForge: Call of the Archons", "KeyForge: Age of Ascension", "KeyForge: Worlds Collide"],
+  "publisher": "Ghost Galaxy",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": ["hand-management", "fighting", "unique-deck"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Per Archon Deck\n- **36 cards** — Each deck is unique and procedurally generated.\n- **3 houses** — Each deck contains cards from exactly 3 of the available houses (12 cards per house).\n- **Archon card** — Identity card showing the deck's unique name and house composition.\n- **Card types** — Creatures, Artifacts, Actions, Upgrades.\n\n#### Shared Components\n- **Key tokens** — 6 key tokens (3 per player, in two colors).\n- **Aember tokens** — Pool of Aember tokens for gaining and spending.\n- **Damage tokens** — Track damage on creatures.\n- **Stun cards** — Status effect markers.\n- **Power counters** — Modify creature power.\n- **Chain tracker** — Cards or dial for tracking chains (handicap system).\n\n#### Available Houses (varies by set)\n- **Examples** — Brobnar, Dis, Logos, Mars, Sanctum, Shadows, Untamed, Star Alliance, Saurian, and others depending on set."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Each player takes a deck** — Players use their own unique Archon deck; no deckbuilding.\n2. **Place Archon card** — Set identity card face up.\n3. **Unforged keys** — Place 3 unforged key tokens in front of each player.\n4. **Supply tokens** — Place Aember, damage, stun, and power tokens in shared supply.\n5. **No shared board** — Each player has their own battleline (row of creatures) and artifact area.\n6. **Shuffle decks** — Each player shuffles their 36-card deck."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Hand\n- **First player** — Draws 7 cards, then must mulligan to 6 cards (mandatory for balance).\n- **Second player** — Draws 7 cards; may optionally mulligan (shuffle all back, draw 7 again, then discard 1).\n- **No partial mulligan** — Mulligan is all-or-nothing.\n\n#### Battleline\n- **Creatures** — Played to left or right flank of your battleline.\n- **Artifacts** — Placed in a separate row.\n- **Aember pool** — Track your current Aember.\n\n#### First Turn Restriction\n- **First player limitation** — On their first turn, the first player can only play or discard 1 card."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Determine first player** — Use any random method.\n2. **Apply chains** — If using the chain handicap system, apply chains before drawing.\n3. **Draw starting hands** — First player draws 7 (keeps 6); second player draws 7.\n4. **First player takes turn** — With the first-turn play restriction.\n5. **Alternate turns** — Players alternate full turns."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Steps (in order)\n1. **Forge a key** — If you have 6+ Aember, you must forge a key (spend 6 Aember, flip a key token).\n2. **Choose a house** — Declare one of your deck's 3 houses as your active house for this turn.\n3. **Play, discard, and use cards** — Play any number of cards from the active house; use any number of active-house creatures/artifacts already in play; discard active-house cards from hand.\n4. **Ready cards** — Ready all of your exhausted cards.\n5. **Draw cards** — Draw back up to 6 cards.\n\n#### Key Rule\n- **Mandatory forge** — Forging is mandatory at start of turn if you have enough Aember.\n- **Key cost** — Default is 6 Aember; some card effects modify this.\n- **Victory** — First player to forge 3 keys wins immediately."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Playing Cards\n- **Creatures** — Enter play exhausted on a flank (left or right end of battleline).\n- **Artifacts** — Enter play ready in your artifact area.\n- **Actions** — Resolve immediately and discard.\n- **Upgrades** — Attach to a creature, modifying it.\n\n#### Using Creatures\n- **Reap** — Exhaust a ready creature to gain 1 Aember. Triggers \"Reap:\" abilities.\n- **Fight** — Exhaust a ready creature to fight an enemy creature. Both deal their power as damage simultaneously.\n- **Action ability** — Exhaust to use a creature's \"Action:\" ability.\n- **Stun interaction** — Using a stunned creature removes the stun instead of performing the action.\n\n#### Using Artifacts\n- **Action ability** — Exhaust to use the artifact's \"Action:\" ability.\n- **Omni ability** — Some artifacts have \"Omni:\" abilities usable even when their house is not active.\n\n#### Combat Details\n- **Mutual damage** — Both fighting creatures deal damage equal to their power simultaneously.\n- **Destruction** — A creature with damage equal to or exceeding its power is destroyed.\n- **Taunt** — Creatures with taunt must be attacked before non-taunt creatures.\n- **Elusive** — Elusive creatures take no damage the first time they are attacked each turn.\n- **Skirmish** — Creature deals damage in a fight but does not receive damage.\n\n#### Aember Control\n- **Steal** — Take Aember from opponent's pool and add to yours.\n- **Capture** — Place Aember from opponent's pool on your creature; returns to opponent when creature is destroyed.\n- **Aember bonus** — Cards with Aember icons on them grant that much Aember when played."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Unique Deck System\n- **No deckbuilding** — Every deck is played exactly as printed; no modifications allowed.\n- **Procedural generation** — Each deck is algorithmically generated with a unique name and card combination.\n- **Deck identity** — The Archon card and QR code identify the deck for organized play.\n\n#### Chains (Handicap System)\n- **Chain count** — Chains reduce your hand size when drawing.\n- **Shedding chains** — Each time you draw fewer cards due to chains, remove 1 chain.\n- **Application** — Used to balance decks of different power levels.\n- **Draw penalty** — Chains 1-6: draw 1 fewer; Chains 7-12: draw 2 fewer; and so on.\n\n#### House Selection Strategy\n- **All-or-nothing** — You can only interact with cards from your chosen house each turn.\n- **Off-house cards** — Cards from non-active houses sit idle in hand and in play.\n- **Omni exception** — Cards with \"Omni:\" abilities can be used regardless of active house.\n\n#### Card Abilities\n- **Play:** — Triggers when the card enters play.\n- **Reap:** — Triggers when the creature reaps.\n- **Fight:** — Triggers when the creature fights.\n- **Destroyed:** — Triggers when the card is destroyed.\n- **Before Fight:** — Resolves before combat damage.\n- **Action:** — Activated by exhausting the card.\n- **Omni:** — Usable regardless of active house (still exhausts)."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Forge 3 keys** — First player to forge their third key wins immediately.\n- **Forge timing** — Keys are forged at the start of your turn before any other actions.\n\n#### Key Cost\n- **Default cost** — 6 Aember per key.\n- **Modified cost** — Some card effects increase or decrease key cost.\n\n#### No Points System\n- **Race format** — The game is a race to 3 keys; there is no VP tally.\n- **No tiebreaker** — Only one player forges at a time (start of their turn), so ties are impossible."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Identify your deck's strengths** — Determine if your deck excels at Aember generation, board control, or disruption.\n- **Establish board presence** — Play creatures early to create reap opportunities in subsequent turns.\n- **Choose house with most impact** — Select the house that develops your board or generates the most Aember.\n- **Track opponent's Aember** — Monitor when they approach 6 to prepare steal or capture responses.\n- **Use the first-turn restriction wisely** — First player should play their most impactful single card."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring opponent's Aember** — Letting the opponent accumulate 6+ Aember without disruption leads to quick key forges.\n- **Fighting when you should reap** — Unnecessary fights waste creatures; reap to generate Aember unless combat is essential.\n- **Poor house selection** — Choosing a house with few cards in hand or in play wastes a turn.\n- **Hoarding cards** — Holding cards in hand from non-active houses is fine, but never playing them is wasteful.\n- **Forgetting mandatory forge** — You must forge at the start of your turn if you have 6+ Aember; missing it is an illegal play.\n- **Misplacing creatures** — Flank placement matters for cards with positional abilities."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Reap vs fight** — Generate Aember for yourself or eliminate a threatening creature.\n- **House selection** — Balance between progressing your board and responding to opponent threats.\n- **When to go wide vs tall** — More creatures means more reap opportunities; fewer stronger creatures resist removal.\n- **Aember burst vs steady generation** — Save high-Aember turns for when opponent cannot respond, or spread generation evenly.\n- **Defensive play near 3 keys** — When opponent is at 2 keys, prioritize Aember control over your own generation."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "game_id": "five-tribes",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP wins",
+  "tiebreaker": "Most Viziers + Elders combined, then most goods cards",
+  "categories": [
+    {"id": "coins", "label": "Coins (1 VP each)", "points_each": 1, "type": "count", "description": "1 VP per coin remaining"},
+    {"id": "viziers", "label": "Vizier VP", "type": "manual", "description": "10 VP per Vizier owned plus 10 VP per opponent with fewer Viziers"},
+    {"id": "elders", "label": "Elders", "points_each": 2, "type": "count", "description": "2 VP per Elder owned"},
+    {"id": "claimed_tiles", "label": "Claimed Tile VP", "type": "manual", "description": "VP printed on each tile you claimed with a camel"},
+    {"id": "palm_trees", "label": "Palm Trees", "points_each": 3, "type": "count", "description": "3 VP per palm tree on your claimed tiles"},
+    {"id": "palaces", "label": "Palaces", "points_each": 5, "type": "count", "description": "5 VP per palace on your claimed tiles"},
+    {"id": "djinns", "label": "Djinn VP", "type": "manual", "description": "VP as printed on each Djinn card collected"},
+    {"id": "merchandise", "label": "Unsold Merchandise VP", "type": "manual", "description": "Sell remaining resource cards at set values (converted to coins/VP)"}
+  ]
+}

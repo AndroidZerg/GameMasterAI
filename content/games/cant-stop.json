@@ -1,0 +1,107 @@
+{
+  "game_id": "cant-stop",
+  "title": "Can't Stop",
+  "aliases": [
+    "Can't Stop (1980)",
+    "Cant Stop"
+  ],
+  "publisher": "Eagle-Gryphon Games",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "dice",
+    "push-your-luck"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Game board** — 1 board showing 11 numbered columns (2 through 12).\n- **Dice** — 4 standard six-sided dice.\n- **Runner markers** — 3 white (neutral) runner cones used by the active player.\n- **Player markers** — A set of colored cones for each player (11 per player, one for each column). Colors vary by edition but typically include red, blue, green, and yellow.\n\n#### Column Lengths\nThe columns have different lengths based on the probability of rolling each sum:\n- **Column 2** — 3 spaces.\n- **Column 3** — 5 spaces.\n- **Column 4** — 7 spaces.\n- **Column 5** — 9 spaces.\n- **Column 6** — 11 spaces.\n- **Column 7** — 13 spaces (longest, most probable sum).\n- **Column 8** — 11 spaces.\n- **Column 9** — 9 spaces.\n- **Column 10** — 7 spaces.\n- **Column 11** — 5 spaces.\n- **Column 12** — 3 spaces."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Board Structure\n- **11 columns** — Arranged side by side, numbered 2 through 12 at the top.\n- **Variable heights** — Each column has a number of spaces matching the probability distribution of rolling that sum with two dice. Column 7 is tallest (13 spaces), columns 2 and 12 are shortest (3 spaces).\n- **Finish line** — The top space of each column is the goal. Reaching or passing it claims that column.\n\n#### Board Placement\n1. Place the board in the center of the table where all players can reach it.\n2. Each player takes all cones of one color and keeps them in front of them.\n3. Place the 3 white runner markers near the board for shared use.\n4. All 4 dice are placed near the active player."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### What Each Player Gets\n- **Player cones** — 11 colored cones matching their chosen color.\n- **Starting position** — All cones start off the board.\n\n#### Shared Components\n- **Runner cones** — 3 white cones available to whichever player is taking their turn.\n- **Dice** — 4 dice shared by all players.\n\n#### What Starts Empty\n- **All columns** — No markers on the board at the start of the game.\n- **Runner pool** — All 3 runners are available at the start of each turn."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Determining First Player\n- The youngest player goes first, or choose randomly.\n- Play proceeds clockwise.\n\n#### First Turn\n- The starting player takes the 4 dice and the 3 white runner cones.\n- There is no special first-turn rule; play begins normally.\n\n#### Important Setup Reminders\n- Make sure all players understand that runners are temporary and only lock in when you choose to stop.\n- Clarify that a column is claimed permanently once any player reaches the top — no other player may advance in that column afterward."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Overview\nOn your turn, you repeatedly roll 4 dice and try to advance runners up columns. You may stop at any time to lock in progress, or keep rolling and risk losing everything.\n\n#### Step-by-Step Turn\n1. **Roll all 4 dice** — Pick up all 4 dice and roll them.\n2. **Form two pairs** — Divide the 4 dice into two pairs. Each pair produces a sum (e.g., dice showing 2, 3, 5, 6 could be paired as 2+3=5 and 5+6=11, or 2+5=7 and 3+6=9, or 2+6=8 and 3+5=8). You choose how to pair them.\n3. **Place or advance runners** — For each sum, place a runner on that column (if not already there) or advance an existing runner one space up. You may only have runners in 3 different columns at a time.\n4. **Decide: Stop or Continue** — After placing/advancing runners, choose to stop (lock progress) or roll again.\n\n#### Stopping\n- Replace each runner with one of your colored cones at the runner's current position.\n- On future turns, your colored cones mark where you resume.\n- Pass the dice to the next player.\n\n#### Busting\n- If you roll and cannot legally place or advance any runner (all 3 runners are committed to columns and none of the possible sums match those columns), you bust.\n- Remove all 3 runners from the board. You lose ALL progress made this turn.\n- Your colored cones from previous turns remain in place.\n- Pass the dice to the next player."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Pairing Dice\nWith 4 dice, there are exactly 3 ways to form two pairs:\n- Dice A+B and C+D\n- Dice A+C and B+D\n- Dice A+D and B+C\n\nYou must choose one of these three pairings. You then attempt to use both sums from your chosen pairing.\n\n#### Placing Runners\n- If a sum matches a column where you already have a runner, advance that runner one space.\n- If a sum matches a column with no runner, and you have a free runner (fewer than 3 on the board), place a new runner. If you have a colored cone in that column already, place the runner one space above your cone.\n- If a sum matches a column with no runner and all 3 runners are already placed in other columns, you cannot use that sum.\n- If a column has already been claimed (by you or another player), you cannot place or advance in it.\n\n#### Using Both Sums\n- You must use at least one sum from your chosen pairing if possible.\n- If both sums are usable, you must use both.\n- If only one sum is usable, use that one and ignore the other.\n- If neither sum from any pairing is usable, you bust.\n\n#### Voluntary Stop\n- After resolving a roll, you may choose to stop.\n- Lock in all runner positions with your colored cones.\n- Return all 3 white runners to the supply."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Claiming a Column\n- When a runner (or your cone on a subsequent turn) reaches or passes the top space of a column, you claim that column.\n- Place one of your colored cones at the top to show ownership.\n- Remove all other players' cones from that column — they lose their progress.\n- No player may enter or advance in a claimed column for the rest of the game.\n\n#### Probability and Column Design\nThe column lengths reflect two-dice probability:\n- **Sum of 7** — Most likely (6 out of 36 combinations), so column 7 has 13 spaces.\n- **Sums of 2 and 12** — Least likely (1 out of 36 each), so those columns have only 3 spaces.\n- **Middle sums (5-9)** — More common, longer columns.\n- **Edge sums (2-4, 10-12)** — Less common, shorter columns.\n\n#### Runner Limit\n- You may never have runners in more than 3 columns at once during a single turn.\n- This is the core tension: once your 3 runners are committed, any roll that doesn't match one of those 3 columns is wasted, increasing bust risk.\n\n#### Already Claimed Columns\n- If a column is claimed, any dice sum matching that column is simply unusable.\n- As more columns get claimed, busting becomes more likely for all players."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Winning the Game\n- The first player to claim 3 columns wins immediately.\n- There is no point scoring — it is purely a race to claim 3 columns.\n\n#### Immediate Victory\n- If you claim your third column during a turn (by reaching the top and choosing to stop), the game ends and you win.\n- You must choose to stop to lock in your claim. If you keep rolling after reaching the top and later bust, you do not claim the column.\n\n#### Tie-Breaking\n- There are no ties in Can't Stop. Only one player can claim a column, and the game ends the instant someone claims their third."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Column Selection\n- **Middle columns (5-9)** are easier to roll but require more spaces to climb. They are safer but slower.\n- **Edge columns (2-4, 10-12)** are harder to roll but require fewer spaces. They are riskier but faster to claim.\n- **A balanced approach** targets one or two middle columns plus one edge column.\n\n#### Early Game Goals\n- Establish progress in 2-3 columns early so you have a head start.\n- Don't overcommit to extreme columns (2 or 12) early — the probability is very low and you'll bust frequently.\n- Column 7 is tempting because it comes up often, but it requires 13 spaces, making it a long investment."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Pushing Too Hard\n- The most common mistake is rolling \"just one more time\" when you have significant progress to lock in.\n- If you've advanced 4-5 spaces in a turn, strongly consider stopping.\n\n#### Ignoring Probability\n- Players often chase columns 2 and 12 without realizing how rarely those sums appear.\n- Conversely, players undervalue columns 6 and 8, which come up almost as often as 7.\n\n#### Neglecting Runner Commitment\n- Once all 3 runners are placed, your bust probability increases dramatically.\n- Be cautious about placing your third runner in a column you don't intend to pursue seriously.\n\n#### Not Watching Opponents\n- If an opponent is one space from claiming a column you're also pursuing, you may need to push harder to beat them — or abandon that column entirely."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### When to Stop vs. Continue\n- **Stop if:** You've made good progress (3+ spaces), you're close to claiming a column and don't want to risk it, or your 3 runners are in columns that are hard to roll together.\n- **Continue if:** You've made little progress, your runners are in high-probability columns, or you're behind and need to catch up.\n\n#### Pairing Strategy\n- When you have a choice of pairings, prefer the pairing that uses columns where you already have runners.\n- Avoid placing your third runner unless the column is valuable and likely to come up again.\n- Sometimes it's better to use a pairing that advances one runner twice (same sum on both pairs) rather than spreading across two new columns.\n\n#### Column Priority\n- Pursue columns your opponents haven't invested in — you won't face a race.\n- If two players are racing up the same column, consider whether the investment is worth the risk of losing all progress if they claim it first.\n- Adjacent columns (like 6, 7, 8) work well together because many dice combinations produce those sums, reducing bust probability when all 3 runners are committed."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

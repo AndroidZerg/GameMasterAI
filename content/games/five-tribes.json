@@ -1,0 +1,93 @@
+{
+  "game_id": "five-tribes",
+  "title": "Five Tribes",
+  "aliases": ["Five Tribes: The Djinns of Naqala"],
+  "publisher": "Days of Wonder",
+  "player_count": {"min": 2, "max": 4, "recommended": 3},
+  "play_time_minutes": {"min": 40, "max": 80},
+  "complexity": "midweight",
+  "categories": ["area-control", "set-collection", "mancala"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board & Tiles\n- **Sultan tiles** — 30 double-sided tiles forming a 5x6 grid (the Sultanate of Naqala).\n- **Tile types** — Oases (blue), Villages (red), Markets (small & large), Sacred Places (orange), and generic tiles with various point values (5-15 VP).\n\n#### Meeples (90 total)\n- **Viziers (yellow)** — 16 meeples.\n- **Elders (white)** — 20 meeples.\n- **Merchants (green)** — 18 meeples.\n- **Builders (blue)** — 18 meeples.\n- **Assassins (red)** — 18 meeples.\n\n#### Cards & Tokens\n- **Djinn cards** — 22 cards with special powers.\n- **Resource cards** — 54 cards (Ivory, Jewels, Gold, Papyrus, Silk, Spices, Fish, Wheat, Pottery).\n- **Palm trees** — Wooden palm tokens.\n- **Palaces** — Wooden palace tokens.\n- **Coins** — Gold coins (1 and 5 denominations).\n- **Turn order / bid track** — Track for bidding on turn order.\n- **Camels** — 8 per player (claim markers for tiles)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Grid Setup\n1. **Shuffle tiles** — Shuffle all 30 Sultan tiles face down.\n2. **Place grid** — Lay tiles face up in a 5x6 grid.\n3. **Populate meeples** — Place all 90 meeples in a bag, then randomly draw and place 3 meeples on each of the 30 tiles.\n4. **Resource deck** — Shuffle the 54 resource cards and place face down. Reveal the top 9 cards in a face-up row (the market).\n5. **Djinn deck** — Shuffle the 22 Djinn cards and place face down. Reveal the top 3 face up.\n6. **Palm trees and palaces** — Place in supply piles near the board.\n7. **Coin supply** — Place all coins in a supply.\n8. **Turn order track** — Place near the board with bid markers."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n1. **Camels** — Receive 8 camels in your player color.\n2. **Starting coins** — Receive 50 coins (kept hidden from other players).\n3. **Turn order marker** — Place 1 marker on the turn order track.\n4. **No starting cards** — Players begin with no resource cards or Djinns.\n\n#### Hidden Information\n- **Coins are secret** — Players keep their coin totals hidden behind a screen or cupped hand. This is a critical rule."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Round\n- **Initial turn order** — Randomly determine the initial turn order for the first round.\n- **Bidding** — Starting from the second round onward, players bid coins for turn order.\n\n#### Board State\n- Each tile has exactly 3 random meeples on it.\n- 9 resource cards are visible in the market row.\n- 3 Djinn cards are visible.\n- The game is ready to begin."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Bid for turn order** — Each player secretly places coins (0+) to bid on going first. Highest bidder goes first. Ties broken by previous turn order position. Bid coins go to the supply.\n2. **Player turns** — In turn order, each player performs a mancala move and actions.\n3. **Clean up** — Refill market row to 9 cards and Djinn display to 3 cards.\n\n#### On Your Turn\n1. **Pick up meeples** — Choose any tile on the board and pick up ALL meeples on it.\n2. **Sow meeples** — Move in orthogonal directions (no diagonals), dropping 1 meeple per tile as you move through adjacent tiles. You must change direction or continue straight, but cannot backtrack to the tile you just left.\n3. **Last meeple rule** — The last meeple you drop must match the color of at least 1 other meeple already on that destination tile.\n4. **Collect tribe** — Pick up all meeples of the last-dropped color from the final tile (including the one you just placed). These meeples determine your tribe action.\n5. **Tile action** — Perform the action of the tile where your last meeple landed.\n6. **Claim tile (optional)** — If the final tile is now empty of all meeples, place one of your camels to claim it.\n\n#### Tile Claiming\n- Place 1 camel on an empty tile to claim ownership. You score that tile's VP at game end.\n- You can place a palm tree or palace on claimed tiles for extra VP."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Five Tribe Actions (based on collected meeple color)\n- **Viziers (yellow)** — Keep collected Viziers in front of you. At game end, score 10 VP per Vizier PLUS 10 bonus VP for each opponent with fewer Viziers than you.\n- **Elders (white)** — Keep collected Elders in front of you. Each Elder is worth 2 VP at game end. Elders are also spent to invoke (buy) Djinns.\n- **Merchants (green)** — Take resource cards from the front of the market row equal to the number of Merchants collected. Resources are sold in sets for coins.\n- **Builders (blue)** — Earn coins equal to (number of Builders collected) x (number of surrounding blue-value tiles including the tile you are on). Adjacency counts tiles orthogonally adjacent.\n- **Assassins (red)** — Kill (remove from game) 1 meeple on the board within range equal to the number of Assassins collected. OR kill 1 Vizier or Elder from an opponent.\n\n#### Tile Actions\n- **Oasis** — Place 1 palm tree on this tile (3 VP each at end).\n- **Village** — Place 1 palace on this tile (5 VP each at end).\n- **Small Market** — Draw the top 3 resource cards, keep 1, discard the rest.\n- **Large Market** — Draw the top 6 resource cards, keep 2, discard the rest.\n- **Sacred Place** — Pay 1 Elder (or 1 Elder + 1 other resource) to take 1 Djinn from the display."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Djinns\n- **Cost** — Pay 1 Elder + 1 Elder (2 Elders) to take a Djinn from the display at a Sacred Place. Or spend 1 Elder + 1 any meeple through certain abilities.\n- **Powers** — Djinns grant unique ongoing powers: extra VP for specific tiles, protection from Assassins, bonus coins, extra movement options, etc.\n- **VP value** — Each Djinn card is also worth VP printed on the card (variable) at game end.\n\n#### Merchandise / Resource Selling\n- Collected resource cards can be sold at any time for coins based on set size:\n  - 1 unique card = 1 coin\n  - 2 unique = 3 coins\n  - 3 unique = 7 coins\n  - 4 unique = 13 coins\n  - 5 unique = 21 coins\n  - 6 unique = 30 coins\n  - 7 unique = 40 coins\n  - 8 unique = 50 coins\n  - 9 unique = 60 coins\n\n#### Assassin Mechanics\n- **Range** — Number of Assassins collected = number of tiles away you can reach to remove a meeple.\n- **Remove from game** — The killed meeple is removed from the game permanently.\n- **Claim tile** — If killing the last meeple on a tile empties it, you may claim it.\n- **Attack opponents** — Alternatively, remove 1 Vizier or Elder from an opponent's collected pile."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End Trigger\n- The game ends when either: a player places their last camel, or no legal meeple move can be made by the active player.\n- Finish the current round so all players who bid have taken a turn.\n\n#### Final Scoring (sum all)\n1. **Coins** — 1 VP per coin remaining.\n2. **Viziers** — 10 VP per Vizier you own, plus 10 VP for each opponent who has strictly fewer Viziers.\n3. **Elders** — 2 VP per Elder you own.\n4. **Tiles** — VP as printed on each tile you claimed with a camel.\n5. **Palm trees** — 3 VP per palm tree on your claimed tiles.\n6. **Palaces** — 5 VP per palace on your claimed tiles.\n7. **Djinns** — VP as printed on each Djinn card.\n8. **Unsold merchandise** — Sell all remaining resource cards at current set values, converting to coins (then VP).\n\n#### Tiebreaker\n- Most Viziers + Elders combined. Then most goods cards."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game\n- **Scout the board** — Look for tiles with large concentrations of same-color meeples, especially Merchants near full markets.\n- **Bid wisely** — Going first is powerful but expensive. Early underbidding can save coins for the final scoring.\n- **Grab key Djinns** — Some Djinns are game-changing (e.g., those giving VP per tile type). Prioritize Sacred Places early.\n- **Builder combos** — Builders next to high-value tile clusters can generate massive coin payouts. Look for blue-heavy areas.\n- **Vizier accumulation** — Start collecting Viziers early. The majority bonus scales with opponents."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Overbidding** — Spending too many coins on turn order leaves you VP-poor at the end. Coins = points.\n- **Ignoring Vizier majority** — The Vizier bonus (10 VP per opponent with fewer) is enormous. Letting one player monopolize Viziers is dangerous.\n- **Forgetting to sell goods** — Unsold goods still convert, but selling at optimal set sizes during the game is more efficient for mid-game purchases.\n- **Neglecting tile claims** — Empty tiles give you VP and locations for palms/palaces. Always claim when possible.\n- **Illegal moves** — The last meeple MUST match a color already on the destination tile. This is the most commonly forgotten rule."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Critical Choices\n- **Bid amount** — Balance going first for the best move vs. keeping coins for final scoring.\n- **Meeple pickup selection** — The choice of which tile to pick up from determines everything. Look several moves ahead.\n- **Assassin targets** — Killing an opponent's Vizier is often more valuable than killing a board meeple. But clearing a tile to claim it can also be huge.\n- **When to sell goods** — Larger sets are exponentially more valuable. Hold goods for bigger sets if you can.\n- **Djinn selection** — Choose Djinns that synergize with your developing strategy (tile claiming, Merchant focus, etc.)."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
