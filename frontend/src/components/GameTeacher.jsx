@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
+import Leaderboard from "./Leaderboard";
 import {
   speakText,
   stopSpeaking,
@@ -21,6 +22,7 @@ const TABS = [
   { key: "rules", label: "Rules" },
   { key: "strategy", label: "Strategy" },
   { key: "qa", label: "Q&A" },
+  { key: "leaderboard", label: "Top Scores" },
 ];
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
@@ -736,6 +738,7 @@ export default function GameTeacher() {
             {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
             {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
             {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
+            {activeTab === "leaderboard" && <Leaderboard gameId={gameId} gameTitle={gameTitle} />}
           </div>
         )}
       </div>
