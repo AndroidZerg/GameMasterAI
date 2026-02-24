@@ -88,6 +88,19 @@ function classifyParagraph(text) {
   const lines0 = trimmed.split("\n");
   if (/^---\s+.+\s+---$/.test(lines0[0].trim())) {
     const label = lines0[0].trim().replace(/^---\s+/, "").replace(/\s+---$/, "");
+    // Check if there are bullet points after the divider
+    if (lines0.length > 1) {
+      const restLines = lines0.slice(1).filter((l) => l.trim());
+      const bulletLines = restLines.filter((l) => l.trim().startsWith("- "));
+      const numberedLines = restLines.filter((l) => /^\d+[\).]\s/.test(l.trim()));
+      if (bulletLines.length > 0) {
+        return { type: "player-count-section", text: label, items: bulletLines.map((l) => l.trim().replace(/^- /, "")), raw: trimmed };
+      }
+      if (numberedLines.length > 0) {
+        const numMatch = numberedLines[0].trim().match(/^(\d+)[\).]/);
+        return { type: "player-count-section-numbered", text: label, items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")), startNum: numMatch ? parseInt(numMatch[1], 10) : 1, raw: trimmed };
+      }
+    }
     return { type: "player-count-divider", text: label, raw: trimmed };
   }
 
@@ -156,7 +169,11 @@ function mergeBlocks(blocks) {
 /* ── Render formatted content ───────────────────────────────────── */
 function FormattedContent({ content }) {
   if (!content) return null;
-  const paragraphs = content.split("\n\n");
+  // Pre-split: ensure --- X Players --- headers always start new paragraphs.
+  // Without this, "#### Header\n--- 2 Players ---\n- bullet" stays as one
+  // paragraph and the --- divider label gets dropped by classifyParagraph.
+  const preprocessed = content.replace(/\n(---\s+.+\s+---)/g, "\n\n$1");
+  const paragraphs = preprocessed.split("\n\n");
   const classified = paragraphs.map(classifyParagraph).filter(Boolean);
   const blocks = mergeBlocks(classified);
 
@@ -169,6 +186,36 @@ function FormattedContent({ content }) {
               <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
               <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#a5b4fc", textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>{block.text}</span>
               <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+            </div>
+          );
+        }
+
+        if (block.type === "player-count-section") {
+          return (
+            <div key={i}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", margin: "16px 0 8px 0" }}>
+                <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+                <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#a5b4fc", textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>{block.text}</span>
+                <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+              </div>
+              <ul style={{ margin: "4px 0 8px 0", paddingLeft: "20px", listStyleType: "disc" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
+              </ul>
+            </div>
+          );
+        }
+
+        if (block.type === "player-count-section-numbered") {
+          return (
+            <div key={i}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", margin: "16px 0 8px 0" }}>
+                <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+                <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#a5b4fc", textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>{block.text}</span>
+                <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
+              </div>
+              <ol start={block.startNum} style={{ margin: "4px 0 8px 0", paddingLeft: "24px", listStyleType: "decimal" }}>
+                {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
+              </ol>
             </div>
           );
         }
