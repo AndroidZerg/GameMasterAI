@@ -62,6 +62,26 @@ Status: COMPLETE — 50/50 games tagged, 18 tag categories
 ---
 
 ## Phase C5: Production Deployment Verification
+Status: COMPLETE — all endpoints operational
+
+### Render backend (https://gmai-backend.onrender.com):
+- `/health` → `{"status":"ok"}` ✓
+- `/api/games` → 50 games ✓
+- `/api/games/catan` → Title, complexity, MSRP present ✓
+- `/api/games/quick` → 10 quick games (will be 14 after redeploy with C3 fixes) ✓
+- `/api/scores/splendor` → Score config with categories ✓
+- `/api/images/catan.jpg` → 200, 4324 bytes ✓
+- `/api/stats` → 50 total games available ✓
+- 37 API endpoints active in OpenAPI spec
+
+### Note:
+- Auth login requires `email` field (not `username`)
+- `/api/venue/menu` returns 404 (not yet implemented)
+- Quick games count will update from 10 → 14 after play time data is deployed
+
+---
+
+## Phase C6: Comprehensive Game Metadata Report
 Status: IN PROGRESS
 
 ---
