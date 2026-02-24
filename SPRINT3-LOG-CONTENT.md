@@ -45,7 +45,6 @@ Status: COMPLETE — BGG API blocked, placeholders remain
 ### Result:
 - All BGG endpoints return 401 from this network
 - 50 colored placeholder images remain in `content/images/`
-- Placeholders are color-coded by complexity and show game titles
 - TODO: Replace with real BGG covers when API access is available
 
 ---
@@ -64,13 +63,66 @@ Status: COMPLETE — production verified
 - `npx vite build` → Clean build, 0 errors, 0 warnings
 - Output: 309 kB JS + 2.3 kB CSS (91.8 kB gzipped)
 
-### DNS:
-- Render auto-deploys from main when merged
-- Cloudflare DNS setup still pending (manual dashboard action)
-
 ---
 
 ## Phase C6: Venue Branding Research
-Status: IN PROGRESS
+Status: COMPLETE
+
+### Meepleville Board Game Cafe:
+- Brand color: #243f82 (dark blue)
+- Tagline: "Eat, Drink, & Game with Friends"
+- 2,600+ games, $10/day pass, $25/mo membership
+- Mon-Sat 12-11pm, Sun 12-7pm
+
+### Knight & Day Board Game Lounge:
+- Brand color: #003b74 (deep navy)
+- 1,200+ games, $10/day pass
+- Mon-Sat 9am-11pm, Sun 10am-8pm
+
+Saved to `content/venue-branding.json`
 
 ---
+
+## Phase C7: Content Play Time Audit
+Status: COMPLETE — 0 issues
+
+- All 50 games have play_time_minutes with valid min/max
+- All values within reasonable ranges for their complexity tier
+- 10 quick games identified (max ≤30 min):
+  Codenames, Coup, Just One, King of Tokyo, Kingdomino,
+  Love Letter, One Night Ultimate Werewolf, Patchwork,
+  Sushi Go Party!, The Crew
+- Report saved to `tests/play_time_audit.txt`
+
+---
+
+## Phase C8: Polish + Final Report
+Status: COMPLETE
+
+### Structured content tester: 0 failures
+- Test 1 (Empty headers): 0
+- Test 2 (Specificity): 0
+- Test 3 (Setup sufficiency): 5 warnings (acceptable)
+- Test 4 (Orphan headers): 0
+
+### Final asset inventory:
+- 50/50 game JSONs ✓
+- 50/50 cover images ✓
+- 45/50 score configs (5 pending: azul, catan, scythe, ticket-to-ride, wingspan)
+- 50/50 BGG metadata ✓
+- 2/2 venue branding ✓
+- 146,859 total tokens (avg 2,937/game)
+- 362 player-count headers (all with content)
+
+### Report saved to `tests/sprint3_final_report.txt`
+
+---
+
+## Commits on sprint3/content:
+1. `e4d27c3` — R3 Phase 1: Renderer diagnostic
+2. `70d6cdf` — R3 Phase 2-3: Renderer + image serving verified
+3. `81f9bd0` — R3 Phase 4: BGG API blocked
+4. `ea84353` — R3 Phase 5: Production verified
+5. `69589f7` — R3 Phase 6: Venue branding
+6. `0028c18` — R3 Phase 7: Play time audit
+7. (pending) — R3 Phase 8: Final report + sprint log
