@@ -24,7 +24,7 @@ const TABS = [
   { key: "rules", label: "Rules" },
   { key: "strategy", label: "Strategy" },
   { key: "qa", label: "Q&A" },
-  { key: "leaderboard", label: "Top Scores" },
+  { key: "score", label: "Score" },
 ];
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
@@ -831,7 +831,24 @@ export default function GameTeacher() {
             {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
             {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
             {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
-            {activeTab === "leaderboard" && <Leaderboard gameId={gameId} gameTitle={gameTitle} />}
+            {activeTab === "score" && (
+              <div>
+                <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
+                  <button
+                    onClick={() => setShowScoreTracker(true)}
+                    style={{
+                      flex: 1, padding: "14px", borderRadius: "12px",
+                      background: "var(--accent)", color: "#fff", border: "none",
+                      fontWeight: 700, fontSize: "1rem", cursor: "pointer",
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+                    }}
+                  >
+                    <span>🏆</span> Open Score Tracker
+                  </button>
+                </div>
+                <Leaderboard gameId={gameId} gameTitle={gameTitle} />
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -845,23 +862,6 @@ export default function GameTeacher() {
       {!gameLoading && !gameError && (
         <GameRating gameId={gameId} gameTitle={gameTitle} />
       )}
-
-      {/* Score FAB */}
-      <button
-        onClick={() => setShowScoreTracker(true)}
-        style={{
-          position: "fixed", bottom: "24px", right: "24px",
-          width: "56px", height: "56px", borderRadius: "50%",
-          background: "var(--accent)", color: "#fff",
-          border: "none", fontSize: "1.5rem", cursor: "pointer",
-          boxShadow: "0 4px 12px rgba(233, 69, 96, 0.4)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          zIndex: 100,
-        }}
-        title="Score Tracker"
-      >
-        🏆
-      </button>
 
       {/* Score Tracker Modal */}
       {showScoreTracker && (

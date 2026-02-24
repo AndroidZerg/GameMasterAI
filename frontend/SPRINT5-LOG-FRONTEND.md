@@ -12,3 +12,6 @@
 
 ### Phase A3: Scoring Reference Text
 **Status:** DONE
+
+### Phase A4: Swap Top Scores + Score Tracker Positions
+**Status:** DONE
