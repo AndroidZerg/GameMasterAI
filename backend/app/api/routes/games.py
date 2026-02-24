@@ -1,6 +1,8 @@
-"""Game listing, search, detail, price, categories, filter, expansions, and reload endpoints."""
+"""Game listing, search, detail, price, categories, filter, expansions, featured, and reload endpoints."""
 
+import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -14,6 +16,8 @@ from app.services.knowledge import load_game
 
 _EXPANSIONS_PATH = Path(__file__).resolve().parents[4] / "content" / "expansions.json"
 _EXPANSIONS: dict[str, list] = {}
+_HIGHLIGHTS_PATH = Path(__file__).resolve().parents[4] / "content" / "game-highlights.json"
+_HIGHLIGHTS: dict[str, str] = {}
 
 
 def _load_expansions():
@@ -23,6 +27,15 @@ def _load_expansions():
             _EXPANSIONS = json.loads(_EXPANSIONS_PATH.read_text(encoding="utf-8"))
         except Exception:
             _EXPANSIONS = {}
+
+
+def _load_highlights():
+    global _HIGHLIGHTS
+    if _HIGHLIGHTS_PATH.exists():
+        try:
+            _HIGHLIGHTS = json.loads(_HIGHLIGHTS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            _HIGHLIGHTS = {}
 
 router = APIRouter(prefix="/api", tags=["games"])
 
@@ -85,6 +98,31 @@ async def quick_games(
 ):
     """Return games with max play time <= threshold. Default 30 minutes."""
     return get_quick_games(max_time=max_time)
+
+
+@router.get("/games/featured")
+async def featured_game():
+    """Game of the Day — deterministic selection based on date hash."""
+    if not _HIGHLIGHTS:
+        _load_highlights()
+
+    games = search_games()
+    if not games:
+        return {"error": "No games available"}
+
+    # Hash today's date to pick a consistent game
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    idx = int(hashlib.md5(today.encode()).hexdigest(), 16) % len(games)
+    game = games[idx]
+    game_id = game["game_id"]
+
+    why_play = _HIGHLIGHTS.get(game_id, f"{game['title']} is a great game to try today.")
+
+    return {
+        **game,
+        "why_play": why_play,
+        "featured_date": today,
+    }
 
 
 @router.get("/games/{game_id}")

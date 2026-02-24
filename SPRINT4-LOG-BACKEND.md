@@ -41,3 +41,9 @@ Branch: sprint4/backend
 - GET /api/games response now includes "tags" array for each game
 - GET /api/games/filter accepts ?tag=cooperative, ?tag=quick-play, etc.
 - Tag matching is case-insensitive with hyphen-to-space normalization
+
+## Phase B6: Game of the Day Endpoint
+- GET /api/games/featured — returns "Game of the Day" with why_play one-liner
+- Selection: MD5 hash of date string -> deterministic daily pick
+- Created content/game-highlights.json with one-liners for all 50 games
+- Same game all day, changes at midnight UTC
