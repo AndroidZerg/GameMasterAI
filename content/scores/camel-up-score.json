@@ -1,0 +1,14 @@
+{
+  "game_id": "camel-up",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "leg_bet_winnings", "label": "Leg Bet Winnings", "points_each": 1, "type": "count", "description": "Total coins earned from correct leg betting tiles across all legs"},
+    {"id": "leg_bet_penalties", "label": "Leg Bet Penalties", "points_each": -1, "type": "count", "description": "Coins lost from incorrect leg bets (enter as positive, subtracted automatically)"},
+    {"id": "overall_winner_payout", "label": "Overall Winner Bet", "points_each": 1, "type": "count", "description": "Coins earned from correct overall winner bet (8/5/3/2/1 based on order)"},
+    {"id": "overall_loser_payout", "label": "Overall Loser Bet", "points_each": 1, "type": "count", "description": "Coins earned from correct overall loser bet (8/5/3/2/1 based on order)"},
+    {"id": "overall_wrong_penalties", "label": "Wrong Overall Bets", "points_each": -1, "type": "count", "description": "Coins lost from incorrect overall winner/loser bets (1 coin each)"},
+    {"id": "desert_tile_income", "label": "Desert Tile Income", "points_each": 1, "type": "count", "description": "Coins earned when camels landed on your desert tile"},
+    {"id": "rolling_income", "label": "Rolling Income", "points_each": 1, "type": "count", "description": "Coins earned from rolling pyramid dice (1 coin per roll)"}
+  ],
+  "win_condition": "Most coins wins"
+}

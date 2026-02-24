@@ -1,0 +1,105 @@
+{
+  "game_id": "blokus",
+  "title": "Blokus",
+  "aliases": [],
+  "publisher": "Mattel",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "abstract",
+    "tile-placement",
+    "territory"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Board\n- **1 game board** — 20x20 square grid (400 total squares).\n\n#### Player Pieces (per color)\n- **21 polyomino pieces per player** — 84 total pieces in 4 colors (blue, yellow, red, green).\n- Each player's set contains:\n  - **1 monomino** — 1 square.\n  - **1 domino** — 2 squares.\n  - **2 triominoes** — 3 squares each (straight and L-shaped).\n  - **5 tetrominoes** — 4 squares each (straight, square, T, S, L shapes).\n  - **12 pentominoes** — 5 squares each (all 12 unique pentomino shapes).\n- **Total squares per player** — 89 squares across all 21 pieces."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Place the board** — Set the 20x20 grid board in the center of the table.\n2. **Board is empty** — No pieces start on the board.\n3. **Note the corners** — Each corner of the board is a starting position for one player.\n4. **Orientation** — The board has no directional preference. Each player should sit near their assigned corner."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### 4 Players (Standard)\n- Each player takes all 21 pieces of one color.\n- Assign corners: each player is assigned one of the 4 board corners as their starting position.\n- Seating order around the table should match corner assignment for convenience.\n\n#### 3 Players\n- Each player takes one color. The 4th color is played communally: each player takes turns placing a piece for the 4th color on their turn (rotate responsibility).\n\n#### 2 Players\n- Each player controls 2 colors (21 pieces each, 42 total). On each turn, a player places one piece of either of their colors.\n- Players sit at opposite corners. Each controls the two colors at their adjacent corners."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Determine first player** — Choose randomly or by agreement.\n2. **Turn order** — Blue goes first, then yellow, red, green (clockwise by corner).\n3. **First piece rule** — Each player's first piece must cover their assigned corner square of the board.\n4. **Begin play** — First player places any of their 21 pieces covering their corner square."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1. **Place one piece** — On your turn, place exactly one of your remaining pieces on the board.\n2. **Placement rules must be followed** — Corner-to-corner contact with your own color, no edge-to-edge with your own color.\n3. **Pass if unable** — If you cannot legally place any of your remaining pieces, you must pass. You are eliminated from further play but your pieces remain on the board.\n4. **Next player** — Play continues clockwise.\n\n#### Key Constraints\n- You may rotate and/or flip any piece before placing it.\n- Once placed, pieces cannot be moved."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Placement Rules\n- **Corner-to-corner contact (required)** — Each new piece you place must touch at least one of your previously placed pieces at a corner (diagonally adjacent).\n- **No edge-to-edge with own color (forbidden)** — Your new piece may not share an edge (side-to-side) with any of your own pieces.\n- **Edge contact with opponents allowed** — Your pieces may freely touch opponents' pieces along edges. There is no restriction on how your pieces interact with other colors.\n- **First piece exception** — Your very first piece only needs to cover your corner square. It has no prior pieces to connect to.\n\n#### Piece Manipulation\n- **Rotation** — Any piece can be rotated 90, 180, or 270 degrees.\n- **Flipping** — Any piece can be flipped (mirrored) before placement.\n- **No splitting** — Pieces are single rigid shapes and cannot be broken apart.\n\n#### Passing and Elimination\n- If you have remaining pieces but no legal placement, you pass.\n- You are out of the game once you pass. Your score is calculated from unplaced pieces.\n- Play continues with remaining active players until all players have passed."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Territory Control\n- The board is a shared space. There is no ownership of areas, but pieces block territory.\n- Placing pieces to block opponents' expansion corners is a core tactical element.\n- You cannot remove or move any placed piece.\n\n#### Piece Shapes Overview\n- **1-square (monomino)** — Smallest piece. Useful for squeezing into tight gaps late game.\n- **2-square (domino)** — Small and flexible.\n- **3-square (triominoes)** — Two shapes: straight line and L-shape.\n- **4-square (tetrominoes)** — Five shapes: I, O, T, S/Z, L/J.\n- **5-square (pentominoes)** — Twelve unique shapes including F, I, L, N, P, T, U, V, W, X, Y, Z.\n\n#### 2-Player Variant Details\n- Each player controls 2 colors and alternates placing pieces of either color.\n- Both colors must independently follow the corner-to-corner / no-edge rules with their own color.\n- Your two colors are treated as separate — they can share edges with each other."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Game End\n- The game ends when all players have passed (no one can make a legal placement).\n\n#### Scoring\n- **Penalty per square** — Count the total number of squares in your unplaced pieces. Each square is **-1 point**.\n- **Perfect clear bonus** — If you placed all 21 pieces, score **+15 bonus points** instead of penalties.\n- **Monomino last bonus** — If you placed all 21 pieces AND the monomino (1-square piece) was your last piece placed, score **+20 bonus points** instead of +15.\n\n#### Score Calculation\n- Base score: 0\n- Subtract 1 per unplaced square.\n- OR add +15 (or +20 for monomino-last) if all pieces placed.\n\n#### Win Condition\n- **Highest score wins** — The player with the fewest penalty points (or a bonus) wins.\n- **Tiebreaker** — If tied, the player who placed more pieces wins. If still tied, players share victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Play large pieces first** — Pentominoes (5-square pieces) are hardest to place later. Use them early when the board is open.\n- **Expand toward the center** — The center of the board offers more room and options. Rush outward from your corner.\n- **Create multiple expansion points** — Each piece should ideally create 2 or more new diagonal corners for future placement.\n- **Don't stay in your corner** — Playing small pieces near your starting corner wastes the early open-board advantage.\n- **Save small pieces for endgame** — The monomino, domino, and triominoes fit into tight spaces where pentominoes cannot."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Playing small pieces early** — Using the monomino or domino in the opening means losing big pieces that won't fit later.\n- **One-dimensional expansion** — Expanding in only one direction creates a narrow corridor that's easy to block.\n- **Ignoring opponents' corners** — Failing to notice when an opponent's diagonal expansion path crosses your territory leads to being cut off.\n- **Forgetting about flipping** — Many pieces have mirror versions. Always check if flipping a piece opens a placement you missed.\n- **Blocking yourself** — Accidentally placing a piece that eliminates your own diagonal corners is a common error. Always verify you leave expansion points."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Offense vs. expansion** — Decide whether to block an opponent's expansion corner or extend your own reach. Both matter, but early expansion usually takes priority.\n- **Which large piece to play** — Pentominoes vary in shape. Choose ones that maximize diagonal corners in your desired expansion direction.\n- **When to pivot direction** — If an opponent blocks your primary expansion path, recognize early and redirect rather than forcing pieces into shrinking space.\n- **Saving the monomino** — The +20 bonus for placing the monomino last is significant. Plan to have it be your final piece if possible.\n- **Reading the endgame** — Count remaining squares for each player. If you're ahead, play conservatively to preserve your lead. If behind, take risks to place more pieces."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

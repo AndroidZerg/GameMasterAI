@@ -1,0 +1,107 @@
+{
+  "game_id": "jaipur",
+  "title": "Jaipur",
+  "aliases": [
+    "Jaipur (2009)"
+  ],
+  "publisher": "Space Cowboys",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "trading",
+    "set-collection",
+    "hand-management"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Card Components\n- **Goods cards** — 55 total cards representing tradeable goods.\n  - **Diamonds** — 6 cards.\n  - **Gold** — 6 cards.\n  - **Silver** — 6 cards.\n  - **Cloth** — 8 cards.\n  - **Spice** — 8 cards.\n  - **Leather** — 10 cards.\n  - **Camels** — 11 cards (not a tradeable good; special resource).\n\n#### Token Components\n- **Goods tokens** — Stacks of circular tokens for each good type, with decreasing values:\n  - **Diamonds** — 5 tokens (7, 7, 5, 5, 5).\n  - **Gold** — 5 tokens (6, 6, 5, 5, 5).\n  - **Silver** — 5 tokens (5, 5, 5, 5, 5).\n  - **Cloth** — 7 tokens (5, 3, 3, 2, 2, 1, 1).\n  - **Spice** — 7 tokens (5, 3, 3, 2, 2, 1, 1).\n  - **Leather** — 9 tokens (4, 3, 2, 1, 1, 1, 1, 1, 1).\n- **Bonus tokens** — Awarded for selling 3, 4, or 5 goods at once.\n  - **3-good bonus** — Values: 1, 1, 2, 2, 2, 3, 3 (shuffled, face down).\n  - **4-good bonus** — Values: 4, 4, 5, 5, 6, 6 (shuffled, face down).\n  - **5-good bonus** — Values: 8, 8, 9, 10, 10 (shuffled, face down).\n- **Camel token** — 1 token worth 5 rupees, awarded at end of round.\n- **Seals of Excellence** — 3 large tokens used to track round wins (best of 3)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Market Setup\n1. **Shuffle** all goods and camel cards together to form the draw deck.\n2. **Deal 5 cards** face up in a row between the players — this is the market.\n3. **Camel adjustment** — Among the first 5 market cards, any camels are left in place. If fewer than 3 camels appear, the market is still valid. The rules specifically require placing 3 camels face up first, then dealing 2 more cards from the deck to fill the market to 5.\n\n#### Token Layout\n- **Goods tokens** — Arrange each type in a descending stack (highest value on top) near the market. Players always take from the top.\n- **Bonus tokens** — Shuffle each bonus stack (3-good, 4-good, 5-good) separately and place them face down.\n- **Camel token** — Set aside near the bonus tokens.\n- **Seals of Excellence** — Place nearby for tracking round wins.\n\n#### Correct Initial Market\n1. Place 3 camel cards face up in the market row.\n2. Draw 2 cards from the shuffled deck and add them face up to the market.\n3. The market now has exactly 5 cards, at least 3 of which are camels."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Hands\n- **Deal 5 cards** to each player from the deck.\n- **Camels received** — Any camels dealt to a player's hand are immediately placed face up in front of that player in their personal camel herd. They do not count toward the hand limit.\n- **Hand limit** — Each player may hold a maximum of 7 cards in hand (camels in the herd do not count).\n\n#### Player Areas\n- **Hand** — Cards held secretly (goods only, up to 7).\n- **Camel herd** — Camels placed face up in front of the player. Visible to opponent.\n- **Collected tokens** — Goods tokens and bonus tokens earned from selling, kept face down."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Player\n- The younger player goes first (or choose randomly).\n- Players alternate turns.\n\n#### Round Structure\n- A round continues until 3 goods token stacks are depleted or the draw deck runs out.\n- The game is best of 3 rounds. The first player to win 2 rounds wins the game.\n\n#### Before the First Turn Checklist\n- Market has exactly 5 face-up cards (3 camels + 2 drawn).\n- Each player has 5 cards dealt (camels moved to herd, goods in hand).\n- All goods token stacks are arranged highest value on top.\n- All bonus token stacks are shuffled face down."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Overview\nOn your turn, you must perform exactly one action: either take cards or sell cards. You cannot do both.\n\n#### Option A: Take Cards\nYou have three ways to take cards from the market:\n\n1. **Take a single goods card** — Pick one non-camel card from the market. Add it to your hand. Refill the empty market space from the draw deck.\n2. **Exchange cards** — Swap 2 or more cards from your hand and/or camel herd with an equal number of goods cards from the market. You must take at least one goods card from the market. You may give camels, hand cards, or a mix. Refill any empty spaces from the deck.\n3. **Take all camels** — Take every camel currently in the market and add them to your camel herd. Refill all empty market spaces from the draw deck. You must take ALL camels (cannot take just some).\n\n#### Option B: Sell Cards\n- Sell 2 or more cards of the same goods type from your hand (exception: diamonds, gold, and silver require a minimum of 2 cards to sell; cloth, spice, and leather can be sold as 1 card).\n- Actually, the rule is: you must sell at least 1 card of any type, but for diamonds, gold, and silver you must sell at least 2.\n- For each card sold, take the top token from that goods stack.\n- If you sell 3, 4, or 5 cards at once, also take a bonus token from the corresponding stack.\n- Sold cards are discarded.\n\n#### Hand Limit\n- You may never exceed 7 cards in hand. Camels in your herd do not count."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Taking a Single Card\n- Choose one non-camel card from the 5 market cards.\n- Add it to your hand (must not exceed 7).\n- Replace the gap with the top card of the draw deck.\n\n#### Exchange\n- You give 2+ cards (from hand and/or camel herd) and take the same number of goods cards from the market.\n- You cannot take camels from the market during an exchange.\n- You may use camels from your herd as part of what you give.\n- Example: Give 1 leather + 2 camels, take 3 goods from the market.\n\n#### Taking All Camels\n- You must take every camel card currently in the market.\n- They go to your camel herd (face up, not in hand).\n- Replace all taken camels with new cards from the deck.\n- This can be very powerful if 3-4 camels are in the market, as it refreshes the market heavily.\n\n#### Selling Goods\n- Discard cards of one type from your hand.\n- Take tokens equal to the number of cards sold (from top of that goods stack).\n- **Minimum sale for precious goods:** Diamonds, gold, and silver require selling at least 2 cards.\n- **Bonus tokens:** Selling exactly 3 cards earns a 3-good bonus token. Selling 4 earns a 4-good bonus. Selling 5 or more earns a 5-good bonus. Only one bonus per sale.\n- If a goods token stack is empty, you still sell (for bonus tokens) but receive no goods tokens for those cards."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Camels\n- Camels are not goods — they cannot be sold for tokens.\n- Camels serve as a flexible trading currency for exchanges.\n- At the end of a round, the player with more camels in their herd receives the camel token (worth 5 rupees).\n- If tied, neither player gets the camel token.\n\n#### Token Value Decreasing\n- Goods tokens are stacked highest value on top.\n- The first player to sell a type of good gets the most valuable tokens.\n- This creates urgency to sell quickly, but selling many at once earns bonus tokens.\n- The tension between selling early (high token values) and selling in bulk (bonus tokens) is the core strategic decision.\n\n#### Bonus Tokens\n- 3-good bonuses range from 1-3 rupees.\n- 4-good bonuses range from 4-6 rupees.\n- 5-good bonuses range from 8-10 rupees.\n- Bonus tokens are drawn randomly from their face-down stacks.\n- Selling 5 or more goods still only earns one 5-good bonus token."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Round End Triggers\nA round ends immediately when either:\n- **Three goods token stacks are depleted** (all tokens taken from 3 different goods).\n- **The draw deck runs out** and a card cannot be drawn to refill the market.\n\n#### Round Scoring\n1. Award the camel token to the player with more camels (5 rupees).\n2. Each player totals all their goods tokens and bonus tokens.\n3. The player with the higher total wins the round and receives a Seal of Excellence.\n4. If tied, the player with the most bonus tokens wins. If still tied, the player with the most goods tokens wins.\n\n#### Winning the Game\n- The first player to earn 2 Seals of Excellence (win 2 rounds) wins the game.\n- A full game is best of 3 rounds.\n- Between rounds, reset all tokens, reshuffle all cards, and set up again from scratch."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game Focus\n- **Accumulate camels** — A large camel herd gives you flexible trading power and competes for the 5-rupee camel bonus.\n- **Watch precious goods** — Diamonds and gold tokens start at 7 and 6. Selling these first is extremely valuable.\n- **Don't rush to sell leather** — Leather tokens decrease from 4 to 1. The bonus tokens from selling 4-5 leather at once often outweigh the token value difference.\n\n#### Market Awareness\n- Pay attention to what your opponent is collecting.\n- If they are hoarding diamonds, consider selling yours quickly before the token values drop, or block them by taking diamonds from the market."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Holding Too Long\n- Waiting to collect 5 of a precious good often backfires. Your opponent may sell first, taking the high-value tokens.\n- With diamonds and gold, selling 2-3 quickly is often better than waiting for 5.\n\n#### Ignoring Camels\n- New players often undervalue camels. The 5-rupee camel bonus is significant, and camels enable large exchanges.\n- Taking all camels from the market also refreshes the market, potentially revealing better goods.\n\n#### Selling Cheap Goods One at a Time\n- Selling 1 leather for 1 rupee is wasteful. Accumulate cheap goods (leather, spice, cloth) and sell 4-5 at once for the large bonus tokens.\n\n#### Exceeding Hand Limit\n- Forgetting the 7-card hand limit can force awkward sells or prevent you from taking cards you need.\n- Use camels for exchanges to keep your hand size manageable."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Sell Early vs. Sell Big\n- **Precious goods (diamonds, gold, silver):** Generally sell as soon as you have 2-3. The token values drop steeply and the 3-good bonus is small (1-3).\n- **Common goods (cloth, spice, leather):** Accumulate to 4-5 and sell in bulk. The token values are low anyway, and the 4-good (4-6) and 5-good (8-10) bonuses are game-changing.\n\n#### When to Take All Camels\n- Take camels when 3+ are in the market (big herd boost and major market refresh).\n- Avoid taking camels when only 1 is in the market — you only get 1 camel and your opponent gets to see the refreshed market first.\n\n#### Controlling the End Game\n- Monitor the three goods stacks closest to depletion. You can trigger the round end by selling the last tokens from a third stack.\n- End the round when you're ahead in total rupees. If you're behind, try to delay by not depleting stacks and building up for big sales."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

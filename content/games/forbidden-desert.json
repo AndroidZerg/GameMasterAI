@@ -1,0 +1,105 @@
+{
+  "game_id": "forbidden-desert",
+  "title": "Forbidden Desert",
+  "aliases": [],
+  "publisher": "Gamewright",
+  "player_count": {
+    "min": 2,
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 60
+  },
+  "complexity": "gateway",
+  "categories": [
+    "cooperative",
+    "adventure",
+    "family"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Tiles & Board\n- **24 desert tiles** — Double-sided sand/location tiles forming a 5x5 grid (with center empty).\n- **48 sand markers** — Stackable sand pieces that pile onto tiles.\n- **1 storm meter** — Tracks storm intensity from 2 to 6+ (loss threshold).\n- **1 storm meter clip** — Marks current storm level.\n\n#### Flying Machine\n- **4 flying machine parts** — Propeller, Engine, Navigation Deck, and Crystal.\n- **1 flying machine model** — Assembled from collected parts as visual tracker.\n\n#### Cards\n- **31 storm cards** — Drive sand movement and Sun Beats Down events.\n- **12 equipment cards** — Jetpack, Terrascope, Dune Blaster, Solar Shield, Secret Water Reserve, Time Throttle.\n- **6 adventurer cards** — Role cards with unique powers.\n\n#### Player Pieces\n- **6 pawns** — One per role color.\n- **6 water meter clips** — Track each player's hydration level.\n- **6 adventurer cards** — Each with water canteen tracker on the card."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Create the desert** — Shuffle all 24 desert tiles face down and arrange them in a 5x5 grid, leaving the center space empty. This empty space is the storm's eye.\n2. **Place sand markers** — Place 1 sand marker on each tile in the 8 spaces directly surrounding the center empty space (the ring of tiles adjacent to the storm eye).\n3. **Set the storm meter** — Choose difficulty: Novice (start at 2), Normal (start at 3), Elite (start at 4), or Legendary (start at 5). Place clip on chosen level.\n4. **Shuffle storm deck** — Shuffle all 31 storm cards and place face down as a draw pile.\n5. **Prepare equipment deck** — Shuffle equipment cards and place face down near the board.\n6. **Set machine parts aside** — Place the 4 flying machine parts near the board where all players can reach them."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Assignment\n- **Shuffle roles** — Shuffle all 6 adventurer cards and deal 1 to each player.\n- **Place water clips** — Each player places their water meter clip on their adventurer card at the maximum water level shown for their role.\n- **Place pawns** — All players place their pawns on the crash site tile (the center tile that was revealed at the start, which corresponds to the storm eye location).\n\n#### Roles & Starting Water\n- **Explorer** — 4 water. Can move and remove sand diagonally.\n- **Meteorologist** — 4 water. Can spend actions to draw fewer storm cards or look at upcoming storm cards.\n- **Navigator** — 4 water. Can move other players up to 3 spaces as a single action.\n- **Water Carrier** — 5 water. Can take water from already-excavated well tiles and give water to adjacent players.\n- **Climber** — 3 water. Can move onto and through blocked (2+ sand) tiles and carry one other player along.\n- **Archaeologist** — 3 water. Can remove 2 sand markers with a single action."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **All pawns start in the center** — The storm eye is the initial crash site where all players begin.\n2. **No tiles are excavated yet** — All 24 tiles start face down (sand side up).\n3. **Choose first player** — The thirstiest player goes first (or choose randomly).\n4. **Turn flow reminder** — Each turn: take up to 4 actions, then draw storm cards equal to the current storm meter level.\n5. **Cooperative discussion** — Players may freely discuss strategy and coordinate actions at all times."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1. **Take up to 4 actions** — Choose from: Move, Remove Sand, Excavate, Pick Up a Part. You may take fewer than 4 actions if desired.\n2. **Draw storm cards** — Draw a number of storm cards equal to the current storm meter level (2-6). Resolve each card immediately.\n3. **Pass turn** — Play proceeds clockwise to the next player.\n\n#### Storm Card Types\n- **Wind cards (directional)** — Show 1, 2, or 3 arrows in a direction. Shift tiles in that direction, moving sand and players with them. The empty storm eye space stays fixed; tiles slide into and out of it.\n- **Sun Beats Down** — Every player not on a tunnel tile or under a Solar Shield loses 1 water. No tile shifting occurs.\n- **Storm Picks Up** — Advance the storm meter 1 level. Future turns draw more storm cards. No tile shifting occurs."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Move (1 action)\n- Move your pawn to an adjacent tile (up, down, left, right — not diagonal unless you are the Explorer).\n- **Blocked tiles** — You cannot move onto a tile with 2 or more sand markers unless you are the Climber.\n- **Tunnels** — Excavated tunnel tiles allow free movement between any two tunnel entrances as a single move action.\n\n#### Remove Sand (1 action)\n- Remove 1 sand marker from a tile adjacent to you or your current tile.\n- **Archaeologist** removes 2 sand markers per action instead of 1.\n- A tile must have 0 sand markers to be excavated.\n\n#### Excavate (1 action)\n- Flip a face-down tile that has 0 sand markers and that you are standing on.\n- Reveal the location underneath and resolve its effect immediately.\n\n#### Pick Up a Part (free / 1 action)\n- When a machine part's location has been determined (both clue tiles for that part are revealed), the part appears at the intersection. A player on that tile picks it up.\n- Picking up a part is a free action if you are already on the tile.\n\n#### Tile Types When Excavated\n- **Gear tiles** — Draw equipment cards equal to the number shown (1 or 2).\n- **Water tiles** — Players on or adjacent to the tile gain 2 water (up to their max).\n- **Tunnel tiles** — Act as shelter from Sun Beats Down and allow tunnel movement.\n- **Clue tiles** — Show row or column for one machine part. When both clues for a part are revealed, the part's tile is determined.\n- **Mirage tile** — Looks like water but is dry. No water gained.\n- **Launch pad** — Where all players must gather with all 4 parts to win."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Sand Storm Movement\n- When a wind card is drawn, tiles shift. The storm eye (empty space) effectively moves in the indicated direction, and tiles slide to fill the gap.\n- Sand markers move with their tiles. Players move with their tiles.\n- After shifting, place 1 sand marker on each tile that just moved into a space adjacent to the new storm eye position (the tiles that slid).\n- If the sand supply runs out during this step, the team loses.\n\n#### Machine Part Location\n- Each of the 4 parts has 2 clue tiles — one shows the column and one shows the row.\n- When both clue tiles for a part are excavated, the part is placed at the tile where the row and column intersect.\n- Parts can shift with tile movement before being picked up.\n\n#### Equipment Cards\n- **Dune Blaster** — Remove all sand from one tile.\n- **Jet Pack** — Move yourself or another player to any unblocked tile.\n- **Terrascope** — Secretly look at any face-down tile.\n- **Solar Shield** — Protects you from the next Sun Beats Down card.\n- **Secret Water Reserve** — Gain 2 water for any player.\n- **Time Throttle** — Take 2 extra actions immediately.\n- Equipment can be played on your turn or another player's turn (unless stated otherwise). Using equipment does not cost an action.\n\n#### Water Management\n- Each player tracks water on their adventurer card. Water cannot exceed a player's maximum.\n- Water Carrier can share water with adjacent players as an action.\n- Wells only provide water when first excavated (except for the Water Carrier, who can revisit)."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Team victory** — All players gather on the launch pad tile with all 4 flying machine parts collected. The team escapes the desert and wins.\n\n#### Loss Conditions\n- **Thirst** — Any player's water marker reaches the skull symbol (dehydration). The entire team loses.\n- **Buried** — A sand marker must be placed but the sand supply is exhausted. The team loses.\n- **Swallowed by the storm** — The storm meter reaches the skull symbol at the top of the track. The team loses.\n\n#### Scoring Model\n- **No VP track** — Forbidden Desert is a binary win/loss cooperative game.\n- **No final tally** — The game ends immediately when any win or loss condition is triggered.\n- **Difficulty scaling** — Players can increase difficulty by starting the storm meter at a higher level."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Clear sand early** — Focus initial actions on removing sand from tiles near the center before the storm buries them deeper.\n- **Excavate clue tiles first** — Prioritize uncovering the clue tiles that reveal machine part locations over gear or water tiles.\n- **Stay near tunnels** — Once tunnel tiles are excavated, position players near them for efficient movement and Sun Beats Down protection.\n- **Spread out strategically** — Don't clump all players together early. Cover more ground to excavate faster, but keep the Water Carrier within sharing range.\n- **Watch the storm meter** — If starting at Normal or higher, be aggressive with excavation before Storm Picks Up cards accelerate the pace."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring sand buildup** — Letting sand pile to 3-4 markers makes tiles extremely expensive to clear. Address sand early.\n- **Splitting too far apart** — Players who wander far from the group cannot receive water or equipment help in emergencies.\n- **Hoarding equipment** — Equipment cards are powerful and time-sensitive. Waiting for the perfect moment often means losing before you use them.\n- **Forgetting Sun Beats Down shelter** — Always note which players are on tunnel tiles. Moving off a tunnel before the storm phase is risky.\n- **Neglecting the Water Carrier's ability** — The Water Carrier can revisit excavated wells. Use this repeatedly to keep the team hydrated.\n- **Chasing parts before both clues are found** — You cannot pick up a part until both its row and column clue tiles are revealed. Focus on finding clues first."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Sand removal vs. excavation** — Clearing sand is necessary but doesn't progress the win condition. Balance clearing paths with flipping tiles.\n- **When to use the Jet Pack** — Save Jet Pack cards for emergency rescue (pulling a thirsty player to water) or the final launch pad gathering.\n- **Tunnel positioning** — Decide whether to cluster near tunnels for safety or range out to excavate distant tiles.\n- **Water distribution** — Choose whether the Water Carrier spends actions sharing water or exploring. Both are critical.\n- **Storm card counting** — Track how many Storm Picks Up and Sun Beats Down cards have appeared. Knowing what's left helps gauge urgency.\n- **Launch pad timing** — Once all 4 parts are collected, coordinate movement efficiently to get everyone to the launch pad before the storm overwhelms you."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

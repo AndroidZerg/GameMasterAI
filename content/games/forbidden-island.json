@@ -1,0 +1,107 @@
+{
+  "game_id": "forbidden-island",
+  "title": "Forbidden Island",
+  "aliases": [
+    "Forbidden Island (2010)"
+  ],
+  "publisher": "Gamewright",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "cooperative",
+    "adventure",
+    "family"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Island Tiles\n- **24 double-sided island tiles** — Each tile has a normal side (full color) and a flooded side (blue-tinted). Each tile has a unique name and illustration.\n- **Treasure tiles** — 4 of the 24 tiles are associated with each treasure (2 tiles per treasure, 8 treasure-related tiles total):\n  - **The Earth Stone** — Temple of the Moon, Temple of the Sun.\n  - **The Statue of the Wind** — Howling Garden, Whispering Garden.\n  - **The Crystal of Fire** — Cave of Embers, Cave of Shadows.\n  - **The Ocean's Chalice** — Coral Palace, Tidal Palace.\n- **Fools' Landing** — The helicopter pad tile. All players must reach this tile to escape.\n\n#### Cards\n- **Treasure cards** — 28 total deck:\n  - 5 cards per treasure type (20 treasure cards).\n  - 3 Waters Rise! cards.\n  - 3 Helicopter Lift cards.\n  - 2 Sandbags cards.\n- **Flood cards** — 24 cards, one matching each island tile.\n- **Adventurer cards** — 6 role cards, each with a unique power.\n\n#### Other Components\n- **4 treasure figurines** — Earth Stone, Statue of the Wind, Crystal of Fire, Ocean's Chalice.\n- **6 adventurer pawns** — One for each role, in matching colors.\n- **Water meter** — A sliding scale with a clip, tracking the current flood level (1-5, with skull at the top).\n- **Tin box** — Storage container doubling as the game box."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Island Layout\n1. **Shuffle all 24 island tiles** face up (normal side).\n2. **Arrange in a cross/diamond pattern:**\n   - Row 1 (top): 2 tiles.\n   - Row 2: 4 tiles.\n   - Row 3: 6 tiles.\n   - Row 4: 6 tiles.\n   - Row 5: 4 tiles.\n   - Row 6 (bottom): 2 tiles.\n3. This creates a roughly diamond-shaped island of 24 tiles.\n\n#### Water Meter Setup\n1. Choose difficulty level by setting the water meter clip:\n   - **Novice** — Start at level 1 (2 flood cards drawn per turn).\n   - **Normal** — Start at level 2 (2 flood cards drawn per turn).\n   - **Elite** — Start at level 3 (3 flood cards drawn per turn).\n   - **Legendary** — Start at level 4 (3 flood cards drawn per turn).\n2. The number of flood cards drawn each turn matches the current water level position.\n\n#### Initial Flooding\n1. Shuffle the flood deck.\n2. Draw 6 flood cards.\n3. Flip those 6 island tiles to their flooded (blue) side.\n4. Place the 6 flood cards in a face-up flood discard pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Assignment\n1. Shuffle the 6 adventurer cards.\n2. Deal 1 to each player. Each player takes the matching colored pawn.\n3. Return unused adventurer cards and pawns to the box.\n\n#### Adventurer Roles and Powers\n- **Diver (black)** — Can move through one or more adjacent flooded or missing tiles for 1 action.\n- **Engineer (red)** — Can shore up 2 tiles for 1 action.\n- **Explorer (green)** — Can move and shore up diagonally.\n- **Messenger (white)** — Can give treasure cards to any player regardless of location.\n- **Navigator (yellow)** — Can move another player up to 2 adjacent tiles for 1 action.\n- **Pilot (blue)** — Once per turn, can fly to any tile for 1 action.\n\n#### Starting Positions\n- Each player places their pawn on the island tile that matches their role's starting icon.\n- If that tile is already flooded, place the pawn there anyway (it's still on the island).\n\n#### Starting Hands\n- Shuffle the treasure deck.\n- Deal 2 treasure cards to each player.\n- If any Waters Rise! cards are dealt during setup, shuffle them back and redeal."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Turn Order\n- The player with the highest starting tile name alphabetically goes first (or choose the player who traveled most recently).\n- Play proceeds clockwise.\n\n#### Winning the Game\nAll of these must be accomplished to win:\n1. Collect all 4 treasures (by turning in 4 matching treasure cards at a corresponding tile).\n2. All players move to Fools' Landing.\n3. A player plays a Helicopter Lift card to escape.\n\n#### Losing the Game\nYou lose immediately if any of these occur:\n- **Both treasure tiles for an uncollected treasure sink** (removed from the game).\n- **Fools' Landing sinks.**\n- **Any player is on a tile that sinks and cannot swim to an adjacent tile.**\n- **The water meter reaches the skull and crossbones.**"
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Three Phases Per Turn\nEach player's turn has 3 phases in order:\n\n**Phase 1: Take up to 3 Actions**\nChoose any combination of the following (may repeat):\n1. **Move** — Move your pawn to an adjacent tile (up, down, left, right — not diagonal unless you're the Explorer).\n2. **Shore Up** — Flip an adjacent flooded tile (or your current tile) back to its normal side. Costs 1 action per tile.\n3. **Give a Treasure Card** — Give one of your treasure cards to a player on the same tile. Both players must be on the same tile (unless you're the Messenger).\n4. **Capture a Treasure** — Discard 4 matching treasure cards while on a tile matching that treasure. Take the treasure figurine.\n\nYou may take 0 to 3 actions. You do not have to use all 3.\n\n**Phase 2: Draw 2 Treasure Cards**\n- Draw 2 cards from the treasure deck.\n- If you draw a Waters Rise! card, resolve it immediately (see Special Mechanics).\n- Hand limit is 5 cards. If you exceed 5 after drawing, you must immediately discard down to 5.\n\n**Phase 3: Draw Flood Cards**\n- Draw flood cards equal to the current water level (2-5 cards).\n- For each flood card drawn, flood or sink the corresponding tile (see Flooding rules)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Movement\n- Move to one adjacent tile (orthogonally adjacent — up, down, left, right).\n- You may move to flooded tiles.\n- You cannot move to missing (sunken) tiles or empty spaces.\n- The Explorer may also move diagonally.\n- The Pilot may fly to any tile once per turn for 1 action.\n- The Diver may move through flooded and missing tiles to reach the nearest reachable tile for 1 action.\n\n#### Shoring Up\n- Flip a flooded tile back to its normal side.\n- You may shore up your current tile or any orthogonally adjacent tile.\n- The Explorer may also shore up diagonally adjacent tiles.\n- The Engineer may shore up 2 tiles for 1 action.\n- Shoring up is critical for keeping the island intact.\n\n#### Giving Cards\n- Hand a treasure card to a player on the same tile.\n- The Messenger may give cards to any player anywhere on the island.\n- You can only give treasure cards (not special cards like Helicopter Lift or Sandbags — actually these ARE treasure cards in the deck and can be traded).\n- Receiving a card that puts a player over the 5-card hand limit requires them to discard immediately.\n\n#### Capturing Treasures\n- You must be on one of the two tiles associated with the treasure.\n- Discard 4 cards matching that treasure.\n- Take the corresponding figurine.\n- You only need one of the two associated tiles to still exist to capture the treasure."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Flooding\nWhen a flood card is drawn:\n- **If the tile is normal** — Flip it to its flooded (blue) side. The tile is still usable but in danger.\n- **If the tile is already flooded** — The tile sinks. Remove the tile AND its flood card from the game permanently. Any player on a sinking tile must immediately swim to an adjacent tile. If no adjacent tile exists, the game is lost.\n\n#### Waters Rise! Cards\nWhen drawn from the treasure deck:\n1. **Raise the water level** — Move the water meter clip up one notch. This increases the number of flood cards drawn each turn.\n2. **Shuffle the flood discard pile** — Take all discarded flood cards, shuffle them, and place them ON TOP of the flood draw pile. This means recently flooded tiles are likely to flood again soon.\n3. **Discard the Waters Rise! card** — It does not go to any player's hand.\n\n#### Special Treasure Cards\n- **Helicopter Lift** — Move any number of players from one tile to any other tile. Can be played on any player's turn. Required for the final escape from Fools' Landing.\n- **Sandbags** — Shore up any tile anywhere on the island. Can be played on any player's turn. Does not cost an action.\n- Both special cards may be played at any time, even during another player's turn.\n\n#### Swimming\n- When a tile sinks while a player is on it, that player must immediately move to an adjacent tile (orthogonal, or diagonal for the Explorer).\n- The Diver and Pilot have special swimming abilities matching their role powers.\n- If a player cannot swim to any adjacent tile, the game is lost immediately."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Victory\nThe team wins when ALL of these are true:\n1. All 4 treasures have been captured.\n2. All players are on Fools' Landing.\n3. A player plays a Helicopter Lift card.\n\nThe team escapes the island and wins together.\n\n#### Defeat\nThe team loses immediately when ANY of these occur:\n1. **Both tiles for an uncollected treasure sink.** If the treasure has already been captured, it doesn't matter if those tiles sink.\n2. **Fools' Landing sinks.** Without the helicopter pad, there is no escape.\n3. **A player drowns.** A player is on a sinking tile with no adjacent tile to swim to.\n4. **Water level reaches the skull.** The island floods beyond saving.\n\n#### No Scoring\nForbidden Island is a cooperative pass/fail game. There are no points. The team either wins or loses together. For additional challenge, increase the starting water level."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### First Turns\n- **Shore up critical tiles** — Prioritize shoring up treasure tiles and Fools' Landing if they are flooded.\n- **Move toward treasure tiles** — Start heading toward tiles where you can collect treasures.\n- **Coordinate roles** — The Engineer should focus on shoring up. The Messenger should collect and distribute cards. The Pilot can reach distant tiles quickly.\n\n#### Card Management\n- Start trading cards early to consolidate sets of 4 matching treasure cards on one player.\n- The Messenger is the best card distributor — funnel cards through them when possible.\n- Don't hoard Helicopter Lift cards early; you only need one for the final escape."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Spreading Too Thin\n- Trying to save every tile is impossible. Focus on the tiles that matter: treasure tiles (especially for uncollected treasures) and Fools' Landing.\n- Let non-essential tiles sink without spending actions to save them.\n\n#### Ignoring the Water Level\n- Each Waters Rise! card is devastating because it shuffles the discard pile on top of the draw pile, meaning the same tiles will flood again immediately.\n- Plan for the flood rate increasing. At higher water levels, you draw 4-5 flood cards per turn, and the island collapses rapidly.\n\n#### Forgetting to Trade Cards\n- Players who try to collect all 4 matching cards alone are much slower. Trading is essential.\n- The requirement to be on the same tile to trade (except Messenger) means you need to plan meetups.\n\n#### Delaying Treasure Capture\n- Once a player has 4 matching cards, capturing the treasure should be the top priority. Tiles can sink at any time.\n- Don't wait for the \"perfect\" turn — capture treasures as soon as possible."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Which Tiles to Save\n- **Always save:** Fools' Landing, treasure tiles for uncollected treasures.\n- **Let go:** Tiles with no strategic value, tiles far from all players, tiles that have already been flooded multiple times.\n- **Consider:** Tiles that serve as pathways between important locations.\n\n#### Action Economy\n- You only get 3 actions. Spending 2 actions moving and 1 shoring up is a common pattern, but sometimes doing 3 shore-ups is more valuable.\n- The Engineer getting 2 shore-ups per action is extremely efficient — keep the Engineer near clusters of flooded tiles.\n\n#### When to Head for Fools' Landing\n- Once the 3rd treasure is captured, start positioning all players to converge on Fools' Landing.\n- The 4th treasure capture and the escape should happen in quick succession.\n- Keep a Helicopter Lift card in someone's hand for the final escape. If all 3 are discarded, you cannot win.\n\n#### Difficulty Scaling\n- Start at Novice for your first game. The game is harder than it looks.\n- Elite and Legendary difficulty require near-perfect coordination and some luck."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
