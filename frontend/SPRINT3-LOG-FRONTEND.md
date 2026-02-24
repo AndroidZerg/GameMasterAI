@@ -56,3 +56,9 @@
 - **Added**: Venue name displayed in accent color below title
 - **Added**: Tagline and game count as separate subtle lines
 - **Files**: `GameSelector.jsx`
+
+## A9: Game Cover Art Display
+- **Already done (A1)**: Shimmer loading state on GameCard images
+- **Added**: GameCoverThumb component — 40x40 cover art thumbnail in GameTeacher header
+- **Added**: Graceful fallback — thumbnail hides if image fails to load
+- **Files**: `GameTeacher.jsx`

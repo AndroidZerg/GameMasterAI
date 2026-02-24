@@ -575,6 +575,24 @@ function GameTimer() {
   );
 }
 
+/* ── Game Cover Thumbnail ─────────────────────────────────────── */
+function GameCoverThumb({ gameId }) {
+  const [error, setError] = useState(false);
+  if (error) return null;
+  return (
+    <img
+      src={`${API_BASE}/api/images/${gameId}.jpg`}
+      alt=""
+      onError={() => setError(true)}
+      style={{
+        width: "40px", height: "40px", borderRadius: "8px",
+        objectFit: "cover", flexShrink: 0,
+        border: "1px solid var(--border)",
+      }}
+    />
+  );
+}
+
 /* ── MSRP Price Badge ──────────────────────────────────────────── */
 function PriceBadge({ gameId }) {
   const price = MSRP_PRICES[gameId];
@@ -656,8 +674,9 @@ export default function GameTeacher() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
       {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" }}>
         <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
+        <GameCoverThumb gameId={gameId} />
         <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
           {gameTitle}
           <PriceBadge gameId={gameId} />
