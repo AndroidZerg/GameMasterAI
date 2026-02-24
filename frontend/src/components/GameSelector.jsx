@@ -537,7 +537,7 @@ export default function GameSelector() {
         if (data.accent_color) document.documentElement.style.setProperty("--accent", data.accent_color);
       })
       .catch(() => {
-        setVenueConfig({ venue_name: "Meepleville", venue_tagline: "Las Vegas Board Game Cafe", accent_color: "#e94560" });
+        setVenueConfig({ venue_name: "", venue_tagline: "", accent_color: "#e94560" });
       });
 
     fetchVenueCollection()
@@ -686,7 +686,7 @@ export default function GameSelector() {
           </p>
         )}
         <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", marginBottom: "0" }}>
-          {venueConfig?.venue_tagline || "Tap a game to start learning"}
+          {venueConfig?.venue_tagline || venueConfig?.tagline || "Tap a game to start learning"}
         </p>
         {displayGames.length > 0 && (
           <p style={{ color: "var(--text-secondary)", fontSize: "0.75rem", marginTop: "4px" }}>

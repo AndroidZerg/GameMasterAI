@@ -55,12 +55,16 @@ export async function queryGame(gameId, question) {
 }
 
 export async function fetchVenueConfig() {
-  const res = await fetch(`${API_BASE}/api/venue`);
+  const res = await fetch(`${API_BASE}/api/venue`, {
+    headers: getAuthHeaders(),
+  });
   return handleResponse(res);
 }
 
 export async function fetchVenueCollection() {
-  const res = await fetch(`${API_BASE}/api/venue/collection`);
+  const res = await fetch(`${API_BASE}/api/venue/collection`, {
+    headers: getAuthHeaders(),
+  });
   return handleResponse(res);
 }
 

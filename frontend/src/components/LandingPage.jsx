@@ -81,7 +81,7 @@ export default function LandingPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
           {[
             {
-              title: "50+ Games, Taught Instantly",
+              title: "200+ Games, Taught Instantly",
               desc: "Setup, rules, strategy, and live Q&A for your entire game library. No training needed.",
               icon: "🎲",
             },

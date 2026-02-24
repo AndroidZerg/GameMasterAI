@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchVenueMenu } from "../services/api";
+import { useAuth } from "../contexts/AuthContext";
 
 const MOCK_MENU = {
   venue_name: "Meepleville",
@@ -69,6 +70,7 @@ const MOCK_MENU = {
 };
 
 export default function MenuPage() {
+  const { isLoggedIn, venueName } = useAuth();
   const [menu, setMenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState(null);
@@ -117,7 +119,7 @@ export default function MenuPage() {
           Menu
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginTop: "4px" }}>
-          {menu.venue_name || "Our Offerings"}
+          {(isLoggedIn ? venueName : menu.venue_name) || "Our Offerings"}
         </p>
       </div>
 

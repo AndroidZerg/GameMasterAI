@@ -21,16 +21,16 @@ export default function VenueSettingsPage() {
       .then((data) => {
         setSettings({
           venue_name: data.venue_name || "",
-          venue_tagline: data.venue_tagline || "",
+          venue_tagline: data.venue_tagline || data.tagline || "",
           accent_color: data.accent_color || "#e94560",
           logo_url: data.logo_url || "",
-          theme: data.theme || "dark",
+          theme: data.default_theme || data.theme || "dark",
         });
       })
       .catch(() => {
         setSettings({
-          venue_name: "Meepleville",
-          venue_tagline: "Las Vegas Board Game Cafe",
+          venue_name: "",
+          venue_tagline: "",
           accent_color: "#e94560",
           logo_url: "",
           theme: "dark",
