@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, API_BASE } from "../services/api";
 
 const COMPLEXITY_COLORS = {
   party: "#a855f7",

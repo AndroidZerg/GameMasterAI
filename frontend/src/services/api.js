@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+export const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
 
 function getAuthHeaders() {
   const token = localStorage.getItem("gmai_token");
