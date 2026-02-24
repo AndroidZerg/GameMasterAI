@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchGames } from "../services/api";
-
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection } from "../services/api";
 
 const COMPLEXITY_COLORS = {
   party: "#a855f7",
@@ -117,6 +115,7 @@ export default function GameSelector() {
   const [error, setError] = useState(null);
   const [recentGames, setRecentGames] = useState([]);
   const [venueConfig, setVenueConfig] = useState(null);
+  const [collection, setCollection] = useState(null); // null = show all (demo mode)
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const navigate = useNavigate();
 
@@ -129,29 +128,36 @@ export default function GameSelector() {
     return () => { window.removeEventListener("online", goOnline); window.removeEventListener("offline", goOffline); };
   }, []);
 
-  // Fetch venue config
+  // Fetch venue config + collection
   useEffect(() => {
-    const fetchVenue = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/api/venue`);
-        if (res.ok) {
-          const data = await res.json();
-          setVenueConfig(data);
-          if (data.accent_color) {
-            document.documentElement.style.setProperty("--accent", data.accent_color);
-          }
+    fetchVenueConfig()
+      .then((data) => {
+        setVenueConfig(data);
+        if (data.accent_color) {
+          document.documentElement.style.setProperty("--accent", data.accent_color);
         }
-      } catch {
+      })
+      .catch(() => {
         setVenueConfig({
           venue_name: "Meepleville",
           venue_tagline: "Las Vegas Board Game Cafe",
           accent_color: "#e94560",
-          show_buy_button: true,
-          buy_button_text: "Love this game? We sell it — ask staff!",
         });
-      }
-    };
-    fetchVenue();
+      });
+
+    fetchVenueCollection()
+      .then((data) => {
+        if (data.game_ids && data.game_ids.length > 0) {
+          setCollection(new Set(data.game_ids));
+        }
+      })
+      .catch(() => {
+        // Check localStorage fallback
+        try {
+          const local = JSON.parse(localStorage.getItem("gmai_venue_collection") || "null");
+          if (local && local.length > 0) setCollection(new Set(local));
+        } catch {}
+      });
   }, []);
 
   useEffect(() => {
@@ -201,19 +207,27 @@ export default function GameSelector() {
     navigate(`/game/${game.game_id}`);
   };
 
+  // Filter by venue collection
+  const displayGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
+
   const recentGameData = recentGames
-    .map((id) => games.find((g) => g.game_id === id))
+    .map((id) => displayGames.find((g) => g.game_id === id))
     .filter(Boolean)
     .slice(0, 8);
 
   return (
-    <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
+    <div style={{ padding: "70px 20px 20px", maxWidth: "1200px", margin: "0 auto" }}>
       <h1 style={{ textAlign: "center", fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "4px", color: "var(--text-primary)" }}>
         {venueConfig ? `GameMaster AI at ${venueConfig.venue_name}` : "GameMaster AI"}
       </h1>
-      <p style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: "24px", fontSize: "0.95rem" }}>
+      <p style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: "4px", fontSize: "0.95rem" }}>
         {venueConfig?.venue_tagline || "Tap a game to start learning"}
       </p>
+      {displayGames.length > 0 && (
+        <p style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: "20px", fontSize: "0.8rem" }}>
+          {displayGames.length} games available
+        </p>
+      )}
 
       {/* Offline banner */}
       {isOffline && (
@@ -279,11 +293,11 @@ export default function GameSelector() {
       )}
 
       {/* Loading skeletons */}
-      {loading && games.length === 0 && !error ? (
+      {loading && displayGames.length === 0 && !error ? (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "16px" }}>
           {Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
         </div>
-      ) : !error && games.length === 0 && !loading ? (
+      ) : !error && displayGames.length === 0 && !loading ? (
         <p style={{ textAlign: "center", color: "var(--text-secondary)" }}>No games found.</p>
       ) : !error && (
         <>
@@ -291,7 +305,7 @@ export default function GameSelector() {
             <h2 style={{ fontSize: "1.15rem", color: "var(--text-secondary)", marginBottom: "12px" }}>All Games</h2>
           )}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "16px" }}>
-            {games.map((game) => (
+            {displayGames.map((game) => (
               <GameCard key={game.game_id} game={game} onClick={() => handleGameClick(game)} />
             ))}
           </div>

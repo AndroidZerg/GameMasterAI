@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// Navigation handled by NavMenu
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
 
@@ -23,7 +23,6 @@ const MOCK_STATS = {
 };
 
 export default function VenueStatsPage() {
-  const navigate = useNavigate();
   const [stats, setStats] = useState(MOCK_STATS);
 
   useEffect(() => {
@@ -52,16 +51,8 @@ export default function VenueStatsPage() {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "900px", margin: "0 auto" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-        <button
-          onClick={() => navigate("/app")}
-          style={{ padding: "8px 16px", fontSize: "0.9rem" }}
-        >
-          ← Back
-        </button>
-        <h1 style={{ fontSize: "1.5rem", margin: 0, color: "var(--text-primary)" }}>Venue Stats</h1>
-      </div>
+    <div style={{ padding: "70px 20px 40px", maxWidth: "900px", margin: "0 auto" }}>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "var(--text-primary)" }}>Venue Stats</h1>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", marginBottom: "32px" }}>
         <div style={bigStatStyle}>

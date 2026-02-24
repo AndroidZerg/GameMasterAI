@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function generateQRDataURL(text, size = 256) {
   // Simple QR code placeholder using SVG with encoded URL text
@@ -22,23 +21,14 @@ function generateQRDataURL(text, size = 256) {
 }
 
 export default function QRGeneratorPage() {
-  const navigate = useNavigate();
   const [numTables, setNumTables] = useState(10);
   const [venueUrl, setVenueUrl] = useState("playgmai.com");
 
   const tables = Array.from({ length: numTables }, (_, i) => i + 1);
 
   return (
-    <div style={{ padding: "20px", maxWidth: "1000px", margin: "0 auto" }} className="no-print">
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }} className="no-print">
-        <button
-          onClick={() => navigate("/app")}
-          style={{ padding: "8px 16px", fontSize: "0.9rem" }}
-        >
-          ← Back
-        </button>
-        <h1 style={{ fontSize: "1.5rem", margin: 0, color: "var(--text-primary)" }}>QR Code Generator</h1>
-      </div>
+    <div style={{ padding: "70px 20px 40px", maxWidth: "1000px", margin: "0 auto" }} className="no-print">
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "var(--text-primary)" }}>QR Code Generator</h1>
 
       <div
         style={{
