@@ -1,0 +1,30 @@
+{
+  "game_id": "century-spice-road",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when point card limit reached",
+  "tiebreaker": "Most remaining spice cubes",
+  "categories": [
+    {
+      "id": "point_cards",
+      "label": "Point Card VP",
+      "type": "manual"
+    },
+    {
+      "id": "gold_coins",
+      "label": "Gold Coins",
+      "points_each": 3,
+      "type": "count"
+    },
+    {
+      "id": "silver_coins",
+      "label": "Silver Coins",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "leftover_cubes",
+      "label": "Leftover Spice VP",
+      "type": "manual"
+    }
+  ]
+}

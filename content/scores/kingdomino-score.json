@@ -1,0 +1,50 @@
+{
+  "game_id": "kingdomino",
+  "scoring_type": "calculator",
+  "win_condition": "Most points from territory scoring",
+  "tiebreaker": "Largest single territory, then most total crowns",
+  "categories": [
+    {
+      "id": "territory_1",
+      "label": "Territory 1 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "territory_2",
+      "label": "Territory 2 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "territory_3",
+      "label": "Territory 3 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "territory_4",
+      "label": "Territory 4 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "territory_5",
+      "label": "Territory 5 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "territory_6",
+      "label": "Territory 6 (squares × crowns)",
+      "type": "manual"
+    },
+    {
+      "id": "middle_kingdom",
+      "label": "Middle Kingdom Bonus (+10)",
+      "points_each": 10,
+      "type": "boolean"
+    },
+    {
+      "id": "harmony",
+      "label": "Harmony Bonus (+5)",
+      "points_each": 5,
+      "type": "boolean"
+    }
+  ]
+}

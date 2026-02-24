@@ -1,0 +1,23 @@
+{
+  "game_id": "viticulture",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP (game ends when someone reaches 20+)",
+  "tiebreaker": "Most lira, then highest wine value, then highest grape value",
+  "categories": [
+    {
+      "id": "wine_orders",
+      "label": "Wine Order VP",
+      "type": "manual"
+    },
+    {
+      "id": "wake_up_bonuses",
+      "label": "Wake-up Bonus VP",
+      "type": "manual"
+    },
+    {
+      "id": "visitor_effects",
+      "label": "Visitor & Effect VP",
+      "type": "manual"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "game_id": "dominion",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when supply piles depleted",
+  "tiebreaker": "Fewer turns taken",
+  "categories": [
+    {
+      "id": "estates",
+      "label": "Estates",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "duchies",
+      "label": "Duchies",
+      "points_each": 3,
+      "type": "count"
+    },
+    {
+      "id": "provinces",
+      "label": "Provinces",
+      "points_each": 6,
+      "type": "count"
+    },
+    {
+      "id": "curses",
+      "label": "Curses",
+      "points_each": -1,
+      "type": "count",
+      "is_penalty": true
+    },
+    {
+      "id": "kingdom_vp",
+      "label": "Kingdom Victory Cards",
+      "type": "manual"
+    }
+  ]
+}

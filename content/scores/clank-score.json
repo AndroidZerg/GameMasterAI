@@ -1,0 +1,39 @@
+{
+  "game_id": "clank",
+  "scoring_type": "calculator",
+  "win_condition": "Most points after escaping the dungeon",
+  "tiebreaker": "Most remaining health, then most gold",
+  "categories": [
+    {
+      "id": "artifact",
+      "label": "Artifact Value",
+      "type": "manual"
+    },
+    {
+      "id": "gold",
+      "label": "Gold",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "crowns",
+      "label": "Crowns",
+      "type": "manual"
+    },
+    {
+      "id": "monkey_idols",
+      "label": "Monkey Idols",
+      "type": "manual"
+    },
+    {
+      "id": "secret_tokens",
+      "label": "Secret Token VP",
+      "type": "manual"
+    },
+    {
+      "id": "card_vp",
+      "label": "Card VP",
+      "type": "manual"
+    }
+  ]
+}

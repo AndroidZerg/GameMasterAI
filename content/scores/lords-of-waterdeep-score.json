@@ -1,0 +1,35 @@
+{
+  "game_id": "lords-of-waterdeep",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 8 rounds",
+  "tiebreaker": "Most leftover resources (gold + adventurers)",
+  "categories": [
+    {
+      "id": "quest_vp",
+      "label": "Quest VP",
+      "type": "manual"
+    },
+    {
+      "id": "building_vp",
+      "label": "Building VP",
+      "type": "manual"
+    },
+    {
+      "id": "intrigue_vp",
+      "label": "Intrigue VP",
+      "type": "manual"
+    },
+    {
+      "id": "lord_bonus",
+      "label": "Lord Bonus VP",
+      "type": "manual"
+    },
+    {
+      "id": "mandatory_quest_penalty",
+      "label": "Incomplete Mandatory Quests (-4 each)",
+      "points_each": -4,
+      "type": "count",
+      "is_penalty": true
+    }
+  ]
+}

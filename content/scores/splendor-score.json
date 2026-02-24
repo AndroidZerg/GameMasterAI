@@ -1,0 +1,19 @@
+{
+  "game_id": "splendor",
+  "scoring_type": "calculator",
+  "win_condition": "Most prestige after someone reaches 15",
+  "tiebreaker": "Fewer purchased development cards",
+  "categories": [
+    {
+      "id": "development_prestige",
+      "label": "Development Card Prestige",
+      "type": "manual"
+    },
+    {
+      "id": "noble_tiles",
+      "label": "Noble Tiles",
+      "points_each": 3,
+      "type": "count"
+    }
+  ]
+}

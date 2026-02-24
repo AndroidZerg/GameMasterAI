@@ -1,0 +1,77 @@
+{
+  "game_id": "agricola",
+  "scoring_type": "calculator",
+  "win_condition": "Most points after 14 rounds and final harvest",
+  "categories": [
+    {
+      "id": "fields",
+      "label": "Fields",
+      "type": "manual"
+    },
+    {
+      "id": "pastures",
+      "label": "Pastures",
+      "type": "manual"
+    },
+    {
+      "id": "grain",
+      "label": "Grain",
+      "type": "manual"
+    },
+    {
+      "id": "vegetables",
+      "label": "Vegetables",
+      "type": "manual"
+    },
+    {
+      "id": "sheep",
+      "label": "Sheep",
+      "type": "manual"
+    },
+    {
+      "id": "wild_boar",
+      "label": "Wild Boar",
+      "type": "manual"
+    },
+    {
+      "id": "cattle",
+      "label": "Cattle",
+      "type": "manual"
+    },
+    {
+      "id": "unused_spaces",
+      "label": "Unused Spaces",
+      "type": "manual",
+      "is_penalty": true
+    },
+    {
+      "id": "fenced_stables",
+      "label": "Fenced Stables",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "rooms",
+      "label": "Room Points",
+      "type": "manual"
+    },
+    {
+      "id": "family_members",
+      "label": "Family Members",
+      "points_each": 3,
+      "type": "count",
+      "max": 5
+    },
+    {
+      "id": "card_points",
+      "label": "Card Points (Occupations & Improvements)",
+      "type": "manual"
+    },
+    {
+      "id": "begging_penalties",
+      "label": "Begging Cards",
+      "type": "manual",
+      "is_penalty": true
+    }
+  ]
+}

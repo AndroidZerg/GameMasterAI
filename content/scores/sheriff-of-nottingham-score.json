@@ -1,0 +1,33 @@
+{
+  "game_id": "sheriff-of-nottingham",
+  "scoring_type": "calculator",
+  "win_condition": "Most points after all Sheriff rounds complete",
+  "tiebreaker": "Most legal goods, then most contraband",
+  "categories": [
+    {
+      "id": "coins",
+      "label": "Coins in Stash",
+      "type": "manual"
+    },
+    {
+      "id": "legal_goods",
+      "label": "Legal Goods Value",
+      "type": "manual"
+    },
+    {
+      "id": "contraband",
+      "label": "Contraband & Royal Goods Value",
+      "type": "manual"
+    },
+    {
+      "id": "king_bonuses",
+      "label": "King Bonuses",
+      "type": "manual"
+    },
+    {
+      "id": "queen_bonuses",
+      "label": "Queen Bonuses",
+      "type": "manual"
+    }
+  ]
+}

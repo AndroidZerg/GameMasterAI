@@ -1,0 +1,39 @@
+{
+  "game_id": "terraforming-mars",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when all global parameters are maxed",
+  "tiebreaker": "Most MegaCredits remaining",
+  "categories": [
+    {
+      "id": "terraform_rating",
+      "label": "Terraform Rating",
+      "type": "manual"
+    },
+    {
+      "id": "milestones",
+      "label": "Milestone VP",
+      "type": "manual"
+    },
+    {
+      "id": "awards",
+      "label": "Award VP",
+      "type": "manual"
+    },
+    {
+      "id": "greenery",
+      "label": "Greenery Tiles",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "city_adjacency",
+      "label": "City VP (adjacent greenery)",
+      "type": "manual"
+    },
+    {
+      "id": "card_vp",
+      "label": "Card VP",
+      "type": "manual"
+    }
+  ]
+}

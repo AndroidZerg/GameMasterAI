@@ -1,0 +1,41 @@
+{
+  "game_id": "sagrada",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 10 rounds",
+  "tiebreaker": "Most private objective points, then most favor tokens, then reverse player order",
+  "categories": [
+    {
+      "id": "public_objective_1",
+      "label": "Public Objective 1",
+      "type": "manual"
+    },
+    {
+      "id": "public_objective_2",
+      "label": "Public Objective 2",
+      "type": "manual"
+    },
+    {
+      "id": "public_objective_3",
+      "label": "Public Objective 3",
+      "type": "manual"
+    },
+    {
+      "id": "private_objective",
+      "label": "Private Objective (matching color pip sum)",
+      "type": "manual"
+    },
+    {
+      "id": "favor_tokens",
+      "label": "Unspent Favor Tokens",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "empty_spaces",
+      "label": "Empty Spaces (-1 each)",
+      "points_each": -1,
+      "type": "count",
+      "is_penalty": true
+    }
+  ]
+}

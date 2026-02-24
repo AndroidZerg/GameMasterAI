@@ -1,0 +1,28 @@
+{
+  "game_id": "takenoko",
+  "scoring_type": "calculator",
+  "win_condition": "Most points when objective card limit reached",
+  "categories": [
+    {
+      "id": "plot_objectives",
+      "label": "Plot Objective Points",
+      "type": "manual"
+    },
+    {
+      "id": "gardener_objectives",
+      "label": "Gardener Objective Points",
+      "type": "manual"
+    },
+    {
+      "id": "panda_objectives",
+      "label": "Panda Objective Points",
+      "type": "manual"
+    },
+    {
+      "id": "emperor_bonus",
+      "label": "Emperor Card Bonus",
+      "points_each": 2,
+      "type": "boolean"
+    }
+  ]
+}

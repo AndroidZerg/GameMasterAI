@@ -1,0 +1,14 @@
+{
+  "game_id": "power-grid",
+  "scoring_type": "calculator",
+  "win_condition": "Most cities powered in final Bureaucracy phase",
+  "tiebreaker": "Most Elektro remaining, then most connected cities",
+  "categories": [
+    {
+      "id": "cities_powered",
+      "label": "Cities Powered",
+      "points_each": 1,
+      "type": "count"
+    }
+  ]
+}

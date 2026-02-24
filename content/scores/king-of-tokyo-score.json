@@ -1,0 +1,29 @@
+{
+  "game_id": "king-of-tokyo",
+  "scoring_type": "calculator",
+  "win_condition": "First to 20 VP or last monster standing",
+  "categories": [
+    {
+      "id": "number_sets",
+      "label": "Number Set VP",
+      "type": "manual"
+    },
+    {
+      "id": "tokyo_entry",
+      "label": "Tokyo Entry VP",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "tokyo_start",
+      "label": "Tokyo Start-of-Turn VP",
+      "points_each": 2,
+      "type": "count"
+    },
+    {
+      "id": "card_effects",
+      "label": "Power Card VP",
+      "type": "manual"
+    }
+  ]
+}
