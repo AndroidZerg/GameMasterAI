@@ -15,3 +15,6 @@
 
 ### Phase A4: Swap Top Scores + Score Tracker Positions
 **Status:** DONE
+
+### Phase A5: Show All Filters — Remove More/Less Toggle
+**Status:** DONE

@@ -288,9 +288,6 @@ const PLAY_TIME_OPTIONS = [
 const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner"];
 
 function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
-  const [expanded, setExpanded] = useState(false);
-  const hasAdvanced = playTime > 0 || bestFor !== "Any";
-
   return (
     <div style={{ marginBottom: "16px" }}>
       {/* Row 1: Complexity + Player count */}
@@ -342,70 +339,53 @@ function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, pla
             </button>
           ))}
         </div>
-
-        {/* More filters toggle */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          style={{
-            padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-            background: hasAdvanced ? "var(--accent)" : "var(--bg-secondary)",
-            color: hasAdvanced ? "#fff" : "var(--text-secondary)",
-            border: "1px solid " + (hasAdvanced ? "transparent" : "var(--border)"),
-            cursor: "pointer", fontWeight: hasAdvanced ? 700 : 400,
-          }}
-        >
-          {expanded ? "Less" : "More"} {hasAdvanced ? `(${(playTime > 0 ? 1 : 0) + (bestFor !== "Any" ? 1 : 0)})` : ""}
-        </button>
       </div>
 
-      {/* Row 2: Advanced filters (play time + best for) */}
-      {expanded && (
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", animation: "fadeIn 0.2s ease-out" }}>
-          {/* Play time */}
-          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
-            {PLAY_TIME_OPTIONS.map((opt) => (
-              <button
-                key={opt.value}
-                onClick={() => setPlayTime(opt.value)}
-                style={{
-                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                  fontWeight: playTime === opt.value ? 700 : 400,
-                  background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
-                  color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
-                  border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
-                  cursor: "pointer",
-                }}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-
-          <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
-
-          {/* Best for */}
-          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
-            {BEST_FOR_OPTIONS.map((opt) => (
-              <button
-                key={opt}
-                onClick={() => setBestFor(opt)}
-                style={{
-                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
-                  fontWeight: bestFor === opt ? 700 : 400,
-                  background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
-                  color: bestFor === opt ? "#fff" : "var(--text-secondary)",
-                  border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
-                  cursor: "pointer",
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
+      {/* Row 2: Play time */}
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginBottom: "8px" }}>
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
+          {PLAY_TIME_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setPlayTime(opt.value)}
+              style={{
+                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                fontWeight: playTime === opt.value ? 700 : 400,
+                background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
+                color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
-      )}
+
+        <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+
+        {/* Best for */}
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
+          {BEST_FOR_OPTIONS.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setBestFor(opt)}
+              style={{
+                padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                fontWeight: bestFor === opt ? 700 : 400,
+                background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
+                color: bestFor === opt ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+              }}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
