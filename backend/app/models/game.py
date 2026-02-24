@@ -71,9 +71,19 @@ def rebuild_db():
     games = scan_game_files()
     conn = _get_conn()
     conn.execute("DELETE FROM games")
+    # Fallback play times by complexity if missing from JSON
+    _PLAY_TIME_DEFAULTS = {
+        "party": {"min": 15, "max": 30},
+        "gateway": {"min": 30, "max": 60},
+        "midweight": {"min": 45, "max": 90},
+        "heavy": {"min": 90, "max": 180},
+    }
     for g in games:
         pc = g.get("player_count", {})
         pt = g.get("play_time_minutes", {})
+        if not pt.get("min") and not pt.get("max"):
+            complexity = g.get("complexity", "")
+            pt = _PLAY_TIME_DEFAULTS.get(complexity, {"min": 30, "max": 60})
         conn.execute(
             """INSERT OR REPLACE INTO games
                (game_id, title, aliases, player_count_min, player_count_max,
