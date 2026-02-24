@@ -22,3 +22,14 @@ Status: COMPLETE — 50/50 real images downloaded
 - Script: `scripts/download_bgg_covers.py`
 
 ---
+
+## Phase C2: Verify All Images
+Status: COMPLETE — 50/50 valid
+
+- 50 image files, all > 1 KB (smallest: telestrations at 51 KB)
+- 48 files are true JPEG format
+- 2 files are PNG saved as .jpg (coup, everdell) — will convert in C3
+- Total size: 6.2 MB (avg 129 KB per image)
+- No corrupt files, no HTML error pages
+
+---
