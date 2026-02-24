@@ -29,6 +29,18 @@ const PLAY_TIMES = {
 };
 
 // "Best for" tags derived from player count and complexity
+// Fallback play time estimates by complexity
+const COMPLEXITY_TIME_ESTIMATES = {
+  party: 20,
+  gateway: 45,
+  midweight: 75,
+  heavy: 120,
+};
+
+function getPlayTime(game) {
+  return PLAY_TIMES[game.game_id] || COMPLEXITY_TIME_ESTIMATES[game.complexity] || 45;
+}
+
 function getBestForTags(game) {
   const tags = [];
   const min = game.player_count?.min || 1;
@@ -133,11 +145,9 @@ function GameOfTheDay({ game, onClick }) {
             <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
               {game.player_count?.min}-{game.player_count?.max} players
             </span>
-            {PLAY_TIMES[game.game_id] && (
-              <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
-                {PLAY_TIMES[game.game_id]} min
-              </span>
-            )}
+            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
+              {getPlayTime(game)} min
+            </span>
           </div>
         </div>
       </div>
@@ -250,11 +260,9 @@ function GameCard({ game, onClick, small }) {
             <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
               {game.player_count?.min}-{game.player_count?.max}p
             </span>
-            {PLAY_TIMES[game.game_id] && (
-              <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
-                {PLAY_TIMES[game.game_id]}min
-              </span>
-            )}
+            <span style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+              {getPlayTime(game)}min
+            </span>
           </div>
         )}
         {!small && (
@@ -562,8 +570,7 @@ export default function GameSelector() {
   }
   if (playTime > 0) {
     displayGames = displayGames.filter((g) => {
-      const t = PLAY_TIMES[g.game_id];
-      if (!t) return true; // Include games without time data
+      const t = getPlayTime(g);
       if (playTime === 30) return t < 30;
       if (playTime === 60) return t >= 30 && t <= 60;
       if (playTime === 90) return t > 60 && t <= 90;

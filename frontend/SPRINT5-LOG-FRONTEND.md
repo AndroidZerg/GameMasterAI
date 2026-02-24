@@ -18,3 +18,6 @@
 
 ### Phase A5: Show All Filters — Remove More/Less Toggle
 **Status:** DONE
+
+### Phase A6: Fix Missing Play Time on Game Cards
+**Status:** DONE
