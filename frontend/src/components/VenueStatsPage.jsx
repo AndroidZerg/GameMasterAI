@@ -151,7 +151,7 @@ export default function VenueStatsPage() {
         const res = await fetch(`${API_BASE}/api/stats`);
         if (res.ok) {
           const data = await res.json();
-          setStats(data);
+          setStats(prev => ({ ...prev, ...data }));
         }
       } catch {
         // Use mock data
@@ -232,7 +232,7 @@ export default function VenueStatsPage() {
           {/* Popular games with bar chart */}
           <div style={{ background: "var(--bg-card)", borderRadius: "16px", padding: "20px", border: "1px solid var(--border)" }}>
             <h2 style={{ fontSize: "1.1rem", marginBottom: "16px", color: "var(--text-primary)" }}>Most Popular Games</h2>
-            {stats.popular_games.map((game, i) => {
+            {(stats.popular_games || []).map((game, i) => {
               const maxSessions = stats.popular_games[0]?.sessions || 1;
               const pct = (game.sessions / maxSessions) * 100;
               return (
