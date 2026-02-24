@@ -1,0 +1,85 @@
+{
+  "game_id": "quest-for-el-dorado",
+  "title": "Quest for El Dorado",
+  "aliases": ["El Dorado", "The Quest for El Dorado", "Wettlauf nach El Dorado"],
+  "publisher": "Ravensburger",
+  "player_count": {"min": 2, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 30, "max": 60},
+  "complexity": "gateway",
+  "categories": ["deck-building", "racing", "hand-management"],
+  "source_url": "https://www.ravensburger.org/quest-for-el-dorado",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **Modular board tiles** — Hexagonal terrain tiles forming the route\n- **Explorer pawns** (1 per player)\n- **Starting deck** per player (8 cards)\n- **Market board** with 6 purchasable card stacks\n- **Terrain types** — Jungle (green), Water (blue), Desert (yellow), Mountain, Village\n- **Blockade tokens**\n- **Cave tokens**"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Choose map layout** — Arrange hex tiles per a scenario or custom setup.\n2. **Place start tiles** and El Dorado finish tile.\n3. **Set up market** — 6 stacks of purchasable cards.\n4. **Place blockade tokens** on designated spaces.\n5. **Place explorers** on the start space."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Starting deck** of 8 cards (basic jungle, water, and coin cards).\n- **Shuffle and draw 4** as starting hand.\n- **Explorer pawn** on start space."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Quest for El Dorado combines deck-building with racing. Build your deck by buying more powerful cards, then play cards to move your explorer through jungle, water, and desert terrain. First to reach El Dorado wins."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Play cards** — Play cards from your hand to move or buy.\n2. **Move** — Discard matching terrain cards to move through hexes.\n3. **Buy cards** — Spend coin cards to purchase new cards from the market.\n4. **Discard and draw** — Discard remaining hand, draw 4 new cards. Reshuffle discard pile when deck is empty."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Movement\n- Each terrain hex requires a card of matching type with sufficient power.\n- **Jungle** hex requires green card of that value or higher.\n- **Water** hex requires blue card of that value or higher.\n- **Desert** hex — Discard any card (it's removed from the game, not just discarded).\n- **Mountain** — Cannot be entered.\n- Cards of higher value than needed still count as 1 hex of movement.\n\n#### Buying Cards\n- Spend coin (gold) cards to buy from the 6 market stacks.\n- Bought cards go to your discard pile.\n- Each market stack has a fixed price.\n- When a stack is emptied, it's removed (or replaced with a reserve card).\n\n#### Blockades\n- Some hexes have blockade tokens requiring you to discard specific cards to pass.\n- Once anyone passes a blockade, the token is removed."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Desert removes cards** — Playing a card for desert movement permanently thins your deck.\n- **Caves** — Landing on cave tokens gives bonus abilities.\n- **Obstacles** — Multiple explorers cannot share the same hex; you must go around.\n- **No passing** — You cannot pass through an occupied hex."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Winning\n- First explorer to reach El Dorado wins immediately.\n- This is a pure race — no points, just first to finish."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Thin your deck** — Desert hexes remove weak cards, making your deck more efficient.\n- **Don't overbuy** — A lean deck cycles faster. Only buy cards you'll use.\n- **Match terrain** — Buy cards matching the terrain ahead on the map.\n- **Watch the path** — Plan your route before buying cards."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Speed vs power** — Fast cheap decks can win races; expensive cards are powerful but slow to cycle.\n- **Deck thinning** — Deliberately use deserts to remove starting cards.\n- **Market denial** — Buy cards opponents need.\n- **Route scouting** — Choose paths that match your deck's strengths."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

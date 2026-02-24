@@ -1,0 +1,10 @@
+{
+  "game_id": "splendor-duel",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "prestige", "label": "Prestige Points", "points_each": 1, "type": "count", "description": "Total prestige from cards and nobles (20 to win)"},
+    {"id": "crowns", "label": "Crowns", "points_each": 1, "type": "count", "description": "Crown symbols on cards (10 to win)"},
+    {"id": "color_points", "label": "Max Color Points", "points_each": 1, "type": "count", "description": "Most prestige in a single color (10 to win)"}
+  ],
+  "win_condition": "20 prestige, 10 crowns, or 10 points in one color"
+}

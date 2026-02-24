@@ -1,0 +1,10 @@
+{
+  "game_id": "downforce",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "car_payout", "label": "Car Ownership Payout", "points_each": 1, "type": "count", "description": "Prize money from owned car's finish position"},
+    {"id": "bet_payout", "label": "Bet Payouts", "points_each": 1, "type": "count", "description": "Money from correct bets on race winner"},
+    {"id": "auction_cost", "label": "Auction Cost", "points_each": -1, "type": "count", "description": "Money spent during car auction"}
+  ],
+  "win_condition": "Highest net profit (payouts minus costs)"
+}

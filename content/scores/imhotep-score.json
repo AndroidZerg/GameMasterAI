@@ -1,0 +1,12 @@
+{
+  "game_id": "imhotep",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "pyramid", "label": "Pyramid", "points_each": 1, "type": "count", "description": "Points from visible stones in pyramid"},
+    {"id": "temple", "label": "Temple", "points_each": 1, "type": "count", "description": "Points from top visible stones in temple each round"},
+    {"id": "burial_chamber", "label": "Burial Chamber", "points_each": 1, "type": "count", "description": "Points from connected stone groups"},
+    {"id": "obelisks", "label": "Obelisks", "points_each": 1, "type": "count", "description": "Points from obelisk height rankings"},
+    {"id": "market", "label": "Market Cards", "points_each": 1, "type": "count", "description": "Points from green market cards"}
+  ],
+  "win_condition": "Most points after 6 rounds"
+}

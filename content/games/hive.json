@@ -1,0 +1,85 @@
+{
+  "game_id": "hive",
+  "title": "Hive",
+  "aliases": ["Hive: A Game Crawling with Possibilities"],
+  "publisher": "Gen42 Games",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 30},
+  "complexity": "gateway",
+  "categories": ["abstract-strategy", "tile-placement", "two-player"],
+  "source_url": "https://www.gen42.com/hive",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **22 hexagonal Bakelite tiles** (11 per player in black and white):\n  - **1** Queen Bee\n  - **2** Spiders\n  - **2** Beetles\n  - **3** Grasshoppers\n  - **3** Soldier Ants\n- **Expansion tiles** (optional): Mosquito, Ladybug, Pillbug (1 each per player)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "- **No board** — Tiles are placed directly on any flat surface.\n- **The hive** forms organically as tiles are placed adjacent to each other.\n- **First player** places any tile. Second player places a tile adjacent to it."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **11 tiles each** (or 14 with all expansions).\n- **White goes first.**\n- **Queen must be placed** by your 4th turn at the latest."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Hive is a boardless abstract strategy game. Place and move insect tiles to surround the opponent's Queen Bee on all 6 sides. No board is needed — tiles create the playing surface."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, do ONE of:\n1. **Place a new tile** from your supply adjacent to the hive.\n2. **Move an existing tile** according to its movement rules.\n\nIf you can do neither, you must pass."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Placement Rules\n- New tiles must be placed touching at least 1 tile of your own color.\n- New tiles must NOT touch any opponent tiles (except on the very first two plays).\n- **Queen by turn 4** — If your Queen isn't placed by your 4th turn, you must place it.\n- You cannot move any of your tiles until your Queen is placed.\n\n#### Piece Movement\n- **Queen Bee** — Moves 1 space. Must stay connected to the hive.\n- **Spider** — Moves exactly 3 spaces along the edge of the hive. Cannot backtrack.\n- **Beetle** — Moves 1 space. Can climb on top of the hive, pinning the tile beneath.\n- **Grasshopper** — Jumps in a straight line over adjacent tiles to the first empty space.\n- **Soldier Ant** — Moves any number of spaces around the outside edge of the hive.\n\n#### One Hive Rule\n- The hive must always remain one connected group.\n- A tile cannot be moved if it would split the hive into two separate groups."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Freedom to Move\n- A tile can only slide into or out of a space if the gap is physically wide enough (no squeezing between two tiles).\n\n#### Beetle Stacking\n- Beetles can climb on top of any adjacent tile (friend or foe).\n- A tile with a beetle on top cannot move.\n- The beetle on top controls the color of that space for placement purposes.\n\n#### Expansion Pieces\n- **Mosquito** — Copies the movement of any adjacent piece.\n- **Ladybug** — Moves exactly 3: 2 on top of the hive, then 1 down.\n- **Pillbug** — Moves 1 space, OR moves an adjacent piece on top of itself and then to another adjacent space."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win Condition\n- Completely surround your opponent's Queen Bee on all 6 sides (with any tiles, yours or theirs).\n\n#### Draw\n- If both Queens are simultaneously surrounded, the game is a draw.\n\n#### No points — pure win/loss/draw."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Place Queen early** — Turn 2 or 3 is ideal; waiting until turn 4 limits your options.\n- **Ants are powerful** — They can reach any spot on the hive edge; use them offensively.\n- **Beetles for pinning** — Climb onto the opponent's Queen to immobilize it.\n- **Don't isolate your Queen** — Keep your Queen near friendly pieces for defense."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Pin and surround** — Use Beetles to pin key pieces while Ants close the noose.\n- **Grasshopper mobility** — Grasshoppers can jump across the hive; use them to reach distant positions.\n- **One Hive defense** — Position your Queen so that pieces around it can't move without breaking the hive.\n- **Tempo** — Each turn you place instead of move is one turn less pressure; balance offense and defense."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

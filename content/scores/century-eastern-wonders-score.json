@@ -1,0 +1,10 @@
+{
+  "game_id": "century-eastern-wonders",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "point_cards", "label": "Point Cards", "points_each": 1, "type": "count", "description": "Total points from fulfilled point cards"},
+    {"id": "bonus_tokens", "label": "Bonus Tokens", "points_each": 1, "type": "count", "description": "Points from bonus tokens"},
+    {"id": "remaining_spices", "label": "Remaining Spices", "points_each": 1, "type": "count", "description": "1 point per non-yellow spice cube remaining"}
+  ],
+  "win_condition": "Most points when someone claims 4th point card"
+}

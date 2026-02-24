@@ -1,0 +1,11 @@
+{
+  "game_id": "azul-summer-pavilion",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "tile_placement", "label": "Tile Placement", "points_each": 1, "type": "count", "description": "Points from placing tiles (connected group size)"},
+    {"id": "surrounding_bonus", "label": "Surrounding Bonuses", "points_each": 1, "type": "count", "description": "Bonus points from surrounding pillars, statues, windows"},
+    {"id": "complete_stars", "label": "Complete Stars", "points_each": 1, "type": "count", "description": "End-game bonus for fully completed star points"},
+    {"id": "number_sets", "label": "Number Sets", "points_each": 1, "type": "count", "description": "Points for having all 6 number values filled"}
+  ],
+  "win_condition": "Most points after 6 rounds"
+}

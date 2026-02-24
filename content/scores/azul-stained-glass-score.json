@@ -1,0 +1,10 @@
+{
+  "game_id": "azul-stained-glass",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "strip_completions", "label": "Strip Completions", "points_each": 1, "type": "count", "description": "Points from completing palace strips"},
+    {"id": "floor_penalty", "label": "Floor Penalty", "points_each": -1, "type": "count", "description": "Negative points from excess panes on floor line"},
+    {"id": "end_bonuses", "label": "End Game Bonuses", "points_each": 1, "type": "count", "description": "Bonus points from color completion and other end-game goals"}
+  ],
+  "win_condition": "Most points wins"
+}
