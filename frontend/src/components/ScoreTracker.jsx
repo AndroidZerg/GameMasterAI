@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8100";
+import { API_BASE } from "../services/api";
 
 const PLAYER_COLORS = [
   "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
