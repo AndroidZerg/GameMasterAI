@@ -1,0 +1,9 @@
+{
+  "game_id": "bunny-kingdom",
+  "scoring_type": "area_majority",
+  "categories": [
+    {"id": "fiefdom_scores", "label": "Fiefdom Scores", "points_each": 1, "type": "value", "description": "Sum of Strength x Wealth for each fiefdom across all 4 rounds"},
+    {"id": "parchment_cards", "label": "Parchment Cards", "points_each": 1, "type": "value", "description": "Bonus points from secret objective parchment cards scored at end of game"}
+  ],
+  "win_condition": "Player with the highest total score from fiefdom scoring across 4 rounds plus parchment card bonuses wins."
+}

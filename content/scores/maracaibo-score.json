@@ -1,0 +1,43 @@
+{
+  "game_id": "maracaibo",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 4 rounds from influence, quests, buildings, exploration, and upgrades",
+  "categories": [
+    {
+      "id": "influence_scoring",
+      "label": "Influence Scoring",
+      "type": "manual",
+      "description": "VP from positions on Spain, England, and France influence tracks (scored each round)"
+    },
+    {
+      "id": "quest_vp",
+      "label": "Quest VP",
+      "type": "manual",
+      "description": "VP from completed quest cards"
+    },
+    {
+      "id": "buildings",
+      "label": "Building VP",
+      "type": "manual",
+      "description": "VP from buildings placed in villages"
+    },
+    {
+      "id": "exploration",
+      "label": "Exploration VP",
+      "type": "manual",
+      "description": "VP from exploration track and discovered tokens"
+    },
+    {
+      "id": "crew_and_upgrades",
+      "label": "Crew and Ship Upgrades",
+      "type": "manual",
+      "description": "End-game VP from crew members and ship upgrades"
+    },
+    {
+      "id": "card_vp",
+      "label": "Card VP",
+      "type": "manual",
+      "description": "VP from project cards in your tableau"
+    }
+  ]
+}

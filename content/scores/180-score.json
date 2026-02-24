@@ -1,0 +1,10 @@
+{
+  "game_id": "forgotten-waters",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "hull_survived", "label": "Ship Survived", "points_each": 0, "type": "checkbox", "description": "The ship's hull did not reach zero — the crew survived the voyage"},
+    {"id": "objective_complete", "label": "Scenario Objective Complete", "points_each": 0, "type": "checkbox", "description": "The main story objective was achieved"},
+    {"id": "personal_story", "label": "Personal Story Complete", "points_each": 0, "type": "checkbox", "description": "Each player checks if they completed enough of their personal pirate story for a happy ending"}
+  ],
+  "win_condition": "Cooperative: crew wins if the ship survives and the scenario objective is completed. Each player individually succeeds or fails their personal story."
+}

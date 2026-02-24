@@ -1,0 +1,34 @@
+{
+  "game_id": "le-havre",
+  "scoring_type": "calculator",
+  "win_condition": "Most total wealth (Francs + building values + ship values - loans) at game end",
+  "categories": [
+    {
+      "id": "francs",
+      "label": "Francs in Hand",
+      "points_each": 1,
+      "type": "count",
+      "description": "Each Franc counts as 1 point"
+    },
+    {
+      "id": "building_values",
+      "label": "Building Values",
+      "type": "manual",
+      "description": "Total printed Franc value of all buildings you own"
+    },
+    {
+      "id": "ship_values",
+      "label": "Ship Values",
+      "type": "manual",
+      "description": "Total printed Franc value of all ships you own"
+    },
+    {
+      "id": "loans",
+      "label": "Outstanding Loans",
+      "points_each": -7,
+      "type": "count",
+      "is_penalty": true,
+      "description": "-7 Francs per outstanding loan card"
+    }
+  ]
+}

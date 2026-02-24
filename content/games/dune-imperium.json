@@ -1,0 +1,85 @@
+{
+  "game_id": "dune-imperium",
+  "title": "Dune: Imperium",
+  "aliases": ["Dune Imperium"],
+  "publisher": "Dire Wolf",
+  "player_count": {"min": 1, "max": 4, "recommended": 4},
+  "play_time_minutes": {"min": 60, "max": 120},
+  "complexity": "midweight",
+  "categories": ["deck-building", "worker-placement", "conflict", "science-fiction"],
+  "source_url": "https://www.direwolfdigital.com/dune-imperium/",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 main game board** — Depicts Arrakis with worker-placement spaces organized by faction affiliation (Emperor, Spacing Guild, Bene Gesserit, Fremen) plus neutral Arrakis locations.\n- **Conflict area** — Central conflict zone where combat is resolved each round.\n- **4 influence tracks** — Emperor, Spacing Guild, Bene Gesserit, Fremen.\n\n#### Cards\n- **Starting deck** — 10 cards per player (identical starting decks).\n- **Imperium deck** — Large market deck of cards to acquire.\n- **Reserve cards** — Always-available cards (Arrakis Liaison, The Spice Must Flow).\n- **Intrigue cards** — Secret cards providing combat bonuses, plot effects, or end-game VP.\n- **Conflict cards** — 1 revealed per round determining combat rewards.\n\n#### Other Components\n- **Agent tokens** — 2 per player (workers placed on the board). A third can be unlocked.\n- **Swordmaster** — Unlockable third agent.\n- **Troops** — Combat cubes placed in the conflict area.\n- **Spice tokens** — Primary currency/resource.\n- **Solari tokens** — Money.\n- **Water tokens** — Required for certain Arrakis actions.\n- **VP markers** — Track victory points (race to 10).\n- **Alliance tokens** — Gained at influence level 2 with any faction."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Board Setup\n1. **Place main board** — Central board showing Arrakis locations and faction spaces.\n2. **Imperium market** — Shuffle the Imperium deck. Deal 5 cards face up as the market row.\n3. **Reserve cards** — Place Arrakis Liaison and The Spice Must Flow cards in the reserve (always available to buy).\n4. **Conflict deck** — Shuffle conflict cards. Place the deck with conflict I cards on top, then II, then III.\n5. **Intrigue deck** — Shuffle and place face down.\n6. **Influence tracks** — Set all player markers at 0 on all 4 faction tracks.\n7. **Mentat space** — Place the mentat token on its board space.\n\n#### Resource Supply\n- **Spice, solari, water** — Place all tokens in a general supply."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Starting Components\n- **Starting deck** — Each player takes an identical 10-card starting deck and shuffles it.\n- **Draw 5** — Draw 5 cards as your opening hand.\n- **Agents** — Take 2 agent tokens (workers) in your color.\n- **Starting resources** — 1 water token.\n- **VP marker** — Place at 0 on the VP track.\n- **Troops** — Place troops in your supply (not yet deployed).\n\n#### Leader Selection (Optional)\n- **Leader cards** — Each player may select a unique leader providing an asymmetric ability.\n- **Starting bonus** — Some leaders provide additional starting resources or modified starting decks.\n\n#### First Player\n- **Random selection** — Determine the first player randomly. First player token passes each round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nDune: Imperium is a hybrid deck-building and worker-placement game set in the Dune universe. On your turn, you play a card from your hand to send an agent (worker) to a corresponding board space. Cards not used for agent turns are revealed during combat to add strength. This dual-use of cards — placement enablers AND combat strength — creates compelling decisions about which cards to play and which to hold.\n\n#### Game Arc\n- **Race to 10 VP** — The game ends when a player reaches 10 VP, or at the end of a set number of rounds (whichever comes first).\n- **Escalating conflicts** — Conflict cards increase in value as the game progresses (Conflict I → II → III).\n- **Deck evolution** — Your deck improves as you acquire powerful Imperium cards.\n- **Faction alliances** — Reaching influence level 2 with a faction earns an alliance token (worth 1 VP and a bonus)."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Round start** — Reveal a new conflict card showing this round's combat rewards.\n2. **Player turns** — In clockwise order, each player takes either an Agent Turn or a Reveal Turn.\n3. **Combat** — After all players have taken their Reveal Turn, resolve combat.\n4. **Makers** — Sandworm bonus (spice reward if applicable).\n5. **Recall** — Return agents to players. Refresh the Imperium market.\n\n#### Agent Turn (Play a Card + Place an Agent)\n- **Play 1 card** — Choose a card from your hand. It shows which board spaces your agent can visit (icons on the card match board space icons).\n- **Place agent** — Send 1 agent to a matching board space and gain its reward.\n- **Card effect** — Also resolve the card's Agent box effect (if any).\n- **Repeat** — You keep taking Agent Turns until you run out of agents (normally 2, up to 3 with Swordmaster).\n\n#### Reveal Turn (End Your Round)\n- **Reveal remaining hand** — Flip all remaining cards in your hand face up.\n- **Reveal effects** — Each revealed card contributes its Reveal box effect (typically combat strength or persuasion for buying cards).\n- **Deploy troops** — You may deploy troops from your garrison to the conflict.\n- **Buy cards** — Spend persuasion (from revealed cards) to acquire cards from the Imperium market or reserve.\n- **No more actions** — After your Reveal Turn, you take no more turns this round.\n\n#### Combat Resolution\n- **Combat strength** — Total your troops in the conflict zone + combat strength from revealed cards + intrigue card bonuses.\n- **Ranking** — Players are ranked by total combat strength.\n- **1st place** — Wins the conflict card's top reward (usually VP + bonus).\n- **2nd place** — Gets the second-tier reward.\n- **3rd/4th place** — Lesser or no reward.\n- **Troops lost** — Troops in the conflict are returned to supply (not garrison)."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Board Spaces by Faction\n- **Emperor spaces** — Gain solari, troops, and intrigue cards. Advance Emperor influence.\n- **Spacing Guild spaces** — Gain spice, passage, and fold space. Advance Guild influence.\n- **Bene Gesserit spaces** — Gain intrigue cards, card draw, and influence manipulation. Advance BG influence.\n- **Fremen spaces** — Gain water, troops, and desert power. Advance Fremen influence.\n- **Arrakis spaces** — Harvest spice (the most valuable resource). Some require water to access.\n\n#### Faction Influence\n- **4 tracks** — Emperor, Spacing Guild, Bene Gesserit, Fremen.\n- **Advancement** — Gained by visiting faction-aligned board spaces.\n- **Level 2 alliance** — Reaching level 2 earns an alliance token (1 VP + ongoing bonus). Only the first 2 players to reach level 2 with a faction get an alliance token.\n- **Level 4** — Reaching level 4 earns a bonus VP.\n- **Influence matters** — Some Imperium cards require minimum influence to acquire.\n\n#### Deck Building\n- **Persuasion** — Generated during your Reveal Turn. Spend to buy cards.\n- **Imperium market** — 5 face-up cards. Refreshes each round.\n- **Reserve cards** — Always available: Arrakis Liaison (cheap, gains agent), The Spice Must Flow (expensive, 1 VP each).\n- **Trash mechanic** — Some effects let you remove (trash) weak starting cards to streamline your deck.\n\n#### Spice\n- **Primary resource** — Spice is used to pay costs, trade for solari, and fuel powerful card abilities.\n- **Harvesting** — Arrakis board spaces yield spice. Some require water.\n- **Maker bonus** — Bonus spice from the sandworm track.\n\n#### Intrigue Cards\n- **Secret hand** — Drawn from the intrigue deck, kept hidden.\n- **Types** — Combat (play during combat for strength), Plot (play during your turn for effects), Endgame (score VP at game end).\n- **Powerful swings** — A well-timed intrigue card can win a combat or steal a VP."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Swordmaster (Third Agent)\n- **Unlock** — Pay 8 solari to unlock your Swordmaster, gaining a 3rd agent permanently.\n- **Major advantage** — 3 agents vs. opponents' 2 is a significant action advantage.\n- **Priority** — Acquiring the Swordmaster early is often a top priority.\n\n#### The Spice Must Flow\n- **Reserve card** — Always available to purchase for 9 persuasion.\n- **VP card** — Worth 1 VP immediately upon acquisition.\n- **Endgame push** — Buying these in late game is a primary VP source.\n\n#### Mentat\n- **Board space** — One player per round can claim the Mentat.\n- **Benefit** — Draw 1 card and gain 1 agent for this round only (temporary 3rd agent).\n- **Cost** — 2 solari.\n\n#### Sandworms (Makers)\n- **Spice bonus** — When conflict cards with sandworm icons are revealed, bonus spice is distributed.\n- **Timing** — Occurs at a specific phase in the round.\n\n#### Troops and Garrison\n- **Garrison** — Troops not in combat wait in your garrison.\n- **Deployment** — During your Reveal Turn, move troops from garrison to the conflict.\n- **Supply** — Troops lost in combat return to your supply (must be re-recruited to garrison)."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### End-Game Trigger\n- **10 VP** — The game ends at the end of the round in which any player reaches 10 VP.\n- **Conflict III exhaustion** — If the Conflict III deck runs out, the game also ends.\n\n#### VP Sources (During Game)\n- **Conflict wins** — VP from winning 1st or 2nd in conflicts.\n- **Alliance tokens** — 1 VP each (from reaching influence level 2).\n- **Influence level 4** — 1 VP for reaching level 4 with any faction.\n- **The Spice Must Flow** — 1 VP each when acquired.\n- **Certain Imperium cards** — Some cards grant VP when acquired or through effects.\n- **Intrigue cards** — Endgame intrigue cards score VP at game end.\n\n#### Final Scoring\n- **Add endgame intrigue** — Reveal and score any endgame intrigue cards.\n- **Total VP** — Sum all VP from all sources.\n\n#### Winner\n- **Highest VP** — Player with the most VP wins.\n- **Tiebreaker** — Player with most spice. Then most solari. Then most troops in garrison."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Cards serve dual purpose** — Every card played as an agent is one fewer card for combat strength. Weigh both uses.\n- **Get the Swordmaster** — 3 agents is a massive advantage. Prioritize saving 8 solari early.\n- **Don't ignore combat** — Conflict rewards escalate. Winning later conflicts can be worth 2-3 VP.\n- **Faction influence is VP** — Alliances (level 2) and level 4 bonuses are reliable VP. Spread or focus influence.\n- **Thin your deck** — Remove weak starting cards when possible. A lean deck draws your best cards more often.\n- **Spice is king** — Spice enables the strongest plays. Prioritize harvesting when safe."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### Strategy 1: Military Dominance\n- **Goal** — Win conflicts consistently for VP and rewards.\n- **Key actions** — Recruit troops, gain combat intrigue cards, deploy heavily.\n- **Risk** — Opponents may avoid combat, making your troops less valuable.\n\n#### Strategy 2: Influence Runner\n- **Goal** — Rush alliances and level 4 bonuses across factions.\n- **Key actions** — Visit faction spaces frequently, acquire faction-aligned cards.\n- **Benefit** — Reliable VP from alliance tokens without needing to win combat.\n\n#### Strategy 3: Spice Economy\n- **Goal** — Dominate spice production to fuel powerful card purchases.\n- **Key actions** — Arrakis spaces, water management, spice-generating cards.\n- **Benefit** — Economic engine enables buying The Spice Must Flow and expensive Imperium cards.\n\n#### Strategy 4: Deck Engine\n- **Goal** — Build a powerful deck with strong synergies for both placement and combat.\n- **Key actions** — Trash weak cards, buy high-synergy Imperium cards.\n- **Benefit** — A tuned deck provides both strong agent turns and overwhelming combat strength.\n\n#### General Principles\n- **Timing combat** — Don't fight every battle. Choose your conflicts based on the reward and your position.\n- **Card market awareness** — Watch the Imperium market for cards that fit your strategy.\n- **Endgame intrigue** — Save endgame intrigue cards for a VP burst at the end."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

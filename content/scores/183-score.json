@@ -1,0 +1,14 @@
+{
+  "game_id": "twilight-imperium-4th-edition",
+  "scoring_type": "race",
+  "categories": [
+    {"id": "stage_1_objectives", "label": "Stage I Public Objectives", "points_each": 1, "type": "count", "description": "VP from Stage I Public Objectives scored during Status Phase (1 VP each)"},
+    {"id": "stage_2_objectives", "label": "Stage II Public Objectives", "points_each": 2, "type": "count", "description": "VP from Stage II Public Objectives scored during Status Phase (2 VP each)"},
+    {"id": "secret_objectives", "label": "Secret Objectives", "points_each": 1, "type": "count", "description": "VP from completed Secret Objectives (max 3, 1 VP each)"},
+    {"id": "custodians_token", "label": "Custodians Token", "points_each": 1, "type": "count", "description": "1 VP for being the first player to claim Mecatol Rex"},
+    {"id": "imperial_points", "label": "Imperial / Mecatol VP", "points_each": 1, "type": "count", "description": "VP from the Imperial Strategy Card for controlling Mecatol Rex"},
+    {"id": "support_for_throne", "label": "Support for the Throne", "points_each": 1, "type": "count", "description": "VP from holding other players' Support for the Throne promissory notes"},
+    {"id": "agenda_vp", "label": "Agenda Phase VP", "points_each": 1, "type": "count", "description": "VP awarded by agenda card resolutions"}
+  ],
+  "win_condition": "First player to reach 10 Victory Points wins immediately"
+}

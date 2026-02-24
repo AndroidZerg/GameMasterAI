@@ -1,0 +1,68 @@
+{
+  "game_id": "paladins-of-the-west-kingdom",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 7 rounds from townsfolk, fortifications, combat, attributes, and orders",
+  "categories": [
+    {
+      "id": "townsfolk",
+      "label": "Commissioned Townsfolk",
+      "type": "manual",
+      "description": "VP from townsfolk cards in your tableau"
+    },
+    {
+      "id": "fortifications",
+      "label": "Fortification Tiles",
+      "type": "manual",
+      "description": "VP from wall tiles placed during the game"
+    },
+    {
+      "id": "outsiders_defeated",
+      "label": "Defeated Outsiders",
+      "type": "manual",
+      "description": "VP from outsiders defeated in combat"
+    },
+    {
+      "id": "attribute_tracks",
+      "label": "Attribute Tracks",
+      "type": "manual",
+      "description": "VP from final positions on Faith, Influence, and Strength"
+    },
+    {
+      "id": "kings_orders",
+      "label": "King's Orders",
+      "type": "manual",
+      "description": "VP from completed secret objective cards"
+    },
+    {
+      "id": "kings_favor",
+      "label": "King's Favor",
+      "type": "manual",
+      "description": "VP from favor cards earned through attribute advancement"
+    },
+    {
+      "id": "garrison",
+      "label": "Garrison Workers",
+      "type": "manual",
+      "description": "VP for workers placed in garrison"
+    },
+    {
+      "id": "virtue_track",
+      "label": "Virtue Track",
+      "type": "manual",
+      "description": "VP based on virtue position (extremes score best)"
+    },
+    {
+      "id": "debt_penalties",
+      "label": "Debt Cards",
+      "type": "manual",
+      "is_penalty": true,
+      "description": "Negative VP from unresolved debt cards"
+    },
+    {
+      "id": "resources",
+      "label": "Remaining Resources",
+      "type": "manual",
+      "description": "Small VP for remaining provisions and silver"
+    }
+  ]
+}

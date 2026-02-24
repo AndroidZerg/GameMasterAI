@@ -1,0 +1,15 @@
+{
+  "game_id": "nidavellir",
+  "scoring_type": "set_collection",
+  "categories": [
+    {"id": "warriors", "label": "Warriors", "points_each": 1, "type": "value", "description": "Sum of bravery values on all warrior cards"},
+    {"id": "hunters", "label": "Hunters", "points_each": 1, "type": "value", "description": "Points from triangular number table based on number of hunter cards"},
+    {"id": "miners", "label": "Miners", "points_each": 1, "type": "value", "description": "Value of the single highest-value miner card only"},
+    {"id": "explorers", "label": "Explorers", "points_each": 1, "type": "value", "description": "Sum of bravery values on all explorer cards"},
+    {"id": "blacksmiths", "label": "Blacksmiths", "points_each": 1, "type": "value", "description": "Points from escalating table based on number of blacksmith cards"},
+    {"id": "heroes", "label": "Heroes", "points_each": 1, "type": "value", "description": "Bravery values from all recruited hero cards"},
+    {"id": "distinctions", "label": "Distinctions", "points_each": 1, "type": "value", "description": "Bonus points from distinction cards earned at end of Age 1"},
+    {"id": "highest_coin", "label": "Highest Coin", "points_each": 1, "type": "value", "description": "Value of your highest coin added to final score"}
+  ],
+  "win_condition": "Player with the highest total bravery points wins. Tiebreaker: highest single coin value."
+}

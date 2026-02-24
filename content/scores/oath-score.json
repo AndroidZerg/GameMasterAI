@@ -1,0 +1,25 @@
+{
+  "game_id": "oath",
+  "scoring_type": "elimination",
+  "win_condition": "Fulfill your role-specific victory condition (oath, vision, or citizenship) by end of round 5-8",
+  "categories": [
+    {
+      "id": "chancellor_oath",
+      "label": "Chancellor Oath",
+      "type": "manual",
+      "description": "Chancellor wins by holding the oath condition at end of rounds 5-8"
+    },
+    {
+      "id": "exile_vision",
+      "label": "Exile Vision",
+      "type": "manual",
+      "description": "Exile wins by fulfilling a played vision card's condition at end of round"
+    },
+    {
+      "id": "citizen_shared",
+      "label": "Citizen Shared Victory",
+      "type": "manual",
+      "description": "Citizens win if the Chancellor wins"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "treasure-island",
+  "title": "Treasure Island",
+  "aliases": [],
+  "publisher": "Matagot",
+  "player_count": {"min": 2, "max": 5, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 60},
+  "complexity": "gateway",
+  "categories": ["deduction", "one-vs-all", "pirate", "hidden-information"],
+  "source_url": "https://boardgamegeek.com/boardgame/242639/treasure-island",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "Treasure Island includes the following components:\n\n- **1 large game board** depicting a tropical island with a grid overlay\n- **1 Long John Silver screen** for hiding the treasure location\n- **Miniature figures** for Long John Silver and each pirate player\n- **Dry-erase markers** in various colors (one per player plus black for Silver)\n- **Search tokens** (small and large radius)\n- **Clue cards** used by Long John Silver\n- **Direction compass tools** and **ruler/line tools** for drawing clues\n- **Calendar track** with day markers\n- **Treasure token** (hidden behind Silver's screen)\n- **Erasable island map** (the board is dry-erase compatible)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Place the **game board** in the center of the table.\n2. One player takes the role of **Long John Silver** and sits behind the screen.\n3. Silver **secretly marks the treasure location** on a hidden mini-map behind the screen, choosing any land hex on the island.\n4. Set the **calendar marker** to Day 1 on the calendar track.\n5. Place all **pirate miniatures** at the starting camp location.\n6. Give each pirate player a **dry-erase marker** of their color.\n7. Ensure the **drawing tools** (compass, straightedge) are accessible to Silver."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "### Long John Silver\n- Choose a treasure location and mark it secretly on the mini-map behind your screen.\n- You will give clues each round by drawing on the board with tools.\n- You have a limited ability to **mislead** within the rules.\n\n### Pirate Players\n- Each pirate starts at the base camp.\n- You have a dry-erase marker to make personal notes directly on the board.\n- On your turns, you will move your figure and search locations.\n- Your goal is to find the treasure before the other pirates — and before Silver escapes."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Treasure Island is a **one-versus-all deduction game**. One player is **Long John Silver**, who has buried treasure somewhere on the island and been captured by the other players (pirates).\n\nSilver is forced to give clues about the treasure's location — but Silver is a crafty pirate who can sometimes **lie or mislead**. The pirate players must interpret the clues, narrow down the search area, and dig in the right spot.\n\nIf no pirate finds the treasure before a set number of days pass, **Silver escapes** from captivity and races to retrieve the treasure personally. The game becomes a desperate race between the pirates and Silver."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "The game is played over a series of **days**, each with multiple phases:\n\n### 1. Silver Gives a Clue\nAt the start of each day, Long John Silver must give **one clue** to all pirates. Clues are physical drawings on the board:\n- **Line clue**: Draw a straight line — the treasure is on one side of this line.\n- **Circle clue**: Draw a circle around a point — the treasure is NOT within this circle.\n- **Directional clue**: From a specific point, indicate a direction — the treasure lies in that general direction.\n\nSilver **must tell the truth** most of the time but has a limited number of **lie tokens** that allow a false clue.\n\n### 2. Pirate Turns\nEach pirate takes a turn in clockwise order:\n1. **Move**: Move your pirate figure up to **2 spaces** on the hex grid.\n2. **Search**: Perform one search action:\n   - **Small search**: Check a small radius around your position. Silver says yes/no.\n   - **Large search**: Check a larger area but it costs your full action.\n   - **Dig**: Attempt to dig at your exact location. If the treasure is there, you win!\n\n### 3. Advance the Calendar\nMove the day marker forward. If the calendar reaches the **escape day**, Silver breaks free."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Search Actions (Pirates)\n- **Small Search (1 hex)**: Ask Silver if the treasure is at your exact hex. Silver must answer truthfully.\n- **Area Search (radius)**: Use a search token to check a circular area. Silver answers yes or no.\n- **Dig**: If you believe the treasure is at your current location, declare a dig. If correct, you **win immediately**.\n\n### Clue Drawing (Silver)\nSilver uses physical tools to draw clues on the board:\n- **Straightedge**: Draw lines to bisect the island. \"The treasure is on THIS side.\"\n- **Compass tool**: Draw circles. \"The treasure is NOT within this circle.\"\n- These drawings remain on the board, creating an ever-tightening search area.\n\n### Lying (Silver)\nSilver has a **limited number of lie tokens** (typically 1–2 depending on player count). When giving a clue, Silver may secretly use a lie token to make that clue **false**. Pirates never know for certain which clues are truthful.\n\n### Silver's Escape\nWhen the calendar reaches the escape day, Silver enters the board as a **moving figure** and races toward the treasure. Silver moves faster than pirates and knows exactly where to go."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Terrain\nThe island has various terrain types that affect movement:\n- **Jungle**: Normal movement cost.\n- **Mountains**: Cost extra movement to cross.\n- **Water/coast**: Cannot be crossed on foot (must go around).\n- **Paths**: Allow faster movement between locations.\n\n### Notebooks and Deduction\nPirates can (and should) use their dry-erase markers to **mark up the board**:\n- Cross out eliminated areas.\n- Highlight likely zones.\n- Note which clues might be lies.\n\n### Information Sharing\nPirates may **discuss clues openly**. However, only one pirate wins — so sharing too much helps your rivals as much as it helps you.\n\n### Forced Clues\nSilver **must** give a clue each round. Silver cannot refuse or give an intentionally useless clue (like drawing a line through the ocean). All clues must meaningfully relate to the treasure's position.\n\n### Late Game Urgency\nAs the escape day approaches, Silver may give increasingly deceptive clues to stall. Pirates must balance thorough deduction with urgency."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "### Pirate Victory\nIf a pirate **digs at the correct hex** where the treasure is buried, that pirate **wins immediately**. No scoring — it's a direct victory.\n\n### Silver's Escape Victory\nIf no pirate finds the treasure before the escape day:\n1. Silver places their figure on the board at a designated escape point.\n2. Silver moves toward the treasure each turn (Silver knows the exact location).\n3. Pirates continue searching and can still find the treasure.\n4. If **Silver reaches the treasure first**, Silver wins.\n5. If a **pirate digs correctly** before Silver arrives, that pirate wins.\n\n### No Treasure Found\nIf the game reaches its final day with no discovery, Silver wins by default.\n\n### Team Variant\nIn a cooperative variant, all pirates work together against Silver, sharing all information freely. The pirates collectively win or lose."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Mark the board**: Use your dry-erase marker constantly. Cross out areas eliminated by clues and highlight remaining possibilities.\n- **Don't trust everything**: Silver can lie. If a clue seems too helpful, it might be false.\n- **Spread out**: Pirates should search different areas of the island rather than clustering together.\n- **Area searches first**: Use area searches early to eliminate large zones. Save precise digs for when you're confident.\n- **Watch the calendar**: Don't wait too long. As the escape day approaches, start making educated guesses with digs."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "### For Pirates\n- **Triangulate**: Combine multiple line clues to create intersection zones. The treasure must be within all truthful clue boundaries.\n- **Test for lies**: If you can search an area that contradicts a clue, you'll know if Silver lied — which is hugely valuable information.\n- **Don't share everything**: You're competing against other pirates too. Keep some deductions private if you have a strong lead.\n- **Cover ground efficiently**: Divide the island into sectors with other pirates. Maximize the area you collectively search.\n\n### For Silver\n- **Save lies for critical moments**: Don't waste lie tokens early. Use them when pirates are close to the truth.\n- **Give technically true but misleading clues**: A line clue that eliminates only a tiny sliver of ocean is truthful but unhelpful.\n- **Misdirect subtly**: If the treasure is in the north, give clues that are true but subtly steer attention south.\n- **Plan your escape route**: Know which path you'll take when you break free, and try to keep pirates away from that corridor."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

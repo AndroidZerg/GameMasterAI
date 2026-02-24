@@ -1,0 +1,46 @@
+{
+  "game_id": "dune-imperium",
+  "scoring_type": "race",
+  "win_condition": "First to 10 VP or most VP when conflict III deck runs out",
+  "categories": [
+    {
+      "id": "conflict_wins",
+      "label": "Conflict Victories",
+      "type": "manual",
+      "description": "VP earned from winning 1st or 2nd in conflicts"
+    },
+    {
+      "id": "alliances",
+      "label": "Alliance Tokens",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per alliance token (from reaching influence level 2)"
+    },
+    {
+      "id": "influence_level_4",
+      "label": "Influence Level 4 Bonuses",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP for each faction where you reached level 4"
+    },
+    {
+      "id": "spice_must_flow",
+      "label": "The Spice Must Flow",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per The Spice Must Flow card acquired"
+    },
+    {
+      "id": "card_vp",
+      "label": "Imperium Card VP",
+      "type": "manual",
+      "description": "VP from Imperium cards with VP effects"
+    },
+    {
+      "id": "endgame_intrigue",
+      "label": "Endgame Intrigue Cards",
+      "type": "manual",
+      "description": "VP from endgame intrigue cards revealed at game end"
+    }
+  ]
+}

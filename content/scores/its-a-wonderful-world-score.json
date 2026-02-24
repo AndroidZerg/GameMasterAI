@@ -1,0 +1,10 @@
+{
+  "game_id": "its-a-wonderful-world",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "completed_cards", "label": "Completed Development Cards", "points_each": 1, "type": "value", "description": "Sum of VP values on all completed development cards"},
+    {"id": "financiers", "label": "Financiers", "points_each": 1, "type": "count", "description": "Each Financier character token is worth 1 VP"},
+    {"id": "generals", "label": "Generals", "points_each": 1, "type": "count", "description": "Each General character token is worth 1 VP"}
+  ],
+  "win_condition": "Player with the highest total VP wins. Tiebreaker: most character tokens, then most completed cards."
+}

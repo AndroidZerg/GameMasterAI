@@ -1,0 +1,85 @@
+{
+  "game_id": "oath",
+  "title": "Oath: Chronicles of Empire and Exile",
+  "aliases": ["Oath", "Oath Chronicles"],
+  "publisher": "Leder Games",
+  "player_count": {"min": 1, "max": 6, "recommended": 4},
+  "play_time_minutes": {"min": 45, "max": 120},
+  "complexity": "heavy",
+  "categories": ["negotiation", "area-control", "asymmetric", "legacy-lite", "political"],
+  "source_url": "https://ledergames.com/products/oath-chronicles-of-empire-and-exile",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Boards\n- **1 map board** — Three regions (Cradle, Provinces, Hinterland) each with site slots.\n- **Chronicle board** — Tracks the game state that carries forward between plays.\n\n#### Cards\n- **World deck** — Large deck of denizen and relic cards that populate the map's sites.\n- **Denizen cards** — Characters and locations that provide powers when controlled.\n- **Relic cards** — Powerful unique items.\n- **Vision cards** — Alternative win conditions for Exiles.\n\n#### Tokens and Pieces\n- **Warbands** — Colored cubes for each player representing military forces.\n- **Favor tokens** — Currency used for actions and trading.\n- **Secret tokens** — Hidden resources.\n- **Banner tokens** — Represent control of key game elements (People's Favor, Darkest Secret, etc.).\n- **Oath card** — Shows the current oath (win condition) that carries forward between games.\n- **Sites** — Location cards on the map where denizens reside.\n- **Reliquary** — Holds relics between games.\n- **Imperial tokens** — Track the Chancellor's power."
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "#### Map Setup\n1. **Place the map board** — Three regions from left to right: Cradle, Provinces, Hinterland.\n2. **Site cards** — Deal site cards to each region's site slots. Sites host denizen cards.\n3. **World deck** — The world deck composition is determined by the previous game's outcome (or default for first game).\n4. **Denizen placement** — Deal denizens face-up to sites across the map.\n5. **Relics** — Place relics in the reliquary or as indicated.\n\n#### Chronicle Setup (Game State)\n- **First game** — Use the default setup from the rulebook.\n- **Subsequent games** — The winner of the previous game shapes the setup: which sites are present, what the world deck contains, and what the oath is.\n- **Non-destructive** — Nothing is permanently altered. The game state is recorded and reconstructable."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Assignment\n- **Chancellor** — One player is the Chancellor (the empire's ruler). Starts with more resources and warbands but must defend the current oath.\n- **Exiles** — All other players start as Exiles, opposing the Chancellor. Exiles can become Citizens by swearing an oath to the Chancellor.\n- **Asymmetric start** — Chancellor has more starting power; Exiles have more flexibility in win conditions.\n\n#### Starting Resources\n- **Chancellor** — Starts with warbands in the Cradle, favor, and secrets. Controls starting sites.\n- **Exiles** — Start with fewer warbands and resources. Begin on the map's edges.\n- **Supply** — Each player has a limited warband supply."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "#### Core Concept\nOath is an asymmetric game of empire and rebellion where one player is the Chancellor defending the established order, and others are Exiles seeking to overthrow it or achieve alternative victory conditions. The signature feature is that the game state carries forward between plays: the winner shapes the next game's starting conditions, world deck composition, and victory oath. This creates an evolving narrative without permanent physical changes to components.\n\n#### Game Arc\n- **8 rounds** — The game lasts up to 8 rounds (can end earlier if someone achieves victory).\n- **Shifting alliances** — Exiles can become Citizens (allied with the Chancellor) or remain independent.\n- **Multiple win conditions** — Depending on role and vision cards, players have different paths to victory.\n- **Narrative evolution** — Each game tells a unique story shaped by player actions and the previous game's outcome."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n- **Turns within rounds** — Each player takes a turn within each round, starting with the Chancellor.\n- **Supply phase** — At the start of your turn, gain supply (warbands and favor) based on your controlled sites.\n\n#### Turn Actions\nOn your turn, you take actions by spending supply:\n\n1. **Travel** — Move your pawn to a different site on the map.\n2. **Muster** — Place warbands from your supply onto your current site.\n3. **Trade** — Interact with denizens at your site (buy cards, exchange favor for secrets).\n4. **Campaign** — Attack another player's warbands at your site or an adjacent site.\n5. **Search** — Draw cards from the world deck, potentially finding new denizens or relics.\n6. **Recover** — Retrieve spent resources or cards.\n\n#### Card Play\n- **Advisers** — Play denizen cards as advisers to your court for ongoing powers.\n- **Site control** — Control sites by having the most warbands there.\n- **Powers** — Denizen cards provide various action modifiers and special abilities."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Combat (Campaign)\n- **Attacking** — Declare an attack on a site. Compare your warbands to the defender's.\n- **Dice rolling** — Roll dice based on warband counts. Attacker and defender both roll.\n- **Casualties** — Remove warbands based on dice results.\n- **Site control** — If the attacker eliminates all defenders, they take control of the site.\n- **Campaign costs** — Campaigns cost supply and can be risky.\n\n#### Citizenship\n- **Becoming a Citizen** — An Exile can offer to become a Citizen (allied with the Chancellor).\n- **Chancellor approval** — The Chancellor may accept or reject the offer.\n- **Benefits** — Citizens share in the Chancellor's victory and gain access to the Cradle.\n- **Betrayal** — Citizens can later betray the Chancellor and return to Exile status.\n\n#### Banners\n- **People's Favor** — A banner tracked by the most popular player (most favor suits).\n- **Darkest Secret** — A banner tracked by the player with the most secrets.\n- **Banner control** — Controlling banners can fulfill certain victory conditions.\n\n#### Visions (Exile Win Conditions)\n- **Vision cards** — Exiles can play vision cards providing alternative win conditions.\n- **Vision requirements** — Each vision has specific conditions (control certain sites, hold certain relics, etc.).\n- **Public knowledge** — Played visions are visible, so opponents can try to prevent them.\n- **Chancellor's oath** — The Chancellor wins by fulfilling the standing oath, which may be different from any vision."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### The Oath (Legacy Mechanism)\n- **Current oath** — Each game has an oath card defining the Chancellor's primary win condition and the default victory condition.\n- **Oath types** — Supremacy (control sites), the People (hold People's Favor banner), Devotion (hold Darkest Secret banner), Protection (specific defensive condition).\n- **Oath evolution** — The winner of each game determines the oath for the next game.\n\n#### Chronicle (Game-to-Game Persistence)\n- **World deck modification** — The winner curates which cards remain in the world deck for the next game.\n- **Map state** — Site distribution may change based on the game's outcome.\n- **Reliquary** — Certain relics persist in the reliquary between games.\n- **No permanent changes** — All persistence is tracked through card/component arrangement, not destruction or marking.\n\n#### Exile vs. Citizen vs. Chancellor\n- **Chancellor** — Wins by holding the oath at the end of round 5+ (checked each round from round 5 onward).\n- **Citizen** — Wins if the Chancellor wins. Shares the victory.\n- **Exile with vision** — Wins by fulfilling their vision card's condition at the end of a round.\n- **Exile without vision** — Can win by seizing the oath from the Chancellor through specific conditions.\n\n#### Denizen Suits\n- **6 suits** — Discord, Arcane, Order, Hearth, Beast, Nomad. Each suit has thematic card powers.\n- **Suit influence** — The world deck's suit composition affects available strategies and evolves between games."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Victory Conditions\n- **Not a points game** — Oath does not use VP. Victory is achieved by fulfilling specific conditions.\n- **Chancellor wins** — By holding the oath condition at the end of rounds 5-8.\n- **Exile wins** — By fulfilling a played vision card's condition at end of round, OR by seizing the oath.\n- **Citizen wins** — If the Chancellor wins (shared victory).\n- **No winner** — If no one wins by end of round 8, the Chancellor wins by default.\n\n#### Game End Effects\n- **Chronicle update** — The winner shapes the next game:\n  - Determines the new oath.\n  - Curates the world deck (adds/removes cards).\n  - Sets up the map state.\n  - Places relics in the reliquary.\n- **New Chancellor** — The winner (or their successor) becomes the Chancellor in the next game.\n\n#### Winner\n- **Condition fulfilled** — The first player to meet their win condition at end of round (round 5+) wins.\n- **Chancellor default** — If round 8 ends with no other winner, Chancellor wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Understand your role** — As Chancellor, you defend. As Exile, you attack or find alternative paths.\n- **Watch the round track** — Victory checks start at round 5. Plan your power peak accordingly.\n- **Negotiation is key** — Oath is deeply political. Alliances, truces, and betrayals are core to the game.\n- **Citizenship is a tool** — Becoming a Citizen is not surrender; it's a strategic position from which you can betray later.\n- **Read the board** — The denizen cards in play define what strategies are viable. Adapt to what's available.\n- **Visions are flexible** — As an Exile, having a vision card gives you a clear goal. Search for one early.\n- **Don't spread thin** — Warbands are limited. Concentrate your forces rather than controlling everything."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "#### As Chancellor\n- **Consolidate early** — Secure the Cradle and key sites. Don't overextend.\n- **Accept Citizens** — Citizens share your victory. Having allies reduces the number of opponents.\n- **Defend the oath** — Know what your oath requires and protect those conditions.\n- **Divide Exiles** — Use diplomacy to prevent Exiles from uniting against you.\n\n#### As Exile\n- **Find a vision** — Search for vision cards early to establish your win condition.\n- **Opportunistic alliances** — Work with other Exiles when it benefits you, but remember only one can win.\n- **Timing** — Build power quietly, then strike when the Chancellor is overextended.\n- **Consider Citizenship** — If the Chancellor is strong, joining them and planning a late-game betrayal can be effective.\n\n#### General Principles\n- **Adapt to the meta-game** — Each game's world deck and oath create a unique strategic landscape.\n- **Denizen powers matter** — Controlling the right denizens can enable powerful combos.\n- **Banners are win conditions** — Controlling People's Favor or Darkest Secret is often necessary for victory.\n- **The chronicle matters** — If playing a campaign, shaping the next game as winner is a meta-strategic consideration."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

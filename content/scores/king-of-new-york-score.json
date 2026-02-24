@@ -1,0 +1,9 @@
+{
+  "game_id": "king-of-new-york",
+  "scoring_type": "elimination",
+  "categories": [
+    {"id": "victory_points", "label": "Victory Points", "points_each": 1, "type": "count", "description": "VP earned from Manhattan occupation, celebrity dice, destroyed buildings, and Power cards"},
+    {"id": "last_standing", "label": "Last Monster Standing", "points_each": 0, "type": "boolean", "description": "Alternate win condition: be the last monster alive"}
+  ],
+  "win_condition": "First player to 20 VP wins, or the last monster standing wins immediately."
+}

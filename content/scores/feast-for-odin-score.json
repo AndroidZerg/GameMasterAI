@@ -1,0 +1,52 @@
+{
+  "game_id": "feast-for-odin",
+  "scoring_type": "calculator",
+  "win_condition": "Most victory points after 7 rounds",
+  "categories": [
+    {
+      "id": "uncovered_spaces",
+      "label": "Uncovered Spaces (Penalty)",
+      "type": "manual",
+      "is_penalty": true,
+      "description": "Negative points for each uncovered space on home and exploration boards"
+    },
+    {
+      "id": "silver",
+      "label": "Silver",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 point per silver coin remaining"
+    },
+    {
+      "id": "exploration_bonuses",
+      "label": "Exploration Board Bonuses",
+      "type": "manual",
+      "description": "Bonus points from claimed exploration boards (islands, sheds, houses)"
+    },
+    {
+      "id": "emigration_bonuses",
+      "label": "Emigration Bonuses",
+      "type": "manual",
+      "description": "Points earned from emigration actions during the game"
+    },
+    {
+      "id": "english_crowns",
+      "label": "English Crowns",
+      "type": "manual",
+      "description": "Bonus points from English crown achievements"
+    },
+    {
+      "id": "occupation_bonuses",
+      "label": "Occupation Card Bonuses",
+      "type": "manual",
+      "description": "End-game scoring from occupation card effects"
+    },
+    {
+      "id": "starvation_penalty",
+      "label": "Starvation Penalty",
+      "type": "manual",
+      "is_penalty": true,
+      "description": "-3 points per unfed Viking across all rounds"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "game_id": "king-of-new-york",
+  "title": "King of New York",
+  "aliases": ["KoNY"],
+  "publisher": "IELLO",
+  "player_count": {"min": 2, "max": 6, "recommended": 4},
+  "play_time_minutes": {"min": 40, "max": 60},
+  "complexity": "gateway",
+  "categories": ["dice-rolling", "fighting", "monsters"],
+  "source_url": "https://boardgamegeek.com/boardgame/160499/king-of-new-york",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "King of New York includes:\n\n- **6 monster boards** with cardboard standees and plastic stands\n- **6 black dice** + **2 green bonus dice**\n- **1 game board** depicting Manhattan and the 5 boroughs\n- **45 building/unit tiles** (buildings on one side, military units on the reverse)\n- **1 Statue of Liberty token** (Superstar card)\n- **Energy cubes** (translucent green)\n- **48 Power cards** (purchasable abilities)\n- **Health and VP tracking wheels** on each monster board\n- **Borough tokens** and status tokens"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. Place the **New York game board** in the center of the table.\n2. Place **3 building tiles** (building side up) in each of the **5 boroughs** (Manhattan has special placement).\n3. Shuffle the **Power card deck** and deal **3 face-up** in a market row.\n4. Place **energy cubes** in a supply pile.\n5. Manhattan is divided into **3 zones**: Lower, Midtown, and Upper. These work similarly to Tokyo in King of Tokyo.\n6. Place the **Statue of Liberty** (Superstar) card nearby."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "1. Each player chooses a **monster** and takes their monster board, standee, and plastic stand.\n2. Set your **health dial to 10** and **victory points to 0**.\n3. Each player starts in one of the **outer boroughs** (not Manhattan). With fewer players, use fewer boroughs.\n4. The most monstrous player goes first (or choose randomly).\n5. No one starts in **Manhattan** — it begins empty."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "King of New York is a **dice-rolling battle game** where giant monsters compete to become the King of New York. It builds on King of Tokyo with a larger map, destructible buildings, and military response.\n\nMonsters rampage through the boroughs of New York, smashing buildings, battling each other, and stomping on the military. Enter **Manhattan** to earn fame (victory points) but become the target of every other monster.\n\nWin by either reaching **20 victory points** or being the **last monster standing**."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn, follow these steps:\n\n### 1. Roll Dice\nRoll the **6 black dice**. Each die face shows one of:\n- **Claws** (attack)\n- **Hearts** (heal)\n- **Energy** (gain energy cubes)\n- **Destruction** (destroy buildings)\n- **Celebrity** (gain fame/VP)\n- **Ouch** (take damage from military)\n\n### 2. Resolve Dice (up to 2 rerolls)\nYou may **reroll any number of dice** up to **2 additional times** (3 rolls total). Lock in dice you want to keep.\n\n### 3. Resolve Results\nResolve all kept dice:\n- **Claws**: Deal 1 damage per claw to monsters in your target zone (Manhattan targets boroughs; boroughs target Manhattan).\n- **Hearts**: Heal 1 HP per heart (cannot heal while in Manhattan).\n- **Energy**: Gain 1 energy cube per energy symbol.\n- **Destruction**: Each destruction symbol lets you destroy 1 building in your borough. Flip it to reveal the military unit on the back.\n- **Celebrity**: Earn 1 VP per celebrity, but ONLY if you have the **Superstar** card (3+ celebrities in one roll claims it).\n- **Ouch**: Each ouch deals 1 damage to you from military units in your borough.\n\n### 4. Enter/Leave Manhattan\nIf Manhattan is empty, you **must** enter it. If you're attacked while in Manhattan, you may choose to **yield** (leave) and the attacker takes your place.\n\n### 5. Buy Power Cards\nSpend **energy cubes** to purchase Power cards from the face-up market. Cards grant special abilities, extra dice, or victory points."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "### Attacking\n- Monsters **outside Manhattan** attack monsters **inside Manhattan**.\n- Monsters **inside Manhattan** attack **ALL other monsters** simultaneously.\n- Each claw rolled deals **1 damage**.\n\n### Manhattan (Being King)\nEntering Manhattan grants benefits but makes you a target:\n- **Start of your turn in Manhattan**: Gain **1 VP** (Lower), **2 VP** (Midtown), or **2 VP + 1 energy** (Upper).\n- You move **up through Manhattan** each turn: Lower → Midtown → Upper.\n- You **cannot heal** with hearts while in Manhattan.\n- When hit, you may **yield** (leave Manhattan to a borough).\n\n### Destroying Buildings\n- Each destruction die result lets you stomp **1 building** in your borough.\n- Flip the building tile to reveal a **military unit** (infantry, tanks, jets).\n- Destroying buildings can give you **VP, energy, or health** depending on the building.\n- Military units **fight back**: they activate when \"ouch\" results are rolled, dealing damage.\n\n### Military Response\n- **Infantry**: Deal 1 damage per ouch result.\n- **Tanks**: Deal 1 damage per ouch and are harder to destroy.\n- **Jets**: Deal 1 damage per ouch and can target monsters in any borough.\n- You can destroy military units using destruction dice, removing the threat."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "### Superstar (Statue of Liberty)\nThe **Superstar** card goes to any monster that rolls **3 or more celebrity faces** in a single turn. While you hold it, each celebrity face you roll earns **1 VP**. Another player steals the Superstar by also rolling 3+ celebrities.\n\n### Power Cards\nPower cards come in two types:\n- **Keep cards**: Ongoing effects (e.g., extra damage, armor, special abilities). Place in front of you.\n- **Discard cards**: One-time effects used immediately.\n\nThe market always has **3 face-up cards**. You may spend **2 energy** to sweep the market (discard all 3 and reveal 3 new ones).\n\n### Green Bonus Dice\nSome Power cards grant access to the **green bonus dice**, which have enhanced faces with better results.\n\n### Elimination\nWhen your health reaches **0**, you are eliminated from the game. Your monster is destroyed and you take no further turns.\n\n### Building Replenishment\nWhen a borough's buildings and military units are all destroyed, place **new building tiles** in that borough."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "The game ends immediately when either condition is met:\n\n### Victory by Fame (20 VP)\nThe first player to reach **20 victory points** wins. Points come from:\n- Being in Manhattan at the start of your turn\n- Celebrity dice results (with Superstar card)\n- Destroying buildings\n- Power card effects\n\n### Victory by Elimination\nIf only **one monster remains alive**, that player wins immediately, regardless of VP.\n\n### Simultaneous Death\nIf multiple monsters die in the same turn (from Manhattan attacks hitting all boroughs), the attacking player wins if they're still alive. If the attacker also dies, the player with the most VP among the eliminated wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Manhattan is risky but rewarding**: You gain VP fast but can't heal and everyone attacks you. Enter when you have high health.\n- **Don't ignore buildings**: Destroying buildings gives valuable rewards and clearing military units protects you from ouch damage.\n- **Energy is powerful**: Saving energy for strong Power cards can turn the tide. Prioritize energy early.\n- **Heal when you can**: Hearts are precious, especially since you can't heal in Manhattan. Don't stay at low health.\n- **Watch elimination**: Below 4 health, you're one bad turn from death. Consider yielding Manhattan."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Aggro Manhattan**: Rush Manhattan early, collect VP, and buy defensive Power cards. Try to reach 20 VP before others can stop you.\n- **Building destroyer**: Focus on destruction dice to farm VP and rewards from buildings while staying safe in the boroughs.\n- **Energy hoarder**: Prioritize energy and buy the best Power cards. Some combos are game-winning.\n- **Superstar chaser**: Rolling 3+ celebrities is hard but the Superstar card generates VP every turn you roll celebrities. Worth pursuing if you get lucky early.\n- **Opportunistic yielder**: Enter Manhattan when it's safe, collect VP, then yield as soon as you take a big hit. Rinse and repeat.\n- **Elimination hunter**: Focus on claws and target low-health monsters. Eliminating players reduces threats and can trigger a last-monster-standing win."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

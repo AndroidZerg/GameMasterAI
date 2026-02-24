@@ -1,0 +1,13 @@
+{
+  "game_id": "isle-of-cats",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "cat_families", "label": "Cat Families", "points_each": 1, "type": "value", "description": "Points from groups of 3+ adjacent same-colored cats (8/11/15/20 points for 3/4/5/6+ cats)"},
+    {"id": "rare_treasures", "label": "Rare Treasures", "points_each": 1, "type": "value", "description": "Victory points from rare treasure tiles collected"},
+    {"id": "public_lessons", "label": "Public Lessons", "points_each": 1, "type": "value", "description": "Points scored from shared public lesson card objectives"},
+    {"id": "private_lessons", "label": "Private Lessons", "points_each": 1, "type": "value", "description": "Points scored from secret private lesson card objectives"},
+    {"id": "uncovered_rooms", "label": "Uncovered Rooms", "points_each": -5, "type": "count", "description": "Each room on your boat not completely filled with tiles loses 5 points"},
+    {"id": "rats", "label": "Visible Rats", "points_each": -1, "type": "count", "description": "Each visible rat symbol on your boat not covered by tiles loses 1 point"}
+  ],
+  "win_condition": "Player with the highest total score wins. Tiebreaker: most cat tiles on your boat."
+}

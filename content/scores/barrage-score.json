@@ -1,0 +1,31 @@
+{
+  "game_id": "barrage",
+  "scoring_type": "calculator",
+  "win_condition": "Most victory points after 5 rounds from energy production, contracts, and objectives",
+  "categories": [
+    {
+      "id": "energy_track",
+      "label": "Energy Track VP",
+      "type": "manual",
+      "description": "Points based on final position on the energy track"
+    },
+    {
+      "id": "contracts",
+      "label": "Contract VP",
+      "type": "manual",
+      "description": "Points from fulfilled contracts during the game"
+    },
+    {
+      "id": "objective_tiles",
+      "label": "Objective Tiles",
+      "type": "manual",
+      "description": "End-game objective scoring based on infrastructure achievements"
+    },
+    {
+      "id": "building_bonuses",
+      "label": "Building and Technology Bonuses",
+      "type": "manual",
+      "description": "VP from structures and technology tiles with end-game scoring"
+    }
+  ]
+}

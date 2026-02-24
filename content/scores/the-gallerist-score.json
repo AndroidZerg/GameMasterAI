@@ -1,0 +1,49 @@
+{
+  "game_id": "the-gallerist",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP from art sales, collection value, visitors, reputation, and contracts",
+  "categories": [
+    {
+      "id": "money",
+      "label": "Money",
+      "type": "manual",
+      "description": "Remaining money converted to VP"
+    },
+    {
+      "id": "art_collection",
+      "label": "Art Collection",
+      "type": "manual",
+      "description": "VP for artwork still in gallery based on artist fame"
+    },
+    {
+      "id": "sold_art",
+      "label": "Art Sales",
+      "type": "manual",
+      "description": "VP earned from art sold during the game"
+    },
+    {
+      "id": "visitors",
+      "label": "Visitors",
+      "type": "manual",
+      "description": "VP for visitors remaining in gallery"
+    },
+    {
+      "id": "reputation",
+      "label": "Reputation",
+      "type": "manual",
+      "description": "VP based on reputation track position"
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "type": "manual",
+      "description": "Remaining influence converted to VP"
+    },
+    {
+      "id": "contracts",
+      "label": "Contracts",
+      "type": "manual",
+      "description": "VP from completed art contracts"
+    }
+  ]
+}
