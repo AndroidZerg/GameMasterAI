@@ -1,0 +1,10 @@
+{
+  "game_id": "ark-nova",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "appeal_track", "label": "Appeal Track Position", "points_each": 1, "type": "count", "description": "1 point per position on the appeal track (gained from playing animals and certain sponsors)"},
+    {"id": "conservation_track", "label": "Conservation Track Position", "points_each": 1, "type": "count", "description": "1 point per position on the conservation track (gained from conservation projects and releasing animals)"},
+    {"id": "final_scoring_card", "label": "Final Scoring Card Bonus", "points_each": 1, "type": "count", "description": "Bonus points from your kept final scoring card based on meeting its specific conditions"}
+  ],
+  "win_condition": "Highest combined Appeal–Conservation score"
+}

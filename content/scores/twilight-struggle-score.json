@@ -1,0 +1,10 @@
+{
+  "game_id": "twilight-struggle",
+  "scoring_type": "tracker",
+  "categories": [
+    {"id": "vp_track", "label": "VP Track Position", "points_each": 1, "type": "count", "description": "Victory Point track from -20 (USSR) to +20 (USA). Adjusted throughout the game via scoring cards, events, Military Ops penalties, and other effects."},
+    {"id": "controlled_regions", "label": "Controlled Regions", "points_each": 1, "type": "count", "description": "Number of regions where a player has achieved Presence, Domination, or Control during scoring. Used for final scoring reference."},
+    {"id": "space_race", "label": "Space Race Position", "points_each": 1, "type": "count", "description": "Position on the Space Race track (0-8). First player to reach certain milestones scores VP bonuses."}
+  ],
+  "win_condition": "First to 20 VP, or highest VP after Turn 10 final scoring"
+}

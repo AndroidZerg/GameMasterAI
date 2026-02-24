@@ -1,0 +1,107 @@
+{
+  "game_id": "blood-rage",
+  "title": "Blood Rage",
+  "aliases": [],
+  "publisher": "CMON",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 90
+  },
+  "complexity": "medium",
+  "categories": [
+    "area-control",
+    "card-drafting",
+    "miniatures",
+    "norse-mythology",
+    "combat",
+    "action-points"
+  ],
+  "source_url": "https://www.cmon.com",
+  "source_verified": true,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Central Board & Tokens\n- **1** Yggdrasil game board with 8 outer provinces/regions and 1 central Yggdrasil area — each province supports a limited number of figures\n- **3** Ragnarok tokens (one province destroyed per Age)\n- **1** Doom token — marks the province doomed for destruction\n- **1** Saga token — tracks progress along the Age track\n- **1** Age track\n- **1** Valhalla sheet — holding area for destroyed figures\n- **8** Pillage tokens (one per province, reward side face-down)\n- **2** plastic Glory (VP) tracking markers per player\n\n#### Clan Sets (x4 clans)\n- **1** Leader miniature\n- **8** Warrior miniatures\n- **1** Ship miniature\n- **1** Clan sheet with three stat tracks (Rage, Axes, Horns)\n- **Clan tokens** and plastic bases for figures\n\n#### Monsters\n- **4** large Monster miniatures: Troll, Sea Serpent, Fire Giant, Mystic\n- **Cardboard bases** for monster figures\n\n#### Card Decks\n- **3** Age card decks (Age 1, Age 2, Age 3), each containing:\n  - **Battle cards** (marked with Axes icon)\n  - **Upgrade cards** (marked with Horns icon)\n  - **Quest cards** (marked with Helmets icon)\n\n#### Rage Tokens\n- **Rage tokens** used to track action points on clan sheets"
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Core Board Setup\n1. **Place Yggdrasil board** — Set the central game board where all players can reach it.\n2. **Place Valhalla sheet** — Set the Valhalla sheet beside the board as a holding area for destroyed figures.\n3. **Reveal first Ragnarok** — Shuffle the 3 Ragnarok tokens. Reveal 1 token — that province will be destroyed at the end of Age 1. Place the remaining 2 tokens face-down for Ages 2 and 3.\n4. **Place Doom token** — Set the Doom token on the revealed Ragnarok province to mark it for destruction.\n5. **Place Pillage tokens** — Put 1 Pillage token (reward side face-down) on each outer province.\n6. **Set Saga token** — Place the Saga token on the first position of the Age track.\n7. **Separate card decks** — Sort cards into Age 1, Age 2, and Age 3 piles and set them near the board.\n\n#### Player-Count Province Adjustment\n--- 4 Players ---\n- **All provinces open** — Use all 8 outer provinces.\n\n--- 3 Players ---\n- **Close 1 province** — Remove 1 province from play.\n\n--- 2 Players ---\n- **Close 3 provinces** — Remove 3 provinces from play."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Clan Selection\n- **Choose or deal clans** — Each player takes 1 complete clan set: Leader, 8 Warriors, 1 Ship, clan sheet, and clan tokens.\n\n#### Clan Sheet Setup\n- **Rage track** — Set to starting value of 6 (maximum action points per Age).\n- **Axes track** — Set to starting value of 3 (glory earned per battle won).\n- **Horns track** — Set to starting value of 4 (maximum number of figures allowed on the board).\n\n#### Glory Track\n- **Place VP markers** — Each player places 2 Glory tracking markers on position 0 of the glory track.\n\n#### Reserve\n- **All figures in reserve** — All Warriors, Leader, Ship, and any recruited Monsters start in your reserve (off-board) at the beginning of each Age."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Age\n- **Begin with Age 1** — The game starts at Age 1 on the Age track.\n- **First phase** — The first phase of every Age is always Gods' Gifts (card draft).\n\n#### Starting Player\n- **Random selection** — Determine the first player randomly.\n- **Turn order** — Play proceeds clockwise from the first player.\n\n#### Open/Hidden Information\n- **Public** — Clan stat tracks, figures on board, glory scores, and upgrade cards are visible to all.\n- **Hidden** — Cards in hand, committed quest cards, and battle card selections are secret."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Age Structure — Each Age Has 6 Phases\n1. **Gods' Gifts (Card Draft)** — Deal 8 cards from the current Age deck to each player. Each player picks 1 card and passes the remaining cards clockwise. Repeat drafting until each player has selected 6 cards. Discard the remaining 2 undrafted cards per player.\n2. **Action Phase** — Players take turns clockwise, each performing ONE action per turn by spending Rage. Continue rotating until all players have passed (either out of Rage or choosing to pass voluntarily).\n3. **Discard Phase** — All players discard any remaining cards in hand.\n4. **Quest Phase** — Players reveal any committed quest cards. If the quest condition is met, gain the glory reward. Failed quests are discarded with no penalty.\n5. **Ragnarok Phase** — The doomed province is destroyed. All figures in that province are sent to Valhalla. The province is permanently removed from the game. Reveal the next Ragnarok token for the following Age.\n6. **Release Valhalla Phase** — All figures currently in Valhalla are returned to their owners' reserves, ready for the next Age.\n\n#### Age Progression\n- **Three Ages total** — The game spans Age 1, Age 2, and Age 3.\n- **Escalating power** — Cards become significantly more powerful each Age. Age 3 cards are the strongest.\n- **Stat reset** — Rage resets to your current Rage track value at the start of each Age. Axes and Horns retain their upgraded values."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Action Phase — Available Actions\n- **Invade (cost: varies)** — Place a figure from your reserve onto any empty village in an outer province. Warriors cost 1 Rage. Leader costs 0 Rage (free, but you only have one Leader). Monsters cost Rage equal to their STR value. You cannot exceed your Horns limit for total figures on the board.\n- **March (cost: 2 Rage)** — Move any number of your figures from one province to one or more other provinces. Figures may split up to different destinations. Ships move along fjords.\n- **Upgrade (cost: 0 Rage)** — Play an Upgrade card (Horns icon) from your hand onto your clan sheet, gaining its permanent ability. Upgrade types include: Warrior upgrades (boost warrior strength), Leader upgrades (boost leader abilities), Ship upgrades (enhance ship capabilities), and Monster recruitment (take the matching monster miniature and add it to your clan as a recruitable figure).\n- **Quest (cost: 0 Rage)** — Commit 1 quest card (Helmets icon) from your hand face-down beside your clan sheet. It will be scored at the end of the current Age during the Quest Phase if its conditions are met.\n- **Pillage (cost: 0 Rage to initiate)** — Choose a province where you have at least 1 figure and initiate a pillage attempt. You must have figures in the province to pillage it, and the province must still have its Pillage token.\n\n#### Action Phase Flow\n- **One action per turn** — On your turn, perform exactly one action.\n- **Clockwise rotation** — After your action, play passes to the next player clockwise.\n- **Passing** — If you are out of Rage or choose to stop, you pass. Once you pass, you take no more actions this Age.\n- **Phase ends** — The Action Phase ends when all players have passed."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Combat / Pillage Resolution\n- **Initiating Pillage** — The active player selects a province where they have figures and places the Pillage token face-up. All other players with figures in that province are drawn into the battle.\n- **Card play** — Each participant simultaneously selects 1 card from their hand and places it face-down. All cards are revealed simultaneously.\n- **Strength calculation** — Total strength = sum of your figures' strength values in that province + played card bonus.\n- **Winner** — The player with the highest total strength wins. The winner gains glory equal to their current Axes stat value. The Pillage token flips to reveal its reward (typically a clan stat upgrade).\n- **Losers** — All losing players' figures in that province are destroyed and sent to Valhalla.\n- **Ties** — If the highest strength is tied, ALL tied players lose. All their figures in the province go to Valhalla. No one receives the pillage reward.\n- **Battle card effects** — Some battle cards have special effects beyond strength bonuses, such as destroying specific figures, stealing glory, or gaining glory for losing.\n\n#### Rage as Action Points\n- **Rage is your fuel** — Every action that has a Rage cost depletes your supply. When you hit 0 Rage, you must pass for the rest of the Action Phase.\n- **Rage resets each Age** — At the start of each Age, your Rage refills to your current Rage track value.\n- **Managing Rage is critical** — Spending Rage efficiently determines how many actions you get per Age. Wasted Rage means fewer opportunities.\n\n#### Clan Stat Tracks\n- **Rage (action points)** — Determines how many actions you can take each Age. Upgraded through pillage rewards and upgrade cards.\n- **Axes (glory per win)** — Determines how much glory you earn each time you win a battle. Higher Axes means bigger payoffs per victory.\n- **Horns (figure limit)** — Determines the maximum number of figures (Warriors, Leader, Ship, Monsters) you can have on the board at once. Upgraded to field larger armies.\n\n#### Monsters\n- **Recruitment** — Monsters are recruited via Upgrade cards. When you play a Monster upgrade, take the matching Monster miniature and add it to your clan's available figures.\n- **Horns limit** — Monsters count toward your Horns limit like any other figure.\n- **Unique abilities** — Each Monster has a unique strength value and special ability.\n- **Invasion** — Monsters are placed on the board via the Invade action, just like Warriors.\n\n#### Ships\n- **Fjord placement** — Ships are placed in fjords (water areas between provinces) via the Invade action.\n- **Dual presence** — A Ship counts as being present in both adjacent provinces for pillage and battle purposes.\n- **Strategic value** — Ships allow you to contest multiple provinces simultaneously and project force across the board.\n\n#### Loki Strategy (Losing on Purpose)\n- **Deliberate destruction** — Some cards and quests specifically reward you for having figures destroyed or losing battles.\n- **Valhalla glory** — Certain upgrade cards grant glory each time your figures are sent to Valhalla.\n- **Powerful archetype** — The Loki-style death strategy is a deliberate and competitive approach, not a fallback for losing players.\n\n#### Valhalla\n- **Holding area** — Destroyed figures go to the Valhalla sheet instead of being permanently removed.\n- **End-of-Age return** — All figures in Valhalla return to their owners' reserves during the Release Valhalla phase.\n- **Death is not permanent** — Losing figures is a temporary setback, and can even be strategically advantageous."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Trigger\n- **After Age 3 Ragnarok** — The game ends after the Ragnarok phase of Age 3 is resolved.\n\n#### Glory Scoring\n- **Cumulative glory** — Players track glory throughout the entire game. All glory earned from battles won, quests completed, pillage rewards, card effects, and special abilities counts toward the final total.\n- **No separate end-game scoring** — There is no additional end-game calculation. Your glory track position IS your final score.\n\n#### Winner and Tiebreakers\n- **Winner** — The player with the most total glory wins.\n- **Tiebreaker 1** — Most remaining figures (in reserve and on board combined).\n- **Tiebreaker 2** — Most upgrade cards on clan sheet."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Beginner Tips",
+          "content": "- **Upgrade clan stats early** — Prioritize raising your Axes and Rage stats in Age 1. Higher Axes means more glory per battle, and higher Rage means more actions per Age.\n- **Don't spread too thin** — Concentrate your forces in a few provinces rather than scattering single figures everywhere. You need strength to win pillages.\n- **Save strong battle cards** — Keep your best combat cards for critical pillage attempts where the reward matters most.\n- **Draft with a plan** — During Gods' Gifts, start building toward a coherent strategy from your very first pick. Don't just grab the strongest-looking card in isolation.\n- **Watch the Ragnarok province** — Be aware of which province is doomed for destruction. Either avoid it or use it deliberately for a Loki strategy.\n- **Learn from Valhalla** — Remember that losing figures is temporary. Don't play overly cautiously just to keep figures alive if there are glory opportunities."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Concepts",
+          "content": "- **Card drafting defines your strategy** — The Gods' Gifts phase is where you commit to a plan for the Age. The four main archetypes are: combat dominance (win every pillage), quest focus (score big from quest conditions), Loki death strategy (gain glory from losing and destruction), and monster rush (recruit powerful monsters early).\n- **Rage management is everything** — Every Rage point is an action. Efficient players get more turns than opponents. Plan your entire Age around how to spend Rage optimally.\n- **Timing pillages** — Don't pillage until you are confident you can win, or until losing serves your Loki strategy. A failed pillage wastes your opportunity and sends your figures to Valhalla.\n- **Stat escalation** — The game rewards players who upgrade stats aggressively. A player with 8 Rage in Age 2 gets far more actions than a player still at 6.\n- **Read the table** — Watch what cards opponents draft and what upgrades they play. If someone is drafting Loki cards, attacking them may give them exactly what they want.\n- **Age 3 is decisive** — Age 3 cards are dramatically more powerful. Position yourself in Ages 1-2 to capitalize on the explosive final Age."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Spending all Rage on invasions** — Invading without following up with pillages wastes actions. Figures on the board don't score glory by themselves.\n- **Ignoring quests** — Quest rewards are substantial glory sources. Skipping them entirely leaves major points on the table.\n- **Fighting every battle** — Not every pillage is worth contesting. Pick your battles based on the reward and your strength advantage.\n- **Drafting without a coherent strategy** — Taking the best card from each pack without a unifying plan leads to a hand of cards that don't synergize.\n- **Leaving figures in the Ragnarok province accidentally** — Unless you are running a Loki strategy that benefits from destruction, move your figures out before the Ragnarok phase.\n- **Neglecting the Horns stat** — Without enough Horns, you cannot field enough figures to contest multiple provinces. Upgrade Horns to maintain board presence.\n- **Forgetting ship dual-presence** — Ships in fjords count in both adjacent provinces. Failing to use this can mean missing key battles or overcommitting figures."
+        }
+      ]
+    }
+  },
+  "total_token_count": 3850,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-02-24T15:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Comprehensive rules from Blood Rage base game rulebook. Viking mythology area-control game designed by Eric M. Lang, published by CMON."
+  }
+}

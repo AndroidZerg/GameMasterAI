@@ -1,0 +1,11 @@
+{
+  "game_id": "gloomhaven",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "xp_earned", "label": "XP Earned", "points_each": 1, "type": "count", "description": "1 point per experience point earned during the scenario"},
+    {"id": "gold_looted", "label": "Gold Looted", "points_each": 1, "type": "count", "description": "1 point per gold coin looted during the scenario"},
+    {"id": "treasure_tiles", "label": "Treasure Tiles Found", "points_each": 1, "type": "count", "description": "1 point per numbered treasure tile looted during the scenario"},
+    {"id": "scenario_completed", "label": "Scenario Completed", "points_each": 1, "type": "boolean", "description": "Scenario objective achieved — all required goals met before party exhaustion"}
+  ],
+  "win_condition": "Complete scenario objective before all characters exhaust"
+}

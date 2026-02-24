@@ -1,0 +1,42 @@
+{
+  "game_id": "blood-rage",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "battles_won",
+      "label": "Glory from Battles Won",
+      "points_each": 1,
+      "type": "count",
+      "description": "Glory earned each time you win a pillage battle (amount equals your Axes stat at time of victory)"
+    },
+    {
+      "id": "quests",
+      "label": "Glory from Quests",
+      "points_each": 1,
+      "type": "count",
+      "description": "Glory earned from completed quest cards revealed during the Quest phase of each Age"
+    },
+    {
+      "id": "pillage_rewards",
+      "label": "Glory from Pillage Rewards",
+      "points_each": 1,
+      "type": "count",
+      "description": "Glory earned from flipped pillage tokens when you win a pillage (some tokens grant glory directly)"
+    },
+    {
+      "id": "card_effects",
+      "label": "Glory from Card Effects",
+      "points_each": 1,
+      "type": "count",
+      "description": "Glory earned from special card abilities, Loki effects, and upgrade card triggers throughout the game"
+    },
+    {
+      "id": "clan_stat_bonuses",
+      "label": "Clan Stat Bonuses",
+      "points_each": 1,
+      "type": "count",
+      "description": "Glory earned from clan stat track bonuses and milestone rewards on the Rage, Axes, and Horns tracks"
+    }
+  ],
+  "win_condition": "Most glory after three Ages"
+}
