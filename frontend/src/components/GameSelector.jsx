@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, API_BASE } from "../services/api";
 
 const COMPLEXITY_COLORS = {
   party: "#a855f7",
@@ -549,15 +549,13 @@ export default function GameSelector() {
         } catch {}
       });
 
-    // Fetch featured game and staff picks from API
-    fetch(`${API_BASE}/api/games/featured`)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => { if (data?.game_of_the_day) setApiFeatured(data.game_of_the_day); })
+    // Fetch featured game and staff picks from API (sends auth for per-venue config)
+    fetchFeaturedGame()
+      .then((data) => { if (data?.game_id) setApiFeatured(data); })
       .catch(() => {});
 
-    fetch(`${API_BASE}/api/games/staff-picks`)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => { if (data?.picks?.length) setApiStaffPicks(data.picks); })
+    fetchStaffPicks()
+      .then((data) => { if (Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
       .catch(() => {});
   }, []);
 
