@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { API_BASE } from "../services/api";
 
 const AuthContext = createContext(null);
 
@@ -8,6 +9,9 @@ const STORAGE_KEYS = {
   venueName: "gmai_venue_name",
   sessionExpired: "gmai_session_expired",
 };
+
+const DEMO_EMAIL = "demo@playgmai.com";
+const DEMO_PASSWORD = "gmai2026";
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem(STORAGE_KEYS.token));
@@ -43,6 +47,27 @@ export function AuthProvider({ children }) {
     localStorage.removeItem(STORAGE_KEYS.sessionExpired);
     return val === "true";
   }, []);
+
+  // Auto-login as demo venue if no token exists
+  useEffect(() => {
+    if (token) return;
+    const autoLogin = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: DEMO_EMAIL, password: DEMO_PASSWORD }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          login(data.token, data.venue_id, data.venue_name);
+        }
+      } catch {
+        // API unavailable — continue without auth
+      }
+    };
+    autoLogin();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const value = {
     token,

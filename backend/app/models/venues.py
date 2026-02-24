@@ -176,6 +176,16 @@ def set_venue_collection(venue_id: str, game_ids: list[str]):
 
 _DEMO_VENUES = [
     {
+        "venue_id": "playgmai-demo",
+        "venue_name": "GameMaster AI Demo",
+        "email": "demo@playgmai.com",
+        "tagline": "AI-Powered Board Game Teaching",
+        "accent_color": "#e94560",
+        "address": "",
+        "phone": "",
+        "website": "https://playgmai.com",
+    },
+    {
         "venue_id": "meepleville",
         "venue_name": "Meepleville Board Game Cafe",
         "email": "demo@meepleville.com",
