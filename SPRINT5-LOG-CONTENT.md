@@ -46,3 +46,28 @@ Status: COMPLETE — 74% size reduction
 - Script: `scripts/optimize_images.py`
 
 ---
+
+## Phase C4: Ensure Score Configs Match Frontend Expectations
+Status: COMPLETE — 50/50 configs, 0 issues
+
+### Created 5 missing score configs:
+- azul (calculator: 5 categories — tile placement, rows, columns, colors, floor penalties)
+- catan (calculator: 5 categories — settlements, cities, longest road, largest army, VP cards)
+- scythe (calculator: 5 categories — coins, stars, territories, resources, structure bonus)
+- ticket-to-ride (calculator: 4 categories — routes, completed tickets, incomplete penalties, longest route)
+- wingspan (calculator: 6 categories — birds, bonus cards, round goals, eggs, cached food, tucked cards)
+
+### Scoring type distribution:
+- calculator: 35
+- manual: 7
+- elimination: 5
+- team_race: 2
+- cooperative_objective: 1
+
+### All 50 configs validated:
+- game_id field present and matching filename
+- scoring_type field present
+- categories array present for calculator types
+- Each category has id, label, type fields
+
+---
