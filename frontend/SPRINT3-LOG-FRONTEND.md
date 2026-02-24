@@ -62,3 +62,8 @@
 - **Added**: GameCoverThumb component — 40x40 cover art thumbnail in GameTeacher header
 - **Added**: Graceful fallback — thumbnail hides if image fails to load
 - **Files**: `GameTeacher.jsx`
+
+## A10: Polish + Build Verification
+- **Cleaned**: Removed unused `useCallback` import from NavMenu.jsx
+- **Verified**: `vite build` passes cleanly — 108 modules, 348.92 KB JS (105.68 KB gzipped)
+- **Files**: `NavMenu.jsx`
