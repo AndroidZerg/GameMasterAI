@@ -5,4 +5,7 @@
 ---
 
 ### Phase A1: Score Tracker — Full-Width Overhaul
-**Status:** IN PROGRESS
+**Status:** DONE
+
+### Phase A2: Score Calculator Functions
+**Status:** DONE

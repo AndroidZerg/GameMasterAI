@@ -180,8 +180,139 @@ function PlayerSetup({ minPlayers, maxPlayers, onStart, scoringType }) {
   );
 }
 
+/* ── Mini Calculator Overlay ──────────────────────────────────── */
+function MiniCalculator({ value, onSave, onClose, playerName, catName }) {
+  const [display, setDisplay] = useState(String(value || 0));
+  const [pendingOp, setPendingOp] = useState(null);
+  const [pendingVal, setPendingVal] = useState(null);
+
+  const handleNum = (n) => {
+    setDisplay((prev) => (prev === "0" ? String(n) : prev + String(n)));
+  };
+
+  const handleOp = (op) => {
+    const current = parseFloat(display) || 0;
+    if (pendingOp && pendingVal !== null) {
+      const result = calcOp(pendingVal, current, pendingOp);
+      setDisplay(String(result));
+      setPendingVal(result);
+    } else {
+      setPendingVal(current);
+    }
+    setPendingOp(op);
+    setDisplay("0");
+  };
+
+  const calcOp = (a, b, op) => {
+    if (op === "+") return a + b;
+    if (op === "-") return a - b;
+    if (op === "*") return a * b;
+    if (op === "/") return b !== 0 ? a / b : 0;
+    return b;
+  };
+
+  const handleEquals = () => {
+    if (pendingOp && pendingVal !== null) {
+      const current = parseFloat(display) || 0;
+      const result = calcOp(pendingVal, current, pendingOp);
+      setDisplay(String(result));
+      setPendingOp(null);
+      setPendingVal(null);
+    }
+  };
+
+  const handleClear = () => {
+    setDisplay("0");
+    setPendingOp(null);
+    setPendingVal(null);
+  };
+
+  const handleRound = (dir) => {
+    const val = parseFloat(display) || 0;
+    setDisplay(String(dir === "up" ? Math.ceil(val) : Math.floor(val)));
+  };
+
+  const handleDone = () => {
+    let final = parseFloat(display) || 0;
+    if (pendingOp && pendingVal !== null) {
+      final = calcOp(pendingVal, final, pendingOp);
+    }
+    onSave(Math.round(final));
+  };
+
+  const btnStyle = (bg, color) => ({
+    width: "100%", height: "48px", borderRadius: "8px",
+    background: bg || "var(--bg-card)", color: color || "var(--text-primary)",
+    border: "1px solid var(--border)", fontSize: "1.1rem",
+    fontWeight: 600, cursor: "pointer", padding: 0,
+    display: "flex", alignItems: "center", justifyContent: "center",
+  });
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)",
+      zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center",
+      padding: "20px",
+    }} onClick={onClose}>
+      <div style={{
+        background: "var(--bg-primary)", borderRadius: "16px",
+        padding: "16px", width: "100%", maxWidth: "300px",
+        border: "1px solid var(--border)",
+      }} onClick={(e) => e.stopPropagation()}>
+        <div style={{ textAlign: "center", marginBottom: "8px" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+            {playerName} — {catName}
+          </span>
+        </div>
+        {/* Display */}
+        <div style={{
+          background: "var(--bg-card)", borderRadius: "10px",
+          padding: "12px 16px", marginBottom: "12px",
+          textAlign: "right", border: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: "1.6rem", fontWeight: 700, color: "var(--text-primary)" }}>
+            {display}
+          </span>
+        </div>
+
+        {/* Numpad */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px" }}>
+          {[7,8,9].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("/")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>÷</button>
+          {[4,5,6].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("*")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>×</button>
+          {[1,2,3].map((n) => <button key={n} onClick={() => handleNum(n)} style={btnStyle()}>{n}</button>)}
+          <button onClick={() => handleOp("-")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>−</button>
+          <button onClick={handleClear} style={btnStyle("var(--bg-secondary)", "#ef4444")}>C</button>
+          <button onClick={() => handleNum(0)} style={btnStyle()}>0</button>
+          <button onClick={handleEquals} style={btnStyle("var(--bg-secondary)", "var(--text-primary)")}>=</button>
+          <button onClick={() => handleOp("+")} style={btnStyle("var(--bg-secondary)", "var(--accent)")}>+</button>
+        </div>
+
+        {/* Round up/down */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", marginTop: "8px" }}>
+          <button onClick={() => handleRound("down")} style={btnStyle("var(--bg-secondary)", "var(--text-secondary)")}>⌊ Round Down</button>
+          <button onClick={() => handleRound("up")} style={btnStyle("var(--bg-secondary)", "var(--text-secondary)")}>⌈ Round Up</button>
+        </div>
+
+        {/* Done */}
+        <button onClick={handleDone} style={{
+          width: "100%", padding: "14px", borderRadius: "10px",
+          background: "var(--accent)", color: "#fff", border: "none",
+          fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
+          marginTop: "10px",
+        }}>
+          Done
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ── Spreadsheet Score Entry ───────────────────────────────────── */
 function SpreadsheetScoring({ players, categories, scores, setScores }) {
+  const [calcOpen, setCalcOpen] = useState(null); // { pi, catId }
+
   const getPlayerTotal = (pi) => {
     return categories.reduce((sum, cat) => {
       const val = scores[pi]?.[cat.id] || 0;
@@ -325,17 +456,17 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
               )}
 
               {cat.type === "manual" && (
-                <input
-                  type="number"
-                  value={scores[pi]?.[cat.id] || 0}
-                  onChange={(e) => updateScore(pi, cat.id, parseInt(e.target.value) || 0)}
+                <button
+                  onClick={() => setCalcOpen({ pi, catId: cat.id })}
                   style={{
-                    width: "60px", padding: "4px 6px", borderRadius: "6px",
+                    width: "70px", padding: "4px 6px", borderRadius: "6px",
                     border: "1px solid var(--border)", background: "var(--bg-card)",
                     color: "var(--text-primary)", fontSize: "0.95rem",
-                    textAlign: "center", outline: "none",
+                    textAlign: "center", cursor: "pointer", fontWeight: 600,
                   }}
-                />
+                >
+                  {scores[pi]?.[cat.id] || 0}
+                </button>
               )}
             </div>
           ))}
@@ -370,6 +501,20 @@ function SpreadsheetScoring({ players, categories, scores, setScores }) {
           </div>
         ))}
       </div>
+
+      {/* Calculator overlay */}
+      {calcOpen && (
+        <MiniCalculator
+          value={scores[calcOpen.pi]?.[calcOpen.catId] || 0}
+          playerName={players[calcOpen.pi]?.name}
+          catName={categories.find((c) => c.id === calcOpen.catId)?.name}
+          onSave={(val) => {
+            updateScore(calcOpen.pi, calcOpen.catId, val);
+            setCalcOpen(null);
+          }}
+          onClose={() => setCalcOpen(null)}
+        />
+      )}
     </div>
   );
 }
