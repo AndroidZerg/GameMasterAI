@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useKioskMode } from "./hooks/useKioskMode";
 import IdlePrompt from "./components/IdlePrompt";
 import GameSelector from "./components/GameSelector";
@@ -9,8 +9,7 @@ import VenueStatsPage from "./components/VenueStatsPage";
 
 function AppShell() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { kiosk, showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
+  const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
     navigate("/app");
   });
 
