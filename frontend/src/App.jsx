@@ -14,6 +14,7 @@ import QRGeneratorPage from "./components/QRGeneratorPage";
 import VenueStatsPage from "./components/VenueStatsPage";
 import VenueSettingsPage from "./components/VenueSettingsPage";
 import CollectionManagerPage from "./components/CollectionManagerPage";
+import MenuPage from "./components/MenuPage";
 
 function AuthWatcher() {
   const { logout } = useAuth();
@@ -46,6 +47,7 @@ function AppShell() {
         <Route path="/games" element={<GameSelector />} />
         <Route path="/app" element={<Navigate to="/games" replace />} />
         <Route path="/game/:gameId" element={<GameTeacher />} />
+        <Route path="/menu" element={<MenuPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin/qr" element={<ProtectedRoute><QRGeneratorPage /></ProtectedRoute>} />
         <Route path="/admin/stats" element={<ProtectedRoute><VenueStatsPage /></ProtectedRoute>} />
