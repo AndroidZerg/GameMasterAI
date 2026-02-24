@@ -37,6 +37,7 @@ from app.models.venues import (
 )
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
+from app.models.house_rules import init_house_rules_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 
@@ -55,6 +56,7 @@ async def lifespan(app: FastAPI):
     init_venue_collections_table()
     init_analytics_table()
     init_score_history_table()
+    init_house_rules_table()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")

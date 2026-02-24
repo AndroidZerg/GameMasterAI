@@ -11,6 +11,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from app.core.auth import get_optional_venue
 from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
+from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection, get_staff_picks
 from app.services.knowledge import load_game
 
@@ -161,6 +162,19 @@ async def get_game_expansions(game_id: str):
     if not _EXPANSIONS:
         _load_expansions()
     return _EXPANSIONS.get(game_id, [])
+
+
+@router.get("/games/{game_id}/house-rules")
+async def get_game_house_rules(
+    game_id: str,
+    venue: Optional[dict] = Depends(get_optional_venue),
+):
+    """Get venue's house rules for a game. Returns null if none set."""
+    vid = venue["venue_id"] if venue else None
+    rules = get_house_rules(game_id, venue_id=vid)
+    if rules:
+        return rules
+    return {"game_id": game_id, "rule_text": None, "message": "No house rules set"}
 
 
 @router.get("/games/{game_id}/price")

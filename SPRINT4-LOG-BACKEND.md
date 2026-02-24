@@ -54,3 +54,10 @@ Branch: sprint4/backend
 - POST /api/admin/staff-picks — update venue's staff picks (auth required)
 - GET /api/games/staff-picks — returns full game data for picked games
 - Default: first 5 games alphabetically when no picks set
+
+## Phase B8: House Rules Support
+- Created house_rules table: venue_id, game_id, rule_text, UNIQUE(venue_id, game_id)
+- POST /api/admin/house-rules — add/update house rules (auth required, UPSERT)
+- GET /api/games/{game_id}/house-rules — returns venue's house rules for a game
+- GET /api/admin/house-rules — list all house rules for venue
+- House rules table auto-created on startup

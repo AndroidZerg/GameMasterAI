@@ -7,6 +7,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_current_venue, get_optional_venue
+from app.models.house_rules import set_house_rules, get_all_house_rules
 from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues, get_staff_picks, set_staff_picks
 from app.models.game import search_games
 
@@ -66,6 +67,30 @@ async def get_venue_collection_public(
         if game_ids:
             return {"game_ids": game_ids, "game_count": len(game_ids)}
     return {"game_ids": [], "game_count": 0, "default": True}
+
+
+@router.post("/admin/house-rules")
+async def create_house_rules(
+    req: dict,
+    venue: dict = Depends(get_current_venue),
+):
+    """Add/update house rules for a game at this venue. Body: {game_id, rule_text}"""
+    game_id = req.get("game_id", "").strip()
+    rule_text = req.get("rule_text", "").strip()
+    if not game_id:
+        raise HTTPException(status_code=400, detail="game_id is required")
+    if not rule_text:
+        raise HTTPException(status_code=400, detail="rule_text is required")
+    rid = set_house_rules(venue["venue_id"], game_id, rule_text)
+    return {"id": rid, "status": "ok", "game_id": game_id}
+
+
+@router.get("/admin/house-rules")
+async def list_venue_house_rules(
+    venue: dict = Depends(get_current_venue),
+):
+    """List all house rules for this venue."""
+    return get_all_house_rules(venue["venue_id"])
 
 
 @router.post("/admin/staff-picks")
