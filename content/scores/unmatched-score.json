@@ -1,0 +1,19 @@
+{
+  "game_id": "unmatched",
+  "scoring_type": "elimination",
+  "win_condition": "Reduce opponent's hero to 0 health. Last hero standing wins in multiplayer",
+  "categories": [
+    {
+      "id": "hero_health",
+      "label": "Hero Health",
+      "type": "info",
+      "description": "Track remaining hero health. Hero starts at 13-17 HP depending on character. Reduced to 0 = eliminated"
+    },
+    {
+      "id": "sidekick_health",
+      "label": "Sidekick Health",
+      "type": "info",
+      "description": "Track sidekick health if applicable. Defeating a sidekick does not win the game"
+    }
+  ]
+}

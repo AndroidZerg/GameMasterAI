@@ -1,0 +1,109 @@
+{
+  "game_id": "dice-throne",
+  "title": "Dice Throne",
+  "aliases": [
+    "Dice Throne Season 1",
+    "Dice Throne Season 2",
+    "DT"
+  ],
+  "publisher": "Roxley Games",
+  "player_count": {
+    "min": 2,
+    "max": 6,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 40
+  },
+  "complexity": "gateway",
+  "categories": [
+    "dice",
+    "fighting",
+    "hand-management"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Per Hero\n- **5 custom dice** — unique faces per hero showing ability icons and numbers\n- **1 hero board** — shows all abilities, CP costs, upgrade slots, and health tracker\n- **Ability cards** — specific to each hero, used to upgrade abilities\n- **Status effect tokens** — for applying conditions to opponents\n- **1 health dial or tracker** — typically starts at 50 HP (Season 2) or varies\n- **Combat Points (CP) tracker** — tracks available CP\n\n#### Shared Components\n- **Status effect reference cards**\n- **Turn order cards** (for multiplayer)\n\n#### Available Heroes (Season 1)\n- Barbarian, Moon Elf, Pyromancer, Shadow Thief, Monk, Paladin\n\n#### Available Heroes (Season 2)\n- Gunslinger, Samurai, Tactician, Huntress, Seraph, Vampire Lord\n\nNote: Any hero from any season can fight any other hero."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **No shared board** — Dice Throne has no map or shared board. Each player has their own hero board.\n2. **Hero board layout** — Shows:\n   - **Health tracker** — along the edge, starting at ~50 HP.\n   - **Ability grid** — 5-6 abilities shown with dice requirements and damage/effects.\n   - **Upgrade slots** — empty slots that can be filled with ability cards to enhance abilities.\n   - **CP tracker** — tracks Combat Points available.\n3. **Play area** — Each player needs space for their dice, cards, and tokens.\n4. **Central area** — Place status effect tokens within reach of all players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Each Player\n- **Choose a hero** — Each hero plays completely differently.\n- **Take hero components** — Hero board, 5 custom dice, ability cards, status tokens.\n- **Set health** — Set health dial to starting value (typically 50 HP in Season 2, varies in Season 1).\n- **Set CP** — Start with 1 Combat Point.\n- **Draw cards** — Draw 4 cards from your hero's ability deck.\n- **No upgrades yet** — All upgrade slots on the hero board start empty.\n\n#### Card Hand\n- Maximum hand size is **6 cards**.\n- Cards can be played to upgrade abilities, modify dice, or apply effects."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "- **50 HP** (Season 2) or hero-specific starting health.\n- **1 CP** to start.\n- **4 cards** in hand.\n- **Determine first player** randomly.\n- **No upgrades** — Abilities start at base level.\n- **Goal** — Reduce your opponent to 0 HP.\n- **Timed variant** — In timed games, most remaining HP wins when time expires."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each turn follows these phases in order:\n\n#### 1. Upkeep Phase\n- Gain **1 CP** (Combat Point).\n- Resolve any start-of-turn status effects (poison damage, burn, etc.).\n- Draw 1 card (if below max hand size).\n\n#### 2. Income Phase\n- Gain CP based on your hero's income value and any modifiers.\n- You may sell cards from hand for 1 CP each.\n\n#### 3. Main Phase (Pre-Roll)\n- Play cards to upgrade abilities (pay CP cost, place card in upgrade slot).\n- Play Main Phase action cards.\n- Activate certain hero-specific abilities.\n\n#### 4. Offensive Roll Phase\n- Roll all **5 dice**.\n- You may re-roll any number of dice (up to **2 re-rolls**, Yahtzee-style).\n- Play cards to modify dice results between rolls.\n- After final roll, choose which ability to activate based on dice results.\n\n#### 5. Targeting/Attack Phase\n- Declare your activated ability against an opponent.\n- Opponent may play defensive cards or abilities.\n- Resolve damage and effects.\n\n#### 6. Defensive Roll Phase (Opponent)\n- Some heroes have defensive abilities triggered by specific dice results.\n- The defender may roll dice to mitigate damage (if their hero has this ability).\n\n#### 7. Discard Phase\n- Discard down to max hand size if needed."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Dice Abilities\nEach hero has **5-6 unique abilities** activated by specific dice combinations:\n- **Small Straight** (1-2-3-4 or 2-3-4-5) — triggers one ability.\n- **Large Straight** (1-2-3-4-5) — triggers a stronger ability.\n- **Three of a Kind** — triggers an ability, damage often scales with the number.\n- **Four of a Kind** — triggers a stronger version.\n- **Five of a Kind** — ultimate ability, devastating damage or effect.\n- **Specific combinations** — Each hero has custom dice faces that create unique combos.\n\n#### Card Types\n- **Upgrade cards** — Permanently enhance an ability (place in upgrade slot). Adds damage, effects, or lowers requirements.\n- **Roll Modifier cards** — Change dice faces during the roll phase. Add +1 to a die, change a face, etc.\n- **Main Phase cards** — Played before rolling for strategic effects.\n- **Instant cards** — Can be played at specific timing windows.\n\n#### Status Effects\n- **Poison** — Damage at start of turn.\n- **Burn** — Damage at start of turn (often stronger).\n- **Blind** — Limits re-rolls.\n- **Freeze** — Removes a die from your roll.\n- **Shield** — Absorbs incoming damage.\n- Various hero-specific statuses."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Yahtzee-Style Rolling\n- Roll 5 dice, keep any, re-roll the rest.\n- Up to **2 re-rolls** (3 total rolls).\n- Cards can modify results between or after rolls.\n- The tension is in deciding what ability to aim for and when to stop rolling.\n\n#### Combat Points (CP)\n- CP is the currency for upgrades, card effects, and some abilities.\n- Gained each turn (1 base + income).\n- Selling cards gives 1 CP each.\n- Managing CP economy is crucial — upgrades cost CP but make abilities much stronger.\n\n#### Upgrades\n- Each ability has **1-2 upgrade slots**.\n- Playing an upgrade card into a slot permanently enhances that ability for the rest of the game.\n- Upgraded abilities deal more damage, apply status effects, or have reduced dice requirements.\n- Upgrading early gives more value over the course of the game.\n\n#### Asymmetry\n- Each hero has completely different dice faces, abilities, and strategies.\n- The Barbarian is straightforward and hits hard. The Shadow Thief steals CP and poisons. The Pyromancer burns. The Moon Elf is ranged and evasive.\n- Matchup knowledge matters in competitive play."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\nReduce your opponent's health to **0 HP**. That player is eliminated.\n\n#### Multiplayer\n- In 3-6 player games, play as free-for-all or teams.\n- **Last hero standing** wins in free-for-all.\n- In team games, a team wins when all opposing heroes are eliminated.\n\n#### Timed Variant\n- Set a timer (e.g., 30 minutes).\n- When time expires, the player with the **most remaining HP** wins.\n- Useful for tournaments or quick games.\n\n#### No Point Scoring\nThe game is purely elimination-based. There is no VP system."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Upgrade early** — Upgrades are permanent. Getting them down early means more value over the game.\n- **Learn your hero's best ability** — Know which dice combo deals the most damage and aim for it.\n- **Manage CP carefully** — Don't blow all CP on one big upgrade if you need cards to modify dice.\n- **Apply status effects** — Poison and burn deal damage every turn. Early application maximizes total damage."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Chasing the ultimate ability** — Five of a Kind is rare. Don't waste re-rolls chasing it when a Three of a Kind is guaranteed damage.\n- **Ignoring defense** — Some heroes have powerful defensive options. Saving cards for defense can be game-changing.\n- **Hoarding cards** — Cards in hand do nothing. Play them for upgrades or dice modification.\n- **Not selling cards** — Sometimes selling a useless card for 1 CP to fund an upgrade is the right play.\n- **Forgetting status effects** — Track poison, burn, and other effects carefully. Missing upkeep damage is a common error."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Which ability to aim for** — After your first roll, decide whether to go for a safe ability or gamble on a stronger one.\n- **When to stop re-rolling** — Sometimes your first roll is good enough. Don't risk losing a solid result.\n- **Upgrade order** — Which ability to upgrade first depends on your hero and the matchup.\n- **Cards for offense or defense** — Do you save modifier cards for your attack or hold them for defensive situations?\n- **Target selection (multiplayer)** — In free-for-all, choosing who to attack is a political and strategic decision."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

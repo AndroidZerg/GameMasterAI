@@ -1,0 +1,25 @@
+{
+  "game_id": "horrified",
+  "scoring_type": "cooperative",
+  "win_condition": "Defeat all selected monsters before terror track reaches 7",
+  "categories": [
+    {
+      "id": "monsters_defeated",
+      "label": "Monsters Defeated",
+      "type": "info",
+      "description": "Track which monsters have been defeated. All must be defeated to win"
+    },
+    {
+      "id": "terror_track",
+      "label": "Terror Track",
+      "type": "info",
+      "description": "Current terror level (0-6 safe, 7 = lose). Increases when villagers are attacked"
+    },
+    {
+      "id": "difficulty",
+      "label": "Difficulty Level",
+      "type": "info",
+      "description": "Number of monsters selected: 1 (easy), 2 (standard), 3 (hard)"
+    }
+  ]
+}

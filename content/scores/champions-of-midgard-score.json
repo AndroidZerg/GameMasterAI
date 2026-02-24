@@ -1,0 +1,45 @@
+{
+  "game_id": "champions-of-midgard",
+  "scoring_type": "calculator",
+  "win_condition": "Most Glory after 8 rounds",
+  "tiebreaker": "Most remaining warrior dice",
+  "categories": [
+    {
+      "id": "monsters",
+      "label": "Defeated Monster Glory",
+      "type": "manual",
+      "description": "Glory printed on each defeated monster card (trolls, draugr, journey monsters)"
+    },
+    {
+      "id": "monster_sets",
+      "label": "Monster Set Bonus",
+      "type": "manual",
+      "description": "Bonus Glory for collecting sets of different monster types"
+    },
+    {
+      "id": "gold",
+      "label": "Gold Glory",
+      "type": "manual",
+      "description": "Glory from collected gold tokens"
+    },
+    {
+      "id": "coins",
+      "label": "Coin Conversion",
+      "type": "manual",
+      "description": "Remaining coins converted to Glory"
+    },
+    {
+      "id": "leader_bonus",
+      "label": "Leader Bonus Glory",
+      "type": "manual",
+      "description": "Bonus Glory from leader card end-game conditions"
+    },
+    {
+      "id": "blame",
+      "label": "Blame Penalty",
+      "points_each": -3,
+      "type": "count",
+      "description": "Each blame token is worth -3 Glory"
+    }
+  ]
+}

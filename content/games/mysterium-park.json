@@ -1,0 +1,108 @@
+{
+  "game_id": "mysterium-park",
+  "title": "Mysterium Park",
+  "aliases": [
+    "Mysterium Park",
+    "Mini Mysterium"
+  ],
+  "publisher": "Libellud",
+  "player_count": {
+    "min": 2,
+    "max": 6,
+    "recommended": 5,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": [
+    "cooperative",
+    "deduction",
+    "party"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Main Components\n- **1** fairground game board (circular track with 6 ticket spaces)\n- **84** vision cards (oversized, beautifully illustrated dream cards)\n- **13** character cards (suspects)\n- **12** location cards (places in the park)\n- **1** ghost screen (hides the ghost player's information)\n\n#### Tokens & Markers\n- **Ticket tokens** — track rounds remaining (6 rounds max)\n- **Innocence tokens** — mark eliminated suspects/locations\n- **Psychic tokens** — 1 per psychic player\n- **Ghost tokens** — for the ghost player\n\n#### Setup Cards\n- **Plot cards** — secret combinations the ghost knows (1 character + 1 location per psychic)"
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Place the fairground board** — Center of the table.\n2. **Character ring** — Arrange character cards in a circle around the board (or in a row). These are the suspects.\n3. **Location ring** — Arrange location cards similarly. These are the possible crime scenes.\n4. **Ghost screen** — The ghost player sets up their screen to hide secret information.\n5. **Ticket track** — Place the ticket marker on space 1 (of 6).\n6. **Vision cards** — The ghost takes all vision cards behind their screen and draws a hand of 7.\n7. **Plot setup** — Behind the screen, the ghost secretly assigns one character and one location to each psychic player."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Ghost Player\n- **1 player** is the ghost. They know the truth but **cannot speak** during the game.\n- Draw **plot cards** that assign a specific character and location to each psychic.\n- Take the vision card deck and draw a hand of **7 vision cards**.\n\n#### Psychic Players\n- All other players are **psychics** trying to solve the mystery.\n- Each psychic has a **character assignment** (unknown to them) and a **location assignment** (unknown to them).\n- Psychics can freely discuss and help each other interpret the ghost's clues.\n\n#### Communication Rule\n- The ghost **cannot talk, gesture, or indicate** anything except by giving vision cards.\n- Psychics may talk freely among themselves."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "- **Phase 1 starts** — Character identification phase.\n- **6 rounds maximum** — Tracked by tickets on the fairground.\n- **Goal** — In Phase 1, each psychic must correctly identify their assigned character. In Phase 2, identify the location.\n- **Cooperative** — All players win or lose together.\n- The ghost gives vision cards as clues at the start of each round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Phase 1: Character Identification (Rounds 1-6)\nEach round:\n1. **Ghost gives clues** — The ghost selects 1 or more vision cards from their hand and places them face-up in front of each psychic. These cards are abstract clues hinting at which character is assigned to that psychic.\n2. **Psychics discuss** — All psychics look at their vision cards and discuss together which character each card might be pointing toward.\n3. **Psychics guess** — Each psychic places their token on a character card.\n4. **Ghost reveals** — The ghost indicates correct/incorrect for each psychic.\n5. **Correct guesses** — That character is eliminated from the suspect pool and the psychic advances to Phase 2 (or waits).\n6. **Incorrect guesses** — That psychic tries again next round with new vision cards. A ticket is consumed.\n7. **Ghost draws** — The ghost draws back up to 7 vision cards.\n\n#### Phase 2: Location Identification\nOnce all psychics have identified their characters (or time runs out), Phase 2 begins. Same process but for locations instead of characters.\n\n#### Final Revelation\nEliminated characters and locations narrow down the true culprit. Remaining non-eliminated pairs form the final choices. Psychics must agree on the murderer from the remaining options."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Ghost Actions\n- **Select vision cards** — Choose cards from your hand that abstractly represent the target character or location. The art on vision cards is surreal and open to interpretation.\n- **Discard and redraw** — You may discard your entire hand and draw 7 new cards (costs a ticket/round).\n\n#### Psychic Actions\n- **Interpret clues** — Study the vision cards for colors, objects, themes, or moods that connect to a suspect or location.\n- **Discuss** — Talk with other psychics about what you see. Collaboration is encouraged.\n- **Vote/Guess** — Place your marker on your chosen character or location.\n\n#### Elimination\n- Each correct guess **eliminates** that character/location from the suspect pool.\n- This narrows down the final options, making the end game easier.\n- Each incorrect guess wastes a round ticket."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Vision Cards\n- Large, beautifully illustrated cards with **abstract, dreamlike imagery**.\n- No text — purely visual.\n- The ghost must creatively select cards whose imagery evokes the target character or location.\n- Examples: A card with fire might hint at a fire-breather character or a bonfire location.\n\n#### Ticket Track (6 Rounds)\n- You have a maximum of **6 rounds** to complete both phases.\n- Each round where at least one psychic guesses wrong costs a ticket.\n- If all tickets are used before both phases complete, the team has fewer clues for the final revelation.\n\n#### Final Revelation\n- After both phases, the remaining (non-eliminated) characters and locations form the possible culprit pairs.\n- The ghost gives one final set of vision cards.\n- All psychics must **agree** on which remaining pair is the true murderer and location.\n- If correct: **everyone wins**.\n- If incorrect: **everyone loses**.\n\n#### Streamlined from Mysterium\n- No weapon phase (original Mysterium had characters, locations, AND weapons).\n- Fewer rounds and faster gameplay.\n- Same core deduction mechanic with abstract vision cards."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\nThe team **wins** if the psychics correctly identify the true murderer and location in the final revelation.\n\n#### Lose Condition\nThe team **loses** if:\n- Psychics choose the wrong culprit pair in the final revelation.\n- Optional: The team can also lose if they use all 6 tickets without completing both phases (depending on variant).\n\n#### Difficulty Scaling\n- **Fewer psychics** = harder (less collaboration, fewer eliminations).\n- **More suspects/locations** = harder (more options to narrow down).\n- The game has no numeric score — it is purely win or lose."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Ghost: Study your hand** — Before giving clues, look at all 7 cards and find the best matches for each psychic's target.\n- **Ghost: Use color and theme** — Obvious connections (color matching, similar objects) work better than abstract thematic links.\n- **Psychics: Look at ALL clues** — Compare what other psychics received to narrow options.\n- **Start with distinctive characters** — If one character is very different from others, target them first for easy elimination."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ghost: Being too subtle** — Abstract connections that make sense to you may not make sense to others. Be as clear as possible.\n- **Ghost: Giving too many cards** — 1-2 well-chosen cards are better than 3-4 vague ones.\n- **Psychics: Overthinking** — The most obvious interpretation is usually correct.\n- **Psychics: Not collaborating** — Discuss openly. Fresh eyes often see connections you miss.\n- **Both: Ignoring elimination** — Pay attention to what's already eliminated. It narrows every future guess."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Ghost: Which cards to give** — Your only meaningful decision. Choose clarity over cleverness.\n- **Ghost: When to discard hand** — Discarding costs a round but gets fresh cards. Worth it if your hand has nothing useful.\n- **Psychics: Confidence level** — If unsure, a wrong guess wastes a round. Sometimes waiting for better clues is smarter.\n- **Final revelation** — The most critical decision. Discuss thoroughly and consider all remaining options before committing."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

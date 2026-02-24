@@ -1,0 +1,32 @@
+{
+  "game_id": "clank-in-space",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP (must escape or be knocked out near escape pods to score)",
+  "tiebreaker": "Player who escaped first",
+  "categories": [
+    {
+      "id": "artifact",
+      "label": "Artifact VP",
+      "type": "manual",
+      "description": "VP value of your collected artifact (0 if you didn't escape)"
+    },
+    {
+      "id": "secrets",
+      "label": "Secret Token VP",
+      "type": "manual",
+      "description": "VP from face-down secret tokens collected during the game"
+    },
+    {
+      "id": "credits",
+      "label": "Credit VP",
+      "type": "manual",
+      "description": "Remaining credits converted to VP"
+    },
+    {
+      "id": "market_cards",
+      "label": "Market Card VP",
+      "type": "manual",
+      "description": "VP printed on purchased market cards in your deck"
+    }
+  ]
+}

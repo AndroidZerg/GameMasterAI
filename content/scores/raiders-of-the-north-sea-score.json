@@ -1,0 +1,45 @@
+{
+  "game_id": "raiders-of-the-north-sea",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP at end of game",
+  "tiebreaker": "Most remaining silver",
+  "categories": [
+    {
+      "id": "plunder",
+      "label": "Plunder VP",
+      "type": "manual",
+      "description": "Victory points printed on collected plunder tiles"
+    },
+    {
+      "id": "valkyrie",
+      "label": "Valkyrie Track VP",
+      "type": "manual",
+      "description": "Victory points based on position on the Valkyrie track"
+    },
+    {
+      "id": "offerings",
+      "label": "Offering Sets VP",
+      "type": "manual",
+      "description": "Victory points for sets of different offering tile types"
+    },
+    {
+      "id": "gold",
+      "label": "Gold VP",
+      "points_each": 1,
+      "type": "count",
+      "description": "Each gold token is worth 1 VP"
+    },
+    {
+      "id": "armour",
+      "label": "Armour VP",
+      "type": "manual",
+      "description": "Victory points based on total armour icons collected"
+    },
+    {
+      "id": "crew_bonuses",
+      "label": "Crew Bonus VP",
+      "type": "manual",
+      "description": "End-game VP from crew card abilities"
+    }
+  ]
+}

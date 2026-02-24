@@ -1,0 +1,57 @@
+{
+  "game_id": "paladins-of-the-west-kingdom",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after 7 rounds",
+  "tiebreaker": "Most remaining silver",
+  "categories": [
+    {
+      "id": "faith_track",
+      "label": "Faith Track VP",
+      "type": "manual",
+      "description": "VP based on position on the Faith attribute track"
+    },
+    {
+      "id": "strength_track",
+      "label": "Strength Track VP",
+      "type": "manual",
+      "description": "VP based on position on the Strength attribute track"
+    },
+    {
+      "id": "influence_track",
+      "label": "Influence Track VP",
+      "type": "manual",
+      "description": "VP based on position on the Influence attribute track"
+    },
+    {
+      "id": "virtue_track",
+      "label": "Virtue Track VP",
+      "type": "manual",
+      "description": "VP based on position on the Virtue attribute track"
+    },
+    {
+      "id": "monks",
+      "label": "Commissioned Monks VP",
+      "type": "manual",
+      "description": "VP printed on each commissioned monk card"
+    },
+    {
+      "id": "outsiders",
+      "label": "Recruited Outsiders VP",
+      "type": "manual",
+      "description": "VP printed on each recruited outsider card"
+    },
+    {
+      "id": "kings_orders",
+      "label": "King's Orders VP",
+      "type": "manual",
+      "description": "Bonus VP for meeting end-game objective conditions"
+    },
+    {
+      "id": "debt",
+      "label": "Debt Penalty",
+      "points_each": -3,
+      "type": "count",
+      "description": "Each unpaid debt card is worth -3 VP"
+    }
+  ]
+}

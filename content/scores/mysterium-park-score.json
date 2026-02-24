@@ -1,0 +1,31 @@
+{
+  "game_id": "mysterium-park",
+  "scoring_type": "cooperative",
+  "win_condition": "Team wins if psychics correctly identify the true murderer and location in the final revelation",
+  "categories": [
+    {
+      "id": "character_phase",
+      "label": "Character Phase",
+      "type": "info",
+      "description": "All psychics must correctly identify their assigned character to proceed"
+    },
+    {
+      "id": "location_phase",
+      "label": "Location Phase",
+      "type": "info",
+      "description": "All psychics must correctly identify their assigned location to proceed"
+    },
+    {
+      "id": "final_revelation",
+      "label": "Final Revelation",
+      "type": "info",
+      "description": "Psychics must agree on the true culprit from remaining suspect pairs. Correct = win, incorrect = lose"
+    },
+    {
+      "id": "tickets_remaining",
+      "label": "Tickets Remaining",
+      "type": "info",
+      "description": "Tracks how many rounds were used out of 6. More remaining = better performance"
+    }
+  ]
+}
