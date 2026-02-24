@@ -115,50 +115,50 @@ function GameOfTheDay({ game, onClick }) {
       onClick={onClick}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } }}
       style={{
-        position: "relative", borderRadius: "16px", overflow: "hidden",
+        borderRadius: "16px", overflow: "hidden",
         cursor: "pointer", marginBottom: "24px",
         border: "2px solid var(--accent)",
         background: "var(--bg-card)",
         animation: "fadeIn 0.3s ease-out",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <div style={{ aspectRatio: "1 / 1", width: "100%", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
+      {/* Square image — no overlay */}
+      <div style={{ aspectRatio: "1 / 1", width: "100%", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative", flexShrink: 0 }}>
         {!imgError && (
           <img
             src={imgSrc} alt={game.title} onError={handleImgError}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         )}
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)",
-        }} />
-        <div style={{ position: "absolute", top: "12px", left: "12px" }}>
+      </div>
+      {/* Metadata below image */}
+      <div style={{ padding: "12px 16px", background: "var(--bg-secondary)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
           <span style={{
-            background: "var(--accent)", color: "#fff", padding: "4px 12px",
-            borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700,
+            background: "var(--accent)", color: "#fff", padding: "3px 10px",
+            borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700,
             textTransform: "uppercase", letterSpacing: "0.05em",
           }}>
             Game of the Day
           </span>
         </div>
-        <div style={{ position: "absolute", bottom: "12px", left: "16px", right: "16px" }}>
-          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#fff", margin: 0 }}>{game.title}</h3>
-          <div style={{ display: "flex", gap: "8px", marginTop: "4px", alignItems: "center" }}>
-            <span style={{
-              background: COMPLEXITY_COLORS[game.complexity] || "#666",
-              color: "#fff", padding: "2px 8px", borderRadius: "999px",
-              fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase",
-            }}>
-              {game.complexity}
-            </span>
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
-              {game.player_count?.min}-{game.player_count?.max} players
-            </span>
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
-              {getPlayTime(game)} min
-            </span>
-          </div>
+        <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>{game.title}</h3>
+        <div style={{ display: "flex", gap: "8px", marginTop: "6px", alignItems: "center" }}>
+          <span style={{
+            background: COMPLEXITY_COLORS[game.complexity] || "#666",
+            color: "#fff", padding: "2px 8px", borderRadius: "999px",
+            fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase",
+          }}>
+            {game.complexity}
+          </span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+            {game.player_count?.min}-{game.player_count?.max}p
+          </span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+            {getPlayTime(game)}min
+          </span>
         </div>
       </div>
     </div>
@@ -169,7 +169,8 @@ function SkeletonCard({ small }) {
   return (
     <div style={{ borderRadius: "12px", border: "2px solid var(--border)", overflow: "hidden" }}>
       <div style={{
-        height: small ? "100px" : "160px",
+        aspectRatio: "1 / 1",
+        width: "100%",
         background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)",
         backgroundSize: "200% 100%",
         animation: "shimmer 1.5s infinite",
