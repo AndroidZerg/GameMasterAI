@@ -1,0 +1,31 @@
+PLAYER-COUNT RENDERING DIAGNOSTIC
+===================================
+Date: 2026-02-23
+Sprint: 3, Phase C1
+
+STATUS: ALREADY FIXED (commit cb6ebc8 from Sprint 2)
+
+DIAGNOSIS:
+The renderer in GameTeacher.jsx handles player-count headers correctly:
+
+1. Pre-processing (line 175):
+   content.replace(/\n(---\s+.+\s+---)/g, "\n\n$1")
+   Ensures --- headers always start a new paragraph block.
+
+2. classifyParagraph (lines 89-105):
+   - Detects "--- X Players ---" headers via regex /^---\s+.+\s+---$/
+   - Returns "player-count-section" when bullets follow the header
+   - Returns "player-count-section-numbered" when numbered items follow
+   - Returns "player-count-divider" when header stands alone
+
+3. Rendering (lines 183-221):
+   - Dividers render as styled horizontal line with centered label
+   - Sections render as divider + unordered/ordered list below
+
+VERIFICATION:
+- splendor: 3 player-count headers (2P/3P/4P in board-layout) ✓
+- above-and-below: 5 headers ✓
+- king-of-tokyo: 9 headers (2-4P/5-6P across multiple subtopics) ✓
+- seven-wonders: 21 headers (extensive 2P variant + per-count strategy) ✓
+
+NO FIX NEEDED — rendering works correctly.

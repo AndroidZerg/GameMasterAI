@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const PUBLIC_ITEMS = [
   { path: "/", label: "Home", icon: "\u{1F3E0}" },
-  { path: "/app", label: "Games", icon: "\u{1F3B2}" },
+  { path: "/games", label: "Games", icon: "\u{1F3B2}" },
 ];
 
 const ADMIN_ITEMS = [

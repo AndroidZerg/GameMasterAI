@@ -125,6 +125,12 @@ a:focus-visible {
   -webkit-user-select: none;
 }
 
+/* Hide scrollbar on horizontal carousels */
+*::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
 /* Tablet responsive: 768px+ */
 @media (min-width: 768px) {
   :root {
@@ -136,4 +142,6 @@ a:focus-visible {
 @media print {
   body { background: white !important; color: black !important; }
   .no-print { display: none !important; }
+  .qr-card { box-shadow: none !important; border: 1px solid #ddd !important; }
+  @page { margin: 0.5in; }
 }
