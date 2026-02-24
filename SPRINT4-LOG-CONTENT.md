@@ -27,6 +27,31 @@ Status: COMPLETE
 ---
 
 ## Phase C3: Accurate Play Time Data
+Status: COMPLETE — 13 games fixed, 14 quick games identified
+
+### Fixed games (13):
+- brass-birmingham: 90-150 → 60-120
+- carcassonne: 35-50 → 30-45
+- coup: 15-30 → 15-15
+- dominion: 30-45 → 30-30
+- just-one: 20-30 → 20-20
+- kingdomino: 15-15 → 15-20
+- pandemic: 45-60 → 45-45
+- power-grid: 120-150 → 120-120
+- seven-wonders: 30-45 → 30-30
+- skull: 15-45 → 15-30
+- splendor: 30-45 → 30-30
+- sushi-go-party: 20-30 → 20-20
+- terraforming-mars: 90-150 → 120-120
+
+### Quick games (max ≤ 30 min): 14
+codenames, coup, dominion, just-one, king-of-tokyo, kingdomino,
+love-letter, one-night-ultimate-werewolf, patchwork, seven-wonders,
+skull, splendor, sushi-go-party, the-crew
+
+---
+
+## Phase C4: "Best For" Tags
 Status: IN PROGRESS
 
 ---
