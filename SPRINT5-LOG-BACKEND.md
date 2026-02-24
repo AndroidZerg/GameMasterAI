@@ -23,3 +23,9 @@ Branch: sprint5/backend
 - Also adds win_description/scoring_note for cooperative/elimination/team_race types
 - Result: 29 configs updated, 0 still missing descriptions
 - All 50 score configs now have descriptions on every category
+
+## Phase B4: Add scoring_text to Game Detail API
+- GET /api/games/{game_id} now includes "scoring_text" field
+- Extracted from tabs.rules.subtopics where id=="endgame"
+- Contains markdown-formatted endgame trigger + scoring rules
+- Verified on catan (766 chars), wingspan (682 chars), scythe (838 chars)

@@ -146,13 +146,23 @@ async def featured_game():
 
 @router.get("/games/{game_id}")
 async def get_game(game_id: str):
-    """Return the full game JSON including all tabs data and MSRP."""
+    """Return the full game JSON including all tabs data, MSRP, and scoring text."""
     game = load_game(game_id)
     if not game:
         raise HTTPException(status_code=404, detail=f"Game '{game_id}' not found")
     msrp = get_msrp(game_id)
     if msrp is not None:
         game["msrp"] = msrp
+    # Extract scoring/endgame text from rules subtopics
+    scoring_text = None
+    tabs = game.get("tabs", {})
+    rules = tabs.get("rules", {})
+    for subtopic in rules.get("subtopics", []):
+        if subtopic.get("id") == "endgame":
+            scoring_text = subtopic.get("content")
+            break
+    if scoring_text:
+        game["scoring_text"] = scoring_text
     return game
 
 
