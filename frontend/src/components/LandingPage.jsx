@@ -39,8 +39,11 @@ export default function LandingPage() {
         <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)", color: "var(--text-secondary)", marginBottom: "8px" }}>
           Your Board Game Expert, On Every Table
         </p>
-        <p style={{ fontSize: "clamp(0.9rem, 2vw, 1.15rem)", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto 32px" }}>
-          AI-powered teaching for cafes, bars, and game venues. Cut teaching time by 70%.
+        <p style={{ fontSize: "clamp(0.9rem, 2vw, 1.15rem)", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto 8px" }}>
+          AI-powered game teaching for cafes, bars, and game venues.
+        </p>
+        <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.3rem)", color: "var(--text-primary)", maxWidth: "600px", margin: "0 auto 32px", fontWeight: 700 }}>
+          Cut teaching time by 70%.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <button
@@ -213,7 +216,7 @@ export default function LandingPage() {
               <p style={{ color: "var(--text-secondary)", marginBottom: "20px", fontSize: "0.78rem", opacity: 0.7 }}>
                 per location &bull; month-to-month &bull; cancel anytime
               </p>
-              <ul style={{ listStyle: "none", padding: 0, textAlign: "left", marginBottom: "24px" }}>
+              <ul style={{ listStyle: "none", padding: 0, textAlign: "left" }}>
                 {plan.features.map((f) => (
                   <li
                     key={f}
@@ -228,45 +231,47 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="mailto:tim.minh.pham@gmail.com?subject=GameMaster AI Demo Request"
-                style={{
-                  display: "block",
-                  padding: "12px",
-                  borderRadius: "10px",
-                  background: plan.highlight ? "var(--accent)" : "var(--bg-primary)",
-                  color: plan.highlight ? "#fff" : "var(--text-primary)",
-                  border: plan.highlight ? "none" : "1px solid var(--border)",
-                  fontWeight: 600,
-                  fontSize: "0.95rem",
-                  textDecoration: "none",
-                  textAlign: "center",
-                  cursor: "pointer",
-                }}
-              >
-                Book a Demo
-              </a>
             </div>
           ))}
+        </div>
+
+        {/* Single CTA */}
+        <div style={{ marginTop: "36px" }}>
+          <a
+            href="mailto:tim.minh.pham@gmail.com?subject=GameMaster AI Demo Request"
+            style={{
+              display: "inline-block",
+              padding: "16px 48px",
+              borderRadius: "12px",
+              background: "var(--accent)",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "1.15rem",
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+          >
+            Book a Demo
+          </a>
         </div>
 
         {/* Founding Partner banner */}
         <div
           style={{
-            marginTop: "40px",
+            marginTop: "32px",
             padding: "24px 32px",
             borderRadius: "16px",
             background: "linear-gradient(135deg, rgba(233,69,96,0.12) 0%, rgba(74,144,217,0.10) 100%)",
             border: "1px solid rgba(233,69,96,0.3)",
             maxWidth: "700px",
-            margin: "40px auto 0",
+            margin: "32px auto 0",
           }}
         >
           <p style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "6px" }}>
             {"\uD83D\uDE80"} Founding Partner Program
           </p>
           <p style={{ color: "var(--text-secondary)", lineHeight: 1.6, fontSize: "0.95rem", margin: 0 }}>
-            First 10 venues get a free 30-day pilot. <a href="mailto:tim.minh.pham@gmail.com?subject=Founding Partner — GameMaster AI Demo" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "underline" }}>Book a demo</a> to claim your spot.
+            First 3 venues get a free 30-day pilot. <a href="mailto:tim.minh.pham@gmail.com?subject=Founding Partner — GameMaster AI Demo" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "underline" }}>Book a demo</a> to claim your spot.
           </p>
         </div>
       </section>
