@@ -26,8 +26,11 @@ Started: 2026-02-23T00:00:00Z
 | A19 | Accessibility | DONE | aria-labels on all buttons, aria-expanded on accordions, role=tab on tabs, focus-visible outlines, screen reader labels on score tracker |
 
 ## Summary
-- **All 14 phases completed**
+- **All 19 phases completed**
 - **Build status**: Clean (0 errors, 0 warnings)
-- **Bundle size**: ~281 KB JS (85 KB gzip), 1.4 KB CSS
+- **Bundle size**: ~286 KB JS (87 KB gzip), 2.3 KB CSS
 - **New files**: 8 components, 1 hook, 2 SVG icons, 1 PWA manifest
 - **Routes**: / (landing), /app (game selector), /game/:id (teacher), /admin/qr, /admin/stats
+- **Accessibility**: aria-labels, focus-visible, role=tab, aria-expanded
+- **Offline**: navigator.onLine, cached game list, offline banners
+- **Animations**: fadeIn, shimmer, numberPop, confetti, spinnerRotate
