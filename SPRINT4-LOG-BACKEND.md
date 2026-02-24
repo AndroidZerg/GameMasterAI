@@ -35,3 +35,9 @@ Branch: sprint4/backend
 - GET /api/games/{game_id}/rating — aggregate: average, total, distribution {1:n, 2:n, ...}
 - GET /api/games now includes average_rating field for each game with ratings
 - Schema migration via ALTER TABLE for backward compat
+
+## Phase B5: "Best For" Tags System
+- Auto-generates tags from metadata: Solo, Great for 2, Family Friendly, Party Game, Brain Burner, Quick Play, Cooperative, Mystery/Deduction, Large Group
+- GET /api/games response now includes "tags" array for each game
+- GET /api/games/filter accepts ?tag=cooperative, ?tag=quick-play, etc.
+- Tag matching is case-insensitive with hyphen-to-space normalization

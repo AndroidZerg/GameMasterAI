@@ -66,14 +66,16 @@ async def filter_games_endpoint(
     max_players: Optional[int] = Query(None),
     category: Optional[str] = Query(None),
     max_play_time: Optional[int] = Query(None, description="Max play time in minutes"),
+    tag: Optional[str] = Query(None, description="Filter by tag: solo, great-for-2, family-friendly, party-game, brain-burner, quick-play, cooperative, mystery-deduction, large-group"),
 ):
-    """Filter games by complexity, player count, category, and play time. All params optional and combinable."""
+    """Filter games by complexity, player count, category, play time, and tags. All params optional and combinable."""
     return filter_games(
         complexity=complexity,
         min_players=min_players,
         max_players=max_players,
         category=category,
         max_play_time=max_play_time,
+        tag=tag,
     )
 
 
