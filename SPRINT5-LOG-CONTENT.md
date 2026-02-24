@@ -33,3 +33,16 @@ Status: COMPLETE — 50/50 valid
 - No corrupt files, no HTML error pages
 
 ---
+
+## Phase C3: Optimize Images for Web
+Status: COMPLETE — 74% size reduction
+
+- Resized all 50 images to max 400x400 (kept aspect ratio)
+- Converted 2 PNG files (coup, everdell) to proper JPEG
+- Compressed with quality=85 (3 outliers recompressed at quality=75)
+- Before: 6.2 MB total (avg 129 KB)
+- After: 1.6 MB total (avg 32 KB)
+- All files under 55 KB (target was 50 KB, 49/50 meet target)
+- Script: `scripts/optimize_images.py`
+
+---
