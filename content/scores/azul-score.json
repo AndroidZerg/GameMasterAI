@@ -1,40 +1,11 @@
 {
   "game_id": "azul",
   "scoring_type": "calculator",
-  "win_condition": "Most points after a horizontal row is completed",
-  "tiebreaker": "Most complete horizontal rows",
   "categories": [
-    {
-      "id": "round_points",
-      "label": "Points During Rounds",
-      "type": "manual"
-    },
-    {
-      "id": "horizontal_rows",
-      "label": "Complete Horizontal Rows",
-      "points_each": 2,
-      "type": "count",
-      "max": 5
-    },
-    {
-      "id": "vertical_columns",
-      "label": "Complete Vertical Columns",
-      "points_each": 7,
-      "type": "count",
-      "max": 5
-    },
-    {
-      "id": "color_sets",
-      "label": "All 5 of One Color",
-      "points_each": 10,
-      "type": "count",
-      "max": 5
-    },
-    {
-      "id": "floor_penalties",
-      "label": "Floor Line Penalties",
-      "type": "manual",
-      "is_penalty": true
-    }
+    {"id": "completed_rows", "label": "Completed Rows", "points_each": 2, "type": "count", "description": "2 points per completed horizontal row"},
+    {"id": "completed_columns", "label": "Completed Columns", "points_each": 7, "type": "count", "description": "7 points per completed vertical column"},
+    {"id": "completed_colors", "label": "Completed Colors", "points_each": 10, "type": "count", "description": "10 points for all 5 tiles of one color placed"},
+    {"id": "wall_points", "label": "Wall Scoring (during game)", "points_each": 1, "type": "manual", "description": "Points earned from tile placement during rounds"},
+    {"id": "floor_penalties", "label": "Floor Penalties", "points_each": -1, "type": "manual", "description": "Negative points from floor line (enter as negative)"}
   ]
 }

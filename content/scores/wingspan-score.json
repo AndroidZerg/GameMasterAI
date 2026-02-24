@@ -1,41 +1,12 @@
 {
   "game_id": "wingspan",
   "scoring_type": "calculator",
-  "win_condition": "Most points after 4 rounds",
-  "tiebreaker": "Most unused food tokens",
   "categories": [
-    {
-      "id": "bird_points",
-      "label": "Bird Card Points",
-      "type": "manual"
-    },
-    {
-      "id": "bonus_points",
-      "label": "Bonus Card Points",
-      "type": "manual"
-    },
-    {
-      "id": "round_goals",
-      "label": "End-of-Round Goals",
-      "type": "manual"
-    },
-    {
-      "id": "eggs",
-      "label": "Eggs on Cards",
-      "points_each": 1,
-      "type": "count"
-    },
-    {
-      "id": "cached_food",
-      "label": "Food Cached on Cards",
-      "points_each": 1,
-      "type": "count"
-    },
-    {
-      "id": "tucked_cards",
-      "label": "Tucked Cards",
-      "points_each": 1,
-      "type": "count"
-    }
+    {"id": "bird_points", "label": "Bird Card Points", "points_each": 1, "type": "manual", "description": "Sum of point values on all played bird cards"},
+    {"id": "bonus_cards", "label": "Bonus Cards", "points_each": 1, "type": "manual", "description": "Points from end-of-game bonus cards"},
+    {"id": "end_of_round", "label": "End-of-Round Goals", "points_each": 1, "type": "manual", "description": "Points earned from round goal tiles"},
+    {"id": "eggs", "label": "Eggs", "points_each": 1, "type": "count", "description": "1 point per egg on bird cards"},
+    {"id": "cached_food", "label": "Cached Food", "points_each": 1, "type": "count", "description": "1 point per food token cached on bird cards"},
+    {"id": "tucked_cards", "label": "Tucked Cards", "points_each": 1, "type": "count", "description": "1 point per card tucked under bird cards"}
   ]
 }

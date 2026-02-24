@@ -1,36 +1,10 @@
 {
   "game_id": "ticket-to-ride",
   "scoring_type": "calculator",
-  "win_condition": "Most points when train cars run out",
-  "tiebreaker": "Most completed destination tickets",
   "categories": [
-    {
-      "id": "route_points",
-      "label": "Route Points",
-      "type": "manual"
-    },
-    {
-      "id": "destination_completed",
-      "label": "Destination Tickets Completed",
-      "type": "manual"
-    },
-    {
-      "id": "destination_failed",
-      "label": "Destination Tickets Failed",
-      "type": "manual",
-      "is_penalty": true
-    },
-    {
-      "id": "longest_route",
-      "label": "Longest Continuous Route",
-      "points_each": 10,
-      "type": "boolean"
-    },
-    {
-      "id": "globetrotter",
-      "label": "Globetrotter Bonus",
-      "points_each": 15,
-      "type": "boolean"
-    }
+    {"id": "route_points", "label": "Route Points", "points_each": 1, "type": "manual", "description": "Points from claimed routes (1-6 trains = 1-15 pts)"},
+    {"id": "completed_tickets", "label": "Completed Tickets", "points_each": 1, "type": "manual", "description": "Add point value of each completed destination ticket"},
+    {"id": "failed_tickets", "label": "Incomplete Tickets", "points_each": -1, "type": "manual", "description": "Subtract point value of uncompleted tickets (enter as negative)"},
+    {"id": "longest_route", "label": "Longest Continuous Route", "points_each": 10, "type": "boolean", "description": "10 bonus points for longest continuous path"}
   ]
 }
