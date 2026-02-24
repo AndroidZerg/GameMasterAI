@@ -364,7 +364,7 @@ export default function LandingPage() {
               cursor: "pointer",
             }}
           >
-            Book a Demo
+            Get Started — Book a Free Demo
           </button>
         </div>
 
@@ -387,9 +387,9 @@ export default function LandingPage() {
                 fontSize: "0.95rem", padding: 0,
               }}
             >
-              Book a demo
+              Claim your spot
             </button>{" "}
-            to claim your spot.
+            to get started.
           </p>
         </div>
       </section>
@@ -408,7 +408,7 @@ export default function LandingPage() {
             fontWeight: 700, cursor: "pointer",
           }}
         >
-          Book a Demo
+          Let's Talk
         </button>
       </section>
 
