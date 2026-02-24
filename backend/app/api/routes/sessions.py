@@ -12,13 +12,15 @@ router = APIRouter(prefix="/api/sessions", tags=["sessions"])
 class StartSessionRequest(BaseModel):
     game_id: str
     table_number: Optional[str] = None
+    venue_id: Optional[str] = None
 
 
 @router.post("/start")
 async def start_session(req: StartSessionRequest):
+    """Start a new game session. Accepts optional venue_id and table_number from QR codes."""
     if not req.game_id or not req.game_id.strip():
         raise HTTPException(status_code=400, detail="game_id is required")
-    session_id = create_session(req.game_id, req.table_number)
+    session_id = create_session(req.game_id, req.table_number, req.venue_id)
     return {"session_id": session_id}
 
 

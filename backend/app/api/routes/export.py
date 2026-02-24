@@ -1,12 +1,13 @@
-"""Export endpoints — CSV export for sessions and feedback."""
+"""Export endpoints — CSV export for sessions and feedback. Requires auth."""
 
 import csv
 import io
 import sqlite3
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
+from app.core.auth import get_current_venue
 from app.core.config import DB_PATH
 
 router = APIRouter(prefix="/api/admin/export", tags=["admin"])
@@ -29,9 +30,10 @@ def _rows_to_csv(rows: list[sqlite3.Row], columns: list[str]) -> str:
 
 @router.get("/sessions")
 async def export_sessions(
+    venue: dict = Depends(get_current_venue),
     format: str = Query("csv", description="Export format (csv)"),
 ):
-    """Export all sessions as CSV."""
+    """Export sessions as CSV for the authenticated venue."""
     conn = _get_conn()
     rows = conn.execute("""
         SELECT s.id, s.game_id, COALESCE(g.title, s.game_id) as game_title,
@@ -39,8 +41,9 @@ async def export_sessions(
                s.questions_asked, s.score_tracked, s.venue_id
         FROM sessions s
         LEFT JOIN games g ON s.game_id = g.game_id
+        WHERE s.venue_id = ?
         ORDER BY s.started_at DESC
-    """).fetchall()
+    """, (venue["venue_id"],)).fetchall()
     conn.close()
 
     columns = ["id", "game_id", "game_title", "table_number", "started_at",
@@ -56,17 +59,21 @@ async def export_sessions(
 
 @router.get("/feedback")
 async def export_feedback(
+    venue: dict = Depends(get_current_venue),
     format: str = Query("csv", description="Export format (csv)"),
 ):
-    """Export all feedback as CSV."""
+    """Export feedback as CSV for the authenticated venue."""
     conn = _get_conn()
+    # Filter feedback by sessions belonging to this venue
     rows = conn.execute("""
         SELECT f.id, f.session_id, f.game_id, COALESCE(g.title, f.game_id) as game_title,
                f.question, f.response, f.rating, f.created_at
         FROM feedback f
         LEFT JOIN games g ON f.game_id = g.game_id
+        LEFT JOIN sessions s ON f.session_id = s.id
+        WHERE s.venue_id = ? OR f.session_id IS NULL
         ORDER BY f.created_at DESC
-    """).fetchall()
+    """, (venue["venue_id"],)).fetchall()
     conn.close()
 
     columns = ["id", "session_id", "game_id", "game_title", "question", "response", "rating", "created_at"]

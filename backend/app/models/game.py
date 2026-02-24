@@ -2,16 +2,35 @@
 
 import json
 import sqlite3
+from pathlib import Path
 from typing import Optional
 
 from app.core.config import DB_PATH
 from app.services.knowledge import scan_game_files
+
+# MSRP prices loaded once
+_MSRP_PRICES: dict[str, float] = {}
 
 
 def _get_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def load_msrp_prices():
+    """Load MSRP prices from content/msrp-prices.json."""
+    global _MSRP_PRICES
+    prices_path = Path(__file__).resolve().parents[3] / "content" / "msrp-prices.json"
+    if prices_path.exists():
+        try:
+            _MSRP_PRICES = json.loads(prices_path.read_text(encoding="utf-8"))
+        except Exception:
+            _MSRP_PRICES = {}
+
+
+def get_msrp(game_id: str) -> Optional[float]:
+    return _MSRP_PRICES.get(game_id)
 
 
 def init_db():
@@ -35,6 +54,7 @@ def init_db():
 def rebuild_db():
     """Re-scan all game JSON files and rebuild the SQLite database."""
     init_db()
+    load_msrp_prices()
     games = scan_game_files()
     conn = _get_conn()
     conn.execute("DELETE FROM games")
@@ -57,6 +77,22 @@ def rebuild_db():
     return len(games)
 
 
+def _row_to_dict(row: sqlite3.Row) -> dict:
+    game_id = row["game_id"]
+    result = {
+        "game_id": game_id,
+        "title": row["title"],
+        "aliases": json.loads(row["aliases"]),
+        "player_count": {"min": row["player_count_min"], "max": row["player_count_max"]},
+        "complexity": row["complexity"],
+        "categories": json.loads(row["categories"]),
+    }
+    msrp = get_msrp(game_id)
+    if msrp is not None:
+        result["msrp"] = msrp
+    return result
+
+
 def search_games(search: Optional[str] = None, complexity: Optional[str] = None) -> list[dict]:
     """Search games with optional title filter and complexity filter."""
     conn = _get_conn()
@@ -76,14 +112,4 @@ def search_games(search: Optional[str] = None, complexity: Optional[str] = None)
     rows = conn.execute(query, params).fetchall()
     conn.close()
 
-    results = []
-    for row in rows:
-        results.append({
-            "game_id": row["game_id"],
-            "title": row["title"],
-            "aliases": json.loads(row["aliases"]),
-            "player_count": {"min": row["player_count_min"], "max": row["player_count_max"]},
-            "complexity": row["complexity"],
-            "categories": json.loads(row["categories"]),
-        })
-    return results
+    return [_row_to_dict(row) for row in rows]

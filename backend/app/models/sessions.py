@@ -31,11 +31,12 @@ def init_sessions_table():
     conn.close()
 
 
-def create_session(game_id: str, table_number: str | None = None) -> int:
+def create_session(game_id: str, table_number: str | None = None, venue_id: str | None = None) -> int:
     conn = _get_conn()
+    vid = venue_id or "default"
     cur = conn.execute(
-        "INSERT INTO sessions (game_id, table_number, started_at) VALUES (?, ?, ?)",
-        (game_id, table_number, datetime.now(timezone.utc).isoformat()),
+        "INSERT INTO sessions (game_id, table_number, venue_id, started_at) VALUES (?, ?, ?, ?)",
+        (game_id, table_number, vid, datetime.now(timezone.utc).isoformat()),
     )
     session_id = cur.lastrowid
     conn.commit()
