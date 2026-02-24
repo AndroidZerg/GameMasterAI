@@ -671,15 +671,15 @@ function GameTimer() {
 function GameCoverThumb({ gameId }) {
   const [src, setSrc] = useState(`${API_BASE}/api/images/${gameId}.jpg`);
   const [error, setError] = useState(false);
-  const triedPng = useState(false);
+  const triedPng = useRef(false);
   if (error) return null;
   return (
     <img
       src={src}
       alt=""
       onError={() => {
-        if (!triedPng[0]) {
-          triedPng[0] = true;
+        if (!triedPng.current) {
+          triedPng.current = true;
           setSrc(`${API_BASE}/api/images/${gameId}.png`);
         } else {
           setError(true);

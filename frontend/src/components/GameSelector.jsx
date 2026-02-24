@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetchGames, fetchVenueConfig, fetchVenueCollection, API_BASE } from "../services/api";
 
@@ -97,11 +97,11 @@ function GameOfTheDay({ game, onClick }) {
   if (!game) return null;
   const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
-  const triedPng = useState(false);
+  const triedPng = useRef(false);
 
   const handleImgError = () => {
-    if (!triedPng[0]) {
-      triedPng[0] = true;
+    if (!triedPng.current) {
+      triedPng.current = true;
       setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
     } else {
       setImgError(true);
@@ -186,12 +186,12 @@ function GameCard({ game, onClick, small }) {
   const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
-  const triedPng = useState(false);
+  const triedPng = useRef(false);
   const fallbackColor = COMPLEXITY_COLORS[game.complexity] || "#666";
 
   const handleImgError = () => {
-    if (!triedPng[0]) {
-      triedPng[0] = true;
+    if (!triedPng.current) {
+      triedPng.current = true;
       setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
     } else {
       setImgError(true);
