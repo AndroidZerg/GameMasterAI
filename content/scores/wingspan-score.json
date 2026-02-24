@@ -1,0 +1,41 @@
+{
+  "game_id": "wingspan",
+  "scoring_type": "calculator",
+  "win_condition": "Most points after 4 rounds",
+  "tiebreaker": "Most unused food tokens",
+  "categories": [
+    {
+      "id": "bird_points",
+      "label": "Bird Card Points",
+      "type": "manual"
+    },
+    {
+      "id": "bonus_points",
+      "label": "Bonus Card Points",
+      "type": "manual"
+    },
+    {
+      "id": "round_goals",
+      "label": "End-of-Round Goals",
+      "type": "manual"
+    },
+    {
+      "id": "eggs",
+      "label": "Eggs on Cards",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "cached_food",
+      "label": "Food Cached on Cards",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "tucked_cards",
+      "label": "Tucked Cards",
+      "points_each": 1,
+      "type": "count"
+    }
+  ]
+}

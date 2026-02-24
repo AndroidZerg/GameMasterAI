@@ -1,0 +1,40 @@
+{
+  "game_id": "catan",
+  "scoring_type": "calculator",
+  "win_condition": "First to 10 VP on their turn",
+  "categories": [
+    {
+      "id": "settlements",
+      "label": "Settlements",
+      "points_each": 1,
+      "type": "count",
+      "max": 5
+    },
+    {
+      "id": "cities",
+      "label": "Cities",
+      "points_each": 2,
+      "type": "count",
+      "max": 4
+    },
+    {
+      "id": "longest_road",
+      "label": "Longest Road",
+      "points_each": 2,
+      "type": "boolean"
+    },
+    {
+      "id": "largest_army",
+      "label": "Largest Army",
+      "points_each": 2,
+      "type": "boolean"
+    },
+    {
+      "id": "vp_cards",
+      "label": "VP Cards",
+      "points_each": 1,
+      "type": "count",
+      "max": 5
+    }
+  ]
+}

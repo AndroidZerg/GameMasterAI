@@ -1,0 +1,36 @@
+{
+  "game_id": "ticket-to-ride",
+  "scoring_type": "calculator",
+  "win_condition": "Most points when train cars run out",
+  "tiebreaker": "Most completed destination tickets",
+  "categories": [
+    {
+      "id": "route_points",
+      "label": "Route Points",
+      "type": "manual"
+    },
+    {
+      "id": "destination_completed",
+      "label": "Destination Tickets Completed",
+      "type": "manual"
+    },
+    {
+      "id": "destination_failed",
+      "label": "Destination Tickets Failed",
+      "type": "manual",
+      "is_penalty": true
+    },
+    {
+      "id": "longest_route",
+      "label": "Longest Continuous Route",
+      "points_each": 10,
+      "type": "boolean"
+    },
+    {
+      "id": "globetrotter",
+      "label": "Globetrotter Bonus",
+      "points_each": 15,
+      "type": "boolean"
+    }
+  ]
+}

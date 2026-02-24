@@ -1,0 +1,49 @@
+{
+  "game_id": "scythe",
+  "scoring_type": "tiered_calculator",
+  "win_condition": "Most coins after 6th star placed",
+  "tiebreaker": "Most territories, then most resources",
+  "popularity_tiers": {
+    "1": {"label": "Tier 1 (0-3 popularity)", "stars": 3, "territories": 2, "resource_pairs": 1},
+    "2": {"label": "Tier 2 (4-6 popularity)", "stars": 4, "territories": 3, "resource_pairs": 2},
+    "3": {"label": "Tier 3 (7-18 popularity)", "stars": 5, "territories": 4, "resource_pairs": 3}
+  },
+  "categories": [
+    {
+      "id": "popularity_tier",
+      "label": "Popularity Tier",
+      "type": "tier_selector",
+      "options": [1, 2, 3]
+    },
+    {
+      "id": "coins",
+      "label": "Coins",
+      "points_each": 1,
+      "type": "count"
+    },
+    {
+      "id": "stars",
+      "label": "Stars",
+      "type": "count",
+      "max": 6,
+      "varies_by_tier": true
+    },
+    {
+      "id": "territories",
+      "label": "Territories",
+      "type": "count",
+      "varies_by_tier": true
+    },
+    {
+      "id": "resource_pairs",
+      "label": "Resource Pairs",
+      "type": "count",
+      "varies_by_tier": true
+    },
+    {
+      "id": "structure_bonus",
+      "label": "Structure Bonus",
+      "type": "manual"
+    }
+  ]
+}
