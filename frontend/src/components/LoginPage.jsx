@@ -33,12 +33,6 @@ export default function LoginPage() {
       login(data.token, data.venue_id, data.venue_name);
       navigate("/games", { replace: true });
     } catch (err) {
-      // If API unavailable, allow demo login
-      if (email === "demo@meepleville.com" && password === "demo") {
-        login("demo-token-meepleville", "demo-venue", "Meepleville");
-        navigate("/games", { replace: true });
-        return;
-      }
       setError("Invalid email or password");
       setPassword("");
     } finally {
@@ -152,10 +146,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Demo hint */}
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "0.8rem", marginTop: "16px" }}>
-          Demo: demo@meepleville.com / demo
-        </p>
       </div>
     </div>
   );
