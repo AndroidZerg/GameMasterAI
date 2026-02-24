@@ -24,14 +24,18 @@ from app.api.routes.popular import router as popular_router
 from app.api.routes.admin import router as admin_router
 from app.api.routes.export import router as export_router
 from app.api.routes.auth import router as auth_router
+from app.api.routes.analytics import router as analytics_router
+from app.api.routes.score_history import router as score_history_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
 from app.models.venues import (
     init_venues_table, init_venue_collections_table,
-    seed_demo_venue, get_venue_collection, set_venue_collection,
+    seed_all_venues, set_venue_collection,
 )
+from app.models.analytics import init_analytics_table
+from app.models.score_history import init_score_history_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 
@@ -41,22 +45,26 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup: scan game files, populate SQLite, create tables, seed demo venue."""
+    """Startup: scan game files, populate SQLite, create tables, seed venues."""
     count = rebuild_db()
     init_sessions_table()
     init_feedback_table()
     init_contacts_table()
     init_venues_table()
     init_venue_collections_table()
+    init_analytics_table()
+    init_score_history_table()
 
-    # Seed demo venue
+    # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")
-    if seed_demo_venue(pw_hash):
-        # Seed collection with all games
+    seeded = seed_all_venues(pw_hash)
+    if seeded:
+        # Give all venues the full game collection
         all_games = search_games()
         game_ids = [g["game_id"] for g in all_games]
-        set_venue_collection("meepleville", game_ids)
-        print("[GMAI] Seeded demo venue: meepleville")
+        for vid in seeded:
+            set_venue_collection(vid, game_ids)
+        print(f"[GMAI] Seeded {len(seeded)} venue(s): {', '.join(seeded)}")
 
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield
@@ -64,7 +72,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="GameMaster AI",
-    version="0.5.0",
+    version="0.6.0",
     description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, venue management, and auth.",
     lifespan=lifespan,
 )
@@ -100,6 +108,10 @@ app.include_router(stats_router)
 # --- Venue & contact ---
 app.include_router(venue_router)
 app.include_router(contact_router)
+
+# --- Analytics & Score History ---
+app.include_router(analytics_router)
+app.include_router(score_history_router)
 
 # --- Admin ---
 app.include_router(admin_router)

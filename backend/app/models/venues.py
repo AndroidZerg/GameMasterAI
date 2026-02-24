@@ -25,11 +25,27 @@ def init_venues_table():
             accent_color TEXT DEFAULT '#e94560',
             logo_url TEXT,
             tagline TEXT,
+            address TEXT,
+            phone TEXT,
+            website TEXT,
             default_theme TEXT DEFAULT 'dark',
             created_at TIMESTAMP NOT NULL,
             last_login TIMESTAMP
         )
     """)
+    # Add columns if upgrading from old schema
+    try:
+        conn.execute("ALTER TABLE venues ADD COLUMN address TEXT")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE venues ADD COLUMN phone TEXT")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE venues ADD COLUMN website TEXT")
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
     conn.close()
 
@@ -63,14 +79,23 @@ def get_venue_by_id(venue_id: str) -> Optional[dict]:
     return dict(row) if row else None
 
 
+def get_all_venues() -> list[dict]:
+    conn = _get_conn()
+    rows = conn.execute("SELECT * FROM venues ORDER BY venue_name").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 def create_venue(venue_id: str, venue_name: str, email: str, password_hash: str,
-                 tagline: str = "", accent_color: str = "#e94560") -> int:
+                 tagline: str = "", accent_color: str = "#e94560",
+                 address: str = "", phone: str = "", website: str = "") -> int:
     conn = _get_conn()
     cur = conn.execute(
-        """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline, accent_color, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline, accent_color,
+           address, phone, website, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (venue_id, venue_name, email, password_hash, tagline, accent_color,
-         datetime.now(timezone.utc).isoformat()),
+         address, phone, website, datetime.now(timezone.utc).isoformat()),
     )
     vid = cur.lastrowid
     conn.commit()
@@ -90,7 +115,8 @@ def update_venue_login(venue_id: str):
 
 def update_venue_config(venue_id: str, **kwargs) -> Optional[dict]:
     conn = _get_conn()
-    allowed = {"venue_name", "accent_color", "logo_url", "tagline", "default_theme"}
+    allowed = {"venue_name", "accent_color", "logo_url", "tagline", "default_theme",
+               "address", "phone", "website"}
     sets = []
     params = []
     for k, v in kwargs.items():
@@ -130,17 +156,89 @@ def set_venue_collection(venue_id: str, game_ids: list[str]):
     conn.close()
 
 
-def seed_demo_venue(password_hash: str):
-    """Seed the demo venue if it doesn't exist. Returns True if seeded."""
-    existing = get_venue_by_id("meepleville")
-    if existing:
-        return False
-    create_venue(
-        venue_id="meepleville",
-        venue_name="Meepleville",
-        email="demo@meepleville.com",
-        password_hash=password_hash,
-        tagline="Las Vegas Board Game Cafe",
-        accent_color="#e94560",
-    )
-    return True
+# ── Seed data ────────────────────────────────────────────────────
+
+_DEMO_VENUES = [
+    {
+        "venue_id": "meepleville",
+        "venue_name": "Meepleville Board Game Cafe",
+        "email": "demo@meepleville.com",
+        "tagline": "Las Vegas's First Board Game Cafe — 2,600+ Games",
+        "accent_color": "#e94560",
+        "address": "4704 W Sahara Ave, Las Vegas, NV 89102",
+        "phone": "702-444-4540",
+        "website": "https://meepleville.com",
+    },
+    {
+        "venue_id": "knight-and-day",
+        "venue_name": "Knight & Day Games",
+        "email": "demo@knightanddaygames.com",
+        "tagline": "Board Games, Card Games & Community in Town Square",
+        "accent_color": "#4a90d9",
+        "address": "6521 Las Vegas Blvd South Ste. C-105, Las Vegas, NV 89119",
+        "phone": "",
+        "website": "https://knightanddaygames.com",
+    },
+    {
+        "venue_id": "little-shop-of-magic",
+        "venue_name": "Little Shop of Magic",
+        "email": "demo@littleshopofmagic.com",
+        "tagline": "Vegas's Oldest Game Store Since 1994",
+        "accent_color": "#7b2d8e",
+        "address": "750 Dorrell Lane, Suite 150, North Las Vegas, NV",
+        "phone": "",
+        "website": "https://littleshopofmagic.com",
+    },
+    {
+        "venue_id": "shall-we-play",
+        "venue_name": "Shall We Play?",
+        "email": "demo@shallweplay.com",
+        "tagline": "Game Nights, Events & Community Gaming",
+        "accent_color": "#2ecc71",
+        "address": "Las Vegas, NV",
+        "phone": "",
+        "website": "",
+    },
+    {
+        "venue_id": "grouchy-johns",
+        "venue_name": "Grouchy John's Coffee",
+        "email": "demo@grouchyjohns.com",
+        "tagline": "Coffee & Board Games — Two Locations",
+        "accent_color": "#d4a574",
+        "address": "8520 S Maryland Pkwy, Las Vegas, NV",
+        "phone": "",
+        "website": "https://grouchyjohns.com",
+    },
+    {
+        "venue_id": "natural-twenty",
+        "venue_name": "Natural Twenty Games",
+        "email": "demo@naturaltwentygames.com",
+        "tagline": "Tabletop Gaming in Henderson",
+        "accent_color": "#e67e22",
+        "address": "4136 Sunset Rd, Henderson, NV",
+        "phone": "",
+        "website": "",
+    },
+]
+
+
+def seed_all_venues(password_hash: str) -> list[str]:
+    """Seed all demo venues. Returns list of newly created venue_ids."""
+    seeded = []
+    for v in _DEMO_VENUES:
+        existing = get_venue_by_id(v["venue_id"])
+        if existing:
+            continue
+        create_venue(
+            venue_id=v["venue_id"],
+            venue_name=v["venue_name"],
+            email=v["email"],
+            password_hash=password_hash,
+            tagline=v["tagline"],
+            accent_color=v["accent_color"],
+            address=v.get("address", ""),
+            phone=v.get("phone", ""),
+            website=v.get("website", ""),
+        )
+        seeded.append(v["venue_id"])
+    return seeded

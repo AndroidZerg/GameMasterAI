@@ -11,7 +11,7 @@ from slowapi.util import get_remote_address
 from app.core.auth import hash_password, verify_password, create_token, get_current_venue
 from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
-    get_venue_by_id, seed_demo_venue, set_venue_collection, get_venue_collection,
+    get_venue_by_id, set_venue_collection, get_venue_collection,
 )
 from app.models.game import search_games
 

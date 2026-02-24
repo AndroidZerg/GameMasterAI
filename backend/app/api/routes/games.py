@@ -1,11 +1,11 @@
-"""Game listing, search, detail, price, and reload endpoints."""
+"""Game listing, search, detail, price, categories, filter, and reload endpoints."""
 
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.auth import get_optional_venue
-from app.models.game import search_games, rebuild_db, get_msrp
+from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.venues import get_venue_collection
 from app.services.knowledge import load_game
 
@@ -29,6 +29,38 @@ async def list_games(
             results = [g for g in results if g["game_id"] in coll_set]
 
     return results
+
+
+@router.get("/games/categories")
+async def list_categories():
+    """Return all unique categories with game counts, sorted alphabetically."""
+    return get_all_categories()
+
+
+@router.get("/games/filter")
+async def filter_games_endpoint(
+    complexity: Optional[str] = Query(None),
+    min_players: Optional[int] = Query(None),
+    max_players: Optional[int] = Query(None),
+    category: Optional[str] = Query(None),
+    max_play_time: Optional[int] = Query(None, description="Max play time in minutes"),
+):
+    """Filter games by complexity, player count, category, and play time. All params optional and combinable."""
+    return filter_games(
+        complexity=complexity,
+        min_players=min_players,
+        max_players=max_players,
+        category=category,
+        max_play_time=max_play_time,
+    )
+
+
+@router.get("/games/quick")
+async def quick_games(
+    max_time: int = Query(30, description="Max play time in minutes"),
+):
+    """Return games with max play time <= threshold. Default 30 minutes."""
+    return get_quick_games(max_time=max_time)
 
 
 @router.get("/games/{game_id}")

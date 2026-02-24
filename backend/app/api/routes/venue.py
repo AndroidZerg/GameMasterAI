@@ -7,11 +7,19 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_optional_venue
-from app.models.venues import get_venue_by_id, get_venue_collection
+from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues
 
 router = APIRouter(prefix="/api", tags=["venue"])
 
 _VENUE_CONFIG_PATH = Path(__file__).resolve().parents[4] / "content" / "venue-config.json"
+_VENUE_LOGOS_DIR = Path(__file__).resolve().parents[4] / "content" / "venue-logos"
+
+
+def _venue_logo_url(venue_id: str) -> Optional[str]:
+    logo_path = _VENUE_LOGOS_DIR / f"{venue_id}.png"
+    if logo_path.exists():
+        return f"/api/images/venue-logos/{venue_id}.png"
+    return None
 
 
 @router.get("/venue")
@@ -28,8 +36,11 @@ async def get_venue_config(
                 "venue_name": v["venue_name"],
                 "tagline": v["tagline"],
                 "accent_color": v["accent_color"],
-                "logo_url": v["logo_url"],
+                "logo_url": v["logo_url"] or _venue_logo_url(v["venue_id"]),
                 "default_theme": v["default_theme"],
+                "address": v.get("address", ""),
+                "phone": v.get("phone", ""),
+                "website": v.get("website", ""),
                 "game_count": len(coll) if coll else 0,
             }
 
@@ -51,5 +62,23 @@ async def get_venue_collection_public(
         game_ids = get_venue_collection(venue["venue_id"])
         if game_ids:
             return {"game_ids": game_ids, "game_count": len(game_ids)}
-    # No auth or no collection — return empty (frontend will show all)
     return {"game_ids": [], "game_count": 0, "default": True}
+
+
+@router.get("/venues")
+async def list_venues():
+    """List all venues (public info only — no passwords/emails)."""
+    venues = get_all_venues()
+    return [
+        {
+            "venue_id": v["venue_id"],
+            "venue_name": v["venue_name"],
+            "tagline": v["tagline"],
+            "accent_color": v["accent_color"],
+            "logo_url": v.get("logo_url") or _venue_logo_url(v["venue_id"]),
+            "address": v.get("address", ""),
+            "phone": v.get("phone", ""),
+            "website": v.get("website", ""),
+        }
+        for v in venues
+    ]
