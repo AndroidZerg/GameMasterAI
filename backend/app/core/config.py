@@ -29,3 +29,8 @@ _IS_RENDER = os.getenv("RENDER", "")  # Render sets this automatically
 CONTENT_DIR = os.getenv("CONTENT_DIR", "../content/games" if _IS_RENDER else "/mnt/d/GameMasterAI/content/games")
 HEARTBEAT_DIR = os.getenv("HEARTBEAT_DIR", "/mnt/d/GameMasterAI/agents/heartbeat")
 DB_PATH = os.getenv("DB_PATH", "/tmp/games.db" if _IS_RENDER else "/mnt/d/GameMasterAI/backend/games.db")
+
+# ── Auth / JWT ───────────────────────────────────────────────────
+JWT_SECRET = os.getenv("JWT_SECRET", "gmai-dev-secret-change-in-production-2026")
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRE_HOURS = int(os.getenv("JWT_EXPIRE_HOURS", "24"))

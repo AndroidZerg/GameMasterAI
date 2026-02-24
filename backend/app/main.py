@@ -23,10 +23,16 @@ from app.api.routes.search import router as search_router
 from app.api.routes.popular import router as popular_router
 from app.api.routes.admin import router as admin_router
 from app.api.routes.export import router as export_router
-from app.models.game import rebuild_db
+from app.api.routes.auth import router as auth_router
+from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
+from app.models.venues import (
+    init_venues_table, init_venue_collections_table,
+    seed_demo_venue, get_venue_collection, set_venue_collection,
+)
+from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 
 
@@ -35,19 +41,31 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup: scan game files, populate SQLite, create tables."""
+    """Startup: scan game files, populate SQLite, create tables, seed demo venue."""
     count = rebuild_db()
     init_sessions_table()
     init_feedback_table()
     init_contacts_table()
+    init_venues_table()
+    init_venue_collections_table()
+
+    # Seed demo venue
+    pw_hash = hash_password("gmai2026")
+    if seed_demo_venue(pw_hash):
+        # Seed collection with all games
+        all_games = search_games()
+        game_ids = [g["game_id"] for g in all_games]
+        set_venue_collection("meepleville", game_ids)
+        print("[GMAI] Seeded demo venue: meepleville")
+
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield
 
 
 app = FastAPI(
     title="GameMaster AI",
-    version="0.4.0",
-    description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, and venue management.",
+    version="0.5.0",
+    description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, venue management, and auth.",
     lifespan=lifespan,
 )
 app.state.limiter = limiter
@@ -63,6 +81,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# --- Auth ---
+app.include_router(auth_router)
 
 # --- Game endpoints ---
 app.include_router(games_router)
