@@ -50,6 +50,94 @@ const MSRP_PRICES = {
   "power-grid": 44.99,
 };
 
+// Mock BGG ratings and difficulty (1-5 scale)
+const GAME_META = {
+  "catan": { bgg: 7.1, difficulty: 2.3, playTime: 75, designer: "Klaus Teuber" },
+  "wingspan": { bgg: 8.1, difficulty: 2.4, playTime: 60, designer: "Elizabeth Hargrave" },
+  "ticket-to-ride": { bgg: 7.4, difficulty: 1.8, playTime: 60, designer: "Alan R. Moon" },
+  "pandemic": { bgg: 7.6, difficulty: 2.4, playTime: 45, designer: "Matt Leacock" },
+  "azul": { bgg: 7.8, difficulty: 1.8, playTime: 35, designer: "Michael Kiesling" },
+  "splendor": { bgg: 7.4, difficulty: 1.8, playTime: 30, designer: "Marc Andre" },
+  "codenames": { bgg: 7.6, difficulty: 1.3, playTime: 15, designer: "Vlaada Chvatil" },
+  "terraforming-mars": { bgg: 8.4, difficulty: 3.2, playTime: 120, designer: "Jacob Fryxelius" },
+  "root": { bgg: 8.1, difficulty: 3.6, playTime: 90, designer: "Cole Wehrle" },
+  "spirit-island": { bgg: 8.3, difficulty: 4.0, playTime: 120, designer: "R. Eric Reuss" },
+  "7-wonders": { bgg: 7.7, difficulty: 2.3, playTime: 30, designer: "Antoine Bauza" },
+  "dominion": { bgg: 7.6, difficulty: 2.4, playTime: 30, designer: "Donald X. Vaccarino" },
+  "king-of-tokyo": { bgg: 7.2, difficulty: 1.5, playTime: 30, designer: "Richard Garfield" },
+  "carcassonne": { bgg: 7.4, difficulty: 1.9, playTime: 40, designer: "Klaus-Jurgen Wrede" },
+  "everdell": { bgg: 7.8, difficulty: 2.8, playTime: 60, designer: "James A. Wilson" },
+  "brass-birmingham": { bgg: 8.6, difficulty: 3.9, playTime: 120, designer: "Gavan Brown" },
+  "great-western-trail": { bgg: 8.3, difficulty: 3.7, playTime: 120, designer: "Alexander Pfister" },
+  "agricola": { bgg: 7.9, difficulty: 3.6, playTime: 90, designer: "Uwe Rosenberg" },
+  "concordia": { bgg: 8.1, difficulty: 3.0, playTime: 90, designer: "Mac Gerdts" },
+  "viticulture": { bgg: 7.9, difficulty: 2.9, playTime: 75, designer: "Jamey Stegmaier" },
+  "clank": { bgg: 7.6, difficulty: 2.2, playTime: 60, designer: "Paul Dennen" },
+  "coup": { bgg: 7.0, difficulty: 1.4, playTime: 15, designer: "Rikki Tahta" },
+  "dixit": { bgg: 7.2, difficulty: 1.2, playTime: 30, designer: "Jean-Louis Roubira" },
+  "love-letter": { bgg: 7.2, difficulty: 1.2, playTime: 20, designer: "Seiji Kanai" },
+  "skull": { bgg: 7.1, difficulty: 1.1, playTime: 20, designer: "Herve Marly" },
+  "patchwork": { bgg: 7.8, difficulty: 1.6, playTime: 25, designer: "Uwe Rosenberg" },
+  "sagrada": { bgg: 7.4, difficulty: 1.9, playTime: 40, designer: "Adrian Adamescu" },
+  "kingdomino": { bgg: 7.3, difficulty: 1.5, playTime: 20, designer: "Bruno Cathala" },
+  "the-crew": { bgg: 7.9, difficulty: 2.0, playTime: 20, designer: "Thomas Sing" },
+  "quacks-of-quedlinburg": { bgg: 7.6, difficulty: 1.9, playTime: 45, designer: "Wolfgang Warsch" },
+  "power-grid": { bgg: 7.8, difficulty: 3.3, playTime: 120, designer: "Friedemann Friese" },
+};
+
+/* ── Difficulty Meter ──────────────────────────────────────────── */
+function DifficultyMeter({ value }) {
+  if (!value) return null;
+  const pct = (value / 5) * 100;
+  const label = value <= 1.5 ? "Easy" : value <= 2.5 ? "Medium" : value <= 3.5 ? "Hard" : "Expert";
+  const color = value <= 1.5 ? "#22c55e" : value <= 2.5 ? "#3b82f6" : value <= 3.5 ? "#f59e0b" : "#ef4444";
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+      <span style={{ fontSize: "0.75rem", color: "var(--text-secondary)" }}>Difficulty:</span>
+      <div style={{ width: "60px", height: "6px", borderRadius: "3px", background: "var(--bg-primary)", overflow: "hidden" }}>
+        <div style={{ width: `${pct}%`, height: "100%", borderRadius: "3px", background: color, transition: "width 0.3s" }} />
+      </div>
+      <span style={{ fontSize: "0.75rem", color, fontWeight: 600 }}>{label}</span>
+    </div>
+  );
+}
+
+/* ── Metadata Bar ──────────────────────────────────────────────── */
+function MetadataBar({ gameId, gameData }) {
+  const meta = GAME_META[gameId];
+  if (!meta && !gameData?.player_count) return null;
+
+  const items = [];
+  if (gameData?.player_count) {
+    items.push({ icon: "👥", label: `${gameData.player_count.min}-${gameData.player_count.max} Players` });
+  }
+  if (meta?.playTime) {
+    items.push({ icon: "⏱", label: `${meta.playTime} min` });
+  }
+  if (meta?.bgg) {
+    items.push({ icon: "⭐", label: `${meta.bgg} BGG` });
+  }
+  if (meta?.designer) {
+    items.push({ icon: "✏️", label: meta.designer });
+  }
+
+  return (
+    <div style={{
+      display: "flex", gap: "12px", flexWrap: "wrap", padding: "8px 12px",
+      background: "var(--bg-secondary)", borderRadius: "10px",
+      border: "1px solid var(--border)", marginBottom: "8px",
+    }}>
+      {items.map((item, i) => (
+        <span key={i} style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+          <span>{item.icon}</span>
+          <span>{item.label}</span>
+        </span>
+      ))}
+      {meta && <DifficultyMeter value={meta.difficulty} />}
+    </div>
+  );
+}
+
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
 function InlineMarkdown({ text }) {
   if (!text) return null;
@@ -692,6 +780,9 @@ export default function GameTeacher() {
       <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "8px" }}>
         GameMaster AI at {venueConfig.venue_name}
       </p>
+
+      {/* Metadata bar */}
+      <MetadataBar gameId={gameId} gameData={gameData} />
 
       {/* Offline banner */}
       {isOffline && (
