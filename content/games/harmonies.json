@@ -1,0 +1,101 @@
+{
+  "game_id": "harmonies",
+  "title": "Harmonies",
+  "aliases": [],
+  "publisher": "Libellud",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": ["pattern-building", "puzzle", "nature"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player Components\n- **Player boards** — 1 per player; hexagonal grid for building a 3D landscape.\n- **Board spaces** — Each board has multiple hex spaces where tokens can be stacked up to 3 high.\n\n#### Tokens\n- **Landscape tokens** — Colored wooden discs representing terrain types.\n- **5 terrain colors** — Green (trees/forests), Yellow (fields/plains), Gray (mountains/rock), Brown (buildings/settlements), Blue (water/lakes).\n- **Token quantity** — Large supply of each color for all players.\n\n#### Cards\n- **Animal cards** — Cards showing specific 3D token arrangements that score VP when completed.\n- **Animal types** — Various animals (deer, eagle, fish, butterfly, fox, etc.) each requiring unique patterns.\n- **Landscape bonus cards** — Optional bonus scoring for terrain arrangements.\n\n#### Central Pool\n- **Token display** — Central area where tokens are drawn from.\n- **Refill system** — Tokens drawn from a bag to replenish the central display."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Distribute boards** — Give each player 1 personal hex board.\n2. **Fill central pool** — Draw tokens from the bag to fill the central display.\n3. **Deal animal cards** — Deal a selection of animal cards face up; players draft or a shared pool is available.\n4. **Landscape bonus cards** — Optionally include landscape bonus scoring cards.\n5. **Token supply** — Place bag of tokens centrally.\n6. **Scoring reference** — Make animal card scoring patterns visible to all players."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Each Player Begins With\n- **Empty board** — All hex spaces are empty; no tokens placed.\n- **Animal cards** — Each player selects animal cards they will attempt to complete.\n- **No tokens in hand** — Tokens are drafted from the central pool each turn.\n\n#### Animal Card Selection\n- **Draft or deal** — Depending on variant, players draft animal cards or receive a random selection.\n- **Scoring targets** — Each animal card shows a specific 3D arrangement to build on your board.\n- **Difficulty varies** — Some animals require complex multi-level patterns; others are simpler."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **Central pool filled** — Ensure the token display has the correct number of tokens.\n2. **First player chosen** — Random selection or youngest player.\n3. **Clockwise play** — Turns proceed clockwise.\n4. **Draft tokens** — On your turn, take tokens from the central pool and place them on your board."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### On Your Turn\n1. **Draft tokens** — Take exactly 3 tokens from a single group in the central display.\n2. **Place tokens** — Place all 3 tokens on your personal board, one at a time.\n3. **Stacking rules** — Tokens can be placed on empty hex spaces (level 1), on top of existing tokens (level 2), or on top of a level-2 stack (level 3, maximum height).\n4. **Check completions** — If any animal card patterns are fully matched on your board, score that card.\n5. **Refill display** — The central display is refilled for the next player.\n\n#### Placement Constraints\n- **Maximum height 3** — No stack can exceed 3 tokens high.\n- **Support required** — A token at level 2+ must rest on a token below it.\n- **Color matters** — The top-visible color of each stack determines what patterns are present when viewed from above."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Token Placement Strategy\n- **Ground level (level 1)** — Place directly on empty hex spaces; forms the base of your landscape.\n- **Level 2** — Stack on top of a level-1 token; the top color is what counts for pattern matching.\n- **Level 3** — Stack on top of level 2; creates mountains, tall trees, or elevated terrain.\n- **Color coverage** — The visible color from above determines which animal patterns you are building.\n\n#### Animal Card Patterns\n- **Top-down view** — Animal cards show a pattern of colors as seen from above your board.\n- **3D arrangements** — Some animals require specific heights (e.g., a mountain animal needs gray tokens at level 3).\n- **Adjacency** — Pattern tiles must be adjacent to each other on your hex grid.\n- **Completing a card** — When all required tokens are in the correct positions and heights, claim the animal card for VP.\n\n#### Token Colors & Terrain\n- **Green (Trees)** — Often required at various heights for forest animals.\n- **Yellow (Fields)** — Low-level terrain for prairie animals.\n- **Gray (Mountains)** — Typically stacked high for mountain-dwelling animals.\n- **Brown (Buildings)** — Settlements and structures.\n- **Blue (Water)** — Usually at ground level for aquatic animals."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### 3D Landscape Building\n- **Height matters** — Unlike flat tile-placement games, Harmonies uses vertical stacking as a core mechanic.\n- **Layered colors** — A space can show different colors at different heights; only the topmost color counts for pattern matching.\n- **Covering tokens** — Placing a token on top of another changes the visible landscape, potentially completing or breaking patterns.\n\n#### Animal Card Variety\n- **Simple animals** — Require 2-3 tokens in basic adjacent patterns (e.g., 2 adjacent green at level 1).\n- **Complex animals** — Require multi-height arrangements across 4-5 hexes.\n- **Point scaling** — More complex patterns are worth more VP.\n- **Multiple completions** — You can complete the same animal pattern in different areas of your board if you have multiple copies of that card.\n\n#### Landscape Bonuses\n- **Terrain coverage** — Bonus points for covering specific portions of your board with certain terrain types.\n- **Height bonuses** — Some bonuses reward reaching level 3 in multiple locations.\n\n#### Central Pool Dynamics\n- **Group drafting** — Tokens are arranged in groups; you must take all 3 from one group.\n- **Color selection** — The available colors in each group constrain your options.\n- **Reading the pool** — Anticipate which groups opponents will take to plan your drafts."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Trigger\n- **Token supply exhausted** — The game ends when the central pool cannot be fully refilled.\n- **Final turn** — All players complete an equal number of turns.\n\n#### Scoring\n- **Animal cards** — Score VP printed on each completed animal card.\n- **Landscape bonus** — Score any landscape bonus cards if conditions are met.\n- **Incomplete patterns** — Animal cards not completed score 0 VP.\n\n#### Winner\n- **Most VP wins** — Sum completed animal card points + landscape bonuses.\n- **Tiebreaker** — Player with more completed animal cards wins; if still tied, shared victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Select complementary animals** — Choose animal cards that share similar color/height requirements to minimize conflicts.\n- **Build a foundation** — Place ground-level tokens strategically to support future stacking.\n- **Plan heights early** — Identify where you need level 2 and level 3 stacks and start building those zones.\n- **Draft with purpose** — Take token groups that serve multiple animal patterns simultaneously.\n- **Avoid overcommitting** — Do not lock into one pattern early; keep options open for what the pool offers."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring height requirements** — Many animals require specific stack heights; placing flat boards misses them.\n- **Covering needed colors** — Stacking a token on top of a color you need visible breaks existing patterns.\n- **Taking tokens without a plan** — Drafting 3 tokens you cannot usefully place wastes a turn.\n- **Choosing conflicting animals** — Animal cards that require different colors in the same area are impossible to complete simultaneously.\n- **Neglecting landscape bonuses** — These can contribute significant points and should be planned alongside animals.\n- **Spreading too thin** — Trying to complete too many animal cards leads to none being finished."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Which group to draft** — Evaluate which 3-token group best serves your current and future patterns.\n- **Stack or spread** — Whether to build height for complex animals or spread tokens for simpler ones.\n- **Abandon vs commit** — When a partially built animal pattern becomes unlikely, decide whether to pivot or push through.\n- **Covering trade-offs** — Stacking changes the visible landscape; weigh completing one pattern against breaking another.\n- **Blocking opponents** — Whether to take a group your opponent needs, even if it is not your first choice."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

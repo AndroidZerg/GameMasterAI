@@ -1,0 +1,10 @@
+{
+  "game_id": "calico",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "design_goals", "label": "Design Goals", "points_each": 1, "type": "manual", "description": "Points from 3 design goal tiles (0, low, or high value each)"},
+    {"id": "buttons", "label": "Buttons", "points_each": 3, "type": "count", "description": "3 points per button earned for groups of 3+ same-color tiles"},
+    {"id": "cats", "label": "Cats", "points_each": 1, "type": "manual", "description": "Points from cat tokens attracted by matching pattern combinations"}
+  ],
+  "win_condition": "Most points wins"
+}

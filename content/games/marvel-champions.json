@@ -1,0 +1,101 @@
+{
+  "game_id": "marvel-champions",
+  "title": "Marvel Champions",
+  "aliases": ["Marvel Champions: The Card Game", "Marvel Champions LCG"],
+  "publisher": "Fantasy Flight Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 90
+  },
+  "complexity": "midweight",
+  "categories": ["cooperative", "deck-construction", "superhero"],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Hero Components (Core Set)\n- **5 heroes** — Spider-Man, Captain Marvel, She-Hulk, Iron Man, Black Panther.\n- **Hero cards** — Each hero has a double-sided identity card (hero/alter-ego) and a unique 15-card hero deck.\n- **Obligation cards** — 1 per hero, shuffled into encounter deck.\n- **Nemesis sets** — Each hero has a nemesis mini-set that can enter play.\n\n#### Player Deck Cards\n- **4 aspects** — Aggression (red), Justice (yellow), Leadership (blue), Protection (green).\n- **Basic cards** — Neutral cards usable by any hero.\n- **Card types** — Allies, Events, Upgrades, Supports, Resources.\n\n#### Villain Components\n- **3 villain sets** — Rhino, Klaw, Ultron (core set).\n- **Villain cards** — Multi-stage villain with escalating stats.\n- **Main scheme cards** — Multi-stage scheme the villain advances.\n- **Encounter sets** — Modular encounter sets mixed into villain deck.\n\n#### Tokens & Trackers\n- **Damage tokens** — Track damage on villain, allies, and heroes.\n- **Threat tokens** — Track threat on schemes.\n- **Status cards** — Stunned, Confused, Tough.\n- **Acceleration tokens** — Increase threat placed per round.\n- **Hit point dials/trackers** — Track hero and villain HP."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "1. **Choose villain** — Select villain set and set up stage 1 villain card.\n2. **Set villain HP** — Multiply per-player HP value by number of players.\n3. **Place main scheme** — Put stage 1A of main scheme face up; place starting threat as indicated.\n4. **Build encounter deck** — Combine villain-specific cards + required encounter sets + 1 modular encounter set.\n5. **Shuffle obligations** — Add each hero's obligation card to encounter deck and shuffle.\n6. **Place tokens** — Set damage, threat, and status tokens in central supply.\n7. **First player token** — Give to a randomly chosen player."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Deck Construction\n- **Deck size** — 40-50 cards (including hero's 15-card kit).\n- **Aspect choice** — Choose 1 aspect; include aspect cards and basic cards to reach 40-50 total.\n- **Hero kit** — The 15 hero-specific cards are always included.\n- **No duplicates beyond limit** — Maximum 3 copies of any non-unique card.\n\n#### At the Table\n- **Identity card** — Place hero identity card alter-ego side up.\n- **Set HP** — Set hit point tracker to printed maximum.\n- **Draw hand** — Draw cards equal to alter-ego hand size (typically 6).\n- **Mulligan** — Shuffle any number of cards back, draw replacements (one-time).\n- **Nemesis set aside** — Place hero's nemesis set aside, out of play."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "1. **All start in alter-ego** — Heroes begin in alter-ego form.\n2. **Resolve setup instructions** — Follow any \"Setup\" text on scheme or villain cards.\n3. **First player begins** — The first player takes their hero turn.\n4. **No villain phase on round 1** — Some groups skip the first villain phase; official rules include it.\n5. **Play proceeds clockwise** — Each player takes a full hero turn before the villain phase."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Player Phase** — Each player takes a complete hero turn in clockwise order.\n2. **Villain Phase** — The villain activates against each player, then encounter cards are dealt.\n\n#### Hero Turn\n- **Play cards** — Play allies, upgrades, supports, and events from hand by paying resource cost.\n- **Use abilities** — Activate hero, ally, and card abilities.\n- **Generate resources** — Discard cards from hand to generate resources (each card = its printed resource icons).\n- **Basic powers** — Use ATK (attack villain), THW (thwart scheme), DEF (defend), or REC (recover in alter-ego).\n- **Change form** — Flip identity card once per turn (hero ↔ alter-ego). Exhausts the identity card.\n\n#### Villain Phase (in order)\n1. **Place threat** — Add threat to main scheme equal to acceleration value (1 base + acceleration tokens).\n2. **Villain activates** — Against each player: if in hero form, villain attacks; if in alter-ego, villain schemes (adds threat).\n3. **Deal encounter cards** — Each player draws 1 encounter card (2 in alter-ego) and resolves it.\n4. **Pass first player** — Move first player token clockwise."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Basic Powers (exhaust identity card)\n- **Attack (ATK)** — In hero form: deal ATK value as damage to villain.\n- **Thwart (THW)** — In hero form: remove THW value of threat from a scheme.\n- **Defend (DEF)** — In hero form: exhaust to defend against villain attack, reducing damage by DEF value.\n- **Recover (REC)** — In alter-ego form: heal HP equal to REC value.\n\n#### Card Types\n- **Allies** — Enter play with HP; can attack, thwart, or defend. Take 1 consequential damage per use.\n- **Upgrades** — Attach to hero; provide ongoing bonuses or abilities.\n- **Supports** — Enter play area; provide resources, card draw, or abilities.\n- **Events** — One-time effects; discard after resolving.\n- **Resources** — Cards with wild or specific resource icons used for paying costs.\n\n#### Paying Costs\n- **Resource generation** — Discard cards from hand; each card generates its printed resource icons.\n- **Double resources** — Some cards generate 2 icons of a specific type.\n- **Wild resources** — Wild icons count as any resource type.\n\n#### Defending\n- **Declare defender** — When villain attacks, you may exhaust hero or an ally to defend.\n- **Undefended damage** — If no defender, all damage is dealt to hero's HP.\n- **Ally defense** — Ally takes damage instead; excess does not spill over to hero."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Form Flipping\n- **Hero form** — Can attack and thwart; villain attacks you during villain phase.\n- **Alter-ego form** — Can recover HP; villain schemes during villain phase; draw more encounter cards.\n- **Flip cost** — Flipping exhausts your identity card (uses your basic power for the turn).\n- **Strategic tension** — Staying hero keeps scheme pressure down but risks HP; alter-ego heals but lets threat build.\n\n#### Villain Stages\n- **Multi-stage villain** — When a villain stage is reduced to 0 HP, advance to the next stage.\n- **Stage HP** — Each stage has its own HP value (scaled by player count).\n- **Final stage** — Defeating the final stage wins the game.\n\n#### Scheme Advancement\n- **Threat accumulation** — Threat builds on main scheme each villain phase and from scheme encounter cards.\n- **Scheme threshold** — If threat reaches the scheme's threshold, the scheme advances.\n- **Final scheme stage** — If the last scheme stage completes, the villain wins.\n\n#### Status Cards\n- **Stunned** — Next time the character would attack or thwart, discard Stun instead (no effect).\n- **Confused** — Next time the character would thwart or scheme, discard Confused instead.\n- **Tough** — Next time the character would take damage, discard Tough instead (prevent all damage from that source).\n\n#### Encounter Cards\n- **Treacheries** — Resolve immediately; apply effects then discard.\n- **Minions** — Enter play engaged with the player; must be dealt with like a mini-villain.\n- **Attachments** — Attach to villain or scheme, enhancing their effects.\n- **Side schemes** — Secondary schemes that add threat pressure and often block the main scheme."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Defeat the villain** — Reduce the villain's final stage to 0 HP.\n\n#### Loss Conditions\n- **Scheme completes** — The main scheme's final stage reaches its threat threshold.\n- **All heroes defeated** — All players' heroes are reduced to 0 HP.\n- **Individual defeat** — A defeated hero is eliminated; remaining heroes continue.\n\n#### Scoring\n- **No VP system** — Marvel Champions is a binary win/loss cooperative game.\n- **Difficulty scaling** — Standard, Expert, and Heroic modes increase challenge.\n- **Expert mode** — Use stage 2 of the villain from the start; adds expert encounter set.\n- **Heroic mode** — Deal additional encounter cards each villain phase."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Set up key upgrades early** — Play resource generators and key hero upgrades in the first 1-2 turns.\n- **Start in alter-ego** — Use the higher alter-ego hand size for setup; flip to hero once established.\n- **Coordinate aspect roles** — Justice handles threat, Aggression pushes damage, Protection tanks, Leadership builds allies.\n- **Manage threat from turn 1** — Even during setup, monitor main scheme threat to avoid early scheme advances.\n- **Play allies early** — Allies provide extra actions each turn and can absorb villain attacks."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring threat** — Focusing only on damage while scheme threat quietly reaches the threshold.\n- **Staying in alter-ego too long** — Extra encounter cards and villain scheming can spiral out of control.\n- **Wasting allies** — Using allies for consequential-damage attacks when they could defend instead.\n- **Over-defending** — Exhausting hero to defend every attack prevents you from attacking or thwarting on your turn.\n- **Poor resource management** — Discarding high-value cards for resources when cheaper options exist.\n- **Solo neglecting Justice** — Without a thwart-focused aspect, solo games often lose to scheme advancement."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "- **Hero vs alter-ego timing** — When to flip for recovery vs staying in hero form to manage threats.\n- **Damage vs thwart priority** — Read the board state to decide if reducing villain HP or removing threat is more urgent.\n- **Defend vs take the hit** — Whether to exhaust hero/ally to defend or absorb damage to keep actions available.\n- **Target minions vs villain** — Clear minions to reduce incoming damage or focus fire on the villain.\n- **Resource vs play** — Whether a card is worth more played for its effect or discarded for its resource icons."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

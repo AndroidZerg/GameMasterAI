@@ -1,0 +1,15 @@
+{
+  "game_id": "tiny-towns",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "cottage_vp", "label": "Cottage VP", "points_each": 1, "type": "manual", "description": "Points from fed Cottages (typically 3 each)"},
+    {"id": "chapel_vp", "label": "Chapel VP", "points_each": 1, "type": "manual", "description": "Points from Chapels based on fed Cottages at time of construction"},
+    {"id": "tavern_vp", "label": "Tavern VP", "points_each": 1, "type": "manual", "description": "Set scoring: 1/2/3/4/5 Taverns = 2/5/9/14/20 points"},
+    {"id": "theater_vp", "label": "Theater VP", "points_each": 1, "type": "manual", "description": "Points based on unique building types in same row and column"},
+    {"id": "factory_vp", "label": "Factory VP", "points_each": 1, "type": "manual", "description": "Points from Factory buildings"},
+    {"id": "monument_vp", "label": "Monument VP", "points_each": 1, "type": "manual", "description": "Points from your unique Monument building"},
+    {"id": "other_buildings", "label": "Other Buildings", "points_each": 1, "type": "manual", "description": "Points from any other building types used"},
+    {"id": "empty_penalty", "label": "Empty Space Penalty", "points_each": -1, "type": "count", "description": "-1 point per empty grid space at game end"}
+  ],
+  "win_condition": "Most points wins"
+}
