@@ -70,6 +70,81 @@ function trackEvent(eventName, data) {
   } catch {}
 }
 
+// Staff picks — curated list of game IDs
+const STAFF_PICKS = ["wingspan", "azul", "codenames", "root", "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg"];
+
+// Deterministic "Game of the Day" based on date
+function getGameOfTheDay(games) {
+  if (!games || games.length === 0) return null;
+  const today = new Date();
+  const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
+  return games[daysSinceEpoch % games.length];
+}
+
+function GameOfTheDay({ game, onClick }) {
+  if (!game) return null;
+  const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } }}
+      style={{
+        position: "relative", borderRadius: "16px", overflow: "hidden",
+        cursor: "pointer", marginBottom: "24px",
+        border: "2px solid var(--accent)",
+        background: "var(--bg-card)",
+        animation: "fadeIn 0.3s ease-out",
+      }}
+    >
+      <div style={{ height: "180px", background: imgError ? "var(--accent)" : "var(--bg-primary)", position: "relative" }}>
+        {!imgError && (
+          <img
+            src={imgUrl} alt="" onError={() => setImgError(true)}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        )}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)",
+        }} />
+        <div style={{ position: "absolute", top: "12px", left: "12px" }}>
+          <span style={{
+            background: "var(--accent)", color: "#fff", padding: "4px 12px",
+            borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700,
+            textTransform: "uppercase", letterSpacing: "0.05em",
+          }}>
+            Game of the Day
+          </span>
+        </div>
+        <div style={{ position: "absolute", bottom: "12px", left: "16px", right: "16px" }}>
+          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#fff", margin: 0 }}>{game.title}</h3>
+          <div style={{ display: "flex", gap: "8px", marginTop: "4px", alignItems: "center" }}>
+            <span style={{
+              background: COMPLEXITY_COLORS[game.complexity] || "#666",
+              color: "#fff", padding: "2px 8px", borderRadius: "999px",
+              fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase",
+            }}>
+              {game.complexity}
+            </span>
+            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
+              {game.player_count?.min}-{game.player_count?.max} players
+            </span>
+            {PLAY_TIMES[game.game_id] && (
+              <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
+                {PLAY_TIMES[game.game_id]} min
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SkeletonCard({ small }) {
   return (
     <div style={{ borderRadius: "12px", border: "2px solid var(--border)", overflow: "hidden" }}>
@@ -514,8 +589,15 @@ export default function GameSelector() {
 
   const hasActiveFilters = complexity !== "all" || playerCount > 0 || playTime > 0 || bestFor !== "Any";
 
+  // Game of the Day + Staff Picks
+  const allBaseGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
+  const gameOfTheDay = !search && !hasActiveFilters ? getGameOfTheDay(allBaseGames) : null;
+  const staffPickGames = !search && !hasActiveFilters
+    ? STAFF_PICKS.map((id) => allBaseGames.find((g) => g.game_id === id)).filter(Boolean)
+    : [];
+
   // Build genre carousels from all available games (before filtering)
-  const allDisplayGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
+  const allDisplayGames = allBaseGames;
   const genreCarousels = !search && !hasActiveFilters && allDisplayGames.length > 4
     ? [
         { title: "Party Games", color: COMPLEXITY_COLORS.party, games: allDisplayGames.filter((g) => g.complexity === "party").slice(0, 12) },
@@ -582,6 +664,21 @@ export default function GameSelector() {
         bestFor={bestFor}
         setBestFor={setBestFor}
       />
+
+      {/* Game of the Day */}
+      {gameOfTheDay && (
+        <GameOfTheDay game={gameOfTheDay} onClick={() => handleGameClick(gameOfTheDay)} />
+      )}
+
+      {/* Staff Picks */}
+      {staffPickGames.length > 0 && (
+        <GenreCarousel
+          title="Staff Picks"
+          games={staffPickGames}
+          onGameClick={handleGameClick}
+          color="var(--accent)"
+        />
+      )}
 
       {recentGameData.length > 0 && !search && !hasActiveFilters && (
         <div style={{ marginBottom: "32px" }}>
