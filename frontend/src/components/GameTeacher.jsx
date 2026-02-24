@@ -278,6 +278,7 @@ function SectionSpeaker({ content, ttsState }) {
     <button
       onClick={(e) => { e.stopPropagation(); isActive ? stopSpeaking() : speakText(content); }}
       title={isActive ? "Stop reading" : "Read this section"}
+      aria-label={isActive ? "Stop reading aloud" : "Read this section aloud"}
       style={{ background: "none", border: "none", cursor: "pointer", fontSize: "1.1rem", padding: "4px 8px", borderRadius: "6px", color: isActive ? "#f59e0b" : "var(--text-secondary)", transition: "color 0.2s", flexShrink: 0 }}
     >
       {isActive ? "⏹" : "🔊"}
@@ -292,7 +293,9 @@ function Subtopic({ title, content, ttsState }) {
     <div style={{ marginBottom: "8px", borderRadius: "10px", border: "1px solid var(--border)", overflow: "hidden" }}>
       <button
         onClick={() => setOpen(!open)}
-        style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 16px", background: open ? "var(--bg-card)" : "var(--bg-primary)", color: "var(--text-primary)", border: "none", borderRadius: 0, cursor: "pointer", fontSize: "1rem", fontWeight: 600, textAlign: "left", gap: "8px" }}
+        aria-expanded={open}
+        aria-label={`${title} section`}
+        style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: open ? "var(--bg-card)" : "var(--bg-primary)", color: "var(--text-primary)", border: "none", borderRadius: 0, cursor: "pointer", fontSize: "1rem", fontWeight: 600, textAlign: "left", gap: "8px" }}
       >
         <span style={{ flex: 1 }}>{title}</span>
         <SectionSpeaker content={content} ttsState={ttsState} />
@@ -354,7 +357,7 @@ function FeedbackButtons({ gameId, question, response }) {
           opacity: voted !== null ? 0.4 : 1,
           color: voted === 1 ? "var(--accent)" : "var(--text-secondary)",
         }}
-        title="Helpful"
+        title="Helpful" aria-label="Rate response as helpful"
       >
         👍
       </button>
@@ -367,7 +370,7 @@ function FeedbackButtons({ gameId, question, response }) {
           opacity: voted !== null ? 0.4 : 1,
           color: voted === -1 ? "var(--accent)" : "var(--text-secondary)",
         }}
-        title="Not helpful"
+        title="Not helpful" aria-label="Rate response as not helpful"
       >
         👎
       </button>
@@ -389,6 +392,11 @@ function QAPanel({ gameId, gameTitle }) {
   const handleSubmit = async (questionText) => {
     const question = (questionText || input).trim();
     if (!question || loading) return;
+    if (!navigator.onLine) {
+      setHistory((prev) => [...prev, { role: "user", content: question }, { role: "error", content: "Requires internet connection — please check your network and try again." }]);
+      setInput("");
+      return;
+    }
     setInput("");
     setHistory((prev) => [...prev, { role: "user", content: question }]);
     setLoading(true);
@@ -439,16 +447,21 @@ function QAPanel({ gameId, gameTitle }) {
             </div>
           ))
         )}
-        {loading && (<div style={{ padding: "10px 14px", color: "var(--text-secondary)", fontStyle: "italic" }}>Thinking...</div>)}
+        {loading && (
+          <div style={{ padding: "10px 14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ width: "18px", height: "18px", border: "2px solid var(--border)", borderTopColor: "var(--accent)", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite", flexShrink: 0 }} />
+            <span>Thinking...</span>
+          </div>
+        )}
         <div ref={historyEndRef} />
       </div>
 
       <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
         <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} />
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading}
+        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading} aria-label={`Ask a question about ${gameTitle}`}
           style={{ flex: 1, padding: "14px 16px", fontSize: "1rem", borderRadius: "12px", border: "2px solid var(--border)", background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none" }}
         />
-        <button onClick={() => handleSubmit()} disabled={loading || !input.trim()}
+        <button onClick={() => handleSubmit()} disabled={loading || !input.trim()} aria-label="Submit question"
           style={{ padding: "14px 24px", fontSize: "1rem", borderRadius: "12px", background: loading || !input.trim() ? "var(--border)" : "var(--accent)", color: "#fff", border: "none", fontWeight: 600 }}
         >
           Ask
@@ -529,6 +542,9 @@ export default function GameTeacher() {
   const [activeTab, setActiveTab] = useState("setup");
   const [ttsState, setTtsState] = useState("idle");
   const [showScoreTracker, setShowScoreTracker] = useState(false);
+  const [gameLoading, setGameLoading] = useState(true);
+  const [gameError, setGameError] = useState(null);
+  const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const [venueConfig, setVenueConfig] = useState({
     venue_name: "Meepleville",
     venue_tagline: "Las Vegas Board Game Cafe",
@@ -567,10 +583,22 @@ export default function GameTeacher() {
     return () => { setOnStateChange(null); setOnRateChange(null); };
   }, []);
 
+  // Online/offline detection
   useEffect(() => {
+    const goOnline = () => setIsOffline(false);
+    const goOffline = () => setIsOffline(true);
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+    return () => { window.removeEventListener("online", goOnline); window.removeEventListener("offline", goOffline); };
+  }, []);
+
+  useEffect(() => {
+    setGameLoading(true);
+    setGameError(null);
     fetchGame(gameId)
       .then((data) => { setGameData(data); setGameTitle(data.title || gameId); })
-      .catch(() => setGameTitle(gameId));
+      .catch(() => { setGameTitle(gameId); setGameError("GameMaster is taking a break — try again in a moment"); })
+      .finally(() => setGameLoading(false));
     return () => stopSpeaking();
   }, [gameId]);
 
@@ -581,7 +609,7 @@ export default function GameTeacher() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px" }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-        <button onClick={() => { stopSpeaking(); navigate("/app"); }} style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
+        <button onClick={() => { stopSpeaking(); navigate("/app"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
         <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>{gameTitle}</h1>
         <GameTimer />
         <PlaybackControls ttsState={ttsState} />
@@ -589,14 +617,21 @@ export default function GameTeacher() {
       </div>
 
       {/* Venue branding subtitle */}
-      <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", marginBottom: "12px" }}>
+      <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "8px" }}>
         GameMaster AI at {venueConfig.venue_name}
       </p>
+
+      {/* Offline banner */}
+      {isOffline && (
+        <div style={{ background: "#4a3a1a", borderRadius: "8px", padding: "8px 16px", marginBottom: "8px", textAlign: "center", fontSize: "0.85rem", color: "#f59e0b", border: "1px solid #5a4a2a" }}>
+          You're offline — some features may not work
+        </div>
+      )}
 
       {/* Tab Bar */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
         {TABS.map((t) => (
-          <button key={t.key} onClick={() => setActiveTab(t.key)}
+          <button key={t.key} onClick={() => setActiveTab(t.key)} role="tab" aria-selected={activeTab === t.key} aria-label={`${t.label} tab`}
             style={{
               padding: "8px 20px", borderRadius: "999px",
               border: activeTab === t.key ? "2px solid var(--accent)" : "2px solid var(--border)",
@@ -614,10 +649,28 @@ export default function GameTeacher() {
 
       {/* Tab Content */}
       <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column" }}>
-        {activeTab === "setup" && <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />}
-        {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
-        {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
-        {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
+        {gameLoading ? (
+          <div style={{ padding: "16px 0" }}>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} style={{ height: "52px", marginBottom: "8px", borderRadius: "10px", background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)", backgroundSize: "200% 100%", animation: "shimmer 1.5s infinite" }} />
+            ))}
+          </div>
+        ) : gameError ? (
+          <div style={{ textAlign: "center", padding: "40px 20px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginBottom: "16px" }}>{gameError}</p>
+            <button onClick={() => { setGameError(null); setGameLoading(true); fetchGame(gameId).then((data) => { setGameData(data); setGameTitle(data.title || gameId); }).catch(() => setGameError("GameMaster is taking a break — try again in a moment")).finally(() => setGameLoading(false)); }}
+              aria-label="Retry loading game" style={{ padding: "12px 28px", borderRadius: "12px", background: "var(--accent)", color: "#fff", border: "none", fontWeight: 600, cursor: "pointer" }}>
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div style={{ animation: "fadeIn 0.25s ease-out" }}>
+            {activeTab === "setup" && <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />}
+            {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
+            {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
+            {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
+          </div>
+        )}
       </div>
 
       {/* Score FAB */}

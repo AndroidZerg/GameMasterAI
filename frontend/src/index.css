@@ -19,6 +19,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 * {
@@ -42,15 +43,34 @@ button {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.2s;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 button:hover {
   border-color: var(--accent);
 }
 
+button:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
+
 input, textarea {
   font-family: inherit;
+  font-size: 16px;
+  min-height: 44px;
+}
+
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 1px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
 }
 
 @keyframes pulse {
@@ -63,6 +83,36 @@ input, textarea {
   50% { box-shadow: 0 0 25px rgba(233, 69, 96, 0.6); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes numberPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-80px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spinnerRotate {
+  to { transform: rotate(360deg); }
+}
+
 /* Kiosk mode styles */
 .kiosk-mode {
   touch-action: manipulation;
@@ -73,6 +123,13 @@ input, textarea {
 .kiosk-mode *:not(input):not(textarea) {
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Tablet responsive: 768px+ */
+@media (min-width: 768px) {
+  :root {
+    font-size: 17px;
+  }
 }
 
 /* Print styles for QR codes */

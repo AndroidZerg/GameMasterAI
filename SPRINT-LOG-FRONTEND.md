@@ -19,6 +19,12 @@ Started: 2026-02-23T00:00:00Z
 | A13 | Game Timer | DONE | Timer icon in game teacher header, start/pause/resume, HH:MM:SS elapsed display |
 | A14 | Polish Pass | DONE | Fixed unused imports, VoiceButton theme colors, verified build succeeds, all dark mode consistent |
 
+| A15 | Tablet UI Polish | DONE | 44px min touch targets, 16px min font, responsive grid, larger score steppers, comfortable padding |
+| A16 | Loading States + Error Handling | DONE | Skeleton loaders, spinner on Q&A, "GameMaster is taking a break" error with retry, game list cached in localStorage |
+| A17 | Animations + Transitions | DONE | fadeIn page transitions, numberPop score changes, confetti on winner, shimmer skeleton, spinner rotation, pulse on mic |
+| A18 | Offline Awareness | DONE | navigator.onLine detection, offline banner, game list cache fallback, Q&A "Requires internet" when offline |
+| A19 | Accessibility | DONE | aria-labels on all buttons, aria-expanded on accordions, role=tab on tabs, focus-visible outlines, screen reader labels on score tracker |
+
 ## Summary
 - **All 14 phases completed**
 - **Build status**: Clean (0 errors, 0 warnings)

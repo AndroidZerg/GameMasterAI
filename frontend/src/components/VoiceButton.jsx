@@ -61,6 +61,7 @@ export default function VoiceButton({ onResult, disabled }) {
         flexShrink: 0,
       }}
       title={listening ? "Stop listening" : "Tap to speak"}
+      aria-label={listening ? "Stop voice input" : "Start voice input"}
     >
       🎤
     </button>

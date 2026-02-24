@@ -205,14 +205,15 @@ function ScoreEntry({ players, categories, scores, setScores }) {
                 <span style={{ flex: 1, fontSize: "0.9rem", color: "var(--text-secondary)" }}>{name}</span>
                 <button
                   onClick={() => updateScore(pi, cat.id, Math.max(0, (scores[pi]?.[cat.id] || 0) - 1))}
+                  aria-label={`Decrease ${cat.name} for ${name}`}
                   style={{
-                    width: "32px",
-                    height: "32px",
+                    width: "44px",
+                    height: "44px",
                     borderRadius: "8px",
                     background: "var(--bg-card)",
                     color: "var(--text-primary)",
                     border: "1px solid var(--border)",
-                    fontSize: "1rem",
+                    fontSize: "1.2rem",
                     padding: 0,
                     cursor: "pointer",
                     display: "flex",
@@ -222,19 +223,20 @@ function ScoreEntry({ players, categories, scores, setScores }) {
                 >
                   -
                 </button>
-                <span style={{ minWidth: "28px", textAlign: "center", fontWeight: 600 }}>
+                <span key={scores[pi]?.[cat.id] || 0} style={{ minWidth: "32px", textAlign: "center", fontWeight: 700, fontSize: "1.1rem", animation: "numberPop 0.2s ease-out" }}>
                   {scores[pi]?.[cat.id] || 0}
                 </span>
                 <button
                   onClick={() => updateScore(pi, cat.id, (scores[pi]?.[cat.id] || 0) + 1)}
+                  aria-label={`Increase ${cat.name} for ${name}`}
                   style={{
-                    width: "32px",
-                    height: "32px",
+                    width: "44px",
+                    height: "44px",
                     borderRadius: "8px",
                     background: "var(--bg-card)",
                     color: "var(--text-primary)",
                     border: "1px solid var(--border)",
-                    fontSize: "1rem",
+                    fontSize: "1.2rem",
                     padding: 0,
                     cursor: "pointer",
                     display: "flex",
@@ -347,8 +349,29 @@ function ResultsScreen({ players, categories, scores, onPlayAgain, onNewGame }) 
 
   const winnerTotal = sorted[0]?.total;
 
+  const confettiColors = ["#e94560", "#ff6b81", "#a855f7", "#22c55e", "#3b82f6", "#f59e0b"];
+
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "20px", position: "relative", overflow: "hidden" }}>
+      {/* Confetti particles */}
+      {confettiColors.map((color, i) =>
+        Array.from({ length: 4 }).map((_, j) => (
+          <div
+            key={`${i}-${j}`}
+            style={{
+              position: "absolute",
+              top: "0",
+              left: `${10 + (i * 4 + j) * 3.5}%`,
+              width: "8px",
+              height: "8px",
+              borderRadius: j % 2 === 0 ? "50%" : "2px",
+              background: color,
+              animation: `confetti 1.5s ease-out ${(i * 4 + j) * 0.08}s forwards`,
+              opacity: 0.8,
+            }}
+          />
+        ))
+      )}
       <h2 style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "20px", color: "var(--text-primary)" }}>
         Final Scores
       </h2>
