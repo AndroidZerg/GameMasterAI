@@ -29,3 +29,9 @@ Branch: sprint5/backend
 - Extracted from tabs.rules.subtopics where id=="endgame"
 - Contains markdown-formatted endgame trigger + scoring rules
 - Verified on catan (766 chars), wingspan (682 chars), scythe (838 chars)
+
+## Phase B5: Verify All Venue Logins
+- All 6 venues login successfully via POST /api/auth/login with email + password
+- Tested: meepleville, knight-and-day, little-shop-of-magic, shall-we-play, grouchy-johns, natural-twenty
+- Password: gmai2026 (seeded via hash_password in main.py lifespan)
+- UPSERT seeding ensures password hash is always current on restart
