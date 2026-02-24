@@ -1,0 +1,109 @@
+{
+  "game_id": "gloomhaven-jaws-of-the-lion",
+  "title": "Gloomhaven: Jaws of the Lion",
+  "aliases": [
+    "JotL",
+    "Jaws of the Lion"
+  ],
+  "publisher": "Cephalofair Games",
+  "player_count": {
+    "min": 1,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 60,
+    "max": 120
+  },
+  "complexity": "heavy",
+  "categories": [
+    "cooperative",
+    "campaign",
+    "tactical-combat",
+    "dungeon-crawl"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 1 to 4 players.\n- **Scaling** — Monster count and hit points scale based on scenario level and player count.\n- **Solo mode** — Fully supported; control 1 character with adjusted difficulty.\n\n#### Characters (4 Total)\n- **Voidwarden** — Support class with mind-control and ally-buffing abilities.\n- **Demolitionist** — Melee damage dealer specializing in obstacle destruction and area attacks.\n- **Hatchet** — Ranged attacker with a signature throwing axe that can be recovered.\n- **Red Guard** — Tank/defender with shield abilities and fire-based attacks.\n\n#### Character Components (Per Character)\n- **Character ability cards** — Unique hand of ability cards (varies by character: 9-11 starting cards).\n- **Character board** — Tracks HP, XP, and card hand.\n- **Attack modifier deck** — 20-card personal modifier deck (improved via perks).\n- **Miniature** — 1 plastic miniature per character.\n- **Character sheet** — Tracks level, XP, gold, perks, and items.\n\n#### Scenario Components\n- **Scenario book** — Spiral-bound book with map layouts printed directly on pages (no separate map tiles).\n- **Monster standees** — Cardboard standees for all enemy types.\n- **Monster stat cards** — Stat sleeves with adjustable difficulty levels.\n- **Monster ability cards** — AI decks controlling monster behavior each round.\n- **Overlay tiles** — Obstacles, traps, hazardous terrain, treasure tokens.\n- **Condition tokens** — Poison, wound, immobilize, stun, muddle, strengthen, invisible tokens.\n- **Damage tokens** — For tracking monster and summon HP.\n\n#### Campaign Components\n- **25 scenarios** — Progressive campaign with branching paths.\n- **City event cards** — Narrative events between scenarios.\n- **Item cards** — Equipment purchased between scenarios.\n- **Tutorial scenarios** — First 5 scenarios teach mechanics gradually."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Scenario Setup\n1. **Open scenario book** — Turn to the indicated scenario page; the map is printed in the book.\n2. **Place overlay tiles** — Add obstacles, traps, and terrain tokens as shown in the scenario description.\n3. **Place monsters** — Place monster standees on hexes indicated by the scenario.\n4. **Adjust difficulty** — Set monster stat sleeves to the appropriate scenario level.\n5. **Shuffle monster AI decks** — Prepare ability card decks for each monster type in the scenario.\n6. **Shuffle modifier decks** — Shuffle each player's attack modifier deck and the monster modifier deck.\n7. **Place character miniatures** — Players place miniatures on the starting hexes.\n\n#### Difficulty Scaling\n- **Scenario level** — Average party level divided by 2 (rounded up), adjustable up or down.\n- **Monster HP/attack** — Increases with scenario level.\n- **Monster count** — More monsters appear at higher player counts (indicated per hex in scenario)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Character Preparation\n- **Select cards** — Choose your hand of ability cards for the scenario (hand size varies by character).\n- **Equip items** — Slot purchased items into your equipment slots.\n- **Set HP dial** — Set your HP to maximum for your current level.\n- **Prepare modifier deck** — Include any perk modifications earned from leveling up.\n- **Battle goal** — Draw 2 battle goal cards; choose 1 secretly (bonus XP if completed).\n\n--- 1 Player ---\n- **Solo adjustment** — Control 1 character; scenario level is your character level divided by 2 (rounded up).\n\n--- 2-4 Players ---\n- **Party composition** — Each player controls 1 character; all 4 characters are available."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Campaign Start\n- **Tutorial missions** — The first 5 scenarios introduce mechanics one at a time.\n- **Scenario 1** — Teaches basic movement and attack.\n- **Scenario 2** — Introduces conditions and more complex abilities.\n- **Scenarios 3-5** — Continue layering in remaining rules.\n- **Full rules by scenario 6** — All mechanics are in play from scenario 6 onward.\n\n#### Each Scenario Start\n- **Read introduction** — Read the scenario narrative text.\n- **Place components** — Set up the scenario as described.\n- **Select cards** — Each player selects their hand.\n- **Begin round 1** — Start with the card selection phase."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Card selection** — Each player secretly selects 2 ability cards from their hand.\n2. **Determine initiative** — The leading card's initiative number determines turn order (lower goes first).\n3. **Monster initiative** — Flip the top card of each monster type's AI deck for their initiative.\n4. **Resolve turns** — All figures (players and monsters) take turns in initiative order.\n5. **End of round** — Check for end-of-round effects, refresh certain abilities.\n\n#### Player Turn\n- **Play 2 cards** — Use the top half of one card and the bottom half of the other.\n- **Top actions** — Typically attacks and special abilities.\n- **Bottom actions** — Typically movement and utility effects.\n- **Default actions** — Any top can be used as Attack 2; any bottom can be used as Move 2.\n\n#### Monster Turn\n- **AI controlled** — Monsters follow their flipped ability card instructions.\n- **Focus rules** — Monsters target the closest character they can attack, with specific focus tiebreakers.\n- **Movement** — Monsters move the minimum distance to get in range of their focus target."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Attack Actions\n- **Base attack** — Deal damage equal to the attack value.\n- **Attack modifier** — Draw a card from your modifier deck to adjust damage (miss, -2, -1, +0, +1, +2, 2x, etc.).\n- **Range** — Melee attacks target adjacent hexes; ranged attacks have a range value.\n- **Area of effect** — Some attacks hit multiple hexes as shown on the card.\n\n#### Movement Actions\n- **Move** — Move up to the listed number of hexes.\n- **Jump** — Move through occupied hexes and obstacles.\n- **Flying** — Ignore all terrain and figures while moving.\n\n#### Card Loss\n- **Loss cards** — Cards marked with a loss icon (X) are removed from the game for the rest of the scenario when used.\n- **Powerful effects** — Loss cards have stronger effects to compensate for being one-time use.\n- **Damage prevention** — Lose 1 card from hand or 2 from discard to negate all damage from one source.\n\n#### Rest Actions\n- **Short rest** — At end of round, shuffle your discard pile and lose 1 random card to recover the rest.\n- **Long rest** — Use your entire turn to recover discards (lose 1 card of your choice), heal 2 HP, and refresh spent items.\n\n#### Conditions\n- **Poison** — Target gains +1 to all damage received.\n- **Wound** — Target takes 1 damage at start of each turn.\n- **Stun** — Target loses their next turn.\n- **Immobilize** — Target cannot move.\n- **Muddle** — Target draws 2 modifier cards and uses the worse one.\n- **Strengthen** — Target draws 2 modifier cards and uses the better one.\n- **Invisible** — Target cannot be focused by enemies."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Card Attrition System\n- **Hand management** — Your hand of cards is your timer; as cards are lost, your options shrink.\n- **Exhaustion** — When you cannot play 2 cards at the start of a round (hand + discard too small), you are exhausted and out for the scenario.\n- **Strategic loss** — Choosing when to play loss cards is the core strategic tension.\n\n#### Experience and Leveling\n- **XP during scenarios** — Gain XP from specific card abilities and completing battle goals.\n- **Level up** — Between scenarios, spend XP to level up, unlocking new ability cards.\n- **Perks** — Leveling and completing battle goals grant perk checkmarks; perks improve your modifier deck.\n\n#### Loot and Items\n- **Loot tokens** — Pick up loot tokens by moving onto their hex; gain gold.\n- **Gold between scenarios** — Spend gold to buy items from the shop.\n- **Item slots** — Characters have limited equipment slots (head, body, legs, two hands, small items).\n- **Item usage** — Items are spent (flipped) or consumed (returned to supply) when used; recovered on long rest or end of scenario.\n\n#### Campaign Progression\n- **Scenario unlocks** — Completing scenarios unlocks new scenarios and story branches.\n- **City events** — Between scenarios, draw city event cards for narrative choices with mechanical consequences.\n- **Reputation** — Choices affect reputation, which can unlock shop discounts or penalties."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Scenario Victory\n- **Complete objective** — Each scenario has a specific objective (usually kill all monsters in the final room).\n- **All players must survive** — If all players are exhausted before the objective is met, the scenario is lost.\n\n#### Scenario Defeat\n- **Total exhaustion** — All players exhausted before objective completion.\n- **Retry** — Failed scenarios can be replayed with no penalty.\n\n#### Campaign Completion\n- **25 scenarios** — The campaign concludes after completing the final scenario.\n- **No competitive scoring** — This is a fully cooperative campaign with a narrative conclusion.\n- **Character progression** — Characters retain all levels, items, and perks earned throughout the campaign.\n\n#### Post-Scenario Rewards\n- **Gold** — Loot tokens collected convert to gold.\n- **XP** — Scenario XP and battle goal XP are tallied.\n- **Bonus rewards** — Some scenarios grant bonus items, unlocks, or story rewards."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Conserve loss cards** — Do not play loss cards in the first few rounds unless absolutely necessary; they are your clock.\n- **Position matters** — Use the Demolitionist and Red Guard to control enemy positioning while Hatchet and Voidwarden operate from range.\n- **Focus fire** — Kill one enemy at a time rather than spreading damage; dead enemies deal no damage.\n- **Plan initiative** — Going early is important when you need to kill before enemies act; going late helps when you want to see where enemies move.\n- **Loot efficiently** — Do not waste movement to pick up loot in dangerous situations."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Burning loss cards too early** — Playing powerful loss cards in rounds 1-2 drastically shortens your stamina.\n- **Ignoring rest timing** — Waiting too long to rest can leave you with no good cards.\n- **Forgetting damage prevention** — You can lose cards from hand or discard to negate damage; this saves HP at the cost of stamina.\n- **Poor focus understanding** — Monsters follow strict focus rules; learn them to predict enemy behavior.\n- **Neglecting battle goals** — Battle goals grant perk checkmarks that permanently improve your modifier deck."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Stamina vs Power\n- **Conserve cards** — Play non-loss cards to stay in the fight longer.\n- **Use loss cards** — Play powerful loss cards to solve immediate crises.\n\n#### Decision 2: Initiative Manipulation\n- **Go early** — Select a card with low initiative to act before enemies.\n- **Go late** — Select high initiative to see enemy movements before committing.\n\n#### Decision 3: Short Rest vs Long Rest\n- **Short rest** — Faster but you lose a random card from discard.\n- **Long rest** — Costs your entire turn but lets you choose which card to lose and heals 2 HP."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

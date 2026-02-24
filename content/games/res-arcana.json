@@ -1,0 +1,105 @@
+{
+  "game_id": "res-arcana",
+  "title": "Res Arcana",
+  "aliases": [],
+  "publisher": "Sand Castle Games",
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 60
+  },
+  "complexity": "midweight",
+  "categories": [
+    "engine-building",
+    "resource-management",
+    "card-drafting"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 2 to 4 players.\n- **Scaling** — Number of Places of Power and monuments available varies by player count.\n- **Solo mode** — Not included in the base game.\n\n#### Cards\n- **Artifact cards** — 40 artifact cards (the core engine-building cards).\n- **Mage cards** — 10 Mage cards (each with a unique starting ability).\n- **Magic Item cards** — 8 Magic Items (powerful one-use-per-round effects).\n- **Monument cards** — 10 Monument cards (purchasable VP sources).\n- **Place of Power tiles** — 5 double-sided Place of Power tiles (10 total options, claim for VP and abilities).\n\n#### Resources (Essences)\n- **Gold essences** — Gold tokens.\n- **Elan essences** — Red tokens (fiery energy).\n- **Calm essences** — Green tokens (life energy).\n- **Death essences** — Black tokens (dark energy).\n- **Life essences** — Blue tokens (water/life energy).\n- **Wild token** — Can substitute for any essence type.\n\n#### Other Components\n- **VP tokens** — Victory point tracking tokens.\n- **Player reference cards** — Summary cards for each player."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **Place of Power tiles** — Select Places of Power based on player count and lay them in the center.\n2. **Monument display** — Shuffle monuments and reveal a number based on player count.\n3. **Magic Items** — Lay out all 8 Magic Item cards face up.\n4. **Essence supply** — Create a common pool of all essence tokens.\n5. **VP tokens** — Place VP tokens in a central supply.\n\n--- 2 Players ---\n- **Places of Power** — Use 5 Places of Power (one side of each tile, chosen or random).\n- **Monuments** — Use a reduced monument display.\n\n--- 3-4 Players ---\n- **Places of Power** — Use 5 Places of Power.\n- **Monuments** — Use the full monument display."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Draft Phase\n- **Deal artifacts** — Deal 8 artifact cards to each player.\n- **Draft method** — Players draft artifacts: choose 1 card, pass the rest. Repeat until all 8 are kept.\n- **Simplified variant** — For first games, deal 8 cards and keep all (no drafting).\n\n#### Mage and Magic Item Selection\n- **Deal Mages** — Deal 2 Mage cards to each player; choose 1 and discard the other.\n- **Starting Magic Item** — Each player selects 1 Magic Item from the display.\n- **Mage placement** — Place your Mage face up in front of you.\n\n#### Starting Resources\n- **Starting essences** — Collect any starting essences shown on your Mage card.\n- **Starting hand** — Your 8 drafted artifacts form your personal deck; draw 3 as your opening hand.\n- **Remaining artifacts** — Keep the other 5 face down as your draw pile."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Beginning Play\n- **First player** — Determine randomly.\n- **Turn order** — Clockwise from first player.\n- **Initial state** — Each player has: 1 Mage in play, 1 Magic Item, 3 artifact cards in hand, 5 artifacts in draw pile, starting essences per Mage.\n- **Goal reminder** — First player to reach 10+ VP at the end of a round triggers the final check."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Collect essences** — Each player simultaneously collects essences from their Mage, artifacts in play, and Places of Power they own.\n2. **Action phase** — Players take turns performing one action at a time, going clockwise.\n3. **Pass** — When a player cannot or does not want to act, they pass and select a new Magic Item for next round.\n4. **Check victory** — After all players pass, check if any player has 10+ VP.\n\n#### Action Options (One Per Turn)\n- **Place an artifact** — Pay its essence cost and put it into play from your hand.\n- **Use a power** — Activate an ability on an artifact, Mage, Place of Power, or Magic Item (tap to use).\n- **Discard for essences** — Discard an artifact card from hand to gain 1 Gold essence and 1 other essence of your choice.\n- **Claim a Place of Power** — Pay the required essences to claim an unclaimed Place of Power.\n- **Buy a monument** — Pay 4 Gold to purchase a monument (worth VP).\n- **Pass** — Take a new Magic Item and stop acting this round."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Placing Artifacts\n- **Cost** — Pay the essences shown in the top-left corner of the artifact card.\n- **In play** — Once placed, the artifact stays in play and generates essences each round.\n- **Abilities** — Some artifacts have tap abilities (use once per round) or triggered effects.\n\n#### Places of Power\n- **Claim cost** — Each Place of Power has a specific essence cost to claim.\n- **VP value** — Places of Power are worth VP as printed.\n- **Ongoing abilities** — Most Places of Power also provide essence generation or conversion abilities.\n- **One per player** — You can claim multiple Places of Power over the game.\n\n#### Monuments\n- **Cost** — 4 Gold essences each.\n- **VP value** — Each monument is worth a fixed VP amount (typically 1-2 VP).\n- **Limited supply** — Once a monument is bought, it is gone.\n\n#### Magic Items\n- **One-time per round** — Each Magic Item can be used once per round.\n- **Swap on pass** — When you pass, you return your Magic Item and select a new one for next round.\n- **Abilities vary** — Effects range from essence conversion to attack to card draw.\n\n#### Attacking\n- **Dragon attack** — Some cards and abilities let you attack opponents, forcing them to discard essences.\n- **Defense** — Shields on artifacts and Places of Power can absorb attacks."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Essence Economy\n- **Tight resources** — The economy is deliberately constrained; every essence matters.\n- **Conversion** — Many abilities convert one essence type to another.\n- **Gold versatility** — Gold is the most flexible essence, used for monuments and many costs.\n- **Discard for essences** — Discarding a card from hand gives 1 Gold + 1 essence of choice, useful in emergencies.\n\n#### Mage Abilities\n- **Unique powers** — Each Mage provides a different starting ability and sometimes starting essences.\n- **Draft synergy** — Draft artifacts that complement your Mage's strengths.\n- **Examples** — The Necromancer synergizes with Death essences; the Alchemist converts essences efficiently.\n\n#### Passing and Turn Order\n- **First to pass** — The first player to pass gets first pick of Magic Items for next round.\n- **Strategic pass** — Passing early gets better Magic Items but loses remaining actions.\n- **Late pass** — Staying in lets you take more actions but gives worse Magic Item selection."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Trigger\n- **VP threshold** — At the end of any round, if one or more players have 10+ VP, the game ends.\n- **Final round** — All players complete the round before checking.\n\n#### VP Sources\n- **Places of Power** — VP printed on each claimed Place of Power.\n- **Monuments** — VP printed on each purchased monument.\n- **Artifact VP** — Some artifacts have VP printed on them.\n- **Gold conversion** — Each Gold essence remaining converts to VP at a rate specified by game state.\n\n#### Winning\n- **Highest VP** — The player with the most VP wins.\n- **Tiebreaker** — Player with the most total essences remaining breaks ties."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Draft for synergy** — During the draft, focus on artifacts that share essence types and combo with your Mage.\n- **Engine before VP** — Prioritize artifacts that generate essences over those that score points in the first few rounds.\n- **Identify your path** — Decide early whether you are racing toward Places of Power, monuments, or artifact VP.\n- **Magic Item selection** — Choose a Magic Item that fills a gap in your essence production.\n- **Tempo awareness** — Someone will reach 10 VP faster than you expect; build quickly."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Over-drafting expensive artifacts** — Keeping too many high-cost artifacts creates hands you cannot afford to play.\n- **Ignoring Places of Power** — Places of Power provide the most VP per action and should not be overlooked.\n- **Hoarding essences** — Sitting on unspent essences while opponents build their engines wastes tempo.\n- **Discarding too many cards** — Using discard-for-essences too often depletes your artifact options.\n- **Undervaluing Gold** — Gold is needed for monuments and is the most convertible essence."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Place of Power vs Monuments\n- **Places of Power** — High VP but expensive and limited; require specific essence types.\n- **Monuments** — Flexible (just Gold) but lower individual VP value.\n\n#### Decision 2: When to Pass\n- **Pass early** — Secure the best Magic Item for next round at the cost of fewer actions.\n- **Pass late** — Maximize actions this round but accept leftover Magic Items.\n\n#### Decision 3: Play Artifacts vs Discard for Essences\n- **Play** — Build your engine and future generation capacity.\n- **Discard** — Gain immediate essences for a crucial purchase this turn."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

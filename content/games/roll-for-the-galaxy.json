@@ -1,0 +1,108 @@
+{
+  "game_id": "roll-for-the-galaxy",
+  "title": "Roll for the Galaxy",
+  "aliases": [
+    "RollftG",
+    "Roll"
+  ],
+  "publisher": "Rio Grande Games",
+  "player_count": {
+    "min": 2,
+    "max": 5,
+    "recommended": 3,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "midweight",
+  "categories": [
+    "dice",
+    "engine-building",
+    "sci-fi"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 2 to 5 players.\n- **Scaling** — VP chip pool scales by player count (12 per player).\n- **Solo mode** — Not included in the base game.\n\n#### Dice\n- **White dice (Home)** — 5 per player starting dice.\n- **Colored dice** — Additional dice gained from tiles: Red (military), Blue (novelty goods), Brown (rare elements), Green (genes), Yellow (alien technology), Purple (developments).\n- **Die faces** — Each die color has a different distribution of phase symbols: Explore, Develop, Settle, Produce, Ship, and Wild ($).\n\n#### Tiles\n- **Faction tiles** — 9 double-sided faction tiles (starting tableau).\n- **Game tiles** — 55 development and world tiles in a bag.\n- **Tile types** — Developments (diamond icon) and worlds (circle icon), each with VP values and abilities.\n\n#### Other Components\n- **VP chips** — 1-point and 5-point chips (12 per player in the pool).\n- **Credit tokens** — $1 tokens for purchasing.\n- **Player screens** — Cup/screen for each player to roll and assign dice secretly.\n- **Phase tiles** — 5 phase strip tiles for each player.\n- **Citizenry cup** — Area for unused dice available for recruitment."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **VP chip pool** — Place 12 VP chips per player in the center.\n2. **Tile bag** — Place all 55 game tiles in the draw bag.\n3. **Dice supply** — Sort colored dice by type in a central supply.\n4. **Credit supply** — Place credit tokens in a central pool.\n5. **Phase reference** — Place the round summary tile where all can see.\n\n--- 2 Players ---\n- **VP pool** — 24 VP chips.\n\n--- 3 Players ---\n- **VP pool** — 36 VP chips.\n\n--- 4 Players ---\n- **VP pool** — 48 VP chips.\n\n--- 5 Players ---\n- **VP pool** — 60 VP chips."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Faction tile** — Each player receives 1 random faction tile and places it face up.\n- **Starting dice** — Take the starting dice shown on your faction tile (typically 3 white dice plus extras based on faction).\n- **Starting tiles** — Draw tiles from the bag as indicated by your faction.\n- **Screen** — Take a player screen to hide dice assignments.\n- **Phase strip** — Place your phase strip behind your screen.\n- **Citizenry** — Place any remaining starting dice in your Citizenry (available for recruitment).\n- **Credits** — Start with 1 credit (unless faction says otherwise)."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Beginning Play\n- **Simultaneous play** — All players act simultaneously each round.\n- **No first player** — There is no turn order advantage since play is simultaneous.\n- **Initial roll** — All players roll their dice behind their screens to begin the first round.\n- **Assign and select** — Assign dice to phases and select one die for your chosen phase."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Structure\n1. **Roll** — Each player rolls all their active dice behind their screen.\n2. **Assign** — Secretly assign dice to phases on your phase strip based on what they rolled.\n3. **Select phase** — Choose 1 die and place it on the phase you want to activate (this die dictates your chosen phase).\n4. **Reveal** — All players lift screens simultaneously; only chosen phases are active this round.\n5. **Resolve phases** — Execute active phases in order: Explore, Develop, Settle, Produce, Ship.\n6. **Recall** — Return used dice to your cup; manage Citizenry and credits.\n7. **Reassign** — Dice assigned to inactive phases return to your cup for next round.\n\n#### Key Rule\n- **Only chosen phases happen** — If no player chose a phase, it is skipped entirely.\n- **Reassignment** — Dice placed on unchosen phases are not lost; they return to your cup."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Explore Phase\n- **Stock** — Draw tiles from the bag and credits based on dice assigned.\n- **Each die** — Each Explore die lets you draw 1 tile from the bag and gain $1.\n- **Keep limit** — Keep tiles up to the number of Explore dice used, discard the rest.\n\n#### Develop Phase\n- **Build developments** — Assign Develop dice to developments under construction.\n- **Cost** — Each development has a die cost (number of dice needed to complete it).\n- **Completion** — When enough dice are placed, the development enters your tableau.\n\n#### Settle Phase\n- **Settle worlds** — Assign Settle dice to worlds under construction.\n- **Non-military** — Pay the world's die cost with Settle dice.\n- **Military** — Military worlds require military dice (red) equal to their defense value.\n\n#### Produce Phase\n- **Place goods** — Each Produce die placed on an empty production world creates a good (a die sits on the world as the good).\n- **One good per world** — Each production world can hold only 1 good.\n\n#### Ship Phase\n- **Trade** — Ship 1 good for credits and VP (trade value depends on good type).\n- **Consume** — Use tableau consume powers to convert goods to VP chips.\n- **Each Ship die** — Enables shipping one good."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Dice Management\n- **Citizenry** — Dice not in your cup sit in your Citizenry; recruit them by paying credits.\n- **Recruitment** — Pay $1 per die to move dice from Citizenry to your cup for next round's roll.\n- **Gaining dice** — Completing tiles that grant dice adds them to your Citizenry.\n- **Wild faces ($)** — Dice showing the Wild ($) face can be assigned to any phase.\n\n#### Tile Construction\n- **Under construction** — Tiles from Explore go under construction; they are not in your tableau yet.\n- **Incremental building** — You can add dice to a tile across multiple rounds.\n- **Completion** — Once a tile has enough dice, it enters your tableau and its powers activate.\n\n#### Dice Colors and Strategy\n- **White (Home)** — Balanced face distribution.\n- **Red (Military)** — Heavy on Settle faces; needed for military worlds.\n- **Blue/Brown/Green/Yellow** — Biased toward Produce and Ship faces.\n- **Purple** — Biased toward Develop faces.\n\n#### Reassignment\n- **Dictate ability** — Some tile powers let you reassign dice from one phase to another.\n- **Flexibility** — Reassignment is a powerful ability that lets you use dice more efficiently."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Triggers (either one)\n- **Tableau size** — Any player completes their 12th tile in their tableau.\n- **VP pool empty** — The VP chip pool runs out during shipping.\n\n#### Final Round\n- **Complete the round** — Finish the current round through all active phases.\n\n#### Scoring\n- **Tile VP** — Sum VP printed on all tiles in your tableau.\n- **Bonus VP** — Some tiles grant conditional endgame VP based on tableau composition.\n- **Shipping VP** — Add all VP chips accumulated during the game.\n- **Total** — Highest total wins.\n\n#### Tiebreaker\n- **Most dice plus credits** — Player with the most total dice (cup + Citizenry) plus credits wins ties."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Faction synergy** — Your starting faction dictates your early strategy; lean into its strengths.\n- **Build production early** — Getting production worlds online creates a reliable Produce/Ship VP engine.\n- **Recruit dice** — Spending credits to recruit dice from Citizenry increases your output each round.\n- **Explore for options** — Early Explore phases build a pipeline of tiles to develop and settle.\n- **Watch die colors** — Dice colors bias toward certain phases; plan your engine around the dice you acquire."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Ignoring Citizenry** — Dice stuck in Citizenry do nothing; recruit them actively.\n- **Over-exploring** — Drawing too many tiles without building them wastes rounds.\n- **Neglecting Ship phase** — Goods sitting on worlds are worth nothing until shipped for VP.\n- **Forgetting reassignment** — Dice on unchosen phases return to your cup; plan around this.\n- **Poor die color management** — Acquiring dice that do not match your strategy leads to wasted rolls."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Produce/Ship vs Develop/Settle\n- **Produce/Ship engine** — Generates steady VP chips through goods conversion.\n- **Develop/Settle rush** — Builds tableau quickly to end the game with high tile VP.\n\n#### Decision 2: Which Phase to Select\n- **Self-benefit** — Choose the phase that helps you most.\n- **Opponent reading** — Predict what others will choose to get free phase access.\n\n#### Decision 3: Dice Recruitment vs Saving Credits\n- **Recruit now** — More dice means more options and output next round.\n- **Save credits** — Credits are also needed for trading and some tile abilities."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

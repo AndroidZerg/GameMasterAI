@@ -1,0 +1,26 @@
+{
+  "game_id": "roll-for-the-galaxy",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when 12 tiles completed or VP pool empties",
+  "tiebreaker": "Most total dice plus credits",
+  "categories": [
+    {
+      "id": "tile_vp",
+      "label": "Tile VP",
+      "type": "manual",
+      "description": "Points printed on all developments and worlds in your tableau"
+    },
+    {
+      "id": "bonus_vp",
+      "label": "Bonus VP",
+      "type": "manual",
+      "description": "Points from tiles with conditional endgame scoring bonuses"
+    },
+    {
+      "id": "shipping_vp",
+      "label": "Shipping VP",
+      "type": "manual",
+      "description": "Points from VP chips earned by shipping goods"
+    }
+  ]
+}

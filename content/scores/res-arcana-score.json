@@ -1,0 +1,32 @@
+{
+  "game_id": "res-arcana",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when a player reaches 10+ VP at end of a round",
+  "tiebreaker": "Most total essences remaining",
+  "categories": [
+    {
+      "id": "places_of_power",
+      "label": "Places of Power",
+      "type": "manual",
+      "description": "Points from claimed Places of Power"
+    },
+    {
+      "id": "monuments",
+      "label": "Monuments",
+      "type": "manual",
+      "description": "Points from purchased monuments"
+    },
+    {
+      "id": "artifact_vp",
+      "label": "Artifact VP",
+      "type": "manual",
+      "description": "Points printed on artifacts in play"
+    },
+    {
+      "id": "gold_conversion",
+      "label": "Gold Conversion",
+      "type": "manual",
+      "description": "Points from converting remaining Gold essences"
+    }
+  ]
+}

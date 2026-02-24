@@ -1,0 +1,32 @@
+{
+  "game_id": "race-for-the-galaxy",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when 12 tableau cards reached or VP pool empties",
+  "tiebreaker": "Most cards in hand plus goods on worlds",
+  "categories": [
+    {
+      "id": "tableau_cards",
+      "label": "Tableau Card VP",
+      "type": "manual",
+      "description": "Points printed on all developments and worlds in your tableau"
+    },
+    {
+      "id": "vp_chips",
+      "label": "VP Chips",
+      "type": "manual",
+      "description": "Points from VP chips earned during Consume phases"
+    },
+    {
+      "id": "bonus_cards",
+      "label": "Bonus Card VP",
+      "type": "manual",
+      "description": "Points from cards with conditional endgame bonus VP"
+    },
+    {
+      "id": "six_cost_dev_bonuses",
+      "label": "6-Cost Development Bonuses",
+      "type": "manual",
+      "description": "Points from endgame scoring on 6-cost developments based on tableau composition"
+    }
+  ]
+}

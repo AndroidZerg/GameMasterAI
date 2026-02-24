@@ -1,0 +1,105 @@
+{
+  "game_id": "star-realms",
+  "title": "Star Realms",
+  "aliases": [],
+  "publisher": "White Wizard Games",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": [
+    "deck-building",
+    "combat",
+    "sci-fi"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Audit\n- **Supported counts** — 2 players with a single deck.\n- **Expansion note** — Additional decks allow 3-4 player or multiplayer formats.\n- **Solo mode** — Not included in the base game.\n\n#### Cards\n- **Trade Deck** — 80 trade deck cards (ships and bases across 4 factions: Trade Federation, Blob, Star Empire, Machine Cult).\n- **Explorer pile** — 10 Explorer cards (always available to purchase).\n- **Scout cards** — 20 Scouts (starting cards providing 1 Trade each).\n- **Viper cards** — 4 Vipers (starting cards providing 1 Combat each).\n\n#### Tokens\n- **Authority cards** — 2 sets of Authority tracking cards (10 and 20 denominations) to track each player's health from 50.\n\n#### Faction Breakdown\n- **Trade Federation (blue)** — Focuses on Authority gain and Trade generation.\n- **Blob (green)** — Aggressive faction with high Combat output and card draw.\n- **Star Empire (yellow)** — Combat plus opponent discard effects.\n- **Machine Cult (red)** — Deck thinning through scrapping cards from hand or discard."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Table Setup\n1. **Trade Deck** — Shuffle all 80 trade deck cards into a single face-down deck in the center.\n2. **Trade Row** — Reveal 5 cards face up from the Trade Deck to form the Trade Row.\n3. **Explorer pile** — Place the 10 Explorer cards face up in a separate stack beside the Trade Row.\n4. **Scrap heap** — Designate an area for scrapped cards (removed from the game).\n5. **Player areas** — Each player needs space for a draw deck, discard pile, and played cards (in-play area)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **Starting deck** — Each player takes 10 cards: 8 Scouts and 2 Vipers.\n- **Shuffle** — Each player shuffles their 10-card starting deck.\n- **Starting hand** — Each player draws 3 cards for their opening hand (first turn only).\n- **Authority** — Each player sets their starting Authority to 50 using the Authority cards.\n- **Play area** — Keep a clear space for ships and bases played during your turn."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### First Turn\n- **Determine first player** — Choose randomly.\n- **Reduced first hand** — Both players draw only 3 cards for their first hand (not 5).\n- **Normal hands after** — From the second turn onward, players draw 5 cards at end of turn.\n- **Begin play** — First player takes their turn, then alternate."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Sequence\n1. **Main Phase** — Play cards from hand, activate ally abilities, use base abilities, and acquire cards.\n2. **Discard Phase** — Discard all played ships and remaining hand cards to your discard pile.\n3. **Draw Phase** — Draw 5 new cards from your personal deck.\n\n#### Main Phase Details\n- **Play cards freely** — Play any number of cards from hand in any order.\n- **Accumulate resources** — Trade and Combat pool up during your turn.\n- **Spend resources** — Use Trade to buy cards, Combat to attack opponent or their bases.\n- **Order flexibility** — You may interleave playing, buying, and attacking in any order.\n- **Bases persist** — Bases remain in play across turns until destroyed."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Acquiring Cards\n- **Buy from Trade Row** — Pay a card's Trade cost to acquire it into your discard pile.\n- **Buy Explorers** — Pay 2 Trade to acquire an Explorer at any time.\n- **Row refill** — Immediately replace purchased Trade Row cards from the Trade Deck.\n\n#### Dealing Damage\n- **Attack opponent** — Spend Combat to reduce opponent's Authority.\n- **Attack bases** — Spend Combat equal to a base's defense to destroy it.\n- **Outpost priority** — If opponent has an Outpost in play, you must destroy all Outposts before dealing Combat damage to the player or attacking non-Outpost bases.\n\n#### Card Types\n- **Ships** — Play for immediate effect, discard at end of turn.\n- **Bases** — Play to your base area, remain in play until destroyed by opponent.\n- **Outposts** — Bases with a shield icon that must be destroyed before the player can be attacked.\n\n#### Card Abilities\n- **Primary ability** — Resolves when the card is played (ships) or first enters play (bases).\n- **Ally ability** — Triggers if you have another card of the same faction in play this turn.\n- **Scrap ability** — Optional one-time effect gained by permanently removing the card from the game."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Faction Ally Bonuses\n- **Trigger condition** — When you play a card, check if another card of the same faction is already in play this turn.\n- **Multiple triggers** — Playing a third faction card does not re-trigger the first two; each card's ally ability triggers once when its condition is met.\n- **Cross-check** — Bases in play from previous turns count for ally triggers.\n\n#### Scrapping\n- **Scrap ability** — Some cards have a scrap icon ability; use it by removing the card from the game entirely.\n- **Timing** — Scrap abilities can be used at any point during your Main Phase.\n- **Deck thinning** — Scrapping weak starting cards (Scouts, Vipers) improves future draws.\n\n#### Deck Cycling\n- **Reshuffle** — When your draw deck is empty, shuffle your discard pile to form a new draw deck.\n- **Empty state** — If both deck and discard are empty, you draw no cards.\n\n#### Multi-Faction Cards\n- **Dual faction** — Some cards belong to two factions and can trigger ally abilities for either faction."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### End Trigger\n- **Authority depletion** — The game ends immediately when a player's Authority reaches 0 or below.\n\n#### Win Condition\n- **Last standing** — The player with Authority remaining wins.\n- **No VP tally** — There is no point-based scoring; this is a pure elimination game.\n\n#### Timing Note\n- **Immediate loss** — Authority can go negative during a turn; the game ends the moment it hits 0."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "- **Faction focus** — Prioritize buying cards from 1-2 factions early to maximize ally ability triggers.\n- **Thin your deck** — Use Machine Cult scrap abilities or Explorer scrap to remove Scouts and Vipers.\n- **Early bases** — Bases provide recurring value every turn they survive.\n- **Trade over Combat early** — Building economy in the first few turns lets you acquire powerful cards before your opponent.\n- **Watch the Trade Row** — Deny your opponent key cards that would complete their faction synergies."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "- **Spreading across all 4 factions** — Buying from every faction prevents ally triggers, weakening your deck.\n- **Ignoring deck thinning** — A bloated deck full of Scouts draws weak hands late game.\n- **Forgetting Outpost rules** — You must destroy all Outposts before attacking the player directly.\n- **Hoarding Combat** — Unused Combat at end of turn is wasted; always spend it.\n- **Overlooking scrap abilities** — One-time scrap effects on purchased cards can swing pivotal turns."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Aggression vs Economy\n- **Rush damage** — Focus on Combat cards to pressure opponent's Authority early.\n- **Build engine** — Focus on Trade and card draw to field dominant late-game turns.\n\n#### Decision 2: Faction Commitment\n- **Deep faction** — Go heavy into 1 faction for reliable ally triggers.\n- **Splash faction** — Add a secondary faction for versatility and to deny opponent.\n\n#### Decision 3: Scrap Timing\n- **Scrap now** — Remove a card immediately for its effect when you need the boost.\n- **Scrap later** — Keep the card for its primary and ally abilities until the scrap value exceeds ongoing value."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
