@@ -13,7 +13,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/app", { replace: true });
+      navigate("/games", { replace: true });
     }
   }, [isLoggedIn, navigate]);
 
@@ -31,12 +31,12 @@ export default function LoginPage() {
     try {
       const data = await loginVenue(email, password);
       login(data.token, data.venue_id, data.venue_name);
-      navigate("/app", { replace: true });
+      navigate("/games", { replace: true });
     } catch (err) {
       // If API unavailable, allow demo login
       if (email === "demo@meepleville.com" && password === "demo") {
         login("demo-token-meepleville", "demo-venue", "Meepleville");
-        navigate("/app", { replace: true });
+        navigate("/games", { replace: true });
         return;
       }
       setError("Invalid email or password");

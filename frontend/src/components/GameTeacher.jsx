@@ -657,7 +657,7 @@ export default function GameTeacher() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-        <button onClick={() => { stopSpeaking(); navigate("/app"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
+        <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
         <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
           {gameTitle}
           <PriceBadge gameId={gameId} />
@@ -745,7 +745,7 @@ export default function GameTeacher() {
           gameTitle={gameTitle}
           playerCount={gameData?.player_count}
           onClose={() => setShowScoreTracker(false)}
-          onNewGame={() => navigate("/app")}
+          onNewGame={() => navigate("/games")}
         />
       )}
     </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
 import { useKioskMode } from "./hooks/useKioskMode";
@@ -33,7 +33,7 @@ function AuthWatcher() {
 function AppShell() {
   const navigate = useNavigate();
   const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
-    navigate("/app");
+    navigate("/games");
   });
 
   return (
@@ -43,7 +43,8 @@ function AppShell() {
       {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/app" element={<GameSelector />} />
+        <Route path="/games" element={<GameSelector />} />
+        <Route path="/app" element={<Navigate to="/games" replace />} />
         <Route path="/game/:gameId" element={<GameTeacher />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin/qr" element={<ProtectedRoute><QRGeneratorPage /></ProtectedRoute>} />

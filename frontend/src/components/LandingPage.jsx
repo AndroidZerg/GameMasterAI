@@ -44,7 +44,7 @@ export default function LandingPage() {
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <button
-            onClick={() => navigate("/app")}
+            onClick={() => navigate("/games")}
             style={{
               padding: "14px 32px",
               fontSize: "1.1rem",
@@ -59,7 +59,7 @@ export default function LandingPage() {
             See It In Action
           </button>
           <button
-            onClick={() => navigate("/app")}
+            onClick={() => navigate("/games")}
             style={{
               padding: "14px 32px",
               fontSize: "1.1rem",

@@ -33,3 +33,13 @@
 - **Added**: Player colors in results — winner row uses player color as background
 - **Added**: Avatar display throughout results
 - **Files**: `ScoreTracker.jsx`
+
+## A6: Game Filtering + Analytics
+- **Added**: Complexity filter bar (All / Party / Gateway / Midweight / Heavy pills)
+- **Added**: Player count filter (Any / 2 / 3-4 / 5-6 / 7+ pills)
+- **Added**: URL search params sync — filters persist in URL (?complexity=party&players=2)
+- **Added**: "Clear Filters" button when no results match
+- **Added**: Analytics POST to `/api/analytics` on filter change and game selection
+- **Renamed**: `/app` route → `/games` with redirect for backward compatibility
+- **Updated**: All navigation references across LandingPage, LoginPage, NavMenu, GameTeacher
+- **Files**: `GameSelector.jsx`, `App.jsx`, `NavMenu.jsx`, `LandingPage.jsx`, `LoginPage.jsx`, `GameTeacher.jsx`
