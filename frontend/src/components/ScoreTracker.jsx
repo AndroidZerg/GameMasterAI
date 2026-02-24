@@ -309,6 +309,86 @@ function MiniCalculator({ value, onSave, onClose, playerName, catName }) {
   );
 }
 
+/* ── Scoring Reference (How to Score) ────────────────────────── */
+const SCORING_REFERENCE = {
+  catan: [
+    "Settlements = 1 VP each",
+    "Cities = 2 VP each (upgrade from settlement)",
+    "Longest Road = 2 VP (5+ connected roads, must be longest)",
+    "Largest Army = 2 VP (3+ knights played, must be largest)",
+    "VP Cards = 1 VP each (revealed from dev cards)",
+    "First to 10 VP wins!",
+  ],
+  wingspan: [
+    "Bird Points = face value on each bird card played",
+    "Bonus Cards = points from end-game bonus cards",
+    "End-of-Round Goals = points earned per round objective",
+    "Eggs = 1 point per egg on bird cards",
+    "Cached Food = 1 point per food token cached on bird cards",
+    "Tucked Cards = 1 point per card tucked under bird cards",
+  ],
+  "ticket-to-ride": [
+    "Route Points = points from claimed routes (varies by length)",
+    "Completed Tickets = add face value of completed destination tickets",
+    "Failed Tickets = subtract face value of incomplete tickets",
+    "Longest Route Bonus = 10 points for longest continuous path",
+  ],
+  "king-of-tokyo": [
+    "Earn VP by rolling three-of-a-kind (1s=1, 2s=2, 3s=3 VP)",
+    "Each extra matching die beyond 3 = +1 VP",
+    "Start in Tokyo to earn 1 VP, stay for another turn = +2 VP",
+    "Card effects can also award VP",
+    "First to 20 VP or last monster standing wins!",
+  ],
+};
+
+function ScoringReference({ gameId }) {
+  const [open, setOpen] = useState(false);
+  const tips = SCORING_REFERENCE[gameId];
+  if (!tips) return null;
+
+  return (
+    <div style={{
+      margin: "0 8px 8px", borderRadius: "10px",
+      border: "1px solid var(--border)", overflow: "hidden",
+    }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%", display: "flex", justifyContent: "space-between",
+          alignItems: "center", padding: "10px 14px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "none", cursor: "pointer", fontSize: "0.85rem",
+          fontWeight: 600, textAlign: "left",
+        }}
+      >
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span>📋</span>
+          <span>How to Score</span>
+        </span>
+        <span style={{
+          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.2s", fontSize: "0.7rem",
+        }}>▼</span>
+      </button>
+      {open && (
+        <div style={{ padding: "10px 14px", background: "var(--bg-card)" }}>
+          {tips.map((tip, i) => (
+            <div key={i} style={{
+              display: "flex", gap: "8px", marginBottom: "6px",
+              fontSize: "0.8rem", lineHeight: 1.5,
+              color: "var(--text-secondary)",
+            }}>
+              <span style={{ color: "var(--accent)", flexShrink: 0 }}>•</span>
+              <span>{tip}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ── Spreadsheet Score Entry ───────────────────────────────────── */
 function SpreadsheetScoring({ players, categories, scores, setScores }) {
   const [calcOpen, setCalcOpen] = useState(null); // { pi, catId }
@@ -914,6 +994,7 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
 
         {phase === "scoring" && scoringType === "calculator" && (
           <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+            <ScoringReference gameId={gameId} />
             <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} />
             <div style={{ padding: "12px 16px", flexShrink: 0, borderTop: "1px solid var(--border)" }}>
               <button onClick={() => setPhase("results")} style={{

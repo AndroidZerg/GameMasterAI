@@ -9,3 +9,6 @@
 
 ### Phase A2: Score Calculator Functions
 **Status:** DONE
+
+### Phase A3: Scoring Reference Text
+**Status:** DONE
