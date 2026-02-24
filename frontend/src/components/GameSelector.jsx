@@ -196,6 +196,29 @@ function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount }) {
   );
 }
 
+function GenreCarousel({ title, games, onGameClick, color }) {
+  if (!games || games.length === 0) return null;
+  return (
+    <div style={{ marginBottom: "24px" }}>
+      <h2 style={{ fontSize: "1rem", color: color || "var(--text-secondary)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px" }}>
+        {title}
+        <span style={{ fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 400 }}>({games.length})</span>
+      </h2>
+      <div style={{
+        display: "flex", gap: "12px", overflowX: "auto", paddingBottom: "8px",
+        scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch",
+        scrollbarWidth: "none",
+      }}>
+        {games.map((game) => (
+          <div key={game.game_id} style={{ scrollSnapAlign: "start", flexShrink: 0, width: "160px" }}>
+            <GameCard game={game} onClick={() => onGameClick(game)} small />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function GameSelector() {
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState("");
@@ -320,6 +343,17 @@ export default function GameSelector() {
 
   const hasActiveFilters = complexity !== "all" || playerCount > 0;
 
+  // Build genre carousels from all available games (before filtering)
+  const allDisplayGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
+  const genreCarousels = !search && !hasActiveFilters && allDisplayGames.length > 4
+    ? [
+        { title: "Party Games", color: COMPLEXITY_COLORS.party, games: allDisplayGames.filter((g) => g.complexity === "party").slice(0, 12) },
+        { title: "Easy to Learn", color: COMPLEXITY_COLORS.gateway, games: allDisplayGames.filter((g) => g.complexity === "gateway").slice(0, 12) },
+        { title: "For Strategists", color: COMPLEXITY_COLORS.midweight, games: allDisplayGames.filter((g) => g.complexity === "midweight").slice(0, 12) },
+        { title: "Brain Burners", color: COMPLEXITY_COLORS.heavy, games: allDisplayGames.filter((g) => g.complexity === "heavy").slice(0, 12) },
+      ].filter((c) => c.games.length > 0)
+    : [];
+
   return (
     <div style={{ padding: "70px 20px 20px", maxWidth: "1200px", margin: "0 auto" }}>
       <h1 style={{ textAlign: "center", fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "4px", color: "var(--text-primary)" }}>
@@ -371,6 +405,21 @@ export default function GameSelector() {
               <GameCard key={game.game_id} game={game} onClick={() => handleGameClick(game)} small />
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Genre Carousels */}
+      {genreCarousels.length > 0 && (
+        <div style={{ marginBottom: "16px" }}>
+          {genreCarousels.map((carousel) => (
+            <GenreCarousel
+              key={carousel.title}
+              title={carousel.title}
+              games={carousel.games}
+              onGameClick={handleGameClick}
+              color={carousel.color}
+            />
+          ))}
         </div>
       )}
 

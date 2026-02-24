@@ -125,6 +125,12 @@ a:focus-visible {
   -webkit-user-select: none;
 }
 
+/* Hide scrollbar on horizontal carousels */
+*::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
 /* Tablet responsive: 768px+ */
 @media (min-width: 768px) {
   :root {

@@ -43,3 +43,10 @@
 - **Renamed**: `/app` route → `/games` with redirect for backward compatibility
 - **Updated**: All navigation references across LandingPage, LoginPage, NavMenu, GameTeacher
 - **Files**: `GameSelector.jsx`, `App.jsx`, `NavMenu.jsx`, `LandingPage.jsx`, `LoginPage.jsx`, `GameTeacher.jsx`
+
+## A7: Genre Carousel Recommendations
+- **Added**: Horizontal scrolling carousels grouped by complexity (Party / Easy to Learn / Strategists / Brain Burners)
+- **Added**: Scroll snap for smooth mobile swiping
+- **Added**: Hidden scrollbar CSS for clean carousel appearance
+- **Added**: Carousels auto-hide when search or filters are active
+- **Files**: `GameSelector.jsx`, `index.css`
