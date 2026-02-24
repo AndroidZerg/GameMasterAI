@@ -51,6 +51,26 @@ Status: COMPLETE — BGG API blocked, placeholders remain
 ---
 
 ## Phase C5: Redeploy to Render
+Status: COMPLETE — production verified
+
+### Render backend (https://gmai-backend.onrender.com):
+- `/health` → `{"status":"ok"}` ✓
+- `/api/games` → 50 games with MSRP data ✓
+- `/api/auth/login` → Token returned for demo account ✓
+- `/api/scores/splendor` → 5 score config fields ✓
+- `/api/images/catan.jpg` → 4324 bytes served ✓
+
+### Frontend build:
+- `npx vite build` → Clean build, 0 errors, 0 warnings
+- Output: 309 kB JS + 2.3 kB CSS (91.8 kB gzipped)
+
+### DNS:
+- Render auto-deploys from main when merged
+- Cloudflare DNS setup still pending (manual dashboard action)
+
+---
+
+## Phase C6: Venue Branding Research
 Status: IN PROGRESS
 
 ---
