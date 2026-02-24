@@ -1,3 +1,5 @@
+"""GameMaster AI — Backend API server for board game cafe management."""
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -16,6 +18,11 @@ from app.api.routes.stats import router as stats_router
 from app.api.routes.scores import router as scores_router
 from app.api.routes.contact import router as contact_router
 from app.api.routes.images import router as images_router
+from app.api.routes.recommendations import router as recommendations_router
+from app.api.routes.search import router as search_router
+from app.api.routes.popular import router as popular_router
+from app.api.routes.admin import router as admin_router
+from app.api.routes.export import router as export_router
 from app.models.game import rebuild_db
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -28,7 +35,7 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: scan game files and populate SQLite
+    """Startup: scan game files, populate SQLite, create tables."""
     count = rebuild_db()
     init_sessions_table()
     init_feedback_table()
@@ -37,7 +44,12 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="GameMaster AI", version="0.3.0", lifespan=lifespan)
+app = FastAPI(
+    title="GameMaster AI",
+    version="0.4.0",
+    description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, and venue management.",
+    lifespan=lifespan,
+)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
@@ -52,18 +64,33 @@ app.add_middleware(
 )
 
 
-app.include_router(dashboard_router)
+# --- Game endpoints ---
 app.include_router(games_router)
-app.include_router(query_router)
-app.include_router(venue_router)
+app.include_router(search_router)
+app.include_router(popular_router)
+app.include_router(recommendations_router)
+app.include_router(scores_router)
+
+# --- Session & feedback ---
 app.include_router(sessions_router)
 app.include_router(feedback_router)
 app.include_router(stats_router)
-app.include_router(scores_router)
+
+# --- Venue & contact ---
+app.include_router(venue_router)
 app.include_router(contact_router)
+
+# --- Admin ---
+app.include_router(admin_router)
+app.include_router(export_router)
+
+# --- Misc ---
+app.include_router(dashboard_router)
+app.include_router(query_router)
 app.include_router(images_router)
 
 
-@app.get("/health")
+@app.get("/health", tags=["system"])
 async def health():
+    """Health check endpoint."""
     return {"status": "ok"}

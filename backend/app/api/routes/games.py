@@ -7,7 +7,7 @@ from fastapi import APIRouter, HTTPException, Query
 from app.models.game import search_games, rebuild_db
 from app.services.knowledge import load_game
 
-router = APIRouter(prefix="/api")
+router = APIRouter(prefix="/api", tags=["games"])
 
 
 @router.get("/games")
