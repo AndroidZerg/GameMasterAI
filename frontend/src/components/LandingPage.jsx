@@ -58,21 +58,6 @@ export default function LandingPage() {
           >
             See It In Action
           </button>
-          <button
-            onClick={() => navigate("/games")}
-            style={{
-              padding: "14px 32px",
-              fontSize: "1.1rem",
-              borderRadius: "12px",
-              background: "transparent",
-              color: "var(--accent)",
-              border: "2px solid var(--accent)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Launch Demo
-          </button>
         </div>
       </section>
 
@@ -155,19 +140,40 @@ export default function LandingPage() {
           {[
             {
               name: "Starter",
-              price: "$99",
-              features: ["25 games", "1 device", "Basic support", "Dark mode UI"],
+              price: "$149",
+              features: [
+                "50 games",
+                "1 house device",
+                "Voice AI game teaching",
+                "Score tracking",
+                "Basic support",
+              ],
             },
             {
               name: "Standard",
-              price: "$199",
-              features: ["50 games", "Up to 4 devices", "Custom branding", "Game sales prompts", "Analytics dashboard"],
+              price: "$299",
+              features: [
+                "200 games",
+                "Up to 4 devices",
+                "Custom branding",
+                "Staff picks & Game of the Day",
+                "F&B menu integration",
+                "Game sales prompts",
+              ],
               highlight: true,
             },
             {
               name: "Premium",
-              price: "$349",
-              features: ["Unlimited games", "Unlimited devices", "Priority support", "Advanced analytics", "API access"],
+              price: "$499",
+              features: [
+                "200+ games (growing monthly)",
+                "Unlimited devices + QR scan access",
+                "Lobby sync \u2014 customers play together on their phones",
+                "Advanced analytics dashboard",
+                "Priority support",
+                "API access",
+                "Custom score tracking",
+              ],
             },
           ].map((plan) => (
             <div
@@ -203,8 +209,11 @@ export default function LandingPage() {
               <div style={{ fontSize: "2.5rem", fontWeight: 800, color: "var(--accent)", marginBottom: "4px" }}>
                 {plan.price}
               </div>
-              <p style={{ color: "var(--text-secondary)", marginBottom: "20px", fontSize: "0.9rem" }}>per month</p>
-              <ul style={{ listStyle: "none", padding: 0, textAlign: "left" }}>
+              <p style={{ color: "var(--text-secondary)", marginBottom: "4px", fontSize: "0.9rem" }}>per month</p>
+              <p style={{ color: "var(--text-secondary)", marginBottom: "20px", fontSize: "0.78rem", opacity: 0.7 }}>
+                per location &bull; month-to-month &bull; cancel anytime
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, textAlign: "left", marginBottom: "24px" }}>
                 {plan.features.map((f) => (
                   <li
                     key={f}
@@ -215,12 +224,50 @@ export default function LandingPage() {
                       fontSize: "0.95rem",
                     }}
                   >
-                    ✓ {f}
+                    &#10003; {f}
                   </li>
                 ))}
               </ul>
+              <a
+                href="mailto:tim.minh.pham@gmail.com?subject=GameMaster AI Demo Request"
+                style={{
+                  display: "block",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  background: plan.highlight ? "var(--accent)" : "var(--bg-primary)",
+                  color: plan.highlight ? "#fff" : "var(--text-primary)",
+                  border: plan.highlight ? "none" : "1px solid var(--border)",
+                  fontWeight: 600,
+                  fontSize: "0.95rem",
+                  textDecoration: "none",
+                  textAlign: "center",
+                  cursor: "pointer",
+                }}
+              >
+                Book a Demo
+              </a>
             </div>
           ))}
+        </div>
+
+        {/* Founding Partner banner */}
+        <div
+          style={{
+            marginTop: "40px",
+            padding: "24px 32px",
+            borderRadius: "16px",
+            background: "linear-gradient(135deg, rgba(233,69,96,0.12) 0%, rgba(74,144,217,0.10) 100%)",
+            border: "1px solid rgba(233,69,96,0.3)",
+            maxWidth: "700px",
+            margin: "40px auto 0",
+          }}
+        >
+          <p style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "6px" }}>
+            {"\uD83D\uDE80"} Founding Partner Program
+          </p>
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.6, fontSize: "0.95rem", margin: 0 }}>
+            First 10 venues get a free 30-day pilot. <a href="mailto:tim.minh.pham@gmail.com?subject=Founding Partner — GameMaster AI Demo" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "underline" }}>Book a demo</a> to claim your spot.
+          </p>
         </div>
       </section>
 
