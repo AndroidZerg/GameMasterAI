@@ -8,7 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_current_venue, get_optional_venue
 from app.models.house_rules import set_house_rules, get_all_house_rules
-from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues, get_staff_picks, set_staff_picks
+from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues, get_staff_picks
 from app.models.game import search_games
 
 router = APIRouter(prefix="/api", tags=["venue"])
@@ -91,19 +91,6 @@ async def list_venue_house_rules(
 ):
     """List all house rules for this venue."""
     return get_all_house_rules(venue["venue_id"])
-
-
-@router.post("/admin/staff-picks")
-async def update_staff_picks(
-    req: dict,
-    venue: dict = Depends(get_current_venue),
-):
-    """Update staff picks for venue. Body: {game_ids: ["catan", "wingspan", ...]}"""
-    game_ids = req.get("game_ids", [])
-    if not isinstance(game_ids, list):
-        raise HTTPException(status_code=400, detail="game_ids must be a list")
-    set_staff_picks(venue["venue_id"], game_ids)
-    return {"status": "ok", "staff_picks": game_ids}
 
 
 @router.get("/venues")

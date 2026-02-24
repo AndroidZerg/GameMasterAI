@@ -116,12 +116,16 @@ export async function fetchVenueMenu() {
 }
 
 export async function fetchFeaturedGame() {
-  const res = await fetch(`${API_BASE}/api/games/featured`);
+  const res = await fetch(`${API_BASE}/api/games/featured`, {
+    headers: getAuthHeaders(),
+  });
   return handleResponse(res);
 }
 
 export async function fetchStaffPicks() {
-  const res = await fetch(`${API_BASE}/api/games/staff-picks`);
+  const res = await fetch(`${API_BASE}/api/games/staff-picks`, {
+    headers: getAuthHeaders(),
+  });
   return handleResponse(res);
 }
 
