@@ -61,3 +61,23 @@ Branch: sprint4/backend
 - GET /api/games/{game_id}/house-rules — returns venue's house rules for a game
 - GET /api/admin/house-rules — list all house rules for venue
 - House rules table auto-created on startup
+
+## Phase B9: Polish + Full Integration Test
+- 14/14 integration tests passing:
+  1. Health check
+  2. All 6 venue logins (meepleville, knight-and-day, little-shop-of-magic, shall-we-play, grouchy-johns, natural-twenty)
+  3. Games list with tags (50 games)
+  4. Menu endpoint (meepleville, 4 sections)
+  5. Catan expansions (3)
+  6. Wingspan expansions (2)
+  7. Spirit Island expansions (2)
+  8. Rating submit + aggregate (avg=4.5)
+  9. Featured game (Sushi Go Party today)
+  10. Filter by tag: cooperative (4), brain burner (10)
+  11. House rules (catan friendly robber)
+  12. Staff picks (5 custom picks)
+  13. Stats with enhanced (auth)
+  14. Existing endpoints: 156 categories, 6 venues, 10 quick games
+- Version: 0.6.0
+- All tables auto-created on startup
+- Server starts clean with all new endpoints functional
