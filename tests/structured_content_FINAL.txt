@@ -213,7 +213,7 @@ Game: scythe
 Game: seven-wonders
   [PASS] Test 1: No empty headers
   [PASS] Test 2: All player-count content has specific values
-  [PASS] Test 3: Setup tab is self-sufficient
+  [WARN] Test 3: Setup missing — Rules > special-mechanics > "--- 2 Players ---" has setup-related rule not in Setup tab
   [PASS] Test 4: No orphan headers
 
 Game: sheriff-of-nottingham
@@ -268,7 +268,7 @@ Game: terraforming-mars
 Game: the-crew
   [PASS] Test 1: No empty headers
   [PASS] Test 2: All player-count content has specific values
-  [PASS] Test 3: Setup tab is self-sufficient
+  [WARN] Test 3: Setup missing — Rules > special-mechanics > "--- 2 Players ---" has setup-related rule not in Setup tab
   [PASS] Test 4: No orphan headers
 
 Game: ticket-to-ride
@@ -304,5 +304,5 @@ Game: wingspan
 SUMMARY: 50 games scanned
   Test 1 (Empty headers):     0 failures
   Test 2 (Specificity):       0 failures
-  Test 3 (Setup sufficiency): 3 warnings
+  Test 3 (Setup sufficiency): 5 warnings
   Test 4 (Orphan headers):    0 failures
