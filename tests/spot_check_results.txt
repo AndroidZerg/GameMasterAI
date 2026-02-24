@@ -1,0 +1,101 @@
+=== SPOT-CHECK RESULTS — 10 Games ===
+Date: 2026-02-23
+Reviewer: Barbarian (Claude Opus 4.6)
+
+METHODOLOGY: Read each game JSON as a customer would. Could someone set up
+and play correctly using only this info?
+
+=== BATCH 1 (5 Games) ===
+
+1. ABOVE AND BELOW
+   Setup: Good (complete component list, clear 10-step board layout)
+   Rules: Strong (turn structure, 6 actions well-defined, Explore encounters clear)
+   Strategy: Adequate (practical tips but no midgame/endgame guidance)
+   Accuracy: Good (all numbers verified correct)
+   Verdict: YES, WITH MINOR CAVEATS
+   Notes: "setup icon 1A" reference is opaque without physical rulebook
+
+2. SPLENDOR
+   Setup: Excellent (precise component list, player-count matrix)
+   Rules: Very Strong (all 4 actions, noble visits, edge cases)
+   Strategy: Solid (covers reserves, token discipline, common mistakes)
+   Accuracy: Excellent (all numbers verified: 40 tokens, 90 cards, 10 nobles)
+   Verdict: YES — strongest file in the batch
+
+3. CATAN
+   Setup: Good (FIXED: added terrain distribution + resource mapping)
+   Rules: Strong (turn structure, trading, robber sequence, distance rule)
+   Strategy: Good (probability-based advice, actionable tips)
+   Accuracy: Excellent (all 20+ numbers verified correct)
+   Verdict: YES (after terrain fix applied)
+
+4. SPIRIT ISLAND
+   Setup: Thorough (detailed component list, Fear Pool/Blight scaling)
+   Rules: FIXED — added complete Invader Phase mechanics
+   Strategy: Strong (player-count-specific advice, 7 common mistakes)
+   Accuracy: Good (all Fear/Blight/Invader Deck numbers verified)
+   Verdict: YES (after Invader Phase fix applied)
+   Fixes applied: Ravage/Build/Explore mechanics, piece health values,
+   Blight cascade, Fear generation, Terror Level victory conditions
+
+5. COUP
+   Setup: Complete (simple 5-step setup, no scaling needed)
+   Rules: Excellent (challenge resolution, influence system, all actions)
+   Strategy: Good (credibility establishment, threshold tracking)
+   Accuracy: Excellent (all numbers verified: 15 cards, 50 coins, costs)
+   Verdict: YES
+
+=== BATCH 2 (5 Games) ===
+
+6. BRASS: BIRMINGHAM
+   Setup: Good (component list, player-count filtering correct)
+   Rules: Rules are structural but lack concrete action costs/constraints
+   Strategy: Strong (practical opening priorities, player-count emphasis)
+   Accuracy: Good (starting cash 17, rounds 10/9/8 correct)
+   Verdict: WITH CAVEATS — rules need more concrete action definitions
+   Note: This is a heavy game; users likely have the rulebook nearby.
+         The reference serves as a reminder, not a standalone guide.
+
+7. WINGSPAN
+   Setup: Good (FIXED: removed Splendor-contaminated text from player-setup)
+   Rules: Strong (4 actions well-explained, birdfeeder, egg capacity)
+   Strategy: Good ("stabilize one engine first" is practical advice)
+   Accuracy: Good (action cube schedule 8/7/6/5, 170 cards, 75 eggs correct)
+   Verdict: YES (after contamination fix applied)
+
+8. PATCHWORK
+   Setup: Excellent (every setup step present, quick-check reminder)
+   Rules: Excellent (both actions step-by-step, time-board triggers)
+   Strategy: Excellent (3 key decisions match actual gameplay)
+   Accuracy: Good (33 patches, 5 leather, 7x7 special tile correct)
+   Verdict: YES — ready for users
+
+9. 7 WONDERS
+   Setup: Strong (card filtering, guild scaling, wonder assignment)
+   Rules: Good (FIXED: added science scoring formula)
+   Strategy: Very good (player-count-specific advice for 3-7P)
+   Accuracy: Good (49/49/50 cards, guild counts 5-9, military tokens correct)
+   Verdict: YES (after science scoring fix applied)
+
+10. KING OF TOKYO
+    Setup: Good (board, card market, dice, starting values)
+    Rules: Strong (dice resolution, yield timing, market sweep)
+    Strategy: Good (overstaying Tokyo, heart misread are real pitfalls)
+    Accuracy: Good (all numbers verified correct)
+    Verdict: YES, WITH MINOR CAVEAT
+    Note: Complexity listed as "midweight" — game is closer to gateway weight.
+          Status token list may include expansion components in some editions.
+
+=== SUMMARY ===
+
+Games ready to ship (YES):           7/10
+Games ready with minor caveats:      2/10
+Games needing more work:             1/10 (Brass: Birmingham rules depth)
+
+Fixes applied during spot-check:
+- Catan: Added terrain distribution + resource mapping
+- Spirit Island: Added complete Invader Phase mechanics
+- Wingspan: Removed Splendor-contaminated text
+- 7 Wonders: Added science scoring formula
+
+=== END OF SPOT-CHECK ===
