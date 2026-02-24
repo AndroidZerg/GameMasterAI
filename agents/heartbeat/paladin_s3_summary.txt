@@ -1,0 +1,54 @@
+GMAI S3 Re-validation Summary
+Total files: 50
+Passed: 42
+Failed: 8
+Warnings: 0
+
+Test1 failures: 0
+Test2 failures: 4
+Test3 failures: 4
+Test4 failures: 2
+
+Fix instructions by failed game:
+- agricola (test3, test4)
+  - setup/board-layout --- 1 Player ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/board-layout --- 2 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - rules/special-mechanics --- 1–5 Players ---: reorder player-count blocks in ascending order for readability.
+  - rules/special-mechanics --- 3–5 Players ---: reorder player-count blocks in ascending order for readability.
+  - rules/special-mechanics --- 4–5 Players ---: reorder player-count blocks in ascending order for readability.
+- betrayal-at-house-on-the-hill (test2)
+  - setup/starting-conditions --- 3–6 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+- brass-birmingham (test3)
+  - setup/starting-conditions --- 2 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/starting-conditions --- 3 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+- catan (test2)
+  - setup/player-setup #### 3 Players: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+- mysterium (test2)
+  - setup/components --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - setup/board-layout --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - setup/starting-conditions --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - setup/starting-conditions --- 4-7 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/turn-structure --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/turn-structure --- 4-7 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/actions --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/special-mechanics --- 2-3 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+- scythe (test3)
+  - setup/starting-conditions --- 1 Player ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/starting-conditions --- 2 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/starting-conditions --- 3 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/starting-conditions --- 4 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/starting-conditions --- 5 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+- seven-wonders (test3)
+  - setup/board-layout --- 3 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/board-layout --- 4 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/board-layout --- 5 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+  - setup/board-layout --- 6 Players ---: expand with clear actionable setup steps (what to place, counts, and order).
+- sushi-go-party (test4, test2)
+  - setup/starting-conditions #### 2-3 Players: reorder player-count blocks in ascending order for readability.
+  - setup/starting-conditions #### 4-5 Players: reorder player-count blocks in ascending order for readability.
+  - rules/actions #### 2 Players: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/actions --- 3-6 Players ---: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/actions #### 7-8 Players: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/endgame #### 2 Players: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.
+  - rules/endgame #### 2 Players: reorder player-count blocks in ascending order for readability.
+  - rules/endgame #### 3-8 Players: include at least one numeric detail (counts, cards, tiles, steps, or limits) specific to this game.

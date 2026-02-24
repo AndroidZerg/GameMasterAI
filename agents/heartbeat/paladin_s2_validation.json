@@ -1,0 +1,411 @@
+{
+  "total_files": 50,
+  "passed": 42,
+  "failed": 8,
+  "warnings": 17,
+  "check25_failures": 0,
+  "check26_failures": 3,
+  "check27_failures": 6,
+  "per_game_results": [
+    {
+      "game_id": "above-and-below",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "agricola",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "azul",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "betrayal-at-house-on-the-hill",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "brass-birmingham",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "carcassonne",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "castles-of-burgundy",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "catan",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "century-spice-road",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "clank",
+      "status": "fail",
+      "failed_checks": [
+        27
+      ],
+      "notes": [
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])"
+      ]
+    },
+    {
+      "game_id": "codenames",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "concordia",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "cosmic-encounter",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "coup",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "dead-of-winter",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "decrypto",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "dixit",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "dominion",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "everdell",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "great-western-trail",
+      "status": "fail",
+      "failed_checks": [
+        27
+      ],
+      "notes": [
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/turn-structure: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/turn-structure: duplicate player-count headers ([2, 3, 4, 2, 3, 4])"
+      ]
+    },
+    {
+      "game_id": "just-one",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "king-of-tokyo",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "kingdomino",
+      "status": "fail",
+      "failed_checks": [
+        26,
+        27
+      ],
+      "notes": [
+        "Check 26 failed: player-count section missing specific numeric values.",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '2 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '4 Players' block has no numeric values",
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/starting-conditions: player-count headers out of ascending order ([2, 3, 4, 2])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/starting-conditions: duplicate player-count headers ([2, 3, 4, 2])"
+      ]
+    },
+    {
+      "game_id": "lords-of-waterdeep",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "love-letter",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "mysterium",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "one-night-ultimate-werewolf",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "pandemic",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "patchwork",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "photosynthesis",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "power-grid",
+      "status": "fail",
+      "failed_checks": [
+        27
+      ],
+      "notes": [
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 5, 6, 2, 3, 4, 5, 6])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 5, 6, 2, 3, 4, 5, 6])"
+      ]
+    },
+    {
+      "game_id": "quacks-of-quedlinburg",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "root",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "sagrada",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "scythe",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "seven-wonders",
+      "status": "fail",
+      "failed_checks": [
+        27
+      ],
+      "notes": [
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([3, 4, 5, 6, 7, 2])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/special-mechanics: player-count headers out of ascending order ([3, 4, 5, 6, 7, 2])"
+      ]
+    },
+    {
+      "game_id": "sheriff-of-nottingham",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "skull",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "spirit-island",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "splendor",
+      "status": "fail",
+      "failed_checks": [
+        27
+      ],
+      "notes": [
+        "Check 27 failed: player-count sections reduce sequential readability.",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])",
+        "Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])"
+      ]
+    },
+    {
+      "game_id": "sushi-go-party",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "takenoko",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "telestrations",
+      "status": "fail",
+      "failed_checks": [
+        26
+      ],
+      "notes": [
+        "Check 26 failed: player-count section missing specific numeric values.",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '4 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '5 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '6 Players' block has no numeric values"
+      ]
+    },
+    {
+      "game_id": "terraforming-mars",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "the-crew",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "ticket-to-ride",
+      "status": "fail",
+      "failed_checks": [
+        26
+      ],
+      "notes": [
+        "Check 26 failed: player-count section missing specific numeric values.",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '2 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '3 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '4 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '2 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '3 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '4 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '5 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '2 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '3 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '4 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '2 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '3 Players' block has no numeric values",
+        "Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '4 Players' block has no numeric values"
+      ]
+    },
+    {
+      "game_id": "villainous",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "viticulture",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": []
+    },
+    {
+      "game_id": "wavelength",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    },
+    {
+      "game_id": "wingspan",
+      "status": "pass",
+      "failed_checks": [],
+      "notes": [
+        "Warning: No player-count headers found (--- X Players ---); checks 25/26/27 not triggered."
+      ]
+    }
+  ]
+}

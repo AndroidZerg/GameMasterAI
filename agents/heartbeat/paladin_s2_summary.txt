@@ -1,0 +1,69 @@
+Paladin S2 Validation Summary
+Total files checked: 50
+Passed: 42
+Failed: 8
+Warnings: 17
+Check #25 failures (empty player-count header content): 0
+Check #26 failures (missing specific numbers in player-count content): 3
+Check #27 failures (sequential readability/order issues): 6
+
+Failed games and actionable fixes:
+- clank: failed checks [27]
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])
+- great-western-trail: failed checks [27]
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/turn-structure: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/turn-structure: duplicate player-count headers ([2, 3, 4, 2, 3, 4])
+- kingdomino: failed checks [26, 27]
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '2 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '4 Players' block has no numeric values
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/starting-conditions: player-count headers out of ascending order ([2, 3, 4, 2])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/starting-conditions: duplicate player-count headers ([2, 3, 4, 2])
+- power-grid: failed checks [27]
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 5, 6, 2, 3, 4, 5, 6])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 5, 6, 2, 3, 4, 5, 6])
+- seven-wonders: failed checks [27]
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([3, 4, 5, 6, 7, 2])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: rules/special-mechanics: player-count headers out of ascending order ([3, 4, 5, 6, 7, 2])
+- splendor: failed checks [27]
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: player-count headers out of ascending order ([2, 3, 4, 2, 3, 4])
+  Fix: Reorder/group player-count headers in increasing order without duplicates. Issue: setup/board-layout: duplicate player-count headers ([2, 3, 4, 2, 3, 4])
+- telestrations: failed checks [26]
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '4 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '5 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/turn-structure: '6 Players' block has no numeric values
+- ticket-to-ride: failed checks [26]
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '2 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '3 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/actions: '4 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '2 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '3 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '4 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: rules/special-mechanics: '5 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '2 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '3 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/opening-priorities: '4 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '2 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '3 Players' block has no numeric values
+  Fix: Include exact counts (components, rounds, limits, etc.) with digits. Location: strategy/common-mistakes: '4 Players' block has no numeric values
+
+Warnings (no --- X Players --- headers found):
+- betrayal-at-house-on-the-hill
+- carcassonne
+- catan
+- codenames
+- coup
+- king-of-tokyo
+- mysterium
+- one-night-ultimate-werewolf
+- patchwork
+- quacks-of-quedlinburg
+- root
+- sheriff-of-nottingham
+- takenoko
+- terraforming-mars
+- the-crew
+- wavelength
+- wingspan
