@@ -11,21 +11,24 @@ const COMPLEXITY_COLORS = {
 
 function SkeletonCard({ small }) {
   return (
-    <div
-      style={{
-        borderRadius: "12px",
-        height: small ? "120px" : "200px",
+    <div style={{ borderRadius: "12px", border: "2px solid var(--border)", overflow: "hidden" }}>
+      <div style={{
+        height: small ? "100px" : "160px",
         background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)",
         backgroundSize: "200% 100%",
         animation: "shimmer 1.5s infinite",
-        border: "2px solid var(--border)",
-      }}
-    />
+      }} />
+      <div style={{ padding: small ? "6px 10px" : "10px 14px", background: "var(--bg-secondary)" }}>
+        <div style={{ height: "1rem", width: "70%", borderRadius: "4px", background: "var(--bg-card)" }} />
+        {!small && <div style={{ height: "0.75rem", width: "50%", borderRadius: "4px", background: "var(--bg-card)", marginTop: "6px" }} />}
+      </div>
+    </div>
   );
 }
 
 function GameCard({ game, onClick, small }) {
   const [imgError, setImgError] = useState(false);
+  const [imgLoading, setImgLoading] = useState(true);
   const imgUrl = `${API_BASE}/api/images/${game.game_id}.jpg`;
   const fallbackColor = COMPLEXITY_COLORS[game.complexity] || "#666";
 
@@ -42,45 +45,57 @@ function GameCard({ game, onClick, small }) {
         border: "2px solid var(--border)",
         transition: "border-color 0.2s, transform 0.15s",
         overflow: "hidden",
-        position: "relative",
-        height: small ? "120px" : "200px",
-        background: imgError ? fallbackColor : "var(--bg-primary)",
         animation: "fadeIn 0.3s ease-out",
+        display: "flex",
+        flexDirection: "column",
       }}
       onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "translateY(0)"; }}
     >
-      {!imgError && (
-        <img
-          src={imgUrl}
-          alt=""
-          onError={() => setImgError(true)}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-        />
-      )}
-
-      {/* Fallback: show title centered when no image */}
-      {imgError && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "16px" }}>
-          <span style={{ fontSize: small ? "1rem" : "1.3rem", fontWeight: 700, color: "#fff", textAlign: "center", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
-            {game.title}
-          </span>
-        </div>
-      )}
-
-      {/* Gradient overlay */}
+      {/* Image area — no text overlay */}
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: small ? "8px 12px" : "14px 16px",
-          background: "linear-gradient(transparent, rgba(0,0,0,0.85))",
-          paddingTop: small ? "30px" : "50px",
+          height: small ? "100px" : "160px",
+          background: imgError ? fallbackColor : "var(--bg-primary)",
+          position: "relative",
+          flexShrink: 0,
         }}
       >
-        <h3 style={{ margin: 0, fontSize: small ? "0.9rem" : "1.1rem", color: "#fff", fontWeight: 700 }}>
+        {!imgError && (
+          <>
+            {imgLoading && (
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "linear-gradient(90deg, var(--bg-primary) 25%, var(--bg-card) 50%, var(--bg-primary) 75%)",
+                backgroundSize: "200% 100%",
+                animation: "shimmer 1.5s infinite",
+              }} />
+            )}
+            <img
+              src={imgUrl}
+              alt=""
+              onError={() => { setImgError(true); setImgLoading(false); }}
+              onLoad={() => setImgLoading(false)}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </>
+        )}
+      </div>
+
+      {/* Text area below card */}
+      <div style={{
+        padding: small ? "6px 10px" : "10px 14px",
+        background: "var(--bg-secondary)",
+      }}>
+        <h3 style={{
+          margin: 0,
+          fontSize: small ? "0.85rem" : "1rem",
+          color: "var(--text-primary)",
+          fontWeight: 700,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}>
           {game.title}
         </h3>
         {!small && (
@@ -98,7 +113,7 @@ function GameCard({ game, onClick, small }) {
             >
               {game.complexity}
             </span>
-            <span style={{ color: "#ccc", fontSize: "0.85rem" }}>
+            <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>
               {game.player_count?.min}-{game.player_count?.max} players
             </span>
           </div>
