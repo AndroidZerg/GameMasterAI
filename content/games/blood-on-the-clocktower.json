@@ -1,0 +1,108 @@
+{
+  "game_id": "blood-on-the-clocktower",
+  "title": "Blood on the Clocktower",
+  "aliases": [
+    "BotC",
+    "Clocktower"
+  ],
+  "publisher": "The Pandemonium Institute",
+  "player_count": {
+    "min": 5,
+    "max": 20,
+    "recommended": 10,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 90
+  },
+  "complexity": "midweight",
+  "categories": [
+    "social-deduction",
+    "hidden-role",
+    "party"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Grimoire** — The Storyteller's book/screen that holds all tokens and tracks game state secretly.\n- **Character tokens** — Circular tokens for each character, placed in the Grimoire by the Storyteller.\n- **Reminder tokens** — Small tokens placed on character tokens to track statuses (poisoned, drunk, dead, protected, etc.).\n- **Life/death tokens** — Shroud tokens placed over dead characters in the Grimoire.\n- **Vote tokens** — Players may use hands or tokens to indicate votes during nominations.\n- **Town square seating** — Players sit in a circle (no physical board).\n- **Character sheet** — Public reference showing all characters in the current script and their abilities.\n- **Night order sheet** — Storyteller reference for the sequence of night abilities.\n\n#### Scripts (Character Sets)\n- **Trouble Brewing** — Beginner script with straightforward abilities. Recommended for learning.\n- **Bad Moon Rising** — Intermediate script focused on death and protection mechanics.\n- **Sects & Violets** — Advanced script with madness, poisoning, and information manipulation.\n- **Custom scripts** — Players can create their own character combinations using the script tool.\n\n#### Player-Count Scaling\n- **5-6 players** — Fewer characters in play; shorter games with less deduction complexity.\n- **7-12 players** — Standard experience with good balance of roles and information.\n- **13-20 players** — Extended games with more characters, more noise, and deeper deduction."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Physical Setup\n1. **Arrange seating** — All players sit in a circle or around a table. Seating order matters for some abilities.\n2. **Storyteller position** — The Storyteller sits apart from the circle with the Grimoire hidden.\n3. **Public character sheet** — Display the character sheet for the chosen script so all players can reference abilities.\n4. **No central board** — The game has no board; the town square is the circle of players.\n\n#### Grimoire Setup\n1. **Select script** — Choose Trouble Brewing, Bad Moon Rising, Sects & Violets, or a custom script.\n2. **Choose characters** — The Storyteller selects characters from the script appropriate for the player count.\n3. **Balance teams** — Follow the script's recommended ratio of Townsfolk, Outsiders, Minions, and Demon based on player count.\n4. **Place tokens** — Arrange character tokens in the Grimoire in seating order.\n5. **Prepare bags/hats** — Place character tokens in a bag for random distribution (Storyteller may arrange instead).\n\n#### Team Composition (Trouble Brewing example)\n- **5 players** — 3 Townsfolk, 0 Outsiders, 1 Minion, 1 Demon.\n- **7 players** — 5 Townsfolk, 0 Outsiders, 1 Minion, 1 Demon.\n- **10 players** — 7 Townsfolk, 0 Outsiders, 2 Minions, 1 Demon.\n- **15 players** — 9 Townsfolk, 2 Outsiders, 3 Minions, 1 Demon."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Distribution\n1. **Draw tokens** — Each player draws a character token from the bag (or the Storyteller assigns).\n2. **View secretly** — Look at your character and note your team alignment (Good or Evil) and ability.\n3. **Return token** — Hand your token back to the Storyteller for Grimoire placement.\n\n#### Storyteller Setup\n- **Arrange Grimoire** — Place all character tokens in the Grimoire matching seating positions.\n- **Add reminder tokens** — Place relevant reminder tokens for night-ability tracking.\n- **Prepare night sequence** — Review the night order for the chosen script.\n\n#### First Night\n- **Demon and Minion recognition** — During the first night, Evil players learn each other's identities (Demon sees Minions, Minions see Demon).\n- **Demon bluffs** — The Storyteller shows the Demon 3 out-of-play Good characters they can claim to be.\n- **Information roles activate** — Characters with first-night abilities (like the Washerwoman, Librarian, Investigator in Trouble Brewing) receive their information.\n\n#### Key Rule\n- **Storyteller flexibility** — The Storyteller is empowered to bend ability outcomes to maintain game balance and fun."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Game Start Sequence\n1. **First night phase** — Close eyes, Storyteller wakes players in night order for abilities and information.\n2. **First day phase** — All players open eyes. Discussion begins.\n3. **No execution on Day 1** — Some groups skip nominations on the first day; this is optional.\n\n#### Opening Day\n- **Free discussion** — All players may talk, accuse, share information (true or false), and form alliances.\n- **Private conversations** — Players may step aside for whispered 1-on-1 conversations at any time.\n- **Public claims** — Players commonly claim their character and share information received.\n\n#### Seating Importance\n- **Neighbor effects** — Some abilities affect adjacent players (e.g., the Chef counts Evil pairs sitting next to each other).\n- **No seat changes** — Once seated, players remain in their positions for the entire game."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Day/Night Cycle\nThe game alternates between **Day** and **Night** phases:\n\n#### Day Phase\n1. **Discussion** — Open, free-form conversation. Players share claims, information, suspicions, and defenses.\n2. **Private conversations** — Any two players may have a whispered conversation (other players see who is talking).\n3. **Nominations** — Any living player may nominate another player for execution.\n4. **Speeches** — The nominated player may defend themselves.\n5. **Voting** — All players (including dead players with their one remaining vote) vote publicly by raising hands.\n6. **Execution** — If the vote reaches majority (more than 50% of living players), the player is executed. Only one execution per day.\n7. **Transition to Night** — After discussion is exhausted and nominations conclude, the Storyteller calls for night.\n\n#### Night Phase\n1. **All close eyes** — Storyteller instructs everyone to sleep.\n2. **Night abilities activate** — Storyteller wakes characters one at a time in night order.\n3. **Demon kills** — The Demon chooses a player to kill (unless blocked by a protective ability).\n4. **Information gathering** — Information roles receive new data from the Storyteller.\n5. **Dawn** — Storyteller announces who died in the night (if anyone). Day begins."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Player Actions During Day\n- **Discuss freely** — Share true or false information; there are no rules about honesty.\n- **Nominate** — Propose that a specific player be executed. You can nominate once per day.\n- **Vote** — Vote for or against execution when a nomination is called. Living players can vote freely; dead players have exactly one vote for the rest of the game.\n- **Private conversation** — Pull another player aside for a 1-on-1 whispered discussion.\n\n#### Storyteller Actions\n- **Wake players at night** — Tap shoulders or use a system to wake individual players for their abilities.\n- **Provide information** — Give information to roles that receive it (may be true or false if player is poisoned/drunk).\n- **Announce deaths** — Declare who died overnight at the start of each day.\n- **Manage nominations** — Facilitate the nomination and voting process.\n- **Balance the game** — Use Storyteller discretion to adjust ability outcomes for game health.\n\n#### Dead Player Rules\n- **Still participate** — Dead players continue to talk and discuss during the day.\n- **One final vote** — Each dead player gets exactly one more vote to use on any future nomination.\n- **No night ability** — Dead players' abilities cease to function (with rare exceptions).\n- **Cannot nominate** — Dead players cannot nominate others for execution."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Storyteller Discretion\n- **Flexible outcomes** — The Storyteller can modify ability results to maintain balance. For example, giving the Empath a different number or having a protection ability succeed or fail.\n- **Game health** — The Storyteller's goal is an enjoyable game, not strict mechanical adherence.\n- **Fairness** — Discretion should be used to prevent blowout wins, not to favor a specific team.\n\n#### Poisoning and Drunkenness\n- **Poisoned** — A poisoned player's ability malfunctions; they may receive false information or their ability does nothing.\n- **Drunk** — Functions identically to poisoned; the player does not know they are drunk.\n- **No notification** — Players are never told they are poisoned or drunk.\n\n#### Character Types (Trouble Brewing)\n- **Townsfolk** — Good team; each has a unique helpful ability (information, protection, or detection).\n- **Outsiders** — Good team; abilities that slightly hinder the Good team.\n- **Minions** — Evil team; abilities that disrupt information or protect the Demon.\n- **Demon** — Evil team; kills players at night. If the Demon is executed, Good wins.\n\n#### Nomination and Execution Rules\n- **One execution per day** — Even if multiple nominations occur, only one player can be executed.\n- **Majority required** — More than 50% of living players must vote for execution to proceed.\n- **Highest votes** — If multiple nominations reach majority, the one with the most votes is executed.\n- **Ties** — No execution occurs on a tied vote.\n\n#### Dead Player Votes\n- **Powerful resource** — A dead player's single vote can swing a critical nomination.\n- **Strategic timing** — Dead players should save their vote for a nomination they feel strongly about."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Good Team Victory\n- **Execute the Demon** — If the Demon is executed during the day, the Good team wins immediately.\n- **Some character exceptions** — Certain Demons or abilities may modify this condition.\n\n#### Evil Team Victory\n- **Two players remaining** — If only 2 living players remain (and neither has been executed that day), the Evil team wins.\n- **The Demon survives** — Evil wins because the village can no longer achieve a majority vote.\n\n#### No Point Scoring\n- **Team win/loss** — The game ends in a victory for either Good or Evil.\n- **No VP** — There are no victory points, scoring categories, or point totals.\n\n#### Game End Sequence\n1. **Announce winner** — The Storyteller declares which team won.\n2. **Reveal all roles** — All players reveal their character tokens.\n3. **Debrief** — Discuss key moments, deductions, and deceptions."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Good Team Priorities\n- **Share information early** — Publicly claim your character and share any information received on Night 1.\n- **Cross-reference claims** — Compare information from multiple players to identify contradictions.\n- **Identify the Demon type** — Understanding which Demon is in play narrows Evil team behavior patterns.\n- **Protect key roles** — If a protective character is suspected, Evil will try to kill them; be cautious about revealing powerful roles.\n\n#### Evil Team Priorities\n- **Claim a Good role immediately** — The Demon has 3 bluff characters; choose one and commit.\n- **Coordinate with Minions** — If possible, ensure Evil claims do not contradict each other.\n- **Sow doubt** — Introduce plausible alternative theories that cast suspicion on Good players.\n- **Demon kill strategy** — Target players whose information is most dangerous to Evil.\n\n#### General Priorities\n- **Read the script** — Understand all characters in play and their interactions.\n- **Use private conversations** — 1-on-1 talks allow information sharing with less public exposure.\n- **Watch voting patterns** — How players vote reveals allegiances over multiple days."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Mistake 1 — Trusting Information Absolutely\n- **Why it fails** — Poisoned or drunk players receive false information without knowing it.\n- **Fix** — Treat all information as potentially unreliable and seek corroboration.\n\n#### Mistake 2 — Executing Too Aggressively\n- **Why it fails** — Killing Good players depletes the team and brings Evil closer to its 2-alive win condition.\n- **Fix** — Build a strong case before voting to execute; consider the risk of being wrong.\n\n#### Mistake 3 — Dead Players Disengaging\n- **Why it fails** — Dead players still participate in discussion and have one powerful vote remaining.\n- **Fix** — Stay engaged; your vote and voice are still valuable.\n\n#### Mistake 4 — Evil Players Staying Silent\n- **Why it fails** — Silence is suspicious; active players are less likely to be nominated.\n- **Fix** — Evil players should be vocal, helpful, and integrated into Good team discussions.\n\n#### Mistake 5 — Ignoring Outsider Roles\n- **Why it fails** — Outsiders are Good but can provide misleading information; not accounting for them leads to false accusations.\n- **Fix** — Consider whether an Outsider in play explains contradictory information.\n\n#### Mistake 6 — Revealing the Storyteller's Flexibility\n- **Why it fails** — Meta-gaming about what the Storyteller would or would not do breaks immersion.\n- **Fix** — Focus on in-game information and social reads rather than Storyteller behavior."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1 — When to Reveal Your Role\n- **Early reveal** — Establishes trust and allows cross-referencing but makes you a target.\n- **Late reveal** — Protects you from targeted kills but may make you look suspicious.\n\n#### Decision 2 — Nominate or Wait\n- **Nominate** — Forces discussion and information to surface; risks killing an innocent.\n- **Wait** — Gather more information before committing; risks letting Evil survive another night.\n\n#### Decision 3 — Use Dead Vote Now or Later\n- **Use now** — Influence a critical execution when you have a strong read.\n- **Save it** — Preserve your vote for a future nomination with higher-confidence information.\n\n#### Decision 4 — Trust or Doubt Claimed Information\n- **Trust** — Build a logical framework from claimed data; risk being misled by Evil or poisoned players.\n- **Doubt** — Question everything; risk paralysis and wasted days without progress.\n\n#### Decision 5 — Evil: Kill Dangerous Roles or Random Targets\n- **Targeted kills** — Remove players who threaten to expose Evil; obvious pattern may emerge.\n- **Random kills** — Harder to read but less efficient at removing threats."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

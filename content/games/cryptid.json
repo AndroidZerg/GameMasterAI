@@ -1,0 +1,105 @@
+{
+  "game_id": "cryptid",
+  "title": "Cryptid",
+  "aliases": [],
+  "publisher": "Osprey Games",
+  "player_count": {
+    "min": 3,
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 50
+  },
+  "complexity": "midweight",
+  "categories": [
+    "deduction",
+    "logic-puzzle",
+    "modular-board"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Core Components\n- **Hex map tiles** — 6 double-sided modular hex tiles that assemble into the game board.\n- **Structures** — Wooden standing stones (2 colors) and abandoned shacks (2 colors) placed on the map.\n- **Player pieces per color** — 5 sets of cubes (negative markers) and discs (positive markers) in distinct player colors.\n- **Clue books** — 1 clue booklet containing numbered clue pages; each player references their assigned clue number.\n- **Setup cards** — Numbered cards that define map tile arrangement, structure placement, and clue assignments for each game.\n- **Rulebook** — 1 rulebook with standard and advanced game modes.\n\n#### Player-Count Notes\n--- 3 Players ---\n- **Clues** — 3 clues in play; solution space is larger, making deduction more challenging.\n\n--- 4 Players ---\n- **Clues** — 4 clues in play; balanced difficulty.\n\n--- 5 Players ---\n- **Clues** — 5 clues in play; solution narrows faster but more information to track."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Map Assembly\n1. **Draw setup card** — Select or randomly draw a numbered setup card.\n2. **Arrange hex tiles** — Place the 6 hex tiles in the configuration shown on the setup card (specific tiles, specific sides, specific positions).\n3. **Place structures** — Position standing stones and abandoned shacks on the hexes indicated by the setup card.\n4. **Verify terrain** — The assembled map contains 5 terrain types: desert, forest, mountain, swamp, and water.\n\n#### Map Features\n- **Terrain types** — Desert (tan), forest (green), mountain (grey), swamp (dark green), water (blue).\n- **Structures** — Standing stones (black or white) and abandoned shacks (black or white) serve as landmarks.\n- **Animal territories** — Bear and cougar territory borders are printed on the hex tiles.\n- **Hex adjacency** — Each hex has up to 6 neighbors; adjacency and distance matter for many clues."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Per-Player Setup\n- **Choose color** — Each player takes a set of cubes and discs in their color.\n- **Receive clue** — The setup card assigns each player a clue number; look up your clue in the clue book.\n- **Read clue secretly** — Your clue is private information; do not reveal it to other players.\n- **Understand your clue** — Your clue describes a condition that the Cryptid's habitat satisfies (e.g., \"within two spaces of a standing stone\" or \"on forest or desert\").\n\n#### Clue Types (Examples)\n- **Terrain clues** — \"On forest or mountain\" (the habitat is one of these terrain types).\n- **Proximity clues** — \"Within two spaces of a bear territory\" (the habitat is within 2 hexes of a bear territory border).\n- **Structure clues** — \"Within three spaces of a blue structure\" (near a specific structure color).\n- **Negation clues** — \"Not on swamp or water\" (the habitat is definitively not on these terrains).\n\n#### Key Rule\n- **Unique solution** — Exactly one hex on the map satisfies ALL players' clues simultaneously. That hex is where the Cryptid lives."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Starting the Game\n1. **Initial placement** — Starting with the first player, each player places one cube (negative marker) on any hex that does NOT match their clue.\n2. **Clockwise** — Continue initial cube placement clockwise until all players have placed one cube.\n3. **First turn** — The first player then takes the first regular turn.\n\n#### Important Starting Notes\n- **Cube = does not match** — A cube on a hex means that hex does NOT satisfy your clue. This is public information.\n- **Honest markers** — You must always place markers honestly. Cubes go on hexes that genuinely fail your clue.\n- **Deduction begins** — From the very first cube placement, all players should be analyzing what each marker reveals about others' clues."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Options\nOn your turn, you must do exactly one of two actions:\n1. **Search** — Question another player about a specific hex.\n2. **Attempt** — Declare that you have found the Cryptid's habitat.\n\n#### Search Action\n1. **Choose a hex** — Point to any hex on the map.\n2. **Choose a player** — Ask one other player: \"Could the Cryptid be here?\"\n3. **Target responds** — The questioned player checks their clue:\n   - If the hex **matches** their clue: they place a **disc** (positive marker) on that hex.\n   - If the hex **does not match** their clue: they place a **cube** (negative marker) on that hex.\n4. **Forced follow-up** — If the response is a cube (no), YOU must also place a cube on any hex that does not match your own clue. This is mandatory.\n\n#### Attempt Action\n1. **Declare** — State that you believe the Cryptid is on a specific hex.\n2. **Verification round** — Starting with the player to your left, each other player checks the hex against their clue:\n   - If it **matches**: they place a disc. Verification continues to the next player.\n   - If it **does not match**: they place a cube. Your attempt fails immediately.\n3. **Failed attempt penalty** — You must place a cube on any hex that does not match your clue.\n4. **Successful attempt** — If ALL other players place discs, you have found the Cryptid and win the game."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Search Strategy\n- **Targeted questions** — Ask about hexes where you expect a specific answer to narrow possibilities.\n- **Testing hypotheses** — If you suspect a player's clue relates to terrain, ask about hexes that isolate that variable.\n- **Information gathering** — Every marker placed (by anyone) is public information that helps all players deduce.\n\n#### Attempt Timing\n- **Confident attempts** — Only attempt when you are certain you have identified the one hex matching all clues.\n- **Risk of premature attempt** — A failed attempt forces you to reveal a cube (information about your clue) and wastes your turn.\n- **Race element** — If you wait too long, another player may solve it first.\n\n#### Marker Rules\n- **Cubes are permanent** — Once placed, cubes remain on the board for the rest of the game.\n- **Discs are permanent** — Once placed, discs remain on the board for the rest of the game.\n- **Honest play** — All markers must be placed truthfully according to your clue. Deception is not allowed.\n- **One marker per hex per player** — You cannot have both a cube and disc on the same hex."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Deduction Logic\n- **Process of elimination** — Use cubes to eliminate hexes and discs to confirm possibilities.\n- **Cross-referencing** — Combine information from multiple players' markers to narrow the solution.\n- **Clue reconstruction** — Try to deduce other players' clues by observing patterns in their markers.\n- **Single solution guarantee** — The setup card ensures exactly one hex satisfies all clues.\n\n#### Advanced Mode\n- **Inverse clues** — Advanced clue book includes negation clues (e.g., \"NOT within one space of water\").\n- **Harder deduction** — Negation clues are more difficult to deduce from marker patterns.\n- **Recommended experience** — Play standard mode first to learn the deduction flow.\n\n#### Forced Cube Placement\n- **Trigger** — Whenever a Search returns a cube (negative) or an Attempt fails.\n- **Choice** — The active player chooses which hex to place their forced cube on.\n- **Strategic opportunity** — You can choose a cube location that reveals minimal information about your clue.\n- **Mandatory** — You cannot skip the forced cube placement."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Victory Condition\n- **Successful attempt** — The first player to correctly identify the Cryptid's habitat wins.\n- **Verification** — All other players must confirm the hex matches their clue (place discs).\n- **Instant win** — The game ends immediately upon a successful attempt.\n\n#### No Point Scoring\n- **Race game** — Cryptid is a pure race to the solution; there are no victory points.\n- **No partial credit** — Only the player who correctly identifies the hex wins.\n\n#### Game End Summary\n- **Reveal clues** — After the game ends, all players may reveal their clues to verify the solution and discuss the deduction process.\n- **Setup card check** — The setup card confirms the intended solution hex."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Early Game Approach\n- **Gather before guessing** — Use the first few turns to Search and collect information rather than attempting.\n- **Ask targeted questions** — Choose hexes that test specific hypotheses about opponents' clues.\n- **Watch all markers** — Pay attention to every cube and disc placed by every player, not just answers to your questions.\n- **Initial cube analysis** — The starting cubes reveal where each player's clue does NOT apply; use this immediately.\n\n#### Information Efficiency\n- **Ask about confirmed hexes** — Asking about a hex where you already see another player's disc can reveal whether a third player also matches there.\n- **Terrain isolation** — Ask about hexes that differ from adjacent hexes by only one variable to isolate clue types.\n- **Track mentally** — Keep a mental map of which terrain types, distances, and features each player seems to match."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Mistake 1 — Attempting Too Early\n- **Why it fails** — Without enough information, attempts fail and give away your own clue via the forced cube.\n- **Fix** — Wait until you can account for all players' clues before attempting.\n\n#### Mistake 2 — Ignoring Other Players' Searches\n- **Why it fails** — Information from others' questions is equally valuable as your own.\n- **Fix** — Track all markers and responses, not just your own interactions.\n\n#### Mistake 3 — Obvious Cube Placement\n- **Why it fails** — Placing forced cubes on easily deducible hexes reveals your clue faster.\n- **Fix** — Choose forced cube locations that are ambiguous relative to your clue.\n\n#### Mistake 4 — Fixating on One Hypothesis\n- **Why it fails** — Confirmation bias causes you to ignore contradictory evidence.\n- **Fix** — Maintain multiple candidate hypotheses and test them systematically.\n\n#### Mistake 5 — Neglecting Distance-Based Clues\n- **Why it fails** — Proximity clues are harder to spot but very common.\n- **Fix** — Count hex distances from structures, territories, and terrain edges when analyzing markers."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1 — Search vs Attempt\n- **Search** — Safer; gains information without risk. Best when multiple hexes remain possible.\n- **Attempt** — Risky but wins the game. Only worthwhile when you are highly confident.\n\n#### Decision 2 — Who to Question\n- **Least-known player** — Ask players whose clues you understand least.\n- **Confirming player** — Ask players whose clue you think you know to verify your hypothesis.\n\n#### Decision 3 — Where to Place Forced Cubes\n- **Minimal information** — Choose hexes that are ambiguous relative to your clue boundaries.\n- **Misdirection** — Place cubes in locations that could suggest multiple different clue types.\n\n#### Decision 4 — When to Attempt\n- **Conservative** — Wait until you have deduced all clues and are certain of the solution.\n- **Aggressive** — Attempt when you have narrowed to 1-2 possible hexes, racing before opponents solve it."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

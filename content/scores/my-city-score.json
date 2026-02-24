@@ -1,0 +1,10 @@
+{
+  "game_id": "my-city",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "covered_rocks", "label": "Covered Rocks", "points_each": 1, "type": "count", "description": "Avoid losing points by covering rock squares (each uncovered rock is -1)"},
+    {"id": "visible_trees", "label": "Visible Trees", "points_each": 1, "type": "count", "description": "Points for each tree square left visible on your board"},
+    {"id": "buildings_complete", "label": "Buildings Complete", "points_each": 1, "type": "manual", "description": "Bonus points from completed building configurations"},
+    {"id": "legacy_bonuses", "label": "Legacy Bonuses", "points_each": 1, "type": "manual", "description": "Points from sticker-modified zones and chapter-specific objectives"}
+  ]
+}
