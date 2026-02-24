@@ -1,5 +1,6 @@
 # Deploy + Content Sprint Log
 Started: 2026-02-23T06:00:00Z
+Completed: 2026-02-23
 
 ## Phase C1: Finish Public Deployment
 Status: PARTIAL — manual DNS steps needed
@@ -22,13 +23,6 @@ Status: PARTIAL — manual DNS steps needed
    - Currently: playgmai.com resolves to registrar parking (162.255.119.30)
 4. **End-to-end verification**: Pending DNS propagation
 
-### Files in place:
-- render.yaml ✓
-- frontend/vite.config.js ✓
-- backend/ with uvicorn ✓
-
-Committed: Phase C1
-
 ---
 
 ## Phase C2: Download Game Cover Art
@@ -42,12 +36,12 @@ Status: BLOCKED — BGG API returning 401 Unauthorized
 ### Blocked:
 - BGG XML API2 returns HTTP 401 from this network
 - Script is ready; needs manual run when BGG access available
-- Or: download covers manually from BGG game pages
+- Alternative: download covers manually from BGG game pages
 
 ---
 
 ## Phase C3: Strip Empty Player-Count Headers
-Status: COMPLETE — all 50 games already clean
+Status: COMPLETE
 
 - Ran `scripts/strip_empty_headers.py` across all 50 games
 - 0 empty headers found (previous audit already cleaned them)
@@ -83,7 +77,7 @@ Status: COMPLETE — 19 games fixed, 50/50 audited
 - mysterium: Card layout table values
 - power-grid: Full "Against the Trust" 2P variant
 - root: Dominance removal + Vagabond coalition
-- seven-wonders: Full 2P expert variant
+- seven-wonders: Full 2P expert variant + science scoring formula
 - terraforming-mars: Corporate Era + Tharsis Republic solo
 - the-crew: JARVIS 2P + 5P task handover
 - viticulture: Friendly Variant
@@ -94,10 +88,10 @@ Status: COMPLETE — 19 games fixed, 50/50 audited
 ## Phase C5: Content Quality Report
 Status: COMPLETE
 
-### Summary:
+### Final Summary:
 - Total games: 50
 - Games with all required subtopics: 39/50
-- Games with player-count content: 37/50
+- Games with player-count content: 39/50
 - Total token count: 146,859
 - Average token count: 2,937
 - Average by complexity: party=1,798 / gateway=2,714 / midweight=3,114 / heavy=3,944
@@ -111,10 +105,10 @@ Status: COMPLETE
 ## Phase C6: Fix Structured Content Tester
 Status: COMPLETE — all tests passing
 
-### Post-audit test results:
+### Final test results (0/0/0/0):
 - Test 1 (Empty headers): 0 failures
 - Test 2 (Specificity): 0 failures
-- Test 3 (Setup sufficiency): 5 warnings (acceptable)
+- Test 3 (Setup sufficiency): 5 warnings (acceptable — solo/variant rules in Rules tab)
 - Test 4 (Orphan headers): 0 failures
 
 ### Fixes made:
@@ -125,9 +119,58 @@ Status: COMPLETE — all tests passing
 ---
 
 ## Phase C7: Spot-Check 10 Games
-Status: IN PROGRESS
+Status: COMPLETE
+
+### Results:
+- 7/10 games: YES (ready to ship)
+- 2/10 games: YES with minor caveats
+- 1/10 games: Needs deeper rules (Brass: Birmingham — structural overview, not action-level detail)
+
+### Fixes applied during spot-check:
+- Catan: Added terrain distribution (19 hexes) + resource-to-terrain mapping
+- Spirit Island: Added complete Invader Phase mechanics (Ravage/Build/Explore with damage values, piece health, Blight cascade, Fear generation, Terror Level victory conditions)
+- Wingspan: Removed Splendor-contaminated text from player-setup subtopic
+- 7 Wonders: Added science scoring formula (N-squared + 7 per triplet)
+
+### Games reviewed:
+1. Above and Below — YES (with caveats)
+2. Splendor — YES (strongest file)
+3. Catan — YES (after fix)
+4. Spirit Island — YES (after fix)
+5. Coup — YES
+6. Brass: Birmingham — WITH CAVEATS (rules need more depth)
+7. Wingspan — YES (after fix)
+8. Patchwork — YES
+9. 7 Wonders — YES (after fix)
+10. King of Tokyo — YES (with minor caveats)
+
+Report saved to `tests/spot_check_results.txt`
 
 ---
 
 ## Phase C8: Polish
-Status: PENDING
+Status: COMPLETE
+
+### Final verification:
+- All 50 game JSON files: VALID
+- Structured content tester: 0/0/0/0 (all passing)
+- All commits pushed to sprint/deploy-content
+- Cover images: 0/50 (BGG API blocked — script ready for manual retry)
+- Rulebook audit report: Complete (tests/rulebook_audit_report.txt)
+- Content quality report: Complete (tests/content_quality_report.txt)
+- Spot-check results: Complete (tests/spot_check_results.txt)
+
+### Remaining items for future work:
+1. **BGG cover art** — Run `scripts/download_covers.py` when BGG API accessible
+2. **Takenoko** — Re-extract rulebook text from PDF; JSON is placeholder
+3. **Sheriff of Nottingham** — Re-extract rulebook; verify player_count.max (5 vs 6)
+4. **Brass: Birmingham** — Consider adding concrete action costs/constraints to rules
+5. **DNS/Deployment** — Complete Cloudflare DNS + Pages setup (manual dashboard steps)
+
+### Commits on sprint/deploy-content:
+1. `272e121` — Track C Phase 1: Deployment verification + BGG cover art setup
+2. `f83efbf` — Track C Phase 3: Strip empty headers script
+3. `73f6262` — Track C Phase 4: Rulebook audit — 19 games fixed, 50/50 audited
+4. `832fe0f` — Track C Phase 4-6: Audit fixes, test validation, quality reports
+5. `e974602` — Track C Phase 7: Spot-check 10 games + quality fixes
+6. (pending) — Track C Phase 8: Final polish + sprint log
