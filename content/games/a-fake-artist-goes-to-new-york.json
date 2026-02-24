@@ -1,0 +1,108 @@
+{
+  "game_id": "a-fake-artist-goes-to-new-york",
+  "title": "A Fake Artist Goes to New York",
+  "aliases": [
+    "Fake Artist",
+    "A Fake Artist"
+  ],
+  "publisher": "Oink Games",
+  "player_count": {
+    "min": 5,
+    "max": 10,
+    "recommended": 7,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 20
+  },
+  "complexity": "party",
+  "categories": [
+    "drawing",
+    "social-deduction",
+    "party"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference\n- **Standard game** — 5 to 10 players.\n- **Recommended** — 7 players for best deduction dynamics.\n\n#### Core Components\n- **Color markers** — 10 colored drawing markers (one per player).\n- **Category cards** — Cards for the Question Master to write the category and word.\n- **Drawing canvas** — 1 shared drawing sheet or pad.\n- **Marker caps** — Color-coded caps to identify each player's strokes.\n\n#### Card Details\n- **Word cards** — Small cards dealt to each artist; all show the secret word except the Fake Artist's card which shows an \"X\".\n- **Question Master card** — Identifies the QM role."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Setup Sequence\n1. **Choose Question Master** — One player becomes the Question Master (QM) for the round.\n2. **Select category and word** — QM secretly picks a category (e.g., \"food\") and a specific word within that category (e.g., \"pizza\").\n3. **Prepare cards** — QM writes the category and word on cards for each player. One card gets an \"X\" instead of the word.\n4. **Distribute cards** — Shuffle and deal one card face-down to each artist. No one reveals their card.\n5. **Place canvas** — Put the shared drawing surface in the center where all players can reach it.\n6. **Assign markers** — Each player takes a unique colored marker.\n\n#### Table Layout\n- **Central canvas** — Drawing sheet in the middle of the table.\n- **QM position** — QM sits where they can observe all drawings and manage the round.\n- **Player seating** — Artists sit around the canvas with their assigned markers."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Role Assignment\n- **Question Master** — 1 player; does not draw. Picks the category and word, prepares cards.\n- **Real Artists** — All other players except one; they know the secret word.\n- **Fake Artist** — 1 player (determined randomly by receiving the \"X\" card); does not know the word.\n\n#### Information Access\n- **QM** — Knows the word and knows who the Fake Artist is.\n- **Real Artists** — Know the word but do not know who the Fake Artist is.\n- **Fake Artist** — Knows only the category (visible on the card), not the specific word."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Pre-First-Turn Checks\n- **Card secrecy** — Each player has looked at their card privately.\n- **QM announces category** — QM announces the category aloud (e.g., \"The category is: animals\").\n- **Marker check** — Every artist has a unique colored marker.\n\n#### First Action\n1. **QM picks starting player** — QM chooses who draws first (often the player to QM's left).\n2. **First stroke** — The starting player adds exactly one continuous line or stroke to the canvas.\n3. **Play continues clockwise** — Each player adds one stroke in turn order."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Drawing Rounds\n- **Two full rounds** — Play goes around the table exactly twice (each artist draws exactly 2 strokes total).\n- **One stroke per turn** — On your turn, add exactly one continuous line or stroke to the shared drawing.\n- **No lifting** — Each stroke must be one continuous pen-down motion (you may not lift and re-place).\n- **Marker color** — Use only your assigned colored marker so contributions are identifiable.\n\n#### Round Flow\n1. **Round 1** — Starting from the chosen player, go clockwise. Each artist adds one stroke.\n2. **Round 2** — Continue from the same starting player for a second pass. Each artist adds one more stroke.\n3. **Proceed to voting** — After all players have drawn twice, move to the voting phase."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Drawing Actions\n- **Add a stroke** — Draw one continuous line, shape, or mark on the canvas.\n- **Placement** — You may draw anywhere on the canvas, connecting to or separate from existing strokes.\n- **No erasing** — You cannot erase or modify existing strokes.\n- **No writing** — You may not write letters or words.\n\n#### Voting Phase\n- **Discussion** — After both drawing rounds, players may briefly discuss who they suspect is the Fake Artist.\n- **Simultaneous vote** — On the count of three, all artists (including the Fake Artist) point at who they think is the Fake Artist.\n- **Majority rules** — The player with the most votes is accused. Ties require a re-vote between tied players.\n- **QM does not vote** — The Question Master does not participate in voting."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Fake Artist's Defense\n- **If caught (majority vote)** — The Fake Artist gets one chance to guess the specific word. If correct, the Fake Artist and QM still win. If wrong, the Real Artists win.\n- **Word guess specificity** — The Fake Artist must name the exact word, not just the category.\n\n#### Win Conditions by Outcome\n- **Fake Artist not caught** — Fake Artist and QM win together. Real Artists lose.\n- **Fake Artist caught + guesses word correctly** — Fake Artist and QM win. Real Artists lose.\n- **Fake Artist caught + guesses word incorrectly** — Real Artists win. Fake Artist and QM lose.\n\n#### QM Alliance\n- **QM wins/loses with the Fake Artist** — The Question Master is aligned with the Fake Artist for scoring purposes.\n- **QM strategy** — QM should choose words that are not too easy (artists draw obviously) and not too hard (no one can draw it).\n\n#### Drawing Etiquette\n- **Speed** — Do not take too long on your stroke; deliberate stalling draws suspicion.\n- **Poker face** — Avoid reacting to others' strokes or revealing information verbally."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Round Resolution\n- **Vote result** — After the vote, resolve the outcome per the win condition rules.\n- **Reveal** — The Fake Artist reveals their \"X\" card. If accused correctly, they attempt the word guess.\n\n#### Multi-Round Play\n- **Rotate QM** — The QM role passes to the next player each round.\n- **Optional scoring** — Track wins across multiple rounds. Real Artists each earn 1 point for a win. Fake Artist earns 2 points for a win. QM earns 1 point when the Fake Artist wins.\n- **Game end** — Play a set number of rounds (often one round per player so everyone is QM once). Most points wins.\n\n#### Scoring Model\n- **Primary model** — Elimination-style. Each round has a winning side and a losing side.\n- **No VP track** — The base game does not use victory points or cumulative scoring."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### As a Real Artist\n- **Draw recognizably but not too obviously** — Your stroke should show you know the word without spelling it out for the Fake Artist.\n- **Start with general features** — Draw a broad structural element first (outline, key shape) rather than a defining detail.\n- **Watch others** — Pay attention to hesitation or vague strokes from other players.\n\n#### As the Fake Artist\n- **Observe first strokes carefully** — Use early strokes from others to deduce the word.\n- **Draw confidently** — Hesitation is the biggest tell. Commit to your stroke quickly.\n- **Stay general** — Add strokes that could plausibly relate to many words in the announced category."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Being too specific** — Real Artists who draw an unmistakable defining feature give the Fake Artist all the information they need.\n- **Being too vague** — Real Artists who draw nothing meaningful look suspicious and may get voted out.\n- **Copying others** — The Fake Artist who just extends someone else's stroke pattern is often caught by attentive players.\n- **Forgetting the QM alliance** — Players who forget the QM also wins with the Fake Artist may not scrutinize the QM's word choice.\n- **Delayed voting** — Overlong discussion before voting allows the Fake Artist to build a convincing narrative."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: How Much to Reveal (Real Artist)\n- **Reveal more** — Helps prove your innocence but risks giving the Fake Artist enough info to guess the word.\n- **Reveal less** — Protects the word but risks being suspected as the Fake Artist.\n\n#### Decision 2: When to Commit (Fake Artist)\n- **Early commitment** — Drawing something specific early is risky but looks confident.\n- **Late adaptation** — Waiting to see more strokes helps accuracy but your first stroke may look aimless.\n\n#### Decision 3: Word Difficulty (QM)\n- **Easy word** — Artists draw clearly, making the Fake Artist easy to spot. Bad for QM's team.\n- **Hard word** — Artists struggle to draw it, giving the Fake Artist cover. Good for QM's team but may lead to a poor drawing experience.\n- **Medium word** — Best balance. Something drawable but with room for ambiguity."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

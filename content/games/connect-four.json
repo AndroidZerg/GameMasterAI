@@ -1,0 +1,110 @@
+{
+  "game_id": "connect-four",
+  "title": "Connect Four",
+  "aliases": [
+    "Connect 4",
+    "Four in a Row",
+    "Captain's Mistress",
+    "Four Up"
+  ],
+  "publisher": "Hasbro / Milton Bradley",
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 5,
+    "max": 10
+  },
+  "complexity": "party",
+  "categories": [
+    "abstract",
+    "family",
+    "classic"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference\n- **Exactly 2 players** — Connect Four is a strictly 2-player game.\n\n#### Core Components\n- **Vertical grid frame** — 1 plastic frame with a 7-column by 6-row grid of slots.\n- **Red discs** — 21 red checker-like discs.\n- **Yellow discs** — 21 yellow checker-like discs.\n- **Base/support legs** — Support structure to hold the grid upright.\n- **Sliding bar** — Bottom release bar to empty the grid after a game.\n- **Rulebook** — 1 rulebook.\n\n#### Grid Specifications\n- **Columns** — 7 columns, each holding up to 6 discs.\n- **Rows** — 6 rows.\n- **Total slots** — 42 positions (7 x 6).\n- **Disc capacity** — 42 discs total (21 per player), enough to completely fill the board."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Setup Sequence\n1. **Assemble frame** — Attach the support legs to the grid frame so it stands upright.\n2. **Close slider** — Ensure the bottom sliding bar is in the closed position so discs are held.\n3. **Verify empty grid** — Make sure no discs are in the grid.\n4. **Distribute discs** — Give one player all 21 red discs and the other all 21 yellow discs.\n5. **Position grid** — Place the grid between the two players so both can reach the top to drop discs.\n\n#### Table Layout\n- **Grid between players** — The grid stands vertically between the two players.\n- **Disc supplies** — Each player keeps their discs in front of them or in a pile to the side."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Player Assignment\n- **Color choice** — Each player chooses a color (red or yellow).\n- **No other roles** — Both players have identical roles and abilities.\n\n#### Seating\n- **Face each other** — Players sit or stand on opposite sides of the grid.\n- **Equal access** — Both players must be able to drop discs into any of the 7 columns."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Pre-First-Turn Checks\n- **Grid is empty** — No discs in any slot.\n- **Slider closed** — Bottom bar is secured.\n- **Colors assigned** — Each player has their color.\n\n#### First Action\n1. **Determine first player** — Youngest player, coin flip, or winner of the previous game goes first.\n2. **Drop first disc** — First player drops one disc of their color into any column."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Turn Flow\n1. **Drop a disc** — On your turn, drop exactly one disc of your color into any column that is not full.\n2. **Gravity** — The disc falls to the lowest available position in that column.\n3. **Check for win** — After placing, check if you have 4 of your discs in a row.\n4. **Pass turn** — If no win, the other player takes their turn.\n\n#### Turn Rules\n- **Mandatory play** — You must drop a disc on your turn; you cannot pass.\n- **One disc per turn** — Exactly one disc per turn.\n- **Column choice** — You may choose any of the 7 columns, provided it is not already full (6 discs)."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Placement Action\n- **Column selection** — Choose one of the 7 columns.\n- **Drop disc** — Release your disc at the top of the chosen column. It falls to the lowest unoccupied slot.\n- **No removal** — Once placed, discs cannot be moved or removed.\n- **No stacking on full columns** — If a column has 6 discs, it is full and cannot accept more.\n\n#### Winning Connections\n- **Horizontal** — 4 discs of the same color in a row along any row.\n- **Vertical** — 4 discs of the same color stacked in a column.\n- **Diagonal** — 4 discs of the same color in a diagonal line (ascending or descending).\n- **Any direction counts** — A win can occur in any of these three directions."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Draw Condition\n- **Board full** — If all 42 slots are filled and neither player has 4 in a row, the game is a draw.\n- **Draw frequency** — Draws are uncommon but possible, especially between skilled players.\n\n#### Solved Game\n- **First player advantage** — Connect Four is a solved game. With perfect play, the first player can always force a win by starting in the center column.\n- **Casual relevance** — This solved status rarely matters in casual play, as most players do not play optimally.\n\n#### Pop Out Variant\n- **Alternative mode** — Some editions include a \"Pop Out\" variant where players can remove one of their own discs from the bottom of a column instead of dropping one.\n- **Pop Out effect** — All discs above the removed disc drop down one slot, potentially creating or breaking connections.\n\n#### Grid Reset\n- **Quick reset** — Slide the bottom bar to release all discs. Close the bar and start a new game."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Win Condition\n- **Four in a row** — First player to get 4 of their discs in an unbroken line (horizontal, vertical, or diagonal) wins immediately.\n- **Instant win** — The game ends the moment a player completes 4 in a row.\n\n#### Draw\n- **Full board** — If all 42 slots are occupied with no 4-in-a-row, the game is a draw.\n\n#### Scoring Model\n- **No points** — Connect Four has no point system.\n- **Binary outcome** — Win, lose, or draw per game.\n- **Match play** — Players often play best-of-3 or best-of-5 series.\n\n#### Tiebreaker\n- **Not applicable** — No tie is possible within a single game (it is either a win or a draw)."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### First Move\n- **Center column** — The strongest opening move is to play in the center column (column 4). It provides the most connection opportunities in all directions.\n- **Avoid edges** — Edge columns (columns 1 and 7) are the weakest opening moves due to limited connection paths.\n\n#### Early Game Goals\n- **Control the center** — Build presence in columns 3, 4, and 5 to maximize future connection opportunities.\n- **Create threats** — Aim to build multiple partial connections (2 or 3 in a row) that force your opponent to respond.\n- **Stacking strategy** — Build vertically in central columns to create diagonal threats."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Tunnel vision** — Focusing on completing your own 4-in-a-row while ignoring your opponent's developing threats.\n- **Forgetting diagonals** — Most beginners miss diagonal connections (both their own opportunities and opponent threats).\n- **Edge play** — Playing in edge columns too early limits your options significantly.\n- **One-track attack** — Building only in one direction. Skilled opponents will block a single-direction strategy easily.\n- **Giving away setup moves** — Placing a disc that inadvertently creates a stepping stone for your opponent's diagonal or horizontal connection."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Attack vs. Defend\n- **Attack** — Build toward your own 4-in-a-row. Prioritize when you have multiple threats.\n- **Defend** — Block your opponent's developing connections. Prioritize when they have 3 in a row with an open end.\n\n#### Decision 2: Which Threat to Build\n- **Double threat** — Create a position where you have two ways to win on the next move (a \"fork\"). The opponent can only block one.\n- **Single threat** — Easier to set up but easily blocked.\n\n#### Decision 3: Vertical vs. Horizontal\n- **Vertical stacking** — Safe and predictable. Your opponent can see and block it.\n- **Horizontal/diagonal** — Harder to spot and block, but requires more setup. Diagonal threats across central columns are the most powerful."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

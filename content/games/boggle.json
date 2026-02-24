@@ -1,0 +1,109 @@
+{
+  "game_id": "boggle",
+  "title": "Boggle",
+  "aliases": [
+    "Boggle Classic",
+    "Hasbro Boggle",
+    "Big Boggle"
+  ],
+  "publisher": "Hasbro",
+  "player_count": {
+    "min": 2,
+    "max": 8,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 10,
+    "max": 15
+  },
+  "complexity": "party",
+  "categories": [
+    "word-game",
+    "party",
+    "real-time"
+  ],
+  "source_url": "",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "#### Player-Count Reference\n- **Standard game** — 2 to 8 players.\n- **Recommended** — 4 players.\n\n#### Core Components\n- **Letter dice** — 16 six-sided dice, each face printed with a letter. The letter distribution is weighted toward common English letters.\n- **Grid tray** — 1 covered 4x4 plastic tray that holds the 16 dice in a grid.\n- **Dome cover** — Clear plastic dome that covers the tray for shaking.\n- **Sand timer** — 1 three-minute sand timer.\n- **Rulebook** — 1 rulebook.\n\n#### Dice Details\n- **Qu die** — One die face shows \"Qu\" (counts as two letters but occupies one grid space).\n- **Letter distribution** — Dice are designed to produce a mix of vowels and consonants in most shakes."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "#### Setup Sequence\n1. **Place dice in tray** — Put all 16 letter dice into the 4x4 grid tray.\n2. **Cover with dome** — Snap the dome cover over the tray.\n3. **Shake vigorously** — Shake the covered tray to randomize all dice.\n4. **Settle dice** — Set the tray on the table and let all dice settle into their grid positions.\n5. **Remove dome** — Lift the dome so all players can see the 4x4 letter grid.\n6. **Distribute materials** — Give each player paper and a pencil for writing words.\n\n#### Table Layout\n- **Central grid** — The letter tray sits in the center where all players can read it.\n- **Writing space** — Each player needs room to write their word list privately.\n- **Timer** — Placed centrally, visible to all."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "#### Individual Play\n- **No teams** — Each player competes individually.\n- **Equipment** — Each player needs paper and a pencil/pen.\n- **Privacy** — Players should not see each other's word lists during the timed phase.\n\n#### Simultaneous Play\n- **All players play at once** — Everyone searches for words simultaneously during the 3-minute timer.\n- **No turns** — There is no turn order; all play happens in real-time."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "#### Pre-First-Turn Checks\n- **Grid visible** — All 16 dice are settled and readable in the 4x4 tray.\n- **Paper and pencils ready** — All players have writing materials.\n- **Timer ready** — Sand timer is available.\n\n#### First Action\n1. **Start the timer** — One player flips the 3-minute sand timer.\n2. **Begin searching** — All players immediately begin scanning the grid for words and writing them down."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Round Flow\n1. **Shake grid** — Randomize the dice by shaking the covered tray.\n2. **Reveal letters** — Remove the dome and let dice settle.\n3. **Start timer** — Flip the 3-minute sand timer.\n4. **Find words** — All players simultaneously scan the grid and write down every valid word they can find.\n5. **Timer expires** — All players stop writing immediately.\n6. **Compare lists** — Players read their word lists aloud.\n7. **Eliminate duplicates** — Cross out any word that appears on more than one player's list.\n8. **Validate words** — Challenge any questionable words. Use a dictionary to resolve disputes.\n9. **Score unique words** — Score remaining unique, valid words according to the length-based point system.\n\n#### Multi-Round Play\n- **Repeat** — Shake the grid and play additional rounds as desired.\n- **Cumulative score** — Add scores across rounds for a session total."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "#### Word-Finding Rules\n- **Adjacent letters** — Words must be formed by connecting adjacent dice (horizontally, vertically, or diagonally).\n- **Chain path** — Each subsequent letter must be adjacent to the previous letter in the word.\n- **No reuse** — Each die may only be used once per word. You cannot revisit a die you already used in the same word.\n- **Minimum length** — Words must be at least 3 letters long.\n- **Any direction** — The chain can move in any direction at each step (up, down, left, right, or diagonal).\n\n#### Valid Words\n- **Dictionary words** — Only standard English dictionary words count.\n- **Proper nouns excluded** — Names of people, places, and brands are not allowed.\n- **Abbreviations excluded** — Acronyms and abbreviations do not count.\n- **Verb forms allowed** — Conjugations and tenses are valid (e.g., RUNS, RUNNING).\n- **Plurals allowed** — Standard plural forms are valid.\n- **Qu rule** — The \"Qu\" die counts as two letters. A word using the Qu die has its letter count include both Q and U."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "#### Duplicate Elimination\n- **Cross out shared words** — If two or more players have the same word, ALL of those players cross it out. No one scores for that word.\n- **Unique words only** — Only words that appear on exactly one player's list score points.\n- **Case insensitive** — Words are compared regardless of capitalization.\n\n#### Scoring by Word Length\n- **3 letters** — 1 point.\n- **4 letters** — 1 point.\n- **5 letters** — 2 points.\n- **6 letters** — 3 points.\n- **7 letters** — 5 points.\n- **8+ letters** — 11 points.\n\n#### Challenges\n- **Dictionary check** — Any player may challenge a word's validity.\n- **Invalid word** — If a challenged word is not in the dictionary, it scores 0 points.\n- **Path verification** — If players dispute whether a valid letter chain exists for a word, trace it on the grid."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "#### Scoring\n- **Unique words only** — Score only the words that no other player found.\n- **Point values** — Based on word length (see Special Mechanics scoring table).\n- **Total score** — Sum all unique word points for the round.\n\n#### Game End\n- **Single round** — One round can be a complete game.\n- **Multi-round** — Play a predetermined number of rounds (commonly 3-5). Sum scores across all rounds.\n- **Target score** — Alternatively, play until someone reaches an agreed point total.\n\n#### Winner\n- **Highest score** — Player with the most total points wins.\n\n#### Tiebreaker\n- **No official tiebreaker** — In case of a tie, play an additional round or share the victory."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "#### Scanning Strategy\n- **Start with long words** — Longer words are worth significantly more and are less likely to be found by others.\n- **Scan systematically** — Work through the grid row by row or quadrant by quadrant to avoid missing adjacent connections.\n- **Look for common prefixes** — Prefixes like UN-, RE-, PRE-, and suffixes like -ING, -TION, -ED help find longer words quickly.\n- **Vowel anchoring** — Find vowels first, then check surrounding consonants for word-forming potential.\n\n#### Time Management\n- **Write quickly** — Spend more time scanning and less time writing neatly.\n- **Don't second-guess** — Write down anything that might be a word; you can verify later.\n- **Prioritize length** — An 8-letter word (11 points) is worth eleven 3-letter words (1 point each)."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "#### Frequent Errors\n- **Only finding short words** — Filling your list with 3-letter words that others also found (duplicates eliminated, score nothing).\n- **Missing diagonal connections** — Only scanning horizontal and vertical paths and missing diagonal word chains.\n- **Reusing dice** — Accidentally using the same die twice in a word path (word is invalid if challenged).\n- **Ignoring the Qu die** — Forgetting that Qu counts as two letters, or missing words that start with Qu.\n- **Spending too long on one area** — Getting stuck scanning one corner of the grid and neglecting others.\n- **Writing illegibly** — Writing so fast that words cannot be read during the comparison phase."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "#### Decision 1: Short Words vs. Long Words\n- **Short words** — Fast to find but only worth 1 point and very likely to be duplicated.\n- **Long words** — Harder to find but worth significantly more (5-11 points) and much less likely to be duplicated.\n- **Best approach** — Find long words first, then fill remaining time with shorter words.\n\n#### Decision 2: Common vs. Obscure Words\n- **Common words** — Easy to find and definitely valid, but likely duplicated by others (score 0).\n- **Obscure words** — Less likely to be duplicated (keeping your points), but risk being challenged as invalid.\n\n#### Decision 3: Speed vs. Accuracy\n- **Speed** — Write every possible word, even uncertain ones. Maximize list length.\n- **Accuracy** — Only write words you are confident are valid and have a correct path. Avoid challenge risk."
+        }
+      ]
+    }
+  },
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

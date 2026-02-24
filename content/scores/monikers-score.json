@@ -1,0 +1,25 @@
+{
+  "game_id": "monikers",
+  "scoring_type": "calculator",
+  "win_condition": "Team with the most total points across all 3 rounds wins",
+  "categories": [
+    {
+      "id": "round_1_points",
+      "label": "Round 1 Points (Describe It)",
+      "type": "manual",
+      "description": "Points from cards guessed correctly in Round 1 (use any words)"
+    },
+    {
+      "id": "round_2_points",
+      "label": "Round 2 Points (One Word)",
+      "type": "manual",
+      "description": "Points from cards guessed correctly in Round 2 (one word only)"
+    },
+    {
+      "id": "round_3_points",
+      "label": "Round 3 Points (Charades)",
+      "type": "manual",
+      "description": "Points from cards guessed correctly in Round 3 (charades only)"
+    }
+  ]
+}
