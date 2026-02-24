@@ -202,58 +202,135 @@ function GameCard({ game, onClick, small }) {
   );
 }
 
-function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount }) {
+const PLAY_TIME_OPTIONS = [
+  { label: "Any", value: 0 },
+  { label: "<30m", value: 30 },
+  { label: "30-60m", value: 60 },
+  { label: "60-90m", value: 90 },
+  { label: "90m+", value: 91 },
+];
+
+const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Brain Burner"];
+
+function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasAdvanced = playTime > 0 || bestFor !== "Any";
+
   return (
-    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px", alignItems: "center" }}>
-      {/* Complexity pills */}
-      <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
-        {COMPLEXITY_OPTIONS.map((opt) => (
-          <button
-            key={opt}
-            onClick={() => setComplexity(opt)}
-            style={{
-              padding: "6px 14px",
-              borderRadius: "999px",
-              fontSize: "0.8rem",
-              fontWeight: complexity === opt ? 700 : 400,
-              background: complexity === opt
-                ? (opt === "all" ? "var(--accent)" : COMPLEXITY_COLORS[opt])
-                : "var(--bg-secondary)",
-              color: complexity === opt ? "#fff" : "var(--text-secondary)",
-              border: "1px solid " + (complexity === opt ? "transparent" : "var(--border)"),
-              cursor: "pointer",
-              textTransform: "capitalize",
-            }}
-          >
-            {opt === "all" ? "All" : opt}
-          </button>
-        ))}
+    <div style={{ marginBottom: "16px" }}>
+      {/* Row 1: Complexity + Player count */}
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", marginBottom: "8px" }}>
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
+          {COMPLEXITY_OPTIONS.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setComplexity(opt)}
+              style={{
+                padding: "6px 14px",
+                borderRadius: "999px",
+                fontSize: "0.8rem",
+                fontWeight: complexity === opt ? 700 : 400,
+                background: complexity === opt
+                  ? (opt === "all" ? "var(--accent)" : COMPLEXITY_COLORS[opt])
+                  : "var(--bg-secondary)",
+                color: complexity === opt ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (complexity === opt ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+                textTransform: "capitalize",
+              }}
+            >
+              {opt === "all" ? "All" : opt}
+            </button>
+          ))}
+        </div>
+
+        <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+
+        <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Players:</span>
+          {PLAYER_COUNT_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setPlayerCount(opt.value)}
+              style={{
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "0.8rem",
+                fontWeight: playerCount === opt.value ? 700 : 400,
+                background: playerCount === opt.value ? "var(--accent)" : "var(--bg-secondary)",
+                color: playerCount === opt.value ? "#fff" : "var(--text-secondary)",
+                border: "1px solid " + (playerCount === opt.value ? "transparent" : "var(--border)"),
+                cursor: "pointer",
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+
+        {/* More filters toggle */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          style={{
+            padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+            background: hasAdvanced ? "var(--accent)" : "var(--bg-secondary)",
+            color: hasAdvanced ? "#fff" : "var(--text-secondary)",
+            border: "1px solid " + (hasAdvanced ? "transparent" : "var(--border)"),
+            cursor: "pointer", fontWeight: hasAdvanced ? 700 : 400,
+          }}
+        >
+          {expanded ? "Less" : "More"} {hasAdvanced ? `(${(playTime > 0 ? 1 : 0) + (bestFor !== "Any" ? 1 : 0)})` : ""}
+        </button>
       </div>
 
-      <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+      {/* Row 2: Advanced filters (play time + best for) */}
+      {expanded && (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center", animation: "fadeIn 0.2s ease-out" }}>
+          {/* Play time */}
+          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Time:</span>
+            {PLAY_TIME_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setPlayTime(opt.value)}
+                style={{
+                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                  fontWeight: playTime === opt.value ? 700 : 400,
+                  background: playTime === opt.value ? "var(--accent)" : "var(--bg-secondary)",
+                  color: playTime === opt.value ? "#fff" : "var(--text-secondary)",
+                  border: "1px solid " + (playTime === opt.value ? "transparent" : "var(--border)"),
+                  cursor: "pointer",
+                }}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
 
-      {/* Player count pills */}
-      <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
-        <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Players:</span>
-        {PLAYER_COUNT_OPTIONS.map((opt) => (
-          <button
-            key={opt.value}
-            onClick={() => setPlayerCount(opt.value)}
-            style={{
-              padding: "6px 12px",
-              borderRadius: "999px",
-              fontSize: "0.8rem",
-              fontWeight: playerCount === opt.value ? 700 : 400,
-              background: playerCount === opt.value ? "var(--accent)" : "var(--bg-secondary)",
-              color: playerCount === opt.value ? "#fff" : "var(--text-secondary)",
-              border: "1px solid " + (playerCount === opt.value ? "transparent" : "var(--border)"),
-              cursor: "pointer",
-            }}
-          >
-            {opt.label}
-          </button>
-        ))}
-      </div>
+          <div style={{ width: "1px", height: "24px", background: "var(--border)", margin: "0 4px" }} />
+
+          {/* Best for */}
+          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", alignItems: "center" }}>
+            <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px" }}>Best for:</span>
+            {BEST_FOR_OPTIONS.map((opt) => (
+              <button
+                key={opt}
+                onClick={() => setBestFor(opt)}
+                style={{
+                  padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
+                  fontWeight: bestFor === opt ? 700 : 400,
+                  background: bestFor === opt ? (BEST_FOR_COLORS[opt] || "var(--accent)") : "var(--bg-secondary)",
+                  color: bestFor === opt ? "#fff" : "var(--text-secondary)",
+                  border: "1px solid " + (bestFor === opt ? "transparent" : "var(--border)"),
+                  cursor: "pointer",
+                }}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -296,6 +373,8 @@ export default function GameSelector() {
   // Read filter state from URL params
   const [complexity, setComplexityState] = useState(searchParams.get("complexity") || "all");
   const [playerCount, setPlayerCountState] = useState(parseInt(searchParams.get("players")) || 0);
+  const [playTime, setPlayTimeState] = useState(parseInt(searchParams.get("time")) || 0);
+  const [bestFor, setBestForState] = useState(searchParams.get("bestfor") || "Any");
 
   const setComplexity = (val) => {
     setComplexityState(val);
@@ -311,6 +390,22 @@ export default function GameSelector() {
     if (val === 0) params.delete("players"); else params.set("players", val);
     setSearchParams(params, { replace: true });
     trackEvent("filter_players", { player_count: val });
+  };
+
+  const setPlayTime = (val) => {
+    setPlayTimeState(val);
+    const params = new URLSearchParams(searchParams);
+    if (val === 0) params.delete("time"); else params.set("time", val);
+    setSearchParams(params, { replace: true });
+    trackEvent("filter_playtime", { play_time: val });
+  };
+
+  const setBestFor = (val) => {
+    setBestForState(val);
+    const params = new URLSearchParams(searchParams);
+    if (val === "Any") params.delete("bestfor"); else params.set("bestfor", val);
+    setSearchParams(params, { replace: true });
+    trackEvent("filter_bestfor", { best_for: val });
   };
 
   useEffect(() => {
@@ -385,7 +480,7 @@ export default function GameSelector() {
     navigate(`/game/${game.game_id}`);
   };
 
-  // Filter pipeline: collection → complexity → player count
+  // Filter pipeline: collection → complexity → player count → play time → best for
   let displayGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
   if (complexity !== "all") {
     displayGames = displayGames.filter((g) => g.complexity === complexity);
@@ -397,13 +492,27 @@ export default function GameSelector() {
       return playerCount >= min && playerCount <= max;
     });
   }
+  if (playTime > 0) {
+    displayGames = displayGames.filter((g) => {
+      const t = PLAY_TIMES[g.game_id];
+      if (!t) return true; // Include games without time data
+      if (playTime === 30) return t < 30;
+      if (playTime === 60) return t >= 30 && t <= 60;
+      if (playTime === 90) return t > 60 && t <= 90;
+      if (playTime === 91) return t > 90;
+      return true;
+    });
+  }
+  if (bestFor !== "Any") {
+    displayGames = displayGames.filter((g) => getBestForTags(g).includes(bestFor));
+  }
 
   const recentGameData = recentGames
     .map((id) => displayGames.find((g) => g.game_id === id))
     .filter(Boolean)
     .slice(0, 8);
 
-  const hasActiveFilters = complexity !== "all" || playerCount > 0;
+  const hasActiveFilters = complexity !== "all" || playerCount > 0 || playTime > 0 || bestFor !== "Any";
 
   // Build genre carousels from all available games (before filtering)
   const allDisplayGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
@@ -468,6 +577,10 @@ export default function GameSelector() {
         setComplexity={setComplexity}
         playerCount={playerCount}
         setPlayerCount={setPlayerCount}
+        playTime={playTime}
+        setPlayTime={setPlayTime}
+        bestFor={bestFor}
+        setBestFor={setBestFor}
       />
 
       {recentGameData.length > 0 && !search && !hasActiveFilters && (
@@ -518,7 +631,7 @@ export default function GameSelector() {
           <p style={{ color: "var(--text-secondary)" }}>No games found{hasActiveFilters ? " with these filters" : ""}.</p>
           {hasActiveFilters && (
             <button
-              onClick={() => { setComplexity("all"); setPlayerCount(0); }}
+              onClick={() => { setComplexity("all"); setPlayerCount(0); setPlayTime(0); setBestFor("Any"); }}
               style={{ marginTop: "12px", padding: "8px 20px", borderRadius: "10px", background: "var(--bg-secondary)", color: "var(--text-primary)", border: "1px solid var(--border)", cursor: "pointer", fontSize: "0.9rem" }}
             >
               Clear Filters
