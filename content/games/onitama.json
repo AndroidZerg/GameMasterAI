@@ -1,0 +1,85 @@
+{
+  "game_id": "onitama",
+  "title": "Onitama",
+  "aliases": [],
+  "publisher": "Arcane Wonders",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 30},
+  "complexity": "gateway",
+  "categories": ["abstract-strategy", "perfect-information", "two-player"],
+  "source_url": "https://www.arcanewonders.com/onitama",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **1** game board (5×5 grid)\n- **5** red pawns (4 students + 1 master)\n- **5** blue pawns (4 students + 1 master)\n- **16** move cards (each showing a unique movement pattern)\n- **1** game mat"
+        },
+        {
+          "id": "board-setup",
+          "title": "Board Setup",
+          "content": "1. **Place board** between players.\n2. **Each player** places their Master on the center of their back row and 4 Students on the remaining back row spaces.\n3. **Shuffle move cards** — Deal 2 to each player and place 1 face up to the side (the waiting card).\n4. **Starting player** — The color shown on the waiting card goes first."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **2 move cards** in front of you (visible to opponent).\n- **5 pieces** on your back row.\n- **Temple square** — Your master starts on the center space (your temple arch)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Onitama is a chess-like 2-player game on a 5×5 grid. Move pieces according to movement cards that rotate between players. Capture the opponent's master or move your master to their temple to win."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Choose** one of your 2 move cards.\n2. **Move** one of your pieces according to the card's pattern (relative to the piece's position).\n3. **Capture** — If you land on an opponent's piece, remove it.\n4. **Exchange card** — Place the used card to the side as the new waiting card. Take the previous waiting card into your hand.\n\nYou always have exactly 2 move cards."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Movement\n- Each card shows a grid with possible moves relative to the piece.\n- The pattern is oriented from the perspective of the player using it.\n- You may move any of your 5 pieces (master or student).\n- You must make a move if possible (you cannot pass).\n\n#### Capturing\n- Move onto a space occupied by an opponent's piece to capture it.\n- Cannot land on your own pieces.\n\n#### Card Rotation\n- After using a card, it goes to the waiting position.\n- You take the old waiting card.\n- This means your opponent will eventually get the card you just used."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Perfect information** — All move cards are face up and visible.\n- **Only 5 cards in play** — 2 per player + 1 waiting. The remaining 11 are unused.\n- **No passing** — You must move if any legal move exists.\n- **Board wrapping** — Movement patterns that go off the board are simply invalid."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win Conditions\n- **Way of the Stone** — Capture your opponent's Master.\n- **Way of the Stream** — Move your Master onto the opponent's Temple Arch (center of their back row)."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Read ahead** — Plan not just your move, but what cards your opponent will have next.\n- **Protect your master** — Don't expose your master unnecessarily.\n- **Two win conditions** — Always be aware of both capture and temple objectives.\n- **Card cycling** — Remember that the card you use now goes to your opponent eventually."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Tempo control** — Sometimes it's better to move a student to give yourself a better card next turn.\n- **Fork threats** — Position pieces to threaten both master capture and temple entry.\n- **Card denial** — Use a powerful card even for a minor move to keep it cycling away from your opponent.\n- **Center control** — Control the center of the 5×5 board for maximum flexibility."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "game_id": "fox-in-the-forest",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "tricks_won", "label": "Tricks Won", "points_each": 1, "type": "count", "description": "Number of tricks won (scoring depends on range: 0-3=6pts, 4=1, 5=2, 6=3, 7-9=6, 10-13=0)"},
+    {"id": "treasure_bonus", "label": "Treasure Bonus", "points_each": 1, "type": "count", "description": "Bonus points from winning tricks containing the 7 card"}
+  ],
+  "win_condition": "First to 21 points"
+}

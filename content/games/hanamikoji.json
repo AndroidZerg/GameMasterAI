@@ -1,0 +1,85 @@
+{
+  "game_id": "hanamikoji",
+  "title": "Hanamikoji",
+  "aliases": [],
+  "publisher": "EmperorS4",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 20},
+  "complexity": "gateway",
+  "categories": ["hand-management", "card-game", "two-player", "abstract-strategy"],
+  "source_url": "https://game.emperors4.com/en/hanamikoji",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **21 item cards** in 7 types (Geisha items): 2, 2, 2, 3, 3, 4, 5 cards per type\n- **7 Geisha cards** (victory markers with charm values 2-5)\n- **8 action tokens** (4 per player)\n- **7 victory markers**"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Place 7 Geisha cards** in a row between players.\n2. **Place victory markers** on each Geisha card (neutral position).\n3. **Shuffle 21 item cards** — Remove 1 secretly. Deal 6 to each player.\n4. **Remaining 8 cards** form the draw pile.\n5. **Each player** takes 4 action tokens."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **6 cards in hand.**\n- **4 action tokens** (face up): Secret, Trade, Gift, Competition.\n- **Each action used exactly once** per round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Hanamikoji is a tense 2-player card game of dilemmas. Win the favor of Geisha by playing item cards, but the 4 actions you take each create painful choices about what to give to your opponent."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Players alternate turns. On your turn:\n1. **Draw 1 card** from the draw pile (adding to your hand).\n2. **Perform 1 action** — Use one of your 4 unused action tokens.\n\nEach action token can only be used once per round. After 4 turns each (8 total), the round ends."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### The 4 Actions\n- **Secret** — Place 1 card face down. It's added to your side at round end (opponent doesn't see it).\n- **Trade** — Place 2 cards face down. They are removed from the game (neither player gets them).\n- **Gift** — Place 3 cards face up. Your opponent chooses 1; you get the other 2.\n- **Competition** — Place 4 cards face up in 2 pairs. Your opponent chooses 1 pair; you get the other.\n\n#### Claiming Geisha\n- Place item cards on your side of the corresponding Geisha.\n- The player with more item cards of a Geisha's type wins her favor (moves marker to their side).\n- Ties leave the marker in its current position."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **1 removed card** — One item card is removed at start, creating uncertainty.\n- **Action order** — You choose when to use each action, creating strategic timing.\n- **Persistent favor** — Geisha favor carries over between rounds unless one player gains majority.\n- **All 4 actions mandatory** — You must use all 4 actions each round."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win Conditions (checked each round end)\n- **4 Geisha** — Win the favor of 4 or more Geisha.\n- **11 Charm** — Win Geisha totaling 11+ charm points.\n\n#### Multiple Rounds\n- If neither player wins, play another round. Geisha favor persists.\n- The game usually ends in 1-3 rounds."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Gift wisely** — In the Gift action, give away your weakest cards.\n- **Secret your best** — Hide a key card that clinches an important Geisha.\n- **Trade away waste** — Remove cards you don't need and your opponent might.\n- **Watch opponent's actions** — Their remaining actions constrain their options."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Action timing** — Use Competition early when you have more cards to absorb the loss.\n- **5-charm Geisha** — The 5 card Geisha is hardest to win but worth the most.\n- **Gift poisoning** — Offer 3 cards that are all useful to you but force a painful choice.\n- **Information control** — Use Secret early before your opponent knows your strategy."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

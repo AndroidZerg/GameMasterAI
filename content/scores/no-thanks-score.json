@@ -1,0 +1,9 @@
+{
+  "game_id": "no-thanks",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "card_points", "label": "Card Points", "points_each": 1, "type": "count", "description": "Sum of card values (runs count only lowest card)"},
+    {"id": "chips", "label": "Chips", "points_each": -1, "type": "count", "description": "-1 point per chip owned"}
+  ],
+  "win_condition": "Lowest score wins"
+}

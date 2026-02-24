@@ -1,0 +1,85 @@
+{
+  "game_id": "lost-cities-card",
+  "title": "Lost Cities (Card Game)",
+  "aliases": ["Lost Cities"],
+  "publisher": "Kosmos",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 20, "max": 30},
+  "complexity": "gateway",
+  "categories": ["card-game", "hand-management", "two-player", "set-collection"],
+  "source_url": "https://www.kosmos.de/en/games/lost-cities",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **60 cards** in 5 expedition colors (Yellow, Blue, White, Green, Red):\n  - Each color: numbered 2-10 (9 cards) + 3 investment/wager cards\n- **1** game board (optional — marks discard areas for each color)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Place board** (or designate 5 discard areas, one per color) between players.\n2. **Shuffle all 60 cards.**\n3. **Deal 8 cards** to each player.\n4. **Remaining cards** form the draw pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **8 cards in hand.**\n- **Expedition area** in front of you for each color (empty at start).\n- **Keep hand hidden.**"
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Lost Cities is a 2-player card game of exploration. Start expeditions by playing numbered cards in ascending order. Each expedition you start costs 20 points, so only begin expeditions you can make profitable."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Play or discard** — Either play a card to one of your expeditions, or discard a card to its color's discard pile.\n2. **Draw** — Draw 1 card from the draw pile or from the top of any color's discard pile."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Playing Cards\n- Play a card on your expedition of that color.\n- Cards must be played in **ascending order** (but don't need to be consecutive).\n- **Investment cards** must be played before any numbered cards in that color.\n- Once played, cards cannot be rearranged.\n\n#### Investment Cards\n- Multiply the expedition's final score: 1 wager = ×2, 2 wagers = ×3, 3 wagers = ×4.\n- Must be played before numbered cards.\n- They multiply both profits AND losses.\n\n#### Discarding\n- Place a card on its color's discard pile.\n- Your opponent may pick it up on their turn."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "- **Expedition cost** — Every started expedition begins at -20 points.\n- **Cannot discard and pick up same color** — You can't discard and then draw from the same pile.\n- **No obligation** — You don't have to start an expedition in a color.\n- **8-card bonus** — If an expedition has 8 or more cards, add 20 bonus points."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Game End\n- When the draw pile is empty, the round ends immediately.\n\n#### Scoring per Expedition\n1. Sum all numbered cards in the expedition.\n2. Subtract 20 (the expedition cost).\n3. Multiply by investment multiplier (1 + number of wager cards).\n4. Add 20 bonus if 8+ cards.\n\n#### Example\n- Cards: 2 wagers + 3, 5, 7, 8, 10 = 33 − 20 = 13 × 3 = 39 points.\n\n#### Game\n- Play 3 rounds. Highest total across all rounds wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Don't start too many** — Each expedition costs 20; unprofitable ones are brutal.\n- **Wager wisely** — Investment cards amplify risk. Only wager on expeditions with many cards.\n- **Hold low cards** — Keep low numbers for flexibility but play them before they're stranded.\n- **Watch discards** — Don't discard cards your opponent needs."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Break-even is 20** — You need number cards totaling 20+ to profit from an expedition.\n- **Wager threshold** — Only use wagers if you expect 30+ in card values.\n- **Deny picks** — Discard into colors your opponent hasn't started.\n- **Timing** — Start expeditions early enough to play ascending cards.\n- **8-card bonus** — The 20-point bonus for 8+ cards is very powerful with wagers."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

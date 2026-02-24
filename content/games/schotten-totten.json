@@ -1,0 +1,85 @@
+{
+  "game_id": "schotten-totten",
+  "title": "Schotten Totten / Battle Line",
+  "aliases": ["Battle Line", "Schotten Totten"],
+  "publisher": "IELLO / GMT Games",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 15, "max": 30},
+  "complexity": "gateway",
+  "categories": ["card-game", "hand-management", "two-player"],
+  "source_url": "https://iello.com/schotten-totten",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **54 clan cards** in 6 colors, numbered 1-9 each\n- **9 stone markers** (boundary stones)\n- **10 tactics cards** (optional variant)"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Place 9 stone markers** in a row between players.\n2. **Shuffle clan cards** and deal 6 to each player.\n3. **Place remaining cards** as draw pile.\n4. **Tactics cards** (if used) form a separate draw pile."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **6 cards in hand.**\n- **Each stone** has space for 3 cards per side."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Schotten Totten is a 2-player card game. Play cards on your side of 9 boundary stones to form the strongest 3-card formations. Claim stones by proving your formation beats your opponent's. Win 5 stones or 3 adjacent stones."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn:\n1. **Play 1 card** from your hand to your side of any unclaimed stone (max 3 cards per side).\n2. **Claim stones** (optional) — If you can prove your formation wins at any stone.\n3. **Draw 1 card** from the draw pile."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Formation Rankings (Strongest to Weakest)\n1. **Color Run** (Straight Flush) — 3 consecutive numbers, same color. Highest sum wins ties.\n2. **Three of a Kind** — 3 cards of the same number. Higher number wins.\n3. **Color** (Flush) — 3 cards of same color. Highest sum wins.\n4. **Run** (Straight) — 3 consecutive numbers, different colors. Highest sum wins.\n5. **Sum** (High Card) — Any 3 cards. Highest sum wins.\n\n#### Claiming Stones\n- A stone can be claimed when you can prove your formation is unbeatable.\n- You may claim even before opponent plays 3 cards, if no remaining cards could beat you.\n- Both players' played cards and the cards remaining in the deck are public information for proving claims."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Tactics Variant (Battle Line)\n- Shuffle 10 tactics cards as a separate deck.\n- You may draw from either deck.\n- Tactics cards have special effects (wild cards, card removal, etc.).\n- Cannot play more tactics than your opponent + 1.\n\n#### Proof of Claim\n- When claiming, demonstrate that no combination of unplayed cards could form a stronger opposing formation."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Win Conditions\n- **5 stones** — Claim any 5 of the 9 stones.\n- **3 adjacent** — Claim 3 stones in a row (breakthrough).\n\n#### No points — pure win/loss."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Color runs are king** — They're the strongest formation; build them when possible.\n- **Spread your plays** — Don't commit all cards to one stone.\n- **Claim early** — Prove claims as soon as possible to lock in stones.\n- **Watch the draw pile** — Track which cards have been played to know what's possible."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Card counting** — With 54 cards and perfect information of plays, you can calculate exact odds.\n- **Adjacent pressure** — Focus on claiming 3 adjacent stones for a quick win.\n- **Sacrifice stones** — Concede hopeless stones to concentrate strength elsewhere.\n- **Proof timing** — Claim stones early using logical proof even before opponent finishes their formation."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}

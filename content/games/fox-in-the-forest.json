@@ -1,0 +1,85 @@
+{
+  "game_id": "fox-in-the-forest",
+  "title": "Fox in the Forest",
+  "aliases": ["The Fox in the Forest"],
+  "publisher": "Renegade Game Studios",
+  "player_count": {"min": 2, "max": 2, "recommended": 2},
+  "play_time_minutes": {"min": 20, "max": 30},
+  "complexity": "gateway",
+  "categories": ["trick-taking", "card-game", "two-player"],
+  "source_url": "https://www.renegadegamestudios.com/the-fox-in-the-forest",
+  "source_verified": false,
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "- **33 cards** in 3 suits (Bells, Keys, Moons), numbered 1-11 each\n- **Scoring tokens**\n- **Score track**\n- Odd-numbered cards (1, 3, 5, 7, 9, 11) have special abilities"
+        },
+        {
+          "id": "board-setup",
+          "title": "Table Setup",
+          "content": "1. **Shuffle all 33 cards.**\n2. **Deal 13 cards** to each player.\n3. **Place 1 card face up** — This determines the trump suit.\n4. **Remaining 6 cards** form a draw deck.\n5. **Place scoring tokens** on the score track."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "- **13 cards in hand** — The non-dealer leads the first trick.\n- **Scoring tokens** on position 0.\n- **Play 13 tricks** per round."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "overview",
+          "title": "Game Overview",
+          "content": "Fox in the Forest is a 2-player trick-taking game with a twist: winning too many tricks scores poorly (greed). Special card abilities add tactical depth. Score points over multiple rounds."
+        },
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Each round consists of 13 tricks:\n1. **Lead** — Leader plays any card from hand.\n2. **Follow** — Other player must follow suit if able. If unable, may play any card.\n3. **Determine winner** — Highest card of led suit wins unless a trump card was played (highest trump wins).\n4. **Winner leads next trick.**\n5. **Resolve abilities** — Odd-numbered cards trigger special effects."
+        },
+        {
+          "id": "key-actions",
+          "title": "Key Actions",
+          "content": "#### Card Abilities (Odd Numbers)\n- **1 (Swan)** — If you play this and lose the trick, you lead the next trick.\n- **3 (Fox)** — You may exchange the face-up trump card with a card from your hand.\n- **5 (Woodcutter)** — Draw 1 card from the draw deck, then discard 1 card face down.\n- **7 (Treasure)** — The winner of this trick scores 1 bonus point.\n- **9 (Witch)** — This card acts as trump if led (regardless of suit).\n- **11 (Monarch)** — You must play this if it's your only card of the led suit."
+        },
+        {
+          "id": "special-rules",
+          "title": "Special Rules",
+          "content": "#### Greedy / Humble Scoring\n- Winning 0-3 tricks: **Humble** — 6 points.\n- Winning 4 tricks: 1 point.\n- Winning 5 tricks: 2 points.\n- Winning 6 tricks: 3 points.\n- Winning 7-9 tricks: **Victorious** — 6 points.\n- Winning 10-13 tricks: **Greedy** — 0 points!\n\n#### Trump Suit\n- Determined by the face-up card. Trump beats non-trump.\n- Fox (3) ability can change the trump card."
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring and Endgame",
+          "content": "#### Round Scoring\n- Count tricks won and score based on the scoring table.\n- Best range: 7-9 tricks (6 points) or exactly 0-3 tricks (6 points).\n\n#### Game End\n- First player to **21 points** wins. Play as many rounds as needed."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-tips",
+          "title": "Beginner Tips",
+          "content": "- **Don't be greedy** — Winning 10+ tricks scores 0! Aim for 7-9.\n- **Or go humble** — If you're losing, aim for 0-3 tricks for 6 points.\n- **Use abilities** — The Fox (3) and Woodcutter (5) give powerful flexibility.\n- **Count tricks** — Track how many each player has won."
+        },
+        {
+          "id": "key-strategies",
+          "title": "Key Strategies",
+          "content": "- **Trick targeting** — Know your target range early and play toward it.\n- **Swan (1) control** — The Swan lets you lead even after losing, giving control.\n- **Trump management** — Save trump cards for key tricks.\n- **Force greed** — Dump tricks on your opponent to push them past 9.\n- **Witch (9) timing** — Play the Witch as a surprise trump to steal key tricks."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "created_by": "barbarian",
+    "created_at": "2026-02-24T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": ""
+  }
+}
