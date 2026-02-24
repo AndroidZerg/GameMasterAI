@@ -35,3 +35,13 @@ Branch: sprint5/backend
 - Tested: meepleville, knight-and-day, little-shop-of-magic, shall-we-play, grouchy-johns, natural-twenty
 - Password: gmai2026 (seeded via hash_password in main.py lifespan)
 - UPSERT seeding ensures password hash is always current on restart
+
+## Phase B6: Polish + Integration Test
+- Full integration test passed:
+  - 50/50 games have play_time_minutes (0 missing)
+  - 50/50 score configs have descriptions on all categories
+  - scoring_text present in game detail (catan, wingspan, terraforming-mars, root)
+  - 6/6 venue logins working
+  - All key endpoints return 200: /games, /games/featured, /games/categories, /games/quick, /games/filter, /games/staff-picks
+  - Game detail sub-endpoints working: /expansions, /house-rules, /price
+- Sprint 5 complete
