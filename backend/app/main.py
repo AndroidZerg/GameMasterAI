@@ -43,7 +43,7 @@ from app.models.house_rules import init_house_rules_table
 from app.models.orders import init_orders_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
-from app.services.admin_config import _load_all as _load_admin_config
+from app.services.admin_config import load_all as _load_admin_config
 
 
 limiter = Limiter(key_func=get_remote_address)
@@ -74,8 +74,9 @@ async def lifespan(app: FastAPI):
             set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded {len(seeded)} venue(s): {', '.join(seeded)}")
 
-    # Load admin config (SQLite → GitHub → defaults)
-    _load_admin_config()
+    # Load admin config (GitHub API → hardcoded defaults)
+    admin_cfg = _load_admin_config()
+    print(f"[GMAI] Startup: loaded admin config for venues: {list(admin_cfg.keys())}")
 
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield
