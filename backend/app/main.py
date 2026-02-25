@@ -41,6 +41,7 @@ from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
+from app.services.admin_config import _load_all as _load_admin_config
 
 
 limiter = Limiter(key_func=get_remote_address)
@@ -69,6 +70,9 @@ async def lifespan(app: FastAPI):
         for vid in seeded:
             set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded {len(seeded)} venue(s): {', '.join(seeded)}")
+
+    # Load admin config (SQLite → GitHub → defaults)
+    _load_admin_config()
 
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield

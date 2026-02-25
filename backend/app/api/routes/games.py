@@ -20,7 +20,7 @@ _EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
 _EXPANSIONS: dict[str, list] = {}
 _HIGHLIGHTS_PATH = _CONTENT_ROOT / "game-highlights.json"
 _HIGHLIGHTS: dict[str, str] = {}
-from app.core.github_config import (
+from app.services.admin_config import (
     load_admin_config as _load_admin_config,
     save_admin_config as _save_admin_config,
     get_venue_config as _get_venue_admin_config,

@@ -1,15 +1,12 @@
-"""Expansions, menu, featured, staff picks, and house rules endpoints."""
+"""Expansions, menu, and house rules endpoints."""
 
-import hashlib
 import json
-from datetime import date
 from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_optional_venue
-from app.models.game import search_games
 
 router = APIRouter(prefix="/api", tags=["extras"])
 
@@ -75,75 +72,6 @@ async def get_venue_menu(
         raise HTTPException(status_code=404, detail="Menu not available")
 
     return json.loads(menu_path.read_text(encoding="utf-8"))
-
-
-# ── Featured / Game of the Day ──────────────────────────────
-
-@router.get("/games/featured")
-async def get_featured_game():
-    """Return a deterministic 'Game of the Day' based on today's date.
-
-    Uses a hash of the date to pick consistently — same game all day,
-    different game tomorrow.
-    """
-    all_games = search_games()
-    if not all_games:
-        raise HTTPException(status_code=404, detail="No games available")
-
-    today = date.today().isoformat()
-    h = int(hashlib.md5(today.encode()).hexdigest(), 16)
-    idx = h % len(all_games)
-    game = all_games[idx]
-
-    return {
-        "game_of_the_day": game,
-        "date": today,
-        "reason": _pick_reason(game),
-    }
-
-
-def _pick_reason(game: dict) -> str:
-    """Generate a short reason string for featuring a game."""
-    complexity = game.get("complexity", "")
-    players = game.get("player_count", {})
-    pmin = players.get("min", 2)
-    pmax = players.get("max", 4)
-
-    if complexity == "party":
-        return "Perfect for a group — easy to learn, lots of laughs"
-    elif complexity == "gateway":
-        return "Great intro game — welcoming for new players"
-    elif complexity == "heavy":
-        return "For the strategists — deep decisions await"
-    elif pmax >= 6:
-        return f"Plays up to {pmax} — bring the whole crew"
-    elif pmin == 1:
-        return "Solo-friendly — great for a quiet session"
-    else:
-        return "Staff favorite — a must-play classic"
-
-
-# ── Staff Picks ─────────────────────────────────────────────
-
-# Curated list — can be updated via admin endpoint later
-STAFF_PICKS_IDS = [
-    "wingspan", "azul", "codenames", "root",
-    "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg",
-]
-
-
-@router.get("/games/staff-picks")
-async def get_staff_picks():
-    """Return curated staff picks list with full game data."""
-    all_games = search_games()
-    game_map = {g["game_id"]: g for g in all_games}
-
-    picks = []
-    for gid in STAFF_PICKS_IDS:
-        if gid in game_map:
-            picks.append(game_map[gid])
-
-    return {"picks": picks, "count": len(picks)}
 
 
 # ── House Rules ─────────────────────────────────────────────
