@@ -9,6 +9,243 @@ const PLAYER_COLORS = [
 
 const STICKY_BG = "#1a1a2e";
 
+/* ── Post-Game Survey (Lobby) ──────────────────────────────── */
+function LobbySurvey({ gameId, lobbyId, playerName, onDone }) {
+  const [gameRating, setGameRating] = useState(0);
+  const [playedBefore, setPlayedBefore] = useState(null);
+  const [helpfulSetup, setHelpfulSetup] = useState(0);
+  const [helpfulRules, setHelpfulRules] = useState(0);
+  const [helpfulStrategy, setHelpfulStrategy] = useState(0);
+  const [helpfulScoring, setHelpfulScoring] = useState(0);
+  const [wouldUseAgain, setWouldUseAgain] = useState(null);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const StarRow = ({ label, value, onChange }) => (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+      <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1 }}>{label}</span>
+      <div style={{ display: "flex", gap: "4px" }}>
+        {[1, 2, 3, 4, 5].map((s) => (
+          <button key={s} onClick={() => onChange(s)} style={{
+            background: "none", border: "none", cursor: "pointer", fontSize: "1.4rem",
+            color: s <= value ? "#f59e0b" : "var(--border)", padding: "2px",
+          }}>{s <= value ? "\u2605" : "\u2606"}</button>
+        ))}
+      </div>
+    </div>
+  );
+
+  const YesNo = ({ value, onChange }) => (
+    <div style={{ display: "flex", gap: "8px" }}>
+      {[true, false].map((v) => (
+        <button key={String(v)} onClick={() => onChange(v)} style={{
+          padding: "8px 20px", borderRadius: "8px", fontWeight: 600, cursor: "pointer",
+          background: value === v ? "var(--accent)" : "var(--bg-secondary)",
+          color: value === v ? "#fff" : "var(--text-primary)",
+          border: value === v ? "none" : "1px solid var(--border)",
+        }}>{v ? "Yes" : "No"}</button>
+      ))}
+    </div>
+  );
+
+  const handleSubmit = async () => {
+    if (gameRating === 0) return;
+    setSubmitting(true);
+    try {
+      const venueId = localStorage.getItem("gmai_venue_id") || null;
+      await fetch(`${API_BASE}/api/feedback/survey`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          game_id: gameId,
+          lobby_id: lobbyId || null,
+          venue_id: venueId,
+          player_name: playerName || null,
+          game_rating: gameRating,
+          played_before: playedBefore,
+          helpful_setup: helpfulSetup || null,
+          helpful_rules: helpfulRules || null,
+          helpful_strategy: helpfulStrategy || null,
+          helpful_scoring: helpfulScoring || null,
+          would_use_again: wouldUseAgain,
+          feedback_text: feedbackText || null,
+          submitted_at: new Date().toISOString(),
+        }),
+      });
+    } catch { /* non-fatal */ }
+    onDone();
+  };
+
+  return (
+    <div style={{ padding: "20px", flex: 1, overflowY: "auto" }}>
+      <h2 style={{ textAlign: "center", fontSize: "1.3rem", color: "var(--text-primary)", marginBottom: "24px" }}>
+        How was your experience?
+      </h2>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <StarRow label={`Rate this game:`} value={gameRating} onChange={setGameRating} />
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>Played this game before?</span>
+          <YesNo value={playedBefore} onChange={setPlayedBefore} />
+        </div>
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>
+          How helpful was GameMaster AI for:
+        </p>
+        <StarRow label="Setup" value={helpfulSetup} onChange={setHelpfulSetup} />
+        <StarRow label="Rules" value={helpfulRules} onChange={setHelpfulRules} />
+        <StarRow label="Strategies" value={helpfulStrategy} onChange={setHelpfulStrategy} />
+        <StarRow label="Keeping Score" value={helpfulScoring} onChange={setHelpfulScoring} />
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1, marginRight: "8px" }}>
+            Would you use GameMaster AI to learn a new game?
+          </span>
+          <YesNo value={wouldUseAgain} onChange={setWouldUseAgain} />
+        </div>
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "20px" }}>
+        <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "8px" }}>Any other feedback? (optional)</p>
+        <textarea
+          value={feedbackText}
+          onChange={(e) => setFeedbackText(e.target.value)}
+          placeholder="Tell us what you think..."
+          rows={3}
+          style={{
+            width: "100%", padding: "10px", borderRadius: "8px",
+            border: "1px solid var(--border)", background: "var(--bg-primary)",
+            color: "var(--text-primary)", fontSize: "0.9rem", resize: "vertical",
+            outline: "none", boxSizing: "border-box",
+          }}
+        />
+      </div>
+
+      <button onClick={handleSubmit} disabled={submitting || gameRating === 0} style={{
+        display: "block", width: "100%", padding: "14px", borderRadius: "12px",
+        background: gameRating === 0 ? "var(--bg-secondary)" : "var(--accent)",
+        color: gameRating === 0 ? "var(--text-secondary)" : "#fff",
+        border: "none", fontSize: "1.05rem", fontWeight: 700,
+        cursor: gameRating === 0 ? "default" : "pointer",
+        marginBottom: "8px", opacity: submitting ? 0.6 : 1,
+      }}>
+        {submitting ? "Submitting..." : "Submit Feedback"}
+      </button>
+
+      <button onClick={onDone} style={{
+        display: "block", width: "100%", padding: "10px",
+        background: "none", border: "none", color: "var(--text-secondary)",
+        fontSize: "0.85rem", cursor: "pointer", textAlign: "center",
+      }}>Skip</button>
+    </div>
+  );
+}
+
+/* ── Lobby Results Screen ──────────────────────────────────── */
+function LobbyResults({ players, getPlayerTotal, myPlayerId, onSurvey, onNewGame, gameId }) {
+  const RANK_MESSAGES = [
+    { icon: "\u{1F3C6}", msg: "You won! 1st Place!", color: "#f59e0b" },
+    { icon: "\u{1F948}", msg: "Great game! 2nd Place!", color: "#94a3b8" },
+    { icon: "\u{1F949}", msg: "Well played! 3rd Place!", color: "#cd7f32" },
+  ];
+
+  const sorted = [...players]
+    .map((p, i) => ({ ...p, total: getPlayerTotal(p.id), pIdx: i }))
+    .sort((a, b) => b.total - a.total);
+
+  const confettiColors = ["#e94560", "#ff6b81", "#a855f7", "#22c55e", "#3b82f6", "#f59e0b"];
+
+  const getRankInfo = (rank) => {
+    if (rank < 3) return RANK_MESSAGES[rank];
+    const n = rank + 1;
+    return { icon: "", msg: `You got ${n}th place. Good try! Better luck next time!`, color: "var(--text-secondary)" };
+  };
+
+  // Find this player's rank for personalized message
+  const myRank = sorted.findIndex((p) => p.id === myPlayerId);
+
+  return (
+    <div style={{ padding: "20px", position: "relative", overflow: "hidden" }}>
+      {/* Confetti */}
+      {confettiColors.map((color, i) =>
+        Array.from({ length: 6 }).map((_, j) => (
+          <div key={`${i}-${j}`} style={{
+            position: "absolute", top: "0",
+            left: `${5 + (i * 6 + j) * 2.5}%`,
+            width: j % 3 === 0 ? "10px" : "8px",
+            height: j % 3 === 0 ? "10px" : "8px",
+            borderRadius: j % 2 === 0 ? "50%" : "2px",
+            background: color,
+            animation: `confetti 2s ease-out ${(i * 6 + j) * 0.05}s forwards`,
+            opacity: 0.9,
+          }} />
+        ))
+      )}
+
+      <h2 style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "8px", color: "var(--text-primary)" }}>
+        Final Scores
+      </h2>
+
+      {/* Personalized message for this player */}
+      {myPlayerId && myRank >= 0 && (
+        <p style={{
+          textAlign: "center", fontSize: "1rem", marginBottom: "20px",
+          color: getRankInfo(myRank).color, fontWeight: 600,
+        }}>
+          {getRankInfo(myRank).icon} {getRankInfo(myRank).msg}
+        </p>
+      )}
+
+      {/* Leaderboard */}
+      {sorted.map((p, rank) => {
+        const isWinner = rank === 0;
+        const isMe = p.id === myPlayerId;
+        return (
+          <div key={p.id} style={{
+            background: isWinner ? PLAYER_COLORS[p.pIdx % PLAYER_COLORS.length] : "var(--bg-secondary)",
+            borderRadius: "12px", padding: "14px 16px", marginBottom: "8px",
+            border: isMe ? `2px solid var(--accent)` : isWinner ? `2px solid ${PLAYER_COLORS[p.pIdx % PLAYER_COLORS.length]}` : "1px solid var(--border)",
+            animation: isWinner ? "glow 2s ease-in-out infinite" : "none",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ fontSize: "1rem", fontWeight: 700, color: isWinner ? "#fff" : "var(--text-secondary)", minWidth: "24px" }}>
+                  #{rank + 1}
+                </span>
+                <span style={{ fontSize: "1.1rem", fontWeight: 600, color: isWinner ? "#fff" : "var(--text-primary)" }}>
+                  {rank === 0 ? "\u{1F3C6} " : ""}{p.name}
+                  {isMe ? " (you)" : ""}
+                </span>
+              </div>
+              <span style={{ fontSize: "1.4rem", fontWeight: 800, fontFamily: "monospace", color: isWinner ? "#fff" : "var(--accent)" }}>
+                {p.total}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+
+      <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
+        <button onClick={onSurvey} style={{
+          flex: 1, padding: "14px", borderRadius: "12px",
+          background: "var(--accent)", color: "#fff", border: "none",
+          fontWeight: 600, cursor: "pointer", fontSize: "1rem",
+        }}>Rate This Game</button>
+        <button onClick={onNewGame} style={{
+          flex: 1, padding: "14px", borderRadius: "12px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "1px solid var(--border)", fontWeight: 600,
+          cursor: "pointer", fontSize: "1rem",
+        }}>New Game</button>
+      </div>
+    </div>
+  );
+}
+
 export default function LobbyScoreTracker() {
   const { lobbyId } = useParams();
   const navigate = useNavigate();
@@ -16,17 +253,18 @@ export default function LobbyScoreTracker() {
   const [lobby, setLobby] = useState(null);
   const [error, setError] = useState("");
   const [kicked, setKicked] = useState(false);
-  // Rows = scoring types; columns = players (transposed)
+  const [phase, setPhase] = useState("scoring"); // scoring | results | survey
+  const [showEndConfirm, setShowEndConfirm] = useState(false);
   const [rows, setRows] = useState(["Score A", "Score B", "Score C"]);
   const [editingRow, setEditingRow] = useState(null);
-  // localScores: { "row_0": { "player-uuid": 5, ... }, "row_1": { ... } }
   const [localScores, setLocalScores] = useState({});
-  const [showTotal, setShowTotal] = useState(false); // Default OFF for Play Together
+  const [showTotal, setShowTotal] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const pollRef = useRef(null);
   const lastPushRef = useRef("");
 
   const playerId = localStorage.getItem("gmai_player_id");
+  const playerName = lobby?.players?.find((p) => p.id === playerId)?.name || "";
   const isHost = lobby?.host_id === playerId;
 
   // Load game-specific score types from API
@@ -82,7 +320,14 @@ export default function LobbyScoreTracker() {
 
         setLobby(state);
 
-        // Merge remote scores — remote wins for keys we haven't locally changed
+        // If host ended the game, show results for all players
+        if (state.status === "ended" && phase === "scoring") {
+          setShowTotal(true);
+          setRevealed(true);
+          setPhase("results");
+        }
+
+        // Merge remote scores
         const remoteScores = state.scores?.shared || {};
         setLocalScores((prev) => {
           const merged = { ...prev };
@@ -108,7 +353,7 @@ export default function LobbyScoreTracker() {
     poll();
     pollRef.current = setInterval(poll, 2000);
     return () => { mounted = false; clearInterval(pollRef.current); };
-  }, [lobbyId, playerId]);
+  }, [lobbyId, playerId, phase]);
 
   // Push all scores to server when local scores change
   useEffect(() => {
@@ -137,6 +382,21 @@ export default function LobbyScoreTracker() {
 
   const handleKick = async (kickId) => {
     try { await kickPlayer(lobbyId, playerId, kickId); } catch { /* ignore */ }
+  };
+
+  const handleEndGame = async () => {
+    setShowEndConfirm(false);
+    // Notify server so all clients transition
+    try {
+      await fetch(`${API_BASE}/api/lobby/${lobbyId}/end`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ host_id: playerId }),
+      });
+    } catch { /* ignore */ }
+    setShowTotal(true);
+    setRevealed(true);
+    setPhase("results");
   };
 
   const addRow = () => {
@@ -190,8 +450,81 @@ export default function LobbyScoreTracker() {
 
   const players = lobby.players || [];
 
+  // Survey phase
+  if (phase === "survey") {
+    return (
+      <div style={{ maxWidth: "500px", margin: "0 auto", paddingTop: "60px", minHeight: "100vh" }}>
+        <LobbySurvey
+          gameId={lobby.game_id}
+          lobbyId={lobbyId}
+          playerName={playerName}
+          onDone={() => {
+            localStorage.removeItem("gmai_lobby_id");
+            localStorage.removeItem("gmai_player_id");
+            localStorage.removeItem(`gmai_lobby_scores_${lobbyId}`);
+            navigate("/games");
+          }}
+        />
+      </div>
+    );
+  }
+
+  // Results phase
+  if (phase === "results") {
+    return (
+      <div style={{ maxWidth: "500px", margin: "0 auto", paddingTop: "60px", minHeight: "100vh" }}>
+        <LobbyResults
+          players={players}
+          getPlayerTotal={getPlayerTotal}
+          myPlayerId={playerId}
+          gameId={lobby.game_id}
+          onSurvey={() => setPhase("survey")}
+          onNewGame={() => {
+            localStorage.removeItem("gmai_lobby_id");
+            localStorage.removeItem("gmai_player_id");
+            localStorage.removeItem(`gmai_lobby_scores_${lobbyId}`);
+            navigate("/games");
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px", minHeight: "100vh" }}>
+      {/* End Game Confirmation Modal */}
+      {showEndConfirm && (
+        <div style={{
+          position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)",
+          zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center",
+          padding: "20px",
+        }} onClick={() => setShowEndConfirm(false)}>
+          <div style={{
+            background: "var(--bg-primary)", borderRadius: "16px",
+            padding: "24px", width: "100%", maxWidth: "340px",
+            border: "1px solid var(--border)", textAlign: "center",
+          }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ fontSize: "2.5rem", marginBottom: "12px" }}>{"\u{1F3C1}"}</div>
+            <h3 style={{ color: "var(--text-primary)", marginBottom: "8px", fontSize: "1.2rem" }}>End this game?</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "20px" }}>
+              Final scores will be revealed. All players will see the results.
+            </p>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button onClick={() => setShowEndConfirm(false)} style={{
+                flex: 1, padding: "12px", borderRadius: "10px",
+                background: "var(--bg-secondary)", color: "var(--text-primary)",
+                border: "1px solid var(--border)", fontWeight: 600, cursor: "pointer",
+              }}>Cancel</button>
+              <button onClick={handleEndGame} style={{
+                flex: 1, padding: "12px", borderRadius: "10px",
+                background: "#ef4444", color: "#fff", border: "none",
+                fontWeight: 600, cursor: "pointer",
+              }}>End Game</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" }}>
         <button onClick={() => navigate(`/game/${lobby.game_id}`)} style={{ padding: "8px 16px", fontSize: "0.9rem" }}>
@@ -416,8 +749,20 @@ export default function LobbyScoreTracker() {
         </div>
       )}
 
-      {/* Leave */}
-      <div style={{ borderTop: "1px solid var(--border)", paddingTop: "16px" }}>
+      {/* End Game button (host only) + Leave */}
+      <div style={{ borderTop: "1px solid var(--border)", paddingTop: "16px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        {isHost && (
+          <button
+            onClick={() => setShowEndConfirm(true)}
+            style={{
+              padding: "12px 24px", borderRadius: "12px", fontSize: "0.95rem",
+              background: "#ef4444", color: "#fff",
+              border: "none", cursor: "pointer", fontWeight: 600,
+            }}
+          >
+            End Game
+          </button>
+        )}
         <button
           onClick={handleLeave}
           style={{

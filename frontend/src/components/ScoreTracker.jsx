@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { API_BASE } from "../services/api";
 
@@ -922,8 +923,213 @@ function EliminationTracker({ players, categories, scores, setScores }) {
   );
 }
 
+/* ── End Game Confirmation ────────────────────────────────────── */
+function EndGameConfirm({ onConfirm, onCancel }) {
+  return (
+    <div style={{
+      position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)",
+      zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center",
+      padding: "20px",
+    }} onClick={onCancel}>
+      <div style={{
+        background: "var(--bg-primary)", borderRadius: "16px",
+        padding: "24px", width: "100%", maxWidth: "340px",
+        border: "1px solid var(--border)", textAlign: "center",
+      }} onClick={(e) => e.stopPropagation()}>
+        <div style={{ fontSize: "2.5rem", marginBottom: "12px" }}>{"\u{1F3C1}"}</div>
+        <h3 style={{ color: "var(--text-primary)", marginBottom: "8px", fontSize: "1.2rem" }}>End this game?</h3>
+        <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "20px" }}>
+          Final scores will be revealed.
+        </p>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button onClick={onCancel} style={{
+            flex: 1, padding: "12px", borderRadius: "10px",
+            background: "var(--bg-secondary)", color: "var(--text-primary)",
+            border: "1px solid var(--border)", fontWeight: 600, cursor: "pointer",
+          }}>Cancel</button>
+          <button onClick={onConfirm} style={{
+            flex: 1, padding: "12px", borderRadius: "10px",
+            background: "#ef4444", color: "#fff", border: "none",
+            fontWeight: 600, cursor: "pointer",
+          }}>End Game</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Post-Game Survey ────────────────────────────────────────── */
+function PostGameSurvey({ gameId, gameTitle, lobbyId, playerName, onDone }) {
+  const [gameRating, setGameRating] = useState(0);
+  const [playedBefore, setPlayedBefore] = useState(null);
+  const [helpfulSetup, setHelpfulSetup] = useState(0);
+  const [helpfulRules, setHelpfulRules] = useState(0);
+  const [helpfulStrategy, setHelpfulStrategy] = useState(0);
+  const [helpfulScoring, setHelpfulScoring] = useState(0);
+  const [wouldUseAgain, setWouldUseAgain] = useState(null);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const StarRow = ({ label, value, onChange }) => (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+      <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1 }}>{label}</span>
+      <div style={{ display: "flex", gap: "4px" }}>
+        {[1, 2, 3, 4, 5].map((s) => (
+          <button key={s} onClick={() => onChange(s)} style={{
+            background: "none", border: "none", cursor: "pointer", fontSize: "1.4rem",
+            color: s <= value ? "#f59e0b" : "var(--border)", padding: "2px",
+          }}>{s <= value ? "\u2605" : "\u2606"}</button>
+        ))}
+      </div>
+    </div>
+  );
+
+  const YesNo = ({ value, onChange }) => (
+    <div style={{ display: "flex", gap: "8px" }}>
+      {[true, false].map((v) => (
+        <button key={String(v)} onClick={() => onChange(v)} style={{
+          padding: "8px 20px", borderRadius: "8px", fontWeight: 600, cursor: "pointer",
+          background: value === v ? "var(--accent)" : "var(--bg-secondary)",
+          color: value === v ? "#fff" : "var(--text-primary)",
+          border: value === v ? "none" : "1px solid var(--border)",
+        }}>{v ? "Yes" : "No"}</button>
+      ))}
+    </div>
+  );
+
+  const handleSubmit = async () => {
+    if (gameRating === 0) return;
+    setSubmitting(true);
+    try {
+      const venueId = localStorage.getItem("gmai_venue_id") || null;
+      await fetch(`${API_BASE}/api/feedback/survey`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          game_id: gameId,
+          lobby_id: lobbyId || null,
+          venue_id: venueId,
+          player_name: playerName || null,
+          game_rating: gameRating,
+          played_before: playedBefore,
+          helpful_setup: helpfulSetup || null,
+          helpful_rules: helpfulRules || null,
+          helpful_strategy: helpfulStrategy || null,
+          helpful_scoring: helpfulScoring || null,
+          would_use_again: wouldUseAgain,
+          feedback_text: feedbackText || null,
+          submitted_at: new Date().toISOString(),
+        }),
+      });
+    } catch { /* non-fatal */ }
+    onDone();
+  };
+
+  return (
+    <div style={{ padding: "20px", flex: 1, overflowY: "auto" }}>
+      <h2 style={{ textAlign: "center", fontSize: "1.3rem", color: "var(--text-primary)", marginBottom: "24px" }}>
+        How was your experience?
+      </h2>
+
+      {/* Section 1: Game Rating */}
+      <div style={{
+        background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
+        border: "1px solid var(--border)", marginBottom: "16px",
+      }}>
+        <StarRow label={`Rate ${gameTitle || gameId}:`} value={gameRating} onChange={setGameRating} />
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>Have you played this game before?</span>
+          <YesNo value={playedBefore} onChange={setPlayedBefore} />
+        </div>
+      </div>
+
+      {/* Section 2: GameMaster AI Feedback */}
+      <div style={{
+        background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
+        border: "1px solid var(--border)", marginBottom: "16px",
+      }}>
+        <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>
+          How helpful was GameMaster AI for:
+        </p>
+        <StarRow label="Setup" value={helpfulSetup} onChange={setHelpfulSetup} />
+        <StarRow label="Rules" value={helpfulRules} onChange={setHelpfulRules} />
+        <StarRow label="Strategies" value={helpfulStrategy} onChange={setHelpfulStrategy} />
+        <StarRow label="Keeping Score" value={helpfulScoring} onChange={setHelpfulScoring} />
+      </div>
+
+      {/* Section 3: Recommendation */}
+      <div style={{
+        background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
+        border: "1px solid var(--border)", marginBottom: "16px",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1, marginRight: "8px" }}>
+            Would you use GameMaster AI to learn a new game?
+          </span>
+          <YesNo value={wouldUseAgain} onChange={setWouldUseAgain} />
+        </div>
+      </div>
+
+      {/* Section 4: Optional */}
+      <div style={{
+        background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
+        border: "1px solid var(--border)", marginBottom: "20px",
+      }}>
+        <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "8px" }}>
+          Any other feedback? (optional)
+        </p>
+        <textarea
+          value={feedbackText}
+          onChange={(e) => setFeedbackText(e.target.value)}
+          placeholder="Tell us what you think..."
+          rows={3}
+          style={{
+            width: "100%", padding: "10px", borderRadius: "8px",
+            border: "1px solid var(--border)", background: "var(--bg-primary)",
+            color: "var(--text-primary)", fontSize: "0.9rem", resize: "vertical",
+            outline: "none", boxSizing: "border-box",
+          }}
+        />
+      </div>
+
+      {/* Submit */}
+      <button
+        onClick={handleSubmit}
+        disabled={submitting || gameRating === 0}
+        style={{
+          display: "block", width: "100%", padding: "14px", borderRadius: "12px",
+          background: gameRating === 0 ? "var(--bg-secondary)" : "var(--accent)",
+          color: gameRating === 0 ? "var(--text-secondary)" : "#fff",
+          border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: gameRating === 0 ? "default" : "pointer",
+          marginBottom: "8px", opacity: submitting ? 0.6 : 1,
+        }}
+      >
+        {submitting ? "Submitting..." : "Submit Feedback"}
+      </button>
+
+      {/* Skip */}
+      <button
+        onClick={onDone}
+        style={{
+          display: "block", width: "100%", padding: "10px",
+          background: "none", border: "none", color: "var(--text-secondary)",
+          fontSize: "0.85rem", cursor: "pointer", textAlign: "center",
+        }}
+      >
+        Skip
+      </button>
+    </div>
+  );
+}
+
 /* ── Results Screen ──────────────────────────────────────────── */
-function ResultsScreen({ players, categories, scores, scoringType, coopResult, onPlayAgain, onNewGame, gameId, gameTitle }) {
+function ResultsScreen({ players, categories, scores, scoringType, coopResult, onPlayAgain, onNewGame, onSurvey, gameId, gameTitle }) {
+  const RANK_MESSAGES = [
+    { icon: "\u{1F3C6}", msg: "You won! 1st Place!", color: "#f59e0b" },
+    { icon: "\u{1F948}", msg: "Great game! 2nd Place!", color: "#94a3b8" },
+    { icon: "\u{1F949}", msg: "Well played! 3rd Place!", color: "#cd7f32" },
+  ];
+
   const totals = players.map((_, pi) =>
     categories
       ? categories.reduce((sum, cat) => {
@@ -931,7 +1137,7 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
           const points = Number(cat.points_each) || 1;
           if (cat.type === "boolean") return sum + (value ? points : 0);
           if (cat.type === "count") return sum + (value * points);
-          return sum + value; // manual type — value IS the points
+          return sum + value;
         }, 0)
       : 0
   );
@@ -940,7 +1146,6 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
     .map((player, i) => ({ ...player, total: totals[i], idx: i }))
     .sort((a, b) => b.total - a.total);
 
-  const winnerTotal = sorted[0]?.total;
   const confettiColors = ["#e94560", "#ff6b81", "#a855f7", "#22c55e", "#3b82f6", "#f59e0b"];
 
   useEffect(() => {
@@ -967,77 +1172,91 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
     postSession();
   }, []);
 
+  const getRankLabel = (rank) => {
+    if (rank < 3) return RANK_MESSAGES[rank];
+    const n = rank + 1;
+    const suffix = n === 4 ? "th" : n === 5 ? "th" : n === 6 ? "th" : "th";
+    return { icon: "", msg: `You got ${n}${suffix} place. Good try! Better luck next time!`, color: "var(--text-secondary)" };
+  };
+
   return (
     <div style={{ padding: "20px", position: "relative", overflow: "hidden", flex: 1 }}>
+      {/* Confetti */}
       {confettiColors.map((color, i) =>
-        Array.from({ length: 4 }).map((_, j) => (
+        Array.from({ length: 6 }).map((_, j) => (
           <div
             key={`${i}-${j}`}
             style={{
               position: "absolute", top: "0",
-              left: `${10 + (i * 4 + j) * 3.5}%`,
-              width: "8px", height: "8px",
+              left: `${5 + (i * 6 + j) * 2.5}%`,
+              width: j % 3 === 0 ? "10px" : "8px",
+              height: j % 3 === 0 ? "10px" : "8px",
               borderRadius: j % 2 === 0 ? "50%" : "2px",
               background: color,
-              animation: `confetti 1.5s ease-out ${(i * 4 + j) * 0.08}s forwards`,
-              opacity: 0.8,
+              animation: `confetti 2s ease-out ${(i * 6 + j) * 0.05}s forwards`,
+              opacity: 0.9,
             }}
           />
         ))
       )}
+
       <h2 style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "20px", color: "var(--text-primary)" }}>
         {scoringType === "cooperative" ? (coopResult ? "Victory!" : "Defeat") : "Final Scores"}
       </h2>
 
       {scoringType !== "cooperative" ? (
-        sorted.map((p, rank) => (
-          <div
-            key={p.idx}
-            style={{
-              background: p.total === winnerTotal ? p.color : "var(--bg-secondary)",
-              borderRadius: "12px", padding: "16px", marginBottom: "10px",
-              border: p.total === winnerTotal ? `2px solid ${p.color}` : "1px solid var(--border)",
-              animation: p.total === winnerTotal ? "glow 2s ease-in-out infinite" : "none",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ fontSize: "1.3rem" }}>{p.avatar}</span>
-                <span style={{ fontSize: "1.1rem", fontWeight: 700, color: p.total === winnerTotal ? "#fff" : "var(--text-primary)" }}>
-                  {rank === 0 ? "\u{1F3C6} " : ""}{p.name}
-                </span>
-                {rank === 0 && (
-                  <span style={{ fontSize: "0.85rem", color: p.total === winnerTotal ? "#ffd" : "var(--accent)" }}>
-                    Winner!
-                  </span>
-                )}
-              </div>
-              <span style={{ fontSize: "1.5rem", fontWeight: 800, color: p.total === winnerTotal ? "#fff" : p.color }}>
-                {p.total}
-              </span>
-            </div>
-
-            {categories && (
-              <div style={{ marginTop: "8px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                {categories.map((cat) => {
-                  const val = Number(scores[p.idx]?.[cat.id]) || 0;
-                  const points = Number(cat.points_each) || 1;
-                  const pts = cat.type === "boolean" ? (val ? points : 0) : cat.type === "count" ? val * points : val;
-                  if (pts === 0) return null;
-                  return (
-                    <span key={cat.id} style={{
-                      fontSize: "0.75rem", padding: "2px 8px", borderRadius: "999px",
-                      background: p.total === winnerTotal ? "rgba(255,255,255,0.2)" : "var(--bg-card)",
-                      color: p.total === winnerTotal ? "#fff" : "var(--text-secondary)",
-                    }}>
-                      {cat.name}: {pts}
+        sorted.map((p, rank) => {
+          const rankInfo = getRankLabel(rank);
+          const isWinner = rank === 0;
+          return (
+            <div
+              key={p.idx}
+              style={{
+                background: isWinner ? p.color : "var(--bg-secondary)",
+                borderRadius: "12px", padding: "16px", marginBottom: "10px",
+                border: isWinner ? `2px solid ${p.color}` : "1px solid var(--border)",
+                animation: isWinner ? "glow 2s ease-in-out infinite" : "none",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <span style={{ fontSize: "1.3rem" }}>{p.avatar}</span>
+                  <div>
+                    <span style={{ fontSize: "1.1rem", fontWeight: 700, color: isWinner ? "#fff" : "var(--text-primary)" }}>
+                      {rankInfo.icon ? `${rankInfo.icon} ` : ""}{p.name}
                     </span>
-                  );
-                })}
+                    <div style={{ fontSize: "0.8rem", color: isWinner ? "#ffd" : rankInfo.color, marginTop: "2px" }}>
+                      {rankInfo.msg}
+                    </div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "1.5rem", fontWeight: 800, color: isWinner ? "#fff" : p.color }}>
+                  {p.total}
+                </span>
               </div>
-            )}
-          </div>
-        ))
+
+              {categories && (
+                <div style={{ marginTop: "8px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                  {categories.map((cat) => {
+                    const val = Number(scores[p.idx]?.[cat.id]) || 0;
+                    const points = Number(cat.points_each) || 1;
+                    const pts = cat.type === "boolean" ? (val ? points : 0) : cat.type === "count" ? val * points : val;
+                    if (pts === 0) return null;
+                    return (
+                      <span key={cat.id} style={{
+                        fontSize: "0.75rem", padding: "2px 8px", borderRadius: "999px",
+                        background: isWinner ? "rgba(255,255,255,0.2)" : "var(--bg-card)",
+                        color: isWinner ? "#fff" : "var(--text-secondary)",
+                      }}>
+                        {cat.name}: {pts}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })
       ) : (
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
           <div style={{ fontSize: "4rem", marginBottom: "8px" }}>{coopResult ? "\u{1F389}" : "\u{1F614}"}</div>
@@ -1052,17 +1271,17 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
       )}
 
       <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
-        <button onClick={onPlayAgain} style={{
+        <button onClick={onSurvey} style={{
           flex: 1, padding: "14px", borderRadius: "12px",
           background: "var(--accent)", color: "#fff", border: "none",
           fontWeight: 600, cursor: "pointer", fontSize: "1rem",
-        }}>Play Again</button>
-        <button onClick={onNewGame} style={{
+        }}>Rate This Game</button>
+        <button onClick={onPlayAgain} style={{
           flex: 1, padding: "14px", borderRadius: "12px",
           background: "var(--bg-secondary)", color: "var(--text-primary)",
           border: "1px solid var(--border)", fontWeight: 600,
           cursor: "pointer", fontSize: "1rem",
-        }}>New Game</button>
+        }}>Play Again</button>
       </div>
     </div>
   );
@@ -1070,6 +1289,7 @@ function ResultsScreen({ players, categories, scores, scoringType, coopResult, o
 
 /* ── Main ScoreTracker ───────────────────────────────────────── */
 export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, onNewGame, savedState, onStateChange }) {
+  const navigate = useNavigate();
   const [phase, setPhase] = useState("setup");
   const [players, setPlayers] = useState([]);
   const [categories, setCategories] = useState(null);
@@ -1079,6 +1299,7 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
   const [coopResult, setCoopResult] = useState(null);
   const [playerNames, setPlayerNames] = useState({});
   const [categoryNames, setCategoryNames] = useState({});
+  const [showEndConfirm, setShowEndConfirm] = useState(false);
 
   // Restore from savedState on mount (Bug 4: preserve scores across tab switches)
   useEffect(() => {
@@ -1162,12 +1383,12 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
             <ScoringReference gameId={gameId} />
             <SpreadsheetScoring players={players} categories={categories} scores={scores} setScores={setScores} playerNames={playerNames} setPlayerNames={setPlayerNames} categoryNames={categoryNames} setCategoryNames={setCategoryNames} />
             <div style={{ padding: "12px 0", flexShrink: 0 }}>
-              <button onClick={() => setPhase("results")} style={{
+              <button onClick={() => setShowEndConfirm(true)} style={{
                 display: "block", width: "100%", padding: "14px",
-                borderRadius: "12px", background: "var(--accent)", color: "#fff",
+                borderRadius: "12px", background: "#ef4444", color: "#fff",
                 border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
               }}>
-                Calculate Winner
+                End Game
               </button>
             </div>
           </div>
@@ -1193,15 +1414,22 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
               setScores={setScores}
             />
             <div style={{ padding: "12px 0", flexShrink: 0 }}>
-              <button onClick={() => setPhase("results")} style={{
+              <button onClick={() => setShowEndConfirm(true)} style={{
                 display: "block", width: "100%", padding: "14px",
-                borderRadius: "12px", background: "var(--accent)", color: "#fff",
+                borderRadius: "12px", background: "#ef4444", color: "#fff",
                 border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: "pointer",
               }}>
                 End Game
               </button>
             </div>
           </div>
+        )}
+
+        {showEndConfirm && (
+          <EndGameConfirm
+            onConfirm={() => { setShowEndConfirm(false); setPhase("results"); }}
+            onCancel={() => setShowEndConfirm(false)}
+          />
         )}
 
         {phase === "results" && (
@@ -1213,6 +1441,7 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
             coopResult={coopResult}
             gameId={gameId}
             gameTitle={gameTitle}
+            onSurvey={() => setPhase("survey")}
             onPlayAgain={() => {
               if (categories) {
                 const resetScores = {};
@@ -1231,6 +1460,15 @@ export default function ScoreTracker({ gameId, gameTitle, playerCount, onClose, 
               if (onClose) onClose();
               if (onNewGame) onNewGame();
             }}
+          />
+        )}
+
+        {phase === "survey" && (
+          <PostGameSurvey
+            gameId={gameId}
+            gameTitle={gameTitle}
+            playerName={players[0]?.name}
+            onDone={() => navigate("/games")}
           />
         )}
       </div>

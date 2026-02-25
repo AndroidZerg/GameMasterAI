@@ -1,4 +1,4 @@
-"""SQLite feedback model — supports star ratings and reactions."""
+"""SQLite feedback model — supports star ratings, reactions, and post-game surveys."""
 
 import sqlite3
 from datetime import datetime, timezone
@@ -29,14 +29,24 @@ def init_feedback_table():
         )
     """)
     # Add columns if upgrading from old schema
-    try:
-        conn.execute("ALTER TABLE feedback ADD COLUMN reaction TEXT")
-    except sqlite3.OperationalError:
-        pass
-    try:
-        conn.execute("ALTER TABLE feedback ADD COLUMN comment TEXT")
-    except sqlite3.OperationalError:
-        pass
+    for col_def in [
+        "reaction TEXT",
+        "comment TEXT",
+        "lobby_id TEXT",
+        "venue_id TEXT",
+        "player_name TEXT",
+        "played_before INTEGER",
+        "helpful_setup INTEGER",
+        "helpful_rules INTEGER",
+        "helpful_strategy INTEGER",
+        "helpful_scoring INTEGER",
+        "would_use_again INTEGER",
+        "feedback_text TEXT",
+    ]:
+        try:
+            conn.execute(f"ALTER TABLE feedback ADD COLUMN {col_def}")
+        except sqlite3.OperationalError:
+            pass
     conn.commit()
     conn.close()
 
@@ -55,6 +65,90 @@ def create_feedback(game_id: str, rating: int, question: str = "",
     conn.commit()
     conn.close()
     return fb_id
+
+
+def create_survey_feedback(
+    game_id: str,
+    game_rating: int,
+    lobby_id: Optional[str] = None,
+    venue_id: Optional[str] = None,
+    player_name: Optional[str] = None,
+    played_before: Optional[bool] = None,
+    helpful_setup: Optional[int] = None,
+    helpful_rules: Optional[int] = None,
+    helpful_strategy: Optional[int] = None,
+    helpful_scoring: Optional[int] = None,
+    would_use_again: Optional[bool] = None,
+    feedback_text: Optional[str] = None,
+) -> int:
+    conn = _get_conn()
+    now = datetime.now(timezone.utc).isoformat()
+    cur = conn.execute(
+        """INSERT INTO feedback (game_id, rating, lobby_id, venue_id, player_name,
+           played_before, helpful_setup, helpful_rules, helpful_strategy,
+           helpful_scoring, would_use_again, feedback_text, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (game_id, game_rating, lobby_id, venue_id, player_name,
+         1 if played_before else 0 if played_before is not None else None,
+         helpful_setup, helpful_rules, helpful_strategy, helpful_scoring,
+         1 if would_use_again else 0 if would_use_again is not None else None,
+         feedback_text or "", now),
+    )
+    fb_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return fb_id
+
+
+def get_survey_stats() -> dict:
+    """Aggregate stats for admin feedback dashboard."""
+    conn = _get_conn()
+    rows = conn.execute(
+        """SELECT rating, helpful_setup, helpful_rules, helpful_strategy,
+           helpful_scoring, would_use_again FROM feedback
+           WHERE rating IS NOT NULL AND helpful_setup IS NOT NULL"""
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {
+            "total": 0, "avg_game_rating": 0,
+            "avg_setup": 0, "avg_rules": 0, "avg_strategy": 0, "avg_scoring": 0,
+            "would_use_again_pct": 0,
+        }
+
+    total = len(rows)
+    avg = lambda vals: round(sum(v for v in vals if v) / max(len([v for v in vals if v]), 1), 1)
+    ratings = [r["rating"] for r in rows if r["rating"]]
+    setups = [r["helpful_setup"] for r in rows if r["helpful_setup"]]
+    rules = [r["helpful_rules"] for r in rows if r["helpful_rules"]]
+    strats = [r["helpful_strategy"] for r in rows if r["helpful_strategy"]]
+    scores = [r["helpful_scoring"] for r in rows if r["helpful_scoring"]]
+    use_again = [r["would_use_again"] for r in rows if r["would_use_again"] is not None]
+
+    return {
+        "total": total,
+        "avg_game_rating": avg(ratings),
+        "avg_setup": avg(setups),
+        "avg_rules": avg(rules),
+        "avg_strategy": avg(strats),
+        "avg_scoring": avg(scores),
+        "would_use_again_pct": round(sum(1 for v in use_again if v) / max(len(use_again), 1) * 100),
+    }
+
+
+def get_all_survey_feedback() -> list[dict]:
+    """Return all survey feedback entries for admin view."""
+    conn = _get_conn()
+    rows = conn.execute(
+        """SELECT id, game_id, rating, lobby_id, venue_id, player_name,
+           played_before, helpful_setup, helpful_rules, helpful_strategy,
+           helpful_scoring, would_use_again, feedback_text, created_at
+           FROM feedback WHERE helpful_setup IS NOT NULL
+           ORDER BY created_at DESC"""
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
 
 
 def get_feedback(game_id: Optional[str] = None) -> list[dict]:

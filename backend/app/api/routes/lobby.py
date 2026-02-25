@@ -40,6 +40,10 @@ class LeaveBody(BaseModel):
     player_id: str
 
 
+class EndGameBody(BaseModel):
+    host_id: str
+
+
 # ── Helpers ──────────────────────────────────────────────────────
 def _cleanup():
     """Remove lobbies older than LOBBY_TTL_HOURS."""
@@ -170,4 +174,14 @@ async def leave_lobby(lobby_id: str, body: LeaveBody):
     lobby = _get_lobby(lobby_id)
     lobby["players"] = [p for p in lobby["players"] if p["id"] != body.player_id]
     lobby["scores"].pop(body.player_id, None)
+    return {"ok": True}
+
+
+@router.post("/{lobby_id}/end")
+async def end_game(lobby_id: str, body: EndGameBody):
+    """Host ends the game — sets status to 'ended' so all clients see results."""
+    lobby = _get_lobby(lobby_id)
+    if lobby["host_id"] != body.host_id:
+        raise HTTPException(403, "Only the host can end the game")
+    lobby["status"] = "ended"
     return {"ok": True}
