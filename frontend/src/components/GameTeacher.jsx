@@ -30,6 +30,25 @@ const TABS = [
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
+// MSRP prices for order panel "buy this game" feature
+const MSRP_PRICES = {
+  "codenames": 19.99, "skull": 14.99, "love-letter": 14.99, "coup": 14.99,
+  "one-night-ultimate-werewolf": 24.99, "dixit": 34.99, "just-one": 24.99,
+  "wavelength": 29.99, "sushi-go-party": 22.99, "telestrations": 19.99, "decrypto": 24.99,
+  "catan": 44.99, "ticket-to-ride": 44.99, "azul": 39.99, "splendor": 39.99,
+  "kingdomino": 29.99, "carcassonne": 34.99, "pandemic": 44.99, "king-of-tokyo": 39.99,
+  "patchwork": 29.99, "takenoko": 44.99, "mysterium": 44.99,
+  "wingspan": 59.99, "everdell": 59.99, "viticulture": 54.99, "dominion": 44.99,
+  "7-wonders": 49.99, "lords-of-waterdeep": 49.99, "quacks-of-quedlinburg": 44.99,
+  "clank": 54.99, "sagrada": 44.99, "the-crew": 14.99, "century-spice-road": 39.99,
+  "sheriff-of-nottingham": 39.99, "concordia": 59.99, "villainous": 39.99,
+  "above-and-below": 44.99, "photosynthesis": 39.99, "dead-of-winter": 54.99,
+  "castles-of-burgundy": 39.99, "cosmic-encounter": 49.99,
+  "terraforming-mars": 69.99, "root": 59.99, "spirit-island": 79.99,
+  "brass-birmingham": 69.99, "great-western-trail": 69.99, "agricola": 59.99,
+  "power-grid": 44.99,
+};
+
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
 function InlineMarkdown({ text }) {
   if (!text) return null;
