@@ -43,13 +43,25 @@ async def login(req: LoginRequest):
 
     update_venue_login(venue["venue_id"])
     token = create_token(venue["venue_id"], venue["venue_name"])
-    return {"token": token, "venue_id": venue["venue_id"], "venue_name": venue["venue_name"]}
+    return {
+        "token": token,
+        "venue_id": venue["venue_id"],
+        "venue_name": venue["venue_name"],
+        "role": venue.get("role", "venue_admin"),
+        "status": venue.get("status", "prospect"),
+    }
 
 
 @router.post("/verify")
 async def verify_token(venue: dict = Depends(get_current_venue)):
     """Verify a JWT token. Returns venue info or 401."""
-    return {"valid": True, "venue_id": venue["venue_id"], "venue_name": venue["venue_name"]}
+    return {
+        "valid": True,
+        "venue_id": venue["venue_id"],
+        "venue_name": venue["venue_name"],
+        "role": venue.get("role", "venue_admin"),
+        "status": venue.get("status", "prospect"),
+    }
 
 
 @router.post("/logout")
@@ -98,4 +110,10 @@ async def register(req: RegisterRequest, request: Request):
     set_venue_collection(venue_id, game_ids)
 
     token = create_token(venue_id, req.venue_name.strip())
-    return {"token": token, "venue_id": venue_id, "venue_name": req.venue_name.strip()}
+    return {
+        "token": token,
+        "venue_id": venue_id,
+        "venue_name": req.venue_name.strip(),
+        "role": "venue_admin",
+        "status": "prospect",
+    }

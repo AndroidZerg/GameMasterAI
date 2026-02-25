@@ -35,6 +35,13 @@ function AuthWatcher() {
   return null;
 }
 
+/* Root route: logged in → /games, not logged in → login screen */
+function RootRedirect() {
+  const { isLoggedIn } = useAuth();
+  if (isLoggedIn) return <Navigate to="/games" replace />;
+  return <LoginPage />;
+}
+
 function AppShell() {
   const navigate = useNavigate();
   const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
@@ -47,15 +54,16 @@ function AppShell() {
       <NavMenu />
       {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/games" element={<GameSelector />} />
+        <Route path="/" element={<RootRedirect />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/games" element={<ProtectedRoute><GameSelector /></ProtectedRoute>} />
         <Route path="/app" element={<Navigate to="/games" replace />} />
-        <Route path="/game/:gameId" element={<GameTeacher />} />
+        <Route path="/game/:gameId" element={<ProtectedRoute><GameTeacher /></ProtectedRoute>} />
         <Route path="/join/:code" element={<LobbyJoin />} />
         <Route path="/join" element={<LobbyJoin />} />
         <Route path="/lobby/:lobbyId" element={<LobbyScoreTracker />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/menu" element={<ProtectedRoute><MenuPage /></ProtectedRoute>} />
         <Route path="/admin/qr" element={<ProtectedRoute><QRGeneratorPage /></ProtectedRoute>} />
         <Route path="/admin/stats" element={<ProtectedRoute><VenueStatsPage /></ProtectedRoute>} />
         <Route path="/admin/settings" element={<ProtectedRoute><VenueSettingsPage /></ProtectedRoute>} />

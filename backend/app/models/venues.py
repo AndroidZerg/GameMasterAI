@@ -35,11 +35,25 @@ def init_venues_table():
         )
     """)
     # Add columns if upgrading from old schema
-    for col in ("address TEXT", "phone TEXT", "website TEXT", "staff_picks TEXT DEFAULT '[]'"):
+    for col in (
+        "address TEXT",
+        "phone TEXT",
+        "website TEXT",
+        "staff_picks TEXT DEFAULT '[]'",
+        "role TEXT NOT NULL DEFAULT 'venue_admin'",
+        "status TEXT NOT NULL DEFAULT 'prospect'",
+        "trial_start_date TEXT",
+        "trial_duration_days INTEGER DEFAULT 30",
+    ):
         try:
             conn.execute(f"ALTER TABLE venues ADD COLUMN {col}")
         except sqlite3.OperationalError:
             pass
+
+    # Ensure Tim's account is super_admin
+    conn.execute(
+        "UPDATE venues SET role = 'super_admin' WHERE email = 'tim.minh.pham@gmail.com' OR venue_id = 'admin'"
+    )
     conn.commit()
     conn.close()
 
