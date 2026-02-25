@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useMemo } from "react";
 
 const AuthContext = createContext(null);
 
@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
     return val === "true";
   }, []);
 
-  const value = {
+  const value = useMemo(() => ({
     token,
     venueId,
     venueName,
@@ -66,7 +66,7 @@ export function AuthProvider({ children }) {
     login,
     logout,
     getSessionExpired,
-  };
+  }), [token, venueId, venueName, role, status, isLoggedIn, login, logout, getSessionExpired]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

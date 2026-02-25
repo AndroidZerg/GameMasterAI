@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
@@ -45,9 +45,8 @@ function RootRedirect() {
 
 function AppShell() {
   const navigate = useNavigate();
-  const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
-    navigate("/games");
-  });
+  const navigateHome = useCallback(() => navigate("/games"), [navigate]);
+  const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(navigateHome);
 
   useEffect(() => {
     const venueId = localStorage.getItem('gmai-venue-id');

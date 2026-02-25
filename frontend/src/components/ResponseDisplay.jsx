@@ -101,7 +101,7 @@ export function stopSpeaking() {
     window.speechSynthesis.cancel();
     currentUtterance = null;
     currentText = null;
-    notifyState("idle");
+    if (onStateChangeCallback) notifyState("idle");
   }
 }
 
