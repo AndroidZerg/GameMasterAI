@@ -23,7 +23,7 @@ const TABS = [
   { key: "setup", label: "Setup" },
   { key: "rules", label: "Rules" },
   { key: "strategy", label: "Strategy" },
-  { key: "qa", label: "Q&A" },
+  { key: "qa", label: "Q&A & Notes" },
   { key: "score", label: "Score" },
 ];
 
@@ -533,33 +533,176 @@ function FeedbackButtons({ gameId, question, response }) {
   );
 }
 
-/* ── Q&A Chat Panel ─────────────────────────────────────────────── */
+/* ── Copy Button ────────────────────────────────────────────────── */
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async (e) => {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch { /* ignore */ }
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      title={copied ? "Copied!" : "Copy to clipboard"}
+      style={{
+        background: "none", border: "none", cursor: "pointer",
+        fontSize: "0.8rem", padding: "2px 6px", borderRadius: "4px",
+        color: copied ? "#22c55e" : "var(--text-secondary)",
+        transition: "color 0.15s",
+      }}
+    >
+      {copied ? "Copied!" : "\u{1F4CB}"}
+    </button>
+  );
+}
+
+/* ── Notes Section ─────────────────────────────────────────────── */
+function NotesSection({ gameId }) {
+  const storageKey = `gmai-notes-${gameId}`;
+  const [notes, setNotes] = useState("");
+  const [collapsed, setCollapsed] = useState(() => {
+    try { return localStorage.getItem("gmai-notes-collapsed") !== "false"; } catch { return true; }
+  });
+  const saveTimerRef = useRef(null);
+
+  // Load notes on mount / gameId change
+  useEffect(() => {
+    try { setNotes(localStorage.getItem(storageKey) || ""); } catch { /* ignore */ }
+  }, [storageKey]);
+
+  // Debounced save (2s)
+  useEffect(() => {
+    clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
+      try { localStorage.setItem(storageKey, notes); } catch { /* ignore */ }
+    }, 2000);
+    return () => clearTimeout(saveTimerRef.current);
+  }, [notes, storageKey]);
+
+  // Persist collapsed state
+  useEffect(() => {
+    try { localStorage.setItem("gmai-notes-collapsed", String(collapsed)); } catch { /* ignore */ }
+  }, [collapsed]);
+
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text) setNotes((prev) => prev ? prev + "\n" + text : text);
+    } catch { /* clipboard permission denied */ }
+  };
+
+  return (
+    <div style={{
+      borderTop: "1px solid var(--border)",
+      display: "flex", flexDirection: "column",
+      flex: collapsed ? "0 0 auto" : "1 1 50%",
+      minHeight: collapsed ? "auto" : "120px",
+    }}>
+      {/* Header bar */}
+      <button
+        onClick={() => setCollapsed(!collapsed)}
+        style={{
+          width: "100%", display: "flex", justifyContent: "space-between",
+          alignItems: "center", padding: "10px 14px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "none", cursor: "pointer", fontSize: "0.9rem", fontWeight: 600,
+        }}
+      >
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span style={{ transform: collapsed ? "rotate(-90deg)" : "rotate(0deg)", transition: "transform 0.2s", fontSize: "0.7rem", display: "inline-block" }}>
+            ▼
+          </span>
+          Notes
+        </span>
+        {notes && collapsed && (
+          <span style={{ fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 400 }}>
+            {notes.length > 30 ? notes.slice(0, 30) + "..." : notes}
+          </span>
+        )}
+      </button>
+
+      {/* Expanded notes area */}
+      {!collapsed && (
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "8px 12px", background: "var(--bg-primary)", minHeight: 0 }}>
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            placeholder="Jot down rules, strategies, or anything to remember..."
+            style={{
+              flex: 1, width: "100%", padding: "10px", borderRadius: "8px",
+              border: "1px solid var(--border)", background: "var(--bg-card)",
+              color: "var(--text-primary)", fontSize: "0.9rem", resize: "none",
+              outline: "none", boxSizing: "border-box", lineHeight: 1.6,
+              minHeight: "80px",
+            }}
+          />
+          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "6px" }}>
+            <button
+              onClick={handlePaste}
+              style={{
+                padding: "6px 14px", borderRadius: "8px", fontSize: "0.8rem",
+                background: "var(--bg-secondary)", color: "var(--text-secondary)",
+                border: "1px solid var(--border)", cursor: "pointer", fontWeight: 500,
+              }}
+            >
+              Paste
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Q&A & Notes Panel ─────────────────────────────────────────── */
 function QAPanel({ gameId, gameTitle }) {
+  const historyKey = `gmai-qa-${gameId}`;
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(() => {
+    try {
+      const saved = localStorage.getItem(historyKey);
+      return saved ? JSON.parse(saved) : [];
+    } catch { return []; }
+  });
   const [loading, setLoading] = useState(false);
   const historyEndRef = useRef(null);
 
+  // Scroll to bottom on new messages
   useEffect(() => {
     historyEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [history]);
 
+  // Persist chat history
+  useEffect(() => {
+    try { localStorage.setItem(historyKey, JSON.stringify(history)); } catch { /* ignore */ }
+  }, [history, historyKey]);
+
+  const clearHistory = () => {
+    setHistory([]);
+    try { localStorage.removeItem(historyKey); } catch { /* ignore */ }
+  };
+
   const handleSubmit = async (questionText) => {
     const question = (questionText || input).trim();
     if (!question || loading) return;
+    const ts = new Date().toISOString();
     if (!navigator.onLine) {
-      setHistory((prev) => [...prev, { role: "user", content: question }, { role: "error", content: "Requires internet connection — please check your network and try again." }]);
+      setHistory((prev) => [...prev, { role: "user", content: question, timestamp: ts }, { role: "error", content: "Requires internet connection — please check your network and try again.", timestamp: ts }]);
       setInput("");
       return;
     }
     setInput("");
-    setHistory((prev) => [...prev, { role: "user", content: question }]);
+    setHistory((prev) => [...prev, { role: "user", content: question, timestamp: ts }]);
     setLoading(true);
     try {
       const result = await queryGame(gameId, question);
-      setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question }]);
+      setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question, timestamp: new Date().toISOString() }]);
     } catch (err) {
-      setHistory((prev) => [...prev, { role: "error", content: err.message || "Something went wrong" }]);
+      setHistory((prev) => [...prev, { role: "error", content: err.message || "Something went wrong", timestamp: new Date().toISOString() }]);
     } finally {
       setLoading(false);
     }
@@ -571,57 +714,81 @@ function QAPanel({ gameId, gameTitle }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
-      <div style={{ flex: 1, overflowY: "auto", marginBottom: "12px", padding: "12px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border)" }}>
-        {history.length === 0 ? (
-          <p style={{ color: "var(--text-secondary)", textAlign: "center", marginTop: "40px" }}>
-            Ask a question about {gameTitle} to get started!
-          </p>
-        ) : (
-          history.map((msg, i) => (
-            <div
-              key={i}
-              style={{
-                marginBottom: "12px", padding: "10px 14px", borderRadius: "10px",
-                background: msg.role === "user" ? "var(--bg-card)" : msg.role === "error" ? "#4a1a1a" : "#0f2a0f",
-                maxWidth: msg.role === "user" ? "80%" : "100%",
-                marginLeft: msg.role === "user" ? "auto" : 0,
-                lineHeight: 1.5, fontSize: "0.95rem",
-              }}
-            >
-              {msg.role === "user" && (<div style={{ fontSize: "0.75rem", color: "var(--text-secondary)", marginBottom: "4px" }}>You</div>)}
-              {msg.role === "assistant" && (
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.75rem", color: "#4ade80", marginBottom: "4px" }}>
-                  <span>GameMaster AI</span>
-                  <button onClick={() => speakText(msg.content)} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.9rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>
-                </div>
-              )}
-              <FormattedContent content={msg.content} />
-              {msg.role === "assistant" && (
-                <FeedbackButtons gameId={gameId} question={msg.question} response={msg.content} />
-              )}
-            </div>
-          ))
-        )}
-        {loading && (
-          <div style={{ padding: "10px 14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "10px" }}>
-            <div style={{ width: "18px", height: "18px", border: "2px solid var(--border)", borderTopColor: "var(--accent)", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite", flexShrink: 0 }} />
-            <span>Thinking...</span>
+      {/* ── Top half: Chat ── */}
+      <div style={{ display: "flex", flexDirection: "column", flex: "1 1 50%", minHeight: 0 }}>
+        {/* Clear history link */}
+        {history.length > 0 && (
+          <div style={{ textAlign: "right", marginBottom: "4px" }}>
+            <button onClick={clearHistory} style={{
+              background: "none", border: "none", color: "var(--text-secondary)",
+              fontSize: "0.75rem", cursor: "pointer", padding: "2px 6px",
+              textDecoration: "underline", opacity: 0.7,
+            }}>
+              Clear History
+            </button>
           </div>
         )}
-        <div ref={historyEndRef} />
+
+        {/* Chat messages */}
+        <div style={{ flex: 1, overflowY: "auto", marginBottom: "8px", padding: "10px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border)", minHeight: 0 }}>
+          {history.length === 0 ? (
+            <p style={{ color: "var(--text-secondary)", textAlign: "center", marginTop: "30px", fontSize: "0.9rem" }}>
+              Ask a question about {gameTitle} to get started!
+            </p>
+          ) : (
+            history.map((msg, i) => (
+              <div
+                key={i}
+                style={{
+                  marginBottom: "10px", padding: "10px 14px", borderRadius: "10px",
+                  background: msg.role === "user" ? "var(--bg-card)" : msg.role === "error" ? "#4a1a1a" : "#0f2a0f",
+                  maxWidth: msg.role === "user" ? "80%" : "100%",
+                  marginLeft: msg.role === "user" ? "auto" : 0,
+                  lineHeight: 1.5, fontSize: "0.9rem", position: "relative",
+                }}
+              >
+                {msg.role === "user" && (<div style={{ fontSize: "0.7rem", color: "var(--text-secondary)", marginBottom: "3px" }}>You</div>)}
+                {msg.role === "assistant" && (
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.7rem", color: "#4ade80", marginBottom: "3px" }}>
+                    <span>GameMaster AI</span>
+                    <div style={{ display: "flex", gap: "2px", alignItems: "center" }}>
+                      <CopyButton text={msg.content} />
+                      <button onClick={() => speakText(msg.content)} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.85rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>
+                    </div>
+                  </div>
+                )}
+                <FormattedContent content={msg.content} />
+                {msg.role === "assistant" && (
+                  <FeedbackButtons gameId={gameId} question={msg.question} response={msg.content} />
+                )}
+              </div>
+            ))
+          )}
+          {loading && (
+            <div style={{ padding: "10px 14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "10px" }}>
+              <div style={{ width: "16px", height: "16px", border: "2px solid var(--border)", borderTopColor: "var(--accent)", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite", flexShrink: 0 }} />
+              <span style={{ fontSize: "0.85rem" }}>Thinking...</span>
+            </div>
+          )}
+          <div ref={historyEndRef} />
+        </div>
+
+        {/* Input row */}
+        <div style={{ display: "flex", gap: "6px", alignItems: "center", flexShrink: 0 }}>
+          <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} />
+          <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading} aria-label={`Ask a question about ${gameTitle}`}
+            style={{ flex: 1, padding: "12px 14px", fontSize: "0.95rem", borderRadius: "12px", border: "2px solid var(--border)", background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none" }}
+          />
+          <button onClick={() => handleSubmit()} disabled={loading || !input.trim()} aria-label="Submit question"
+            style={{ padding: "12px 20px", fontSize: "0.95rem", borderRadius: "12px", background: loading || !input.trim() ? "var(--border)" : "var(--accent)", color: "#fff", border: "none", fontWeight: 600 }}
+          >
+            Ask
+          </button>
+        </div>
       </div>
 
-      <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-        <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} />
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading} aria-label={`Ask a question about ${gameTitle}`}
-          style={{ flex: 1, padding: "14px 16px", fontSize: "1rem", borderRadius: "12px", border: "2px solid var(--border)", background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none" }}
-        />
-        <button onClick={() => handleSubmit()} disabled={loading || !input.trim()} aria-label="Submit question"
-          style={{ padding: "14px 24px", fontSize: "1rem", borderRadius: "12px", background: loading || !input.trim() ? "var(--border)" : "var(--accent)", color: "#fff", border: "none", fontWeight: 600 }}
-        >
-          Ask
-        </button>
-      </div>
+      {/* ── Bottom half: Notes ── */}
+      <NotesSection gameId={gameId} />
     </div>
   );
 }
