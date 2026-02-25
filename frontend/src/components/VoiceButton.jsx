@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 /**
  * VoiceButton — browser-native speech recognition via Web Speech API.
@@ -8,10 +8,20 @@ import { useState, useRef } from "react";
 export default function VoiceButton({ onResult, disabled }) {
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef(null);
+  const mountedRef = useRef(true);
 
   const SpeechRecognition =
     typeof window !== "undefined" &&
     (window.SpeechRecognition || window.webkitSpeechRecognition);
+
+  // Cleanup on unmount — stop recognition and guard setState
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      recognitionRef.current?.stop();
+    };
+  }, []);
 
   if (!SpeechRecognition) return null;
 
@@ -29,12 +39,12 @@ export default function VoiceButton({ onResult, disabled }) {
 
     recognition.onresult = (event) => {
       const text = event.results[0][0].transcript;
-      setListening(false);
+      if (mountedRef.current) setListening(false);
       if (text && onResult) onResult(text);
     };
 
-    recognition.onerror = () => setListening(false);
-    recognition.onend = () => setListening(false);
+    recognition.onerror = () => { if (mountedRef.current) setListening(false); };
+    recognition.onend = () => { if (mountedRef.current) setListening(false); };
 
     recognitionRef.current = recognition;
     recognition.start();

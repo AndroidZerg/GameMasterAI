@@ -820,8 +820,7 @@ export default function GameTeacher() {
   });
   const [ttsRate, setTtsRate] = useState(() => {
     const saved = getRate();
-    if (!SPEED_OPTIONS.includes(saved)) { setRate(1.0); return 1.0; }
-    return saved;
+    return SPEED_OPTIONS.includes(saved) ? saved : 1.0;
   });
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [showOrderPanel, setShowOrderPanel] = useState(false);
@@ -848,20 +847,28 @@ export default function GameTeacher() {
 
   // Fetch venue config
   useEffect(() => {
+    let mounted = true;
     fetchVenueConfig()
       .then((data) => {
+        if (!mounted) return;
         setVenueConfig(data);
         if (data.accent_color) {
           document.documentElement.style.setProperty("--accent", data.accent_color);
         }
       })
       .catch(() => { /* Use mock fallback */ });
+    return () => { mounted = false; };
   }, []);
 
   useEffect(() => {
+    // Sync rate to module if it was defaulted during render
+    if (!SPEED_OPTIONS.includes(getRate())) setRate(1.0);
     setOnStateChange((state) => setTtsState(state));
     setOnRateChange((rate) => setTtsRate(rate));
-    return () => { setOnStateChange(null); setOnRateChange(null); };
+    return () => {
+      setOnStateChange(null);
+      setOnRateChange(null);
+    };
   }, []);
 
   // Online/offline detection

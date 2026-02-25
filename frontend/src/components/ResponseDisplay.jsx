@@ -57,12 +57,13 @@ function startUtterance(cleanText) {
   utter.onend = () => {
     currentUtterance = null;
     currentText = null;
-    notifyState("idle");
+    // Guard: only notify if callback is still registered (component still mounted)
+    if (onStateChangeCallback) notifyState("idle");
   };
   utter.onerror = () => {
     currentUtterance = null;
     currentText = null;
-    notifyState("idle");
+    if (onStateChangeCallback) notifyState("idle");
   };
 
   currentUtterance = utter;
