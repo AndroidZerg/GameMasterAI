@@ -1,300 +1,719 @@
-import { useState, useEffect, useCallback } from "react";
-import { API_BASE } from "../services/api";
-import LobbyCreate from "./LobbyCreate";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { API_BASE, createLobby, getLobbyState, updateLobbyScores, leaveLobby, kickPlayer } from "../services/api";
 
 const PLAYER_COLORS = [
   "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
   "#1abc9c", "#e74c3c",
 ];
-
 const STICKY_BG = "#1a1a2e";
 
-/* ── localStorage helpers ──────────────────────────────────────── */
-function loadSavedSession(gameId) {
-  try {
-    const raw = localStorage.getItem(`gmai_score_${gameId}`);
-    return raw ? JSON.parse(raw) : null;
-  } catch { return null; }
+/* ── localStorage helpers ──────────────────────────────────── */
+function loadSaved(key) {
+  try { return JSON.parse(localStorage.getItem(key)); } catch { return null; }
+}
+function saveTo(key, data) {
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
 }
 
-function saveSession(gameId, data) {
-  try {
-    localStorage.setItem(`gmai_score_${gameId}`, JSON.stringify(data));
-  } catch { /* quota exceeded — ignore */ }
+/* ── Post-Game Survey ──────────────────────────────────────── */
+function Survey({ gameId, lobbyId, playerName, onDone }) {
+  const [gameRating, setGameRating] = useState(0);
+  const [playedBefore, setPlayedBefore] = useState(null);
+  const [helpfulSetup, setHelpfulSetup] = useState(0);
+  const [helpfulRules, setHelpfulRules] = useState(0);
+  const [helpfulStrategy, setHelpfulStrategy] = useState(0);
+  const [helpfulScoring, setHelpfulScoring] = useState(0);
+  const [wouldUseAgain, setWouldUseAgain] = useState(null);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const StarRow = ({ label, value, onChange }) => (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+      <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1 }}>{label}</span>
+      <div style={{ display: "flex", gap: "4px" }}>
+        {[1, 2, 3, 4, 5].map((s) => (
+          <button key={s} onClick={() => onChange(s)} style={{
+            background: "none", border: "none", cursor: "pointer", fontSize: "1.4rem",
+            color: s <= value ? "#f59e0b" : "var(--border)", padding: "2px",
+          }}>{s <= value ? "\u2605" : "\u2606"}</button>
+        ))}
+      </div>
+    </div>
+  );
+
+  const YesNo = ({ value, onChange }) => (
+    <div style={{ display: "flex", gap: "8px" }}>
+      {[true, false].map((v) => (
+        <button key={String(v)} onClick={() => onChange(v)} style={{
+          padding: "8px 20px", borderRadius: "8px", fontWeight: 600, cursor: "pointer",
+          background: value === v ? "var(--accent)" : "var(--bg-secondary)",
+          color: value === v ? "#fff" : "var(--text-primary)",
+          border: value === v ? "none" : "1px solid var(--border)",
+        }}>{v ? "Yes" : "No"}</button>
+      ))}
+    </div>
+  );
+
+  const handleSubmit = async () => {
+    if (gameRating === 0) return;
+    setSubmitting(true);
+    try {
+      const venueId = localStorage.getItem("gmai_venue_id") || null;
+      await fetch(`${API_BASE}/api/feedback/survey`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          game_id: gameId, lobby_id: lobbyId || null, venue_id: venueId,
+          player_name: playerName || null, game_rating: gameRating,
+          played_before: playedBefore,
+          helpful_setup: helpfulSetup || null, helpful_rules: helpfulRules || null,
+          helpful_strategy: helpfulStrategy || null, helpful_scoring: helpfulScoring || null,
+          would_use_again: wouldUseAgain, feedback_text: feedbackText || null,
+          submitted_at: new Date().toISOString(),
+        }),
+      });
+    } catch { /* non-fatal */ }
+    onDone();
+  };
+
+  return (
+    <div style={{ padding: "20px 0" }}>
+      <h2 style={{ textAlign: "center", fontSize: "1.3rem", color: "var(--text-primary)", marginBottom: "24px" }}>
+        How was your experience?
+      </h2>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <StarRow label="Rate this game:" value={gameRating} onChange={setGameRating} />
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>Played this game before?</span>
+          <YesNo value={playedBefore} onChange={setPlayedBefore} />
+        </div>
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>
+          How helpful was GameMaster AI for:
+        </p>
+        <StarRow label="Setup" value={helpfulSetup} onChange={setHelpfulSetup} />
+        <StarRow label="Rules" value={helpfulRules} onChange={setHelpfulRules} />
+        <StarRow label="Strategies" value={helpfulStrategy} onChange={setHelpfulStrategy} />
+        <StarRow label="Keeping Score" value={helpfulScoring} onChange={setHelpfulScoring} />
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1, marginRight: "8px" }}>
+            Would you use GameMaster AI to learn a new game?
+          </span>
+          <YesNo value={wouldUseAgain} onChange={setWouldUseAgain} />
+        </div>
+      </div>
+
+      <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "20px" }}>
+        <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "8px" }}>Any other feedback? (optional)</p>
+        <textarea
+          value={feedbackText} onChange={(e) => setFeedbackText(e.target.value)}
+          placeholder="Tell us what you think..." rows={3}
+          style={{
+            width: "100%", padding: "10px", borderRadius: "8px",
+            border: "1px solid var(--border)", background: "var(--bg-primary)",
+            color: "var(--text-primary)", fontSize: "0.9rem", resize: "vertical",
+            outline: "none", boxSizing: "border-box",
+          }}
+        />
+      </div>
+
+      <button onClick={handleSubmit} disabled={submitting || gameRating === 0} style={{
+        display: "block", width: "100%", padding: "14px", borderRadius: "12px",
+        background: gameRating === 0 ? "var(--bg-secondary)" : "var(--accent)",
+        color: gameRating === 0 ? "var(--text-secondary)" : "#fff",
+        border: "none", fontSize: "1.05rem", fontWeight: 700,
+        cursor: gameRating === 0 ? "default" : "pointer",
+        marginBottom: "8px", opacity: submitting ? 0.6 : 1,
+      }}>
+        {submitting ? "Submitting..." : "Submit Feedback"}
+      </button>
+      <button onClick={onDone} style={{
+        display: "block", width: "100%", padding: "10px",
+        background: "none", border: "none", color: "var(--text-secondary)",
+        fontSize: "0.85rem", cursor: "pointer", textAlign: "center",
+      }}>Skip</button>
+    </div>
+  );
 }
 
-function clearSession(gameId) {
-  localStorage.removeItem(`gmai_score_${gameId}`);
+/* ── Results Screen ────────────────────────────────────────── */
+function Results({ players, getTotal, myId, gameId, onSurvey, onNewGame }) {
+  const sorted = [...players]
+    .map((p) => ({ ...p, total: getTotal(p.id) }))
+    .sort((a, b) => b.total - a.total);
+
+  const confettiColors = ["#e94560", "#ff6b81", "#a855f7", "#22c55e", "#3b82f6", "#f59e0b"];
+  const RANK_MSG = [
+    { icon: "\u{1F3C6}", msg: "You won! 1st Place!", color: "#f59e0b" },
+    { icon: "\u{1F948}", msg: "Great game! 2nd Place!", color: "#94a3b8" },
+    { icon: "\u{1F949}", msg: "Well played! 3rd Place!", color: "#cd7f32" },
+  ];
+  const getRank = (r) => r < 3 ? RANK_MSG[r] : { icon: "", msg: `You got ${r + 1}th place. Better luck next time!`, color: "var(--text-secondary)" };
+  const myRank = sorted.findIndex((p) => p.id === myId);
+
+  return (
+    <div style={{ padding: "20px 0", position: "relative", overflow: "hidden" }}>
+      {confettiColors.map((color, i) =>
+        Array.from({ length: 6 }).map((_, j) => (
+          <div key={`${i}-${j}`} style={{
+            position: "absolute", top: 0, left: `${5 + (i * 6 + j) * 2.5}%`,
+            width: j % 3 === 0 ? "10px" : "8px", height: j % 3 === 0 ? "10px" : "8px",
+            borderRadius: j % 2 === 0 ? "50%" : "2px", background: color,
+            animation: `confetti 2s ease-out ${(i * 6 + j) * 0.05}s forwards`, opacity: 0.9,
+          }} />
+        ))
+      )}
+
+      <h2 style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "8px", color: "var(--text-primary)" }}>
+        Final Scores
+      </h2>
+
+      {myId && myRank >= 0 && (
+        <p style={{ textAlign: "center", fontSize: "1rem", marginBottom: "20px", color: getRank(myRank).color, fontWeight: 600 }}>
+          {getRank(myRank).icon} {getRank(myRank).msg}
+        </p>
+      )}
+
+      {sorted.map((p, rank) => {
+        const isWinner = rank === 0;
+        const isMe = p.id === myId;
+        const pColor = PLAYER_COLORS[players.findIndex((x) => x.id === p.id) % PLAYER_COLORS.length];
+        return (
+          <div key={p.id} style={{
+            background: isWinner ? pColor : "var(--bg-secondary)",
+            borderRadius: "12px", padding: "14px 16px", marginBottom: "8px",
+            border: isMe ? "2px solid var(--accent)" : isWinner ? `2px solid ${pColor}` : "1px solid var(--border)",
+            animation: isWinner ? "glow 2s ease-in-out infinite" : "none",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ fontSize: "1rem", fontWeight: 700, color: isWinner ? "#fff" : "var(--text-secondary)", minWidth: "24px" }}>
+                  #{rank + 1}
+                </span>
+                <span style={{ fontSize: "1.1rem", fontWeight: 600, color: isWinner ? "#fff" : "var(--text-primary)" }}>
+                  {rank === 0 ? "\u{1F3C6} " : ""}{p.name}{isMe ? " (you)" : ""}
+                </span>
+              </div>
+              <span style={{ fontSize: "1.4rem", fontWeight: 800, fontFamily: "monospace", color: isWinner ? "#fff" : "var(--accent)" }}>
+                {p.total}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+
+      <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
+        <button onClick={onSurvey} style={{
+          flex: 1, padding: "14px", borderRadius: "12px",
+          background: "var(--accent)", color: "#fff", border: "none",
+          fontWeight: 600, cursor: "pointer", fontSize: "1rem",
+        }}>Rate This Game</button>
+        <button onClick={onNewGame} style={{
+          flex: 1, padding: "14px", borderRadius: "12px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "1px solid var(--border)", fontWeight: 600, cursor: "pointer", fontSize: "1rem",
+        }}>New Game</button>
+      </div>
+    </div>
+  );
 }
 
-/* ── Main ScoreTab component ───────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   MAIN: ScoreTab
+   ══════════════════════════════════════════════════════════════ */
 export default function ScoreTab({ gameId, gameTitle, playerCount }) {
-  // Phases: setup | scoring | lobby
+  const navigate = useNavigate();
+
+  // Phase: setup | scoring | results | survey
   const [phase, setPhase] = useState("setup");
-  const [numPlayers, setNumPlayers] = useState(2);
+  const [myName, setMyName] = useState(() => localStorage.getItem("gmai_player_name") || "");
+  const [creating, setCreating] = useState(false);
+  const [error, setError] = useState("");
+
+  // Lobby state
+  const [lobbyId, setLobbyId] = useState(null);
+  const [lobbyCode, setLobbyCode] = useState("");
+  const [qrUrl, setQrUrl] = useState("");
   const [players, setPlayers] = useState([]);
+  const [myPlayerId, setMyPlayerId] = useState(null);
+  const [isHost, setIsHost] = useState(false);
+
+  // Score state
   const [scoreConfig, setScoreConfig] = useState(null);
   const [rows, setRows] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [scores, setScores] = useState({});
-  const [showTotal, setShowTotal] = useState(true);
+  const [showTotal, setShowTotal] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [showEndConfirm, setShowEndConfirm] = useState(false);
 
-  // Load score config from API
+  // Join-another-lobby
+  const [joinCode, setJoinCode] = useState("");
+  const [joinName, setJoinName] = useState("");
+  const [joinError, setJoinError] = useState("");
+  const [joining, setJoining] = useState(false);
+
+  // Refs
+  const pollRef = useRef(null);
+  const debounceRef = useRef(null);
+  const lastPushRef = useRef("");
+
+  // Load score config
   useEffect(() => {
     fetch(`${API_BASE}/api/scores/${gameId}`)
       .then((r) => r.json())
       .then((data) => {
-        if (data.scoring_type !== "unavailable") {
-          setScoreConfig(data);
-        }
+        if (data.scoring_type !== "unavailable") setScoreConfig(data);
       })
       .catch(() => {});
   }, [gameId]);
 
-  // Try to restore a saved session
-  useEffect(() => {
-    const saved = loadSavedSession(gameId);
-    if (saved && saved.players?.length) {
-      setPlayers(saved.players);
-      setRows(saved.rows || []);
-      setScores(saved.scores || {});
-      setNumPlayers(saved.players.length);
-      setShowTotal(saved.showTotal !== undefined ? saved.showTotal : true);
-      setRevealed(saved.revealed || false);
-      setPhase("scoring");
-    }
-  }, [gameId]);
-
-  // Persist scores whenever they change
-  const persistScores = useCallback((p, r, s, st, rev) => {
-    saveSession(gameId, { players: p, rows: r, scores: s, showTotal: st, revealed: rev });
-  }, [gameId]);
-
-  useEffect(() => {
-    if (phase === "scoring" && players.length > 0) {
-      persistScores(players, rows, scores, showTotal, revealed);
-    }
-  }, [phase, players, rows, scores, showTotal, revealed, persistScores]);
-
-  // Build default rows from score config or generic
-  const buildDefaultRows = () => {
+  const buildDefaultRows = useCallback(() => {
     if (scoreConfig?.categories?.length) {
       return scoreConfig.categories.map((c) => c.label || c.name || c.id);
     }
     return ["Score A", "Score B", "Score C"];
+  }, [scoreConfig]);
+
+  // Try restoring a saved session
+  useEffect(() => {
+    const savedLobby = localStorage.getItem("gmai_lobby_id_" + gameId);
+    const savedPid = localStorage.getItem("gmai_player_id");
+    if (savedLobby && savedPid) {
+      const saved = loadSaved(`gmai_scores_${savedLobby}`);
+      if (saved) {
+        setLobbyId(savedLobby);
+        setMyPlayerId(savedPid);
+        setLobbyCode(saved.lobbyCode || "");
+        setRows(saved.rows || buildDefaultRows());
+        setScores(saved.scores || {});
+        setShowTotal(saved.showTotal || false);
+        setRevealed(saved.revealed || false);
+        setPlayers(saved.players || []);
+        setIsHost(saved.isHost || false);
+        setMyName(saved.myName || "");
+        setPhase("scoring");
+      }
+    }
+  }, [gameId, buildDefaultRows]);
+
+  // Persist scores
+  useEffect(() => {
+    if (phase === "scoring" && lobbyId) {
+      saveTo(`gmai_scores_${lobbyId}`, {
+        lobbyCode, rows, scores, showTotal, revealed, players, isHost, myName,
+      });
+    }
+  }, [phase, lobbyId, lobbyCode, rows, scores, showTotal, revealed, players, isHost, myName]);
+
+  // Poll lobby state every 2s
+  useEffect(() => {
+    if (!lobbyId || phase !== "scoring") return;
+    let mounted = true;
+
+    const poll = async () => {
+      try {
+        const state = await getLobbyState(lobbyId);
+        if (!mounted) return;
+
+        // Kicked check
+        if (state.kicked?.includes(myPlayerId)) {
+          clearInterval(pollRef.current);
+          cleanup();
+          setError("You were removed from the session.");
+          setPhase("setup");
+          return;
+        }
+
+        // Update players list from server
+        setPlayers(state.players || []);
+        setIsHost(state.host_id === myPlayerId);
+
+        // Host ended game → show results
+        if (state.status === "ended" && phase === "scoring") {
+          setShowTotal(true);
+          setRevealed(true);
+          setPhase("results");
+        }
+
+        // Merge remote scores
+        const remote = state.scores?.shared || {};
+        setScores((prev) => {
+          const merged = { ...prev };
+          for (const [rowKey, rowScores] of Object.entries(remote)) {
+            if (!merged[rowKey]) {
+              merged[rowKey] = { ...rowScores };
+            } else {
+              for (const [pid, val] of Object.entries(rowScores)) {
+                if (merged[rowKey][pid] === undefined) {
+                  merged[rowKey][pid] = val;
+                }
+              }
+              merged[rowKey] = { ...rowScores, ...merged[rowKey] };
+            }
+          }
+          return merged;
+        });
+      } catch {
+        // Session expired — keep playing locally
+      }
+    };
+
+    poll();
+    pollRef.current = setInterval(poll, 2000);
+    return () => { mounted = false; clearInterval(pollRef.current); };
+  }, [lobbyId, myPlayerId, phase]);
+
+  // Debounced push scores to server (500ms)
+  useEffect(() => {
+    if (!lobbyId || !myPlayerId || Object.keys(scores).length === 0) return;
+    const serialized = JSON.stringify(scores);
+    if (serialized === lastPushRef.current) return;
+
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      lastPushRef.current = serialized;
+      updateLobbyScores(lobbyId, "shared", scores).catch(() => {});
+    }, 500);
+
+    return () => clearTimeout(debounceRef.current);
+  }, [lobbyId, myPlayerId, scores]);
+
+  const cleanup = () => {
+    localStorage.removeItem("gmai_lobby_id_" + gameId);
+    localStorage.removeItem("gmai_player_id");
+    localStorage.removeItem("gmai_player_name");
+    if (lobbyId) localStorage.removeItem(`gmai_scores_${lobbyId}`);
+    clearInterval(pollRef.current);
   };
 
-  const handleStartLocal = () => {
-    const defaultRows = buildDefaultRows();
-    setRows(defaultRows);
-    setScores({});
-    setShowTotal(true);
-    setRevealed(false);
-    setPhase("scoring");
-  };
-
-  const handleStartLobby = () => {
-    setPhase("lobby");
-  };
-
-  const handleNewGame = () => {
-    clearSession(gameId);
-    setPhase("setup");
-    setPlayers([]);
-    setRows([]);
-    setScores({});
-    setShowTotal(true);
-    setRevealed(false);
-  };
-
-  const updatePlayerName = (idx, newName) => {
-    setPlayers((prev) => prev.map((p, i) => (i === idx ? { ...p, name: newName } : p)));
-  };
-
-  const handleScoreChange = (rowKey, playerIdx, value) => {
-    const numVal = value === "" ? "" : Number(value);
-    setScores((prev) => ({
-      ...prev,
-      [rowKey]: { ...(prev[rowKey] || {}), [playerIdx]: numVal },
-    }));
-  };
-
-  const addRow = () => {
-    setRows((prev) => [...prev, `Score ${String.fromCharCode(65 + prev.length)}`]);
-  };
-
-  const renameRow = (idx, newName) => {
-    setRows((prev) => prev.map((r, i) => (i === idx ? newName : r)));
-  };
-
-  const getPlayerTotal = (playerIdx) => {
+  const getTotal = (pid) => {
     let total = 0;
     for (let i = 0; i < rows.length; i++) {
-      total += Number((scores[`row_${i}`] || {})[playerIdx]) || 0;
+      total += Number((scores[`row_${i}`] || {})[pid]) || 0;
     }
     return total;
   };
 
-  /* ── Setup Phase ─────────────────────────────────────────────── */
-  if (phase === "setup") {
-    const minP = playerCount?.min || 2;
-    const maxP = Math.max(playerCount?.max || 8, 8);
+  /* ── Start: create lobby automatically ───────────────────── */
+  const handleStart = async () => {
+    const trimmed = myName.trim();
+    if (!trimmed) return;
+    setCreating(true);
+    setError("");
+    try {
+      const data = await createLobby(gameId, trimmed);
+      const lid = data.lobby_id;
+      const pid = data.host_id;
 
-    // Sync player array when count changes
-    const currentPlayers = Array.from({ length: numPlayers }, (_, i) => ({
-      name: players[i]?.name || `Player ${i + 1}`,
-      color: PLAYER_COLORS[i % PLAYER_COLORS.length],
+      localStorage.setItem("gmai_lobby_id_" + gameId, lid);
+      localStorage.setItem("gmai_player_id", pid);
+      localStorage.setItem("gmai_player_name", trimmed);
+
+      setLobbyId(lid);
+      setMyPlayerId(pid);
+      setIsHost(true);
+      setLobbyCode(data.lobby_code);
+      setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(data.qr_url)}`);
+      setPlayers(data.players || [{ id: pid, name: trimmed, is_host: true }]);
+      setRows(buildDefaultRows());
+      setScores({});
+      setShowTotal(false);
+      setRevealed(false);
+      setPhase("scoring");
+    } catch (err) {
+      setError(err.message || "Failed to create session");
+    } finally {
+      setCreating(false);
+    }
+  };
+
+  /* ── Add a local player (no lobby account) ───────────────── */
+  const handleAddPlayer = () => {
+    const idx = players.length;
+    const newPlayer = {
+      id: `local_${Date.now()}`,
+      name: `Player ${idx + 1}`,
+      is_host: false,
+      is_local: true,
+    };
+    setPlayers((prev) => [...prev, newPlayer]);
+  };
+
+  /* ── Score change ────────────────────────────────────────── */
+  const handleScoreChange = (rowKey, pid, value) => {
+    const numVal = value === "" ? "" : Number(value);
+    setScores((prev) => ({
+      ...prev,
+      [rowKey]: { ...(prev[rowKey] || {}), [pid]: numVal },
     }));
+  };
 
+  /* ── Row management ──────────────────────────────────────── */
+  const addRow = () => {
+    setRows((prev) => [...prev, `Score ${String.fromCharCode(65 + prev.length)}`]);
+  };
+  const renameRow = (idx, newName) => {
+    setRows((prev) => prev.map((r, i) => (i === idx ? newName : r)));
+  };
+
+  /* ── Leave session ───────────────────────────────────────── */
+  const handleLeave = async () => {
+    if (lobbyId && myPlayerId) {
+      try { await leaveLobby(lobbyId, myPlayerId); } catch {}
+    }
+    cleanup();
+    setPhase("setup");
+    setPlayers([]);
+    setScores({});
+    setRows([]);
+    setLobbyId(null);
+    setLobbyCode("");
+  };
+
+  /* ── Kick player (host only) ─────────────────────────────── */
+  const handleKick = async (kickId) => {
+    if (lobbyId && myPlayerId) {
+      try { await kickPlayer(lobbyId, myPlayerId, kickId); } catch {}
+    }
+  };
+
+  /* ── End game ────────────────────────────────────────────── */
+  const handleEndGame = async () => {
+    setShowEndConfirm(false);
+    if (lobbyId && myPlayerId) {
+      try {
+        await fetch(`${API_BASE}/api/lobby/${lobbyId}/end`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ host_id: myPlayerId }),
+        });
+      } catch {}
+    }
+    setShowTotal(true);
+    setRevealed(true);
+    setPhase("results");
+  };
+
+  /* ── New game (after results/survey) ─────────────────────── */
+  const handleNewGame = () => {
+    cleanup();
+    setPhase("setup");
+    setPlayers([]);
+    setScores({});
+    setRows([]);
+    setLobbyId(null);
+    setLobbyCode("");
+    setShowTotal(false);
+    setRevealed(false);
+  };
+
+  /* ── Join another lobby ──────────────────────────────────── */
+  const handleJoinLobby = async () => {
+    const code = joinCode.trim();
+    const name = (joinName.trim() || myName.trim());
+    if (!code || !name) return;
+    setJoining(true);
+    setJoinError("");
+    try {
+      const res = await fetch(`${API_BASE}/api/lobby/join`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, player_name: name }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.detail || "Session not found");
+      }
+      const data = await res.json();
+      localStorage.setItem("gmai_lobby_id", data.lobby_id);
+      localStorage.setItem("gmai_player_id", data.player_id);
+      localStorage.setItem("gmai_player_name", name);
+      navigate(`/lobby/${data.lobby_id}`);
+    } catch (err) {
+      setJoinError(err.message || "Session not found");
+    } finally {
+      setJoining(false);
+    }
+  };
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDER: Setup Phase
+     ═══════════════════════════════════════════════════════════ */
+  if (phase === "setup") {
     return (
-      <div style={{ padding: "12px 0" }}>
-        <h3 style={{ margin: "0 0 16px", fontSize: "1.15rem", color: "var(--text-primary)", textAlign: "center" }}>
+      <div style={{ padding: "20px 0", maxWidth: "400px", margin: "0 auto" }}>
+        <h3 style={{ margin: "0 0 8px", fontSize: "1.15rem", color: "var(--text-primary)", textAlign: "center" }}>
           Score Tracker
         </h3>
-
-        {/* Player count selector */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "20px" }}>
-          <button
-            onClick={() => setNumPlayers(Math.max(minP, numPlayers - 1))}
-            style={{
-              width: "44px", height: "44px", borderRadius: "50%",
-              background: "var(--bg-secondary)", color: "var(--text-primary)",
-              border: "1px solid var(--border)", fontSize: "1.3rem",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", padding: 0,
-            }}
-          >-</button>
-          <span style={{ fontSize: "2rem", fontWeight: 700, minWidth: "50px", textAlign: "center", color: "var(--text-primary)" }}>
-            {numPlayers}
-          </span>
-          <button
-            onClick={() => setNumPlayers(Math.min(maxP, numPlayers + 1))}
-            style={{
-              width: "44px", height: "44px", borderRadius: "50%",
-              background: "var(--bg-secondary)", color: "var(--text-primary)",
-              border: "1px solid var(--border)", fontSize: "1.3rem",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", padding: 0,
-            }}
-          >+</button>
-        </div>
-
-        {/* Player name inputs */}
-        <div style={{ maxWidth: "400px", margin: "0 auto 24px" }}>
-          {currentPlayers.map((p, i) => (
-            <div key={i} style={{
-              display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px",
-              background: "var(--bg-secondary)", borderRadius: "10px", padding: "6px 12px",
-              border: `2px solid ${p.color}`,
-            }}>
-              <div style={{
-                width: "10px", height: "10px", borderRadius: "50%",
-                background: p.color, flexShrink: 0,
-              }} />
-              <input
-                type="text"
-                value={p.name}
-                onChange={(e) => {
-                  const updated = [...currentPlayers];
-                  updated[i] = { ...updated[i], name: e.target.value };
-                  setPlayers(updated);
-                }}
-                style={{
-                  flex: 1, padding: "8px 10px", borderRadius: "8px",
-                  border: "1px solid var(--border)", background: "var(--bg-primary)",
-                  color: "var(--text-primary)", fontSize: "0.95rem", outline: "none",
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Mode buttons */}
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <button
-            onClick={() => { setPlayers(currentPlayers); handleStartLocal(); }}
-            style={{
-              padding: "14px 28px", borderRadius: "12px", fontWeight: 700,
-              background: "var(--accent)", color: "#fff", border: "none",
-              fontSize: "1rem", cursor: "pointer", minWidth: "160px",
-            }}
-          >
-            Start Now
-          </button>
-          <button
-            onClick={() => { setPlayers(currentPlayers); handleStartLobby(); }}
-            style={{
-              padding: "14px 28px", borderRadius: "12px", fontWeight: 700,
-              background: "var(--bg-card)", color: "var(--text-primary)",
-              border: "2px solid var(--border)", fontSize: "1rem",
-              cursor: "pointer", minWidth: "160px",
-            }}
-          >
-            Play Together
-          </button>
-        </div>
-
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "0.8rem", marginTop: "12px" }}>
-          <strong>Start Now</strong> — score on this device &nbsp;|&nbsp; <strong>Play Together</strong> — sync across devices
+        <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", textAlign: "center", margin: "0 0 24px" }}>
+          Enter your name to start tracking scores. Friends can join by scanning a QR code.
         </p>
-      </div>
-    );
-  }
 
-  /* ── Lobby Phase ─────────────────────────────────────────────── */
-  if (phase === "lobby") {
-    return (
-      <div>
-        <button
-          onClick={() => setPhase("setup")}
-          style={{
-            padding: "6px 14px", fontSize: "0.85rem", marginBottom: "8px",
-            background: "none", border: "1px solid var(--border)",
-            color: "var(--text-secondary)", borderRadius: "8px", cursor: "pointer",
-          }}
-        >
-          ← Back
-        </button>
-        <LobbyCreate gameId={gameId} gameTitle={gameTitle} />
-      </div>
-    );
-  }
-
-  /* ── Scoring Phase (local) ───────────────────────────────────── */
-  return (
-    <div style={{ padding: "4px 0" }}>
-      {/* Controls bar */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px",
-        flexWrap: "wrap",
-      }}>
-        <label style={{
-          display: "flex", alignItems: "center", gap: "6px",
-          fontSize: "0.85rem", color: "var(--text-secondary)", cursor: "pointer",
-        }}>
+        <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
           <input
-            type="checkbox"
-            checked={showTotal}
-            onChange={(e) => setShowTotal(e.target.checked)}
-            style={{ accentColor: "var(--accent)" }}
+            type="text"
+            value={myName}
+            onChange={(e) => setMyName(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleStart()}
+            placeholder="Your name"
+            maxLength={20}
+            autoFocus
+            style={{
+              flex: 1, padding: "14px 16px", fontSize: "1rem", borderRadius: "12px",
+              border: "2px solid var(--border)", background: "var(--bg-primary)",
+              color: "var(--text-primary)", outline: "none",
+            }}
           />
-          Show Running Total
-        </label>
-        <div style={{ flex: 1 }} />
+          <button
+            onClick={handleStart}
+            disabled={!myName.trim() || creating}
+            style={{
+              padding: "14px 28px", borderRadius: "12px", fontWeight: 700,
+              background: !myName.trim() || creating ? "var(--border)" : "var(--accent)",
+              color: "#fff", border: "none", fontSize: "1rem", cursor: "pointer",
+              minWidth: "100px",
+            }}
+          >
+            {creating ? "..." : "Start"}
+          </button>
+        </div>
+
+        {error && (
+          <p style={{ color: "#ef4444", fontSize: "0.85rem", textAlign: "center" }}>{error}</p>
+        )}
+      </div>
+    );
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDER: Results Phase
+     ═══════════════════════════════════════════════════════════ */
+  if (phase === "results") {
+    return (
+      <Results
+        players={players}
+        getTotal={getTotal}
+        myId={myPlayerId}
+        gameId={gameId}
+        onSurvey={() => setPhase("survey")}
+        onNewGame={handleNewGame}
+      />
+    );
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDER: Survey Phase
+     ═══════════════════════════════════════════════════════════ */
+  if (phase === "survey") {
+    return (
+      <Survey
+        gameId={gameId}
+        lobbyId={lobbyId}
+        playerName={myName}
+        onDone={handleNewGame}
+      />
+    );
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDER: Scoring Phase
+     ═══════════════════════════════════════════════════════════ */
+  const qrSrc = qrUrl || (lobbyCode
+    ? `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(`${window.location.origin}/join/${lobbyCode}`)}`
+    : "");
+
+  return (
+    <div style={{ padding: "4px 0", paddingBottom: "80px" }}>
+
+      {/* ── End Game Confirmation Modal ──────────────────────── */}
+      {showEndConfirm && (
+        <div style={{
+          position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)",
+          zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px",
+        }} onClick={() => setShowEndConfirm(false)}>
+          <div style={{
+            background: "var(--bg-primary)", borderRadius: "16px", padding: "24px",
+            width: "100%", maxWidth: "340px", border: "1px solid var(--border)", textAlign: "center",
+          }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ fontSize: "2.5rem", marginBottom: "12px" }}>{"\u{1F3C1}"}</div>
+            <h3 style={{ color: "var(--text-primary)", marginBottom: "8px", fontSize: "1.2rem" }}>End this game?</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "20px" }}>
+              Final scores will be revealed for all players.
+            </p>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button onClick={() => setShowEndConfirm(false)} style={{
+                flex: 1, padding: "12px", borderRadius: "10px",
+                background: "var(--bg-secondary)", color: "var(--text-primary)",
+                border: "1px solid var(--border)", fontWeight: 600, cursor: "pointer",
+              }}>Cancel</button>
+              <button onClick={handleEndGame} style={{
+                flex: 1, padding: "12px", borderRadius: "10px",
+                background: "#ef4444", color: "#fff", border: "none",
+                fontWeight: 600, cursor: "pointer",
+              }}>End Game</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── TOP BAR ─────────────────────────────────────────── */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap",
+      }}>
         <button
-          onClick={handleNewGame}
+          onClick={() => navigate(`/game/${gameId}`)}
           style={{
-            padding: "6px 14px", fontSize: "0.8rem", borderRadius: "8px",
+            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
             background: "none", border: "1px solid var(--border)",
-            color: "var(--text-secondary)", cursor: "pointer",
+            color: "var(--text-secondary)", cursor: "pointer", whiteSpace: "nowrap",
           }}
         >
-          New Game
+          ← Game
+        </button>
+
+        <span style={{ flex: 1, textAlign: "center", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)" }}>
+          Score Tracker
+        </span>
+
+        <button
+          onClick={handleAddPlayer}
+          style={{
+            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
+            background: "var(--bg-card)", border: "1px solid var(--border)",
+            color: "var(--text-primary)", cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
+          + Player
+        </button>
+
+        <button
+          onClick={handleLeave}
+          style={{
+            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
+            background: "none", border: "1px solid #ef4444",
+            color: "#ef4444", cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
+          Leave
         </button>
       </div>
 
-      {/* Transposed score table */}
+      {/* Session info */}
+      {lobbyCode && (
+        <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", margin: "0 0 12px", textAlign: "center" }}>
+          Session {lobbyCode} &middot; {players.length} player{players.length !== 1 ? "s" : ""}
+        </p>
+      )}
+
+      {/* ── SCORE TABLE ─────────────────────────────────────── */}
       <div style={{ overflowX: "auto", marginBottom: "16px", WebkitOverflowScrolling: "touch" }}>
         <table style={{
           width: "100%", borderCollapse: "separate", borderSpacing: 0,
@@ -312,7 +731,7 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                 Score Type
               </th>
               {players.map((player, pIdx) => (
-                <th key={pIdx} style={{
+                <th key={player.id} style={{
                   padding: "10px 8px", textAlign: "center", fontSize: "0.85rem",
                   borderBottom: "1px solid var(--border)", background: "var(--bg-secondary)",
                   minWidth: "80px", whiteSpace: "nowrap",
@@ -320,18 +739,38 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }}>
                     <div style={{
                       width: "8px", height: "8px", borderRadius: "50%",
-                      background: player.color, flexShrink: 0,
+                      background: PLAYER_COLORS[pIdx % PLAYER_COLORS.length], flexShrink: 0,
                     }} />
                     <input
                       type="text"
                       value={player.name}
-                      onChange={(e) => updatePlayerName(pIdx, e.target.value)}
+                      onChange={(e) => {
+                        setPlayers((prev) => prev.map((p, i) =>
+                          i === pIdx ? { ...p, name: e.target.value } : p
+                        ));
+                      }}
                       style={{
                         background: "transparent", border: "none", color: "var(--text-primary)",
-                        fontWeight: 500, fontSize: "0.85rem", textAlign: "center",
-                        width: "70px", outline: "none", padding: "2px 0",
+                        fontWeight: player.is_host ? 600 : 500, fontSize: "0.85rem",
+                        textAlign: "center", width: "70px", outline: "none", padding: "2px 0",
                       }}
                     />
+                    {player.is_host && <span style={{ fontSize: "0.7rem" }}>{"\uD83D\uDC51"}</span>}
+                    {isHost && !player.is_host && (
+                      <button
+                        onClick={() => player.is_local
+                          ? setPlayers((prev) => prev.filter((p) => p.id !== player.id))
+                          : handleKick(player.id)
+                        }
+                        title={`Remove ${player.name}`}
+                        style={{
+                          background: "none", border: "none", cursor: "pointer",
+                          fontSize: "0.75rem", color: "var(--text-secondary)", padding: "0 2px", lineHeight: 1,
+                        }}
+                      >
+                        ✕
+                      </button>
+                    )}
                   </div>
                 </th>
               ))}
@@ -347,14 +786,12 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                     style={{
                       padding: "10px 14px", borderBottom: "1px solid var(--border)",
                       fontSize: "0.9rem", color: "var(--text-secondary)", cursor: "pointer",
-                      position: "sticky", left: 0, zIndex: 1, background: STICKY_BG,
-                      fontWeight: 500,
+                      position: "sticky", left: 0, zIndex: 1, background: STICKY_BG, fontWeight: 500,
                     }}
                   >
                     {editingRow === rIdx ? (
                       <input
-                        type="text"
-                        value={rowLabel}
+                        type="text" value={rowLabel}
                         onChange={(e) => renameRow(rIdx, e.target.value)}
                         onBlur={() => setEditingRow(null)}
                         onKeyDown={(e) => e.key === "Enter" && setEditingRow(null)}
@@ -362,27 +799,24 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                         style={{
                           width: "100%", fontSize: "0.9rem",
                           background: "var(--bg-primary)", border: "1px solid var(--accent)",
-                          borderRadius: "6px", padding: "4px 8px", color: "var(--text-primary)",
-                          outline: "none",
+                          borderRadius: "6px", padding: "4px 8px", color: "var(--text-primary)", outline: "none",
                         }}
                       />
                     ) : rowLabel}
                   </td>
-                  {players.map((_, pIdx) => {
-                    const val = (scores[rowKey] || {})[pIdx];
+                  {players.map((player) => {
+                    const val = (scores[rowKey] || {})[player.id];
                     return (
-                      <td key={pIdx} style={{ padding: "6px 4px", borderBottom: "1px solid var(--border)", textAlign: "center" }}>
+                      <td key={player.id} style={{ padding: "6px 4px", borderBottom: "1px solid var(--border)", textAlign: "center" }}>
                         <input
-                          type="number"
-                          inputMode="numeric"
+                          type="number" inputMode="numeric"
                           value={val === undefined || val === "" ? "" : val}
-                          onChange={(e) => handleScoreChange(rowKey, pIdx, e.target.value)}
+                          onChange={(e) => handleScoreChange(rowKey, player.id, e.target.value)}
                           style={{
                             width: "100%", maxWidth: "70px", padding: "8px 4px", textAlign: "center",
                             fontSize: "1rem", fontWeight: 600, fontFamily: "monospace",
                             borderRadius: "8px", border: "1px solid var(--border)",
-                            background: "var(--bg-primary)", color: "var(--text-primary)",
-                            outline: "none",
+                            background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
                           }}
                         />
                       </td>
@@ -392,58 +826,107 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
               );
             })}
 
-            {/* Total row — visible or blurred */}
-            {showTotal && (
-              <tr>
-                <td style={{
+            {/* Total row */}
+            <tr style={{ animation: revealed ? "scoreReveal 0.5s ease-out" : "none" }}>
+              <td style={{
+                padding: "12px 14px", borderTop: "2px solid var(--border)",
+                fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)",
+                position: "sticky", left: 0, zIndex: 1, background: STICKY_BG,
+              }}>
+                Total
+              </td>
+              {players.map((player) => (
+                <td key={player.id} style={{
                   padding: "12px 14px", borderTop: "2px solid var(--border)",
-                  fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)",
-                  position: "sticky", left: 0, zIndex: 1, background: STICKY_BG,
+                  textAlign: "center", fontWeight: 700, fontSize: "1.1rem",
+                  fontFamily: "monospace", color: "var(--accent)",
                 }}>
-                  Total
+                  {showTotal ? getTotal(player.id) : "???"}
                 </td>
-                {players.map((_, pIdx) => (
-                  <td key={pIdx} style={{
-                    padding: "12px 14px", borderTop: "2px solid var(--border)",
-                    textAlign: "center", fontWeight: 700, fontSize: "1.1rem",
-                    fontFamily: "monospace", color: "var(--accent)",
-                  }}>
-                    {getPlayerTotal(pIdx)}
-                  </td>
-                ))}
-              </tr>
-            )}
+              ))}
+            </tr>
           </tbody>
         </table>
       </div>
 
-      {/* Add Score Type */}
-      <button
-        onClick={addRow}
-        style={{
-          padding: "8px 20px", borderRadius: "10px", fontSize: "0.9rem",
-          background: "var(--bg-card)", color: "var(--text-secondary)",
-          border: "1px solid var(--border)", cursor: "pointer", marginBottom: "16px",
-        }}
-      >
-        + Add Score Type
-      </button>
+      {/* ── LOBBY SECTION ───────────────────────────────────── */}
+      {lobbyCode && (
+        <div style={{
+          background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
+          border: "1px solid var(--border)", marginBottom: "16px",
+        }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
+            <div style={{ flex: 1, minWidth: "160px" }}>
+              <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", margin: "0 0 8px" }}>
+                Invite to Your Lobby
+              </p>
+              <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", margin: "0 0 8px" }}>
+                Room Code:
+              </p>
+              <div style={{
+                fontSize: "2rem", fontWeight: 800, letterSpacing: "0.15em",
+                color: "var(--accent)", fontFamily: "monospace", marginBottom: "8px",
+              }}>
+                {lobbyCode}
+              </div>
+              <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", margin: 0 }}>
+                Friends can scan the QR or enter the code at the join page.
+              </p>
+            </div>
+            {qrSrc && (
+              <img
+                src={qrSrc} alt="QR code to join"
+                style={{
+                  width: "120px", height: "120px", borderRadius: "10px",
+                  background: "#fff", padding: "6px", flexShrink: 0,
+                }}
+              />
+            )}
+          </div>
 
-      {/* Reveal Final Score (only when total is hidden) */}
-      {!showTotal && !revealed && (
-        <div style={{ textAlign: "center", margin: "16px 0" }}>
-          <button
-            onClick={() => { setRevealed(true); setShowTotal(true); }}
-            style={{
-              padding: "14px 32px", borderRadius: "12px", fontWeight: 700,
-              background: "linear-gradient(135deg, var(--accent), #ff6b6b)",
-              color: "#fff", border: "none", fontSize: "1.05rem",
-              cursor: "pointer", boxShadow: "0 4px 16px rgba(233,69,96,0.3)",
-              animation: "pulse 2s ease-in-out infinite",
-            }}
-          >
-            Reveal Final Scores
-          </button>
+          {/* Join another lobby */}
+          <div style={{ borderTop: "1px solid var(--border)", marginTop: "16px", paddingTop: "12px" }}>
+            <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", margin: "0 0 8px" }}>
+              Join Another Lobby
+            </p>
+            <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+              <input
+                type="text" value={joinCode}
+                onChange={(e) => setJoinCode(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                placeholder="Code" maxLength={4} inputMode="numeric"
+                style={{
+                  width: "80px", padding: "8px 10px", textAlign: "center",
+                  fontSize: "1rem", fontFamily: "monospace", fontWeight: 700,
+                  borderRadius: "8px", border: "1px solid var(--border)",
+                  background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
+                }}
+              />
+              <input
+                type="text" value={joinName}
+                onChange={(e) => setJoinName(e.target.value)}
+                placeholder="Your name" maxLength={20}
+                style={{
+                  flex: 1, padding: "8px 10px", fontSize: "0.9rem",
+                  borderRadius: "8px", border: "1px solid var(--border)",
+                  background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
+                }}
+              />
+              <button
+                onClick={handleJoinLobby}
+                disabled={joinCode.length < 4 || joining}
+                style={{
+                  padding: "8px 16px", borderRadius: "8px", fontWeight: 600,
+                  background: joinCode.length < 4 ? "var(--border)" : "var(--accent)",
+                  color: "#fff", border: "none", cursor: "pointer", fontSize: "0.9rem",
+                }}
+              >
+                {joining ? "..." : "Join"}
+              </button>
+            </div>
+            {joinError && (
+              <p style={{ color: "#ef4444", fontSize: "0.8rem", marginTop: "6px" }}>{joinError}</p>
+            )}
+          </div>
         </div>
       )}
 
@@ -452,14 +935,13 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         <div style={{
           textAlign: "center", padding: "16px", marginBottom: "12px",
           background: "var(--bg-card)", borderRadius: "12px",
-          border: "2px solid var(--accent)",
-          animation: "scoreReveal 0.5s ease-out",
+          border: "2px solid var(--accent)", animation: "scoreReveal 0.5s ease-out",
         }}>
           {(() => {
             let maxScore = -Infinity;
             let winners = [];
-            players.forEach((p, i) => {
-              const t = getPlayerTotal(i);
+            players.forEach((p) => {
+              const t = getTotal(p.id);
               if (t > maxScore) { maxScore = t; winners = [p.name]; }
               else if (t === maxScore) winners.push(p.name);
             });
@@ -478,6 +960,63 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         </div>
       )}
 
+      {/* ── BOTTOM BAR (sticky) ─────────────────────────────── */}
+      <div style={{
+        position: "fixed", bottom: 0, left: 0, right: 0,
+        background: "var(--bg-primary)", borderTop: "1px solid var(--border)",
+        padding: "10px 16px", zIndex: 100,
+        display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px",
+      }}>
+        <button
+          onClick={() => setShowTotal((v) => !v)}
+          style={{
+            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            background: showTotal ? "var(--accent)" : "var(--bg-card)",
+            color: showTotal ? "#fff" : "var(--text-secondary)",
+            border: showTotal ? "none" : "1px solid var(--border)", cursor: "pointer",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {showTotal ? "Hide Total" : "Show Total"}
+        </button>
+
+        <button
+          onClick={addRow}
+          style={{
+            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            background: "var(--bg-card)", color: "var(--text-secondary)",
+            border: "1px solid var(--border)", cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
+          + Score Type
+        </button>
+
+        <button
+          onClick={() => setShowEndConfirm(true)}
+          style={{
+            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            background: "#ef4444", color: "#fff", border: "none",
+            cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
+          End Game
+        </button>
+
+        {!showTotal && !revealed && (
+          <button
+            onClick={() => { setRevealed(true); setShowTotal(true); }}
+            style={{
+              padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 700,
+              background: "linear-gradient(135deg, var(--accent), #ff6b6b)",
+              color: "#fff", border: "none", cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(233,69,96,0.3)", whiteSpace: "nowrap",
+            }}
+          >
+            Reveal
+          </button>
+        )}
+      </div>
+
       <style>{`
         @keyframes scoreReveal {
           0% { opacity: 0; transform: scale(0.8); }
@@ -487,6 +1026,14 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.85; transform: scale(1.03); }
+        }
+        @keyframes confetti {
+          0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(60vh) rotate(720deg); opacity: 0; }
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 5px rgba(233,69,96,0.3); }
+          50% { box-shadow: 0 0 20px rgba(233,69,96,0.6); }
         }
       `}</style>
     </div>
