@@ -31,22 +31,27 @@ export default function Leaderboard({ gameId, gameTitle }) {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
     const fetchLeaderboard = async () => {
       setLoading(true);
       try {
         const res = await fetch(`${API_BASE}/api/leaderboard/${gameId}`);
+        if (cancelled) return;
         if (res.ok) {
           const data = await res.json();
-          setEntries(data.entries || []);
-          setLoading(false);
-          return;
+          if (!cancelled) setEntries(data.entries || []);
+        } else {
+          // 404 or other error — fall back to mock, don't throw
+          if (!cancelled) setEntries(MOCK_LEADERBOARD[gameId] || []);
         }
-      } catch {}
-      // Fallback to mock
-      setEntries(MOCK_LEADERBOARD[gameId] || []);
-      setLoading(false);
+      } catch {
+        // Network error — fall back to mock, don't throw
+        if (!cancelled) setEntries(MOCK_LEADERBOARD[gameId] || []);
+      }
+      if (!cancelled) setLoading(false);
     };
     fetchLeaderboard();
+    return () => { cancelled = true; };
   }, [gameId]);
 
   // Listen for new high score events from ScoreTracker

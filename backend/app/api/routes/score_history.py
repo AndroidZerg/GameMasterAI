@@ -55,6 +55,16 @@ async def list_score_history(
     return get_score_history(game_id=game_id, venue_id=vid)
 
 
+@router.get("/leaderboard/{game_id}")
+async def get_public_leaderboard(game_id: str):
+    """Public leaderboard for a game. Returns entries (may be empty)."""
+    try:
+        entries = get_leaderboard(game_id=game_id, venue_id=None)
+        return {"entries": entries if isinstance(entries, list) else []}
+    except Exception:
+        return {"entries": []}
+
+
 @router.get("/admin/scores/leaderboard")
 async def get_game_leaderboard(
     game_id: str = Query(..., description="Game ID"),

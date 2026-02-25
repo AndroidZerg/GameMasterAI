@@ -270,12 +270,14 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
 
   // Load score config
   useEffect(() => {
+    let cancelled = false;
     fetch(`${API_BASE}/api/scores/${gameId}`)
-      .then((r) => r.json())
+      .then((r) => r.ok ? r.json() : null)
       .then((data) => {
-        if (data.scoring_type !== "unavailable") setScoreConfig(data);
+        if (!cancelled && data && data.scoring_type !== "unavailable") setScoreConfig(data);
       })
       .catch(() => {});
+    return () => { cancelled = true; };
   }, [gameId]);
 
   const buildDefaultRows = useCallback(() => {
@@ -323,15 +325,28 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
 
     const poll = async () => {
       try {
-        const state = await getLobbyState(lobbyId);
+        const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}`);
+        if (!mounted) return;
+
+        // Lobby gone — stop polling, keep playing locally
+        if (res.status === 404) {
+          clearInterval(pollRef.current);
+          console.warn("Lobby not found, stopped polling");
+          return;
+        }
+        if (!res.ok) return; // other server error — skip this poll
+
+        const state = await res.json();
         if (!mounted) return;
 
         // Kicked check
         if (state.kicked?.includes(myPlayerId)) {
           clearInterval(pollRef.current);
           cleanup();
-          setError("You were removed from the session.");
-          setPhase("setup");
+          if (mounted) {
+            setError("You were removed from the session.");
+            setPhase("setup");
+          }
           return;
         }
 
@@ -370,8 +385,9 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
           }
           return merged;
         });
-      } catch {
-        // Session expired — keep playing locally
+      } catch (e) {
+        // Network error — don't crash, just skip this poll
+        console.warn("Lobby poll failed:", e);
       }
     };
 
