@@ -228,7 +228,7 @@ function Results({ players, getTotal, myId, gameId, onSurvey, onNewGame }) {
 /* ══════════════════════════════════════════════════════════════
    MAIN: ScoreTab
    ══════════════════════════════════════════════════════════════ */
-export default function ScoreTab({ gameId, gameTitle, playerCount }) {
+export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning, timerElapsed, onTimerToggle }) {
   const navigate = useNavigate();
 
   // Phase: setup | scoring | results | survey
@@ -675,40 +675,60 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         </div>
       )}
 
-      {/* ── TOP BAR ─────────────────────────────────────────── */}
+      {/* ── TOP BAR: Leave | Timer | + Player ────────────────── */}
       <div style={{
-        display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap",
+        display: "flex", gap: "8px", marginBottom: "12px",
+        maxWidth: "500px", margin: "0 auto 12px", padding: "0 8px",
+        width: "100%", boxSizing: "border-box",
       }}>
-        <span style={{ flex: 1, textAlign: "center", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)" }}>
-          Score Tracker
-        </span>
-
-        <button
-          onClick={handleAddPlayer}
-          style={{
-            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
-            background: "var(--bg-card)", border: "1px solid var(--border)",
-            color: "var(--text-primary)", cursor: "pointer", whiteSpace: "nowrap",
-          }}
-        >
-          + Player
-        </button>
-
         <button
           onClick={handleLeave}
           style={{
-            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
-            background: "none", border: "1px solid #ef4444",
-            color: "#ef4444", cursor: "pointer", whiteSpace: "nowrap",
+            flex: 1, padding: "10px 8px", fontSize: "0.85rem", borderRadius: "10px",
+            background: "none", border: "1px solid var(--border)",
+            color: "var(--text-primary)", cursor: "pointer", whiteSpace: "nowrap",
+            fontWeight: 600, minHeight: "44px",
           }}
         >
           Leave
         </button>
+
+        <button
+          onClick={onTimerToggle}
+          title={timerRunning ? "Pause timer" : "Resume timer"}
+          style={{
+            flex: 1, padding: "10px 8px", fontSize: "0.85rem", borderRadius: "10px",
+            background: timerRunning ? "var(--bg-card)" : "none",
+            border: timerRunning ? "1px solid var(--accent)" : "1px solid var(--border)",
+            color: timerRunning ? "var(--accent)" : "var(--text-primary)",
+            cursor: "pointer", whiteSpace: "nowrap",
+            fontWeight: 600, fontFamily: "monospace", minHeight: "44px",
+          }}
+        >
+          {timerRunning ? "▶" : "⏸"} {(() => {
+            const h = Math.floor(timerElapsed / 3600);
+            const m = Math.floor((timerElapsed % 3600) / 60);
+            const s = timerElapsed % 60;
+            return `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+          })()}
+        </button>
+
+        <button
+          onClick={handleAddPlayer}
+          style={{
+            flex: 1, padding: "10px 8px", fontSize: "0.85rem", borderRadius: "10px",
+            background: "none", border: "1px solid var(--border)",
+            color: "var(--text-primary)", cursor: "pointer", whiteSpace: "nowrap",
+            fontWeight: 600, minHeight: "44px",
+          }}
+        >
+          + Player
+        </button>
       </div>
 
-      {/* Session info */}
+      {/* Session info (subtle) */}
       {lobbyCode && (
-        <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", margin: "0 0 12px", textAlign: "center" }}>
+        <p style={{ fontSize: "0.7rem", color: "var(--text-secondary)", margin: "0 0 8px", textAlign: "center", opacity: 0.7 }}>
           Session {lobbyCode} &middot; {players.length} player{players.length !== 1 ? "s" : ""}
         </p>
       )}

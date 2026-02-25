@@ -27,6 +27,9 @@ export default function NavMenu() {
   // Hide hamburger menu entirely for non-admin users
   if (!isLoggedIn) return null;
 
+  // Hide hamburger menu on all game pages (/game/*)
+  if (location.pathname.startsWith("/game/")) return null;
+
   const handleNavigate = (path) => {
     navigate(path);
     setOpen(false);

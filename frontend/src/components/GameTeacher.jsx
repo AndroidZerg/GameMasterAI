@@ -18,7 +18,7 @@ import {
 } from "./ResponseDisplay";
 
 import { API_BASE } from "../services/api";
-import OrderPanel, { CountdownTimer, TimerBadge } from "./OrderPanel";
+import OrderPanel, { CountdownTimer } from "./OrderPanel";
 
 const TABS = [
   { key: "setup", label: "Setup" },
@@ -924,15 +924,19 @@ export default function GameTeacher() {
       />
       {/* All content above background */}
       <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
-      {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px", flexWrap: "wrap" }}>
-        <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
-        <GameCoverThumb gameId={gameId} />
-        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
-          {gameTitle}
-        </h1>
-        <GameTimer running={timerRunning} elapsed={timerElapsed} onToggle={() => setTimerRunning((r) => !r)} />
+      {/* Header — centered group with Order button floating top-right */}
+      <div style={{ position: "relative", marginBottom: "10px" }}>
+        {/* Centered game title row */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", flexWrap: "wrap", paddingRight: "90px" }}>
+          <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
+          <GameCoverThumb gameId={gameId} />
+          <h1 style={{ fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
+            {gameTitle}
+          </h1>
+        </div>
+        {/* Order button — pinned top-right */}
         <button onClick={() => setShowOrderPanel(true)} style={{
+          position: "absolute", top: "50%", right: 0, transform: "translateY(-50%)",
           padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
           background: "var(--accent)", color: "#fff",
           border: "none", cursor: "pointer", whiteSpace: "nowrap",
@@ -949,7 +953,7 @@ export default function GameTeacher() {
       )}
 
       {/* Tab Bar */}
-      <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap", justifyContent: "center" }}>
         {TABS.map((t) => (
           <button key={t.key} onClick={() => setActiveTab(t.key)} role="tab" aria-selected={activeTab === t.key} aria-label={`${t.label} tab`}
             style={{
@@ -999,6 +1003,9 @@ export default function GameTeacher() {
                   gameId={gameId}
                   gameTitle={gameTitle}
                   playerCount={gameData?.player_count}
+                  timerRunning={timerRunning}
+                  timerElapsed={timerElapsed}
+                  onTimerToggle={() => setTimerRunning((r) => !r)}
                 />
                 {/* Divider */}
                 <div style={{ height: "1px", background: "var(--border)", margin: "16px 0" }} />
