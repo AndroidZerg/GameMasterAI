@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchVenueMenu, placeOrder, API_BASE } from "../services/api";
+import { fetchVenueMenu, placeOrder, API_BASE, fetchExpansions } from "../services/api";
 
 const MOCK_MENU = {
   categories: [
@@ -60,6 +60,17 @@ const ACCESSORIES = [
   { id: "game-organizer", name: "Game Organizer Insert", price: 14.99, description: "Custom foam insert" },
   { id: "playmat", name: "Playmat", price: 19.99, description: "Neoprene 24\u00d714 inch" },
 ];
+
+const EXPANSION_PRICES = {
+  "Catan: Seafarers": 34.99, "Catan: Cities & Knights": 39.99, "Catan: Traders & Barbarians": 34.99,
+  "Wingspan: European Expansion": 29.99, "Wingspan: Oceania Expansion": 29.99, "Wingspan: Asia Expansion": 34.99,
+  "Ticket to Ride: Europe": 39.99, "Ticket to Ride: Nordic Countries": 34.99,
+  "Pandemic: On the Brink": 29.99, "Pandemic: In the Lab": 29.99,
+  "Terraforming Mars: Hellas & Elysium": 19.99, "Terraforming Mars: Prelude": 24.99, "Terraforming Mars: Colonies": 29.99,
+  "Root: The Riverfolk Expansion": 34.99, "Root: The Underworld Expansion": 39.99,
+  "Dominion: Intrigue": 34.99, "Dominion: Seaside": 34.99, "Dominion: Prosperity": 34.99,
+  "Spirit Island: Branch & Claw": 29.99, "Spirit Island: Jagged Earth": 39.99,
+};
 
 function cartKey(sessionId) {
   return `gmai-cart-${sessionId || "local"}`;
@@ -262,6 +273,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
   const [showCart, setShowCart] = useState(false);
   const [menu, setMenu] = useState(null);
   const [cart, setCart] = useState(() => loadCart(sessionId));
+  const [expansions, setExpansions] = useState([]);
 
   // Load menu data
   useEffect(() => {
@@ -273,6 +285,14 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
       })
       .catch(() => setMenu(MOCK_MENU));
   }, [open]);
+
+  // Load expansions for this game
+  useEffect(() => {
+    if (!open || !gameId) return;
+    fetchExpansions(gameId)
+      .then((data) => setExpansions(data.expansions || data || []))
+      .catch(() => setExpansions([]));
+  }, [open, gameId]);
 
   // Sync cart with localStorage on sessionId change
   useEffect(() => {
@@ -400,9 +420,49 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                     )}
                   </div>
 
+                  {/* Expansions */}
+                  {expansions.length > 0 && (
+                    <>
+                      <h3 style={{ fontSize: "0.95rem", color: "var(--text-secondary)", fontWeight: 600, marginBottom: "12px" }}>
+                        Expansions
+                      </h3>
+                      {expansions.map((exp, i) => {
+                        const price = EXPANSION_PRICES[exp.name] || 29.99;
+                        return (
+                          <div key={i} style={{
+                            display: "flex", alignItems: "center", gap: "12px", padding: "12px 14px",
+                            marginBottom: "8px", background: "var(--bg-secondary)", borderRadius: "10px",
+                            border: "1px solid var(--border)",
+                          }}>
+                            <div style={{
+                              width: "44px", height: "44px", borderRadius: "8px",
+                              background: "var(--bg-card)", display: "flex", alignItems: "center",
+                              justifyContent: "center", fontSize: "1.3rem", flexShrink: 0,
+                            }}>
+                              {"\uD83D\uDCE6"}
+                            </div>
+                            <div style={{ flex: 1 }}>
+                              <div style={{ fontWeight: 600, fontSize: "0.95rem", color: "var(--text-primary)" }}>{exp.name}</div>
+                              {exp.description && (
+                                <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{exp.description}</div>
+                              )}
+                              <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)", marginTop: "2px" }}>${price.toFixed(2)}</div>
+                            </div>
+                            <AddToCartBtn
+                              item={{ id: exp.name.toLowerCase().replace(/[\s:&]+/g, "-"), name: exp.name, price }}
+                              category="Expansions"
+                              cart={cart} setCart={setCart} sessionId={sessionId}
+                            />
+                          </div>
+                        );
+                      })}
+                      <div style={{ height: "8px" }} />
+                    </>
+                  )}
+
                   {/* Accessories */}
                   <h3 style={{ fontSize: "0.95rem", color: "var(--text-secondary)", fontWeight: 600, marginBottom: "12px" }}>
-                    Pairs well with this game
+                    Pairs Well With This Game
                   </h3>
                   {ACCESSORIES.map((acc) => (
                     <div key={acc.id} style={{

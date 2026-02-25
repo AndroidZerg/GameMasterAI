@@ -1001,8 +1001,8 @@ export default function GameTeacher() {
         )}
       </div>
 
-      {/* Expansions */}
-      {!gameLoading && !gameError && (
+      {/* Expansions — hide on Q&A and Notes tab */}
+      {!gameLoading && !gameError && activeTab !== "qa" && (
         <ExpansionInfo gameId={gameId} gameTitle={gameTitle} />
       )}
 
