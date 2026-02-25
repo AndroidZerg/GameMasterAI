@@ -278,20 +278,25 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
   // Load menu data
   useEffect(() => {
     if (!open) return;
+    let mounted = true;
     fetchVenueMenu()
       .then((data) => {
+        if (!mounted) return;
         if (!data.categories && data.sections) data.categories = data.sections;
         setMenu(data);
       })
-      .catch(() => setMenu(MOCK_MENU));
+      .catch(() => { if (mounted) setMenu(MOCK_MENU); });
+    return () => { mounted = false; };
   }, [open]);
 
   // Load expansions for this game
   useEffect(() => {
     if (!open || !gameId) return;
+    let mounted = true;
     fetchExpansions(gameId)
-      .then((data) => setExpansions(data.expansions || data || []))
-      .catch(() => setExpansions([]));
+      .then((data) => { if (mounted) setExpansions(data.expansions || data || []); })
+      .catch(() => { if (mounted) setExpansions([]); });
+    return () => { mounted = false; };
   }, [open, gameId]);
 
   // Sync cart with localStorage on sessionId change

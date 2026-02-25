@@ -46,19 +46,24 @@ export default function ExpansionInfo({ gameId, gameTitle }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
     const loadExpansions = async () => {
       try {
         const data = await apiFetchExpansions(gameId);
+        if (!mounted) return;
         if (data.expansions?.length) {
           setExpansions(data.expansions);
           setLoading(false);
           return;
         }
       } catch {}
-      setExpansions(MOCK_EXPANSIONS[gameId] || []);
-      setLoading(false);
+      if (mounted) {
+        setExpansions(MOCK_EXPANSIONS[gameId] || []);
+        setLoading(false);
+      }
     };
     loadExpansions();
+    return () => { mounted = false; };
   }, [gameId]);
 
   if (!loading && expansions.length === 0) return null;

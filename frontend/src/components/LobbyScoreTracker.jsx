@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { API_BASE, getLobbyState, updateLobbyScores, leaveLobby, kickPlayer } from "../services/api";
+import { API_BASE, updateLobbyScores, leaveLobby, kickPlayer } from "../services/api";
 
 const PLAYER_COLORS = [
   "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
@@ -270,14 +270,16 @@ export default function LobbyScoreTracker() {
   // Load game-specific score types from API
   useEffect(() => {
     if (!lobby?.game_id) return;
+    let mounted = true;
     fetch(`${API_BASE}/api/scores/${lobby.game_id}`)
-      .then((r) => r.json())
+      .then((r) => r.ok ? r.json() : null)
       .then((data) => {
-        if (data.scoring_type !== "unavailable" && data.categories?.length) {
+        if (mounted && data && data.scoring_type !== "unavailable" && data.categories?.length) {
           setRows(data.categories.map((c) => c.label || c.name || c.id));
         }
       })
       .catch(() => {});
+    return () => { mounted = false; };
   }, [lobby?.game_id]);
 
   // Restore from localStorage
@@ -309,12 +311,22 @@ export default function LobbyScoreTracker() {
 
     const poll = async () => {
       try {
-        const state = await getLobbyState(lobbyId);
+        const res = await fetch(`${API_BASE}/api/lobby/${lobbyId}`);
+        if (!mounted) return;
+
+        if (res.status === 404) {
+          clearInterval(pollRef.current);
+          if (mounted) setError("Session ended or not found");
+          return;
+        }
+        if (!res.ok) return; // skip this poll on other errors
+
+        const state = await res.json();
         if (!mounted) return;
 
         if (state.kicked?.includes(playerId)) {
-          setKicked(true);
           clearInterval(pollRef.current);
+          if (mounted) setKicked(true);
           return;
         }
 
@@ -345,8 +357,8 @@ export default function LobbyScoreTracker() {
           }
           return merged;
         });
-      } catch {
-        if (mounted) setError("Session ended or not found");
+      } catch (e) {
+        console.warn("Lobby poll failed:", e);
       }
     };
 

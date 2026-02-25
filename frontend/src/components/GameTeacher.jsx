@@ -878,6 +878,8 @@ export default function GameTeacher() {
     return () => {
       setOnStateChange(null);
       setOnRateChange(null);
+      // Also stop speech here — callbacks are now nulled so notifyState is safe
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
     };
   }, []);
 
@@ -891,13 +893,21 @@ export default function GameTeacher() {
   }, []);
 
   useEffect(() => {
+    let mounted = true;
     setGameLoading(true);
     setGameError(null);
     fetchGame(gameId)
-      .then((data) => { setGameData(data); setGameTitle(data.title || gameId); })
-      .catch(() => { setGameTitle(gameId); setGameError("GameMaster is taking a break — try again in a moment"); })
-      .finally(() => setGameLoading(false));
-    return () => stopSpeaking();
+      .then((data) => { if (mounted) { setGameData(data); setGameTitle(data.title || gameId); } })
+      .catch(() => { if (mounted) { setGameTitle(gameId); setGameError("GameMaster is taking a break — try again in a moment"); } })
+      .finally(() => { if (mounted) setGameLoading(false); });
+    return () => {
+      mounted = false;
+      // Cancel speech directly — do NOT call stopSpeaking() here because it
+      // triggers notifyState("idle") → setTtsState while callbacks are still
+      // registered (cleanup runs before the callbacks effect clears them),
+      // causing React #310 during navigation.
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    };
   }, [gameId]);
 
   // Timer interval

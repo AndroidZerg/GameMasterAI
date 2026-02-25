@@ -505,20 +505,23 @@ export default function GameSelector() {
   }, []);
 
   useEffect(() => {
+    let mounted = true;
     fetchVenueConfig()
       .then((data) => {
+        if (!mounted) return;
         setVenueConfig(data);
         if (data.accent_color) document.documentElement.style.setProperty("--accent", data.accent_color);
       })
       .catch(() => {
-        setVenueConfig({ venue_name: "", venue_tagline: "", accent_color: "#e94560" });
+        if (mounted) setVenueConfig({ venue_name: "", venue_tagline: "", accent_color: "#e94560" });
       });
 
     fetchVenueCollection()
       .then((data) => {
-        if (data.game_ids && data.game_ids.length > 0) setCollection(new Set(data.game_ids));
+        if (mounted && data.game_ids && data.game_ids.length > 0) setCollection(new Set(data.game_ids));
       })
       .catch(() => {
+        if (!mounted) return;
         try {
           const local = JSON.parse(localStorage.getItem("gmai_venue_collection") || "null");
           if (local && local.length > 0) setCollection(new Set(local));
@@ -527,24 +530,30 @@ export default function GameSelector() {
 
     // Fetch featured game and staff picks from API (sends auth for per-venue config)
     fetchFeaturedGame()
-      .then((data) => { if (data?.game_id) setApiFeatured(data); })
+      .then((data) => { if (mounted && data?.game_id) setApiFeatured(data); })
       .catch(() => {});
 
     fetchStaffPicks()
-      .then((data) => { if (Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
+      .then((data) => { if (mounted && Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
       .catch(() => {});
+
+    return () => { mounted = false; };
   }, []);
 
   useEffect(() => {
+    let mounted = true;
     const timer = setTimeout(() => {
+      if (!mounted) return;
       setLoading(true);
       setError(null);
       fetchGames(search)
         .then((data) => {
+          if (!mounted) return;
           setGames(data);
           try { localStorage.setItem("gmai_games_cache", JSON.stringify(data)); } catch {}
         })
         .catch((err) => {
+          if (!mounted) return;
           console.error(err);
           try {
             const cached = JSON.parse(localStorage.getItem("gmai_games_cache") || "[]");
@@ -554,9 +563,9 @@ export default function GameSelector() {
             setError("GameMaster is taking a break — try again in a moment");
           }
         })
-        .finally(() => setLoading(false));
+        .finally(() => { if (mounted) setLoading(false); });
     }, 200);
-    return () => clearTimeout(timer);
+    return () => { mounted = false; clearTimeout(timer); };
   }, [search]);
 
   useEffect(() => {
