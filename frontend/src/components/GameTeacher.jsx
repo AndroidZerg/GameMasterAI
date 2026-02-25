@@ -690,6 +690,7 @@ function QAPanel({ gameId, gameTitle }) {
             alignItems: "center", padding: "10px 14px",
             background: "var(--bg-secondary)", color: "var(--text-primary)",
             border: "none", cursor: "pointer", fontSize: "0.9rem", fontWeight: 600,
+            flexShrink: 0,
           }}
         >
           <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
@@ -707,7 +708,7 @@ function QAPanel({ gameId, gameTitle }) {
 
         {/* Notes content (when expanded) */}
         {!notesCollapsed && (
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "8px 12px", background: "var(--bg-primary)", minHeight: 0 }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "8px 12px", background: "var(--bg-primary)", minHeight: 0, overflow: "hidden" }}>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
@@ -715,12 +716,12 @@ function QAPanel({ gameId, gameTitle }) {
               style={{
                 flex: 1, width: "100%", padding: "10px", borderRadius: "8px",
                 border: "1px solid var(--border)", background: "var(--bg-card)",
-                color: "var(--text-primary)", fontSize: "0.9rem", resize: "vertical",
+                color: "var(--text-primary)", fontSize: "0.9rem", resize: "none",
                 outline: "none", boxSizing: "border-box", lineHeight: 1.6,
-                minHeight: "150px",
+                minHeight: 0, overflow: "auto",
               }}
             />
-            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "6px" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "6px", flexShrink: 0 }}>
               <button
                 onClick={handlePaste}
                 style={{
@@ -964,7 +965,11 @@ export default function GameTeacher() {
       </div>
 
       {/* Tab Content */}
-      <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column", paddingBottom: (activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") ? "70px" : 0 }}>
+      <div style={{
+        flex: 1, minHeight: 0, display: "flex", flexDirection: "column",
+        overflowY: activeTab === "qa" ? "hidden" : "auto",
+        paddingBottom: (activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") ? "70px" : 0,
+      }}>
         {gameLoading ? (
           <div style={{ padding: "16px 0" }}>
             {Array.from({ length: 4 }).map((_, i) => (
@@ -980,7 +985,10 @@ export default function GameTeacher() {
             </button>
           </div>
         ) : (
-          <div style={{ animation: "fadeIn 0.25s ease-out" }}>
+          <div style={{
+            animation: "fadeIn 0.25s ease-out",
+            ...(activeTab === "qa" ? { display: "flex", flexDirection: "column", flex: 1, minHeight: 0 } : {}),
+          }}>
             {activeTab === "setup" && <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />}
             {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
             {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
