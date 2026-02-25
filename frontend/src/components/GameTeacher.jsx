@@ -972,13 +972,6 @@ export default function GameTeacher() {
         <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
       </div>
 
-      {/* Venue branding subtitle */}
-      <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "8px" }}>
-        GameMaster AI at {venueConfig.venue_name}
-      </p>
-
-      {/* Metadata bar */}
-      <MetadataBar gameId={gameId} gameData={gameData} />
 
       {/* Offline banner */}
       {isOffline && (
@@ -1004,7 +997,7 @@ export default function GameTeacher() {
       </div>
 
       {/* Tab Content */}
-      <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column" }}>
+      <div style={{ flex: 1, overflowY: "auto", minHeight: 0, display: "flex", flexDirection: "column", paddingBottom: (activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") ? "70px" : 0 }}>
         {gameLoading ? (
           <div style={{ padding: "16px 0" }}>
             {Array.from({ length: 4 }).map((_, i) => (
@@ -1046,7 +1039,60 @@ export default function GameTeacher() {
         <ExpansionInfo gameId={gameId} gameTitle={gameTitle} />
       )}
 
-      {/* Score tracker is now rendered inline in the Score tab */}
+      {/* ── TTS Bottom Bar (Setup/Rules/Strategy tabs only) ─── */}
+      {(activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") && !gameLoading && !gameError && (
+        <div style={{
+          position: "fixed", bottom: 0, left: 0, right: 0,
+          background: "var(--bg-primary)", borderTop: "1px solid var(--border)",
+          padding: "10px 16px", zIndex: 100,
+          display: "flex", alignItems: "center", justifyContent: "center", gap: "12px",
+        }}>
+          {/* Play / Pause */}
+          <button
+            onClick={() => {
+              if (ttsState === "playing") { pauseSpeaking(); }
+              else if (ttsState === "paused") { resumeSpeaking(); }
+              else {
+                const subtopics = tabs[activeTab]?.subtopics;
+                if (subtopics?.length) {
+                  const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
+                  speakText(fullText);
+                }
+              }
+            }}
+            style={{
+              width: "44px", height: "44px", borderRadius: "50%",
+              background: ttsState === "playing" || ttsState === "paused" ? "var(--accent)" : "var(--bg-card)",
+              color: ttsState === "playing" || ttsState === "paused" ? "#fff" : "var(--text-primary)",
+              border: ttsState === "playing" || ttsState === "paused" ? "none" : "1px solid var(--border)",
+              fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+            title={ttsState === "playing" ? "Pause" : ttsState === "paused" ? "Resume" : "Read aloud"}
+          >
+            {ttsState === "playing" ? "⏸" : "▶"}
+          </button>
+
+          {/* Stop */}
+          {(ttsState === "playing" || ttsState === "paused") && (
+            <button
+              onClick={() => stopSpeaking()}
+              style={{
+                width: "44px", height: "44px", borderRadius: "50%",
+                background: "var(--bg-card)", color: "var(--text-primary)",
+                border: "1px solid var(--border)", fontSize: "1.2rem", cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+              title="Stop"
+            >
+              ⏹
+            </button>
+          )}
+
+          {/* Speed selector */}
+          <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
+        </div>
+      )}
+
       </div>{/* end content wrapper */}
     </div>
   );

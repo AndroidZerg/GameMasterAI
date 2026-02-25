@@ -253,6 +253,9 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
   const [showTotal, setShowTotal] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [showEndConfirm, setShowEndConfirm] = useState(false);
+  const [lobbyCollapsed, setLobbyCollapsed] = useState(() => {
+    try { return localStorage.getItem("gmai-lobby-collapsed") === "true"; } catch { return false; }
+  });
 
   // Join-another-lobby
   const [joinCode, setJoinCode] = useState("");
@@ -668,17 +671,6 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
       <div style={{
         display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap",
       }}>
-        <button
-          onClick={() => navigate(`/game/${gameId}`)}
-          style={{
-            padding: "6px 12px", fontSize: "0.85rem", borderRadius: "8px",
-            background: "none", border: "1px solid var(--border)",
-            color: "var(--text-secondary)", cursor: "pointer", whiteSpace: "nowrap",
-          }}
-        >
-          ← Game
-        </button>
-
         <span style={{ flex: 1, textAlign: "center", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)" }}>
           Score Tracker
         </span>
@@ -849,84 +841,103 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         </table>
       </div>
 
-      {/* ── LOBBY SECTION ───────────────────────────────────── */}
+      {/* ── LOBBY SECTION (collapsible) ──────────────────────── */}
       {lobbyCode && (
         <div style={{
-          background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px",
-          border: "1px solid var(--border)", marginBottom: "16px",
+          background: "var(--bg-secondary)", borderRadius: "12px",
+          border: "1px solid var(--border)", marginBottom: "16px", overflow: "hidden",
         }}>
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
-            <div style={{ flex: 1, minWidth: "160px" }}>
-              <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", margin: "0 0 8px" }}>
-                Invite to Your Lobby
-              </p>
-              <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", margin: "0 0 8px" }}>
-                Room Code:
-              </p>
-              <div style={{
-                fontSize: "2rem", fontWeight: 800, letterSpacing: "0.15em",
-                color: "var(--accent)", fontFamily: "monospace", marginBottom: "8px",
-              }}>
-                {lobbyCode}
-              </div>
-              <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", margin: 0 }}>
-                Friends can scan the QR or enter the code at the join page.
-              </p>
-            </div>
-            {qrSrc && (
-              <img
-                src={qrSrc} alt="QR code to join"
-                style={{
-                  width: "120px", height: "120px", borderRadius: "10px",
-                  background: "#fff", padding: "6px", flexShrink: 0,
-                }}
-              />
-            )}
-          </div>
+          <button
+            onClick={() => {
+              setLobbyCollapsed((prev) => {
+                const next = !prev;
+                try { localStorage.setItem("gmai-lobby-collapsed", String(next)); } catch {}
+                return next;
+              });
+            }}
+            style={{
+              width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "14px 16px", background: "var(--bg-secondary)", color: "var(--text-primary)",
+              border: "none", cursor: "pointer", fontSize: "0.85rem", fontWeight: 600, textAlign: "left",
+            }}
+          >
+            <span>Invite to Your Lobby</span>
+            <span style={{ transform: lobbyCollapsed ? "rotate(-90deg)" : "rotate(0deg)", transition: "transform 0.2s", fontSize: "0.7rem" }}>▼</span>
+          </button>
 
-          {/* Join another lobby */}
-          <div style={{ borderTop: "1px solid var(--border)", marginTop: "16px", paddingTop: "12px" }}>
-            <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", margin: "0 0 8px" }}>
-              Join Another Lobby
-            </p>
-            <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-              <input
-                type="text" value={joinCode}
-                onChange={(e) => setJoinCode(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                placeholder="Code" maxLength={4} inputMode="numeric"
-                style={{
-                  width: "80px", padding: "8px 10px", textAlign: "center",
-                  fontSize: "1rem", fontFamily: "monospace", fontWeight: 700,
-                  borderRadius: "8px", border: "1px solid var(--border)",
-                  background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
-                }}
-              />
-              <input
-                type="text" value={joinName}
-                onChange={(e) => setJoinName(e.target.value)}
-                placeholder="Your name" maxLength={20}
-                style={{
-                  flex: 1, padding: "8px 10px", fontSize: "0.9rem",
-                  borderRadius: "8px", border: "1px solid var(--border)",
-                  background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
-                }}
-              />
-              <button
-                onClick={handleJoinLobby}
-                disabled={joinCode.length < 4 || joining}
-                style={{
-                  padding: "8px 16px", borderRadius: "8px", fontWeight: 600,
-                  background: joinCode.length < 4 ? "var(--border)" : "var(--accent)",
-                  color: "#fff", border: "none", cursor: "pointer", fontSize: "0.9rem",
-                }}
-              >
-                {joining ? "..." : "Join"}
-              </button>
+          {!lobbyCollapsed && (
+            <div style={{ padding: "0 16px 16px" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
+                <div style={{ flex: 1, minWidth: "160px" }}>
+                  <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", margin: "0 0 8px" }}>
+                    Room Code:
+                  </p>
+                  <div style={{
+                    fontSize: "2rem", fontWeight: 800, letterSpacing: "0.15em",
+                    color: "var(--accent)", fontFamily: "monospace", marginBottom: "8px",
+                  }}>
+                    {lobbyCode}
+                  </div>
+                  <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", margin: 0 }}>
+                    Friends can scan the QR or enter the code at the join page.
+                  </p>
+                </div>
+                {qrSrc && (
+                  <img
+                    src={qrSrc} alt="QR code to join"
+                    style={{
+                      width: "120px", height: "120px", borderRadius: "10px",
+                      background: "#fff", padding: "6px", flexShrink: 0,
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* Join another lobby */}
+              <div style={{ borderTop: "1px solid var(--border)", marginTop: "16px", paddingTop: "12px" }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", margin: "0 0 8px" }}>
+                  Join Another Lobby
+                </p>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <input
+                    type="text" value={joinCode}
+                    onChange={(e) => setJoinCode(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                    placeholder="Code" maxLength={4} inputMode="numeric"
+                    style={{
+                      width: "80px", padding: "8px 10px", textAlign: "center",
+                      fontSize: "1rem", fontFamily: "monospace", fontWeight: 700,
+                      borderRadius: "8px", border: "1px solid var(--border)",
+                      background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
+                    }}
+                  />
+                  <input
+                    type="text" value={joinName}
+                    onChange={(e) => setJoinName(e.target.value)}
+                    placeholder="Your name" maxLength={20}
+                    style={{
+                      flex: 1, padding: "8px 10px", fontSize: "0.9rem",
+                      borderRadius: "8px", border: "1px solid var(--border)",
+                      background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
+                    }}
+                  />
+                  <button
+                    onClick={handleJoinLobby}
+                    disabled={joinCode.length < 4 || joining}
+                    style={{
+                      padding: "8px 16px", borderRadius: "8px", fontWeight: 600,
+                      background: joinCode.length < 4 ? "var(--border)" : "var(--accent)",
+                      color: "#fff", border: "none", cursor: "pointer", fontSize: "0.9rem",
+                    }}
+                  >
+                    {joining ? "..." : "Join"}
+                  </button>
+                </div>
+                {joinError && (
+                  <p style={{ color: "#ef4444", fontSize: "0.8rem", marginTop: "6px" }}>{joinError}</p>
+                )}
+              </div>
             </div>
-            {joinError && (
-              <p style={{ color: "#ef4444", fontSize: "0.8rem", marginTop: "6px" }}>{joinError}</p>
-            )}
-          </div>
+          )}
         </div>
       )}
 
@@ -968,9 +979,20 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px",
       }}>
         <button
+          onClick={addRow}
+          style={{
+            flex: 1, padding: "10px 8px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            background: "var(--bg-card)", color: "var(--text-secondary)",
+            border: "1px solid var(--border)", cursor: "pointer", whiteSpace: "nowrap",
+          }}
+        >
+          + Score Type
+        </button>
+
+        <button
           onClick={() => setShowTotal((v) => !v)}
           style={{
-            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            flex: 1, padding: "10px 8px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
             background: showTotal ? "var(--accent)" : "var(--bg-card)",
             color: showTotal ? "#fff" : "var(--text-secondary)",
             border: showTotal ? "none" : "1px solid var(--border)", cursor: "pointer",
@@ -981,40 +1003,15 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
         </button>
 
         <button
-          onClick={addRow}
-          style={{
-            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
-            background: "var(--bg-card)", color: "var(--text-secondary)",
-            border: "1px solid var(--border)", cursor: "pointer", whiteSpace: "nowrap",
-          }}
-        >
-          + Score Type
-        </button>
-
-        <button
           onClick={() => setShowEndConfirm(true)}
           style={{
-            padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
+            flex: 1, padding: "10px 8px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 600,
             background: "#ef4444", color: "#fff", border: "none",
             cursor: "pointer", whiteSpace: "nowrap",
           }}
         >
           End Game
         </button>
-
-        {!showTotal && !revealed && (
-          <button
-            onClick={() => { setRevealed(true); setShowTotal(true); }}
-            style={{
-              padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", fontWeight: 700,
-              background: "linear-gradient(135deg, var(--accent), #ff6b6b)",
-              color: "#fff", border: "none", cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(233,69,96,0.3)", whiteSpace: "nowrap",
-            }}
-          >
-            Reveal
-          </button>
-        )}
       </div>
 
       <style>{`

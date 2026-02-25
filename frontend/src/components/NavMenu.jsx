@@ -24,6 +24,9 @@ export default function NavMenu() {
   const location = useLocation();
   const { isLoggedIn, venueName, logout } = useAuth();
 
+  // Hide hamburger menu entirely for non-admin users
+  if (!isLoggedIn) return null;
+
   const handleNavigate = (path) => {
     navigate(path);
     setOpen(false);

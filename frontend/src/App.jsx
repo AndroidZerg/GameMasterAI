@@ -48,7 +48,7 @@ function FnbFab() {
         onClick={() => setOpen(true)}
         aria-label="Food & Drinks menu"
         style={{
-          position: "fixed", bottom: "20px", right: "20px", zIndex: 1200,
+          position: "fixed", bottom: "70px", right: "16px", zIndex: 1200,
           width: "56px", height: "56px", borderRadius: "50%",
           background: "var(--accent)", color: "#fff", border: "none",
           fontSize: "1.5rem", cursor: "pointer",
