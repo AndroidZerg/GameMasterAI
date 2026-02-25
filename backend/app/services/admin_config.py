@@ -14,10 +14,10 @@ import httpx
 logger = logging.getLogger(__name__)
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_REPO = os.environ.get("GITHUB_REPO", "AndroidZerg/GameMasterAI")
+GITHUB_REPO = "AndroidZerg/GameMasterAI"
 CONFIG_PATH = "content/admin-config.json"
 
-# Hardcoded defaults — FALLBACK if GitHub is unreachable
+# Hardcoded defaults — these are the FALLBACK if GitHub is unreachable
 HARDCODED_DEFAULTS = {
     "_default": {
         "featured": {"mode": "manual", "game_id": "wingspan"},
@@ -34,34 +34,39 @@ _cache_loaded: bool = False
 _github_sha: str = ""
 
 
+def _github_headers():
+    """Return auth headers. Tries both token formats for compatibility."""
+    return {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+
 def _github_read():
     """Read admin-config.json from GitHub. Returns (config_dict, sha) or (None, None)."""
     global _github_sha
     if not GITHUB_TOKEN:
-        logger.warning("No GITHUB_TOKEN set — using hardcoded defaults")
+        logger.warning("GITHUB_TOKEN not set — using hardcoded defaults")
         return None, None
     try:
         url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{CONFIG_PATH}"
-        resp = httpx.get(url, headers={
-            "Authorization": f"Bearer {GITHUB_TOKEN}",
-            "Accept": "application/vnd.github.v3+json",
-        }, timeout=15)
-        logger.info(f"GitHub read: status={resp.status_code}")
+        resp = httpx.get(url, headers=_github_headers(), timeout=15)
+        logger.info(f"GitHub config read: status={resp.status_code}")
         if resp.status_code == 200:
             data = resp.json()
             content = base64.b64decode(data["content"]).decode("utf-8")
             _github_sha = data.get("sha", "")
             config = json.loads(content)
-            logger.info(f"GitHub config loaded: {len(config)} venue(s), sha={_github_sha[:8]}")
+            logger.info(f"GitHub config loaded OK: {len(config)} venue(s), sha={_github_sha[:8]}")
             return config, _github_sha
         elif resp.status_code == 404:
             logger.info("GitHub config file not found — will create on first save")
             return None, None
         else:
-            logger.error(f"GitHub read failed: {resp.status_code} {resp.text[:200]}")
+            logger.error(f"GitHub config read FAILED: {resp.status_code} {resp.text[:200]}")
             return None, None
     except Exception as e:
-        logger.error(f"GitHub read exception: {e}")
+        logger.error(f"GitHub config read exception: {e}")
         return None, None
 
 
@@ -69,17 +74,14 @@ def _github_write(config):
     """Write admin-config.json to GitHub."""
     global _github_sha
     if not GITHUB_TOKEN:
-        logger.warning("No GITHUB_TOKEN — cannot persist config")
+        logger.warning("GITHUB_TOKEN not set — cannot persist config")
         return False
     try:
         url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{CONFIG_PATH}"
-        headers = {
-            "Authorization": f"Bearer {GITHUB_TOKEN}",
-            "Accept": "application/vnd.github.v3+json",
-        }
+        hdrs = _github_headers()
 
         # Always get fresh SHA to avoid conflicts
-        resp = httpx.get(url, headers=headers, timeout=10)
+        resp = httpx.get(url, headers=hdrs, timeout=10)
         sha = ""
         if resp.status_code == 200:
             sha = resp.json().get("sha", "")
@@ -95,17 +97,17 @@ def _github_write(config):
         if sha:
             body["sha"] = sha
 
-        resp = httpx.put(url, json=body, headers=headers, timeout=20)
+        resp = httpx.put(url, json=body, headers=hdrs, timeout=20)
 
         if resp.status_code in (200, 201):
             _github_sha = resp.json().get("content", {}).get("sha", "")
-            logger.info(f"GitHub write SUCCESS — new sha={_github_sha[:8] if _github_sha else 'unknown'}")
+            logger.info(f"GitHub config write SUCCESS — new sha={_github_sha[:8] if _github_sha else '?'}")
             return True
         else:
-            logger.error(f"GitHub write FAILED: {resp.status_code} {resp.text[:300]}")
+            logger.error(f"GitHub config write FAILED: {resp.status_code} {resp.text[:300]}")
             return False
     except Exception as e:
-        logger.error(f"GitHub write exception: {e}")
+        logger.error(f"GitHub config write exception: {e}")
         return False
 
 
@@ -113,15 +115,15 @@ def load_all():
     """Load config from GitHub into memory cache. Call on startup."""
     global _cache, _cache_loaded
 
-    config, sha = _github_read()
+    config, _sha = _github_read()
     if config:
         _cache = config
         _cache_loaded = True
-        logger.info(f"Config loaded from GitHub: {list(_cache.keys())}")
+        logger.info(f"Admin config loaded from GitHub: {list(_cache.keys())}")
     else:
         _cache = json.loads(json.dumps(HARDCODED_DEFAULTS))
         _cache_loaded = True
-        logger.warning("Using hardcoded defaults — GitHub unavailable or empty")
+        logger.warning("Using HARDCODED defaults — GitHub unavailable or config missing")
 
     return _cache
 
@@ -147,7 +149,7 @@ def save_venue_config(venue_id, config):
     # Write entire config to GitHub
     success = _github_write(_cache)
     if not success:
-        logger.error(f"FAILED to persist config for {venue_id} to GitHub!")
+        logger.error(f"FAILED to persist config for venue '{venue_id}' to GitHub!")
 
     return success
 
