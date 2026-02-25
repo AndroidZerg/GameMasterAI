@@ -69,7 +69,7 @@ const MOCK_MENU = {
   ],
 };
 
-export default function MenuPage() {
+export default function MenuPage({ embedded }) {
   const { isLoggedIn, venueName } = useAuth();
   const [menu, setMenu] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -112,7 +112,7 @@ export default function MenuPage() {
   const activeCat = menu.categories.find((c) => c.name === activeCategory);
 
   return (
-    <div style={{ padding: "70px 20px 40px", maxWidth: "700px", margin: "0 auto" }}>
+    <div style={{ padding: embedded ? "0 20px 40px" : "70px 20px 40px", maxWidth: "700px", margin: "0 auto" }}>
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "24px" }}>
         <h1 style={{ fontSize: "1.6rem", margin: 0, color: "var(--text-primary)", fontWeight: 800 }}>

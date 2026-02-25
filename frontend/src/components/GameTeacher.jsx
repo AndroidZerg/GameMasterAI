@@ -4,7 +4,7 @@ import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import ScoreTracker from "./ScoreTracker";
 import Leaderboard from "./Leaderboard";
-import GameRating from "./GameRating";
+
 import ExpansionInfo from "./ExpansionInfo";
 import LobbyCreate from "./LobbyCreate";
 import {
@@ -886,11 +886,6 @@ export default function GameTeacher() {
       {/* Expansions */}
       {!gameLoading && !gameError && (
         <ExpansionInfo gameId={gameId} gameTitle={gameTitle} />
-      )}
-
-      {/* Game Rating */}
-      {!gameLoading && !gameError && (
-        <GameRating gameId={gameId} gameTitle={gameTitle} />
       )}
 
       {/* Score tracker is now rendered inline in the Score tab */}

@@ -104,6 +104,11 @@ a:focus-visible {
   100% { transform: translateY(-80px) rotate(360deg); opacity: 0; }
 }
 
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }

@@ -114,6 +114,13 @@ function GameOfTheDay({ game, onClick }) {
   const [imgError, setImgError] = useState(false);
   const triedPng = useRef(false);
 
+  // Reset image state when game changes
+  useEffect(() => {
+    setImgSrc(`${API_BASE}/api/images/${game.game_id}.jpg`);
+    setImgError(false);
+    triedPng.current = false;
+  }, [game.game_id]);
+
   const handleImgError = () => {
     if (!triedPng.current) {
       triedPng.current = true;
