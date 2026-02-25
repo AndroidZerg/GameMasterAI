@@ -570,10 +570,10 @@ function QAPanel({ gameId, gameTitle }) {
   const notesFlex = notesCollapsed ? "0 0 auto" : "1 1 50%";
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, overflow: "hidden" }}>
 
       {/* ── Q&A Section ── */}
-      <div style={{ display: "flex", flexDirection: "column", flex: qaFlex, minHeight: qaCollapsed ? "auto" : 0 }}>
+      <div style={{ display: "flex", flexDirection: "column", flex: qaFlex, minHeight: qaCollapsed ? "auto" : 0, overflow: "hidden" }}>
         {/* Q&A header bar */}
         <button
           onClick={() => setQaCollapsed(!qaCollapsed)}
@@ -680,6 +680,7 @@ function QAPanel({ gameId, gameTitle }) {
         display: "flex", flexDirection: "column",
         flex: notesFlex,
         minHeight: notesCollapsed ? "auto" : 0,
+        overflow: "hidden",
       }}>
         {/* Notes header bar */}
         <button
@@ -714,9 +715,9 @@ function QAPanel({ gameId, gameTitle }) {
               style={{
                 flex: 1, width: "100%", padding: "10px", borderRadius: "8px",
                 border: "1px solid var(--border)", background: "var(--bg-card)",
-                color: "var(--text-primary)", fontSize: "0.9rem", resize: "none",
+                color: "var(--text-primary)", fontSize: "0.9rem", resize: "vertical",
                 outline: "none", boxSizing: "border-box", lineHeight: 1.6,
-                minHeight: "80px",
+                minHeight: "150px",
               }}
             />
             <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "6px" }}>
@@ -740,30 +741,17 @@ function QAPanel({ gameId, gameTitle }) {
 }
 
 /* ── Game Timer ─────────────────────────────────────────────────── */
-function GameTimer() {
-  const [running, setRunning] = useState(false);
-  const [elapsed, setElapsed] = useState(0);
-  const intervalRef = useRef(null);
-
-  useEffect(() => {
-    if (running) {
-      intervalRef.current = setInterval(() => setElapsed((e) => e + 1), 1000);
-    } else {
-      clearInterval(intervalRef.current);
-    }
-    return () => clearInterval(intervalRef.current);
-  }, [running]);
-
+function GameTimer({ running, elapsed, onToggle }) {
   const formatTime = (s) => {
     const h = Math.floor(s / 3600);
     const m = Math.floor((s % 3600) / 60);
     const sec = s % 60;
-    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
+    return `${h}:${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
   };
 
   return (
     <button
-      onClick={() => setRunning(!running)}
+      onClick={onToggle}
       title={running ? "Pause timer" : elapsed > 0 ? "Resume timer" : "Start timer"}
       style={{
         display: "flex", alignItems: "center", gap: "4px",
@@ -774,8 +762,14 @@ function GameTimer() {
         fontSize: "0.8rem", fontFamily: "monospace", cursor: "pointer",
       }}
     >
-      <span>{running ? "⏸" : "⏱"}</span>
-      {elapsed > 0 && <span>{formatTime(elapsed)}</span>}
+      {elapsed > 0 || running ? (
+        <>
+          <span>{running ? "⏸" : "▶"}</span>
+          <span>{formatTime(elapsed)}</span>
+        </>
+      ) : (
+        <span>Start Timer</span>
+      )}
     </button>
   );
 }
@@ -832,6 +826,11 @@ export default function GameTeacher() {
   const [showOrderPanel, setShowOrderPanel] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
+  // Game timer state (lifted here so Score tab can auto-start it)
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [timerElapsed, setTimerElapsed] = useState(0);
+  const timerRef = useRef(null);
+
   // Track cart count from localStorage
   useEffect(() => {
     const lobbyId = localStorage.getItem("gmai_lobby_id_" + gameId) || "local";
@@ -883,6 +882,23 @@ export default function GameTeacher() {
     return () => stopSpeaking();
   }, [gameId]);
 
+  // Timer interval
+  useEffect(() => {
+    if (timerRunning) {
+      timerRef.current = setInterval(() => setTimerElapsed((e) => e + 1), 1000);
+    } else {
+      clearInterval(timerRef.current);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [timerRunning]);
+
+  // Auto-start timer when entering Score tab
+  useEffect(() => {
+    if (activeTab === "score" && !timerRunning && timerElapsed === 0) {
+      setTimerRunning(true);
+    }
+  }, [activeTab]);
+
   const handleRateChange = (newRate) => { setRate(newRate); setTtsRate(newRate); };
   const tabs = gameData?.tabs || {};
 
@@ -914,13 +930,7 @@ export default function GameTeacher() {
         <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
           {gameTitle}
         </h1>
-        <button onClick={() => setShowTimerModal(true)} style={{
-          padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
-          background: "var(--bg-card)", color: "var(--text-primary)",
-          border: "1px solid var(--border)", cursor: "pointer", whiteSpace: "nowrap",
-        }}>
-          Start Timer
-        </button>
+        <GameTimer running={timerRunning} elapsed={timerElapsed} onToggle={() => setTimerRunning((r) => !r)} />
         <button onClick={() => setShowOrderPanel(true)} style={{
           padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
           background: "var(--accent)", color: "#fff",
@@ -976,7 +986,7 @@ export default function GameTeacher() {
             {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
             {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
             {activeTab === "score" && (
-              <div>
+              <div style={{ maxWidth: "600px", margin: "0 auto", width: "100%" }}>
                 <ScoreTab
                   gameId={gameId}
                   gameTitle={gameTitle}

@@ -28,6 +28,7 @@ export default function Leaderboard({ gameId, gameTitle }) {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newHighScore, setNewHighScore] = useState(null);
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -95,71 +96,92 @@ export default function Leaderboard({ gameId, gameTitle }) {
 
   return (
     <div style={{ padding: "12px 0" }}>
-      {newHighScore && (
-        <div style={{
-          background: "#1a2a0f", border: "2px solid #22c55e",
-          borderRadius: "12px", padding: "12px 16px", marginBottom: "12px",
-          textAlign: "center", animation: "fadeIn 0.3s ease-out",
-        }}>
-          <span style={{ fontSize: "1.2rem" }}>🎉</span>
-          <span style={{ color: "#22c55e", fontWeight: 700, marginLeft: "8px" }}>
-            New High Score! {newHighScore.name} — {newHighScore.score} pts
-          </span>
-        </div>
-      )}
+      {/* Collapsible header */}
+      <button
+        onClick={() => setCollapsed((c) => !c)}
+        style={{
+          width: "100%", display: "flex", justifyContent: "space-between",
+          alignItems: "center", padding: "12px 16px", marginBottom: collapsed ? 0 : "12px",
+          background: "var(--bg-secondary)", color: "var(--text-primary)",
+          border: "1px solid var(--border)", borderRadius: "12px",
+          cursor: "pointer", fontSize: "1rem", fontWeight: 600,
+        }}
+      >
+        <span>Leaderboard</span>
+        <span style={{ transform: collapsed ? "rotate(-90deg)" : "rotate(0deg)", transition: "transform 0.2s", fontSize: "0.7rem", display: "inline-block" }}>
+          ▼
+        </span>
+      </button>
 
-      <div style={{
-        background: "var(--bg-secondary)", borderRadius: "12px",
-        border: "1px solid var(--border)", overflow: "hidden",
-      }}>
-        <div style={{
-          display: "flex", alignItems: "center", padding: "12px 16px",
-          borderBottom: "1px solid var(--border)", background: "var(--bg-card)",
-        }}>
-          <span style={{ width: "40px", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Rank</span>
-          <span style={{ flex: 1, fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Player</span>
-          <span style={{ width: "70px", textAlign: "right", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Score</span>
-          <span style={{ width: "80px", textAlign: "right", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Date</span>
-        </div>
+      {!collapsed && (
+        <>
+          {newHighScore && (
+            <div style={{
+              background: "#1a2a0f", border: "2px solid #22c55e",
+              borderRadius: "12px", padding: "12px 16px", marginBottom: "12px",
+              textAlign: "center", animation: "fadeIn 0.3s ease-out",
+            }}>
+              <span style={{ fontSize: "1.2rem" }}>🎉</span>
+              <span style={{ color: "#22c55e", fontWeight: 700, marginLeft: "8px" }}>
+                New High Score! {newHighScore.name} — {newHighScore.score} pts
+              </span>
+            </div>
+          )}
 
-        {entries.map((entry, i) => (
-          <div
-            key={i}
-            style={{
-              display: "flex", alignItems: "center", padding: "10px 16px",
-              borderBottom: i < entries.length - 1 ? "1px solid var(--border)" : "none",
-              background: i === 0 ? "rgba(233, 69, 96, 0.08)" : "transparent",
-              animation: newHighScore?.name === entry.name && newHighScore?.score === entry.score
-                ? "glow 2s ease-in-out infinite" : "none",
-            }}
-          >
-            <span style={{ width: "40px", fontWeight: 700, fontSize: i < 3 ? "1.2rem" : "0.9rem", color: i < 3 ? "var(--text-primary)" : "var(--text-secondary)" }}>
-              {i < 3 ? MEDALS[i] : `#${i + 1}`}
-            </span>
-            <span style={{
-              flex: 1, fontWeight: i === 0 ? 700 : 500,
-              color: i === 0 ? "var(--accent)" : "var(--text-primary)",
-              fontSize: "0.95rem",
+          <div style={{
+            background: "var(--bg-secondary)", borderRadius: "12px",
+            border: "1px solid var(--border)", overflow: "hidden",
+          }}>
+            <div style={{
+              display: "flex", alignItems: "center", padding: "12px 16px",
+              borderBottom: "1px solid var(--border)", background: "var(--bg-card)",
             }}>
-              {entry.name}
-            </span>
-            <span style={{
-              width: "70px", textAlign: "right", fontWeight: 700,
-              fontSize: i === 0 ? "1.1rem" : "0.95rem",
-              color: i === 0 ? "var(--accent)" : "var(--text-primary)",
-            }}>
-              {entry.score}
-            </span>
-            <span style={{ width: "80px", textAlign: "right", fontSize: "0.8rem", color: "var(--text-secondary)" }}>
-              {entry.date ? new Date(entry.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : ""}
-            </span>
+              <span style={{ width: "40px", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Rank</span>
+              <span style={{ flex: 1, fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Player</span>
+              <span style={{ width: "70px", textAlign: "right", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Score</span>
+              <span style={{ width: "80px", textAlign: "right", fontSize: "0.75rem", color: "var(--text-secondary)", fontWeight: 600 }}>Date</span>
+            </div>
+
+            {entries.map((entry, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex", alignItems: "center", padding: "10px 16px",
+                  borderBottom: i < entries.length - 1 ? "1px solid var(--border)" : "none",
+                  background: i === 0 ? "rgba(233, 69, 96, 0.08)" : "transparent",
+                  animation: newHighScore?.name === entry.name && newHighScore?.score === entry.score
+                    ? "glow 2s ease-in-out infinite" : "none",
+                }}
+              >
+                <span style={{ width: "40px", fontWeight: 700, fontSize: i < 3 ? "1.2rem" : "0.9rem", color: i < 3 ? "var(--text-primary)" : "var(--text-secondary)" }}>
+                  {i < 3 ? MEDALS[i] : `#${i + 1}`}
+                </span>
+                <span style={{
+                  flex: 1, fontWeight: i === 0 ? 700 : 500,
+                  color: i === 0 ? "var(--accent)" : "var(--text-primary)",
+                  fontSize: "0.95rem",
+                }}>
+                  {entry.name}
+                </span>
+                <span style={{
+                  width: "70px", textAlign: "right", fontWeight: 700,
+                  fontSize: i === 0 ? "1.1rem" : "0.95rem",
+                  color: i === 0 ? "var(--accent)" : "var(--text-primary)",
+                }}>
+                  {entry.score}
+                </span>
+                <span style={{ width: "80px", textAlign: "right", fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+                  {entry.date ? new Date(entry.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : ""}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <p style={{ textAlign: "center", fontSize: "0.75rem", color: "var(--text-secondary)", marginTop: "8px" }}>
-        Top 10 scores at this venue
-      </p>
+          <p style={{ textAlign: "center", fontSize: "0.75rem", color: "var(--text-secondary)", marginTop: "8px" }}>
+            Top 10 scores at this venue
+          </p>
+        </>
+      )}
     </div>
   );
 }

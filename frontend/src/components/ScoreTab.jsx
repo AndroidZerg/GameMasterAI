@@ -335,8 +335,14 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
           return;
         }
 
-        // Update players list from server
-        setPlayers(state.players || []);
+        // Merge server players with local-only players
+        setPlayers((prev) => {
+          const serverPlayers = state.players || [];
+          const localOnly = prev.filter((p) => p.is_local);
+          const serverIds = new Set(serverPlayers.map((p) => p.id));
+          const merged = [...serverPlayers, ...localOnly.filter((p) => !serverIds.has(p.id))];
+          return merged;
+        });
         setIsHost(state.host_id === myPlayerId);
 
         // Host ended game → show results
