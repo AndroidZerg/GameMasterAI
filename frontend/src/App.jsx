@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
+import EventTracker from "./services/EventTracker";
 import { useKioskMode } from "./hooks/useKioskMode";
 import IdlePrompt from "./components/IdlePrompt";
 import NavMenu from "./components/NavMenu";
@@ -47,6 +48,13 @@ function AppShell() {
   const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
     navigate("/games");
   });
+
+  useEffect(() => {
+    const venueId = localStorage.getItem('gmai-venue-id');
+    if (venueId) EventTracker.setVenue(venueId);
+    EventTracker.start();
+    return () => EventTracker.stop();
+  }, []);
 
   return (
     <>

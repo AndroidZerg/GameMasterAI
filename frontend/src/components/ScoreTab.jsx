@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE, createLobby, getLobbyState, updateLobbyScores, leaveLobby, kickPlayer } from "../services/api";
+import EventTracker from "../services/EventTracker";
 
 const PLAYER_COLORS = [
   "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
@@ -522,6 +523,7 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
         });
       } catch {}
     }
+    EventTracker.track('game_ended', gameId, { end_reason: 'end_button', player_count: players.length, duration_seconds: Math.round(timerElapsed) });
     setShowTotal(true);
     setRevealed(true);
     setPhase("results");

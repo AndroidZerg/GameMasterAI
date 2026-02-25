@@ -19,6 +19,7 @@ import {
 
 import { API_BASE } from "../services/api";
 import OrderPanel, { CountdownTimer } from "./OrderPanel";
+import EventTracker from "../services/EventTracker";
 
 const TABS = [
   { key: "setup", label: "Setup" },
@@ -544,8 +545,12 @@ function QAPanel({ gameId, gameTitle }) {
     setInput("");
     setHistory((prev) => [...prev, { role: "user", content: question, timestamp: ts }]);
     setLoading(true);
+    EventTracker.track('question_asked', gameId, { question_text: question, input_method: questionText ? 'voice' : 'text' });
+    const qaStart = performance.now();
     try {
       const result = await queryGame(gameId, question);
+      const elapsed = Math.round(performance.now() - qaStart);
+      EventTracker.track('response_delivered', gameId, { response_length_chars: result.answer.length, response_time_ms: elapsed });
       setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question, timestamp: new Date().toISOString() }]);
     } catch (err) {
       setHistory((prev) => [...prev, { role: "error", content: err.message || "Something went wrong", timestamp: new Date().toISOString() }]);
@@ -825,6 +830,11 @@ export default function GameTeacher() {
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [showOrderPanel, setShowOrderPanel] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+
+  // Track tab switches
+  useEffect(() => {
+    EventTracker.track('tab_viewed', gameId, { tab_name: activeTab });
+  }, [activeTab, gameId]);
 
   // Game timer state (lifted here so Score tab can auto-start it)
   const [timerRunning, setTimerRunning] = useState(false);

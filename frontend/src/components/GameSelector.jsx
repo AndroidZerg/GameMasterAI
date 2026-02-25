@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, API_BASE } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
+import EventTracker from "../services/EventTracker";
 
 const COMPLEXITY_COLORS = {
   party: "#a855f7",
@@ -573,6 +574,7 @@ export default function GameSelector() {
       localStorage.setItem(key, JSON.stringify(recent));
     } catch {}
     trackEvent("game_selected", { game_id: game.game_id, game_title: game.title });
+    EventTracker.track('session_start', game.game_id, { game_title: game.title });
     navigate(`/game/${game.game_id}`);
   };
 
