@@ -172,6 +172,17 @@ export async function saveAdminStaffPicks(gameIds) {
   return handleResponse(res);
 }
 
+// ── Orders ──
+
+export async function placeOrder(order) {
+  const res = await fetch(`${API_BASE}/api/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(order),
+  });
+  return handleResponse(res);
+}
+
 // ── Lobby endpoints (no auth required) ──
 
 export async function createLobby(gameId, hostName) {

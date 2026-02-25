@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
 import { useKioskMode } from "./hooks/useKioskMode";
@@ -35,66 +35,6 @@ function AuthWatcher() {
   return null;
 }
 
-function FnbFab() {
-  const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const showFab = /^\/(games|game\/|lobby\/)/.test(location.pathname);
-  if (!showFab) return null;
-
-  return (
-    <>
-      {/* Floating Action Button */}
-      <button
-        onClick={() => setOpen(true)}
-        aria-label="Food & Drinks menu"
-        style={{
-          position: "fixed", bottom: "70px", right: "16px", zIndex: 1200,
-          width: "56px", height: "56px", borderRadius: "50%",
-          background: "var(--accent)", color: "#fff", border: "none",
-          fontSize: "1.5rem", cursor: "pointer",
-          boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
-          display: open ? "none" : "flex", alignItems: "center", justifyContent: "center",
-        }}
-      >
-        🍽️
-      </button>
-
-      {/* Slide-up F&B panel */}
-      {open && (
-        <div style={{
-          position: "fixed", inset: 0, zIndex: 1300,
-          background: "rgba(0,0,0,0.6)",
-          display: "flex", flexDirection: "column", justifyContent: "flex-end",
-        }} onClick={() => setOpen(false)}>
-          <div
-            style={{
-              background: "var(--bg-primary)", borderRadius: "20px 20px 0 0",
-              maxHeight: "85vh", overflowY: "auto",
-              animation: "slideUp 0.25s ease-out",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <div style={{ display: "flex", justifyContent: "flex-start", padding: "12px 16px 0" }}>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-                style={{
-                  width: "36px", height: "36px", borderRadius: "50%",
-                  background: "var(--bg-secondary)", color: "var(--text-primary)",
-                  border: "1px solid var(--border)", fontSize: "1rem",
-                  cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-                }}
-              >✕</button>
-            </div>
-            <MenuPage embedded />
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
-
 function AppShell() {
   const navigate = useNavigate();
   const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(() => {
@@ -105,7 +45,6 @@ function AppShell() {
     <>
       <AuthWatcher />
       <NavMenu />
-      <FnbFab />
       {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
       <Routes>
         <Route path="/" element={<LandingPage />} />

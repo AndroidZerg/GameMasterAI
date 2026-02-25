@@ -18,6 +18,7 @@ import {
 } from "./ResponseDisplay";
 
 import { API_BASE } from "../services/api";
+import OrderPanel, { CountdownTimer, TimerBadge } from "./OrderPanel";
 
 const TABS = [
   { key: "setup", label: "Setup" },
@@ -28,117 +29,6 @@ const TABS = [
 ];
 
 const SPEED_OPTIONS = [0.75, 1.0, 1.25];
-
-// Mock MSRP prices by complexity range
-const MSRP_PRICES = {
-  // Party games: $14.99 - $24.99
-  "codenames": 19.99, "skull": 14.99, "love-letter": 14.99, "coup": 14.99,
-  "one-night-ultimate-werewolf": 24.99, "dixit": 34.99, "just-one": 24.99,
-  "wavelength": 29.99, "sushi-go-party": 22.99, "telestrations": 19.99, "decrypto": 24.99,
-  // Gateway: $29.99 - $44.99
-  "catan": 44.99, "ticket-to-ride": 44.99, "azul": 39.99, "splendor": 39.99,
-  "kingdomino": 29.99, "carcassonne": 34.99, "pandemic": 44.99, "king-of-tokyo": 39.99,
-  "patchwork": 29.99, "takenoko": 44.99, "mysterium": 44.99,
-  // Midweight: $44.99 - $59.99
-  "wingspan": 59.99, "everdell": 59.99, "viticulture": 54.99, "dominion": 44.99,
-  "7-wonders": 49.99, "lords-of-waterdeep": 49.99, "quacks-of-quedlinburg": 44.99,
-  "clank": 54.99, "sagrada": 44.99, "the-crew": 14.99, "century-spice-road": 39.99,
-  "sheriff-of-nottingham": 39.99, "concordia": 59.99, "villainous": 39.99,
-  "above-and-below": 44.99, "photosynthesis": 39.99, "dead-of-winter": 54.99,
-  "castles-of-burgundy": 39.99, "cosmic-encounter": 49.99,
-  // Heavy: $54.99 - $79.99
-  "terraforming-mars": 69.99, "root": 59.99, "spirit-island": 79.99,
-  "brass-birmingham": 69.99, "great-western-trail": 69.99, "agricola": 59.99,
-  "power-grid": 44.99,
-};
-
-// Mock BGG ratings and difficulty (1-5 scale)
-const GAME_META = {
-  "catan": { bgg: 7.1, difficulty: 2.3, playTime: 75, designer: "Klaus Teuber" },
-  "wingspan": { bgg: 8.1, difficulty: 2.4, playTime: 60, designer: "Elizabeth Hargrave" },
-  "ticket-to-ride": { bgg: 7.4, difficulty: 1.8, playTime: 60, designer: "Alan R. Moon" },
-  "pandemic": { bgg: 7.6, difficulty: 2.4, playTime: 45, designer: "Matt Leacock" },
-  "azul": { bgg: 7.8, difficulty: 1.8, playTime: 35, designer: "Michael Kiesling" },
-  "splendor": { bgg: 7.4, difficulty: 1.8, playTime: 30, designer: "Marc Andre" },
-  "codenames": { bgg: 7.6, difficulty: 1.3, playTime: 15, designer: "Vlaada Chvatil" },
-  "terraforming-mars": { bgg: 8.4, difficulty: 3.2, playTime: 120, designer: "Jacob Fryxelius" },
-  "root": { bgg: 8.1, difficulty: 3.6, playTime: 90, designer: "Cole Wehrle" },
-  "spirit-island": { bgg: 8.3, difficulty: 4.0, playTime: 120, designer: "R. Eric Reuss" },
-  "7-wonders": { bgg: 7.7, difficulty: 2.3, playTime: 30, designer: "Antoine Bauza" },
-  "dominion": { bgg: 7.6, difficulty: 2.4, playTime: 30, designer: "Donald X. Vaccarino" },
-  "king-of-tokyo": { bgg: 7.2, difficulty: 1.5, playTime: 30, designer: "Richard Garfield" },
-  "carcassonne": { bgg: 7.4, difficulty: 1.9, playTime: 40, designer: "Klaus-Jurgen Wrede" },
-  "everdell": { bgg: 7.8, difficulty: 2.8, playTime: 60, designer: "James A. Wilson" },
-  "brass-birmingham": { bgg: 8.6, difficulty: 3.9, playTime: 120, designer: "Gavan Brown" },
-  "great-western-trail": { bgg: 8.3, difficulty: 3.7, playTime: 120, designer: "Alexander Pfister" },
-  "agricola": { bgg: 7.9, difficulty: 3.6, playTime: 90, designer: "Uwe Rosenberg" },
-  "concordia": { bgg: 8.1, difficulty: 3.0, playTime: 90, designer: "Mac Gerdts" },
-  "viticulture": { bgg: 7.9, difficulty: 2.9, playTime: 75, designer: "Jamey Stegmaier" },
-  "clank": { bgg: 7.6, difficulty: 2.2, playTime: 60, designer: "Paul Dennen" },
-  "coup": { bgg: 7.0, difficulty: 1.4, playTime: 15, designer: "Rikki Tahta" },
-  "dixit": { bgg: 7.2, difficulty: 1.2, playTime: 30, designer: "Jean-Louis Roubira" },
-  "love-letter": { bgg: 7.2, difficulty: 1.2, playTime: 20, designer: "Seiji Kanai" },
-  "skull": { bgg: 7.1, difficulty: 1.1, playTime: 20, designer: "Herve Marly" },
-  "patchwork": { bgg: 7.8, difficulty: 1.6, playTime: 25, designer: "Uwe Rosenberg" },
-  "sagrada": { bgg: 7.4, difficulty: 1.9, playTime: 40, designer: "Adrian Adamescu" },
-  "kingdomino": { bgg: 7.3, difficulty: 1.5, playTime: 20, designer: "Bruno Cathala" },
-  "the-crew": { bgg: 7.9, difficulty: 2.0, playTime: 20, designer: "Thomas Sing" },
-  "quacks-of-quedlinburg": { bgg: 7.6, difficulty: 1.9, playTime: 45, designer: "Wolfgang Warsch" },
-  "power-grid": { bgg: 7.8, difficulty: 3.3, playTime: 120, designer: "Friedemann Friese" },
-};
-
-/* ── Difficulty Meter ──────────────────────────────────────────── */
-function DifficultyMeter({ value }) {
-  if (!value) return null;
-  const pct = (value / 5) * 100;
-  const label = value <= 1.5 ? "Easy" : value <= 2.5 ? "Medium" : value <= 3.5 ? "Hard" : "Expert";
-  const color = value <= 1.5 ? "#22c55e" : value <= 2.5 ? "#3b82f6" : value <= 3.5 ? "#f59e0b" : "#ef4444";
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-      <span style={{ fontSize: "0.75rem", color: "var(--text-secondary)" }}>Difficulty:</span>
-      <div style={{ width: "60px", height: "6px", borderRadius: "3px", background: "var(--bg-primary)", overflow: "hidden" }}>
-        <div style={{ width: `${pct}%`, height: "100%", borderRadius: "3px", background: color, transition: "width 0.3s" }} />
-      </div>
-      <span style={{ fontSize: "0.75rem", color, fontWeight: 600 }}>{label}</span>
-    </div>
-  );
-}
-
-/* ── Metadata Bar ──────────────────────────────────────────────── */
-function MetadataBar({ gameId, gameData }) {
-  const meta = GAME_META[gameId];
-  if (!meta && !gameData?.player_count) return null;
-
-  const items = [];
-  if (gameData?.player_count) {
-    items.push({ icon: "👥", label: `${gameData.player_count.min}-${gameData.player_count.max} Players` });
-  }
-  if (meta?.playTime) {
-    items.push({ icon: "⏱", label: `${meta.playTime} min` });
-  }
-  if (meta?.bgg) {
-    items.push({ icon: "⭐", label: `${meta.bgg} BGG` });
-  }
-  if (meta?.designer) {
-    items.push({ icon: "✏️", label: meta.designer });
-  }
-
-  return (
-    <div style={{
-      display: "flex", gap: "12px", flexWrap: "wrap", padding: "8px 12px",
-      background: "var(--bg-secondary)", borderRadius: "10px",
-      border: "1px solid var(--border)", marginBottom: "8px",
-    }}>
-      {items.map((item, i) => (
-        <span key={i} style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8rem", color: "var(--text-secondary)" }}>
-          <span>{item.icon}</span>
-          <span>{item.label}</span>
-        </span>
-      ))}
-      {meta && <DifficultyMeter value={meta.difficulty} />}
-    </div>
-  );
-}
 
 /* ── Render inline markdown: **bold**, **bold** — rest ────────── */
 function InlineMarkdown({ text }) {
@@ -898,21 +788,6 @@ function GameCoverThumb({ gameId }) {
   );
 }
 
-/* ── MSRP Price Badge ──────────────────────────────────────────── */
-function PriceBadge({ gameId }) {
-  const price = MSRP_PRICES[gameId];
-  if (!price) return null;
-  return (
-    <span style={{
-      fontSize: "0.8rem", color: "var(--text-secondary)", fontWeight: 500,
-      background: "var(--bg-card)", padding: "2px 10px", borderRadius: "999px",
-      border: "1px solid var(--border)", whiteSpace: "nowrap",
-    }}>
-      ${price.toFixed(2)}
-    </span>
-  );
-}
-
 /* ── Main GameTeacher Component ──────────────────────────────────── */
 export default function GameTeacher() {
   const { gameId } = useParams();
@@ -934,6 +809,23 @@ export default function GameTeacher() {
     if (!SPEED_OPTIONS.includes(saved)) { setRate(1.0); return 1.0; }
     return saved;
   });
+  const [showTimerModal, setShowTimerModal] = useState(false);
+  const [showOrderPanel, setShowOrderPanel] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  // Track cart count from localStorage
+  useEffect(() => {
+    const lobbyId = localStorage.getItem("gmai_lobby_id_" + gameId) || "local";
+    const updateCount = () => {
+      try {
+        const cart = JSON.parse(localStorage.getItem(`gmai-cart-${lobbyId}`) || "[]");
+        setCartCount(cart.reduce((s, c) => s + c.quantity, 0));
+      } catch { setCartCount(0); }
+    };
+    updateCount();
+    const interval = setInterval(updateCount, 1000);
+    return () => clearInterval(interval);
+  }, [gameId]);
 
   // Fetch venue config
   useEffect(() => {
@@ -997,18 +889,27 @@ export default function GameTeacher() {
       {/* All content above background */}
       <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
       {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px", flexWrap: "wrap" }}>
         <button onClick={() => { stopSpeaking(); navigate("/games"); }} aria-label="Back to game selector" style={{ padding: "8px 16px", fontSize: "0.9rem" }}>← Games</button>
         <GameCoverThumb gameId={gameId} />
-        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+        <h1 style={{ flex: 1, fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
           {gameTitle}
-          <PriceBadge gameId={gameId} />
         </h1>
-        <GameTimer />
-        <PlaybackControls ttsState={ttsState} />
-        <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
+        <button onClick={() => setShowTimerModal(true)} style={{
+          padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
+          background: "var(--bg-card)", color: "var(--text-primary)",
+          border: "1px solid var(--border)", cursor: "pointer", whiteSpace: "nowrap",
+        }}>
+          Start Timer
+        </button>
+        <button onClick={() => setShowOrderPanel(true)} style={{
+          padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
+          background: "var(--accent)", color: "#fff",
+          border: "none", cursor: "pointer", whiteSpace: "nowrap",
+        }}>
+          {"\uD83C\uDF7D"} Order{cartCount > 0 ? ` (${cartCount})` : ""}
+        </button>
       </div>
-
 
       {/* Offline banner */}
       {isOffline && (
@@ -1129,6 +1030,22 @@ export default function GameTeacher() {
           <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
         </div>
       )}
+
+      {/* Order Panel */}
+      <OrderPanel
+        open={showOrderPanel}
+        onClose={() => setShowOrderPanel(false)}
+        gameId={gameId}
+        gameTitle={gameTitle}
+        gamePrice={MSRP_PRICES[gameId] || null}
+        sessionId={localStorage.getItem("gmai_lobby_id_" + gameId) || "local"}
+      />
+
+      {/* Countdown Timer */}
+      <CountdownTimer
+        open={showTimerModal}
+        onClose={() => setShowTimerModal(false)}
+      />
 
       </div>{/* end content wrapper */}
     </div>

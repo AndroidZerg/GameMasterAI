@@ -28,6 +28,7 @@ from app.api.routes.analytics import router as analytics_router
 from app.api.routes.score_history import router as score_history_router
 from app.api.routes.menu import router as menu_router
 from app.api.routes.lobby import router as lobby_router
+from app.api.routes.orders import router as orders_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -39,6 +40,7 @@ from app.models.venues import (
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
+from app.models.orders import init_orders_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.services.admin_config import _load_all as _load_admin_config
@@ -59,6 +61,7 @@ async def lifespan(app: FastAPI):
     init_analytics_table()
     init_score_history_table()
     init_house_rules_table()
+    init_orders_table()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")
@@ -128,6 +131,9 @@ app.include_router(export_router)
 
 # --- Lobby ---
 app.include_router(lobby_router)
+
+# --- Orders ---
+app.include_router(orders_router)
 
 # --- Misc ---
 app.include_router(dashboard_router)
