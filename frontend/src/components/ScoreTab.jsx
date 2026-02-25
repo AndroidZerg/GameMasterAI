@@ -575,6 +575,8 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
             placeholder="Your name"
             maxLength={20}
             autoFocus
+            autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+            data-form-type="other" data-lpignore="true"
             style={{
               flex: 1, padding: "14px 16px", fontSize: "1rem", borderRadius: "12px",
               border: "2px solid var(--border)", background: "var(--bg-primary)",
@@ -747,6 +749,8 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                           i === pIdx ? { ...p, name: e.target.value } : p
                         ));
                       }}
+                      autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+                      data-form-type="other" data-lpignore="true"
                       style={{
                         background: "transparent", border: "none", color: "var(--text-primary)",
                         fontWeight: player.is_host ? 600 : 500, fontSize: "0.85rem",
@@ -794,6 +798,8 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                         onBlur={() => setEditingRow(null)}
                         onKeyDown={(e) => e.key === "Enter" && setEditingRow(null)}
                         autoFocus
+                        autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+                        data-form-type="other" data-lpignore="true"
                         style={{
                           width: "100%", fontSize: "0.9rem",
                           background: "var(--bg-primary)", border: "1px solid var(--accent)",
@@ -807,9 +813,11 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                     return (
                       <td key={player.id} style={{ padding: "6px 4px", borderBottom: "1px solid var(--border)", textAlign: "center" }}>
                         <input
-                          type="number" inputMode="numeric"
+                          type="number" inputMode="numeric" pattern="[0-9]*"
                           value={val === undefined || val === "" ? "" : val}
                           onChange={(e) => handleScoreChange(rowKey, player.id, e.target.value)}
+                          autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+                          data-form-type="other" data-lpignore="true"
                           style={{
                             width: "100%", maxWidth: "70px", padding: "8px 4px", textAlign: "center",
                             fontSize: "1rem", fontWeight: 600, fontFamily: "monospace",
@@ -908,7 +916,9 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                   <input
                     type="text" value={joinCode}
                     onChange={(e) => setJoinCode(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                    placeholder="Code" maxLength={4} inputMode="numeric"
+                    placeholder="Code" maxLength={4} inputMode="numeric" pattern="[0-9]*"
+                    autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+                    data-form-type="other" data-lpignore="true"
                     style={{
                       width: "80px", padding: "8px 10px", textAlign: "center",
                       fontSize: "1rem", fontFamily: "monospace", fontWeight: 700,
@@ -920,6 +930,8 @@ export default function ScoreTab({ gameId, gameTitle, playerCount }) {
                     type="text" value={joinName}
                     onChange={(e) => setJoinName(e.target.value)}
                     placeholder="Your name" maxLength={20}
+                    autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+                    data-form-type="other" data-lpignore="true"
                     style={{
                       flex: 1, padding: "8px 10px", fontSize: "0.9rem",
                       borderRadius: "8px", border: "1px solid var(--border)",
