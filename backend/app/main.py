@@ -1,4 +1,4 @@
-"""GameMaster AI — Backend API server for board game cafe management."""
+"""GameMaster Guide — Backend API server for board game cafe management."""
 
 from contextlib import asynccontextmanager
 
@@ -35,8 +35,9 @@ from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
 from app.models.venues import (
     init_venues_table, init_venue_collections_table,
-    seed_all_venues, set_venue_collection,
+    seed_all_venues, seed_dicetower_accounts, set_venue_collection,
 )
+from app.models.game import search_limited_library
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
@@ -68,13 +69,26 @@ async def lifespan(app: FastAPI):
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")
     seeded = seed_all_venues(pw_hash)
+    all_games = search_games()
+    game_ids = [g["game_id"] for g in all_games]
     if seeded:
         # Give all venues the full game collection
-        all_games = search_games()
-        game_ids = [g["game_id"] for g in all_games]
         for vid in seeded:
             set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded {len(seeded)} venue(s): {', '.join(seeded)}")
+
+    # Seed Dice Tower West accounts (admin, demo, meetup)
+    dt_seeded = seed_dicetower_accounts()
+    if dt_seeded:
+        # admin + meetup get full library; demo gets limited library
+        limited_games = search_limited_library()
+        limited_ids = [g["game_id"] for g in limited_games]
+        for vid in dt_seeded:
+            if vid == "demo-dicetower":
+                set_venue_collection(vid, limited_ids)
+            else:
+                set_venue_collection(vid, game_ids)
+        print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
 
     # Load admin config (GitHub API → hardcoded defaults)
     admin_cfg = _load_admin_config()
@@ -85,9 +99,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="GameMaster AI",
+    title="GameMaster Guide",
     version="0.7.0",
-    description="Backend API for GameMaster AI — a board game cafe assistant with rules lookup, score tracking, session analytics, venue management, and auth.",
+    description="Backend API for GameMaster Guide — a board game cafe assistant with rules lookup, score tracking, session analytics, venue management, and auth.",
     lifespan=lifespan,
 )
 app.state.limiter = limiter

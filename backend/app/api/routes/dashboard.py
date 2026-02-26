@@ -140,7 +140,7 @@ async def dashboard():
 </style>
 </head>
 <body>
-<h1>GameMaster AI — Sprint Dashboard</h1>
+<h1>GameMaster Guide — Sprint Dashboard</h1>
 <p class="subtitle">Auto-refreshes every 60 seconds</p>
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#6b7280"></div>Not Started</div>

@@ -640,7 +640,7 @@ function QAPanel({ gameId, gameTitle }) {
                     {msg.role === "user" && (<div style={{ fontSize: "0.7rem", color: "var(--text-secondary)", marginBottom: "3px" }}>You</div>)}
                     {msg.role === "assistant" && (
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.7rem", color: "#4ade80", marginBottom: "3px" }}>
-                        <span>GameMaster AI</span>
+                        <span>GameMaster Guide</span>
                         <div style={{ display: "flex", gap: "2px", alignItems: "center" }}>
                           <CopyButton text={msg.content} />
                           <button onClick={() => speakText(msg.content)} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.85rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>

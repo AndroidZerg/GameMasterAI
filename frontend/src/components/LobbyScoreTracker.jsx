@@ -92,7 +92,7 @@ function LobbySurvey({ gameId, lobbyId, playerName, onDone }) {
 
       <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
         <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>
-          How helpful was GameMaster AI for:
+          How helpful was GameMaster Guide for:
         </p>
         <StarRow label="Setup" value={helpfulSetup} onChange={setHelpfulSetup} />
         <StarRow label="Rules" value={helpfulRules} onChange={setHelpfulRules} />
@@ -103,7 +103,7 @@ function LobbySurvey({ gameId, lobbyId, playerName, onDone }) {
       <div style={{ background: "var(--bg-secondary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)", marginBottom: "16px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)", flex: 1, marginRight: "8px" }}>
-            Would you use GameMaster AI to learn a new game?
+            Would you use GameMaster Guide to learn a new game?
           </span>
           <YesNo value={wouldUseAgain} onChange={setWouldUseAgain} />
         </div>

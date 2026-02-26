@@ -150,7 +150,7 @@ export default function VenueSettingsPage() {
         <h3 style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "12px" }}>Preview</h3>
         <div style={{ background: "var(--bg-primary)", borderRadius: "12px", padding: "16px", border: "1px solid var(--border)" }}>
           <div style={{ fontSize: "1.1rem", fontWeight: 700, color: settings.accent_color || "var(--accent)" }}>
-            GameMaster AI at {settings.venue_name || "Your Venue"}
+            GameMaster Guide at {settings.venue_name || "Your Venue"}
           </div>
           <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginTop: "2px" }}>
             {settings.venue_tagline || "Your tagline here"}

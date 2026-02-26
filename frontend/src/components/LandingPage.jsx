@@ -195,7 +195,7 @@ export default function LandingPage() {
       {/* Hero */}
       <section style={{ ...sectionStyle, textAlign: "center", padding: "80px 20px 60px" }}>
         <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, marginBottom: "16px", lineHeight: 1.2 }}>
-          GameMaster AI
+          GameMaster Guide
         </h1>
         <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)", color: "var(--text-secondary)", marginBottom: "8px" }}>
           Your Board Game Expert, On Every Table
@@ -417,7 +417,7 @@ export default function LandingPage() {
         textAlign: "center", padding: "32px 20px", color: "var(--text-secondary)",
         fontSize: "0.85rem", borderTop: "1px solid var(--border)",
       }}>
-        GameMaster AI — Board game teaching, automated.
+        GameMaster Guide — Board game teaching, automated.
       </footer>
     </div>
   );

@@ -22,7 +22,10 @@ export default function NavMenu() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { isLoggedIn, venueName, logout } = useAuth();
+  const { isLoggedIn, venueName, role, logout } = useAuth();
+
+  // Roles that can see admin section
+  const canSeeAdmin = role === "super_admin" || role === "demo" || role === "venue_admin";
 
   // Close on Escape
   useEffect(() => {
@@ -157,7 +160,7 @@ export default function NavMenu() {
       >
         {/* Venue header */}
         <div style={{ padding: "8px 8px 20px", borderBottom: "1px solid var(--border)", marginBottom: "12px" }}>
-          <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--accent)" }}>GameMaster AI</div>
+          <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--accent)" }}>GameMaster Guide</div>
           <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginTop: "2px" }}>
             {isLoggedIn && venueName ? venueName : "Board Game Teaching"}
           </div>
@@ -173,8 +176,8 @@ export default function NavMenu() {
           ))}
         </div>
 
-        {/* Admin items */}
-        {isLoggedIn && (
+        {/* Admin items — only for super_admin, demo, venue_admin */}
+        {isLoggedIn && canSeeAdmin && (
           <>
             <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.08em", padding: "8px 20px 4px", marginTop: "4px" }}>
               Admin
@@ -185,6 +188,12 @@ export default function NavMenu() {
                 <span>{item.label}</span>
               </button>
             ))}
+          </>
+        )}
+
+        {/* Logout — always visible when logged in */}
+        {isLoggedIn && (
+          <>
             <div style={{ flex: 1 }} />
             <button
               onClick={handleLogout}

@@ -30,10 +30,18 @@ export default function LoginPage() {
 
     try {
       const data = await loginVenue(email, password);
-      login(data.token, data.venue_id, data.venue_name, data.role, data.status);
+      login(data.token, data.venue_id, data.venue_name, data.role, data.status, data.expires_at);
       navigate("/games", { replace: true });
-    } catch {
-      setError("Invalid email or password");
+    } catch (err) {
+      const msg = err.message || "";
+      if (msg === "expired") {
+        // Convention account expired — redirect to /expired
+        navigate("/expired", { replace: true });
+      } else if (msg.includes("not currently active")) {
+        setError(msg);
+      } else {
+        setError("Invalid email or password");
+      }
       setPassword("");
     } finally {
       setLoading(false);
@@ -58,7 +66,7 @@ export default function LoginPage() {
             {"\uD83C\uDFB2"}
           </div>
           <h1 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", margin: "0 0 6px" }}>
-            Welcome to GameMaster AI
+            Welcome to GameMaster Guide
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "0.9rem", margin: 0 }}>
             Sign in to your venue account

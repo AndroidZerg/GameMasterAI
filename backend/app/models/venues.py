@@ -44,6 +44,8 @@ def init_venues_table():
         "status TEXT NOT NULL DEFAULT 'prospect'",
         "trial_start_date TEXT",
         "trial_duration_days INTEGER DEFAULT 30",
+        "source TEXT DEFAULT ''",
+        "expires_at TEXT",
     ):
         try:
             conn.execute(f"ALTER TABLE venues ADD COLUMN {col}")
@@ -96,14 +98,17 @@ def get_all_venues() -> list[dict]:
 
 def create_venue(venue_id: str, venue_name: str, email: str, password_hash: str,
                  tagline: str = "", accent_color: str = "#e94560",
-                 address: str = "", phone: str = "", website: str = "") -> int:
+                 address: str = "", phone: str = "", website: str = "",
+                 role: str = "venue_admin", source: str = "",
+                 expires_at: str = "", trial_start_date: str = "") -> int:
     conn = _get_conn()
     cur = conn.execute(
         """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline, accent_color,
-           address, phone, website, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           address, phone, website, role, source, expires_at, trial_start_date, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (venue_id, venue_name, email, password_hash, tagline, accent_color,
-         address, phone, website, datetime.now(timezone.utc).isoformat()),
+         address, phone, website, role, source, expires_at or None,
+         trial_start_date or None, datetime.now(timezone.utc).isoformat()),
     )
     vid = cur.lastrowid
     conn.commit()
@@ -191,7 +196,7 @@ def set_venue_collection(venue_id: str, game_ids: list[str]):
 _DEMO_VENUES = [
     {
         "venue_id": "playgmai-demo",
-        "venue_name": "GameMaster AI Demo",
+        "venue_name": "GameMaster Guide Demo",
         "email": "demo@playgmai.com",
         "tagline": "AI-Powered Board Game Teaching",
         "accent_color": "#e94560",
@@ -261,6 +266,35 @@ _DEMO_VENUES = [
     },
 ]
 
+# ── Dice Tower West accounts ─────────────────────────────────────
+
+_DICETOWER_ACCOUNTS = [
+    {
+        "venue_id": "admin",
+        "venue_name": "GameMaster Guide Admin",
+        "email": "admin@playgmai.com",
+        "password": "watress2",
+        "role": "super_admin",
+        "tagline": "Admin Account",
+    },
+    {
+        "venue_id": "demo-dicetower",
+        "venue_name": "Dice Tower West Demo",
+        "email": "demo-dicetower@playgmai.com",
+        "password": "watress2",
+        "role": "demo",
+        "tagline": "Dice Tower West 2026 Demo",
+    },
+    {
+        "venue_id": "meetup",
+        "venue_name": "Board Games in Henderson",
+        "email": "meetup@playgmai.com",
+        "password": "bgninhenderson",
+        "role": "meetup",
+        "tagline": "Game Nights & Community Gaming in Henderson",
+    },
+]
+
 
 def seed_all_venues(password_hash: str) -> list[str]:
     """Seed all demo venues with UPSERT — always ensures correct data.
@@ -290,6 +324,33 @@ def seed_all_venues(password_hash: str) -> list[str]:
              v.get("website", ""), now),
         )
         seeded.append(v["venue_id"])
+    conn.commit()
+    conn.close()
+    return seeded
+
+
+def seed_dicetower_accounts() -> list[str]:
+    """Seed the Dice Tower West accounts (admin, demo, meetup) with their own passwords."""
+    from app.core.auth import hash_password
+    conn = _get_conn()
+    seeded = []
+    now = datetime.now(timezone.utc).isoformat()
+    for acct in _DICETOWER_ACCOUNTS:
+        pw_hash = hash_password(acct["password"])
+        conn.execute(
+            """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline,
+               accent_color, role, source, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(venue_id) DO UPDATE SET
+                 venue_name = excluded.venue_name,
+                 email = excluded.email,
+                 password_hash = excluded.password_hash,
+                 tagline = excluded.tagline,
+                 role = excluded.role""",
+            (acct["venue_id"], acct["venue_name"], acct["email"], pw_hash,
+             acct.get("tagline", ""), "#e94560", acct["role"], "dicetower2026", now),
+        )
+        seeded.append(acct["venue_id"])
     conn.commit()
     conn.close()
     return seeded

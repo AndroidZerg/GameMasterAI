@@ -661,7 +661,7 @@ export default function GameSelector() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "4px" }}>
           <span style={{ fontSize: "1.5rem" }}>{"\u{1F3B2}"}</span>
           <h1 style={{ fontSize: "clamp(1.3rem, 3.5vw, 1.8rem)", margin: 0, color: "var(--text-primary)", fontWeight: 800 }}>
-            GameMaster AI
+            GameMaster Guide
           </h1>
         </div>
         {(isLoggedIn ? venueName : venueConfig?.venue_name) && (

@@ -30,7 +30,7 @@ async def query_game(request: Request, req: QueryRequest):
     title = game.get("title", req.game_id)
 
     # Construct system prompt (v2.0 — no mode parameter)
-    system_prompt = f"""You are GameMaster AI, a friendly and knowledgeable board game teacher working at a board game cafe. You are currently teaching {title}.
+    system_prompt = f"""You are GameMaster Guide, a friendly and knowledgeable board game teacher working at a board game cafe. You are currently teaching {title}.
 
 Use ONLY the knowledge base below to answer questions. The knowledge base is organized into Setup, Rules, and Strategy sections with labeled subtopics. If the knowledge base does not contain the answer, say "I'm not sure about that specific rule — you may want to check the rulebook for {title}." NEVER invent or guess at rules.
 

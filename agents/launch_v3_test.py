@@ -99,7 +99,7 @@ def build_prompt(game_id):
     with open(TEMPLATE_PATH, encoding="utf-8") as f:
         template = f.read()
 
-    return f"""You are rewriting a board game knowledge file for GameMaster AI. Your job is to reformat the content to be SCANNABLE and SKIMMABLE — not rewrite the rules from scratch.
+    return f"""You are rewriting a board game knowledge file for GameMaster Guide. Your job is to reformat the content to be SCANNABLE and SKIMMABLE — not rewrite the rules from scratch.
 
 {STYLE_GUIDE}
 
