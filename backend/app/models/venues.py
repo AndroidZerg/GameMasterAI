@@ -293,6 +293,14 @@ _DICETOWER_ACCOUNTS = [
         "role": "meetup",
         "tagline": "Game Nights & Community Gaming in Henderson",
     },
+    {
+        "venue_id": "meetup-admin",
+        "venue_name": "Meetup Admin",
+        "email": "meetup-admin@playgmai.com",
+        "password": "watress2",
+        "role": "super_admin",
+        "tagline": "Meetup Admin Account",
+    },
 ]
 
 
