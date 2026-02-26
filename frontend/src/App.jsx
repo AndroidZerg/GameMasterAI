@@ -6,11 +6,14 @@ import EventTracker from "./services/EventTracker";
 import { useKioskMode } from "./hooks/useKioskMode";
 import IdlePrompt from "./components/IdlePrompt";
 import NavMenu from "./components/NavMenu";
+import DemoBadge from "./components/DemoBadge";
 import ProtectedRoute from "./components/ProtectedRoute";
 import GameSelector from "./components/GameSelector";
 import GameTeacher from "./components/GameTeacher";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
+import ExpiredPage from "./components/ExpiredPage";
 import QRGeneratorPage from "./components/QRGeneratorPage";
 import VenueStatsPage from "./components/VenueStatsPage";
 import VenueSettingsPage from "./components/VenueSettingsPage";
@@ -20,6 +23,9 @@ import AdminFeedbackPage from "./components/AdminFeedbackPage";
 import MenuPage from "./components/MenuPage";
 import LobbyJoin from "./components/LobbyJoin";
 import LobbyScoreTracker from "./components/LobbyScoreTracker";
+
+// Roles that can access admin routes
+const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
 
 function AuthWatcher() {
   const { logout } = useAuth();
@@ -59,10 +65,13 @@ function AppShell() {
     <>
       <AuthWatcher />
       <NavMenu />
+      <DemoBadge />
       {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
       <Routes>
         <Route path="/" element={<RootRedirect />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/expired" element={<ExpiredPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/games" element={<ProtectedRoute><GameSelector /></ProtectedRoute>} />
         <Route path="/app" element={<Navigate to="/games" replace />} />
@@ -71,12 +80,13 @@ function AppShell() {
         <Route path="/join" element={<LobbyJoin />} />
         <Route path="/lobby/:lobbyId" element={<LobbyScoreTracker />} />
         <Route path="/menu" element={<ProtectedRoute><MenuPage /></ProtectedRoute>} />
-        <Route path="/admin/qr" element={<ProtectedRoute><QRGeneratorPage /></ProtectedRoute>} />
-        <Route path="/admin/stats" element={<ProtectedRoute><VenueStatsPage /></ProtectedRoute>} />
-        <Route path="/admin/settings" element={<ProtectedRoute><VenueSettingsPage /></ProtectedRoute>} />
-        <Route path="/admin/collection" element={<ProtectedRoute><CollectionManagerPage /></ProtectedRoute>} />
-        <Route path="/admin/customize" element={<ProtectedRoute><CustomizeHomePage /></ProtectedRoute>} />
-        <Route path="/admin/feedback" element={<ProtectedRoute><AdminFeedbackPage /></ProtectedRoute>} />
+        {/* Admin routes — restricted to super_admin, demo, venue_admin */}
+        <Route path="/admin/qr" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><QRGeneratorPage /></ProtectedRoute>} />
+        <Route path="/admin/stats" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><VenueStatsPage /></ProtectedRoute>} />
+        <Route path="/admin/settings" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><VenueSettingsPage /></ProtectedRoute>} />
+        <Route path="/admin/collection" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CollectionManagerPage /></ProtectedRoute>} />
+        <Route path="/admin/customize" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CustomizeHomePage /></ProtectedRoute>} />
+        <Route path="/admin/feedback" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><AdminFeedbackPage /></ProtectedRoute>} />
       </Routes>
     </>
   );

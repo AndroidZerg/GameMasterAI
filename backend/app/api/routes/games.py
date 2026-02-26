@@ -9,7 +9,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 
 from app.core.auth import get_optional_venue, get_current_venue
-from app.models.game import search_games, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
+from app.models.game import search_games, search_limited_library, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection, get_staff_picks
@@ -55,8 +55,13 @@ async def list_games(
     venue: Optional[bool] = Query(None, description="If true, filter to venue's collection"),
     current_venue: Optional[dict] = Depends(get_optional_venue),
 ):
-    """List games. If venue=true and authenticated, filters to venue's collection."""
-    results = search_games(search=search, complexity=complexity)
+    """List games. Role-based filtering: demo/convention see limited library only."""
+    # Role-based library filtering
+    role = current_venue.get("role", "venue_admin") if current_venue else None
+    if role in ("demo", "convention"):
+        results = search_limited_library(search=search, complexity=complexity)
+    else:
+        results = search_games(search=search, complexity=complexity)
 
     if venue and current_venue:
         collection = get_venue_collection(current_venue["venue_id"])

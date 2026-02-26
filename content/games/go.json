@@ -1,0 +1,106 @@
+{
+  "game_id": "go",
+  "title": "Go",
+  "aliases": ["Weiqi", "Baduk", "Igo"],
+  "publisher": "Public Domain",
+  "public_domain": true,
+  "publisher_approved": false,
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 240
+  },
+  "complexity": "heavy",
+  "categories": ["abstract-strategy", "perfect-information", "territory", "classic"],
+  "source_url": "https://www.igf.org/rules/",
+  "source_verified": true,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "1 Go board (a 19x19 grid of intersecting lines — beginners often start on 9x9 or 13x13 boards). 181 black stones. 180 white stones. 2 bowls to hold the stones. The board has small dots at 9 specific intersections called star points which serve as visual reference markers."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Place the empty board between the two players. No pieces start on the board — it begins completely empty. Each player takes a bowl of stones in their color. The standard board is 19 lines by 19 lines, creating 361 intersections where stones can be placed. For learning, a 9x9 board (81 intersections) is recommended because games are shorter and patterns are easier to see."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Black takes the bowl of black stones. White takes the bowl of white stones. In an even game between equal players, Black plays first and White receives compensation points called komi (typically 6.5 or 7.5 points) to offset Black's first-move advantage. In a handicap game between players of different skill levels, the weaker player takes Black and places 2 to 9 stones on designated star points before play begins, and White moves first."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "In an even game, Black places the first stone on any intersection on the board. Players then alternate turns for the rest of the game. The board starts empty — the game builds from nothing."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn you do exactly one of two things: place one stone of your color on any empty intersection on the board, or pass (decline to place a stone). Once placed, a stone never moves — it stays on that intersection for the rest of the game unless it is captured and removed. The game ends when both players pass consecutively. That is the entire turn structure — place a stone or pass. The depth of Go comes not from complicated rules but from the consequences of where you place each stone."
+        },
+        {
+          "id": "actions",
+          "title": "Capturing, Liberties, and Territory",
+          "content": "LIBERTIES: Every stone on the board has liberties — these are the empty intersections directly adjacent to it along the grid lines (up, down, left, right — not diagonal). A stone in the middle of the board has 4 liberties. A stone on the edge has 3. A stone in the corner has 2. Connected stones of the same color share their liberties as a group.\n\nCAPTURING: When you place a stone that fills the last liberty of an opponent's stone or connected group, those opponent stones are captured — removed from the board and kept as prisoners. Each captured stone is worth 1 point at the end of the game. You may not place a stone where it would have zero liberties (suicide) unless doing so captures opponent stones first, freeing up liberties.\n\nCONNECTED GROUPS: Stones of the same color that are adjacent along grid lines (not diagonally) form a connected group. A group lives or dies as a unit — if the group's last liberty is filled, every stone in the group is captured. This means surrounding a large group can yield many prisoners at once.\n\nTERRITORY: Empty intersections that are completely enclosed by stones of one color count as that player's territory. At the end of the game, you score 1 point for each intersection of territory you control. The goal of the game is to control more total territory (plus prisoners) than your opponent."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "The Ko Rule and Eyes",
+          "content": "THE KO RULE: Sometimes two single stones can threaten to capture each other back and forth indefinitely. The ko rule prevents this: if your opponent just captured one of your stones, you may not immediately recapture on the very next move. You must play elsewhere first (called a ko threat), and only on a subsequent turn may you recapture. This prevents infinite loops.\n\nEYES AND LIFE: An eye is an empty intersection completely surrounded by stones of one color. A group with two separate eyes cannot be captured — even if the opponent fills all external liberties, they cannot fill both eyes simultaneously (doing so would be suicide). A group with two eyes is called alive. A group that cannot form two eyes and is surrounded is dead and will be removed as prisoners during scoring. Understanding eyes is the key to knowing which groups will survive."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The game ends when both players pass consecutively, signaling that neither player believes a beneficial move remains. Players then agree on which groups are alive and which are dead. Dead stones are removed as prisoners.\n\nSCORING (Territory method, most common internationally): Each player scores 1 point per empty intersection of territory they control, plus 1 point per prisoner captured. White also adds komi (usually 6.5 or 7.5 points) to compensate for Black's first-move advantage. The half-point in komi ensures there are no ties. The player with the higher total wins.\n\nSCORING (Area method, used in Chinese rules): Each player scores 1 point per stone they have on the board, plus 1 point per empty intersection of territory. Komi still applies. Both methods almost always produce the same winner."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Start by playing in the corners. Corners are the easiest areas to claim territory because two edges of the board serve as natural boundaries, meaning you need fewer stones to enclose space. After establishing corner positions, expand along the edges (called sides), and only move toward the center last. A common beginner pattern is to play on the third or fourth line from the edge in the corners during the opening — third line secures solid territory, fourth line projects more influence outward."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "TRYING TO CAPTURE EVERYTHING: Go is a game of balance, not total conquest. Trying to surround your opponent's stones everywhere at once spreads you too thin and leaves your own groups weak. Focus on building efficient territory rather than chasing captures.\n\nIGNORING OPPONENT THREATS: When your opponent plays a move that threatens one of your groups, evaluate whether you need to respond immediately. If a group can be saved with one stone now but would need three stones later, respond now. Reading one move ahead prevents most disasters.\n\nPLAYING TOO CLOSE TO STRONG STONES: Building territory right next to a group that is already alive and strong is inefficient. Play where the influence and territory potential is highest — usually away from already-settled positions.\n\nFORGETTING ABOUT EYES: Every group you build needs the ability to form two eyes if surrounded. As the board fills up, check that your groups have enough internal space to live independently. A large group without two eyes is a large group that can die."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "INFLUENCE VS. TERRITORY: This is the fundamental strategic tension in Go. Playing on the third line (close to the edge) secures solid, guaranteed territory but limits your reach. Playing on the fourth line (further from the edge) projects influence toward the center and across the board but that influence can be invaded. Neither approach is wrong — the skill is reading the board and choosing the right balance in each position.\n\nWHEN TO TENUKI (PLAY ELSEWHERE): After your opponent makes a move in one area of the board, you do not have to respond locally. If you see a bigger opportunity elsewhere, you can play there instead. This is called tenuki and it is one of the most powerful concepts in Go — the whole-board perspective of knowing when a local move is less valuable than a move somewhere else."
+        }
+      ]
+    }
+  },
+
+  "total_token_count": 1650,
+  "extensions": {},
+
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-25T12:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Public domain game for Dice Tower West demo. Covers the standard rules of Go as played internationally. Strategy section targets complete beginners who have never played. Source: International Go Federation official rules. All content original — no rulebook text reproduced."
+  }
+}

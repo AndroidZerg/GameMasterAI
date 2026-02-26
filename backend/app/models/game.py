@@ -51,15 +51,17 @@ def init_db():
             categories TEXT DEFAULT '[]'
         )
     """)
-    # Add play_time columns if upgrading from old schema
-    try:
-        conn.execute("ALTER TABLE games ADD COLUMN play_time_min INTEGER DEFAULT 0")
-    except sqlite3.OperationalError:
-        pass
-    try:
-        conn.execute("ALTER TABLE games ADD COLUMN play_time_max INTEGER DEFAULT 0")
-    except sqlite3.OperationalError:
-        pass
+    # Add columns if upgrading from old schema
+    for col in (
+        "play_time_min INTEGER DEFAULT 0",
+        "play_time_max INTEGER DEFAULT 0",
+        "public_domain INTEGER DEFAULT 0",
+        "publisher_approved INTEGER DEFAULT 0",
+    ):
+        try:
+            conn.execute(f"ALTER TABLE games ADD COLUMN {col}")
+        except sqlite3.OperationalError:
+            pass
     conn.commit()
     conn.close()
 
@@ -87,8 +89,9 @@ def rebuild_db():
         conn.execute(
             """INSERT OR REPLACE INTO games
                (game_id, title, aliases, player_count_min, player_count_max,
-                play_time_min, play_time_max, complexity, categories)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                play_time_min, play_time_max, complexity, categories,
+                public_domain, publisher_approved)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 g.get("game_id", ""),
                 g.get("title", ""),
@@ -99,6 +102,8 @@ def rebuild_db():
                 pt.get("max", 0),
                 g.get("complexity", ""),
                 json.dumps(g.get("categories", [])),
+                1 if g.get("public_domain") else 0,
+                1 if g.get("publisher_approved") else 0,
             ),
         )
     conn.commit()
@@ -151,6 +156,8 @@ def _row_to_dict(row: sqlite3.Row) -> dict:
         "complexity": row["complexity"],
         "categories": categories,
         "tags": _generate_tags(row, categories),
+        "public_domain": bool(row["public_domain"]),
+        "publisher_approved": bool(row["publisher_approved"]),
     }
     msrp = get_msrp(game_id)
     if msrp is not None:
@@ -246,4 +253,26 @@ def get_quick_games(max_time: int = 30) -> list[dict]:
         (max_time,),
     ).fetchall()
     conn.close()
+    return [_row_to_dict(row) for row in rows]
+
+
+def search_limited_library(search: Optional[str] = None, complexity: Optional[str] = None) -> list[dict]:
+    """Return only games tagged public_domain or publisher_approved (for demo/convention roles)."""
+    conn = _get_conn()
+    query = "SELECT * FROM games WHERE (public_domain = 1 OR publisher_approved = 1)"
+    params = []
+
+    if search:
+        query += " AND (title LIKE ? OR aliases LIKE ?)"
+        term = f"%{search}%"
+        params.extend([term, term])
+
+    if complexity:
+        query += " AND complexity = ?"
+        params.append(complexity)
+
+    query += " ORDER BY title"
+    rows = conn.execute(query, params).fetchall()
+    conn.close()
+
     return [_row_to_dict(row) for row in rows]

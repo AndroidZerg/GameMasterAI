@@ -24,10 +24,11 @@ def verify_password(password: str, password_hash: str) -> bool:
     return hmac.compare_digest(hash_password(password), password_hash)
 
 
-def create_token(venue_id: str, venue_name: str) -> str:
+def create_token(venue_id: str, venue_name: str, role: str = "venue_admin") -> str:
     payload = {
         "venue_id": venue_id,
         "venue_name": venue_name,
+        "role": role,
         "exp": datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRE_HOURS),
         "iat": datetime.now(timezone.utc),
     }
@@ -46,13 +47,17 @@ def decode_token(token: str) -> Optional[dict]:
 async def get_current_venue(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(_security),
 ) -> dict:
-    """FastAPI dependency: extract and validate JWT. Returns {venue_id, venue_name}."""
+    """FastAPI dependency: extract and validate JWT. Returns {venue_id, venue_name, role}."""
     if not credentials:
         raise HTTPException(status_code=401, detail="Not authenticated")
     payload = decode_token(credentials.credentials)
     if not payload:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    return {"venue_id": payload["venue_id"], "venue_name": payload["venue_name"]}
+    return {
+        "venue_id": payload["venue_id"],
+        "venue_name": payload["venue_name"],
+        "role": payload.get("role", "venue_admin"),
+    }
 
 
 async def get_optional_venue(
@@ -64,4 +69,8 @@ async def get_optional_venue(
     payload = decode_token(credentials.credentials)
     if not payload:
         return None
-    return {"venue_id": payload["venue_id"], "venue_name": payload["venue_name"]}
+    return {
+        "venue_id": payload["venue_id"],
+        "venue_name": payload["venue_name"],
+        "role": payload.get("role", "venue_admin"),
+    }

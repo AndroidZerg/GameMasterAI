@@ -1,0 +1,96 @@
+{
+  "game_id": "dominoes",
+  "title": "Dominoes",
+  "aliases": ["Draw Dominoes", "Standard Dominoes", "Draw Game"],
+  "publisher": "Public Domain",
+  "public_domain": true,
+  "publisher_approved": false,
+  "player_count": {
+    "min": 2,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 15,
+    "max": 30
+  },
+  "complexity": "gateway",
+  "categories": ["tile-laying", "hand-management", "classic"],
+  "source_url": "https://www.domino-games.com/rules/draw-dominoes.html",
+  "source_verified": true,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "28 dominoes (a standard double-six set). Each domino is a rectangular tile divided into two square halves, with each half showing a pip count from 0 (blank) to 6. The set contains every possible combination of two values from 0 to 6 exactly once, including 7 doubles (tiles where both halves show the same number: 0-0, 1-1, 2-2, 3-3, 4-4, 5-5, 6-6)."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Place all 28 dominoes face-down on the table and mix them thoroughly. This face-down collection is called the boneyard. Each player draws tiles from the boneyard to form their starting hand — the number depends on player count: 2 players draw 7 tiles each, 3 players draw 5 tiles each, 4 players draw 5 tiles each. Keep your tiles standing upright facing you so other players cannot see your values. The remaining tiles stay face-down in the boneyard."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The player holding the highest double (6-6 is highest, then 5-5, etc.) plays it to the center of the table as the first tile. If no player holds a double, reshuffle and redraw. This first tile placed is called the spinner — it is special because it can be built upon from all four sides. Play then continues clockwise from the starting player."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn you do one of two things: play a tile from your hand by matching one of its halves to an open end of the layout on the table, or draw from the boneyard if you cannot play. If you draw a tile that can be played, you may play it immediately. If it cannot be played, you keep it in your hand and your turn ends. If the boneyard is empty and you cannot play, you simply pass. Play continues clockwise around the table."
+        },
+        {
+          "id": "actions",
+          "title": "The Layout, Spinner, and Matching",
+          "content": "THE LAYOUT: As tiles are played, they form a line extending from the first tile. Each tile is placed end-to-end so that matching numbers touch. The layout grows outward from the center and can branch at the spinner.\n\nMATCHING: To play a tile, one of its two halves must show the same number as an open end of the layout. Place the tile so the matching halves are adjacent. For example, if one open end shows a 4, you can play any tile that has a 4 on one half — place it with the 4 side touching the open 4.\n\nTHE SPINNER: The first double played is the spinner. The spinner is unique because tiles can eventually be added to all four of its sides — two along the line of play and two perpendicular branches. The two in-line ends must be filled before the perpendicular sides can be played. Only the first double is the spinner; subsequent doubles are played inline like regular tiles and do not branch.\n\nDOUBLES: When playing a double (other than the spinner), place it perpendicular to the line — crosswise. Doubles are played sideways as a visual convention but only have two open ends (the two in-line directions), not four.\n\nDRAWING FROM THE BONEYARD: In the Draw game, if you cannot match any open end, you must draw one tile at a time from the boneyard until you draw one you can play or the boneyard is empty. Some rule variants require leaving the last 2 tiles in the boneyard undrawn."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The round ends when one player plays their last tile (called going out or dominoing), or when no player can make a legal play and the boneyard is empty (called a blocked game).\n\nWHEN A PLAYER GOES OUT: That player scores points equal to the total pip count on all tiles remaining in all opponents' hands.\n\nWHEN THE GAME IS BLOCKED: All players reveal their remaining tiles. The player with the lowest total pip count in their hand wins the round and scores the difference between their pip total and the combined pip total of all opponents' hands.\n\nGAME SCORE: Rounds are played until one player reaches a target score, commonly 100 or 200 points. That player wins the game. In casual play, a single round can be treated as a complete game."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Play your heaviest tiles (those with the highest total pip count) early. If the round ends in a block, you want as few pips in your hand as possible — heavy tiles stuck in your hand at the end are costly. Leading with the 6-6 spinner is ideal when you have it, and following with your other high-pip tiles keeps your exposure low throughout the round."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "HOARDING ONE NUMBER: If you hold three or four tiles with the same number, play them gradually rather than saving them all. Holding too many of one number means fewer opponents can have that number, making it likely the open ends will show your number — but if the board gets blocked first, you are stuck with heavy tiles.\n\nFORGETTING TO COUNT TILES: With 28 tiles in a double-six set, paying attention to which numbers have been played tells you what your opponents might hold. If six of the seven tiles containing a 3 have been played, the last 3 is extremely valuable — whoever holds it controls that end of the board.\n\nIGNORING THE BONEYARD COUNT: The number of tiles remaining in the boneyard affects your decisions. Drawing is not always bad — adding one tile to your hand to play a strategic tile is often better than passing when the boneyard is empty.\n\nNOT WATCHING OPPONENTS' DRAWS: When an opponent draws multiple tiles from the boneyard, they could not match the current open ends. Remember which numbers they failed to match — this tells you what they are missing."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "CONTROLLING OPEN ENDS: When possible, play tiles that leave open ends showing numbers you hold many of. If you have three tiles with 5s, try to make both open ends show 5. This gives you more playable options on future turns while limiting your opponents.\n\nWHEN TO BLOCK VS PLAY OUT: Sometimes you can choose between playing a tile that extends the game or one that might let you go out quickly. Going out fast scores you whatever pips remain in opponents' hands. But if your hand is light (low pip count), blocking the game might score you the difference — consider which scores more."
+        }
+      ]
+    }
+  },
+
+  "total_token_count": 1350,
+  "extensions": {},
+
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-25T12:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Public domain game for Dice Tower West demo. Covers the standard Draw Dominoes game using a double-six (28-tile) set. This is the most common variant played casually worldwide. Does not cover Block, Muggins, All Fives, or other scoring variants. Source: International domino rules reference. All content original — no rulebook text reproduced."
+  }
+}

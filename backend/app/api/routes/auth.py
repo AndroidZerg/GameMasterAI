@@ -1,9 +1,11 @@
-"""Auth endpoints — login, verify, logout, register."""
+"""Auth endpoints — login, verify, logout, register, convention signup."""
 
 import re
+import hashlib
+from datetime import datetime, timezone
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel
 from slowapi import Limiter
 from slowapi.util import get_remote_address
@@ -13,10 +15,14 @@ from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
     get_venue_by_id, set_venue_collection, get_venue_collection,
 )
-from app.models.game import search_games
+from app.models.game import search_games, search_limited_library
+from app.services.admin_config import get_meetup_enabled
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 limiter = Limiter(key_func=get_remote_address)
+
+# Convention accounts expire March 22, 2026 at 11:59:59 PM Pacific
+CONVENTION_EXPIRY = "2026-03-22T23:59:59-08:00"
 
 
 class LoginRequest(BaseModel):
@@ -31,6 +37,10 @@ class RegisterRequest(BaseModel):
     tagline: Optional[str] = ""
 
 
+class SignupRequest(BaseModel):
+    email: str
+
+
 @router.post("/login")
 async def login(req: LoginRequest):
     """Authenticate with email/password. Returns JWT token."""
@@ -41,14 +51,42 @@ async def login(req: LoginRequest):
     if not venue or not verify_password(req.password, venue["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
+    role = venue.get("role", "venue_admin")
+
+    # Meetup toggle check — if meetup account and toggle is OFF, block login
+    if role == "meetup":
+        if not get_meetup_enabled():
+            raise HTTPException(
+                status_code=403,
+                detail="This session is not currently active. Check back during the next scheduled meetup.",
+            )
+
+    # Convention expiry check
+    if role == "convention":
+        expires_at = venue.get("expires_at")
+        if expires_at:
+            try:
+                from datetime import datetime as dt
+                exp = dt.fromisoformat(expires_at)
+                if dt.now(exp.tzinfo or timezone.utc) > exp:
+                    raise HTTPException(
+                        status_code=403,
+                        detail="expired",
+                    )
+            except HTTPException:
+                raise
+            except Exception:
+                pass
+
     update_venue_login(venue["venue_id"])
-    token = create_token(venue["venue_id"], venue["venue_name"])
+    token = create_token(venue["venue_id"], venue["venue_name"], role=role)
     return {
         "token": token,
         "venue_id": venue["venue_id"],
         "venue_name": venue["venue_name"],
-        "role": venue.get("role", "venue_admin"),
+        "role": role,
         "status": venue.get("status", "prospect"),
+        "expires_at": venue.get("expires_at"),
     }
 
 
@@ -116,4 +154,80 @@ async def register(req: RegisterRequest, request: Request):
         "venue_name": req.venue_name.strip(),
         "role": "venue_admin",
         "status": "prospect",
+    }
+
+
+@router.post("/signup")
+@limiter.limit("10/hour")
+async def convention_signup(req: SignupRequest, request: Request,
+                            trial: Optional[bool] = Query(None)):
+    """Email-only signup for Dice Tower West convention floor attendees."""
+    if not req.email or not req.email.strip():
+        raise HTTPException(status_code=400, detail="Email is required")
+
+    email = req.email.strip().lower()
+
+    # Check if email already registered — if so, log them in
+    existing = get_venue_by_email(email)
+    if existing:
+        role = existing.get("role", "convention")
+        token = create_token(existing["venue_id"], existing["venue_name"], role=role)
+        update_venue_login(existing["venue_id"])
+        return {
+            "token": token,
+            "venue_id": existing["venue_id"],
+            "venue_name": existing["venue_name"],
+            "role": role,
+            "expires_at": existing.get("expires_at"),
+        }
+
+    # Generate venue_id from email
+    email_prefix = email.split("@")[0]
+    venue_id = re.sub(r"[^a-z0-9]+", "-", email_prefix.lower()).strip("-")
+    venue_id = f"conv-{venue_id}"
+    if get_venue_by_id(venue_id):
+        venue_id = f"{venue_id}-{abs(hash(email)) % 10000}"
+
+    # No password for convention accounts — generate a random hash
+    pw_hash = hashlib.sha256(f"conv-{email}-{datetime.now(timezone.utc).isoformat()}".encode()).hexdigest()
+
+    if trial:
+        # Trial account — no expiry, trial_start_date set
+        role = "convention"
+        create_venue(
+            venue_id=venue_id,
+            venue_name="GameMaster Guide User",
+            email=email,
+            password_hash=pw_hash,
+            role=role,
+            source="dicetower2026-trial",
+            trial_start_date=datetime.now(timezone.utc).isoformat(),
+        )
+        expires_at = None
+    else:
+        # Convention demo account — expires March 22
+        role = "convention"
+        create_venue(
+            venue_id=venue_id,
+            venue_name="Dice Tower West Attendee",
+            email=email,
+            password_hash=pw_hash,
+            role=role,
+            source="dicetower2026",
+            expires_at=CONVENTION_EXPIRY,
+        )
+        expires_at = CONVENTION_EXPIRY
+
+    # Give convention/trial users the limited library
+    limited = search_limited_library()
+    limited_ids = [g["game_id"] for g in limited]
+    set_venue_collection(venue_id, limited_ids)
+
+    token = create_token(venue_id, "Dice Tower West Attendee", role=role)
+    return {
+        "token": token,
+        "venue_id": venue_id,
+        "venue_name": "Dice Tower West Attendee",
+        "role": role,
+        "expires_at": expires_at,
     }

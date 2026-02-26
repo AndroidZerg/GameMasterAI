@@ -3,83 +3,104 @@
   "title": "Chess",
   "aliases": ["International Chess", "Western Chess"],
   "publisher": "Public Domain",
-  "player_count": {"min": 2, "max": 2, "recommended": 2},
-  "play_time_minutes": {"min": 10, "max": 180},
+  "public_domain": true,
+  "publisher_approved": false,
+  "player_count": {
+    "min": 2,
+    "max": 2,
+    "recommended": 2,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 10,
+    "max": 180
+  },
   "complexity": "midweight",
   "categories": ["abstract-strategy", "perfect-information", "classic"],
-  "source_url": "https://www.fide.com/FIDE/handbook",
-  "source_verified": false,
+  "source_url": "https://handbook.fide.com/chapter/E012023",
+  "source_verified": true,
+
   "tabs": {
     "setup": {
       "subtopics": [
         {
           "id": "components",
-          "title": "Components",
-          "content": "- **1** chessboard (8×8 grid of alternating light and dark squares)\n- **16** white pieces: 1 King, 1 Queen, 2 Rooks, 2 Bishops, 2 Knights, 8 Pawns\n- **16** black pieces: 1 King, 1 Queen, 2 Rooks, 2 Bishops, 2 Knights, 8 Pawns\n- **Optional** — Chess clock for timed games"
+          "title": "What's in the Box",
+          "content": "1 chessboard (8x8 grid of alternating light and dark squares). 16 white pieces: 1 King, 1 Queen, 2 Rooks, 2 Bishops, 2 Knights, 8 Pawns. 16 black pieces: 1 King, 1 Queen, 2 Rooks, 2 Bishops, 2 Knights, 8 Pawns. Total: 32 pieces and 1 board. Optional: 1 chess clock for timed play."
         },
         {
-          "id": "board-setup",
-          "title": "Board Setup",
-          "content": "1. **Orient board** — Place board so each player has a light square in their right-hand corner.\n2. **Back rank (row 1 for White, row 8 for Black)** — From left to right: Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook.\n3. **Queen placement** — Queen goes on her own color (white queen on light square, black queen on dark square).\n4. **Pawns** — Place all 8 pawns on the second rank (row 2 for White, row 7 for Black)."
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Orient the board so each player has a light-colored square in their near-right corner. Columns are labeled a through h from White's left; rows are labeled 1 through 8 from White's side. White's pieces occupy rows 1 and 2. Black's pieces occupy rows 7 and 8."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "- **White moves first** — The player with the white pieces always takes the first turn.\n- **Determine colors** — Typically decided by mutual agreement, coin flip, or tournament pairing.\n- **Clock settings** (if timed) — Set equal time for both players."
+          "content": "Each player arranges their 16 pieces. Back rank (row 1 for White, row 8 for Black) from left to right: Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook. The queen always goes on her own color — the white queen starts on a light square, the black queen starts on a dark square. This is the single most important setup rule to remember. Place all 8 pawns on the row directly in front of the back rank (row 2 for White, row 7 for Black)."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "White always moves first. Colors are determined by mutual agreement, coin flip, or tournament assignment. In casual play, players often alternate colors between games."
         }
       ]
     },
     "rules": {
       "subtopics": [
         {
-          "id": "overview",
-          "title": "Game Overview",
-          "content": "Chess is a two-player abstract strategy game played on an 8×8 board. The objective is to checkmate the opponent's King — placing it under attack with no legal escape."
-        },
-        {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "- Players alternate turns, starting with White.\n- On each turn, a player must make exactly one legal move.\n- A move consists of moving one piece to a new square according to that piece's movement rules.\n- Capturing an opponent's piece removes it from the board."
+          "content": "Players alternate turns, beginning with White. On each turn you must make exactly one legal move — you move one of your pieces to a different square according to that piece's movement rules. If a piece lands on a square occupied by an opponent's piece, the opponent's piece is captured and removed from the board. You may never skip a turn or pass."
         },
         {
-          "id": "piece-movement",
+          "id": "actions",
           "title": "Piece Movement",
-          "content": "#### King\n- Moves exactly 1 square in any direction (horizontal, vertical, diagonal).\n- Cannot move into check (a square attacked by an opponent's piece).\n\n#### Queen\n- Moves any number of squares in any direction (horizontal, vertical, diagonal).\n- Cannot jump over other pieces.\n\n#### Rook\n- Moves any number of squares horizontally or vertically.\n- Cannot jump over other pieces.\n\n#### Bishop\n- Moves any number of squares diagonally.\n- Cannot jump over other pieces. Each bishop stays on its starting color.\n\n#### Knight\n- Moves in an L-shape: 2 squares in one direction + 1 square perpendicular.\n- **Only piece that can jump** over other pieces.\n\n#### Pawn\n- Moves 1 square forward (toward opponent's side). Cannot move backward.\n- **First move** — May optionally move 2 squares forward.\n- **Captures** — Diagonally forward 1 square only.\n- **Promotion** — Upon reaching the 8th rank, must promote to Queen, Rook, Bishop, or Knight.\n- **En passant** — If an opponent's pawn advances 2 squares and lands beside your pawn, you may capture it as if it moved only 1 square (must be done immediately)."
+          "content": "KING: Moves exactly 1 square in any direction — horizontally, vertically, or diagonally. The King may never move into a square that is attacked by an opponent's piece.\n\nQUEEN: Moves any number of squares in any straight line — horizontally, vertically, or diagonally. Cannot jump over other pieces. The most powerful piece on the board.\n\nROOK: Moves any number of squares horizontally or vertically. Cannot jump. Rooks become especially strong on open files (columns with no pawns).\n\nBISHOP: Moves any number of squares diagonally. Cannot jump. Each bishop is locked to its starting square color for the entire game — one bishop always stays on light squares, the other on dark squares.\n\nKNIGHT: Moves in an L-shape — 2 squares in one direction then 1 square perpendicular, or vice versa. The Knight is the only piece that can jump over other pieces, making it especially tricky in crowded positions.\n\nPAWN: Moves 1 square straight forward (never backward or sideways). On its very first move, a pawn may optionally advance 2 squares forward. Pawns capture differently from how they move — they capture 1 square diagonally forward. When a pawn reaches the opposite end of the board (the 8th rank), it must immediately promote to a Queen, Rook, Bishop, or Knight of the same color."
         },
         {
-          "id": "special-rules",
+          "id": "special-mechanics",
           "title": "Special Rules",
-          "content": "#### Check\n- A King is in check when attacked by an opponent's piece.\n- The player in check must escape: move the King, block the attack, or capture the attacker.\n\n#### Castling\n- King moves 2 squares toward a Rook; that Rook jumps to the other side of the King.\n- **Conditions**: Neither piece has moved; no pieces between them; King not in check, doesn't pass through or land in check.\n- **Kingside** (short castle) — King goes 2 right, Rook goes 2-3 left.\n- **Queenside** (long castle) — King goes 2 left, Rook goes 2-3 right.\n\n#### Draw Conditions\n- **Stalemate** — Player to move has no legal moves but is not in check.\n- **Threefold repetition** — Same position occurs 3 times with same player to move.\n- **50-move rule** — 50 consecutive moves by each player with no capture or pawn move.\n- **Insufficient material** — Neither side can possibly checkmate (e.g., King vs King).\n- **Agreement** — Both players agree to a draw."
+          "content": "CHECK: When a piece attacks the opponent's King, the King is in check. The checked player must immediately respond by moving the King to a safe square, blocking the attack with another piece, or capturing the attacking piece. No other move is legal while in check.\n\nCASTLING: A special move involving the King and one Rook. The King slides 2 squares toward a Rook, and that Rook jumps to the square the King crossed. Kingside castling moves the King 2 squares right; queenside castling moves it 2 squares left. Castling requires: neither the King nor that Rook has moved previously, no pieces stand between them, the King is not currently in check, and the King does not pass through or land on a checked square.\n\nEN PASSANT: If your opponent advances a pawn 2 squares from its starting position and it lands directly beside one of your pawns, you may capture it as though it had moved only 1 square. This capture must be made on the very next move or the right is lost.\n\nDRAW CONDITIONS: The game is drawn by stalemate (player to move has no legal moves but is not in check), threefold repetition (same position occurs three times with the same player to move), the fifty-move rule (50 consecutive moves by each side with no capture or pawn advance), insufficient material (neither side can possibly checkmate — for example King versus King, or King and Bishop versus King), or mutual agreement."
         },
         {
           "id": "endgame",
-          "title": "Scoring and Endgame",
-          "content": "#### Checkmate\n- The King is in check and has no legal move to escape. The checkmating player wins.\n\n#### Resignation\n- A player may resign at any time, conceding the game.\n\n#### Tournament Scoring\n- Win: 1 point, Draw: 0.5 points, Loss: 0 points."
+          "title": "Endgame & Scoring",
+          "content": "CHECKMATE ends the game immediately. A King is checkmated when it is in check and there is no legal move that escapes the check — no safe square, no block, no capture of the attacker. The player who delivers checkmate wins. A player may also resign at any time, conceding the game. In tournament play, scoring is: 1 point for a win, 0.5 points for a draw, 0 points for a loss."
         }
       ]
     },
     "strategy": {
       "subtopics": [
         {
-          "id": "beginner-tips",
-          "title": "Beginner Tips",
-          "content": "- **Control the center** — Place pawns and pieces to control e4, d4, e5, d5.\n- **Develop pieces early** — Move knights and bishops out before making many pawn moves.\n- **Castle early** — Get your King to safety and connect your Rooks.\n- **Don't bring the Queen out too early** — She can be chased by developing enemy pieces.\n- **Count attackers vs defenders** — Before capturing, ensure you won't lose material."
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Move a center pawn (the one in front of your King or Queen) forward two squares on your first move — this immediately contests the center of the board. In your next few moves, bring out your Knights and Bishops (called developing your pieces) before doing anything else. Castle as soon as your Knight and Bishop are out of the way — this tucks your King behind a wall of pawns where it is much safer. Resist the temptation to bring your Queen out early; she will get chased around by your opponent's developing pieces and you will waste turns."
         },
         {
-          "id": "key-strategies",
-          "title": "Key Strategies",
-          "content": "- **Piece value** — Queen ≈ 9, Rook ≈ 5, Bishop ≈ 3, Knight ≈ 3, Pawn ≈ 1.\n- **Forks and pins** — Use tactics to attack two pieces at once or pin pieces to the King.\n- **Open files for Rooks** — Rooks are strongest on files with no pawns.\n- **Bishop pair advantage** — Two bishops together are powerful on an open board.\n- **Pawn structure** — Avoid doubled, isolated, and backward pawns when possible.\n- **Endgame knowledge** — Learn basic King + Rook vs King and King + Pawn endgames."
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "MOVING THE SAME PIECE TWICE: Every move you spend shuffling one piece is a move you did not use to develop another piece. Get all your minor pieces (Knights and Bishops) into the game before repositioning.\n\nIGNORING PIECE VALUES: Pieces have approximate relative values — Queen is worth about 9 points, Rook about 5, Bishop and Knight about 3 each, and Pawns are worth 1. Trading your Rook (5) for a Knight (3) loses you material unless you get something else in return.\n\nLEAVING THE KING IN THE CENTER: An uncastled King stuck in the middle of the board is a target. Castle early to get the King to safety.\n\nNOT LOOKING AT YOUR OPPONENT'S LAST MOVE: Before deciding your move, always ask yourself what your opponent's last move threatened. Many beginners lose pieces simply because they did not notice a threat.\n\nPUSHING TOO MANY PAWNS: Pawns cannot move backward. Every pawn push creates permanent weaknesses behind it. Move pawns with a purpose, not just because you are unsure what else to do."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "FORKS: A fork is when one piece attacks two enemy pieces simultaneously. Knights are especially good at forking because of their unusual L-shaped movement. When your Knight attacks both the opponent's King and Rook at the same time, they must save the King, and you capture the Rook.\n\nPINS: A pin occurs when an attacking piece threatens a piece that cannot move without exposing a more valuable piece behind it. For example, a Bishop aiming at a Knight that stands in front of the King — the Knight is pinned because moving it would expose the King to check.\n\nCONTROLLING THE CENTER: The four center squares (d4, d5, e4, e5) are the most important squares on the board. Pieces placed in or near the center control more squares and can reach either side of the board quickly. Aim to occupy or influence these squares throughout the game."
         }
       ]
     }
   },
+
+  "total_token_count": 1750,
+  "extensions": {},
+
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "barbarian",
-    "created_at": "2026-02-24T00:00:00Z",
+    "created_at": "2026-02-25T12:30:00Z",
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
     "revision": 1,
-    "notes": ""
+    "notes": "Public domain game for Dice Tower West demo. Strategy section targets complete beginners who have never played. Source: FIDE Laws of Chess (2023 edition). All content original — no rulebook text reproduced."
   }
 }

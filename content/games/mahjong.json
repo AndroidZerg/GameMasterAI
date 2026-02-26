@@ -1,0 +1,106 @@
+{
+  "game_id": "mahjong",
+  "title": "Mahjong",
+  "aliases": ["Majiang", "Mah-Jongg", "Chinese Mahjong", "Standard Mahjong"],
+  "publisher": "Public Domain",
+  "public_domain": true,
+  "publisher_approved": false,
+  "player_count": {
+    "min": 4,
+    "max": 4,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 90,
+    "max": 180
+  },
+  "complexity": "heavy",
+  "categories": ["tile-game", "set-collection", "hand-management", "classic"],
+  "source_url": "https://www.worldmahjong.com/en/rules/",
+  "source_verified": true,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "144 tiles total, divided into the following groups:\n\nSUITED TILES (108 tiles): 3 suits of 9 ranks each, with 4 copies of every tile. Bamboo (also called Sticks) — tiles numbered 1 through 9, 4 of each (36 tiles). Characters (also called Myriads or Wan) — tiles numbered 1 through 9, 4 of each (36 tiles). Dots (also called Circles or Tong) — tiles numbered 1 through 9, 4 of each (36 tiles).\n\nHONOR TILES (28 tiles): Wind tiles — East, South, West, North, 4 of each (16 tiles). Dragon tiles — Red Dragon (Zhong), Green Dragon (Fa), White Dragon (Bai), 4 of each (12 tiles).\n\nBONUS TILES (8 tiles): 4 Flower tiles (numbered 1-4). 4 Season tiles (numbered 1-4). Bonus tiles are set aside when drawn and replaced.\n\n2 dice. Scoring sticks or chips for keeping score (denominations vary by set). Optional: wind indicator disc to mark the current prevailing wind."
+        },
+        {
+          "id": "board-layout",
+          "title": "Building the Wall",
+          "content": "Shuffle all 144 tiles face-down on the table. Each player builds a section of the wall: arrange tiles face-down in a row 2 tiles high, 18 tiles long (some sets use 17 tiles long if bonus tiles are excluded). Push the four wall sections together to form a hollow square in the center of the table. This square is called the wall."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Assign seat winds: roll dice to determine who is East. Seat positions going counterclockwise are East, South, West, North. East is the dealer for the first hand. East rolls the dice again to determine where to break the wall — count that many tiles from the right end of East's wall section and separate the wall at that point. Starting from the break, deal tiles counterclockwise: each player takes 4 tiles at a time (2 stacks of 2) for three rounds, then 1 more tile each. East (the dealer) takes 1 extra tile, giving East 14 tiles and all other players 13 tiles."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "Before play begins, all players check for bonus tiles (Flowers and Seasons) in their hand. Declare any bonus tiles, place them face-up in front of you, and draw replacement tiles from the back end of the wall (called the dead wall). East begins the game by discarding one tile from their 14-tile hand, reducing to 13. Play then continues counterclockwise."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "Play moves counterclockwise. On your turn you first draw one tile from the open end of the wall (adding it to your hand to make 14 tiles), then you discard one tile face-up into the center of the table. Your turn is: draw one, discard one. Your goal each turn is to move your hand closer to a complete winning combination of 14 tiles. Between turns, any player may interrupt the normal order to claim a discard — this is what makes Mahjong dynamic and interactive."
+        },
+        {
+          "id": "actions",
+          "title": "Melds and Claims",
+          "content": "A winning hand consists of 4 melds plus 1 pair (4 sets of 3 tiles plus 2 matching tiles). The three types of melds are:\n\nCHOW (sequence): 3 consecutive tiles of the same suit — for example, 2-3-4 of Bamboo. You can only call Chow on the discard of the player immediately to your left (the player whose turn comes just before yours). Honor tiles and bonus tiles cannot form Chows.\n\nPUNG (triplet): 3 identical tiles — for example, three 7 of Dots or three East Wind. You can call Pung on any player's discard, regardless of seating position. When you call Pung, you reveal the 3 tiles face-up in front of you and then discard a tile. Play resumes counterclockwise from your seat.\n\nKONG (quadruplet): 4 identical tiles. A Kong can be formed three ways: Exposed Kong — you hold 3 identical tiles and a player discards the fourth; claim it and reveal all 4 face-up. Concealed Kong — you draw the fourth matching tile yourself; declare it and place all 4 tiles face-down (it stays hidden). Added Kong — you already have an exposed Pung and you draw the fourth tile; add it to the existing Pung. After any Kong, draw a replacement tile from the dead wall before discarding.\n\nCLAIM PRIORITY: If multiple players want the same discard, priority is: Mahjong (winning claim) beats everything, Kong and Pung beat Chow. If two players claim for the same type, the player closest in turn order (counterclockwise from the discarder) has priority.\n\nPAIR (eyes): The final element of a winning hand is a pair — 2 identical tiles. The pair is not a meld and is not revealed until you declare a win."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Winning and Scoring Patterns",
+          "content": "DECLARING MAHJONG: When your hand is complete (4 melds and 1 pair), declare Mahjong. You can complete your hand by drawing the winning tile yourself from the wall (called self-drawn or Zimo) or by claiming another player's discard (called winning on a discard or Hu). A self-drawn win typically scores higher.\n\nMINIMUM SCORING REQUIREMENT: In standard Chinese Mahjong, a winning hand must reach a minimum number of fan (scoring points) to be valid — typically 8 fan under MCR (Mahjong Competition Rules) or a simpler minimum in casual play. Hands that are technically complete but fail to reach the minimum are not valid wins.\n\nCOMMON SCORING PATTERNS (selected examples): All Chows — hand contains only Chow melds and a pair (low value). All Pungs — hand contains only Pung/Kong melds and a pair. Mixed One Suit — all tiles from one suit plus honor tiles. Pure One Suit (Qingyise) — all tiles from a single suit with no honors (high value). All Honors — hand contains only Wind and Dragon tiles. Thirteen Orphans (Shisanyao) — one of each of the 13 terminal and honor tiles plus one duplicate (special hand, very high value). Seven Pairs — 7 distinct pairs instead of the standard 4 melds plus 1 pair (special hand structure).\n\nFLOWERS AND SEASONS: Bonus tiles score extra fan if they correspond to your seat wind. Flower 1 and Season 1 correspond to East, 2 to South, 3 to West, 4 to North. Having all 4 Flowers or all 4 Seasons scores a significant bonus.\n\nPREVAILING WIND AND SEAT WIND: The round has a prevailing wind (East in the first round, then South, West, North). A Pung of the prevailing wind scores bonus fan. A Pung of your own seat wind also scores bonus fan. These stack — if your seat wind matches the prevailing wind, a Pung of that wind scores double the bonus."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "A hand ends when a player declares Mahjong or when the wall runs out of tiles (a draw, called a dead hand or Huang Zhuang).\n\nSCORING AFTER A WIN: The winner calculates their fan total based on the patterns in their hand. Each pattern contributes a set number of fan. Fan are then converted to points using a scoring table — higher fan totals yield exponentially more points. The discarder pays the winner (if winning on a discard). In a self-drawn win, all three other players pay. Exact payment amounts depend on the scoring ruleset being used.\n\nDEAD HAND (DRAW): If the wall is exhausted and no one has declared Mahjong, the hand is a draw. No scoring occurs. The deal passes to the next player counterclockwise and a new hand begins.\n\nROUND AND GAME STRUCTURE: A full game consists of multiple rounds. In each round, every player serves as dealer (East) at least once. The prevailing wind advances after each full rotation of the dealership (East round, then South round, then West round, then North round). A complete game of 4 rounds (16 or more hands) can take several hours.\n\nFINAL SCORING: After the agreed number of rounds, the player with the highest cumulative point total wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Look at your initial 13 tiles and identify which suits you have the most of — leaning into your strongest suit gives you the best chance of completing melds. Discard isolated honor tiles early unless you already have a pair or triplet of them, since honors cannot form sequences and single honors are dead weight. Keep pairs — they can become Pungs with one more tile or serve as the pair your winning hand needs. In your first few turns, focus on building toward a realistic hand shape rather than chasing a rare high-scoring pattern."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "CALLING CHOW TOO EARLY: Every time you call Chow (or Pung) on a discard, you expose tiles to all players, revealing your hand direction. Early exposed melds tell opponents what you are collecting and let them avoid discarding tiles you need. Keep your hand concealed as long as possible — concealed hands also score higher.\n\nCHASING IMPOSSIBLE HANDS: If you need a specific single tile to complete a high-scoring pattern and two copies of that tile are already in the discard pile, your odds are poor. Be willing to abandon a beautiful-looking hand for a realistic one. Flexibility wins more often than ambition.\n\nIGNORING DEFENSIVE PLAY: When another player appears close to winning (they have several exposed melds and are drawing and discarding quickly), shift to defensive play. Discard tiles that have already been discarded by others (safe tiles), avoid discarding tiles in the suit they are collecting, and consider breaking up your own hand to avoid feeding them the winning tile.\n\nFORGETTING MINIMUM FAN: Completing 4 melds and a pair is not enough — your hand must meet the minimum fan requirement. A hand of all simple Chows with a non-scoring pair may be complete in shape but invalid as a win. Always count your fan before declaring Mahjong."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "CONCEALED VS. EXPOSED HANDS: Keeping your hand concealed (not calling any discards) preserves flexibility and scores more points but is harder to complete since you only get tiles from the wall. Exposing melds by calling discards accelerates your hand but reveals information and reduces your score. The decision of when to start calling tiles is the central tension of Mahjong strategy.\n\nWHEN TO PLAY DEFENSIVELY: If you estimate another player is one tile from winning (they are tenpai), and your own hand is far from complete, it is often correct to abandon your offensive plan entirely and focus on not discarding their winning tile. A round where nobody wins costs you nothing, but dealing the winning tile costs you the full payment."
+        }
+      ]
+    }
+  },
+
+  "total_token_count": 2400,
+  "extensions": {},
+
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-02-25T12:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Public domain game for Dice Tower West demo. VARIANT: Standard Chinese Mahjong (also known as MCR — Mahjong Competition Rules). This guide does NOT cover American Mahjong (NMJL rules, different tile set, card-based hands), Japanese Riichi Mahjong (different yaku system, riichi declaration mechanic), Hong Kong Old Style, Taiwanese, or any other regional variants. Source: World Mahjong Organisation official rules. All content original — no rulebook text reproduced."
+  }
+}

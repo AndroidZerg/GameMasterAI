@@ -251,13 +251,13 @@ function CartDetail({ cart, setCart, sessionId, onPlaceOrder }) {
             <span style={{ fontWeight: 800, color: "var(--accent)", fontSize: "1.15rem" }}>${subtotal.toFixed(2)}</span>
           </div>
 
-          <button onClick={handlePlace} disabled={placing} style={{
+          <button disabled style={{
             width: "100%", padding: "14px", borderRadius: "12px",
-            background: placing ? "var(--bg-secondary)" : "var(--accent)",
-            color: "#fff", border: "none", fontSize: "1.05rem", fontWeight: 700,
-            cursor: placing ? "default" : "pointer", opacity: placing ? 0.6 : 1,
+            background: "#6b7280",
+            color: "#fff", border: "none", fontSize: "0.95rem", fontWeight: 600,
+            cursor: "not-allowed", opacity: 0.8,
           }}>
-            {placing ? "Placing Order..." : "Place Order"}
+            Ordering available at participating venues.
           </button>
         </>
       )}
@@ -342,6 +342,21 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
         }}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* DEMO Banner — visible for all roles */}
+        <div style={{
+          background: "#6b7280",
+          color: "#fff",
+          textAlign: "center",
+          padding: "8px 16px",
+          fontSize: "0.8rem",
+          fontWeight: 700,
+          letterSpacing: "0.05em",
+          flexShrink: 0,
+          borderRadius: "20px 20px 0 0",
+        }}>
+          DEMO
+        </div>
+
         {/* Header */}
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",

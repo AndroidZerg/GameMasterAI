@@ -36,7 +36,7 @@ export async function fetchGames(search = "", complexity = "") {
   if (search) params.set("search", search);
   if (complexity) params.set("complexity", complexity);
   const url = `${API_BASE}/api/games${params.toString() ? "?" + params : ""}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: getAuthHeaders() });
   return handleResponse(res);
 }
 
@@ -75,6 +75,34 @@ export async function loginVenue(email, password) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
+  });
+  return handleResponse(res);
+}
+
+export async function signupConvention(email, trial = false) {
+  const url = `${API_BASE}/api/auth/signup${trial ? "?trial=true" : ""}`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+  return handleResponse(res);
+}
+
+// ── Meetup toggle (super_admin) ──
+
+export async function fetchMeetupToggle() {
+  const res = await fetch(`${API_BASE}/api/admin/meetup-toggle`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function setMeetupToggle(enabled) {
+  const res = await fetch(`${API_BASE}/api/admin/meetup-toggle`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ enabled }),
   });
   return handleResponse(res);
 }

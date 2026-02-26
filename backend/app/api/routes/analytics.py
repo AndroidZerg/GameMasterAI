@@ -52,8 +52,10 @@ async def ingest_events(batch: EventBatch):
 
 
 @router.get("/api/admin/analytics/snapshot")
-async def analytics_snapshot(venue_id: str = None):
-    """Real-time analytics snapshot from Turso events table."""
+async def analytics_snapshot(venue_id: str = None, venue: dict = Depends(get_current_venue)):
+    """Real-time analytics snapshot from Turso events table. Super admin only."""
+    if venue.get("role") != "super_admin":
+        raise HTTPException(status_code=403, detail="Super admin access required")
     db = get_analytics_db()
     today = datetime.utcnow().strftime("%Y-%m-%d")
     today_start = f"{today}T00:00:00"
@@ -171,5 +173,7 @@ async def track_game_view(req: GameViewRequest, request: Request):
 async def get_analytics_dashboard(
     venue: dict = Depends(get_current_venue),
 ):
-    """Analytics dashboard data for venue owners. Requires auth."""
+    """Analytics dashboard data for venue owners. Super admin only."""
+    if venue.get("role") != "super_admin":
+        raise HTTPException(status_code=403, detail="Super admin access required")
     return get_analytics_summary(venue_id=venue["venue_id"])

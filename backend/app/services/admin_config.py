@@ -182,3 +182,28 @@ def set_staff_picks(venue_id, picks):
         cfg = {}
     cfg["staff_picks"] = picks
     save_venue_config(venue_id if venue_id else "_default", cfg)
+
+
+# ── Meetup Toggle ─────────────────────────────────────────────────
+
+def get_meetup_enabled() -> bool:
+    """Check if the meetup account is currently enabled. Defaults to False."""
+    if not _cache_loaded:
+        load_all()
+    return _cache.get("_system", {}).get("meetup_enabled", False)
+
+
+def set_meetup_enabled(enabled: bool) -> bool:
+    """Set the meetup toggle. Persists to GitHub."""
+    global _cache_loaded
+    if not _cache_loaded:
+        load_all()
+
+    system_cfg = _cache.get("_system", {})
+    system_cfg["meetup_enabled"] = enabled
+    _cache["_system"] = system_cfg
+
+    success = _github_write(_cache)
+    if not success:
+        logger.error("FAILED to persist meetup toggle to GitHub!")
+    return success
