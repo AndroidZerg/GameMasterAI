@@ -30,6 +30,10 @@ CONTENT_DIR = os.getenv("CONTENT_DIR", "../content/games" if _IS_RENDER else "/m
 HEARTBEAT_DIR = os.getenv("HEARTBEAT_DIR", "/mnt/d/GameMasterAI/agents/heartbeat")
 DB_PATH = os.getenv("DB_PATH", "/tmp/games.db" if _IS_RENDER else "/mnt/d/GameMasterAI/backend/games.db")
 
+# ── Telegram — Thai House Orders bot ─────────────────────────────
+THAI_HOUSE_BOT_TOKEN = os.getenv("THAI_HOUSE_BOT_TOKEN", "")
+THAI_HOUSE_CHAT_ID = os.getenv("THAI_HOUSE_CHAT_ID", "")
+
 # ── Auth / JWT ───────────────────────────────────────────────────
 JWT_SECRET = os.getenv("JWT_SECRET", "gmai-dev-secret-change-in-production-2026")
 JWT_ALGORITHM = "HS256"

@@ -149,7 +149,7 @@ function AddToCartBtn({ item, category, cart, setCart, sessionId }) {
 }
 
 /* ── Cart Detail / Checkout ──────────────────────────────── */
-function CartDetail({ cart, setCart, sessionId, onPlaceOrder }) {
+function CartDetail({ cart, setCart, sessionId, onPlaceOrder, customerName, setCustomerName }) {
   const [placing, setPlacing] = useState(false);
   const [placed, setPlaced] = useState(false);
 
@@ -176,9 +176,10 @@ function CartDetail({ cart, setCart, sessionId, onPlaceOrder }) {
   };
 
   const handlePlace = async () => {
+    if (!customerName.trim()) return;
     setPlacing(true);
     try {
-      await onPlaceOrder(cart, subtotal);
+      await onPlaceOrder(cart, subtotal, customerName.trim());
       setCart([]);
       saveCart(sessionId, []);
       setPlaced(true);
@@ -252,13 +253,35 @@ function CartDetail({ cart, setCart, sessionId, onPlaceOrder }) {
             <span style={{ fontWeight: 800, color: "var(--accent)", fontSize: "1.15rem" }}>${subtotal.toFixed(2)}</span>
           </div>
 
-          <button disabled style={{
-            width: "100%", padding: "14px", borderRadius: "12px",
-            background: "#6b7280",
-            color: "#fff", border: "none", fontSize: "0.95rem", fontWeight: 600,
-            cursor: "not-allowed", opacity: 0.8,
-          }}>
-            Ordering available at participating venues.
+          <div style={{ marginBottom: "12px" }}>
+            <label style={{ display: "block", fontWeight: 600, color: "var(--text-primary)", fontSize: "0.9rem", marginBottom: "6px" }}>
+              Your Name <span style={{ color: "var(--accent)" }}>*</span>
+            </label>
+            <input
+              type="text"
+              value={customerName}
+              onChange={(e) => setCustomerName(e.target.value)}
+              placeholder="e.g. Sarah, Table 4"
+              style={{
+                width: "100%", padding: "12px 14px", borderRadius: "10px",
+                border: "1px solid var(--border)", background: "var(--bg-secondary)",
+                color: "var(--text-primary)", fontSize: "0.95rem",
+                outline: "none", boxSizing: "border-box",
+              }}
+            />
+          </div>
+
+          <button
+            disabled={placing || !customerName.trim()}
+            onClick={handlePlace}
+            style={{
+              width: "100%", padding: "14px", borderRadius: "12px",
+              background: placing || !customerName.trim() ? "#6b7280" : "var(--accent)",
+              color: "#fff", border: "none", fontSize: "0.95rem", fontWeight: 600,
+              cursor: placing || !customerName.trim() ? "not-allowed" : "pointer",
+              opacity: placing || !customerName.trim() ? 0.7 : 1,
+            }}>
+            {placing ? "Placing order\u2026" : "Place Order"}
           </button>
         </>
       )}
@@ -274,6 +297,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
   const [showCart, setShowCart] = useState(false);
   const [menu, setMenu] = useState(null);
   const [cart, setCart] = useState(() => loadCart(sessionId));
+  const [customerName, setCustomerName] = useState("");
   const [expansions, setExpansions] = useState([]);
 
   // Load menu data
@@ -308,13 +332,14 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
   const totalItems = cart.reduce((s, c) => s + c.quantity, 0);
   const totalPrice = cart.reduce((s, c) => s + c.price * c.quantity, 0);
 
-  const handlePlaceOrder = async (items, subtotal) => {
+  const handlePlaceOrder = async (items, subtotal, name) => {
     const venueId = localStorage.getItem("gmai_venue_id") || null;
     await placeOrder({
       venue_id: venueId,
       session_id: sessionId || null,
       items,
       total: subtotal,
+      customer_name: name || "",
       submitted_at: new Date().toISOString(),
     });
 
@@ -387,7 +412,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
 
         {showCart ? (
           <div style={{ flex: 1, overflowY: "auto" }}>
-            <CartDetail cart={cart} setCart={setCart} sessionId={sessionId} onPlaceOrder={handlePlaceOrder} />
+            <CartDetail cart={cart} setCart={setCart} sessionId={sessionId} onPlaceOrder={handlePlaceOrder} customerName={customerName} setCustomerName={setCustomerName} />
           </div>
         ) : (
           <>

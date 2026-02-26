@@ -1,7 +1,8 @@
 """Orders endpoints — place orders, admin list, Telegram notification."""
 
+import logging
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException
@@ -9,12 +10,21 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 from app.core.auth import get_current_venue
+from app.core.config import THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID
 from app.models.orders import create_order, get_orders, update_order_status
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["orders"])
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+# Log Thai House bot status on module load
+if THAI_HOUSE_BOT_TOKEN and THAI_HOUSE_CHAT_ID:
+    logger.info("Thai House bot credentials configured — meetup orders will be forwarded")
+else:
+    logger.warning("Thai House bot credentials not configured — meetup orders will not be forwarded")
 
 
 class OrderItem(BaseModel):
@@ -31,18 +41,20 @@ class PlaceOrderRequest(BaseModel):
     items: List[OrderItem]
     total: float
     submitted_at: Optional[str] = None
+    customer_name: Optional[str] = None
 
 
-def _send_telegram_order(session_id: str, items: list, total: float):
-    """Fire-and-forget Telegram notification for new order."""
+def _send_telegram_order(session_id: str, items: list, total: float, customer_name: str = ""):
+    """Fire-and-forget Telegram notification for new order (GMAI Leads bot)."""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         return
     item_lines = "\n".join(
         f"  \u2022 {it['quantity']}x {it['name']} (${it['price']:.2f})"
         for it in items
     )
+    name_line = f"\n\U0001f464 Name: {customer_name}" if customer_name else ""
     text = (
-        f"\U0001f6d2 New Order \u2014 Table Session {session_id or 'walk-in'}\n"
+        f"\U0001f6d2 New Order \u2014 Table Session {session_id or 'walk-in'}{name_line}\n"
         f"{item_lines}\n"
         f"Total: ${total:.2f}"
     )
@@ -54,6 +66,36 @@ def _send_telegram_order(session_id: str, items: list, total: float):
         )
     except Exception:
         pass
+
+
+def _send_thai_house_order(items: list, total: float, customer_name: str = ""):
+    """Fire-and-forget notification to Thai House Orders Telegram bot."""
+    if not THAI_HOUSE_BOT_TOKEN or not THAI_HOUSE_CHAT_ID:
+        return
+    # Pacific Time (Henderson, NV)
+    pt = timezone(timedelta(hours=-8))
+    now_pt = datetime.now(pt).strftime("%I:%M %p PT")
+
+    item_lines = "\n".join(
+        f"  {it['quantity']}x {it['name']} \u2014 ${it['price'] * it['quantity']:.2f}"
+        for it in items
+    )
+    name_display = customer_name or "Guest"
+    text = (
+        f"\U0001f3ae GameMaster Guide \u2014 Table Order\n"
+        f"Henderson Meetup | {now_pt}\n"
+        f"\U0001f464 Name: {name_display}\n\n"
+        f"\U0001f6d2 Order:\n{item_lines}\n\n"
+        f"\U0001f4b0 Total: ${total:.2f}"
+    )
+    try:
+        httpx.post(
+            f"https://api.telegram.org/bot{THAI_HOUSE_BOT_TOKEN}/sendMessage",
+            json={"chat_id": THAI_HOUSE_CHAT_ID, "text": text},
+            timeout=10,
+        )
+    except Exception as e:
+        logger.error(f"Thai House Telegram notification failed: {e}")
 
 
 @router.post("/orders")
@@ -70,14 +112,24 @@ async def place_order(req: PlaceOrderRequest):
         session_id=req.session_id,
         items=items_list,
         total=req.total,
+        customer_name=req.customer_name,
     )
 
-    # Telegram notification (fire-and-forget)
+    # 1. GMAI Leads bot (all orders)
     _send_telegram_order(
         session_id=req.session_id or "",
         items=items_list,
         total=req.total,
+        customer_name=req.customer_name or "",
     )
+
+    # 2. Thai House bot (meetup orders only)
+    if req.venue_id == "meetup":
+        _send_thai_house_order(
+            items=items_list,
+            total=req.total,
+            customer_name=req.customer_name or "",
+        )
 
     return {"order_id": order_id, "success": True}
 

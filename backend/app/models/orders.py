@@ -25,13 +25,18 @@ def init_orders_table():
         conn.commit()
 
 
-def create_order(venue_id: str, session_id: str, items: list, total: float) -> int:
+def create_order(venue_id: str, session_id: str, items: list, total: float, customer_name: str = None) -> int:
     """Insert a new order, return its ID."""
     now = datetime.now(timezone.utc).isoformat()
     with sqlite3.connect(DB_PATH) as conn:
+        # Add customer_name column if it doesn't exist (migration-safe)
+        try:
+            conn.execute("ALTER TABLE orders ADD COLUMN customer_name TEXT DEFAULT ''")
+        except sqlite3.OperationalError:
+            pass  # column already exists
         cur = conn.execute(
-            "INSERT INTO orders (venue_id, session_id, items, total, submitted_at) VALUES (?, ?, ?, ?, ?)",
-            (venue_id or "default", session_id or "", json.dumps(items), round(total, 2), now),
+            "INSERT INTO orders (venue_id, session_id, items, total, customer_name, submitted_at) VALUES (?, ?, ?, ?, ?, ?)",
+            (venue_id or "default", session_id or "", json.dumps(items), round(total, 2), customer_name or "", now),
         )
         conn.commit()
         return cur.lastrowid
