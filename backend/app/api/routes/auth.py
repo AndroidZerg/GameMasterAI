@@ -47,7 +47,10 @@ async def login(req: LoginRequest):
     if not req.email or not req.password:
         raise HTTPException(status_code=400, detail="Email and password required")
 
-    venue = get_venue_by_email(req.email.strip().lower())
+    login_input = req.email.strip().lower()
+    venue = get_venue_by_email(login_input)
+    if not venue:
+        venue = get_venue_by_id(login_input)
     if not venue or not verify_password(req.password, venue["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
