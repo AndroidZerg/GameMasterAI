@@ -172,9 +172,20 @@ export default function LoginPage() {
           </button>
         </form>
 
+        {/* Signup link */}
+        <p style={{
+          textAlign: "center", marginTop: "20px",
+          fontSize: "0.85rem", color: "#64748b",
+        }}>
+          New to GameMaster Guide?{" "}
+          <a href="/signup" style={{ color: "#94a3b8", textDecoration: "underline" }}>
+            Try it free &rarr;
+          </a>
+        </p>
+
         {/* Contact link */}
         <p style={{
-          textAlign: "center", marginTop: "24px",
+          textAlign: "center", marginTop: "8px",
           fontSize: "0.8rem", color: "#64748b",
         }}>
           Questions? Contact{" "}

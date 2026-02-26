@@ -131,7 +131,7 @@ export default function SignupPage() {
             }}
           >
             {loading && <div style={{ width: "16px", height: "16px", border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#fff", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite" }} />}
-            {loading ? "Setting up..." : (isTrial ? "Start Free Trial" : "Try GameMaster Guide Free")}
+            {loading ? "Getting your access..." : (isTrial ? "Start Free Trial \u2192" : "Play Now \u2192")}
           </button>
         </form>
 
@@ -140,11 +140,17 @@ export default function SignupPage() {
           textAlign: "center", marginTop: "24px",
           fontSize: "0.8rem", color: "#64748b",
         }}>
-          {isTrial ? "Cancel anytime. No credit card required." : "Already have an account? "}
-          {!isTrial && (
-            <a href="/login" style={{ color: "#94a3b8", textDecoration: "underline" }}>
-              Sign in
-            </a>
+          {isTrial ? (
+            <>{"Cancel anytime. No credit card required."}</>
+          ) : (
+            <>
+              {"No password needed. Access expires March 22, 2026."}
+              <br />
+              {"Already have an account? "}
+              <a href="/" style={{ color: "#94a3b8", textDecoration: "underline" }}>
+                Sign in
+              </a>
+            </>
           )}
         </p>
       </div>
