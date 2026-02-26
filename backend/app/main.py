@@ -29,6 +29,9 @@ from app.api.routes.score_history import router as score_history_router
 from app.api.routes.menu import router as menu_router
 from app.api.routes.lobby import router as lobby_router
 from app.api.routes.orders import router as orders_router
+from app.api.routes.onboarding import router as onboarding_router
+from app.api.routes.venue_dashboard import router as venue_dashboard_router
+from app.api.routes.crm import router as crm_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -46,6 +49,7 @@ from app.services.turso import init_analytics_tables as init_turso_analytics
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
+from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 
 
 limiter = Limiter(key_func=get_remote_address)
@@ -65,6 +69,7 @@ async def lifespan(app: FastAPI):
     init_house_rules_table()
     init_orders_table()
     init_turso_analytics()
+    run_venue_platform_migrations()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmai2026")
@@ -151,6 +156,11 @@ app.include_router(lobby_router)
 
 # --- Orders ---
 app.include_router(orders_router)
+
+# --- Venue Platform (v1) ---
+app.include_router(onboarding_router)
+app.include_router(venue_dashboard_router)
+app.include_router(crm_router)
 
 # --- Misc ---
 app.include_router(dashboard_router)

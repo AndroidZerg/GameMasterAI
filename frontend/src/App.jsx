@@ -24,6 +24,9 @@ import MenuPage from "./components/MenuPage";
 import JoinPage from "./components/JoinPage";
 import LobbyJoin from "./components/LobbyJoin";
 import LobbyScoreTracker from "./components/LobbyScoreTracker";
+import OnboardingPage from "./pages/OnboardingPage";
+import VenueDashboard from "./pages/VenueDashboard";
+import CRMPage from "./pages/CRMPage";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -95,6 +98,11 @@ function AppShell() {
         <Route path="/admin/collection" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CollectionManagerPage /></ProtectedRoute>} />
         <Route path="/admin/customize" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CustomizeHomePage /></ProtectedRoute>} />
         <Route path="/admin/feedback" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><AdminFeedbackPage /></ProtectedRoute>} />
+        <Route path="/admin/crm" element={<ProtectedRoute allowedRoles={["super_admin"]}><CRMPage /></ProtectedRoute>} />
+        {/* Venue platform routes */}
+        <Route path="/onboarding" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />
+        <Route path="/onboarding/:step" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />
+        <Route path="/venue/dashboard" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><VenueDashboard /></ProtectedRoute>} />
       </Routes>
     </>
   );
