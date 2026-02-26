@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchVenueMenu, placeOrder, API_BASE, fetchExpansions } from "../services/api";
+import { trackOrderPlaced } from "../services/analyticsEvents";
 
 const MOCK_MENU = {
   categories: [
@@ -316,6 +317,9 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
       total: subtotal,
       submitted_at: new Date().toISOString(),
     });
+
+    // Analytics: order placed
+    trackOrderPlaced(venueId, items, Math.round(subtotal * 100));
     // Save order locally
     try {
       const orders = JSON.parse(localStorage.getItem("gmai-orders") || "[]");

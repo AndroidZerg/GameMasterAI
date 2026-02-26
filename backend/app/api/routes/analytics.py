@@ -37,18 +37,36 @@ class EventBatch(BaseModel):
 
 
 @router.post("/api/events")
-async def ingest_events(batch: EventBatch):
-    """Batch-ingest analytics events into Turso/libsql."""
+async def ingest_events(request: Request):
+    """Batch-ingest analytics events into Turso/libsql.
+
+    Accepts either:
+      - EventBatch: {"venue_id": "...", "events": [...]}
+      - Raw array:  [{"event_type": "...", ...}, ...]
+    """
+    body = await request.json()
     db = get_analytics_db()
     count = 0
-    for e in batch.events:
+    now = datetime.now(timezone.utc).isoformat()
+
+    # Normalise: accept raw array or batch object
+    if isinstance(body, list):
+        events = body
+        venue_id = "demo"
+    else:
+        events = body.get("events", [])
+        venue_id = body.get("venue_id", "demo")
+
+    for e in events:
+        et = e.get("event_type", "unknown")
         db.execute(
             "INSERT INTO events (event_type, venue_id, device_id, session_id, game_id, timestamp, payload) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            (e.event_type, batch.venue_id or "demo", e.device_id, e.session_id, e.game_id, e.timestamp, json.dumps(e.payload or {}))
+            (et, venue_id, e.get("device_id", ""), e.get("session_id"), e.get("game_id"),
+             e.get("timestamp", now), json.dumps(e.get("payload") or e.get("properties") or {}))
         )
         count += 1
     db.commit()
-    return {"ingested": count}
+    return {"received": count, "status": "ok"}
 
 
 @router.get("/api/admin/analytics/snapshot")

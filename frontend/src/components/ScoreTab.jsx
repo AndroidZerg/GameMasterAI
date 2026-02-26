@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE, createLobby, getLobbyState, updateLobbyScores, leaveLobby, kickPlayer } from "../services/api";
 import EventTracker from "../services/EventTracker";
+import { trackScoreStarted } from "../services/analyticsEvents";
 
 const PLAYER_COLORS = [
   "#e94560", "#4a90d9", "#2ecc71", "#f39c12", "#9b59b6", "#e67e22",
@@ -455,6 +456,10 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
       setShowTotal(false);
       setRevealed(false);
       setPhase("scoring");
+
+      // Analytics: score tracking started
+      const venueId = localStorage.getItem("gmai_venue_id") || null;
+      trackScoreStarted(venueId, gameId, (data.players || []).length);
     } catch (err) {
       setError(err.message || "Failed to create session");
     } finally {
