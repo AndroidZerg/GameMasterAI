@@ -40,7 +40,7 @@ export default function LoginPage() {
       } else if (msg.includes("not currently active")) {
         setError(msg);
       } else {
-        setError("Invalid email or password");
+        setError("Invalid email/username or password");
       }
       setPassword("");
     } finally {
@@ -98,16 +98,16 @@ export default function LoginPage() {
         }}>
           <div style={{ marginBottom: "16px" }}>
             <label style={{ display: "block", marginBottom: "6px", fontSize: "0.9rem", color: "#94a3b8" }}>
-              Email
+              Email or username
             </label>
             <input
-              type="email"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              autoComplete="email"
-              placeholder="venue@example.com"
-              aria-label="Email address"
+              autoComplete="username"
+              placeholder="Email or username"
+              aria-label="Email or username"
               style={{
                 width: "100%",
                 padding: "12px 14px",
