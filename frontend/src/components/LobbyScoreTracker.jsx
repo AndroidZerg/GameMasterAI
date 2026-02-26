@@ -344,6 +344,7 @@ export default function LobbyScoreTracker() {
         setLocalScores((prev) => {
           const merged = { ...prev };
           for (const [rowKey, rowScores] of Object.entries(remoteScores)) {
+            if (!rowScores || typeof rowScores !== "object") continue;
             if (!merged[rowKey]) {
               merged[rowKey] = { ...rowScores };
             } else {

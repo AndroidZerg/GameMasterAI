@@ -373,6 +373,7 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
         setScores((prev) => {
           const merged = { ...prev };
           for (const [rowKey, rowScores] of Object.entries(remote)) {
+            if (!rowScores || typeof rowScores !== "object") continue;
             if (!merged[rowKey]) {
               merged[rowKey] = { ...rowScores };
             } else {

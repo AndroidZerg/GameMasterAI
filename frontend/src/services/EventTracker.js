@@ -65,7 +65,7 @@ async function flush() {
   queue = [];
 
   try {
-    await fetch(`${API_BASE}/api/events`, {
+    const res = await fetch(`${API_BASE}/api/events`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -73,10 +73,13 @@ async function flush() {
         events: batch
       })
     });
-  } catch (e) {
-    // Put events back in queue on failure
-    queue = [...batch, ...queue];
-    console.warn('EventTracker flush failed:', e);
+    if (!res.ok) {
+      // Analytics endpoint unavailable — drop silently
+      queue = [...batch, ...queue].slice(-MAX_QUEUE_SIZE);
+    }
+  } catch {
+    // Network error — re-queue for next flush, fail silently
+    queue = [...batch, ...queue].slice(-MAX_QUEUE_SIZE);
   }
 }
 
