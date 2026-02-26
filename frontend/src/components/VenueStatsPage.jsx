@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { API_BASE } from "../services/api";
+import { API_BASE, fetchMeetupToggle, setMeetupToggle } from "../services/api";
 
 const MOCK_STATS = {
   today_sessions: 47,
@@ -170,6 +170,26 @@ export default function VenueStatsPage() {
     border: "1px solid var(--border)",
   };
 
+  const [meetupOn, setMeetupOn] = useState(false);
+  const [meetupLoading, setMeetupLoading] = useState(true);
+
+  useEffect(() => {
+    fetchMeetupToggle()
+      .then((data) => setMeetupOn(!!data.enabled))
+      .catch(() => {})
+      .finally(() => setMeetupLoading(false));
+  }, []);
+
+  const handleMeetupToggle = async () => {
+    const next = !meetupOn;
+    setMeetupOn(next);
+    try {
+      await setMeetupToggle(next);
+    } catch {
+      setMeetupOn(!next);
+    }
+  };
+
   const [inquiries, setInquiries] = useState([]);
   const [inquiriesLoading, setInquiriesLoading] = useState(false);
 
@@ -198,6 +218,41 @@ export default function VenueStatsPage() {
   return (
     <div style={{ padding: "70px 20px 40px", maxWidth: "900px", margin: "0 auto" }}>
       <h1 style={{ fontSize: "1.5rem", marginBottom: "16px", color: "var(--text-primary)" }}>Venue Dashboard</h1>
+
+      {/* Meetup Toggle */}
+      {!meetupLoading && (
+        <div style={{
+          background: "var(--bg-card)", borderRadius: "16px", padding: "16px 20px",
+          border: `2px solid ${meetupOn ? "var(--accent)" : "var(--border)"}`,
+          marginBottom: "20px", display: "flex", alignItems: "center", gap: "16px",
+        }}>
+          <span style={{ fontSize: "1.3rem" }}>{"\uD83C\uDFB2"}</span>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: 700, fontSize: "1rem", color: "var(--text-primary)" }}>Meetup Access</div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "2px" }}>
+              {meetupOn
+                ? "ON \u2014 Members can join now"
+                : "OFF \u2014 Access disabled"}
+            </div>
+          </div>
+          <button
+            onClick={handleMeetupToggle}
+            style={{
+              width: "64px", height: "34px", borderRadius: "17px", border: "none",
+              background: meetupOn ? "var(--accent)" : "#4a4a5a",
+              cursor: "pointer", position: "relative", transition: "background 0.2s",
+              flexShrink: 0,
+            }}
+          >
+            <div style={{
+              width: "26px", height: "26px", borderRadius: "50%",
+              background: "#fff", position: "absolute", top: "4px",
+              left: meetupOn ? "34px" : "4px",
+              transition: "left 0.2s",
+            }} />
+          </button>
+        </div>
+      )}
 
       {/* Tabs */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
