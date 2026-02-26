@@ -28,7 +28,17 @@ export async function loginAndGetToken(page: Page, username: string, password: s
  * Logout by clearing localStorage and navigating to login.
  */
 export async function logout(page: Page) {
-  await page.evaluate(() => localStorage.clear());
+  // Navigate to the app domain first to ensure we can access localStorage
+  try {
+    const url = page.url();
+    if (!url.includes('playgmai.com')) {
+      await page.goto(`${BASE_URL}/login`);
+      await page.waitForLoadState('networkidle');
+    }
+    await page.evaluate(() => localStorage.clear());
+  } catch {
+    // Ignore localStorage access errors (cross-origin)
+  }
   await page.goto(`${BASE_URL}/login`);
   await page.waitForLoadState('networkidle');
 }
