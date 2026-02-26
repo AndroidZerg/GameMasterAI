@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { API_BASE, fetchMeetupToggle, setMeetupToggle } from "../services/api";
+import { API_BASE, fetchMeetupToggle, setMeetupToggle, clearRecentlyPlayed } from "../services/api";
 
 const MOCK_STATS = {
   today_sessions: 47,
@@ -190,6 +190,24 @@ export default function VenueStatsPage() {
     }
   };
 
+  const [clearRecentLoading, setClearRecentLoading] = useState(false);
+  const [clearRecentDone, setClearRecentDone] = useState(false);
+
+  const handleClearRecent = async () => {
+    if (!confirm("Clear recently played games for ALL users across ALL venues?")) return;
+    setClearRecentLoading(true);
+    try {
+      await clearRecentlyPlayed();
+      setClearRecentDone(true);
+      // Also clear own localStorage
+      localStorage.removeItem("gmai_recent");
+    } catch {
+      alert("Failed to clear recently played.");
+    } finally {
+      setClearRecentLoading(false);
+    }
+  };
+
   const [inquiries, setInquiries] = useState([]);
   const [inquiriesLoading, setInquiriesLoading] = useState(false);
 
@@ -253,6 +271,33 @@ export default function VenueStatsPage() {
           </button>
         </div>
       )}
+
+      {/* Clear Recently Played */}
+      <div style={{
+        background: "var(--bg-card)", borderRadius: "16px", padding: "16px 20px",
+        border: "1px solid var(--border)", marginBottom: "20px",
+        display: "flex", alignItems: "center", gap: "16px",
+      }}>
+        <span style={{ fontSize: "1.3rem" }}>{"\uD83D\uDD04"}</span>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontWeight: 700, fontSize: "1rem", color: "var(--text-primary)" }}>Recently Played</div>
+          <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "2px" }}>
+            {clearRecentDone ? "Cleared! Clients will reset on next visit." : "Clear recently played list for all users"}
+          </div>
+        </div>
+        <button
+          onClick={handleClearRecent}
+          disabled={clearRecentLoading || clearRecentDone}
+          style={{
+            padding: "8px 16px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
+            background: clearRecentDone ? "#22c55e" : "#ef4444", color: "#fff", border: "none",
+            cursor: (clearRecentLoading || clearRecentDone) ? "not-allowed" : "pointer",
+            opacity: clearRecentLoading ? 0.6 : 1, whiteSpace: "nowrap",
+          }}
+        >
+          {clearRecentLoading ? "Clearing..." : clearRecentDone ? "Done" : "Clear All"}
+        </button>
+      </div>
 
       {/* Tabs */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>

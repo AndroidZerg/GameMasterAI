@@ -107,6 +107,21 @@ export async function setMeetupToggle(enabled) {
   return handleResponse(res);
 }
 
+// ── Clear recently played (super_admin trigger, public read) ──
+
+export async function fetchClearRecentTs() {
+  const res = await fetch(`${API_BASE}/api/admin/clear-recent-ts`);
+  return handleResponse(res);
+}
+
+export async function clearRecentlyPlayed() {
+  const res = await fetch(`${API_BASE}/api/admin/clear-recent`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+  });
+  return handleResponse(res);
+}
+
 // ── Per-venue home config (super_admin) ──
 
 export async function fetchAllVenues() {

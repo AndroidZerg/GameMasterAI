@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, fetchClearRecentTs, API_BASE } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -569,10 +569,30 @@ export default function GameSelector() {
   }, [search]);
 
   useEffect(() => {
-    try {
-      const recent = JSON.parse(localStorage.getItem("gmai_recent") || "[]");
-      setRecentGames(recent);
-    } catch {}
+    // Check if admin triggered a recently-played clear
+    fetchClearRecentTs()
+      .then((data) => {
+        const serverTs = data.clear_recent_ts;
+        const localTs = localStorage.getItem("gmai_recent_cleared_at");
+        if (serverTs && serverTs > (localTs || "")) {
+          localStorage.removeItem("gmai_recent");
+          localStorage.setItem("gmai_recent_cleared_at", serverTs);
+          setRecentGames([]);
+          return;
+        }
+        // Load recent games from localStorage
+        try {
+          const recent = JSON.parse(localStorage.getItem("gmai_recent") || "[]");
+          setRecentGames(recent);
+        } catch {}
+      })
+      .catch(() => {
+        // If endpoint unreachable, just load from localStorage
+        try {
+          const recent = JSON.parse(localStorage.getItem("gmai_recent") || "[]");
+          setRecentGames(recent);
+        } catch {}
+      });
   }, []);
 
   const handleGameClick = (game) => {

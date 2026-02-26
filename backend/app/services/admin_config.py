@@ -234,3 +234,28 @@ def set_meetup_enabled(enabled: bool) -> bool:
         logger.error("FAILED to persist meetup toggle to GitHub — in-memory only")
     # Always return True — in-memory state is updated even if GitHub write fails
     return True
+
+
+# ── Clear Recently Played ────────────────────────────────────────
+
+def get_clear_recent_ts():
+    """Get the timestamp when recently-played was last cleared. Returns str or None."""
+    if not _cache_loaded:
+        load_all()
+    return _cache.get("_system", {}).get("clear_recent_ts")
+
+
+def trigger_clear_recent() -> bool:
+    """Set a timestamp to signal all clients to clear their recently-played list."""
+    global _cache_loaded
+    if not _cache_loaded:
+        load_all()
+
+    system_cfg = _cache.get("_system", {})
+    system_cfg["clear_recent_ts"] = datetime.now(timezone.utc).isoformat()
+    _cache["_system"] = system_cfg
+
+    success = _github_write(_cache)
+    if not success:
+        logger.error("FAILED to persist clear_recent_ts to GitHub — in-memory only")
+    return True

@@ -14,6 +14,7 @@ from app.services.admin_config import (
     get_meetup_enabled, set_meetup_enabled,
     get_featured, set_featured, get_staff_picks, set_staff_picks,
     has_custom_config, delete_venue_config,
+    get_clear_recent_ts, trigger_clear_recent,
 )
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
@@ -194,3 +195,21 @@ async def reset_home_config(target_venue_id: str, venue: dict = Depends(get_curr
         raise HTTPException(status_code=400, detail="Cannot reset global defaults")
     deleted = delete_venue_config(target_venue_id)
     return {"status": "ok", "deleted": deleted}
+
+
+# ── Clear Recently Played (super_admin only) ─────────────────────
+
+@router.get("/clear-recent-ts")
+async def get_clear_recent_timestamp():
+    """Get timestamp of last recently-played clear. Public (all clients check this)."""
+    return {"clear_recent_ts": get_clear_recent_ts()}
+
+
+@router.post("/clear-recent")
+async def clear_recent_games(venue: dict = Depends(get_current_venue)):
+    """Trigger a clear of recently-played games on all clients. Super admin only."""
+    _require_super_admin(venue)
+    success = trigger_clear_recent()
+    if not success:
+        raise HTTPException(status_code=500, detail="Failed to persist clear timestamp")
+    return {"status": "ok", "clear_recent_ts": get_clear_recent_ts()}
