@@ -27,22 +27,22 @@
         {
           "id": "components",
           "title": "What's in the Box",
-          "content": "1 checkerboard (8x8 grid of alternating light and dark squares — the same board used for Chess). 12 dark checkers (one player's pieces). 12 light checkers (the other player's pieces). Total: 24 pieces and 1 board."
+          "content": "You need one checkerboard, which is an eight-by-eight grid of alternating light and dark squares. This is the same board used for chess. You also need twelve dark checkers for one player and twelve light checkers for the other, giving you twenty-four pieces total."
         },
         {
           "id": "board-layout",
           "title": "Board Layout",
-          "content": "Orient the board so that each player has a dark square in their lower-left corner. All play takes place on the dark squares only — the light squares are never used. The board has 32 dark squares arranged in a diagonal pattern."
+          "content": "Place the board so that each player has a dark square in their lower-left corner. Every move in checkers happens on the dark squares only. The light squares are never used at all. There are thirty-two dark squares on the board, and they form a diagonal pattern that your pieces will travel along for the entire game."
         },
         {
           "id": "player-setup",
           "title": "Player Setup",
-          "content": "Each player places their 12 checkers on the dark squares of the three rows closest to them. This fills 12 of the 32 dark squares per player, leaving the two center rows (rows 4 and 5) completely empty. All pieces start as regular men (flat). Kings are created during play."
+          "content": "Each player fills the dark squares of the three rows closest to them with their twelve checkers. That uses up twelve dark squares per side and leaves the two middle rows completely empty. These empty rows are the battlefield where the action begins. Every piece starts the game as a regular man, placed flat on the board. Kings do not exist at the start and are only created during play."
         },
         {
           "id": "starting-conditions",
           "title": "Starting the Game",
-          "content": "The player with the darker-colored pieces moves first. Players then alternate turns. In tournament play, colors alternate between games."
+          "content": "The player with the dark-colored pieces always moves first, and then players alternate turns back and forth. In tournament play, players swap colors between games so that neither side always gets the advantage of moving first."
         }
       ]
     },
@@ -51,22 +51,22 @@
         {
           "id": "turn-structure",
           "title": "Turn Structure",
-          "content": "On your turn you move one piece. Regular men move diagonally forward one square to an empty dark square. If an opponent's piece is diagonally adjacent to your piece and the square beyond it is empty, you must jump over it — this captures the opponent's piece and removes it from the board. If after landing from a jump you can immediately jump again with the same piece, you must continue jumping. A single turn can chain multiple jumps. The critical rule: if any jump is available to you, you must take a jump — you cannot make a regular non-jumping move instead."
+          "content": "On each turn you move exactly one piece. Regular men move diagonally forward one square onto an empty dark square. If a jump is available anywhere on the board, you must take it instead of making a regular move. When you jump, your piece leaps diagonally over an adjacent opponent piece and lands on the empty square beyond it, capturing that opponent piece. If your piece lands and can immediately jump again, you must keep jumping in the same turn. A single turn can chain together several jumps this way. You are never allowed to skip your turn."
         },
         {
           "id": "actions",
           "title": "Actions & Options",
-          "content": "REGULAR MEN: Move diagonally forward only — one square at a time to an adjacent empty dark square. Capture by jumping diagonally forward over an adjacent opponent piece to the empty square beyond. Can chain multiple forward jumps in a single turn.\n\nKINGS: When a regular man reaches the far end of the board (the opponent's back row), it is crowned a King. Mark it by stacking a second checker on top or flipping it. Kings move and capture diagonally in any direction — forward or backward — giving them far greater range and flexibility. A piece that is crowned during a multi-jump sequence stops immediately on the king row — its turn ends and the remaining jumps, if any, are forfeited.\n\nFORCED CAPTURES: Jumping is mandatory. If you can jump, you must jump. If multiple jump options are available on your turn, you may choose which one to take, but you must take one of them. During a multi-jump sequence, you must continue jumping until no more jumps are possible with that piece.\n\nREMOVAL: Captured pieces are removed from the board immediately after each jump in a sequence (not held until the full sequence ends). This matters in multi-jump turns because removing a jumped piece can open or close subsequent jump paths."
+          "content": "Regular men are your basic pieces. They move diagonally forward one square at a time, and they capture by jumping diagonally forward over an opponent piece to the empty square just beyond it. Men can only move and capture in the forward direction, which means toward your opponent's side of the board.\n\nWhen one of your men reaches the farthest row on the opposite side of the board, it becomes a king. You crown it by stacking a second checker on top or flipping it over, depending on your set. Kings are significantly more powerful than men because they can move and capture diagonally in all four directions, both forward and backward. This makes kings excellent at chasing down opponents and controlling the board. A single king can often outmaneuver two or three regular men because of this freedom of movement."
         },
         {
           "id": "special-mechanics",
           "title": "Special Rules",
-          "content": "FORCED CAPTURES: Jumping is mandatory. If any of your pieces can jump, you must jump — you cannot make a non-jumping move instead. If multiple jump options are available, you may choose which one to take, but you must take one. During a multi-jump sequence, you must continue jumping until no more jumps are possible with that piece.\n\nKINGING: When a regular man reaches the opponent's back row (the farthest row from the player), it is crowned a King by stacking a captured piece or spare checker on top. Kings can move and capture diagonally in any direction — both forward and backward. A piece that is crowned during a multi-jump sequence stops immediately — its turn ends even if additional jumps would be available.\n\nCAPTURE REMOVAL: Captured pieces are removed from the board immediately after each individual jump within a multi-jump sequence — not held until the sequence ends. This matters because removing a jumped piece can open or close subsequent jump paths in the same turn."
+          "content": "The forced capture rule is one of the most important rules in checkers. If any of your pieces can make a jump on your turn, you must jump. You are not allowed to make a regular non-jumping move when a capture is available. If you have more than one piece that can jump, or more than one direction to jump, you get to choose which jump to take, but you must take one of them.\n\nKinging during a multi-jump chain has a special rule. If a man reaches the king row in the middle of a chain of jumps, it is crowned immediately and its turn ends right there. The piece does not continue jumping even if additional jumps would have been available. It will move as a king starting on its next turn.\n\nCapture removal timing also matters. Each jumped piece is removed from the board immediately after that individual jump, not after the whole chain finishes. This is important because removing a piece during a chain can open up new squares or block squares that affect whether the remaining jumps in the chain are possible."
         },
         {
           "id": "endgame",
           "title": "Endgame & Scoring",
-          "content": "WIN CONDITIONS: You win by either capturing all 12 of your opponent's pieces, or leaving your opponent with no legal moves on their turn (all remaining pieces are blocked). Both outcomes end the game immediately.\n\nDRAWS: The game is drawn by mutual agreement, or under tournament rules if 40 consecutive moves pass without a capture or a man being crowned King. A draw can also occur when neither player has enough material or positional advantage to force a win — for example, when each player has a single King and neither can corner the other."
+          "content": "You win the game by capturing all twelve of your opponent's pieces or by leaving your opponent with no legal moves on their turn. If all of their remaining pieces are blocked and cannot move or jump, you win immediately.\n\nThe game is a draw if both players agree to one. Under tournament rules, a draw is also declared if forty consecutive moves pass with no capture and no piece being crowned king. A draw can also happen when neither player has enough material or positional strength to force a win, such as when each player has just one king left and neither can trap the other."
         }
       ]
     },
@@ -75,23 +75,23 @@
         {
           "id": "opening-priorities",
           "title": "Opening Priorities",
-          "content": "Move pieces toward the center of the board in the opening. Center pieces have more movement options and more jump opportunities than pieces on the edges. Advance a few pieces forward while keeping your back row intact for as long as possible — your back row pieces prevent your opponent from getting easy Kings. A strong opening advances 2-3 center pieces to rows 4 and 5 while maintaining a solid formation behind them."
+          "content": "In the opening, aim your pieces toward the center of the board. Pieces in the center have more diagonal options and more jump opportunities than pieces stuck on the edges. At the same time, keep your back row intact for as long as you can. Your back row is the last line of defense against your opponent crowning a king, and once those squares are empty your opponent can slip right through. A strong opening plan is to advance two or three pieces to the fourth and fifth rows while keeping solid support behind them so they are not easily picked off."
         },
         {
           "id": "common-mistakes",
           "title": "Common Mistakes",
-          "content": "EMPTYING YOUR BACK ROW TOO EARLY: Your back row is your last line of defense. If you move all your back-row pieces forward, your opponent can slip a piece through to the king row for a free King. Keep at least one or two back-row pieces in place until you are ready to trade them strategically.\n\nIGNORING FORCED CAPTURES: Because jumping is mandatory, your opponent can sometimes force you into bad captures by positioning a sacrifice piece. Before every move, look at what jumps your opponent will be forced to make — and set up positions where their mandatory jump leaves them exposed.\n\nCHASING PIECES AROUND THE BOARD: Do not send a single piece on a solo mission deep into enemy territory. An isolated piece is easy to trap or force into an unfavorable jump. Advance pieces in coordinated groups where they support each other.\n\nNOT THINKING ABOUT KING TRADES: When you have more Kings than your opponent, trade Kings one-for-one whenever you can. Each even trade brings you closer to a winning material advantage. When behind in Kings, avoid trades and look for ways to crown another piece."
+          "content": "The most common beginner mistake is emptying the back row too early. When you move all of your back-row pieces forward, you leave a wide-open path for your opponent to reach your king row and get a free king. Keep at least one or two defenders on that back row until you are ready to give them up on purpose.\n\nAnother frequent error is forgetting about forced captures. Because jumping is mandatory, your opponent can bait you into bad positions by placing a sacrifice piece where you are forced to take it. Before every move, ask yourself what jumps your opponent will be forced to make and look for traps you can set.\n\nBeginners also tend to chase pieces deep into enemy territory with a single unsupported checker. An isolated piece is easy to corner and capture. Move your pieces in coordinated groups so they protect each other.\n\nFinally, when you are ahead in kings, trade them one for one whenever possible. Each even trade increases your relative advantage. When you are behind, avoid trades and look for ways to crown another piece."
         },
         {
           "id": "key-decisions",
           "title": "Key Decisions",
-          "content": "KING STRATEGY: Kings are dramatically more powerful than regular men because they move in all four diagonal directions. Getting a King while your opponent has none is often a decisive advantage. Sacrifice a regular man to get a King if the trade is worth it — one King is typically more valuable than two regular men in the endgame.\n\nFORCED CAPTURE TACTICS: Since jumping is mandatory, you can exploit this rule by offering a sacrifice. Place a piece where your opponent must capture it, and the resulting jump lands them on a square where you can capture two or three of their pieces on your next turn. This two-for-one or three-for-one exchange is the most common tactical pattern in Checkers.\n\nENDGAME TECHNIQUE: When few pieces remain, the board is wide open and Kings dominate. A single King versus a single King is usually a draw — neither can force a capture. Two Kings versus one King is a win if you use them together to restrict the opponent's King into a corner or an edge (called the squeeze). Never separate your Kings in the endgame — they are strongest working together to cut off escape routes.\n\nTHE OPPOSITION: When two Kings face each other on the same diagonal, the player who does not have to move often has the advantage — moving first means giving ground. This concept, called the opposition, is critical in endgame positions. Sometimes the best move is the one that forces your opponent to move their King first."
+          "content": "King strategy is at the heart of competitive checkers. Kings move in all four diagonal directions, making them dramatically stronger than men. Reaching the king row while your opponent has no kings is often a game-winning advantage. It is frequently worth sacrificing a regular man if it lets you crown a piece, because one king is often more valuable than two men in the late game.\n\nForced capture tactics are the bread and butter of checkers combinations. Because your opponent must jump whenever possible, you can offer a sacrifice piece that forces them to land on a square where you can jump two or even three of their pieces on your next turn. Learning to spot these two-for-one and three-for-one exchanges is the fastest way to improve.\n\nIn the endgame, kings rule the board. A single king against a single king is usually a draw because neither can force a capture. Two kings against one, however, is a win if you use them together to squeeze the lone king into a corner or along an edge. Never separate your kings in the endgame because their power comes from working as a team to cut off escape routes.\n\nThe opposition is a subtle but critical endgame concept. When two kings face each other on the same diagonal, the player who must move first is at a disadvantage because moving means giving ground. Sometimes the strongest play is the one that hands the move to your opponent and forces their king to retreat first."
         }
       ]
     }
   },
 
-  "total_token_count": 1400,
+  "total_token_count": 2100,
   "extensions": {},
 
   "metadata": {
@@ -101,7 +101,7 @@
     "validated_by": null,
     "validated_at": null,
     "validation_status": "pending",
-    "revision": 1,
-    "notes": "Public domain game for Dice Tower West demo. Covers standard American/English Checkers (8x8 board, forced captures). Strategy section enriched with king strategy, forced capture tactics, and endgame technique per ticket requirements. Source: World Checkers/Draughts Federation official rules. All content original — no rulebook text reproduced."
+    "revision": 2,
+    "notes": "Content rewritten to production quality. American Checkers (8x8 board, forced captures). Source: ACF Official Rules. Redundancy between actions and special-mechanics resolved."
   }
 }
