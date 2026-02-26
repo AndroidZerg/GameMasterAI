@@ -128,14 +128,40 @@ def load_all():
     return _cache
 
 
-def get_venue_config(venue_id=None):
-    """Get config for a venue. Falls back to _default."""
+def get_venue_config(venue_id=None, role=None):
+    """Get config for a venue. Falls back to role-based key, then _default."""
     if not _cache_loaded:
         load_all()
 
+    # 1. Exact venue_id match
     if venue_id and venue_id in _cache:
         return _cache[venue_id]
+    # 2. Role-based fallback (e.g. convention accounts with conv-xxx IDs)
+    if role and role in _cache:
+        return _cache[role]
     return _cache.get("_default", HARDCODED_DEFAULTS["_default"])
+
+
+def has_custom_config(venue_id):
+    """Check if a venue has its own custom config (not using defaults)."""
+    if not _cache_loaded:
+        load_all()
+    return venue_id in _cache and venue_id not in ("_default", "_system")
+
+
+def delete_venue_config(venue_id):
+    """Remove custom config for a venue, reverting to defaults."""
+    global _cache_loaded
+    if not _cache_loaded:
+        load_all()
+
+    if venue_id in _cache and venue_id not in ("_default", "_system"):
+        del _cache[venue_id]
+        success = _github_write(_cache)
+        if not success:
+            logger.error(f"FAILED to persist config deletion for '{venue_id}' to GitHub — in-memory only")
+        return True
+    return False
 
 
 def save_venue_config(venue_id, config):
@@ -154,8 +180,8 @@ def save_venue_config(venue_id, config):
     return success
 
 
-def get_featured(venue_id=None):
-    cfg = get_venue_config(venue_id)
+def get_featured(venue_id=None, role=None):
+    cfg = get_venue_config(venue_id, role=role)
     return cfg.get("featured", {"mode": "manual", "game_id": "wingspan"})
 
 
@@ -169,8 +195,8 @@ def set_featured(venue_id, featured_config):
     save_venue_config(venue_id if venue_id else "_default", cfg)
 
 
-def get_staff_picks(venue_id=None):
-    cfg = get_venue_config(venue_id)
+def get_staff_picks(venue_id=None, role=None):
+    cfg = get_venue_config(venue_id, role=role)
     return cfg.get("staff_picks", HARDCODED_DEFAULTS["_default"]["staff_picks"])
 
 

@@ -119,9 +119,10 @@ async def staff_picks_games(
 ):
     """Return full game data for staff-picked games. Per-venue admin config -> venue DB -> default."""
     venue_id = venue["venue_id"] if venue else None
+    venue_role = venue.get("role") if venue else None
 
-    # 1. Check admin config for this venue (or _default)
-    picks = get_admin_staff_picks(venue_id)
+    # 1. Check admin config for this venue (or _default), with role-based fallback
+    picks = get_admin_staff_picks(venue_id, role=venue_role)
 
     # 2. Fall back to venue-specific DB picks
     if not picks and venue_id:
@@ -152,9 +153,10 @@ async def featured_game(
     games_map = {g["game_id"]: g for g in games}
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     venue_id = venue["venue_id"] if venue else None
+    venue_role = venue.get("role") if venue else None
 
-    # Check per-venue admin config for manual override
-    featured_cfg = get_featured(venue_id)
+    # Check per-venue admin config for manual override (with role-based fallback)
+    featured_cfg = get_featured(venue_id, role=venue_role)
     if featured_cfg.get("mode") == "manual" and featured_cfg.get("game_id"):
         manual_id = featured_cfg["game_id"]
         if manual_id in games_map:

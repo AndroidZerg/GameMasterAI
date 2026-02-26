@@ -107,6 +107,42 @@ export async function setMeetupToggle(enabled) {
   return handleResponse(res);
 }
 
+// ── Per-venue home config (super_admin) ──
+
+export async function fetchAllVenues() {
+  const res = await fetch(`${API_BASE}/api/admin/venues`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchVenueHomeConfig(venueId) {
+  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function saveVenueHomeConfig(venueId, { featured, staffPicks }) {
+  const body = {};
+  if (featured !== undefined) body.featured = featured;
+  if (staffPicks !== undefined) body.staff_picks = staffPicks;
+  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify(body),
+  });
+  return handleResponse(res);
+}
+
+export async function resetVenueHomeConfig(venueId) {
+  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
+    method: "DELETE",
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
 // ── Admin endpoints (auth required) ──
 
 export async function saveVenueSettings(settings) {

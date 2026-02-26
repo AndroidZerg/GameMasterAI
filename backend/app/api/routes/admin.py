@@ -9,8 +9,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from app.core.auth import get_current_venue
-from app.models.venues import update_venue_config, get_venue_by_id, set_venue_collection, get_venue_collection
-from app.services.admin_config import get_meetup_enabled, set_meetup_enabled
+from app.models.venues import update_venue_config, get_venue_by_id, set_venue_collection, get_venue_collection, get_all_venues
+from app.services.admin_config import (
+    get_meetup_enabled, set_meetup_enabled,
+    get_featured, set_featured, get_staff_picks, set_staff_picks,
+    has_custom_config, delete_venue_config,
+)
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
@@ -129,3 +133,64 @@ async def set_meetup_toggle(req: MeetupToggleRequest, venue: dict = Depends(get_
     if not success:
         raise HTTPException(status_code=500, detail="Failed to persist meetup toggle")
     return {"meetup_enabled": req.enabled, "saved": True}
+
+
+# ── Venues list (super_admin only) ──────────────────────────────
+
+@router.get("/venues")
+async def list_venues(venue: dict = Depends(get_current_venue)):
+    """List all venue accounts for the venue selector dropdown. Super admin only."""
+    _require_super_admin(venue)
+    all_v = get_all_venues()
+    return [
+        {"venue_id": v["venue_id"], "venue_name": v["venue_name"], "role": v.get("role", "venue_admin")}
+        for v in all_v
+    ]
+
+
+# ── Per-venue home config (super_admin only) ────────────────────
+
+class HomeConfigRequest(BaseModel):
+    featured: Optional[dict] = None
+    staff_picks: Optional[list[str]] = None
+
+
+@router.get("/home-config/{target_venue_id}")
+async def get_home_config(target_venue_id: str, venue: dict = Depends(get_current_venue)):
+    """Get featured + staff_picks config for a specific venue. Super admin only."""
+    _require_super_admin(venue)
+    # Use _default key for global defaults
+    lookup_id = None if target_venue_id == "_default" else target_venue_id
+    featured = get_featured(lookup_id)
+    picks = get_staff_picks(lookup_id)
+    is_custom = has_custom_config(target_venue_id)
+    return {
+        "venue_id": target_venue_id,
+        "featured": featured,
+        "staff_picks": picks,
+        "is_custom": is_custom,
+    }
+
+
+@router.post("/home-config/{target_venue_id}")
+async def save_home_config(target_venue_id: str, req: HomeConfigRequest, venue: dict = Depends(get_current_venue)):
+    """Save featured + staff_picks for a specific venue. Super admin only."""
+    _require_super_admin(venue)
+    venue_key = target_venue_id if target_venue_id != "_default" else None
+    if req.featured is not None:
+        set_featured(venue_key, req.featured)
+    if req.staff_picks is not None:
+        if len(req.staff_picks) > 10:
+            raise HTTPException(status_code=400, detail="Maximum 10 staff picks allowed")
+        set_staff_picks(venue_key, req.staff_picks)
+    return {"status": "ok", "venue_id": target_venue_id}
+
+
+@router.delete("/home-config/{target_venue_id}")
+async def reset_home_config(target_venue_id: str, venue: dict = Depends(get_current_venue)):
+    """Remove custom config for a venue, reverting to global defaults. Super admin only."""
+    _require_super_admin(venue)
+    if target_venue_id == "_default":
+        raise HTTPException(status_code=400, detail="Cannot reset global defaults")
+    deleted = delete_venue_config(target_venue_id)
+    return {"status": "ok", "deleted": deleted}
