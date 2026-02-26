@@ -120,6 +120,11 @@ function classifyParagraph(text) {
         const numMatch = numberedLines[0].trim().match(/^(\d+)[\).]/);
         return { type: "subheader-numbered", header: headerText, items: numberedLines.map((l) => l.trim().replace(/^\d+[\).]\s*/, "")), startNum: numMatch ? parseInt(numMatch[1], 10) : 1, raw: trimmed };
       }
+      // Plain text after header (no bullets or numbers)
+      const textLines = restLines.filter((l) => l.trim());
+      if (textLines.length > 0) {
+        return { type: "subheader-text", header: headerText, body: textLines.map((l) => l.trim()).join(" "), raw: trimmed };
+      }
     }
     return { type: "sub-header", text: headerText, raw: trimmed };
   }
@@ -248,6 +253,15 @@ function FormattedContent({ content }) {
               <ol start={block.startNum} style={{ margin: "4px 0 8px 0", paddingLeft: "24px", listStyleType: "decimal" }}>
                 {block.items.map((item, j) => (<li key={j} style={{ marginBottom: "6px", lineHeight: 1.6 }}><InlineMarkdown text={item} /></li>))}
               </ol>
+            </div>
+          );
+        }
+
+        if (block.type === "subheader-text") {
+          return (
+            <div key={i}>
+              <h4 style={{ margin: "16px 0 6px 0", fontSize: "0.95rem", fontWeight: 700, color: "var(--text-secondary)", borderBottom: "1px solid var(--border)", paddingBottom: "4px" }}>{block.header}</h4>
+              <p style={{ margin: "4px 0 8px 0", lineHeight: 1.6 }}><InlineMarkdown text={block.body} /></p>
             </div>
           );
         }
