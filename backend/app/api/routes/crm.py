@@ -11,6 +11,11 @@ from app.services.crm_service import get_all_crm_venues, get_crm_venue_detail, e
 router = APIRouter(prefix="/api/v1/admin/crm", tags=["crm"])
 
 
+@router.get("/health")
+def health():
+    return {"status": "ok", "router": "crm"}
+
+
 def _require_super_admin(venue: dict):
     if venue.get("role") != "super_admin":
         raise HTTPException(status_code=403, detail="Super admin access required")
