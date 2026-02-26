@@ -300,6 +300,8 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
   const [customerName, setCustomerName] = useState("");
   const [expansions, setExpansions] = useState([]);
 
+  const showGameStore = menu ? (menu.show_game_store !== false) : true;
+
   // Load menu data
   useEffect(() => {
     if (!open) return;
@@ -313,6 +315,11 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
       .catch(() => { if (mounted) setMenu(MOCK_MENU); });
     return () => { mounted = false; };
   }, [open]);
+
+  // Switch to menu tab when game store is hidden
+  useEffect(() => {
+    if (!showGameStore) setTab("menu");
+  }, [showGameStore]);
 
   // Load expansions for this game
   useEffect(() => {
@@ -371,20 +378,22 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* DEMO Banner — visible for all roles */}
-        <div style={{
-          background: "#6b7280",
-          color: "#fff",
-          textAlign: "center",
-          padding: "8px 16px",
-          fontSize: "0.8rem",
-          fontWeight: 700,
-          letterSpacing: "0.05em",
-          flexShrink: 0,
-          borderRadius: "20px 20px 0 0",
-        }}>
-          DEMO
-        </div>
+        {/* DEMO Banner — hidden for meetup role */}
+        {localStorage.getItem("gmai_role") !== "meetup" && (
+          <div style={{
+            background: "#6b7280",
+            color: "#fff",
+            textAlign: "center",
+            padding: "8px 16px",
+            fontSize: "0.8rem",
+            fontWeight: 700,
+            letterSpacing: "0.05em",
+            flexShrink: 0,
+            borderRadius: "20px 20px 0 0",
+          }}>
+            DEMO
+          </div>
+        )}
 
         {/* Header */}
         <div style={{
@@ -416,23 +425,25 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
           </div>
         ) : (
           <>
-            {/* Tabs */}
-            <div style={{
-              display: "flex", gap: "4px", padding: "12px 20px 0", flexShrink: 0,
-            }}>
-              {[{ key: "games", label: "Games & Accessories" }, { key: "menu", label: "Menu" }].map((t) => (
-                <button key={t.key} onClick={() => setTab(t.key)} style={{
-                  flex: 1, padding: "10px", borderRadius: "10px 10px 0 0", fontWeight: 600,
-                  fontSize: "0.9rem", cursor: "pointer",
-                  background: tab === t.key ? "var(--bg-secondary)" : "transparent",
-                  color: tab === t.key ? "var(--text-primary)" : "var(--text-secondary)",
-                  border: tab === t.key ? "1px solid var(--border)" : "1px solid transparent",
-                  borderBottom: tab === t.key ? "1px solid var(--bg-secondary)" : "1px solid var(--border)",
-                }}>
-                  {t.label}
-                </button>
-              ))}
-            </div>
+            {/* Tabs — hidden when only menu is available */}
+            {showGameStore && (
+              <div style={{
+                display: "flex", gap: "4px", padding: "12px 20px 0", flexShrink: 0,
+              }}>
+                {[{ key: "games", label: "Games & Accessories" }, { key: "menu", label: "Menu" }].map((t) => (
+                  <button key={t.key} onClick={() => setTab(t.key)} style={{
+                    flex: 1, padding: "10px", borderRadius: "10px 10px 0 0", fontWeight: 600,
+                    fontSize: "0.9rem", cursor: "pointer",
+                    background: tab === t.key ? "var(--bg-secondary)" : "transparent",
+                    color: tab === t.key ? "var(--text-primary)" : "var(--text-secondary)",
+                    border: tab === t.key ? "1px solid var(--border)" : "1px solid transparent",
+                    borderBottom: tab === t.key ? "1px solid var(--bg-secondary)" : "1px solid var(--border)",
+                  }}>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Content */}
             <div style={{ flex: 1, overflowY: "auto", padding: "16px 20px", paddingBottom: totalItems > 0 ? "90px" : "20px" }}>

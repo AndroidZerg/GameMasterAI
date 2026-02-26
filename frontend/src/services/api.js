@@ -194,7 +194,9 @@ export async function fetchExpansions(gameId) {
 }
 
 export async function fetchVenueMenu() {
-  const res = await fetch(`${API_BASE}/api/venue/menu`);
+  const res = await fetch(`${API_BASE}/api/venue/menu`, {
+    headers: getAuthHeaders(),
+  });
   return handleResponse(res);
 }
 
