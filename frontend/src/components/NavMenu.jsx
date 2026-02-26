@@ -24,23 +24,6 @@ export default function NavMenu() {
   const location = useLocation();
   const { isLoggedIn, venueName, logout } = useAuth();
 
-  // Hide hamburger menu entirely for non-admin users
-  if (!isLoggedIn) return null;
-
-  // Hide hamburger menu on all game pages (/game/*)
-  if (location.pathname.startsWith("/game/")) return null;
-
-  const handleNavigate = (path) => {
-    navigate(path);
-    setOpen(false);
-  };
-
-  const handleLogout = () => {
-    logout();
-    setOpen(false);
-    navigate("/login");
-  };
-
   // Close on Escape
   useEffect(() => {
     if (!open) return;
@@ -71,6 +54,23 @@ export default function NavMenu() {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  // Hide hamburger menu entirely for non-admin users
+  if (!isLoggedIn) return null;
+
+  // Hide hamburger menu on all game pages (/game/*)
+  if (location.pathname.startsWith("/game/")) return null;
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    setOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setOpen(false);
+    navigate("/login");
+  };
 
   const isActive = (path) => location.pathname === path;
 
