@@ -73,10 +73,11 @@ async function flush() {
         events: batch
       })
     });
-    if (!res.ok) {
-      // Analytics endpoint unavailable — drop silently
+    if (!res.ok && res.status !== 404) {
+      // Temporary server error — re-queue for next flush
       queue = [...batch, ...queue].slice(-MAX_QUEUE_SIZE);
     }
+    // 404 means endpoint not deployed yet — drop silently, don't re-queue
   } catch {
     // Network error — re-queue for next flush, fail silently
     queue = [...batch, ...queue].slice(-MAX_QUEUE_SIZE);

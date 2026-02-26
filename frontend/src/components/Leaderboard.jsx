@@ -39,7 +39,7 @@ export default function Leaderboard({ gameId, gameTitle }) {
         if (cancelled) return;
         if (res.ok) {
           const data = await res.json();
-          if (!cancelled) setEntries(data.entries || []);
+          if (!cancelled) setEntries(Array.isArray(data) ? data : (data.entries || []));
         } else {
           // 404 or other error — fall back to mock, don't throw
           if (!cancelled) setEntries(MOCK_LEADERBOARD[gameId] || []);

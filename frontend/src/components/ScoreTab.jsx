@@ -372,12 +372,12 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
         const remote = state.scores?.shared || {};
         setScores((prev) => {
           const merged = { ...prev };
-          for (const [rowKey, rowScores] of Object.entries(remote)) {
+          for (const [rowKey, rowScores] of Object.entries(remote || {})) {
             if (!rowScores || typeof rowScores !== "object") continue;
             if (!merged[rowKey]) {
               merged[rowKey] = { ...rowScores };
             } else {
-              for (const [pid, val] of Object.entries(rowScores)) {
+              for (const [pid, val] of Object.entries(rowScores || {})) {
                 if (merged[rowKey][pid] === undefined) {
                   merged[rowKey][pid] = val;
                 }

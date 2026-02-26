@@ -343,13 +343,13 @@ export default function LobbyScoreTracker() {
         const remoteScores = state.scores?.shared || {};
         setLocalScores((prev) => {
           const merged = { ...prev };
-          for (const [rowKey, rowScores] of Object.entries(remoteScores)) {
+          for (const [rowKey, rowScores] of Object.entries(remoteScores || {})) {
             if (!rowScores || typeof rowScores !== "object") continue;
             if (!merged[rowKey]) {
               merged[rowKey] = { ...rowScores };
             } else {
               merged[rowKey] = { ...rowScores, ...merged[rowKey] };
-              for (const [pid, val] of Object.entries(rowScores)) {
+              for (const [pid, val] of Object.entries(rowScores || {})) {
                 if (merged[rowKey][pid] === undefined) {
                   merged[rowKey][pid] = val;
                 }
