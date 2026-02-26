@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
 import EventTracker from "./services/EventTracker";
@@ -21,6 +21,7 @@ import CollectionManagerPage from "./components/CollectionManagerPage";
 import CustomizeHomePage from "./components/CustomizeHomePage";
 import AdminFeedbackPage from "./components/AdminFeedbackPage";
 import MenuPage from "./components/MenuPage";
+import JoinPage from "./components/JoinPage";
 import LobbyJoin from "./components/LobbyJoin";
 import LobbyScoreTracker from "./components/LobbyScoreTracker";
 
@@ -40,6 +41,13 @@ function AuthWatcher() {
   }, [logout, navigate]);
 
   return null;
+}
+
+/* /join route: ?key= → magic link login, otherwise → lobby join */
+function JoinRouter() {
+  const [params] = useSearchParams();
+  if (params.get("key")) return <JoinPage />;
+  return <LobbyJoin />;
 }
 
 /* Root route: logged in → /games, not logged in → login screen */
@@ -77,7 +85,7 @@ function AppShell() {
         <Route path="/app" element={<Navigate to="/games" replace />} />
         <Route path="/game/:gameId" element={<ProtectedRoute><GameTeacher /></ProtectedRoute>} />
         <Route path="/join/:code" element={<LobbyJoin />} />
-        <Route path="/join" element={<LobbyJoin />} />
+        <Route path="/join" element={<JoinRouter />} />
         <Route path="/lobby/:lobbyId" element={<LobbyScoreTracker />} />
         <Route path="/menu" element={<ProtectedRoute><MenuPage /></ProtectedRoute>} />
         {/* Admin routes — restricted to super_admin, demo, venue_admin */}

@@ -93,6 +93,44 @@ async def login(req: LoginRequest):
     }
 
 
+@router.get("/join")
+async def magic_link_join(key: str = Query(..., min_length=1)):
+    """Magic-link login — scan QR, auto-login as meetup account."""
+    # Lookup: match key against the meetup account's password (used as magic key)
+    MAGIC_KEYS = {
+        "bgninhenderson": "meetup",
+    }
+
+    venue_id = MAGIC_KEYS.get(key)
+    if not venue_id:
+        raise HTTPException(status_code=401, detail="Invalid or expired link")
+
+    venue = get_venue_by_id(venue_id)
+    if not venue:
+        raise HTTPException(status_code=401, detail="Invalid or expired link")
+
+    role = venue.get("role", "venue_admin")
+
+    # Meetup toggle check
+    if role == "meetup":
+        if not get_meetup_enabled():
+            raise HTTPException(
+                status_code=403,
+                detail="This session is not currently active. Check back during the next scheduled meetup.",
+            )
+
+    update_venue_login(venue["venue_id"])
+    token = create_token(venue["venue_id"], venue["venue_name"], role=role)
+    return {
+        "token": token,
+        "venue_id": venue["venue_id"],
+        "venue_name": venue["venue_name"],
+        "role": role,
+        "status": venue.get("status", "prospect"),
+        "expires_at": venue.get("expires_at"),
+    }
+
+
 @router.post("/verify")
 async def verify_token(venue: dict = Depends(get_current_venue)):
     """Verify a JWT token. Returns venue info or 401."""
