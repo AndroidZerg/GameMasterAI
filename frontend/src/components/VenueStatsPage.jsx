@@ -175,7 +175,7 @@ export default function VenueStatsPage() {
 
   useEffect(() => {
     fetchMeetupToggle()
-      .then((data) => setMeetupOn(!!data.enabled))
+      .then((data) => setMeetupOn(!!data.meetup_enabled))
       .catch(() => {})
       .finally(() => setMeetupLoading(false));
   }, []);

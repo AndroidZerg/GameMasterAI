@@ -205,5 +205,6 @@ def set_meetup_enabled(enabled: bool) -> bool:
 
     success = _github_write(_cache)
     if not success:
-        logger.error("FAILED to persist meetup toggle to GitHub!")
-    return success
+        logger.error("FAILED to persist meetup toggle to GitHub — in-memory only")
+    # Always return True — in-memory state is updated even if GitHub write fails
+    return True
