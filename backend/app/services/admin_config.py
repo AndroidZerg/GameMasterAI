@@ -1,12 +1,15 @@
 """
-Admin config persistence via GitHub API.
-This is the ONLY source of truth for admin config.
-No SQLite. No JSON files. GitHub repo is the database.
+Admin config persistence — three-layer storage:
+  1. In-memory cache (fastest, lost on restart)
+  2. Local file (content/admin-config.json — survives restart)
+  3. GitHub API (survives redeploy, the durable source of truth)
+Every save writes to all three. On startup, load from GitHub → local file → hardcoded.
 """
 import os
 import json
 import base64
 import logging
+from pathlib import Path
 from datetime import datetime, timezone
 
 import httpx
@@ -16,8 +19,9 @@ logger = logging.getLogger(__name__)
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_REPO = "AndroidZerg/GameMasterAI"
 CONFIG_PATH = "content/admin-config.json"
+_LOCAL_CONFIG_PATH = Path(__file__).resolve().parents[3] / "content" / "admin-config.json"
 
-# Hardcoded defaults — these are the FALLBACK if GitHub is unreachable
+# Hardcoded defaults — these are the FALLBACK if both GitHub and local file are unreachable
 HARDCODED_DEFAULTS = {
     "_default": {
         "featured": {"mode": "manual", "game_id": "wingspan"},
@@ -40,6 +44,33 @@ def _github_headers():
         "Authorization": f"token {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json",
     }
+
+
+def _local_file_read():
+    """Read admin-config.json from the local filesystem. Returns config dict or None."""
+    try:
+        if _LOCAL_CONFIG_PATH.exists():
+            content = _LOCAL_CONFIG_PATH.read_text(encoding="utf-8")
+            config = json.loads(content)
+            return config
+    except Exception as e:
+        logger.error(f"Local config file read exception: {e}")
+    return None
+
+
+def _local_file_write(config):
+    """Write admin-config.json to the local filesystem. Returns True on success."""
+    try:
+        _LOCAL_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _LOCAL_CONFIG_PATH.write_text(
+            json.dumps(config, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        logger.info("Local config file write SUCCESS")
+        return True
+    except Exception as e:
+        logger.error(f"Local config file write FAILED: {e}")
+        return False
 
 
 def _github_read():
@@ -112,19 +143,33 @@ def _github_write(config):
 
 
 def load_all():
-    """Load config from GitHub into memory cache. Call on startup."""
+    """Load config into memory cache. Tries GitHub → local file → hardcoded defaults."""
     global _cache, _cache_loaded
 
+    # 1. Try GitHub (the durable source of truth)
     config, _sha = _github_read()
     if config:
+        venue_count = len([k for k in config if k not in ("_system",)])
+        logger.info(f"Admin config loaded from GitHub API ({venue_count} venue(s) configured)")
         _cache = config
         _cache_loaded = True
-        logger.info(f"Admin config loaded from GitHub: {list(_cache.keys())}")
-    else:
-        _cache = json.loads(json.dumps(HARDCODED_DEFAULTS))
-        _cache_loaded = True
-        logger.warning("Using HARDCODED defaults — GitHub unavailable or config missing")
+        # Sync local file to match GitHub
+        _local_file_write(config)
+        return _cache
 
+    # 2. Try local file (survives restart even if GitHub is down)
+    config = _local_file_read()
+    if config:
+        venue_count = len([k for k in config if k not in ("_system",)])
+        logger.warning(f"GitHub API unavailable, loaded admin config from local file ({venue_count} venue(s) configured)")
+        _cache = config
+        _cache_loaded = True
+        return _cache
+
+    # 3. Hardcoded fallback
+    logger.warning("Both GitHub and local file unavailable, using hardcoded fallback")
+    _cache = json.loads(json.dumps(HARDCODED_DEFAULTS))
+    _cache_loaded = True
     return _cache
 
 
@@ -150,34 +195,42 @@ def has_custom_config(venue_id):
 
 
 def delete_venue_config(venue_id):
-    """Remove custom config for a venue, reverting to defaults."""
+    """Remove custom config for a venue, reverting to defaults. Returns sync_status dict."""
     global _cache_loaded
     if not _cache_loaded:
         load_all()
 
     if venue_id in _cache and venue_id not in ("_default", "_system"):
         del _cache[venue_id]
-        success = _github_write(_cache)
-        if not success:
-            logger.error(f"FAILED to persist config deletion for '{venue_id}' to GitHub — in-memory only")
-        return True
-    return False
+
+        local_ok = _local_file_write(_cache)
+        github_ok = _github_write(_cache)
+        if not github_ok:
+            logger.error(f"FAILED to persist config deletion for '{venue_id}' to GitHub")
+
+        return {"deleted": True, "sync_status": {"memory": True, "local_file": local_ok, "github": github_ok}}
+    return {"deleted": False, "sync_status": {"memory": True, "local_file": True, "github": True}}
 
 
 def save_venue_config(venue_id, config):
-    """Save config for a venue to cache + GitHub."""
+    """Save config for a venue to all three storage layers. Returns sync_status dict."""
     global _cache_loaded
     if not _cache_loaded:
         load_all()
 
+    # 1. In-memory cache (always succeeds)
     _cache[venue_id] = config
+    memory_ok = True
 
-    # Write entire config to GitHub
-    success = _github_write(_cache)
-    if not success:
+    # 2. Local file — write the FULL config
+    local_ok = _local_file_write(_cache)
+
+    # 3. GitHub — write the FULL config
+    github_ok = _github_write(_cache)
+    if not github_ok:
         logger.error(f"FAILED to persist config for venue '{venue_id}' to GitHub!")
 
-    return success
+    return {"memory": memory_ok, "local_file": local_ok, "github": github_ok}
 
 
 def get_featured(venue_id=None, role=None):
@@ -192,7 +245,7 @@ def set_featured(venue_id, featured_config):
     else:
         cfg = {}
     cfg["featured"] = featured_config
-    save_venue_config(venue_id if venue_id else "_default", cfg)
+    return save_venue_config(venue_id if venue_id else "_default", cfg)
 
 
 def get_staff_picks(venue_id=None, role=None):
@@ -207,7 +260,7 @@ def set_staff_picks(venue_id, picks):
     else:
         cfg = {}
     cfg["staff_picks"] = picks
-    save_venue_config(venue_id if venue_id else "_default", cfg)
+    return save_venue_config(venue_id if venue_id else "_default", cfg)
 
 
 # ── Meetup Toggle ─────────────────────────────────────────────────
@@ -220,7 +273,7 @@ def get_meetup_enabled() -> bool:
 
 
 def set_meetup_enabled(enabled: bool) -> bool:
-    """Set the meetup toggle. Persists to GitHub."""
+    """Set the meetup toggle. Persists to local file + GitHub."""
     global _cache_loaded
     if not _cache_loaded:
         load_all()
@@ -229,9 +282,10 @@ def set_meetup_enabled(enabled: bool) -> bool:
     system_cfg["meetup_enabled"] = enabled
     _cache["_system"] = system_cfg
 
+    _local_file_write(_cache)
     success = _github_write(_cache)
     if not success:
-        logger.error("FAILED to persist meetup toggle to GitHub — in-memory only")
+        logger.error("FAILED to persist meetup toggle to GitHub — in-memory + local file only")
     # Always return True — in-memory state is updated even if GitHub write fails
     return True
 
@@ -255,7 +309,8 @@ def trigger_clear_recent() -> bool:
     system_cfg["clear_recent_ts"] = datetime.now(timezone.utc).isoformat()
     _cache["_system"] = system_cfg
 
+    _local_file_write(_cache)
     success = _github_write(_cache)
     if not success:
-        logger.error("FAILED to persist clear_recent_ts to GitHub — in-memory only")
+        logger.error("FAILED to persist clear_recent_ts to GitHub — in-memory + local file only")
     return True

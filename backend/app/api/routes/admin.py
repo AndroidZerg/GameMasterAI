@@ -178,13 +178,14 @@ async def save_home_config(target_venue_id: str, req: HomeConfigRequest, venue: 
     """Save featured + staff_picks for a specific venue. Super admin only."""
     _require_super_admin(venue)
     venue_key = target_venue_id if target_venue_id != "_default" else None
+    sync_status = {"memory": True, "local_file": True, "github": True}
     if req.featured is not None:
-        set_featured(venue_key, req.featured)
+        sync_status = set_featured(venue_key, req.featured)
     if req.staff_picks is not None:
         if len(req.staff_picks) > 10:
             raise HTTPException(status_code=400, detail="Maximum 10 staff picks allowed")
-        set_staff_picks(venue_key, req.staff_picks)
-    return {"status": "ok", "venue_id": target_venue_id}
+        sync_status = set_staff_picks(venue_key, req.staff_picks)
+    return {"success": True, "venue_id": target_venue_id, "sync_status": sync_status}
 
 
 @router.delete("/home-config/{target_venue_id}")
@@ -193,8 +194,8 @@ async def reset_home_config(target_venue_id: str, venue: dict = Depends(get_curr
     _require_super_admin(venue)
     if target_venue_id == "_default":
         raise HTTPException(status_code=400, detail="Cannot reset global defaults")
-    deleted = delete_venue_config(target_venue_id)
-    return {"status": "ok", "deleted": deleted}
+    result = delete_venue_config(target_venue_id)
+    return {"success": True, "deleted": result["deleted"], "sync_status": result["sync_status"]}
 
 
 # ── Clear Recently Played (super_admin only) ─────────────────────
