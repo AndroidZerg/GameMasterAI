@@ -153,8 +153,16 @@ export default function AdminDashboard() {
       }
 
       case "devices": {
-        const data = await apiFetch(`/api/v1/analytics/devices?per_page=1000${qsAmp}`);
-        const devices = data.devices || [];
+        // Paginate — max 200 per page
+        let devices = [];
+        let page = 1;
+        while (true) {
+          const data = await apiFetch(`/api/v1/analytics/devices?per_page=200&page=${page}${qsAmp}`);
+          const batch = data.devices || [];
+          devices = devices.concat(batch);
+          if (batch.length < 200 || devices.length >= (data.total || 0)) break;
+          page++;
+        }
         const sheet = XLSX.utils.aoa_to_sheet([
           ["Device", "Platform", "Returning", "Visits", "Player Names", "Games Played", "Questions", "TTS Uses", "Orders", "Spent ($)", "Avg Session (s)", "Events", "Last Active"],
           ...devices.map((d) => [
