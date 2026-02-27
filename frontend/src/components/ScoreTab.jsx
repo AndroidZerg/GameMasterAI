@@ -470,22 +470,31 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
   /* ── Add a local player (no lobby account) ───────────────── */
   const handleAddPlayer = () => {
     const idx = players.length;
+    const newName = `Player ${idx + 1}`;
     const newPlayer = {
       id: `local_${Date.now()}`,
-      name: `Player ${idx + 1}`,
+      name: newName,
       is_host: false,
       is_local: true,
     };
     setPlayers((prev) => [...prev, newPlayer]);
+    EventTracker.track('score_player_added', gameId, { player_count: idx + 1, player_name: newName });
   };
 
   /* ── Score change ────────────────────────────────────────── */
+  const scoreTrackRef = useRef(null);
   const handleScoreChange = (rowKey, pid, value) => {
     const numVal = value === "" ? "" : Number(value);
     setScores((prev) => ({
       ...prev,
       [rowKey]: { ...(prev[rowKey] || {}), [pid]: numVal },
     }));
+    // Debounced score_updated tracking (2s)
+    clearTimeout(scoreTrackRef.current);
+    scoreTrackRef.current = setTimeout(() => {
+      const rowIdx = rows.indexOf(rowKey);
+      EventTracker.track('score_updated', gameId, { player_count: players.length, round_number: rowIdx >= 0 ? rowIdx + 1 : rows.length });
+    }, 2000);
   };
 
   /* ── Row management ──────────────────────────────────────── */
@@ -529,7 +538,14 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
         });
       } catch {}
     }
-    EventTracker.track('game_ended', gameId, { end_reason: 'end_button', player_count: players.length, duration_seconds: Math.round(timerElapsed) });
+    const stats = EventTracker.getSessionStats();
+    EventTracker.track('game_ended', gameId, {
+      end_reason: 'end_button',
+      player_count: players.length,
+      total_play_time_seconds: Math.round(timerElapsed),
+      total_questions_asked: stats.questions_asked,
+      ordered_during_game: stats.orders_placed > 0,
+    });
     setShowTotal(true);
     setRevealed(true);
     setPhase("results");

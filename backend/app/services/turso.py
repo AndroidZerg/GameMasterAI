@@ -87,5 +87,60 @@ def init_analytics_tables():
     """)
     db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_rollups_venue_date ON daily_rollups(venue_id, date)")
 
+    # ── Device tracking ──
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS devices (
+            device_id TEXT PRIMARY KEY,
+            device_name TEXT,
+            platform TEXT,
+            screen_resolution TEXT,
+            user_agent TEXT,
+            venue_id TEXT,
+            first_seen_at TEXT,
+            last_seen_at TEXT,
+            visit_count INTEGER DEFAULT 1,
+            total_sessions INTEGER DEFAULT 0,
+            total_events INTEGER DEFAULT 0
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_devices_venue ON devices(venue_id)")
+
+    # ── Session tracking ──
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS sessions (
+            session_id TEXT PRIMARY KEY,
+            device_id TEXT NOT NULL,
+            venue_id TEXT,
+            started_at TEXT,
+            ended_at TEXT,
+            duration_seconds INTEGER,
+            games_viewed INTEGER DEFAULT 0,
+            games_played INTEGER DEFAULT 0,
+            questions_asked INTEGER DEFAULT 0,
+            orders_placed INTEGER DEFAULT 0,
+            tts_uses INTEGER DEFAULT 0,
+            voice_inputs INTEGER DEFAULT 0,
+            pages_visited TEXT
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_sessions_device ON sessions(device_id)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_sessions_venue ON sessions(venue_id)")
+
+    # ── Device names (player names associated with devices) ──
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS device_names (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id TEXT NOT NULL,
+            name TEXT NOT NULL,
+            session_id TEXT,
+            seen_at TEXT
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_device_names_device ON device_names(device_id)")
+
+    # ── Additional indexes on events table ──
+    db.execute("CREATE INDEX IF NOT EXISTS idx_events_device ON events(device_id)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_events_game ON events(game_id)")
+
     db.commit()
     logger.info("Analytics tables initialized")

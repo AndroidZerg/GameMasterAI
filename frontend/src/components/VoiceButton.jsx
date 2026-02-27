@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import EventTracker from "../services/EventTracker";
 
 /**
  * VoiceButton — browser-native speech recognition via Web Speech API.
  * Tap to start listening, speech is transcribed and auto-submitted.
  * Hides itself if speech recognition is not supported.
  */
-export default function VoiceButton({ onResult, disabled }) {
+export default function VoiceButton({ onResult, disabled, gameId }) {
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef(null);
   const mountedRef = useRef(true);
@@ -40,10 +41,14 @@ export default function VoiceButton({ onResult, disabled }) {
     recognition.onresult = (event) => {
       const text = event.results[0][0].transcript;
       if (mountedRef.current) setListening(false);
+      EventTracker.track('voice_input_used', gameId || null, { success: true, transcript_length: text ? text.length : 0 });
       if (text && onResult) onResult(text);
     };
 
-    recognition.onerror = () => { if (mountedRef.current) setListening(false); };
+    recognition.onerror = () => {
+      if (mountedRef.current) setListening(false);
+      EventTracker.track('voice_input_used', gameId || null, { success: false, transcript_length: 0 });
+    };
     recognition.onend = () => { if (mountedRef.current) setListening(false); };
 
     recognitionRef.current = recognition;

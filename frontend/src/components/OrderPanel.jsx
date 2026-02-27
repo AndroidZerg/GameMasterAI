@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchVenueMenu, placeOrder, API_BASE, fetchExpansions } from "../services/api";
-import { trackOrderPlaced } from "../services/analyticsEvents";
+import EventTracker from "../services/EventTracker";
 
 const MOCK_MENU = {
   categories: [
@@ -86,7 +86,7 @@ function saveCart(sessionId, cart) {
 }
 
 /* ── Add to Cart button ─────────────────────────────────── */
-function AddToCartBtn({ item, category, cart, setCart, sessionId }) {
+function AddToCartBtn({ item, category, cart, setCart, sessionId, gameId }) {
   const existing = cart.find((c) => c.name === item.name && c.category === category);
   const qty = existing?.quantity || 0;
 
@@ -102,6 +102,7 @@ function AddToCartBtn({ item, category, cart, setCart, sessionId }) {
       saveCart(sessionId, next);
       return next;
     });
+    EventTracker.track('menu_item_viewed', gameId || null, { item_name: item.name, category, price: item.price });
   };
 
   const remove = () => {
@@ -350,8 +351,12 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
       submitted_at: new Date().toISOString(),
     });
 
-    // Analytics: order placed
-    trackOrderPlaced(venueId, items, Math.round(subtotal * 100));
+    // Analytics: order placed (expanded)
+    EventTracker.track('order_placed', gameId, {
+      items: items.map(i => ({ name: i.name, qty: i.quantity, price: i.price })),
+      subtotal,
+      minutes_since_game_start: Math.round((Date.now() - (EventTracker.getSessionStartTime() || Date.now())) / 60000),
+    });
     // Save order locally
     try {
       const orders = JSON.parse(localStorage.getItem("gmai-orders") || "[]");
@@ -421,7 +426,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
 
         {showCart ? (
           <div style={{ flex: 1, overflowY: "auto" }}>
-            <CartDetail cart={cart} setCart={setCart} sessionId={sessionId} onPlaceOrder={handlePlaceOrder} customerName={customerName} setCustomerName={setCustomerName} />
+            <CartDetail cart={cart} setCart={setCart} sessionId={sessionId} gameId={gameId} onPlaceOrder={handlePlaceOrder} customerName={customerName} setCustomerName={setCustomerName} />
           </div>
         ) : (
           <>
@@ -475,7 +480,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                       <AddToCartBtn
                         item={{ id: gameId, name: gameTitle, price: gamePrice }}
                         category="Games"
-                        cart={cart} setCart={setCart} sessionId={sessionId}
+                        cart={cart} setCart={setCart} sessionId={sessionId} gameId={gameId}
                       />
                     )}
                   </div>
@@ -511,7 +516,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                             <AddToCartBtn
                               item={{ id: exp.name.toLowerCase().replace(/[\s:&]+/g, "-"), name: exp.name, price }}
                               category="Expansions"
-                              cart={cart} setCart={setCart} sessionId={sessionId}
+                              cart={cart} setCart={setCart} sessionId={sessionId} gameId={gameId}
                             />
                           </div>
                         );
@@ -542,7 +547,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                         <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{acc.description}</div>
                         <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)", marginTop: "2px" }}>${acc.price.toFixed(2)}</div>
                       </div>
-                      <AddToCartBtn item={acc} category="Accessories" cart={cart} setCart={setCart} sessionId={sessionId} />
+                      <AddToCartBtn item={acc} category="Accessories" cart={cart} setCart={setCart} sessionId={sessionId} gameId={gameId} />
                     </div>
                   ))}
                 </div>
@@ -586,7 +591,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                               )}
                               <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--accent)", marginTop: "2px" }}>${item.price.toFixed(2)}</div>
                             </div>
-                            <AddToCartBtn item={item} category={cat.name} cart={cart} setCart={setCart} sessionId={sessionId} />
+                            <AddToCartBtn item={item} category={cat.name} cart={cart} setCart={setCart} sessionId={sessionId} gameId={gameId} />
                           </div>
                         ))}
                       </div>

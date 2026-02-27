@@ -31,6 +31,8 @@ def run_all(test_dir: str = None, target_url: str = None) -> dict:
             timeout=TEST_TIMEOUT_SECONDS,
             env=env,
             shell=True,
+            encoding="utf-8",
+            errors="replace",
         )
     except subprocess.TimeoutExpired:
         return {
@@ -112,6 +114,8 @@ def retest_single(test_dir: str, target_url: str, test_id: str) -> dict:
             timeout=TEST_TIMEOUT_SECONDS,
             env=env,
             shell=True,
+            encoding="utf-8",
+            errors="replace",
         )
     except subprocess.TimeoutExpired:
         return {"test_id": test_id, "passed": False, "error": "Timeout"}

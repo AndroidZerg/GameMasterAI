@@ -580,7 +580,7 @@ async def peak_hours(
     for r in rows:
         dow = r[0]
         # Convert: 0=Sun->6, 1=Mon->0, 2=Tue->1, ...
-        day = (dow - 1) % 7
+        day = (dow + 6) % 7  # 0=Sun→6, 1=Mon→0, ..., 6=Sat→5
         heatmap.append({"day": day, "hour": r[1], "count": r[2]})
 
     return {"heatmap": heatmap}

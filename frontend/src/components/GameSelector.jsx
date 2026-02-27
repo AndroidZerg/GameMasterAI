@@ -88,15 +88,7 @@ const PLAYER_COUNT_OPTIONS = [
   { label: "7+", value: 7 },
 ];
 
-function trackEvent(eventName, data) {
-  try {
-    fetch(`${API_BASE}/api/analytics`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: eventName, ...data, timestamp: new Date().toISOString() }),
-    }).catch(() => {});
-  } catch {}
-}
+// Legacy trackEvent removed — all analytics now go through EventTracker
 
 // Staff picks — fallback curated list of game IDs
 const STAFF_PICKS_FALLBACK = ["wingspan", "azul", "codenames", "root", "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg"];
@@ -420,7 +412,7 @@ function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, pla
   );
 }
 
-function GenreCarousel({ title, games, onGameClick, color }) {
+function GenreCarousel({ title, games, onGameClick, color, source }) {
   if (!games || games.length === 0) return null;
   return (
     <div style={{ marginBottom: "24px" }}>
@@ -435,7 +427,7 @@ function GenreCarousel({ title, games, onGameClick, color }) {
       }}>
         {games.map((game) => (
           <div key={game.game_id} style={{ scrollSnapAlign: "start", flexShrink: 0, width: "160px" }}>
-            <GameCard game={game} onClick={() => onGameClick(game)} small />
+            <GameCard game={game} onClick={() => onGameClick(game, source || 'carousel')} small />
           </div>
         ))}
       </div>
@@ -469,7 +461,7 @@ export default function GameSelector() {
     const params = new URLSearchParams(searchParams);
     if (val === "all") params.delete("complexity"); else params.set("complexity", val);
     setSearchParams(params, { replace: true });
-    trackEvent("filter_complexity", { complexity: val });
+    EventTracker.track('filter_applied', null, { filter_type: 'difficulty', filter_value: val });
   };
 
   const setPlayerCount = (val) => {
@@ -477,7 +469,7 @@ export default function GameSelector() {
     const params = new URLSearchParams(searchParams);
     if (val === 0) params.delete("players"); else params.set("players", val);
     setSearchParams(params, { replace: true });
-    trackEvent("filter_players", { player_count: val });
+    EventTracker.track('filter_applied', null, { filter_type: 'players', filter_value: val });
   };
 
   const setPlayTime = (val) => {
@@ -485,7 +477,7 @@ export default function GameSelector() {
     const params = new URLSearchParams(searchParams);
     if (val === 0) params.delete("time"); else params.set("time", val);
     setSearchParams(params, { replace: true });
-    trackEvent("filter_playtime", { play_time: val });
+    EventTracker.track('filter_applied', null, { filter_type: 'time', filter_value: val });
   };
 
   const setBestFor = (val) => {
@@ -493,7 +485,7 @@ export default function GameSelector() {
     const params = new URLSearchParams(searchParams);
     if (val === "Any") params.delete("bestfor"); else params.set("bestfor", val);
     setSearchParams(params, { replace: true });
-    trackEvent("filter_bestfor", { best_for: val });
+    EventTracker.track('filter_applied', null, { filter_type: 'best_for', filter_value: val });
   };
 
   useEffect(() => {
@@ -568,6 +560,20 @@ export default function GameSelector() {
     return () => { mounted = false; clearTimeout(timer); };
   }, [search]);
 
+  // Track game_search with 1s debounce (separate from fetch debounce)
+  useEffect(() => {
+    if (!search.trim()) return;
+    const timer = setTimeout(() => {
+      const resultsShown = games.slice(0, 5).map((g) => g.game_id);
+      EventTracker.track('game_search', null, {
+        query: search.trim(),
+        results_count: games.length,
+        results_shown: resultsShown,
+      });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [search, games]);
+
   useEffect(() => {
     // Check if admin triggered a recently-played clear
     fetchClearRecentTs()
@@ -595,14 +601,16 @@ export default function GameSelector() {
       });
   }, []);
 
-  const handleGameClick = (game) => {
+  const handleGameClick = (game, source = 'browse') => {
     try {
       const key = "gmai_recent";
       let recent = JSON.parse(localStorage.getItem(key) || "[]");
       recent = [game.game_id, ...recent.filter((id) => id !== game.game_id)].slice(0, 8);
       localStorage.setItem(key, JSON.stringify(recent));
     } catch {}
-    trackEvent("game_selected", { game_id: game.game_id, game_title: game.title });
+    // Determine source: if search is active, it's a search result click
+    const effectiveSource = search.trim() ? 'search' : source;
+    EventTracker.track('game_selected', game.game_id, { game_title: game.title, source: effectiveSource });
     EventTracker.track('session_start', game.game_id, { game_title: game.title });
     navigate(`/game/${game.game_id}`);
   };
@@ -734,7 +742,7 @@ export default function GameSelector() {
 
       {/* Game of the Day */}
       {gameOfTheDay && (
-        <GameOfTheDay game={gameOfTheDay} onClick={() => handleGameClick(gameOfTheDay)} />
+        <GameOfTheDay game={gameOfTheDay} onClick={() => handleGameClick(gameOfTheDay, 'gotd')} />
       )}
 
       {/* Staff Picks */}
@@ -744,6 +752,7 @@ export default function GameSelector() {
           games={staffPickGames}
           onGameClick={handleGameClick}
           color="var(--accent)"
+          source="staff_pick"
         />
       )}
 

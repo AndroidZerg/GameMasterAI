@@ -354,14 +354,17 @@ function PlaybackControls({ ttsState }) {
 function SectionSpeaker({ content, ttsState }) {
   const isActive = ttsState === "playing" || ttsState === "paused";
   return (
-    <button
+    <span
+      role="button"
+      tabIndex={0}
       onClick={(e) => { e.stopPropagation(); isActive ? stopSpeaking() : speakText(content); }}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); isActive ? stopSpeaking() : speakText(content); } }}
       title={isActive ? "Stop reading" : "Read this section"}
       aria-label={isActive ? "Stop reading aloud" : "Read this section aloud"}
       style={{ background: "none", border: "none", cursor: "pointer", fontSize: "1.1rem", padding: "4px 8px", borderRadius: "6px", color: isActive ? "#f59e0b" : "var(--text-secondary)", transition: "color 0.2s", flexShrink: 0 }}
     >
       {isActive ? "⏹" : "🔊"}
-    </button>
+    </span>
   );
 }
 
@@ -458,13 +461,14 @@ function FeedbackButtons({ gameId, question, response }) {
 }
 
 /* ── Copy Button ────────────────────────────────────────────────── */
-function CopyButton({ text }) {
+function CopyButton({ text, gameId }) {
   const [copied, setCopied] = useState(false);
   const handleCopy = async (e) => {
     e.stopPropagation();
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      if (gameId) EventTracker.track('copy_response', gameId);
       setTimeout(() => setCopied(false), 1500);
     } catch { /* ignore */ }
   };
@@ -517,14 +521,22 @@ function QAPanel({ gameId, gameTitle }) {
     try { setNotes(localStorage.getItem(notesStorageKey) || ""); } catch { /* ignore */ }
   }, [notesStorageKey]);
 
-  // Debounced notes save (2s)
+  // Debounced notes save (2s) + analytics (5s debounce)
+  const notesTrackRef = useRef(null);
   useEffect(() => {
     clearTimeout(notesSaveRef.current);
     notesSaveRef.current = setTimeout(() => {
       try { localStorage.setItem(notesStorageKey, notes); } catch { /* ignore */ }
     }, 2000);
-    return () => clearTimeout(notesSaveRef.current);
-  }, [notes, notesStorageKey]);
+    // Track notes_edited with 5s debounce
+    clearTimeout(notesTrackRef.current);
+    if (notes) {
+      notesTrackRef.current = setTimeout(() => {
+        EventTracker.track('notes_edited', gameId, { note_length: notes.length });
+      }, 5000);
+    }
+    return () => { clearTimeout(notesSaveRef.current); clearTimeout(notesTrackRef.current); };
+  }, [notes, notesStorageKey, gameId]);
 
   // Persist collapse states
   useEffect(() => {
@@ -559,12 +571,12 @@ function QAPanel({ gameId, gameTitle }) {
     setInput("");
     setHistory((prev) => [...prev, { role: "user", content: question, timestamp: ts }]);
     setLoading(true);
-    EventTracker.track('question_asked', gameId, { question_text: question, input_method: questionText ? 'voice' : 'text' });
+    EventTracker.track('question_asked', gameId, { question_text: question, question_length: question.length, input_method: questionText ? 'voice' : 'text' });
     const qaStart = performance.now();
     try {
       const result = await queryGame(gameId, question);
       const elapsed = Math.round(performance.now() - qaStart);
-      EventTracker.track('response_delivered', gameId, { response_length_chars: result.answer.length, response_time_ms: elapsed });
+      EventTracker.track('response_delivered', gameId, { response_length: result.answer.length, response_time_ms: elapsed });
       setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question, timestamp: new Date().toISOString() }]);
     } catch (err) {
       setHistory((prev) => [...prev, { role: "error", content: err.message || "Something went wrong", timestamp: new Date().toISOString() }]);
@@ -580,7 +592,10 @@ function QAPanel({ gameId, gameTitle }) {
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText();
-      if (text) setNotes((prev) => prev ? prev + "\n" + text : text);
+      if (text) {
+        setNotes((prev) => prev ? prev + "\n" + text : text);
+        EventTracker.track('paste_to_notes', gameId);
+      }
     } catch { /* clipboard permission denied */ }
   };
 
@@ -656,8 +671,8 @@ function QAPanel({ gameId, gameTitle }) {
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.7rem", color: "#4ade80", marginBottom: "3px" }}>
                         <span>GameMaster Guide</span>
                         <div style={{ display: "flex", gap: "2px", alignItems: "center" }}>
-                          <CopyButton text={msg.content} />
-                          <button onClick={() => speakText(msg.content)} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.85rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>
+                          <CopyButton text={msg.content} gameId={gameId} />
+                          <button onClick={() => { EventTracker.track('tts_played', gameId, { tab: 'qa', content_type: 'ai_response' }); speakText(msg.content); }} title="Read aloud" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.85rem", color: "var(--text-secondary)", padding: "2px 4px" }}>🔊</button>
                         </div>
                       </div>
                     )}
@@ -679,7 +694,7 @@ function QAPanel({ gameId, gameTitle }) {
 
             {/* Input row */}
             <div style={{ display: "flex", gap: "6px", alignItems: "center", flexShrink: 0 }}>
-              <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} />
+              <VoiceButton onResult={(text) => handleSubmit(text)} disabled={loading} gameId={gameId} />
               <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder={`Ask about ${gameTitle}...`} disabled={loading} aria-label={`Ask a question about ${gameTitle}`}
                 style={{ flex: 1, padding: "12px 14px", fontSize: "0.95rem", borderRadius: "12px", border: "2px solid var(--border)", background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none" }}
               />
@@ -845,9 +860,32 @@ export default function GameTeacher() {
   const [showOrderPanel, setShowOrderPanel] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
-  // Track tab switches
+  // Track tab switches + dwell time
+  const prevTabRef = useRef(null);
+  const tabEntryRef = useRef(Date.now());
+  const ttsStartRef = useRef(null);  // Track when TTS started for listened_seconds
+  const gameEntryRef = useRef(Date.now()); // Track when game page was entered
+
   useEffect(() => {
-    EventTracker.track('tab_viewed', gameId, { tab_name: activeTab });
+    const now = Date.now();
+    const prevTab = prevTabRef.current;
+
+    // Fire tab_dwell for previous tab
+    if (prevTab !== null) {
+      const dwellSeconds = Math.round((now - tabEntryRef.current) / 1000);
+      if (dwellSeconds > 0) {
+        EventTracker.track('tab_dwell', gameId, { tab: prevTab, dwell_seconds: dwellSeconds });
+      }
+    }
+
+    // Fire tab_switched
+    EventTracker.track('tab_switched', gameId, {
+      from_tab: prevTab || '',
+      to_tab: activeTab,
+    });
+
+    prevTabRef.current = activeTab;
+    tabEntryRef.current = now;
   }, [activeTab, gameId]);
 
   // Game timer state (lifted here so Score tab can auto-start it)
@@ -976,7 +1014,11 @@ export default function GameTeacher() {
           </h1>
         </div>
         {/* Order button — pinned top-right */}
-        <button onClick={() => setShowOrderPanel(true)} style={{
+        <button onClick={() => {
+          const minutesSinceStart = Math.round((Date.now() - gameEntryRef.current) / 60000);
+          EventTracker.track('menu_browsed', gameId, { minutes_since_game_start: minutesSinceStart });
+          setShowOrderPanel(true);
+        }} style={{
           position: "absolute", top: "50%", right: 0, transform: "translateY(-50%)",
           padding: "6px 14px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600,
           background: "var(--accent)", color: "#fff",
@@ -1073,12 +1115,18 @@ export default function GameTeacher() {
           {/* Play / Pause */}
           <button
             onClick={() => {
-              if (ttsState === "playing") { pauseSpeaking(); }
-              else if (ttsState === "paused") { resumeSpeaking(); }
+              if (ttsState === "playing") {
+                const listened = ttsStartRef.current ? Math.round((Date.now() - ttsStartRef.current) / 1000) : 0;
+                EventTracker.track('tts_paused', gameId, { tab: activeTab, listened_seconds: listened });
+                pauseSpeaking();
+              }
+              else if (ttsState === "paused") { resumeSpeaking(); ttsStartRef.current = Date.now(); }
               else {
                 const subtopics = tabs[activeTab]?.subtopics;
                 if (subtopics?.length) {
                   const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
+                  EventTracker.track('tts_played', gameId, { tab: activeTab, content_type: activeTab });
+                  ttsStartRef.current = Date.now();
                   speakText(fullText);
                 }
               }
@@ -1098,7 +1146,12 @@ export default function GameTeacher() {
           {/* Stop */}
           {(ttsState === "playing" || ttsState === "paused") && (
             <button
-              onClick={() => stopSpeaking()}
+              onClick={() => {
+                const total = ttsStartRef.current ? Math.round((Date.now() - ttsStartRef.current) / 1000) : 0;
+                EventTracker.track('tts_completed', gameId, { tab: activeTab, total_seconds: total });
+                ttsStartRef.current = null;
+                stopSpeaking();
+              }}
               style={{
                 width: "44px", height: "44px", borderRadius: "50%",
                 background: "var(--bg-card)", color: "var(--text-primary)",
