@@ -56,6 +56,47 @@ def _build_where(venue_col: str, date_col: str, venue_id, start_date, end_date):
 
 
 # ─────────────────────────────────────────────────────────────
+# Diagnostics — temporary debug endpoint
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/diag")
+async def analytics_diag():
+    """Quick diagnostic: test each analytics table independently. No auth for quick access."""
+    import traceback
+    results = {}
+    try:
+        db = get_analytics_db()
+        results["db_type"] = type(db).__module__ + "." + type(db).__name__
+    except Exception as exc:
+        return {"error": f"DB connection failed: {exc}", "traceback": traceback.format_exc()}
+    for table in ["events", "devices", "sessions", "device_names", "feedback", "daily_rollups"]:
+        try:
+            row = db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()
+            results[table] = row[0] if row else 0
+        except Exception as exc:
+            results[table] = f"ERROR: {exc}"
+    # Test json_extract
+    try:
+        row = db.execute("SELECT json_extract('{\"a\":1}', '$.a')").fetchone()
+        results["json_extract_test"] = row[0] if row else "NULL"
+    except Exception as exc:
+        results["json_extract_test"] = f"ERROR: {exc}"
+    # Test a simplified summary query (the one that 500s)
+    try:
+        row = db.execute("SELECT COUNT(*) FROM devices WHERE 1=1").fetchone()
+        results["summary_test"] = row[0] if row else 0
+    except Exception as exc:
+        results["summary_test"] = f"ERROR: {exc}"
+    # Sample last 3 events
+    try:
+        rows = db.execute("SELECT event_type, venue_id, device_id, timestamp FROM events ORDER BY rowid DESC LIMIT 3").fetchall()
+        results["recent_events"] = [{"type": r[0], "venue": r[1], "device": r[2], "ts": r[3]} for r in rows]
+    except Exception as exc:
+        results["recent_events"] = f"ERROR: {exc}"
+    return results
+
+
+# ─────────────────────────────────────────────────────────────
 # Summary
 # ─────────────────────────────────────────────────────────────
 
@@ -67,13 +108,21 @@ async def analytics_summary(
     user: dict = Depends(get_current_venue_admin),
 ):
     vid = _venue_scope(user, venue_id)
-    db = get_analytics_db()
+    try:
+        db = get_analytics_db()
+    except Exception as exc:
+        logger.error(f"get_analytics_db() failed: {exc}")
+        return {"error": f"DB connection failed: {exc}"}
 
     dw, dp = _build_where("venue_id", "last_seen_at", vid, start_date, end_date)
 
-    # Total devices
-    row = db.execute(f"SELECT COUNT(*) FROM devices{dw}", dp).fetchone()
-    total_devices = row[0] if row else 0
+    try:
+        # Total devices
+        row = db.execute(f"SELECT COUNT(*) FROM devices{dw}", dp).fetchone()
+        total_devices = row[0] if row else 0
+    except Exception as exc:
+        logger.error(f"Summary query failed: {exc}")
+        return {"error": f"Query failed: {exc}"}
 
     # Returning devices (visit_count > 1)
     ret_where = f"{dw} AND visit_count > 1" if dw else " WHERE visit_count > 1"
