@@ -10,7 +10,8 @@ const PUBLIC_ITEMS = [
 ];
 
 const ADMIN_ITEMS = [
-  { path: "/admin/stats", label: "Dashboard", icon: "\u{1F4CA}" },
+  { path: "/admin/dashboard", label: "Admin Dashboard", icon: "\u{1F4CA}" },
+  { path: "/admin/stats", label: "Quick Stats", icon: "\u{1F4C8}" },
   { path: "/admin/qr", label: "QR Codes", icon: "\u{1F4F1}" },
   { path: "/admin/settings", label: "Venue Settings", icon: "\u2699\uFE0F" },
   { path: "/admin/collection", label: "Game Collection", icon: "\u{1F3AE}" },

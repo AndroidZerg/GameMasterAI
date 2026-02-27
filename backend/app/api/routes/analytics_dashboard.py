@@ -113,6 +113,23 @@ async def analytics_summary(
     row = db.execute(f"SELECT game_id, COUNT(*) as cnt FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'session_start' AND game_id IS NOT NULL GROUP BY game_id ORDER BY cnt DESC LIMIT 1", ep).fetchone()
     top_game = {"title": row[0], "count": row[1]} if row else {"title": "—", "count": 0}
 
+    # Total sessions
+    row = db.execute(f"SELECT COUNT(*) FROM sessions{sw}", sp).fetchone()
+    total_sessions = row[0] if row else 0
+
+    # Total questions
+    row = db.execute(f"SELECT COUNT(*) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'", ep).fetchone()
+    total_questions = row[0] if row else 0
+
+    # Total orders + revenue
+    row = db.execute(f"SELECT COUNT(*), COALESCE(SUM(CAST(json_extract(payload, '$.total_cents') AS INTEGER)),0) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed'", ep).fetchone()
+    total_orders = row[0] if row else 0
+    total_revenue_cents = row[1] if row else 0
+
+    # Avg time to order
+    row = db.execute(f"SELECT AVG(CAST(json_extract(payload, '$.minutes_since_game_start') AS REAL)) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed' AND json_extract(payload, '$.minutes_since_game_start') IS NOT NULL", ep).fetchone()
+    avg_time_to_order_minutes = round(row[0], 1) if row and row[0] else 0
+
     return {
         "total_devices": total_devices,
         "returning_count": returning_count,
@@ -123,6 +140,11 @@ async def analytics_summary(
         "avg_order_dollars": avg_order_dollars,
         "total_events": total_events,
         "top_game": top_game,
+        "total_sessions": total_sessions,
+        "total_questions": total_questions,
+        "total_orders": total_orders,
+        "total_revenue_cents": total_revenue_cents,
+        "avg_time_to_order_minutes": avg_time_to_order_minutes,
     }
 
 
@@ -620,3 +642,489 @@ async def export_csv(
         media_type="text/csv",
         headers={"Content-Disposition": "attachment; filename=gmai_devices_export.csv"},
     )
+
+
+# ─────────────────────────────────────────────────────────────
+# Trends (sessions/questions/orders per day)
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/trends")
+async def analytics_trends(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    # Sessions per day
+    rows = db.execute(f"""
+        SELECT DATE(started_at) as d, COUNT(*) as cnt
+        FROM sessions{_build_where("venue_id", "started_at", vid, start_date, end_date)[0]}
+        GROUP BY d ORDER BY d
+    """, _build_where("venue_id", "started_at", vid, start_date, end_date)[1]).fetchall()
+    sessions_per_day = [{"date": r[0], "count": r[1]} for r in rows]
+
+    # Questions per day
+    rows = db.execute(f"""
+        SELECT DATE(timestamp) as d, COUNT(*) as cnt
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'
+        GROUP BY d ORDER BY d
+    """, ep).fetchall()
+    questions_per_day = [{"date": r[0], "count": r[1]} for r in rows]
+
+    # Orders per day
+    rows = db.execute(f"""
+        SELECT DATE(timestamp) as d, COUNT(*) as cnt
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed'
+        GROUP BY d ORDER BY d
+    """, ep).fetchall()
+    orders_per_day = [{"date": r[0], "count": r[1]} for r in rows]
+
+    return {
+        "sessions_per_day": sessions_per_day,
+        "questions_per_day": questions_per_day,
+        "orders_per_day": orders_per_day,
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Device mix (platform distribution)
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/device-mix")
+async def device_mix(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    dw, dp = _build_where("venue_id", "last_seen_at", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT COALESCE(platform, 'Desktop') as platform, COUNT(*) as cnt
+        FROM devices{dw}
+        GROUP BY platform ORDER BY cnt DESC
+    """, dp).fetchall()
+
+    return {"platforms": [{"platform": r[0], "count": r[1]} for r in rows]}
+
+
+# ─────────────────────────────────────────────────────────────
+# Session funnel
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/funnel")
+async def session_funnel(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    # App loaded = distinct sessions with session_start
+    row = db.execute(f"SELECT COUNT(DISTINCT session_id) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'session_start'", ep).fetchone()
+    app_loaded = row[0] if row else 0
+
+    # Game selected = distinct sessions with game_id set (page_viewed on game page or game_selected)
+    row = db.execute(f"SELECT COUNT(DISTINCT session_id) FROM events{ew} {'AND' if ew else 'WHERE'} game_id IS NOT NULL", ep).fetchone()
+    game_selected = row[0] if row else 0
+
+    # Question asked
+    row = db.execute(f"SELECT COUNT(DISTINCT session_id) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'", ep).fetchone()
+    question_asked = row[0] if row else 0
+
+    # Order placed
+    row = db.execute(f"SELECT COUNT(DISTINCT session_id) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed'", ep).fetchone()
+    order_placed = row[0] if row else 0
+
+    return {
+        "app_loaded": app_loaded,
+        "game_selected": game_selected,
+        "question_asked": question_asked,
+        "order_placed": order_placed,
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Venues list (lightweight for dropdown)
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/venues-list")
+async def venues_list(
+    user: dict = Depends(get_current_venue_admin),
+):
+    """Return lightweight venue list for dropdown. Super admins see all, venue admins see own."""
+    from app.core.config import DB_PATH
+    import sqlite3
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+
+    if user.get("role") == "super_admin":
+        rows = conn.execute("SELECT venue_id, venue_name FROM venues ORDER BY venue_name").fetchall()
+    else:
+        rows = conn.execute("SELECT venue_id, venue_name FROM venues WHERE venue_id = ?", (user["venue_id"],)).fetchall()
+
+    result = [{"venue_id": r["venue_id"], "venue_name": r["venue_name"]} for r in rows]
+    conn.close()
+    return result
+
+
+# ─────────────────────────────────────────────────────────────
+# Game stats (per-game detailed metrics)
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/game-stats")
+async def game_stats(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    # Get games by selection count
+    rows = db.execute(f"""
+        SELECT game_id, COUNT(*) as selected_count
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type IN ('session_start', 'page_viewed')
+            AND game_id IS NOT NULL
+        GROUP BY game_id ORDER BY selected_count DESC LIMIT 30
+    """, ep).fetchall()
+
+    games = []
+    for r in rows:
+        gid = r[0]
+        # Questions per game
+        q_row = db.execute(f"SELECT COUNT(*) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked' AND game_id = ?", ep + [gid]).fetchone()
+        # Orders per game
+        o_row = db.execute(f"SELECT COUNT(*) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed' AND game_id = ?", ep + [gid]).fetchone()
+        # Avg play time
+        pt_row = db.execute(f"SELECT AVG(CAST(json_extract(payload, '$.total_play_time_seconds') AS REAL)) FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'game_ended' AND game_id = ?", ep + [gid]).fetchone()
+
+        games.append({
+            "game_id": gid,
+            "title": gid,
+            "times_selected": r[1],
+            "questions_asked": q_row[0] if q_row else 0,
+            "orders_during_play": o_row[0] if o_row else 0,
+            "avg_play_time_seconds": round(pt_row[0], 0) if pt_row and pt_row[0] else 0,
+        })
+
+    return {"games": games}
+
+
+# ─────────────────────────────────────────────────────────────
+# Game discovery sources
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/game-discovery")
+async def game_discovery(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT COALESCE(json_extract(payload, '$.source'), 'browse') as source, COUNT(*) as cnt
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type IN ('game_selected', 'session_start')
+            AND game_id IS NOT NULL
+        GROUP BY source ORDER BY cnt DESC
+    """, ep).fetchall()
+
+    return {"sources": [{"source": r[0], "count": r[1]} for r in rows]}
+
+
+# ─────────────────────────────────────────────────────────────
+# Search queries
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/search-queries")
+async def search_queries(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT json_extract(payload, '$.query') as query, COUNT(*) as cnt
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'game_search'
+            AND json_extract(payload, '$.query') IS NOT NULL
+        GROUP BY query ORDER BY cnt DESC LIMIT 20
+    """, ep).fetchall()
+
+    return {"queries": [{"query": r[0], "count": r[1]} for r in rows]}
+
+
+# ─────────────────────────────────────────────────────────────
+# Filter usage
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/filter-usage")
+async def filter_usage(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT json_extract(payload, '$.filter_type') as filter_type,
+               json_extract(payload, '$.filter_value') as filter_value,
+               COUNT(*) as cnt
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'filter_applied'
+        GROUP BY filter_type, filter_value ORDER BY cnt DESC LIMIT 20
+    """, ep).fetchall()
+
+    return {"filters": [{"filter_type": r[0] or "unknown", "filter_value": r[1] or "", "count": r[2]} for r in rows]}
+
+
+# ─────────────────────────────────────────────────────────────
+# Unused games
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/unused-games")
+async def unused_games(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    # Get games that were played in the period
+    played_rows = db.execute(f"""
+        SELECT DISTINCT game_id FROM events{ew} {'AND' if ew else 'WHERE'} game_id IS NOT NULL
+    """, ep).fetchall()
+    played_ids = {r[0] for r in played_rows}
+
+    # Get all games from the main game list
+    from app.core.config import DB_PATH
+    import sqlite3
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    all_games = conn.execute("SELECT game_id, title FROM games ORDER BY title").fetchall()
+    conn.close()
+
+    unused = [{"game_id": g["game_id"], "title": g["title"]} for g in all_games if g["game_id"] not in played_ids]
+
+    return {"games": unused}
+
+
+# ─────────────────────────────────────────────────────────────
+# Question categories
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/question-categories")
+async def question_categories(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT json_extract(payload, '$.question') as question
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'
+            AND json_extract(payload, '$.question') IS NOT NULL
+    """, ep).fetchall()
+
+    categories = {"Setup": 0, "Rules": 0, "Strategy": 0, "Scoring": 0, "Other": 0}
+    for r in rows:
+        q = (r[0] or "").lower()
+        if any(w in q for w in ("setup", "set up", "pieces", "components", "put", "place", "board")):
+            categories["Setup"] += 1
+        elif any(w in q for w in ("can i", "allowed", "what happens", "when", "does", "rule")):
+            categories["Rules"] += 1
+        elif any(w in q for w in ("should i", "best", "strategy", "win", "how to", "tip")):
+            categories["Strategy"] += 1
+        elif any(w in q for w in ("score", "point", "win condition", "end", "how many")):
+            categories["Scoring"] += 1
+        else:
+            categories["Other"] += 1
+
+    total = sum(categories.values()) or 1
+    return {
+        "categories": [
+            {"category": k, "count": v, "percentage": round(v / total * 100, 1)}
+            for k, v in categories.items() if v > 0
+        ]
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Order details
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/order-details")
+async def order_details(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT e.timestamp, d.device_name, e.game_id, e.payload
+        FROM events e
+        LEFT JOIN devices d ON e.device_id = d.device_id
+        {ew.replace('venue_id', 'e.venue_id').replace('timestamp', 'e.timestamp') if ew else ''}
+        {'AND' if ew else 'WHERE'} e.event_type = 'order_placed'
+        ORDER BY e.timestamp DESC LIMIT 100
+    """, ep).fetchall()
+
+    orders = []
+    for r in rows:
+        payload = json.loads(r[3]) if r[3] else {}
+        items = payload.get("items", [])
+        item_names = ", ".join(
+            i.get("name", i) if isinstance(i, dict) else str(i)
+            for i in items
+        ) if items else ""
+        orders.append({
+            "timestamp": r[0] or "",
+            "device_name": r[1] or "Unknown",
+            "game_title": r[2] or "",
+            "items": item_names,
+            "subtotal_cents": payload.get("total_cents", 0),
+            "minutes_into_game": payload.get("minutes_since_game_start", 0),
+        })
+
+    return {"orders": orders}
+
+
+# ─────────────────────────────────────────────────────────────
+# Popular items
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/popular-items")
+async def popular_items(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT payload FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'order_placed'
+    """, ep).fetchall()
+
+    item_counts = {}
+    item_revenue = {}
+    for r in rows:
+        payload = json.loads(r[0]) if r[0] else {}
+        items = payload.get("items", [])
+        for item in items:
+            name = item.get("name", str(item)) if isinstance(item, dict) else str(item)
+            price = item.get("price_cents", 0) if isinstance(item, dict) else 0
+            item_counts[name] = item_counts.get(name, 0) + 1
+            item_revenue[name] = item_revenue.get(name, 0) + price
+
+    sorted_items = sorted(item_counts.items(), key=lambda x: x[1], reverse=True)[:20]
+    return {
+        "items": [
+            {"name": name, "count": count, "revenue_cents": item_revenue.get(name, 0)}
+            for name, count in sorted_items
+        ]
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# TTS by tab
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/tts-by-tab")
+async def tts_by_tab(
+    venue_id: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    user: dict = Depends(get_current_venue_admin),
+):
+    vid = _venue_scope(user, venue_id)
+    db = get_analytics_db()
+    ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
+
+    rows = db.execute(f"""
+        SELECT COALESCE(json_extract(payload, '$.tab'), 'unknown') as tab,
+               COUNT(*) as play_count,
+               AVG(CAST(json_extract(payload, '$.duration_seconds') AS REAL)) as avg_dur
+        FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'tts_played'
+        GROUP BY tab ORDER BY play_count DESC
+    """, ep).fetchall()
+
+    return {
+        "tabs": [
+            {"tab": r[0], "play_count": r[1], "avg_duration_seconds": round(r[2], 1) if r[2] else 0}
+            for r in rows
+        ]
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Convention signups
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/convention-signups")
+async def convention_signups(
+    user: dict = Depends(get_current_venue_admin),
+):
+    if user.get("role") != "super_admin":
+        return {"signups": []}
+
+    from app.core.config import DB_PATH
+    import sqlite3
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+
+    rows = conn.execute("""
+        SELECT email, created_at, venue_id, expires_at
+        FROM venues WHERE role = 'convention'
+        ORDER BY created_at DESC
+    """).fetchall()
+
+    db = get_analytics_db()
+    signups = []
+    for r in rows:
+        vid = r["venue_id"]
+        sess_row = db.execute("SELECT COUNT(*) FROM sessions WHERE venue_id = ?", (vid,)).fetchone()
+        last_row = db.execute("SELECT MAX(timestamp) FROM events WHERE venue_id = ?", (vid,)).fetchone()
+        signups.append({
+            "email": r["email"],
+            "signup_date": r["created_at"] or "",
+            "sessions": sess_row[0] if sess_row else 0,
+            "last_active": last_row[0] if last_row and last_row[0] else "",
+            "expires": r["expires_at"] or "",
+        })
+
+    conn.close()
+    return {"signups": signups}
