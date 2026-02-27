@@ -322,7 +322,7 @@ async def device_detail(
         payload = json.loads(q[1]) if q[1] else {}
         questions.append({
             "game_id": q[0] or "",
-            "question": payload.get("question", payload.get("text", "")),
+            "question": payload.get("question", payload.get("question_text", payload.get("text", ""))),
             "timestamp": q[2] or "",
         })
 
@@ -464,11 +464,11 @@ async def top_questions(
     ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
 
     rows = db.execute(f"""
-        SELECT json_extract(payload, '$.question') as question,
+        SELECT COALESCE(json_extract(payload, '$.question'), json_extract(payload, '$.question_text')) as question,
                game_id,
                COUNT(*) as cnt
         FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'
-            AND json_extract(payload, '$.question') IS NOT NULL
+            AND (json_extract(payload, '$.question') IS NOT NULL OR json_extract(payload, '$.question_text') IS NOT NULL)
         GROUP BY question, game_id
         ORDER BY cnt DESC LIMIT 20
     """, ep).fetchall()
@@ -950,9 +950,9 @@ async def question_categories(
     ew, ep = _build_where("venue_id", "timestamp", vid, start_date, end_date)
 
     rows = db.execute(f"""
-        SELECT json_extract(payload, '$.question') as question
+        SELECT COALESCE(json_extract(payload, '$.question'), json_extract(payload, '$.question_text')) as question
         FROM events{ew} {'AND' if ew else 'WHERE'} event_type = 'question_asked'
-            AND json_extract(payload, '$.question') IS NOT NULL
+            AND (json_extract(payload, '$.question') IS NOT NULL OR json_extract(payload, '$.question_text') IS NOT NULL)
     """, ep).fetchall()
 
     categories = {"Setup": 0, "Rules": 0, "Strategy": 0, "Scoring": 0, "Other": 0}
