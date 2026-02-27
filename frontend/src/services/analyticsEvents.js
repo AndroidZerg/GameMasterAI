@@ -12,7 +12,7 @@ export const trackScoreStarted = (venueId, gameId, playerCount) =>
   EventTracker.track('score_started', gameId, { venue_id: venueId, player_count: playerCount });
 
 export const trackOrderPlaced = (gameId, items, subtotal, minutesSinceStart) =>
-  EventTracker.track('order_placed', gameId, { items, subtotal, minutes_since_game_start: minutesSinceStart });
+  EventTracker.track('order_placed', gameId, { items, subtotal, total_cents: Math.round(subtotal * 100), minutes_since_game_start: minutesSinceStart });
 
 // ── Page & Navigation ──
 

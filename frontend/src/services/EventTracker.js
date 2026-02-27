@@ -225,7 +225,8 @@ function start() {
 
     const payload = _buildBeaconPayload([sessionEndEvent]);
     if (payload) {
-      navigator.sendBeacon(`${API_BASE}/api/events`, payload);
+      const blob = new Blob([payload], { type: 'application/json' });
+      navigator.sendBeacon(`${API_BASE}/api/events`, blob);
     }
     queue = [];
   });

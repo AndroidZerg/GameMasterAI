@@ -7,6 +7,29 @@ logger = logging.getLogger(__name__)
 _connection = None
 
 
+class _LibsqlCompat:
+    """Thin wrapper around a libsql connection that auto-converts params to tuples.
+
+    libsql_experimental requires parameters as tuples, but sqlite3 accepts both
+    lists and tuples. This wrapper normalises params so callers don't need to care.
+    """
+
+    def __init__(self, conn):
+        self._conn = conn
+
+    def execute(self, sql, params=()):
+        return self._conn.execute(sql, tuple(params) if params else ())
+
+    def commit(self):
+        return self._conn.commit()
+
+    def close(self):
+        return self._conn.close()
+
+    def __getattr__(self, name):
+        return getattr(self._conn, name)
+
+
 def get_analytics_db():
     global _connection
     if _connection is not None:
@@ -17,7 +40,8 @@ def get_analytics_db():
 
     if url and token:
         import libsql_experimental as libsql
-        _connection = libsql.connect(url, auth_token=token)
+        raw = libsql.connect(url, auth_token=token)
+        _connection = _LibsqlCompat(raw)
         logger.info(f"Connected to Turso: {url[:40]}...")
     else:
         # Local fallback — regular SQLite file

@@ -108,21 +108,13 @@ async def analytics_summary(
     user: dict = Depends(get_current_venue_admin),
 ):
     vid = _venue_scope(user, venue_id)
-    try:
-        db = get_analytics_db()
-    except Exception as exc:
-        logger.error(f"get_analytics_db() failed: {exc}")
-        return {"error": f"DB connection failed: {exc}"}
+    db = get_analytics_db()
 
     dw, dp = _build_where("venue_id", "last_seen_at", vid, start_date, end_date)
 
-    try:
-        # Total devices
-        row = db.execute(f"SELECT COUNT(*) FROM devices{dw}", dp).fetchone()
-        total_devices = row[0] if row else 0
-    except Exception as exc:
-        logger.error(f"Summary query failed: {exc}")
-        return {"error": f"Query failed: {exc}"}
+    # Total devices
+    row = db.execute(f"SELECT COUNT(*) FROM devices{dw}", dp).fetchone()
+    total_devices = row[0] if row else 0
 
     # Returning devices (visit_count > 1)
     ret_where = f"{dw} AND visit_count > 1" if dw else " WHERE visit_count > 1"

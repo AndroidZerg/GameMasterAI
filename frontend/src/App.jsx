@@ -102,7 +102,7 @@ function AppShell() {
   const { showIdlePrompt, dismissIdlePrompt } = useKioskMode(navigateHome);
 
   useEffect(() => {
-    const venueId = localStorage.getItem('gmai-venue-id');
+    const venueId = localStorage.getItem('gmai_venue_id');
     if (venueId) EventTracker.setVenue(venueId);
     EventTracker.start();
     return () => EventTracker.stop();
