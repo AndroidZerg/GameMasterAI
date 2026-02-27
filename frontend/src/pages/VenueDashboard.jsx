@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import HomeTab from "../components/venue/HomeTab";
-import AnalyticsTab from "../components/venue/AnalyticsTab";
+import AnalyticsDashboard from "./AnalyticsDashboard";
 import LibraryTab from "../components/venue/LibraryTab";
 import MenuTab from "../components/venue/MenuTab";
 
@@ -22,6 +23,7 @@ const tabBar = {
 
 export default function VenueDashboard() {
   const [activeTab, setActiveTab] = useState("home");
+  const { venueId } = useAuth();
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "20px 16px" }}>
@@ -55,7 +57,7 @@ export default function VenueDashboard() {
 
       {/* Tab content */}
       {activeTab === "home" && <HomeTab />}
-      {activeTab === "analytics" && <AnalyticsTab />}
+      {activeTab === "analytics" && <AnalyticsDashboard venueScope={venueId} />}
       {activeTab === "library" && <LibraryTab />}
       {activeTab === "menu" && <MenuTab />}
     </div>

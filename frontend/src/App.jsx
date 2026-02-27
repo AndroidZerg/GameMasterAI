@@ -1,5 +1,5 @@
-import { useEffect, useCallback } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useCallback, useRef } from "react";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { setOnUnauthorized } from "./services/api";
 import EventTracker from "./services/EventTracker";
@@ -27,6 +27,7 @@ import LobbyScoreTracker from "./components/LobbyScoreTracker";
 import OnboardingPage from "./pages/OnboardingPage";
 import VenueDashboard from "./pages/VenueDashboard";
 import CRMPage from "./pages/CRMPage";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -60,6 +61,40 @@ function RootRedirect() {
   return <LoginPage />;
 }
 
+/** Track page_viewed and page_dwell on every route change */
+function RouteTracker() {
+  const location = useLocation();
+  const prevPathRef = useRef(null);
+  const pageEntryRef = useRef(Date.now());
+
+  useEffect(() => {
+    const prevPath = prevPathRef.current;
+    const now = Date.now();
+
+    // Fire page_dwell for the previous page
+    if (prevPath !== null) {
+      const dwellSeconds = Math.round((now - pageEntryRef.current) / 1000);
+      if (dwellSeconds > 0) {
+        EventTracker.track('page_dwell', null, {
+          page: prevPath,
+          dwell_seconds: dwellSeconds,
+        });
+      }
+    }
+
+    // Fire page_viewed for the new page
+    EventTracker.track('page_viewed', null, {
+      page: location.pathname,
+      referrer_page: prevPath || '',
+    });
+
+    prevPathRef.current = location.pathname;
+    pageEntryRef.current = now;
+  }, [location.pathname]);
+
+  return null;
+}
+
 function AppShell() {
   const navigate = useNavigate();
   const navigateHome = useCallback(() => navigate("/games"), [navigate]);
@@ -74,6 +109,7 @@ function AppShell() {
 
   return (
     <>
+      <RouteTracker />
       <AuthWatcher />
       <NavMenu />
       <DemoBadge />
@@ -99,6 +135,7 @@ function AppShell() {
         <Route path="/admin/customize" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CustomizeHomePage /></ProtectedRoute>} />
         <Route path="/admin/feedback" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><AdminFeedbackPage /></ProtectedRoute>} />
         <Route path="/admin/crm" element={<ProtectedRoute allowedRoles={["super_admin"]}><CRMPage /></ProtectedRoute>} />
+        <Route path="/admin/analytics" element={<ProtectedRoute allowedRoles={["super_admin"]}><AnalyticsDashboard /></ProtectedRoute>} />
         {/* Venue platform routes */}
         <Route path="/onboarding" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />
         <Route path="/onboarding/:step" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />
