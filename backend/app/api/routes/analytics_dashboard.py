@@ -11,7 +11,7 @@ import logging
 from datetime import datetime, timezone
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
 from app.api.deps import get_current_venue_admin
@@ -19,27 +19,6 @@ from app.services.turso import get_analytics_db
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/v1/analytics", tags=["analytics-dashboard"])
-
-
-# ── TEMPORARY: Reset all analytics data (super_admin only) ──
-
-@router.post("/reset")
-async def reset_analytics(
-    user: dict = Depends(get_current_venue_admin),
-):
-    """TEMPORARY: Reset all analytics data. Super_admin only."""
-    if user.get("role") != "super_admin":
-        raise HTTPException(status_code=403, detail="Super admin only")
-    db = get_analytics_db()
-    tables = ["events", "sessions", "devices", "device_names"]
-    cleared = []
-    for table in tables:
-        try:
-            db.execute(f"DELETE FROM {table}")
-            cleared.append(table)
-        except Exception as e:
-            logger.warning("Could not clear %s: %s", table, e)
-    return {"status": "reset", "tables_cleared": cleared}
 
 
 def _venue_scope(user: dict, venue_id: Optional[str] = None) -> Optional[str]:
