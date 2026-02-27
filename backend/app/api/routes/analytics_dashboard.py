@@ -14,6 +14,8 @@ from typing import Optional
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
+from fastapi import HTTPException
+
 from app.api.deps import get_current_venue_admin
 from app.services.turso import get_analytics_db
 
@@ -1128,3 +1130,28 @@ async def convention_signups(
 
     conn.close()
     return {"signups": signups}
+
+
+# ─────────────────────────────────────────────────────────────
+# TEMPORARY: Reset all analytics data (super_admin only)
+# ─────────────────────────────────────────────────────────────
+
+@router.post("/reset")
+async def reset_analytics(
+    user: dict = Depends(get_current_venue_admin),
+):
+    """TEMPORARY: Reset all analytics data. Super_admin only."""
+    if user.get("role") != "super_admin":
+        raise HTTPException(status_code=403, detail="Super admin only")
+
+    db = get_analytics_db()
+    tables = ["events", "sessions", "devices", "device_names"]
+    cleared = []
+    for table in tables:
+        try:
+            db.execute(f"DELETE FROM {table}")
+            cleared.append(table)
+        except Exception as e:
+            logger.warning("Could not clear %s: %s", table, e)
+
+    return {"status": "reset", "tables_cleared": cleared}
