@@ -274,6 +274,7 @@ export default function AnalyticsDashboard({ venueScope = null }) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [venueId, setVenueId] = useState(venueScope || "");
+  const [venues, setVenues] = useState([]);
   const [activeTab, setActiveTab] = useState("customers");
 
   // Data
@@ -332,6 +333,14 @@ export default function AnalyticsDashboard({ venueScope = null }) {
   }, [queryParams, page, sortBy, sortDir]);
 
   useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  useEffect(() => {
+    if (!isSuperAdmin || isVenueScoped) return;
+    fetch(`${API_BASE}/api/venues`)
+      .then((r) => r.json())
+      .then((data) => { if (Array.isArray(data)) setVenues(data); })
+      .catch(() => {});
+  }, [isSuperAdmin, isVenueScoped]);
 
   const handleSort = (col) => {
     if (sortBy === col) {
@@ -415,13 +424,16 @@ export default function AnalyticsDashboard({ venueScope = null }) {
             <span style={{ color: "#64748b" }}>to</span>
             <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} style={s.input} />
             {isSuperAdmin && !isVenueScoped && (
-              <input
-                type="text"
-                placeholder="Venue ID"
+              <select
                 value={venueId}
                 onChange={(e) => setVenueId(e.target.value)}
-                style={{ ...s.input, width: 120 }}
-              />
+                style={{ ...s.input, width: 180, cursor: "pointer" }}
+              >
+                <option value="">All Venues</option>
+                {venues.map((v) => (
+                  <option key={v.venue_id} value={v.venue_id}>{v.venue_name}</option>
+                ))}
+              </select>
             )}
             <button onClick={handleExport} style={{ ...s.btn, background: "#f97316", color: "#fff" }}>Export CSV</button>
             <button onClick={fetchAll} style={{ ...s.btn, background: "#334155", color: "#e2e8f0" }}>Refresh</button>
