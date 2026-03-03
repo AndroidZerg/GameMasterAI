@@ -284,12 +284,12 @@ def _pick_order_items() -> list:
     categories = [c for c, w in CATEGORY_WEIGHTS for _ in range(w)]
     cat = random.choice(categories)
     items = [random.choice(MENU_ITEMS[cat])]
-    # 40% chance of a second item
-    if random.random() < 0.4:
+    # 60% chance of a second item
+    if random.random() < 0.6:
         cat2 = random.choice(categories)
         items.append(random.choice(MENU_ITEMS[cat2]))
-    # 10% chance of a third
-    if random.random() < 0.1:
+    # 25% chance of a third
+    if random.random() < 0.25:
         cat3 = random.choice(categories)
         items.append(random.choice(MENU_ITEMS[cat3]))
     return items
@@ -398,10 +398,10 @@ async def seed_meepleville():
             random.shuffle(pool)
             game_question_pool[game_id] = pool
 
-    # Decide which sessions get questions (roughly 140 sessions ask questions)
+    # Decide which sessions get questions (~90 sessions ask 1-3 questions → ~140 total)
     question_session_indices = set(random.sample(
         range(len(session_assignments)),
-        min(140, len(session_assignments))
+        min(90, len(session_assignments))
     ))
 
     # Decide which sessions place orders (~48 sessions)
