@@ -36,7 +36,7 @@ function QRCard({ url, tableNum }) {
 
 export default function QRGeneratorPage() {
   const [numTables, setNumTables] = useState(10);
-  const [venueUrl, setVenueUrl] = useState("playgmai.com");
+  const [venueUrl, setVenueUrl] = useState("playgmg.com");
 
   const tables = Array.from({ length: numTables }, (_, i) => i + 1);
 

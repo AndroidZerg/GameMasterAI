@@ -110,7 +110,7 @@ async def create_lobby(body: CreateLobby):
         "lobby_id": lobby_id,
         "lobby_code": code,
         "host_id": host_id,
-        "qr_url": f"https://playgmai.com/join/{code}",
+        "qr_url": f"https://playgmg.com/join/{code}",
     }
 
 

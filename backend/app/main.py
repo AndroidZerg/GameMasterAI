@@ -113,8 +113,13 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS — allow production origin and optionally localhost for dev
+# CORS — allow production origins and optionally localhost for dev
+# Always include both domains for backward compatibility during migration
+_PROD_ORIGINS = ["https://playgmg.com", "https://playgmai.com"]
 origins = [o.strip() for o in CORS_ORIGIN.split(",") if o.strip()]
+for _po in _PROD_ORIGINS:
+    if _po not in origins:
+        origins.append(_po)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

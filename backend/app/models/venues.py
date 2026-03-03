@@ -197,12 +197,12 @@ _DEMO_VENUES = [
     {
         "venue_id": "playgmai-demo",
         "venue_name": "GameMaster Guide Demo",
-        "email": "demo@playgmai.com",
+        "email": "demo@playgmg.com",
         "tagline": "AI-Powered Board Game Teaching",
         "accent_color": "#e94560",
         "address": "",
         "phone": "",
-        "website": "https://playgmai.com",
+        "website": "https://playgmg.com",
     },
     {
         "venue_id": "meepleville",
@@ -272,7 +272,7 @@ _DICETOWER_ACCOUNTS = [
     {
         "venue_id": "admin",
         "venue_name": "GameMaster Guide Admin",
-        "email": "admin@playgmai.com",
+        "email": "admin@playgmg.com",
         "password": "watress2",
         "role": "super_admin",
         "tagline": "Admin Account",
@@ -280,7 +280,7 @@ _DICETOWER_ACCOUNTS = [
     {
         "venue_id": "demo-dicetower",
         "venue_name": "Dice Tower West Demo",
-        "email": "demo-dicetower@playgmai.com",
+        "email": "demo-dicetower@playgmg.com",
         "password": "watress2",
         "role": "demo",
         "tagline": "Dice Tower West 2026 Demo",
@@ -288,7 +288,7 @@ _DICETOWER_ACCOUNTS = [
     {
         "venue_id": "meetup",
         "venue_name": "Board Games in Henderson",
-        "email": "meetup@playgmai.com",
+        "email": "meetup@playgmg.com",
         "password": "bgninhenderson",
         "role": "meetup",
         "tagline": "Game Nights & Community Gaming in Henderson",
@@ -296,7 +296,7 @@ _DICETOWER_ACCOUNTS = [
     {
         "venue_id": "meetup-admin",
         "venue_name": "Meetup Admin",
-        "email": "meetup-admin@playgmai.com",
+        "email": "meetup-admin@playgmg.com",
         "password": "watress2",
         "role": "super_admin",
         "tagline": "Meetup Admin Account",

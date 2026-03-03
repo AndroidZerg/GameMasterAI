@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
 
-const BASE_URL = 'https://playgmai.com';
+const BASE_URL = 'https://playgmg.com';
 
 /**
  * Login helper — fills the login form and waits for redirect.
@@ -31,7 +31,7 @@ export async function logout(page: Page) {
   // Navigate to the app domain first to ensure we can access localStorage
   try {
     const url = page.url();
-    if (!url.includes('playgmai.com')) {
+    if (!url.includes('playgmg.com')) {
       await page.goto(`${BASE_URL}/login`);
       await page.waitForLoadState('networkidle');
     }

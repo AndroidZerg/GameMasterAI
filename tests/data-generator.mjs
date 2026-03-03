@@ -1,11 +1,11 @@
 /**
  * GMAI Data Generator — 6 Bot Test Suite
- * Runs against LIVE site (playgmai.com) to generate analytics data.
+ * Runs against LIVE site (playgmg.com) to generate analytics data.
  * Each bot simulates a different user persona across different venues.
  */
 import { chromium } from 'playwright';
 
-const BASE_URL = 'https://playgmai.com';
+const BASE_URL = 'https://playgmg.com';
 const DELAY_MIN = 1200;
 const DELAY_MAX = 3500;
 
