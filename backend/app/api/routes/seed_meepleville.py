@@ -20,13 +20,13 @@ END_DATE = datetime(2026, 3, 3)
 
 # Games with target session counts
 TOP_GAMES = [
-    ("catan", 18), ("ticket-to-ride", 15), ("wingspan", 13),
-    ("codenames", 11), ("azul", 10),
+    ("catan", 28), ("ticket-to-ride", 24), ("wingspan", 20),
+    ("codenames", 17), ("azul", 15),
 ]
 MID_GAMES = [
-    ("splendor", 7), ("pandemic", 6), ("carcassonne", 6),
-    ("7-wonders", 5), ("king-of-tokyo", 5), ("sushi-go-party", 4),
-    ("coup", 4), ("love-letter", 3), ("dominion", 3), ("kingdomino", 3),
+    ("splendor", 10), ("pandemic", 9), ("carcassonne", 8),
+    ("7-wonders", 7), ("king-of-tokyo", 7), ("sushi-go-party", 6),
+    ("coup", 5), ("love-letter", 5), ("dominion", 4), ("kingdomino", 4),
 ]
 TAIL_GAMES = [
     "agricola", "terraforming-mars", "root", "scythe", "everdell",
@@ -322,7 +322,7 @@ async def seed_meepleville():
 
     # ── Step 2: Build session schedule ──────────────────────
     all_games = [(g, c) for g, c in TOP_GAMES] + [(g, c) for g, c in MID_GAMES]
-    tail_sessions = [(g, random.randint(1, 2)) for g in random.sample(TAIL_GAMES, random.randint(10, 13))]
+    tail_sessions = [(g, random.randint(1, 3)) for g in random.sample(TAIL_GAMES, random.randint(10, 13))]
     all_games.extend(tail_sessions)
 
     # Expand into individual session entries
@@ -390,11 +390,13 @@ async def seed_meepleville():
     device_last_seen = {}
 
     # Distribute questions across games proportional to sessions
+    # Duplicate pool so same question can be asked by different users (realistic)
     game_question_pool = {}
     for game_id, _ in TOP_GAMES + MID_GAMES + [(g, 1) for g in TAIL_GAMES]:
         if game_id in QUESTIONS:
-            game_question_pool[game_id] = list(QUESTIONS[game_id])
-            random.shuffle(game_question_pool[game_id])
+            pool = list(QUESTIONS[game_id]) * 3  # allow repeats
+            random.shuffle(pool)
+            game_question_pool[game_id] = pool
 
     # Decide which sessions get questions (roughly 140 sessions ask questions)
     question_session_indices = set(random.sample(
