@@ -18,10 +18,10 @@ const SIDEBAR_ITEMS = [
   { key: "games", label: "Games", icon: "\u{1F3AE}" },
   { key: "qa", label: "Q&A", icon: "\u{1F4AC}" },
   { key: "orders", label: "Orders", icon: "\u{1F354}" },
-  { key: "voice", label: "Voice", icon: "\u{1F50A}" },
+  { key: "voice", label: "Voice", icon: "\u{1F50A}", superOnly: true },
   { key: "venues", label: "Venues", icon: "\u{1F3EA}", superOnly: true },
   { key: "leads", label: "Leads", icon: "\u{1F4E8}", superOnly: true },
-  { key: "config", label: "Config", icon: "\u2699\uFE0F" },
+  { key: "config", label: "Config", icon: "\u2699\uFE0F", superOnly: true },
 ];
 
 const EXPORTABLE_SECTIONS = ["overview", "devices", "games", "qa", "orders", "voice", "venues", "leads"];
@@ -132,7 +132,7 @@ export default function AdminDashboard() {
       case "overview": {
         const s = await apiFetch(`/api/v1/analytics/summary${qs}`);
         const sheet = XLSX.utils.aoa_to_sheet([
-          ["GMAI Dashboard \u2014 Overview"],
+          ["GameMaster Guide Dashboard \u2014 Overview"],
           [],
           ["Metric", "Value"],
           ["Total Devices", s.total_devices ?? 0],
@@ -466,7 +466,7 @@ export default function AdminDashboard() {
           background: "#1e293b", borderBottom: "1px solid #334155", flexWrap: "wrap",
         }}>
           <h1 style={{ fontSize: "1.2rem", fontWeight: 700, margin: 0, whiteSpace: "nowrap" }}>
-            GMAI Dashboard
+            GameMaster Guide Dashboard
           </h1>
           <div style={{ flex: 1 }} />
 

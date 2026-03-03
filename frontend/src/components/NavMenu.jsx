@@ -11,11 +11,11 @@ const PUBLIC_ITEMS = [
 
 const ADMIN_ITEMS = [
   { path: "/admin/dashboard", label: "Admin Dashboard", icon: "\u{1F4CA}" },
-  { path: "/admin/stats", label: "Quick Stats", icon: "\u{1F4C8}" },
-  { path: "/admin/qr", label: "QR Codes", icon: "\u{1F4F1}" },
-  { path: "/admin/settings", label: "Venue Settings", icon: "\u2699\uFE0F" },
+  { path: "/admin/stats", label: "Quick Stats", icon: "\u{1F4C8}", superOnly: true },
+  { path: "/admin/qr", label: "QR Codes", icon: "\u{1F4F1}", superOnly: true },
+  { path: "/admin/settings", label: "Venue Settings", icon: "\u2699\uFE0F", superOnly: true },
   { path: "/admin/collection", label: "Game Collection", icon: "\u{1F3AE}" },
-  { path: "/admin/customize", label: "Customize Home", icon: "\u2728" },
+  { path: "/admin/customize", label: "Customize Home", icon: "\u2728", superOnly: true },
   { path: "/admin/feedback", label: "Feedback", icon: "\u{1F4DD}" },
 ];
 
@@ -183,7 +183,7 @@ export default function NavMenu() {
             <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.08em", padding: "8px 20px 4px", marginTop: "4px" }}>
               Admin
             </div>
-            {ADMIN_ITEMS.map((item) => (
+            {ADMIN_ITEMS.filter((item) => !item.superOnly || role === "super_admin").map((item) => (
               <button key={item.path} onClick={() => handleNavigate(item.path)} style={menuItemStyle(item.path)}>
                 <span style={{ fontSize: "1.1rem", width: "24px", textAlign: "center" }}>{item.icon}</span>
                 <span>{item.label}</span>

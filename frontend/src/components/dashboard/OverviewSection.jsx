@@ -251,7 +251,6 @@ export default function OverviewSection(props) {
   const trends = useDashFetch("/api/v1/analytics/trends", fp);
   const topGames = useDashFetch("/api/v1/analytics/top-games", fp);
   const peakHours = useDashFetch("/api/v1/analytics/peak-hours", fp);
-  const deviceMix = useDashFetch("/api/v1/analytics/device-mix", fp);
   const funnel = useDashFetch("/api/v1/analytics/funnel", fp);
 
   const [crmVenues, setCrmVenues] = useState(null);
@@ -309,13 +308,6 @@ export default function OverviewSection(props) {
           <PeakHoursHeatmap heatmap={peakHours?.heatmap} />
         </div>
 
-        {/* Device Mix */}
-        <div style={{ ...sectionCard, flex: "1 1 280px", minWidth: 250 }}>
-          <h3 style={{ fontSize: "0.9rem", color: "#94a3b8", margin: "0 0 12px" }}>Device Mix</h3>
-          <DonutChart
-            segments={(deviceMix?.platforms || []).map((p) => ({ label: p.platform, count: p.count }))}
-          />
-        </div>
       </div>
 
       {/* Row 4: Session Funnel */}
