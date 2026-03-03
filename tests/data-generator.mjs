@@ -187,7 +187,7 @@ async function runBot1() {
     viewport: { width: 1280, height: 800 },
   });
   const p1 = await ctx1.newPage();
-  await login(p1, 'demo@meepleville.com', 'gmai2026', 1);
+  await login(p1, 'demo@meepleville.com', 'gmg2026', 1);
 
   // Searches
   for (const q of ['catan', 'wingspan', 'party']) {
@@ -231,7 +231,7 @@ async function runBot1() {
     viewport: { width: 1280, height: 800 },
   });
   const p2 = await ctx2.newPage();
-  await login(p2, 'demo@meepleville.com', 'gmai2026', 1);
+  await login(p2, 'demo@meepleville.com', 'gmg2026', 1);
 
   for (const game of ['patchwork', 'ticket to ride', 'carcassonne']) {
     await searchGame(p2, game, 1);
@@ -260,7 +260,7 @@ async function runBot2() {
     isMobile: true,
   });
   const page = await ctx.newPage();
-  await login(page, 'demo@knightanddaygames.com', 'gmai2026', 2);
+  await login(page, 'demo@knightanddaygames.com', 'gmg2026', 2);
 
   // Open Catan
   await searchGame(page, 'catan', 2);
@@ -333,7 +333,7 @@ async function runBot3() {
     viewport: { width: 1024, height: 768 },
   });
   const page = await ctx.newPage();
-  await login(page, 'demo@littleshopofmagic.com', 'gmai2026', 3);
+  await login(page, 'demo@littleshopofmagic.com', 'gmg2026', 3);
 
   // Open Azul
   await searchGame(page, 'azul', 3);
@@ -396,7 +396,7 @@ async function runBot4() {
     isMobile: true,
   });
   const p1 = await ctx1.newPage();
-  await login(p1, 'demo@shallweplay.com', 'gmai2026', 4);
+  await login(p1, 'demo@shallweplay.com', 'gmg2026', 4);
 
   // Browse games page for a bit
   await wait(3000);
@@ -476,7 +476,7 @@ async function runBot4() {
     isMobile: true,
   });
   const p2 = await ctx2.newPage();
-  await login(p2, 'demo@shallweplay.com', 'gmai2026', 4);
+  await login(p2, 'demo@shallweplay.com', 'gmg2026', 4);
 
   await searchGame(p2, 'wingspan', 4);
   await clickFirstGameCard(p2, 4);
@@ -522,7 +522,7 @@ async function runBot5() {
     isMobile: true,
   });
   const page = await ctx.newPage();
-  await login(page, 'demo@grouchyjohns.com', 'gmai2026', 5);
+  await login(page, 'demo@grouchyjohns.com', 'gmg2026', 5);
 
   // Open Catan
   await searchGame(page, 'catan', 5);
@@ -631,7 +631,7 @@ async function runBot6() {
     viewport: { width: 1440, height: 900 },
   });
   const p1 = await ctx1.newPage();
-  await login(p1, 'demo@naturaltwentygames.com', 'gmai2026', 6);
+  await login(p1, 'demo@naturaltwentygames.com', 'gmg2026', 6);
 
   // Open Spirit Island
   await searchGame(p1, 'spirit island', 6);
@@ -705,7 +705,7 @@ async function runBot6() {
     viewport: { width: 1440, height: 900 },
   });
   const p2 = await ctx2.newPage();
-  await login(p2, 'demo@naturaltwentygames.com', 'gmai2026', 6);
+  await login(p2, 'demo@naturaltwentygames.com', 'gmg2026', 6);
 
   await searchGame(p2, 'spirit island', 6);
   await clickFirstGameCard(p2, 6);

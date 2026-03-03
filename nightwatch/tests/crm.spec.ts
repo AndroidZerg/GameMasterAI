@@ -216,7 +216,7 @@ test.describe('CRM — Venue CRM Dashboard', () => {
 
   test('15-18. Login as meepleville, ask Q&A, verify CRM analytics update', async ({ page }) => {
     // Step 1: Login as meepleville and play a game
-    await loginAs(page, 'demo@meepleville.com', 'gmai2026');
+    await loginAs(page, 'demo@meepleville.com', 'gmg2026');
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(2000);
 

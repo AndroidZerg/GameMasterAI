@@ -132,7 +132,7 @@ async function runBot4() {
     isMobile: true,
   });
   const p1 = await ctx1.newPage();
-  const ok1 = await login(p1, 'demo@shallweplay.com', 'gmai2026', 4);
+  const ok1 = await login(p1, 'demo@shallweplay.com', 'gmg2026', 4);
   if (!ok1) { await browser.close(); return; }
 
   await searchGame(p1, 'king of tokyo', 4);
@@ -225,7 +225,7 @@ async function runBot4() {
     isMobile: true,
   });
   const p2 = await ctx2.newPage();
-  await login(p2, 'demo@shallweplay.com', 'gmai2026', 4);
+  await login(p2, 'demo@shallweplay.com', 'gmg2026', 4);
 
   await searchGame(p2, 'wingspan', 4);
   await clickFirstGameCard(p2, 4);
@@ -272,12 +272,12 @@ async function runBot5() {
   const page = await ctx.newPage();
 
   // Try grouchy johns first, fallback to meepleville
-  let loggedIn = await login(page, 'demo@grouchyjohnscoffee.com', 'gmai2026', 5);
+  let loggedIn = await login(page, 'demo@grouchyjohnscoffee.com', 'gmg2026', 5);
   if (!loggedIn) {
     log(5, 'Grouchy Johns login failed, trying meepleville fallback');
     await page.goto(BASE_URL, { waitUntil: 'networkidle', timeout: 15000 }).catch(() => {});
     await wait(2000);
-    loggedIn = await login(page, 'demo@meepleville.com', 'gmai2026', 5);
+    loggedIn = await login(page, 'demo@meepleville.com', 'gmg2026', 5);
     if (!loggedIn) {
       log(5, 'All logins failed');
       await browser.close();

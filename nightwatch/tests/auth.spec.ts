@@ -112,7 +112,7 @@ test.describe('Auth — Login & Role-Based Access', () => {
     await page.goto(`${BASE_URL}/login`);
     await page.waitForLoadState('networkidle');
     await page.fill('input[aria-label="Email or username"]', 'demo@meepleville.com');
-    await page.fill('input[aria-label="Password"]', 'gmai2026');
+    await page.fill('input[aria-label="Password"]', 'gmg2026');
     await page.click('button[type="submit"]');
     await page.waitForTimeout(8000);
     const url = page.url();
@@ -126,7 +126,7 @@ test.describe('Auth — Login & Role-Based Access', () => {
     await page.goto(`${BASE_URL}/login`);
     await page.waitForLoadState('networkidle');
     await page.fill('input[aria-label="Email or username"]', 'demo@meepleville.com');
-    await page.fill('input[aria-label="Password"]', 'gmai2026');
+    await page.fill('input[aria-label="Password"]', 'gmg2026');
     await page.click('button[type="submit"]');
     await page.waitForTimeout(5000);
     if (page.url().includes('/games')) {
@@ -138,7 +138,7 @@ test.describe('Auth — Login & Role-Based Access', () => {
       await page.goto(`${BASE_URL}/login`);
       await page.waitForLoadState('networkidle');
       await page.fill('input[aria-label="Email or username"]', 'demo@shallweplay.com');
-      await page.fill('input[aria-label="Password"]', 'gmai2026');
+      await page.fill('input[aria-label="Password"]', 'gmg2026');
       await page.click('button[type="submit"]');
       await page.waitForTimeout(5000);
       if (page.url().includes('/games')) {
@@ -158,7 +158,7 @@ test.describe('Auth — Login & Role-Based Access', () => {
     await page.goto(`${BASE_URL}/login`);
     await page.waitForLoadState('networkidle');
     await page.fill('input[aria-label="Email or username"]', 'demo@meepleville.com');
-    await page.fill('input[aria-label="Password"]', 'gmai2026');
+    await page.fill('input[aria-label="Password"]', 'gmg2026');
     await page.click('button[type="submit"]');
     await page.waitForTimeout(5000);
     if (!page.url().includes('/games')) {
@@ -248,7 +248,7 @@ test.describe('Auth — Login & Role-Based Access', () => {
     await page.goto(`${BASE_URL}/login`);
     await page.waitForLoadState('networkidle');
     await page.fill('input[aria-label="Email or username"]', 'demo@shallweplay.com');
-    await page.fill('input[aria-label="Password"]', 'gmai2026');
+    await page.fill('input[aria-label="Password"]', 'gmg2026');
     await page.click('button[type="submit"]');
     await page.waitForTimeout(8000);
     const url = page.url();

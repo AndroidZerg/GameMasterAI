@@ -73,7 +73,7 @@ async def lifespan(app: FastAPI):
     run_venue_platform_migrations()
 
     # Seed all Las Vegas demo venues
-    pw_hash = hash_password("gmai2026")
+    pw_hash = hash_password("gmg2026")
     seeded = seed_all_venues(pw_hash)
     all_games = search_games()
     game_ids = [g["game_id"] for g in all_games]
