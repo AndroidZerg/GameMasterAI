@@ -122,6 +122,11 @@ export default function useTeachingMode(sectionData, activeTab) {
     setPlaybackSpeed(speed);
   }, []);
 
+  const resetStep = useCallback(() => {
+    stopSpeaking();
+    setCurrentStep(0);
+  }, []);
+
   return {
     currentMode,
     currentStep,
@@ -137,6 +142,7 @@ export default function useTeachingMode(sectionData, activeTab) {
     onPrevious: handlePrevious,
     onModeChange: handleModeChange,
     onSpeedChange: handleSpeedChange,
+    resetStep,
     SPEED_OPTIONS,
   };
 }

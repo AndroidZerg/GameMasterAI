@@ -19,10 +19,13 @@ import TeachingNavBar from "./TeachingNavBar";
 import WalkthroughStep from "./WalkthroughStep";
 import SummaryStep from "./SummaryStep";
 import AppendixTab from "./AppendixTab";
+import TutorialScenarioSelector from "./TutorialScenarioSelector";
+import TutorialCTAStep from "./TutorialCTAStep";
 
-const TABS = [
+const BASE_TABS = [
   { key: "setup", label: "Setup" },
   { key: "rules", label: "Rules" },
+  // "practice" inserted here dynamically when content exists
   { key: "strategy", label: "Strategy" },
   { key: "appendix", label: "Appendix" },
   { key: "qa", label: "Q&A and Notes" },
@@ -825,7 +828,29 @@ export default function GameTeacher() {
 
   // Teaching mode content for current tab
   const teaching = gameData?.teaching || {};
-  const teachingSection = teaching[activeTab] || null;
+  const [activeScenario, setActiveScenario] = useState(0);
+
+  // Practice tutorial scenarios
+  const practiceScenarios = teaching.practice_tutorial?.scenarios || [];
+  const hasPracticeTutorial = practiceScenarios.length > 0;
+
+  // Build dynamic tabs list — include "practice" only when content exists
+  const visibleTabs = (() => {
+    if (!hasPracticeTutorial) return BASE_TABS;
+    const tabs = [...BASE_TABS];
+    const stratIdx = tabs.findIndex((t) => t.key === "strategy");
+    tabs.splice(stratIdx, 0, { key: "practice", label: "Practice Tutorial" });
+    return tabs;
+  })();
+
+  // Resolve teaching section for current tab
+  const teachingSection = (() => {
+    if (activeTab === "practice" && hasPracticeTutorial) {
+      const scenario = practiceScenarios[activeScenario];
+      return scenario ? { walkthrough: scenario.walkthrough, summary: scenario.summary } : null;
+    }
+    return teaching[activeTab] || null;
+  })();
   const hasTeachingContent = !!(teachingSection?.walkthrough?.length || teachingSection?.summary?.length);
 
   // Teaching mode hook — manages step nav + TTS
@@ -934,7 +959,7 @@ export default function GameTeacher() {
   }, [activeTab]);
 
   const tabs = gameData?.tabs || {};
-  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy";
+  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy" || activeTab === "practice";
 
   return (
     <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
@@ -991,7 +1016,7 @@ export default function GameTeacher() {
 
       {/* Tab Bar */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap", justifyContent: "center" }}>
-        {TABS.map((t) => (
+        {visibleTabs.map((t) => (
           <button key={t.key} onClick={() => setActiveTab(t.key)} role="tab" aria-selected={activeTab === t.key} aria-label={`${t.label} tab`}
             style={{
               padding: "8px 20px", borderRadius: "999px",
@@ -1030,13 +1055,29 @@ export default function GameTeacher() {
             animation: "fadeIn 0.25s ease-out",
             ...(activeTab === "qa" ? { display: "flex", flexDirection: "column", flex: 1, minHeight: 0 } : {}),
           }}>
-            {isTeachingTab && hasTeachingContent && tm.currentMode === "walkthrough" && (
+            {/* Practice Tutorial — scenario selector + step content */}
+            {activeTab === "practice" && hasPracticeTutorial && (
+              <TutorialScenarioSelector
+                scenarios={practiceScenarios}
+                activeIndex={activeScenario}
+                onSelect={(i) => { setActiveScenario(i); tm.resetStep(); }}
+              />
+            )}
+            {/* Teaching step content (setup/rules/strategy/practice) */}
+            {isTeachingTab && hasTeachingContent && tm.currentStepData?.cta && (
+              <TutorialCTAStep
+                step={tm.currentStepData}
+                mode={tm.currentMode}
+                onNavigateTab={setActiveTab}
+              />
+            )}
+            {isTeachingTab && hasTeachingContent && !tm.currentStepData?.cta && tm.currentMode === "walkthrough" && (
               <WalkthroughStep step={tm.currentStepData} gameId={gameId} />
             )}
-            {isTeachingTab && hasTeachingContent && tm.currentMode === "summary" && (
+            {isTeachingTab && hasTeachingContent && !tm.currentStepData?.cta && tm.currentMode === "summary" && (
               <SummaryStep step={tm.currentStepData} gameId={gameId} />
             )}
-            {isTeachingTab && !hasTeachingContent && (
+            {isTeachingTab && !hasTeachingContent && activeTab !== "practice" && (
               <AccordionPanel subtopics={tabs[activeTab]?.subtopics} ttsState={tm.ttsState} />
             )}
             {activeTab === "appendix" && (
