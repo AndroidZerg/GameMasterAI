@@ -1,0 +1,94 @@
+{
+  "game_id": "a-gentle-rain",
+  "title": "A Gentle Rain",
+  "aliases": ["gentle rain"],
+  "publisher": "Mondo Games / Asmodee",
+  "player_count": {
+    "min": 1,
+    "max": 2,
+    "recommended": 1,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 10,
+    "max": 15
+  },
+  "complexity": "party",
+  "categories": ["tile-laying", "solo", "cooperative", "relaxation", "puzzle"],
+  "source_url": "https://mondoshop.com/products/a-gentle-rain-board-game",
+  "source_verified": true,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "28 lake tiles (each tile has 4 colored half-flower edges and quarter-circle cutouts at corners; backs are green with raindrop ripples), 8 wooden blossom tokens (each a unique colorful flower disc), 1 rule sheet."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Shuffle all 28 lake tiles face-down (green side up) into a single stack. Place the 8 blossom tokens nearby where all players can reach them. Draw one tile, flip it face-up, and place it in the center of the table — this is the starting tile."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "In solo mode, you simply begin drawing tiles. In 2-player cooperative mode, choose who goes first — players alternate turns. Draw one tile at a time from the stack."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "1. Draw one tile from the face-down stack and flip it face-up. 2. Place it adjacent to any existing tile, matching colored edges where they touch. Tiles may be rotated freely. 3. If a 2×2 square of tiles is completed with matching colors at the center intersection, a blossom blooms — place the matching blossom token. 4. If no valid placement exists, discard the tile."
+        },
+        {
+          "id": "actions",
+          "title": "Placement Rules",
+          "content": "A tile must be placed so at least one edge touches an existing tile. All touching edges must match colors. You may rotate the tile freely before placing. If you cannot legally place a tile, it is discarded face-up to a discard pile. Placement is mandatory if possible — you cannot choose to discard a playable tile."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The game ends when either: all 8 blossom tokens have been placed (perfect game!), or all 28 tiles have been drawn. Your score = number of blossom tokens placed + number of unplayed tiles remaining in the stack. A perfect game blooms all 8 flowers. In 2-player mode, you share the score cooperatively."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "In the first few tiles, focus on creating color clusters — groups of matching colors pointing toward the same intersection. Rotate your tile to set up future blooms rather than just placing it quickly."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1. Boxing yourself in — leaving no open edges for future placements. 2. Ignoring which blossom tokens remain — if a color's token is already placed, matching that color at an intersection won't score again. 3. Placing too linearly — building in a single line limits intersection opportunities. Build outward in a grid shape."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "The main decision each turn is tile rotation. Look at which colors are on each edge and which intersections are close to completing. In 2-player mode, communicate about what colors you're building toward so you can coordinate placements."
+        }
+      ]
+    }
+  },
+
+  "total_token_count": 0,
+  "extensions": {},
+
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "barbarian",
+    "created_at": "2026-03-04T14:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Simple solo/co-op tile-laying game. Teaching mode content in content/teaching/a-gentle-rain.json."
+  }
+}
