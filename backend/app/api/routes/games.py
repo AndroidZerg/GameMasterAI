@@ -181,7 +181,7 @@ async def featured_game(
 
 @router.get("/games/{game_id}")
 async def get_game(game_id: str):
-    """Return the full game JSON including all tabs data, MSRP, and scoring text."""
+    """Return the full game JSON including all tabs data, MSRP, scoring text, and teaching content."""
     game = load_game(game_id)
     if not game:
         raise HTTPException(status_code=404, detail=f"Game '{game_id}' not found")
@@ -198,6 +198,14 @@ async def get_game(game_id: str):
             break
     if scoring_text:
         game["scoring_text"] = scoring_text
+    # Attach teaching mode content if available
+    teaching_path = _CONTENT_ROOT / "teaching" / f"{game_id}.json"
+    if teaching_path.exists():
+        try:
+            teaching = json.loads(teaching_path.read_text(encoding="utf-8"))
+            game["teaching"] = teaching.get("sections", {})
+        except Exception:
+            pass
     return game
 
 

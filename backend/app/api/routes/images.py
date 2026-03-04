@@ -11,17 +11,6 @@ _IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images"
 _VENUE_LOGOS_DIR = Path(__file__).resolve().parents[4] / "content" / "venue-logos"
 
 
-@router.get("/images/{filename}")
-async def get_image(filename: str):
-    """Serve game cover images."""
-    if ".." in filename or "/" in filename or "\\" in filename:
-        raise HTTPException(status_code=400, detail="Invalid filename")
-    filepath = _IMAGES_DIR / filename
-    if not filepath.exists():
-        raise HTTPException(status_code=404, detail="Image not found")
-    return FileResponse(filepath, media_type="image/jpeg")
-
-
 @router.get("/images/venue-logos/{filename}")
 async def get_venue_logo(filename: str):
     """Serve venue logo images."""
@@ -31,3 +20,30 @@ async def get_venue_logo(filename: str):
     if not filepath.exists():
         raise HTTPException(status_code=404, detail="Logo not found")
     return FileResponse(filepath, media_type="image/png")
+
+
+@router.get("/images/{game_id}/{filename}")
+async def get_step_image(game_id: str, filename: str):
+    """Serve teaching-mode step images from content/images/{game_id}/."""
+    if ".." in game_id or "/" in game_id or "\\" in game_id:
+        raise HTTPException(status_code=400, detail="Invalid game_id")
+    if ".." in filename or "/" in filename or "\\" in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    filepath = _IMAGES_DIR / game_id / filename
+    if not filepath.exists():
+        raise HTTPException(status_code=404, detail="Image not found")
+    suffix = filepath.suffix.lower()
+    media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
+             "webp": "image/webp", "gif": "image/gif"}.get(suffix.lstrip("."), "image/jpeg")
+    return FileResponse(filepath, media_type=media)
+
+
+@router.get("/images/{filename}")
+async def get_image(filename: str):
+    """Serve game cover images."""
+    if ".." in filename or "/" in filename or "\\" in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    filepath = _IMAGES_DIR / filename
+    if not filepath.exists():
+        raise HTTPException(status_code=404, detail="Image not found")
+    return FileResponse(filepath, media_type="image/jpeg")

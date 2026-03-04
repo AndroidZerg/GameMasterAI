@@ -9,27 +9,25 @@ import ScoreTab from "./ScoreTab";
 import {
   speakText,
   stopSpeaking,
-  pauseSpeaking,
-  resumeSpeaking,
-  getRate,
-  setRate,
-  setOnStateChange,
-  setOnRateChange,
 } from "./ResponseDisplay";
 
 import { API_BASE } from "../services/api";
 import OrderPanel, { CountdownTimer } from "./OrderPanel";
 import EventTracker from "../services/EventTracker";
+import useTeachingMode from "../hooks/useTeachingMode";
+import TeachingNavBar from "./TeachingNavBar";
+import WalkthroughStep from "./WalkthroughStep";
+import SummaryStep from "./SummaryStep";
+import AppendixTab from "./AppendixTab";
 
 const TABS = [
   { key: "setup", label: "Setup" },
   { key: "rules", label: "Rules" },
   { key: "strategy", label: "Strategy" },
+  { key: "appendix", label: "Appendix" },
   { key: "qa", label: "Q&A and Notes" },
   { key: "score", label: "Score" },
 ];
-
-const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
 // MSRP prices for order panel "buy this game" feature
 const MSRP_PRICES = {
@@ -310,42 +308,6 @@ function FormattedContent({ content }) {
 
         return (<p key={i} style={{ margin: "8px 0", lineHeight: 1.6 }}><InlineMarkdown text={block.text} /></p>);
       })}
-    </div>
-  );
-}
-
-/* ── Speed Selector ─────────────────────────────────────────────── */
-function SpeedSelector({ rate, onRateChange }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: "2px", background: "var(--bg-primary)", borderRadius: "8px", padding: "2px", border: "1px solid var(--border)" }}>
-      {SPEED_OPTIONS.map((speed) => (
-        <button
-          key={speed}
-          onClick={() => onRateChange(speed)}
-          style={{
-            padding: "4px 8px", fontSize: "0.75rem", fontFamily: "monospace", borderRadius: "6px", border: "none", cursor: "pointer",
-            fontWeight: rate === speed ? 700 : 400,
-            background: rate === speed ? "var(--accent)" : "transparent",
-            color: rate === speed ? "#fff" : "var(--text-secondary)",
-            transition: "all 0.15s",
-          }}
-        >
-          {speed}x
-        </button>
-      ))}
-    </div>
-  );
-}
-
-/* ── Playback Controls ──────────────────────────────────────────── */
-function PlaybackControls({ ttsState }) {
-  if (ttsState !== "playing" && ttsState !== "paused") return null;
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: "2px", background: "var(--bg-primary)", borderRadius: "8px", padding: "2px 4px", border: "1px solid var(--border)" }}>
-      <button onClick={() => (ttsState === "paused" ? resumeSpeaking() : pauseSpeaking())} title={ttsState === "paused" ? "Resume" : "Pause"} style={{ background: "none", border: "none", color: "var(--text-secondary)", cursor: "pointer", fontSize: "0.95rem", padding: "4px 6px" }}>
-        {ttsState === "paused" ? "▶" : "⏸"}
-      </button>
-      <button onClick={() => stopSpeaking()} title="Stop" style={{ background: "none", border: "none", color: "var(--accent-dark)", cursor: "pointer", fontSize: "0.95rem", padding: "4px 6px" }}>⏹</button>
     </div>
   );
 }
@@ -843,7 +805,6 @@ export default function GameTeacher() {
   const [gameData, setGameData] = useState(null);
   const [gameTitle, setGameTitle] = useState(gameId);
   const [activeTab, setActiveTab] = useState("setup");
-  const [ttsState, setTtsState] = useState("idle");
   const [gameLoading, setGameLoading] = useState(true);
   const [gameError, setGameError] = useState(null);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -851,10 +812,6 @@ export default function GameTeacher() {
     venue_name: "Meepleville",
     venue_tagline: "Las Vegas Board Game Cafe",
     accent_color: "#e94560",
-  });
-  const [ttsRate, setTtsRate] = useState(() => {
-    const saved = getRate();
-    return SPEED_OPTIONS.includes(saved) ? saved : 1.0;
   });
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [showOrderPanel, setShowOrderPanel] = useState(false);
@@ -865,6 +822,14 @@ export default function GameTeacher() {
   const tabEntryRef = useRef(Date.now());
   const ttsStartRef = useRef(null);  // Track when TTS started for listened_seconds
   const gameEntryRef = useRef(Date.now()); // Track when game page was entered
+
+  // Teaching mode content for current tab
+  const teaching = gameData?.teaching || {};
+  const teachingSection = teaching[activeTab] || null;
+  const hasTeachingContent = !!(teachingSection?.walkthrough?.length || teachingSection?.summary?.length);
+
+  // Teaching mode hook — manages step nav + TTS
+  const tm = useTeachingMode(teachingSection, activeTab);
 
   useEffect(() => {
     const now = Date.now();
@@ -922,18 +887,7 @@ export default function GameTeacher() {
     return () => { mounted = false; };
   }, []);
 
-  useEffect(() => {
-    // Sync rate to module if it was defaulted during render
-    if (!SPEED_OPTIONS.includes(getRate())) setRate(1.0);
-    setOnStateChange((state) => setTtsState(state));
-    setOnRateChange((rate) => setTtsRate(rate));
-    return () => {
-      setOnStateChange(null);
-      setOnRateChange(null);
-      // Also stop speech here — callbacks are now nulled so notifyState is safe
-      if (window.speechSynthesis) window.speechSynthesis.cancel();
-    };
-  }, []);
+  // TTS callbacks are now managed by useTeachingMode hook
 
   // Online/offline detection
   useEffect(() => {
@@ -979,8 +933,8 @@ export default function GameTeacher() {
     }
   }, [activeTab]);
 
-  const handleRateChange = (newRate) => { setRate(newRate); setTtsRate(newRate); };
   const tabs = gameData?.tabs || {};
+  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy";
 
   return (
     <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
@@ -1055,7 +1009,7 @@ export default function GameTeacher() {
       <div style={{
         flex: 1, minHeight: 0, display: "flex", flexDirection: "column",
         overflowY: activeTab === "qa" ? "hidden" : "auto",
-        paddingBottom: (activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") ? "70px" : 0,
+        paddingBottom: isTeachingTab ? "80px" : 0,
       }}>
         {gameLoading ? (
           <div style={{ padding: "16px 0" }}>
@@ -1076,9 +1030,18 @@ export default function GameTeacher() {
             animation: "fadeIn 0.25s ease-out",
             ...(activeTab === "qa" ? { display: "flex", flexDirection: "column", flex: 1, minHeight: 0 } : {}),
           }}>
-            {activeTab === "setup" && <AccordionPanel subtopics={tabs.setup?.subtopics} ttsState={ttsState} />}
-            {activeTab === "rules" && <AccordionPanel subtopics={tabs.rules?.subtopics} ttsState={ttsState} />}
-            {activeTab === "strategy" && <AccordionPanel subtopics={tabs.strategy?.subtopics} ttsState={ttsState} />}
+            {isTeachingTab && hasTeachingContent && tm.currentMode === "walkthrough" && (
+              <WalkthroughStep step={tm.currentStepData} gameId={gameId} />
+            )}
+            {isTeachingTab && hasTeachingContent && tm.currentMode === "summary" && (
+              <SummaryStep step={tm.currentStepData} gameId={gameId} />
+            )}
+            {isTeachingTab && !hasTeachingContent && (
+              <AccordionPanel subtopics={tabs[activeTab]?.subtopics} ttsState={tm.ttsState} />
+            )}
+            {activeTab === "appendix" && (
+              <AppendixTab entries={teaching.appendix?.entries} />
+            )}
             {activeTab === "qa" && <QAPanel gameId={gameId} gameTitle={gameTitle} />}
             {activeTab === "score" && (
               <div style={{ maxWidth: "600px", margin: "0 auto", width: "100%" }}>
@@ -1104,69 +1067,40 @@ export default function GameTeacher() {
         <ExpansionInfo gameId={gameId} gameTitle={gameTitle} />
       )}
 
-      {/* ── TTS Bottom Bar (Setup/Rules/Strategy tabs only) ─── */}
-      {(activeTab === "setup" || activeTab === "rules" || activeTab === "strategy") && !gameLoading && !gameError && (
-        <div style={{
-          position: "fixed", bottom: 0, left: 0, right: 0,
-          background: "var(--bg-primary)", borderTop: "1px solid var(--border)",
-          padding: "10px 16px", zIndex: 100,
-          display: "flex", alignItems: "center", justifyContent: "center", gap: "12px",
-        }}>
-          {/* Play / Pause */}
-          <button
-            onClick={() => {
-              if (ttsState === "playing") {
-                const listened = ttsStartRef.current ? Math.round((Date.now() - ttsStartRef.current) / 1000) : 0;
-                EventTracker.track('tts_paused', gameId, { tab: activeTab, listened_seconds: listened });
-                pauseSpeaking();
+      {/* ── Teaching Nav Bar (Setup/Rules/Strategy tabs only) ─── */}
+      {isTeachingTab && !gameLoading && !gameError && (
+        <TeachingNavBar
+          currentStep={tm.currentStep}
+          totalSteps={tm.totalSteps}
+          isPlaying={tm.isPlaying}
+          isPaused={tm.isPaused}
+          currentMode={hasTeachingContent ? tm.currentMode : "legacy"}
+          playbackSpeed={tm.playbackSpeed}
+          onModeChange={tm.onModeChange}
+          onPrevious={tm.onPrevious}
+          onPlayPause={hasTeachingContent ? tm.onPlayPause : () => {
+            // Legacy: play entire tab content for games without teaching data
+            if (tm.ttsState === "playing") {
+              const listened = ttsStartRef.current ? Math.round((Date.now() - ttsStartRef.current) / 1000) : 0;
+              EventTracker.track('tts_paused', gameId, { tab: activeTab, listened_seconds: listened });
+              tm.onPlayPause();
+            } else if (tm.ttsState === "paused") {
+              ttsStartRef.current = Date.now();
+              tm.onPlayPause();
+            } else {
+              const subtopics = tabs[activeTab]?.subtopics;
+              if (subtopics?.length) {
+                const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
+                EventTracker.track('tts_played', gameId, { tab: activeTab, content_type: activeTab });
+                ttsStartRef.current = Date.now();
+                speakText(fullText);
               }
-              else if (ttsState === "paused") { resumeSpeaking(); ttsStartRef.current = Date.now(); }
-              else {
-                const subtopics = tabs[activeTab]?.subtopics;
-                if (subtopics?.length) {
-                  const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
-                  EventTracker.track('tts_played', gameId, { tab: activeTab, content_type: activeTab });
-                  ttsStartRef.current = Date.now();
-                  speakText(fullText);
-                }
-              }
-            }}
-            style={{
-              width: "44px", height: "44px", borderRadius: "50%",
-              background: ttsState === "playing" || ttsState === "paused" ? "var(--accent)" : "var(--bg-card)",
-              color: ttsState === "playing" || ttsState === "paused" ? "#fff" : "var(--text-primary)",
-              border: ttsState === "playing" || ttsState === "paused" ? "none" : "1px solid var(--border)",
-              fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-            }}
-            title={ttsState === "playing" ? "Pause" : ttsState === "paused" ? "Resume" : "Read aloud"}
-          >
-            {ttsState === "playing" ? "⏸" : "▶"}
-          </button>
-
-          {/* Stop */}
-          {(ttsState === "playing" || ttsState === "paused") && (
-            <button
-              onClick={() => {
-                const total = ttsStartRef.current ? Math.round((Date.now() - ttsStartRef.current) / 1000) : 0;
-                EventTracker.track('tts_completed', gameId, { tab: activeTab, total_seconds: total });
-                ttsStartRef.current = null;
-                stopSpeaking();
-              }}
-              style={{
-                width: "44px", height: "44px", borderRadius: "50%",
-                background: "var(--bg-card)", color: "var(--text-primary)",
-                border: "1px solid var(--border)", fontSize: "1.2rem", cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}
-              title="Stop"
-            >
-              ⏹
-            </button>
-          )}
-
-          {/* Speed selector */}
-          <SpeedSelector rate={ttsRate} onRateChange={handleRateChange} />
-        </div>
+            }
+          }}
+          onNext={tm.onNext}
+          onSpeedChange={tm.onSpeedChange}
+          speedOptions={tm.SPEED_OPTIONS}
+        />
       )}
 
       {/* Order Panel */}
