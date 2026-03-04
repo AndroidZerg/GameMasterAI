@@ -598,6 +598,40 @@ async def seed_meepleville():
                 "seen_at": start_ts,
             })
 
+    # ── Step 3b: Add bounce sessions (app_loaded but no game selected) ──
+    # These inflate the funnel top: 220 app_loaded vs 196 game_selected
+    bounce_count = random.randint(22, 28)
+    for _ in range(bounce_count):
+        day = random.choice(days)
+        hour = _weighted_hour(day.weekday())
+        dev_idx = random.choice(range(num_devices))
+        device = devices[dev_idx]
+        bounce_session_id = f"mv-bounce-{uuid.uuid4().hex[:12]}"
+        bounce_ts = day.replace(hour=hour, minute=random.randint(0, 59), second=random.randint(0, 59))
+        bounce_ts_str = bounce_ts.isoformat() + "Z"
+        all_events.append({
+            "event_type": "session_start",
+            "venue_id": VENUE_ID,
+            "device_id": device["device_id"],
+            "session_id": bounce_session_id,
+            "game_id": None,
+            "timestamp": bounce_ts_str,
+            "payload": json.dumps({}),
+        })
+        all_sessions.append({
+            "session_id": bounce_session_id,
+            "device_id": device["device_id"],
+            "venue_id": VENUE_ID,
+            "started_at": bounce_ts_str,
+            "ended_at": (bounce_ts + timedelta(seconds=random.randint(15, 90))).isoformat() + "Z",
+            "duration_seconds": random.randint(15, 90),
+            "games_viewed": 0, "games_played": 0, "questions_asked": 0,
+            "orders_placed": 0, "tts_uses": 0, "voice_inputs": 0,
+            "pages_visited": json.dumps(["games"]),
+        })
+        device_events_count[dev_idx] += 1
+        device_sessions_count[dev_idx] += 1
+
     # ── Step 4: Insert into DB ──────────────────────────────
 
     # Clear existing Meepleville data
