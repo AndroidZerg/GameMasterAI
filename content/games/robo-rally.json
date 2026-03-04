@@ -1,0 +1,86 @@
+{
+  "game_id": "robo-rally",
+  "title": "Robo Rally",
+  "aliases": ["RoboRally", "Robo Rally 2023"],
+  "publisher": "Renegade Game Studios",
+  "publisher_approved": false,
+  "player_count": {
+    "min": 2,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 20,
+    "max": 120
+  },
+  "complexity": "midweight",
+  "categories": [
+    "programmed-movement",
+    "racing",
+    "action-programming",
+    "grid-movement"
+  ],
+  "source_url": "https://renegadegamestudios.com/robo-rally/",
+  "source_verified": true,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "6 pre-painted robot miniatures (Spin Bot, Zoom Bot, Hammer Bot, Twonky, Smash Bot, Hulk X90), 6 player mats, 6 robot identity cards, 6 priority tokens, 1 priority antenna token, 6 checkpoint tokens and flags (numbered 1-6), reboot tokens, energy cubes (orange translucent), 6 programming decks of 20 cards each, damage card decks (SPAM, Worm, Trojan Horse, Virus), upgrade cards, 1 double-sided race course board, 1 start board, 1 sand timer, 2 reference cards (Round Sequence and Board Elements)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Board Layout",
+          "content": "Choose a race course board and connect it to the start board. Place checkpoint flags on the numbered checkpoint spaces in order (1 through 6, or fewer depending on the course). Place the priority antenna token on its marked space on the board. Place reboot tokens on marked reboot spaces."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player picks a robot and takes the matching miniature, player mat, robot identity card, priority token, and personal programming deck of 20 cards. Shuffle your programming deck and place it face-down on the Draw slot of your player mat. Each player starts with 5 energy cubes placed near their mat. Set the energy tracker on the player mat to 5. Remaining energy cubes form a central bank."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "The youngest player places their robot first on any black-and-white gear space on the start board, facing toward the course. Placement continues to the left. Shuffle the upgrade card deck and deal face-up upgrade cards equal to the number of players to form the upgrade shop. Separate the four damage card types (SPAM, Worm, Trojan Horse, Virus) into individual face-up piles. Place the six special programming cards (Energy Routine, Weasel Routine, Spam Folder, Sandbox Routine, Speed Routine, Repeat Routine) face-up near the board."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Round Structure",
+          "content": "Each round has 4 phases: 1. Upgrade Phase — spend energy to buy upgrades. 2. Programming Phase — draw 9 cards, pick 5, place face-down on registers 1-5. 3. Activation Phase — reveal and resolve registers 1-5 in priority order, activating board elements after each register. 4. End of Round — discard programming cards, clean up."
+        },
+        {
+          "id": "actions",
+          "title": "Programming Cards",
+          "content": "Move 1/2/3: move your robot forward that many spaces. Back Up: move 1 space backward without turning. Turn Left/Right: rotate 90 degrees in place. U-Turn: rotate 180 degrees in place. Power Up: gain 1 energy cube. Again: repeat the programming from your previous register."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Board Elements",
+          "content": "After each register resolves, board elements activate in this exact order: 1. Blue conveyor belts (move robots 2 spaces), 2. Green conveyor belts (move robots 1 space), 3. Push panels (push robots 1 space, only on numbered registers), 4. Gears (rotate robots 90 degrees), 5. Board lasers (deal SPAM damage), 6. Robot lasers (deal SPAM damage), 7. Energy spaces (collect energy cube), 8. Checkpoints (claim if reached in order)."
+        },
+        {
+          "id": "winning",
+          "title": "Winning the Race",
+          "content": "Robots must reach checkpoints in numerical order (1, then 2, then 3, etc.). You cannot claim checkpoint 2 until you have claimed checkpoint 1. The game ends immediately when a robot lands on the final checkpoint for that course. That player wins the race."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "general",
+          "title": "Strategy Tips",
+          "content": "Think 5 moves ahead when programming — your robot executes all 5 registers no matter what. Use conveyors and board elements to your advantage for free movement. Manage energy wisely — Power Up cards are worth using early to build up for powerful upgrades. Stay aware of other robots' positions — pushing and blocking are powerful tactics. Take the safest path to checkpoints rather than the shortest if the board is crowded."
+        }
+      ]
+    }
+  }
+}
