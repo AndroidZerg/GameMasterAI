@@ -1,0 +1,105 @@
+{
+  "game_id": "the-night-cage",
+  "title": "The Night Cage",
+  "aliases": ["Night Cage"],
+  "publisher": "Smirk & Dagger Games",
+  "publisher_approved": false,
+  "player_count": {
+    "min": 1,
+    "max": 5,
+    "recommended": 4,
+    "expansion_max": null
+  },
+  "play_time_minutes": {
+    "min": 30,
+    "max": 45
+  },
+  "complexity": "gateway",
+  "categories": ["Cooperative", "Horror", "Tile Placement", "Maze"],
+  "source_url": "https://smirkanddagger.com/the-night-cage",
+  "source_verified": false,
+
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "What's in the Box",
+          "content": "The Night Cage includes: 1 tile tower (vertical card holder with candle-drip art), 80+ path tiles (Straights, T-Bends, Crossroads), 4-5 Start Tiles (depending on player count), 4 Gate tiles, 6-7 Key tiles (depending on player count), 12 Wax Eater tiles, 5 colored Prisoner meeples (red, blue, green, yellow, purple), 5 Prisoner tokens (dark discs with hooded figure and candle), 5 Wax Eater miniatures (gray skeletal spine creatures), Wax Eater tokens (dark triangular tokens with flame art), 5 double-sided Player Reference cards (Normal side / Lights Out side), 2 Tile Discards reference cards (one for 4 Prisoners, one for 5 Prisoners). Advanced mode adds: 6-7 Keeper tiles, 2 Pit Fiend tiles, 2 Pathless tiles (Boss), 2 Omen tiles (Boss)."
+        },
+        {
+          "id": "board-layout",
+          "title": "Table Layout",
+          "content": "There is no central board. The maze builds itself as players explore. Leave a large open area in the center of the table — tiles will spread outward as prisoners move. Place the tile tower, Wax Eater miniatures, Wax Eater tokens, and extra tiles in a supply area to the side where everyone can reach them."
+        },
+        {
+          "id": "player-setup",
+          "title": "Player Setup",
+          "content": "Each player picks a colored Prisoner meeple. Each player takes a Player Reference card — place it Normal side up (the side that says YOUR TURN: MOVE ONE SPACE or STAY). Each player receives one Start Tile — place it face up in front of you. Put your Prisoner meeple on your Start Tile. Everyone starts with 0 Nerve (Nerve is tracked mentally or with any counter — maximum 2 Nerve)."
+        },
+        {
+          "id": "starting-conditions",
+          "title": "Starting the Game",
+          "content": "First, check your player count and grab the matching Tile Discards reference card (4 Prisoners or 5 Prisoners). This card lists exactly which tiles and how many of each type belong in the deck for your game. Remove any tiles NOT listed on the reference card from the deck. For standard mode, also remove all Advanced tiles (Keepers, Pit Fiends, Pathless, Omens). Shuffle the remaining tiles thoroughly and load them face-down into the tile tower. Spread the Start Tiles on the table with space between them — prisoners begin separated in the dark. The youngest player (or any agreed method) goes first. Play proceeds clockwise."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "On your turn you do exactly one thing: 1. MOVE one space to an adjacent tile (orthogonal, not diagonal), OR 2. STAY on your current tile (discard one adjacent tile back to the bottom of the tower, then gain 1 Nerve — maximum 2 Nerve). After moving: reveal new tiles from the tower to fill any empty spaces adjacent to your new position (your candle illuminates them). Then check for darkness: any tiles that are no longer adjacent to ANY prisoner are removed and placed at the bottom of the tile tower. If you are Lights Out (no illuminated tiles around you), flip your reference card to the Lights Out side — you MUST move, you cannot Stay."
+        },
+        {
+          "id": "actions",
+          "title": "Actions & Options",
+          "content": "MOVE: Step one space orthogonally to an adjacent tile. If moving to an empty space, draw a tile from the tower and place it. Resolve any special tile effects. STAY: Instead of moving, discard one tile adjacent to you (your choice) back to the bottom of the tower. Gain 1 Nerve (max 2). You cannot Stay if you are Lights Out. NERVE SPENDING (costs 1 Nerve each): Move Again — take a second move this turn. Stay (while Lights Out) — override the Lights Out restriction and Stay instead of moving. Block — when a monster attacks you and would discard 3 tiles, only discard 2 instead. Charge — move onto AND through a Monster tile, taking the attack but scrambling to a tile beyond it. Sustain — during Final Flickers only, prevent one illuminated tile from being removed after your turn. You cannot Sustain if you gained Nerve this turn."
+        },
+        {
+          "id": "special-mechanics",
+          "title": "Special Mechanics",
+          "content": "TILE TYPES: Straights, T-Bends, and Crossroads are basic path tiles — they connect spaces. Key tiles: land on one to pick up the key. Gate tiles: when ALL prisoners hold a key, any prisoner on a Gate tile can begin the escape. WAX EATERS: When a Wax Eater tile is revealed, place a Wax Eater miniature on it. Wax Eaters move toward the nearest prisoner at the end of each turn. When a Wax Eater reaches a prisoner, it attacks — discard 3 tiles adjacent to that prisoner (darkness closes in). LIGHTS OUT: When you have zero illuminated tiles adjacent to you, you are in total darkness. Flip your reference card. You MUST move (cannot Stay). Special Nerve options are restricted. FINAL FLICKERS: When the tile tower runs empty, the game enters Final Flickers. No new tiles are drawn. After each player's turn, one of their illuminated tiles is removed (unless they Sustain). The maze shrinks rapidly. WINNING: All prisoners must reach Gate tiles while holding Keys. Everyone escapes together — or everyone dies in the dark. LOSING: If any prisoner is trapped with no legal moves and no way to escape, all players lose."
+        },
+        {
+          "id": "endgame",
+          "title": "Endgame & Scoring",
+          "content": "The Night Cage is a cooperative pass/fail game — there is no scoring. Players either ALL escape or ALL lose. To win: every prisoner must hold a Key and reach a Gate tile. Once all prisoners are on Gates with Keys, everyone escapes and the group wins. The group loses if: the tile tower empties and players cannot sustain enough tiles to reach Gates, or any prisoner becomes permanently trapped. The game has no points, no rankings — just survival."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "opening-priorities",
+          "title": "Opening Priorities",
+          "content": "Move purposefully toward the center of the table — prisoners start separated, and you need to link up. Connected prisoners keep tiles illuminated between them, which is your lifeline. In the first few turns, focus on exploring (moving to reveal new tiles) rather than Staying for Nerve. You need to find Keys early. Communicate tile positions constantly — if someone spots a Key or Gate, guide the group toward it."
+        },
+        {
+          "id": "common-mistakes",
+          "title": "Common Mistakes",
+          "content": "1. Splitting up — when prisoners move apart, the darkness swallows the tiles between them. Stay within one or two tiles of each other whenever possible. 2. Hoarding Nerve — Nerve is capped at 2, so spending it when you have a good opportunity is better than sitting on it. 3. Ignoring Wax Eaters — letting a Wax Eater reach a prisoner costs 3 tiles, which can cascade into Lights Out. Sometimes it's better to Charge through one early. 4. Exploring aimlessly — every tile you reveal is one fewer tile in the tower. Move with purpose toward Keys and Gates. 5. Forgetting Final Flickers is coming — when the tower gets low, start planning your escape route. Don't get caught far from a Gate."
+        },
+        {
+          "id": "key-decisions",
+          "title": "Key Decisions",
+          "content": "Stay vs. Move: Staying gives you Nerve (emergency currency) but costs a tile. Moving explores new ground but may expose you to Wax Eaters. Balance information gathering against resource conservation. Charge vs. Avoid: When a Wax Eater blocks your path, do you spend Nerve to Charge through (taking the attack but getting past it) or reroute? Rerouting costs turns and tiles. Charging costs Nerve and 3 tiles but saves time. Sustain vs. Save Nerve: During Final Flickers, every Sustain buys one more turn, but you can't Sustain if you gained Nerve that turn. Timing your last few Nerve spends is the difference between escape and death."
+        }
+      ]
+    }
+  },
+
+  "total_token_count": 0,
+  "extensions": {},
+
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "halfling",
+    "created_at": "2026-03-04T14:30:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Created from reference card photos and rulebook knowledge"
+  }
+}
