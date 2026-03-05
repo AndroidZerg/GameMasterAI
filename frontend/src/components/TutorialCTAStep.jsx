@@ -57,7 +57,7 @@ export default function TutorialCTAStep({ step, onNavigateTab, mode }) {
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {/* Strategy */}
         <button
-          onClick={() => onNavigateTab("strategy")}
+          onClick={() => onNavigateTab("general_tips")}
           style={{
             ...ctaBase,
             background: "rgba(165,180,252,0.08)",
@@ -67,10 +67,10 @@ export default function TutorialCTAStep({ step, onNavigateTab, mode }) {
           <span style={{ fontSize: "1.1rem" }}>{"\uD83C\uDFAF"}</span>
           <div style={{ flex: 1, textAlign: "left" }}>
             <div style={{ fontWeight: 600, fontSize: "0.95rem", color: "var(--text-primary)" }}>
-              Review Strategy Tips
+              Check Out General Tips
             </div>
             <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "2px" }}>
-              Advanced tips and bird combos
+              Strategy basics for beginners
             </div>
           </div>
           <span style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>{"\u203A"}</span>

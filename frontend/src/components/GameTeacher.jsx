@@ -19,17 +19,23 @@ import TeachingNavBar from "./TeachingNavBar";
 import WalkthroughStep from "./WalkthroughStep";
 import SummaryStep from "./SummaryStep";
 import AppendixTab from "./AppendixTab";
-import TutorialScenarioSelector from "./TutorialScenarioSelector";
 import TutorialCTAStep from "./TutorialCTAStep";
+import TabNavigator from "./TabNavigator";
+import TableOfContents from "./TableOfContents";
 
-const BASE_TABS = [
-  { key: "setup", label: "Setup" },
-  { key: "rules", label: "Rules" },
-  // "practice" inserted here dynamically when content exists
-  { key: "strategy", label: "Strategy" },
-  { key: "appendix", label: "Appendix" },
-  { key: "qa", label: "Q&A and Notes" },
-  { key: "score", label: "Score" },
+// Tab order: Setup > Rules > Practice Tutorial > General Tips > Advanced Strategies > Appendix > Q&A > Score
+// Practice Tutorial hidden if no practice_tutorial content
+// Advanced Strategies hidden if no advanced_strategies content
+// If no general_tips, falls back to strategy section
+const ALL_TABS = [
+  { key: "setup", label: "Setup", alwaysVisible: true },
+  { key: "rules", label: "Rules", alwaysVisible: true },
+  { key: "practice", label: "Practice Tutorial", alwaysVisible: false },
+  { key: "general_tips", label: "General Tips", alwaysVisible: true },
+  { key: "advanced_strategies", label: "Advanced Strategies", alwaysVisible: false },
+  { key: "appendix", label: "Appendix", alwaysVisible: true },
+  { key: "qa", label: "Q&A and Notes", alwaysVisible: true },
+  { key: "score", label: "Score", alwaysVisible: true },
 ];
 
 // MSRP prices for order panel "buy this game" feature
@@ -823,31 +829,41 @@ export default function GameTeacher() {
   // Track tab switches + dwell time
   const prevTabRef = useRef(null);
   const tabEntryRef = useRef(Date.now());
-  const ttsStartRef = useRef(null);  // Track when TTS started for listened_seconds
-  const gameEntryRef = useRef(Date.now()); // Track when game page was entered
+  const ttsStartRef = useRef(null);
+  const gameEntryRef = useRef(Date.now());
 
   // Teaching mode content for current tab
   const teaching = gameData?.teaching || {};
-  const [activeScenario, setActiveScenario] = useState(0);
 
-  // Practice tutorial scenarios
-  const practiceScenarios = teaching.practice_tutorial?.scenarios || [];
-  const hasPracticeTutorial = practiceScenarios.length > 0;
+  // Detect available content
+  const hasPracticeTutorial = !!(teaching.practice_tutorial?.walkthrough?.length || teaching.practice_tutorial?.scenarios?.length);
+  const hasAdvancedStrategies = !!(teaching.advanced_strategies?.walkthrough?.length);
 
-  // Build dynamic tabs list — include "practice" only when content exists
-  const visibleTabs = (() => {
-    if (!hasPracticeTutorial) return BASE_TABS;
-    const tabs = [...BASE_TABS];
-    const stratIdx = tabs.findIndex((t) => t.key === "strategy");
-    tabs.splice(stratIdx, 0, { key: "practice", label: "Practice Tutorial" });
-    return tabs;
-  })();
+  // Build visible tabs for TabNavigator
+  const visibleTabs = ALL_TABS.map((t) => ({
+    id: t.key,
+    label: t.label,
+    visible: t.alwaysVisible
+      || (t.key === "practice" && hasPracticeTutorial)
+      || (t.key === "advanced_strategies" && hasAdvancedStrategies),
+  }));
 
   // Resolve teaching section for current tab
   const teachingSection = (() => {
-    if (activeTab === "practice" && hasPracticeTutorial) {
-      const scenario = practiceScenarios[activeScenario];
-      return scenario ? { walkthrough: scenario.walkthrough, summary: scenario.summary } : null;
+    if (activeTab === "practice") {
+      // Support old scenarios format (single first scenario) or new flat format
+      if (teaching.practice_tutorial?.walkthrough) {
+        return teaching.practice_tutorial;
+      }
+      if (teaching.practice_tutorial?.scenarios?.[0]) {
+        const s = teaching.practice_tutorial.scenarios[0];
+        return { walkthrough: s.walkthrough, summary: s.summary };
+      }
+      return null;
+    }
+    if (activeTab === "general_tips") {
+      // Fall back to old "strategy" section for backward compatibility
+      return teaching.general_tips || teaching.strategy || null;
     }
     return teaching[activeTab] || null;
   })();
@@ -959,7 +975,7 @@ export default function GameTeacher() {
   }, [activeTab]);
 
   const tabs = gameData?.tabs || {};
-  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy" || activeTab === "practice";
+  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy" || activeTab === "practice" || activeTab === "general_tips" || activeTab === "advanced_strategies";
 
   return (
     <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
@@ -1014,21 +1030,12 @@ export default function GameTeacher() {
         </div>
       )}
 
-      {/* Tab Bar */}
-      <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap", justifyContent: "center" }}>
-        {visibleTabs.map((t) => (
-          <button key={t.key} onClick={() => setActiveTab(t.key)} role="tab" aria-selected={activeTab === t.key} aria-label={`${t.label} tab`}
-            style={{
-              padding: "8px 20px", borderRadius: "999px",
-              border: activeTab === t.key ? "2px solid var(--accent)" : "2px solid var(--border)",
-              background: activeTab === t.key ? "var(--accent)" : "var(--bg-primary)",
-              color: "#fff", fontWeight: activeTab === t.key ? 700 : 400, fontSize: "0.95rem",
-            }}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
+      {/* Tab Navigator */}
+      <TabNavigator
+        tabs={visibleTabs}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
 
       {/* Tab Content */}
       <div style={{
@@ -1055,30 +1062,29 @@ export default function GameTeacher() {
             animation: "fadeIn 0.25s ease-out",
             ...(activeTab === "qa" ? { display: "flex", flexDirection: "column", flex: 1, minHeight: 0 } : {}),
           }}>
-            {/* Practice Tutorial — scenario selector + step content */}
-            {activeTab === "practice" && hasPracticeTutorial && (
-              <TutorialScenarioSelector
-                scenarios={practiceScenarios}
-                activeIndex={activeScenario}
-                onSelect={(i) => { setActiveScenario(i); tm.resetStep(); }}
+            {/* Teaching step content — TOC, walkthrough, or summary */}
+            {isTeachingTab && hasTeachingContent && tm.showingTOC && (
+              <TableOfContents
+                tabName={visibleTabs.find((t) => t.id === activeTab)?.label || activeTab}
+                steps={tm.steps}
+                onStepSelect={tm.goToStep}
               />
             )}
-            {/* Teaching step content (setup/rules/strategy/practice) */}
-            {isTeachingTab && hasTeachingContent && tm.currentStepData?.cta && (
+            {isTeachingTab && hasTeachingContent && !tm.showingTOC && tm.currentStepData?.cta && (
               <TutorialCTAStep
                 step={tm.currentStepData}
                 mode={tm.currentMode}
                 onNavigateTab={setActiveTab}
               />
             )}
-            {isTeachingTab && hasTeachingContent && !tm.currentStepData?.cta && tm.currentMode === "walkthrough" && (
+            {isTeachingTab && hasTeachingContent && !tm.showingTOC && !tm.currentStepData?.cta && tm.currentMode === "walkthrough" && (
               <WalkthroughStep step={tm.currentStepData} gameId={gameId} />
             )}
-            {isTeachingTab && hasTeachingContent && !tm.currentStepData?.cta && tm.currentMode === "summary" && (
+            {isTeachingTab && hasTeachingContent && !tm.showingTOC && !tm.currentStepData?.cta && tm.currentMode === "summary" && (
               <SummaryStep step={tm.currentStepData} gameId={gameId} />
             )}
             {isTeachingTab && !hasTeachingContent && activeTab !== "practice" && (
-              <AccordionPanel subtopics={tabs[activeTab]?.subtopics} ttsState={tm.ttsState} />
+              <AccordionPanel subtopics={(tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null))?.subtopics} ttsState={tm.ttsState} />
             )}
             {activeTab === "appendix" && (
               <AppendixTab entries={teaching.appendix?.entries} />
@@ -1129,7 +1135,7 @@ export default function GameTeacher() {
               ttsStartRef.current = Date.now();
               tm.onPlayPause();
             } else {
-              const subtopics = tabs[activeTab]?.subtopics;
+              const subtopics = (tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null))?.subtopics;
               if (subtopics?.length) {
                 const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
                 EventTracker.track('tts_played', gameId, { tab: activeTab, content_type: activeTab });

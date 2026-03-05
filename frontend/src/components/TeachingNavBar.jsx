@@ -34,8 +34,9 @@ export default function TeachingNavBar({
   }, []);
 
   const isActive = isPlaying || isPaused;
-  const canPrev = currentStep > 0;
-  const canNext = currentStep < totalSteps - 1;
+  const showingTOC = currentStep === -1;
+  const canPrev = currentStep > -1;
+  const canNext = showingTOC ? totalSteps > 0 : currentStep < totalSteps - 1;
   const isLegacy = currentMode === "legacy";
 
   return (
@@ -179,7 +180,7 @@ export default function TeachingNavBar({
             textAlign: "center",
           }}
         >
-          {totalSteps > 0 ? `${currentStep + 1}/${totalSteps}` : "—"}
+          {totalSteps > 0 ? (showingTOC ? "TOC" : `${currentStep + 1}/${totalSteps}`) : "—"}
         </div>
       )}
 
