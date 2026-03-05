@@ -1,5 +1,9 @@
 """LLM query endpoint — game-specific Q&A."""
 
+import hashlib
+import logging
+from typing import Optional
+
 from pydantic import BaseModel
 from fastapi import APIRouter, HTTPException, Request
 from slowapi import Limiter
@@ -7,7 +11,9 @@ from slowapi.util import get_remote_address
 
 from app.services.knowledge import load_game, build_knowledge_text
 from app.services.llm import chat_completion
+from app.services.turso import get_analytics_db
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api")
 limiter = Limiter(key_func=get_remote_address)
 
@@ -15,6 +21,9 @@ limiter = Limiter(key_func=get_remote_address)
 class QueryRequest(BaseModel):
     game_id: str
     question: str
+    device_id: Optional[str] = None
+    session_id: Optional[int] = None
+    station_id: Optional[int] = None
 
 
 @router.post("/query")
@@ -45,8 +54,34 @@ KNOWLEDGE BASE:
     if not result["success"]:
         raise HTTPException(status_code=502, detail=result["content"])
 
+    answer = result["content"]
+
+    # Log to device Q&A history and CRM analytics if device_id provided
+    if req.device_id:
+        try:
+            db = get_analytics_db()
+            # Log to device Q&A history
+            db.execute(
+                "INSERT INTO device_qa_history (device_id, session_id, game_id, question, answer, station_id) VALUES (?, ?, ?, ?, ?, ?)",
+                (req.device_id, req.session_id, req.game_id, req.question, answer, req.station_id),
+            )
+            # Log to CRM analytics (upsert by question hash)
+            q_hash = hashlib.md5(f"{req.game_id}:{req.question.lower().strip()}".encode()).hexdigest()
+            db.execute(
+                """INSERT INTO crm_qa_analytics (game_id, question_text, question_hash, answer_text)
+                   VALUES (?, ?, ?, ?)
+                   ON CONFLICT(question_hash) DO UPDATE SET
+                       times_asked = times_asked + 1,
+                       last_asked_at = datetime('now'),
+                       answer_text = ?""",
+                (req.game_id, req.question, q_hash, answer, answer),
+            )
+            db.commit()
+        except Exception:
+            logger.exception("Failed to log Q&A to device history/CRM")
+
     return {
-        "answer": result["content"],
+        "answer": answer,
         "game_id": req.game_id,
         "game_title": title,
         "model": result["model"],

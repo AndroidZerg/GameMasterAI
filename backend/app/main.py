@@ -33,6 +33,8 @@ from app.api.routes.onboarding import router as onboarding_router
 from app.api.routes.venue_dashboard import router as venue_dashboard_router
 from app.api.routes.crm import router as crm_router
 from app.api.routes.analytics_dashboard import router as analytics_dashboard_router
+from app.api.routes.device_sessions import router as device_sessions_router
+from app.api.routes.device_sessions import init_device_session_tables
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -70,6 +72,7 @@ async def lifespan(app: FastAPI):
     init_house_rules_table()
     init_orders_table()
     init_turso_analytics()
+    init_device_session_tables()
     run_venue_platform_migrations()
 
     # Seed all Las Vegas demo venues
@@ -168,6 +171,7 @@ app.include_router(onboarding_router)
 app.include_router(venue_dashboard_router)
 app.include_router(crm_router)
 app.include_router(analytics_dashboard_router)
+app.include_router(device_sessions_router)
 
 # --- Misc ---
 app.include_router(dashboard_router)

@@ -11,6 +11,7 @@ import VoiceSection from "../components/dashboard/VoiceSection";
 import VenuesSection from "../components/dashboard/VenuesSection";
 import LeadsSection from "../components/dashboard/LeadsSection";
 import ConfigSection from "../components/dashboard/ConfigSection";
+import QAIntelSection from "../components/dashboard/QAIntelSection";
 
 const SIDEBAR_ITEMS = [
   { key: "overview", label: "Overview", icon: "\u{1F4CA}" },
@@ -21,6 +22,7 @@ const SIDEBAR_ITEMS = [
   { key: "voice", label: "Voice", icon: "\u{1F50A}", superOnly: true },
   { key: "venues", label: "Venues", icon: "\u{1F3EA}", superOnly: true },
   { key: "leads", label: "Leads", icon: "\u{1F4E8}", superOnly: true },
+  { key: "qa-intel", label: "Q&A Intel", icon: "\u{1F9E0}", superOnly: true },
   { key: "config", label: "Config", icon: "\u2699\uFE0F", superOnly: true },
 ];
 
@@ -395,6 +397,7 @@ export default function AdminDashboard() {
       case "voice": return <VoiceSection {...filterProps} />;
       case "venues": return isSuperAdmin ? <VenuesSection {...filterProps} /> : null;
       case "leads": return isSuperAdmin ? <LeadsSection {...filterProps} /> : null;
+      case "qa-intel": return isSuperAdmin ? <QAIntelSection {...filterProps} /> : null;
       case "config": return <ConfigSection {...filterProps} />;
       default: return <OverviewSection {...filterProps} />;
     }
