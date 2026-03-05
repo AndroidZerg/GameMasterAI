@@ -1,0 +1,109 @@
+# SOURCE: AI knowledge summary — verify against official rulebook
+# Game: Galaxy Trucker
+# Publisher: Czech Games Edition
+# Players: 2-4 | Time: 60 min | Weight: 2.2/5
+
+## OVERVIEW
+Galaxy Trucker is a chaotic two-phase game: first, players frantically build spaceships in real-time by grabbing and placing tiles; then, they fly their (usually poorly constructed) ships through space, encountering pirates, meteors, abandoned stations, and other hazards. The comedy comes from watching your hastily assembled ship fall apart. It's a game that rewards good construction but celebrates hilarious failure.
+
+## COMPONENTS
+- Ship boards (Class I, II, and III — progressively larger grids: 4x4, then larger)
+- Component tiles (approximately 140+ face-down tiles):
+  - Cabins (crew quarters — single, double)
+  - Engines (single, double — provide thrust)
+  - Cannons (single, double — front, side-facing for combat)
+  - Shields (protect against specific directions)
+  - Cargo holds (small, large — carry goods)
+  - Batteries (power shields and double weapons)
+  - Structural connectors (smooth, single, double, universal connectors on edges)
+  - Special components (alien life support, etc.)
+- Crew figures (human and alien astronauts)
+- Cargo cubes (different colors = different values)
+- Adventure cards (3 decks for rounds I, II, III)
+- Credit tokens (victory points)
+- Flight order track
+- Timer (sand timer for building phase)
+
+## SETUP
+1. Place all component tiles **face-down** in the center of the table as a shared pool.
+2. Each player takes the appropriate **ship board** for the current round:
+   - Round 1: Class I ship (smallest grid)
+   - Round 2: Class II ship (medium grid)
+   - Round 3: Class III ship (largest grid)
+3. Prepare the adventure deck for the current round by shuffling the appropriate adventure cards.
+4. Place crew figures and cargo cubes in supply areas.
+5. Determine starting flight order randomly.
+
+## GAMEPLAY / TURN STRUCTURE
+Each round has two distinct phases:
+
+### PHASE 1: BUILDING (Real-Time)
+This phase is simultaneous and frantic:
+
+1. **Flip the sand timer** to start building.
+2. All players simultaneously grab tiles from the face-down pool, **one at a time**:
+   - Pick up a tile and look at it.
+   - **Keep it:** Place it on your ship board, following connection rules.
+   - **Put it back:** Return it face-UP (now visible to all players) and grab a different face-down tile.
+3. **Connection rules are strict:**
+   - Each tile edge has a connector type: **smooth** (no connection), **single connector** (one pipe), **double connector** (two pipes), or **universal connector** (fits any).
+   - Adjacent tile edges MUST be compatible: single connects to single, double to double, universal to anything. Smooth edges can only touch other smooth edges (or board edge).
+   - All tiles must be connected to the central starting block through a chain of valid connections.
+   - Cannons and engines have directional arrows — cannons point outward (front or sides), engines point backward.
+4. **While building, you may peek at adventure cards** for the upcoming flight. Flip cards from the adventure deck to see what's coming (meteors, pirates, planets, etc.). This costs building time but helps you prepare.
+5. **When you're satisfied with your ship (or time is up)**, grab a numbered flight order token. Lower numbers go first in flight order (advantage: first pick at planets) but you stop building sooner.
+6. **After all players stop or time expires**, building ends. You cannot modify your ship after this point.
+
+### PHASE 2: FLIGHT (Adventure)
+Reveal adventure cards one at a time. Each card is resolved for all players:
+
+#### Adventure Card Types:
+- **OPEN SPACE**: Nothing happens. Advance on the flight track.
+- **PLANETS**: Stop to pick up cargo cubes (goods). Players in front (flight order) get first pick. Cargo goes into your cargo holds. Goods have different values (green < yellow < red < blue roughly).
+- **METEOR SWARM**: Meteors hit your ship from specified directions (front, sides, or rear). For each meteor:
+  - If you have a **shield** facing that direction (and battery power), block it.
+  - If you have a **cannon** facing that direction, shoot it down.
+  - Otherwise, the meteor **destroys the outermost exposed component** on that side of your ship. If a component is destroyed that was connecting other pieces, those pieces **fall off too** (chain destruction).
+- **PIRATES / SMUGGLERS**: Combat encounter. Compare your **total cannon power** (all front-facing and relevant side-facing cannons) against the pirate's strength. If you match or exceed, you win (gain credits). If not, you lose cargo or crew or take damage.
+- **COMBAT ZONE**: Similar to pirates, but based on crew count or specific conditions.
+- **ABANDONED STATION**: Opportunity to gain cargo or crew.
+- **SABOTAGE**: Lose components from your ship based on crew count or specific criteria.
+- **STARDUST**: Beautiful but causes components on exposed edges to be knocked off.
+- **EPIDEMIC**: Lose crew members.
+
+#### Flight Order:
+- Your position in the flight order track determines when you act on choice-based encounters (planets, stations).
+- Faster ships (more engines) can advance in flight order during certain events.
+- Being first is advantageous for picking cargo but makes you a bigger pirate target in some variants.
+
+### End of Round:
+After all adventure cards are resolved:
+1. **Cargo scoring**: Sell cargo cubes for credits (prices vary by color).
+2. **Flight order bonus**: Credits awarded based on final flight order position.
+3. **Penalties**: Lose credits for each exposed connector (unfinished edges where a tile should be but was destroyed or never placed — you pay for shoddy construction).
+4. **Lose additional credits** if your ship lost its cabin with crew (if you lost all crew, your ship is "lost" — heavy penalty).
+5. Move to the next round with a bigger ship.
+
+## SCORING / WINNING
+After all 3 rounds, total credits:
+
+- **Cargo credits**: From goods delivered across all rounds.
+- **Flight bonuses**: From finishing positions.
+- **Adventure rewards**: Credits from defeating pirates, etc.
+- **Penalties**: Deduct for exposed connectors, lost crew, etc.
+
+**The player with the most credits wins.** Tiebreaker: best finish position in round 3.
+
+## KEY RULES & TIPS
+- **Connector compatibility is the #1 rule.** Double-check every tile edge. An illegal connection discovered during flight means that tile and everything beyond it falls off your ship immediately.
+- **Engines should point BACKWARD.** They determine your speed. More engines = better flight position.
+- **Cannons should point FORWARD and to SIDES.** Front-facing cannons fight pirates; side cannons help against side meteor swarms.
+- **Don't neglect shields** — they protect against meteors without using ammunition.
+- **Batteries power shields and double weapons.** Without batteries, double cannons and shields are just dead weight.
+- **Crew is essential.** You need at least one crew member (in a cabin) for your ship to survive. Some adventures target crew. Have backup cabins.
+- **Build from the center out.** Your starting block is the anchor — expand symmetrically for structural integrity.
+- **Peeking at adventure cards during building is a powerful trade-off.** Knowing meteors come from the left means you should armor that side. But peeking costs precious building time.
+- **It's okay to have an ugly ship.** Perfection is rarely achievable. Focus on structural integrity (no single-point-of-failure connections) and covering key threats.
+- **Exposed connectors at game end cost you credits.** Try to cap open edges with smooth-sided tiles or plan your layout to minimize open connectors.
+- **The game is designed to be funny.** Watching your ship disintegrate is part of the experience. Don't take it too seriously.
+- **Class III ships are enormous** and nearly impossible to build well in the time limit. Embrace the chaos.

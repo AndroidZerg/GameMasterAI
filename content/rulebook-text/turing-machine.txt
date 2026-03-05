@@ -1,0 +1,70 @@
+# SOURCE: AI knowledge summary — verify against official rulebook
+# Game: Turing Machine
+# Publisher: Scorpion Masque
+# Players: 1-4 | Time: 20 min | Weight: 2.5/5
+
+## OVERVIEW
+Turing Machine is a competitive deduction game where players try to crack a secret code made up of three digits (each 1-5) by querying a set of analog "verifiers" — physical punch card machines that give true/false answers about your proposed codes. Each game presents a unique puzzle with 4-6 verifiers, and players race to be the first to identify the one valid code. The game cleverly uses overlapping punch cards to create an analog computer that checks criteria without electronics.
+
+## COMPONENTS
+- Criteria cards (large cards, numbered 1-48, each representing a rule like "the sum of digits is less than 10")
+- Verification cards (perforated punch cards that overlay onto criteria cards)
+- Number cards (digits 1-5 in three colors: blue/triangle, yellow/square, purple/circle — representing the three positions of the code)
+- Note sheets (pads for players to record guesses and results)
+- Problem cards / problem booklet (or companion app) — each problem specifies which criteria cards and verification cards to use
+- Card stands / verification machines (plastic stands to hold the criteria + verification card combinations)
+
+## SETUP
+1. Select a problem from the problem booklet or the companion app (each problem has a unique number). The problem tells you which criteria cards and verification cards to set up.
+2. For each verifier (typically 4-6 per problem), place the specified criteria card into a card stand and overlay the specified verification card on top.
+3. Each player takes a note sheet and a pencil.
+4. Lay out the number cards (1-5 in each of three colors) within reach of all players.
+5. All players play simultaneously — there are no turns in the traditional sense.
+
+## GAMEPLAY / TURN STRUCTURE
+The game is played in simultaneous rounds. Each round:
+
+### Step 1: Compose a Code
+Each player secretly selects a 3-digit code by choosing one number card of each color (blue = first digit, yellow = second digit, purple = third digit). Place them face-down or hidden. All digits range from 1 to 5.
+
+### Step 2: Query Verifiers
+Each player may query UP TO 3 verifiers per round (this is the key constraint). To query a verifier:
+- Reveal your code (your three number cards).
+- Slide your number cards under the verification card on the chosen verifier machine.
+- Look through the hole in the verification card. If you see a GREEN checkmark: the code PASSES this verifier's criterion. If you see a RED X: the code FAILS this verifier's criterion.
+- Record the result (pass/fail) on your note sheet.
+
+You can query up to 3 different verifiers per round, all using the SAME code. You cannot change your code between queries within the same round. Choosing fewer queries is legal and may be strategic (you might already have enough info).
+
+### Step 3: Deduction
+Using the accumulated pass/fail results across all rounds, players try to deduce the secret code. Each verifier tests a specific criterion (e.g., "Is the blue digit less than 4?" or "Is the yellow digit equal to the purple digit?"). By testing different codes against different verifiers, you narrow down the possibilities.
+
+### Step 4: Propose a Solution (Optional)
+At the end of any round, a player may declare they have found the code. They write their proposed solution on their note sheet and place it face-down. Multiple players may propose in the same round.
+
+**Verification of proposed solutions happens at the end of the round:**
+- Check the proposed code against ALL verifiers. It must pass every single one.
+- If correct: that player wins!
+- If incorrect: that player is eliminated from the game (they guessed wrong).
+- If multiple players propose correctly in the same round: the player who used the FEWEST total queries across all rounds wins. If tied, the game is a shared victory.
+
+### Continuing
+If no one has proposed correctly (or no one proposed), begin a new round. Players choose a new code and query up to 3 more verifiers.
+
+## SCORING / WINNING
+- The first player to correctly identify the secret code wins.
+- If multiple players solve it in the same round, the one who used the fewest total queries wins.
+- In competitive mode, efficiency is everything — solving in fewer rounds with fewer queries is superior.
+- The game can also be played solo (pure puzzle mode) where you try to solve each problem in as few queries as possible.
+
+## KEY RULES & TIPS
+- **3 queries per round maximum**: You cannot query more than 3 verifiers per round. Choose wisely — some verifiers are more informative given your current code than others.
+- **Same code for all queries in a round**: You cannot change your code between queries within a round. Pick a code that will give useful information from multiple verifiers simultaneously.
+- **Deduction logic is essential**: Keep careful notes. Track what each verifier tests and what results you've gotten. Process of elimination across verifiers narrows the possibilities.
+- **Criteria are not revealed**: You don't initially know exactly what each verifier tests. The problem card may hint at categories (e.g., "compares two digits" or "checks a sum"), but the exact criterion is hidden. Your queries reveal information about both the code AND what the verifier checks.
+- **Wrong guess = elimination**: Do NOT guess unless you are certain. Guessing incorrectly removes you from the game.
+- **Efficiency wins ties**: If you think you know the code, proposing sooner (with fewer total queries used) gives you the tiebreaker advantage.
+- **Common mistake**: Querying a verifier that can't give you new information with your current code. Plan your code to maximize information gain.
+- **Common mistake**: Not recording results carefully. One wrong note can cascade into an incorrect deduction.
+- **The companion app** (available online) generates thousands of additional problems and can verify solutions. Highly recommended for extended play.
+- **Difficulty scaling**: Problems range from easy (4 verifiers, straightforward criteria) to extremely hard (6 verifiers, complex interlocking criteria). Start with easier problems.
