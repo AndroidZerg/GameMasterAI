@@ -18,86 +18,91 @@ router = APIRouter(prefix="/api/v1/sessions", tags=["device-sessions"])
 # ---------------------------------------------------------------------------
 
 def init_device_session_tables():
-    """Create device session, notes, Q&A history, and CRM analytics tables."""
-    db = get_analytics_db()
+    """Create device session, notes, Q&A history, and CRM analytics tables.
 
-    # Migration: if old schema exists (station_id instead of venue_id), drop and recreate.
-    # No real data loss — these tables are brand new and have no production data yet.
+    CRITICAL: This function must NEVER crash the app. Session tracking is
+    non-critical — game teaching, Q&A, and all core features must work even
+    if these tables fail to initialise.
+    """
     try:
-        db.execute("SELECT venue_id FROM device_sessions LIMIT 1")
-    except Exception:
-        logger.info("Old device_sessions schema detected (missing venue_id) — dropping and recreating")
-        db.execute("DROP TABLE IF EXISTS device_sessions")
-        db.execute("DROP TABLE IF EXISTS device_notes")
+        db = get_analytics_db()
+
+        # Migration: drop old tables and recreate fresh.
+        # These tables are brand new with zero real user data.
         db.execute("DROP TABLE IF EXISTS device_qa_history")
+        db.execute("DROP TABLE IF EXISTS device_notes")
+        db.execute("DROP TABLE IF EXISTS device_sessions")
         db.execute("DROP TABLE IF EXISTS crm_qa_analytics")
 
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS device_sessions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            device_id TEXT NOT NULL,
-            venue_id TEXT,
-            table_number INTEGER,
-            session_token TEXT NOT NULL UNIQUE,
-            started_at TEXT NOT NULL DEFAULT (datetime('now')),
-            last_active_at TEXT NOT NULL DEFAULT (datetime('now')),
-            user_agent TEXT,
-            ip_address TEXT
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_device ON device_sessions(device_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue ON device_sessions(venue_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue_table ON device_sessions(venue_id, table_number)")
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS device_sessions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id TEXT NOT NULL,
+                venue_id TEXT,
+                table_number INTEGER,
+                session_token TEXT NOT NULL UNIQUE,
+                started_at TEXT NOT NULL DEFAULT (datetime('now')),
+                last_active_at TEXT NOT NULL DEFAULT (datetime('now')),
+                user_agent TEXT,
+                ip_address TEXT
+            )
+        """)
+        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_device ON device_sessions(device_id)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue ON device_sessions(venue_id)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue_table ON device_sessions(venue_id, table_number)")
 
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS device_notes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            device_id TEXT NOT NULL,
-            game_id TEXT NOT NULL,
-            content TEXT NOT NULL DEFAULT '',
-            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )
-    """)
-    db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_device_notes_unique ON device_notes(device_id, game_id)")
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS device_notes (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id TEXT NOT NULL,
+                game_id TEXT NOT NULL,
+                content TEXT NOT NULL DEFAULT '',
+                updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+            )
+        """)
+        db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_device_notes_unique ON device_notes(device_id, game_id)")
 
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS device_qa_history (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            device_id TEXT NOT NULL,
-            session_id INTEGER REFERENCES device_sessions(id),
-            game_id TEXT NOT NULL,
-            question TEXT NOT NULL,
-            answer TEXT NOT NULL,
-            answer_quality TEXT DEFAULT NULL,
-            asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-            venue_id TEXT,
-            table_number INTEGER
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_qa_device ON device_qa_history(device_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_qa_game ON device_qa_history(game_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_qa_venue ON device_qa_history(venue_id)")
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS device_qa_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id TEXT NOT NULL,
+                session_id INTEGER REFERENCES device_sessions(id),
+                game_id TEXT NOT NULL,
+                question TEXT NOT NULL,
+                answer TEXT NOT NULL,
+                answer_quality TEXT DEFAULT NULL,
+                asked_at TEXT NOT NULL DEFAULT (datetime('now')),
+                venue_id TEXT,
+                table_number INTEGER
+            )
+        """)
+        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_device ON device_qa_history(device_id)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_game ON device_qa_history(game_id)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_venue ON device_qa_history(venue_id)")
 
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS crm_qa_analytics (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            game_id TEXT NOT NULL,
-            venue_id TEXT,
-            question_text TEXT NOT NULL,
-            question_hash TEXT NOT NULL,
-            answer_text TEXT NOT NULL,
-            times_asked INTEGER DEFAULT 1,
-            first_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-            last_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-            has_good_answer BOOLEAN DEFAULT 1
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_game ON crm_qa_analytics(game_id)")
-    db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_crm_qa_hash ON crm_qa_analytics(question_hash)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_venue ON crm_qa_analytics(venue_id)")
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS crm_qa_analytics (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                game_id TEXT NOT NULL,
+                venue_id TEXT,
+                question_text TEXT NOT NULL,
+                question_hash TEXT NOT NULL,
+                answer_text TEXT NOT NULL,
+                times_asked INTEGER DEFAULT 1,
+                first_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
+                last_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
+                has_good_answer BOOLEAN DEFAULT 1
+            )
+        """)
+        db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_game ON crm_qa_analytics(game_id)")
+        db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_crm_qa_hash ON crm_qa_analytics(question_hash)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_venue ON crm_qa_analytics(venue_id)")
 
-    db.commit()
-    logger.info("Device session tables initialized")
+        db.commit()
+        logger.info("Device session tables initialized")
+    except Exception as e:
+        logger.warning(f"Device session table init failed (non-fatal): {e}")
+        # Don't crash the app — session tracking is non-critical
 
 
 # ---------------------------------------------------------------------------
