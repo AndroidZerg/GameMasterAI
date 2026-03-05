@@ -85,16 +85,32 @@ export default function WalkthroughStep({ step, gameId }) {
       )}
 
       {/* Step text — conversational tone */}
-      <p
-        style={{
-          fontSize: "1.1rem",
-          lineHeight: 1.7,
-          color: "var(--text-primary)",
-          margin: 0,
-        }}
-      >
-        {step.text}
-      </p>
+      {step.text.includes('\n\n') ? (
+        step.text.split('\n\n').map((paragraph, i) => (
+          <p
+            key={i}
+            style={{
+              fontSize: "1.1rem",
+              lineHeight: 1.7,
+              color: "var(--text-primary)",
+              margin: i === 0 ? 0 : "12px 0 0 0",
+            }}
+          >
+            {paragraph}
+          </p>
+        ))
+      ) : (
+        <p
+          style={{
+            fontSize: "1.1rem",
+            lineHeight: 1.7,
+            color: "var(--text-primary)",
+            margin: 0,
+          }}
+        >
+          {step.text}
+        </p>
+      )}
     </div>
   );
 }
