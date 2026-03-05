@@ -1,0 +1,1046 @@
+{
+  "game_id": "mysterium",
+  "title": "Mysterium",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose Roles",
+          "text": "Welcome to Mysterium! Before we set anything up, let's decide who will play the ghost. The ghost has a unique job: they cannot speak during the game and must communicate only through abstract vision cards. Everyone else will be a psychic. For your first game, it helps to have the most experienced player take the ghost role, since they need to understand how all the cards work.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Set the Difficulty",
+          "text": "Next, let's pick a difficulty level. This determines how many suspect, location, and object cards we lay out on the table. Easy uses fewer cards, which makes it simpler to narrow down the right answer. Medium and hard add more options to sort through. For your first game, we strongly recommend easy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Lay Out the Progress Boards and Clock",
+          "text": "Place the four progress boards in a row where everyone can see them: character, location, object, and epilogue. Then set the clock board nearby and point the hour hand to the Roman numeral one. The clock tracks how many rounds we have left. We get seven hours total before the connection with the ghost is lost.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Psychic Cards to the Table",
+          "text": "Now let's set up the suspect lineup. Shuffle the character psychic cards face down, then draw the number shown on the difficulty table for your player count. Lay them face up in a row near the character progress board. Repeat this for the location and object psychic cards, placing each row near its matching progress board. These are the options the psychics will be choosing from during the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Ghost Sets Up the Screen",
+          "text": "The ghost takes the game screen and sets it up so the inside faces only them. For each psychic card drawn, find the matching ghost card with the same number. Pass all the matching ghost cards to the ghost. The ghost shuffles them and secretly draws one character, one location, and one object card per psychic, placing each card in the correct column and row behind the screen. These hidden combinations are what the psychics need to figure out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Prepare Vision Cards",
+          "text": "Place the entire deck of eighty-four vision cards behind the ghost's screen. The ghost draws seven vision cards to form their starting hand. These beautifully surreal cards are the ghost's only way to communicate with the psychics. The ghost will use them to send abstract clues throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Distribute Psychic Components",
+          "text": "Each psychic picks a color and takes the matching intuition token, sleeve, and clairvoyancy level marker. Place each clairvoyancy marker on the zero space of the clairvoyancy track. If you have four or five players, each psychic also receives four numbered clairvoyancy tokens. With six or seven players, each psychic gets six tokens instead. With two or three players, skip the clairvoyancy tokens entirely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Place Tokens and Start",
+          "text": "Each psychic places their intuition token on the character progress board, since we always start by identifying suspects. The ghost places the matching colored ghost tokens behind the screen at the bottom of each psychic's column as a reminder. Set the sand timer and the crow markers for your difficulty level near the ghost. We are ready to begin the seance!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose Roles",
+          "bullets": [
+            "1 player = ghost (silent communicator via vision cards)",
+            "All other players = psychics (interpreters)",
+            "Experienced player as ghost recommended for first game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Set the Difficulty",
+          "bullets": [
+            "Easy/Medium/Hard determines number of suspect/location/object cards",
+            "More cards = harder deduction",
+            "Easy recommended for first game"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Lay Out the Progress Boards and Clock",
+          "bullets": [
+            "Place 4 progress boards: Character, Location, Object, Epilogue",
+            "Set clock board with hour hand on I",
+            "7 hours total before the game is lost"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal Psychic Cards to the Table",
+          "bullets": [
+            "Shuffle character psychic cards, draw per difficulty/player-count table",
+            "Lay face-up near character progress board",
+            "Repeat for location and object psychic cards"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Ghost Sets Up the Screen",
+          "bullets": [
+            "Find matching ghost cards (same numbers as drawn psychic cards)",
+            "Ghost draws 1 character + 1 location + 1 object per psychic",
+            "Place secretly behind screen in each psychic's column"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Prepare Vision Cards",
+          "bullets": [
+            "Place 84 vision cards behind ghost screen",
+            "Ghost draws 7-card starting hand",
+            "Vision cards are the ghost's only communication tool"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Distribute Psychic Components",
+          "bullets": [
+            "Each psychic: 1 intuition token + 1 sleeve + 1 clairvoyancy marker (start at 0)",
+            "4-5 players: 4 clairvoyancy tokens each; 6-7 players: 6 tokens each",
+            "2-3 players: no clairvoyancy tokens (use variant rules)"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Place Tokens and Start",
+          "bullets": [
+            "Psychics place intuition tokens on character progress board",
+            "Ghost places colored ghost tokens behind screen",
+            "Set sand timer and crow markers near ghost"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Two Phases",
+          "text": "Mysterium is played in two phases. In Phase one, Reconstruction of Events, the psychics work to identify their assigned suspect, location, and weapon. This phase lasts up to seven hours on the clock. If all psychics finish in time, we move to Phase two, Revealing the Culprit, where the ghost sends one final shared vision and the psychics vote on who did it. If the majority votes correctly, everyone wins together!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "How the Ghost Sends Visions",
+          "text": "Each hour begins with the ghost sending visions. The ghost picks one or more vision cards from their hand and places them face up in front of a psychic. These cards are abstract and surreal, so the connection might be a color, a shape, a mood, or a tiny detail in the artwork. After giving cards to one psychic, the ghost pushes that psychic's ghost token against the screen as a reminder. Then the ghost draws back up to seven cards and repeats for the next psychic until everyone has received at least one vision card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Interpreting Visions",
+          "text": "Once all psychics have their vision cards, the discussion begins. Psychics can freely examine their own cards and the cards laid out on the table, and they should talk openly about what they see. Look for matching colors, similar objects, emotional tones, or any visual link between the vision card and the suspects, locations, or objects on the table. When the ghost finishes distributing all visions, they flip the sand timer. Each psychic must place their intuition token on the card they think the ghost is pointing to before time runs out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Clairvoyancy Tokens",
+          "text": "While the timer is running, psychics can also place clairvoyancy tokens on other psychics' guesses. Each token has an agree side and a disagree side. If you think another psychic chose correctly, place a token agree-side-up next to their intuition token. If you think they are wrong, place it disagree-side-up. You cannot bet on your own guess, and you can place only one token per other psychic per round. All used tokens are discarded to the clock board and returned at the start of hour four.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Ghost Reveals Results",
+          "text": "When the sand timer runs out, the ghost reveals whether each psychic guessed correctly. If a psychic was right, they collect the correct psychic card, slide it into their sleeve, discard all their vision cards, and advance their intuition token to the next progress board. If a psychic was wrong, they keep their vision cards in front of them and stay on the same progress board. Next turn, the ghost will add more vision cards on top of the existing ones to help them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy Track Progress",
+          "text": "After each reveal, psychics who bet correctly on the clairvoyancy tokens advance one space on the clairvoyancy track. If you placed an agree token on a correct guess, you advance. If you placed a disagree token on an incorrect guess, you also advance. This track matters because it determines how many of the final shared vision cards you get to see before voting in Phase two. Higher clairvoyancy means more information in the finale.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Advancing the Clock",
+          "text": "After all results are revealed, advance the hour hand one step on the clock. If any psychic has not finished identifying all three of their cards by the end of hour seven, the team loses immediately. When a psychic does finish all three, they place their intuition token on the mission accomplished space and gain one clairvoyancy track space for each hour remaining on the clock. They continue helping other psychics interpret visions for the rest of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ghost Discard and Crow Markers",
+          "text": "Sometimes the ghost's hand of vision cards just does not have anything useful. The ghost can discard their entire hand and draw seven new cards, but this costs a crow marker. On easy difficulty, the ghost can do this once per turn. On medium, three times total for the entire game. On hard, just once for the entire game. Use this power wisely, because a bad hand at a critical moment with no crows left can cost the team the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Phase Two: Suspect Lineup",
+          "text": "If all psychics finish Phase one in time, we move to the finale. Each psychic removes their three solved cards from their sleeve and groups them together. Place numbered ghost tokens next to each group. These groups represent the suspects. In a two or three player game, randomly create two extra groups from leftover psychic cards to bring the total to four groups.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Phase Two: Shared Vision",
+          "text": "The ghost selects three vision cards from their hand to form a shared vision. One card should point to the character in the culprit's group, one to the location, and one to the object. The ghost shuffles these three cards and places them face down in the center of the table. Then the ghost secretly places the matching culprit token face down on the epilogue board. The psychics do not know which card corresponds to which element.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Phase Two: Straw Poll",
+          "text": "Now the shared vision cards are revealed one at a time, based on clairvoyancy levels. Psychics at a low level see only the first card before voting. Those at an intermediate level see two cards before voting. Those at a high level see all three cards before voting. Each psychic secretly slides a numbered clairvoyancy token into their sleeve to cast their vote. The group with the most votes is the team's accusation.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Winning and Losing",
+          "text": "Reveal all votes and compare the majority choice to the culprit token. If they match, everyone wins and the ghost's soul is laid to rest! If there is a tie, the group chosen by the psychic furthest along the clairvoyancy track breaks the tie. If still tied, the eldest tied player's choice wins. If the accused group does not match the culprit token, the team loses and the mystery remains unsolved. Remember, this is a cooperative game. We all win together or we all lose together.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Two Phases",
+          "bullets": [
+            "Phase 1: Reconstruction — psychics identify suspect + location + object (max 7 hours)",
+            "Phase 2: Revealing the Culprit — shared vision + majority vote",
+            "Cooperative: all win or all lose together"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "How the Ghost Sends Visions",
+          "bullets": [
+            "Ghost gives 1+ vision cards face-up to each psychic per hour",
+            "Push ghost token against screen after serving each psychic",
+            "Draw back to 7 cards after each distribution"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Interpreting Visions",
+          "bullets": [
+            "Psychics discuss openly — look for color, shape, mood, detail links",
+            "Sand timer starts after all visions are distributed",
+            "Place intuition token on your guess before timer runs out"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Clairvoyancy Tokens",
+          "bullets": [
+            "Place agree/disagree tokens on other psychics' guesses (not your own)",
+            "Max 1 token per other psychic per round",
+            "Used tokens discarded to clock board, returned at hour 4"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Ghost Reveals Results",
+          "bullets": [
+            "Correct → sleeve the card, discard visions, advance to next progress board",
+            "Incorrect → keep visions, stay on same board, get more cards next turn",
+            "Ghost reveals in any order they choose"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy Track Progress",
+          "bullets": [
+            "Correct agree bet or correct disagree bet → advance 1 space",
+            "Higher track position → see more shared vision cards in Phase 2",
+            "Three tiers: Low (1 card), Intermediate (2 cards), High (3 cards)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Advancing the Clock",
+          "bullets": [
+            "Advance clock 1 hour after all results revealed",
+            "Any psychic unfinished after hour VII → team loses",
+            "Finished psychic → mission accomplished + 1 clairvoyancy space per hour remaining"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ghost Discard and Crow Markers",
+          "bullets": [
+            "Ghost may discard entire hand and redraw 7 (costs 1 crow marker)",
+            "Easy: 1 discard per turn; Medium: 3 per game; Hard: 1 per game",
+            "Use wisely — bad hand + no crows = stuck"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Phase Two: Suspect Lineup",
+          "bullets": [
+            "Group each psychic's 3 solved cards together, number them",
+            "2-3 players: add 2 random extra groups to reach 4 total",
+            "These groups are the suspects for the final vote"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Phase Two: Shared Vision",
+          "bullets": [
+            "Ghost picks 3 vision cards → 1 pointing to character, 1 to location, 1 to object",
+            "Shuffle and place face-down; ghost secretly places culprit token",
+            "Psychics do not know which card maps to which element"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Phase Two: Straw Poll",
+          "bullets": [
+            "Cards revealed 1 at a time based on clairvoyancy level",
+            "Low = see 1 card, Intermediate = 2 cards, High = 3 cards before voting",
+            "Vote secretly using numbered clairvoyancy token in sleeve"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Winning and Losing",
+          "bullets": [
+            "Majority vote matches culprit token → all players win",
+            "Tie-break: highest clairvoyancy position, then eldest player",
+            "No match → all players lose"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Seance",
+          "text": "Welcome to your first game of Mysterium! In this practice tutorial, we will walk through a scripted opening with five players. Laura is the ghost, and four psychics are playing: Stephanie as blue, Paul as white, Carl as red, and Alex as yellow. Follow along even if your group is a different size. By the end, you will have seen the core loop of sending visions, interpreting them, and advancing through the investigation.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Board Is Set",
+          "text": "We are playing on medium difficulty with five players, so seven character cards, seven location cards, and seven object cards are laid face up on the table. Laura has secretly placed one character, one location, and one object behind her screen for each psychic. The clock is at hour one and every psychic's intuition token sits on the character progress board. Let's begin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Hour One: The Ghost Sends Visions",
+          "text": "Laura looks at Alex's hidden character card: the governess, whose artwork features a ball of red wool. She searches her hand and finds a vision card showing tangled red cords and another showing a woman in a hat. She places both cards face up in front of Alex. Then she pushes Alex's ghost token against the screen, draws back to seven cards, and moves on to Stephanie.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Alex Interprets the Vision",
+          "text": "Alex looks at the two vision cards and scans the seven character cards on the table. The red cords remind him of the governess's wool, and the woman in the hat seems to match too. But another character card shows a similar shade of red in a different context. Alex is torn between two options. The other psychics chime in with their opinions, helping Alex think through the visual connections.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Beginner Mistake: Literal Thinking",
+          "text": "Carl receives a vision card showing a lush garden scene. He immediately looks for a character card with a garden in it and finds nothing close. He is stuck. Here is the mistake: Carl is reading the vision too literally. The ghost often communicates through color, mood, or small details, not the main subject of the image. Carl should look at the dominant green color, the peaceful feeling, or maybe a tiny object hidden in the corner. Let's help Carl think more abstractly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Recovering from Literal Thinking",
+          "text": "Carl steps back and looks at the vision card again with fresh eyes. Instead of looking for a garden on a character card, he notices the card has a prominent clock in the background. One of the character cards features a watchmaker. That could be the connection! Carl places his intuition token on the watchmaker. Whether he is right or wrong, he learned to look beyond the obvious subject of the vision card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Clairvoyancy Bets",
+          "text": "Before the sand timer runs out, Stephanie looks at Alex's guess and agrees. She places her clairvoyancy token agree-side-up next to Alex's intuition token. Paul disagrees with Carl's guess and places a disagree token. These bets cost nothing and advance your clairvoyancy track when you are right. A common beginner mistake is hoarding these tokens and never using them. Use your clairvoyancy tokens early and often because higher clairvoyancy gives you more information in the finale.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Ghost Reveals Results",
+          "text": "Time is up! Laura reveals the results one by one. Alex guessed correctly, so he collects the governess card, slides it into his sleeve, discards his vision cards, and moves his intuition token to the location progress board. Carl guessed wrong. He keeps his vision cards in front of him and stays on the character progress board. Next hour, Laura will give him additional vision cards on top of his existing ones to help narrow it down.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "The Beginner Mistake: Ignoring Accumulated Clues",
+          "text": "It is now hour two. Carl receives a new vision card from Laura. He looks only at the new card and ignores the garden card from last round that is still sitting in front of him. This is a classic beginner trap. When you guess wrong, your old vision cards stay because they are still valid clues. The ghost is building a multi-card story, and each new card adds to the picture. Always consider all your vision cards together as a combined message.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Discussing as a Team",
+          "text": "Stephanie has already identified her character and is now working on locations. But she notices Carl is still stuck on characters. Instead of focusing only on her own puzzle, she leans over to look at all of Carl's vision cards together. She spots a pattern Carl missed. In Mysterium, helping each other is essential. Solved psychics should actively assist those who are behind, because if even one psychic fails to finish by hour seven, everyone loses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Beginner Mistake: Ghost Gives Too Many Cards",
+          "text": "Laura is worried about Carl falling behind, so she gives him four vision cards at once in hour three. The problem: too many cards can overwhelm a psychic with conflicting information. Some details in different cards may point to different suspects, creating confusion rather than clarity. One or two carefully chosen vision cards are usually more effective than a pile of cards that muddy the message.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Mid-Game Clock Check",
+          "text": "We are at hour four. The clock has advanced three times. Stephanie has finished characters and locations and is now on objects. Alex is working on locations. Paul just finished characters. Carl is still on characters. With only three hours left, Carl is in danger. The team needs to prioritize helping Carl interpret his visions. Remember: one stuck psychic ends the game for everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Beginner Mistake: Solved Players Disengaging",
+          "text": "Stephanie finishes her third card at hour five and places her intuition token on the mission accomplished space. She gains two bonus clairvoyancy spaces for the two hours remaining. But instead of staying engaged, she leans back and checks her phone. This is a mistake! Solved psychics are incredibly valuable. They can study other psychics' visions without the stress of their own puzzle, offer fresh perspectives, and use remaining clairvoyancy tokens to place smart bets. Stay involved until the end.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Finishing Phase One",
+          "text": "With the team's help, Carl finally solves his last card at hour six. Everyone breathes a sigh of relief. All four psychics have completed their character, location, and object combinations with one hour to spare. We now advance to Phase two, Revealing the Culprit. Each psychic removes their three cards from their sleeves and groups them on the table with numbered tokens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Shared Vision",
+          "text": "Laura picks three vision cards from her hand. One should point to the character in the culprit's group, one to the location, and one to the object. She shuffles them and places them face down. She also secretly places the matching culprit token on the epilogue board. The psychics do not know which card corresponds to which element. This is the ghost's last chance to communicate, so every detail in those three cards matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Voting Based on Clairvoyancy",
+          "text": "The first shared vision card is flipped. Stephanie, who has the lowest clairvoyancy score, must vote now with only this one card to go on. She slides a numbered token into her sleeve. The second card is revealed, and Alex and Carl vote. Finally, the third card is shown and Paul votes with full information. This staggered reveal is why the clairvoyancy track matters so much. Every space on that track means more information when it counts the most.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "The Big Reveal",
+          "text": "All votes are collected and revealed. Three out of four psychics chose group two. Laura flips the culprit token, and it shows the number two. The team wins! The ghost's spirit is finally at peace. If the votes had been wrong, the mystery would remain unsolved and we would need to try again next Samhain. Congratulations on completing your first game of Mysterium!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Begin Your Own Game",
+          "text": "Before you start your own seance, here are three things to remember.\n\nFirst, check out General Tips for advice on reading vision cards and playing the ghost effectively.\n\nSecond, reference the Appendix for a quick guide to components and game terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Good luck solving the mystery!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Seance",
+          "bullets": [
+            "Scripted tutorial with 5 players: Laura (ghost), 4 psychics",
+            "Follow along regardless of your actual player count",
+            "Covers the core loop from visions to voting"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Board Is Set",
+          "bullets": [
+            "Medium difficulty, 5 players: 7 cards per category on the table",
+            "Ghost has secret combinations behind the screen",
+            "Clock at hour 1, all psychics on character progress board"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Hour One: The Ghost Sends Visions",
+          "bullets": [
+            "Ghost finds visual links between vision cards and hidden assignments",
+            "Place vision cards face-up in front of each psychic",
+            "Push ghost token, draw back to 7, repeat for all psychics"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Alex Interprets the Vision",
+          "bullets": [
+            "Scan vision cards against the face-up character options",
+            "Look for color, shape, mood, and detail connections",
+            "Other psychics should help discuss possibilities"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Beginner Mistake: Literal Thinking",
+          "bullets": [
+            "Mistake: looking for exact object matches in vision cards",
+            "Vision cards communicate through color, mood, and hidden details",
+            "Think abstractly — the main subject is often a red herring"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Recovering from Literal Thinking",
+          "bullets": [
+            "Step back and examine the whole card with fresh eyes",
+            "Look for secondary details: background objects, color palette, mood",
+            "Even if wrong, learning to read abstractly improves future rounds"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Clairvoyancy Bets",
+          "bullets": [
+            "Place agree/disagree tokens on other psychics' guesses",
+            "Common mistake: hoarding tokens — use them early and often",
+            "Higher clairvoyancy = more info in the finale"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Ghost Reveals Results",
+          "bullets": [
+            "Correct: sleeve card, discard visions, advance to next board",
+            "Incorrect: keep visions, stay on same board, get more cards next turn",
+            "Clairvoyancy bets resolved — correct bettors advance on track"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "The Beginner Mistake: Ignoring Accumulated Clues",
+          "bullets": [
+            "Mistake: only looking at the newest vision card",
+            "Old vision cards remain because they are still valid clues",
+            "Always read all your vision cards as one combined message"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Discussing as a Team",
+          "bullets": [
+            "Solved psychics should actively help struggling players",
+            "Fresh eyes often catch patterns the stuck psychic missed",
+            "If 1 psychic fails, everyone loses — teamwork is essential"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Beginner Mistake: Ghost Gives Too Many Cards",
+          "bullets": [
+            "Mistake: sending 3-4 cards to overwhelm with conflicting signals",
+            "1-2 focused cards usually clearer than a pile of options",
+            "Quality of clue selection > quantity of cards"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Mid-Game Clock Check",
+          "bullets": [
+            "At hour 4, track who is behind and how many hours remain",
+            "Team priority: help the most behind psychic",
+            "One stuck player = everyone loses at hour 7"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Beginner Mistake: Solved Players Disengaging",
+          "bullets": [
+            "Mistake: checking out after finishing your 3 cards",
+            "Solved players gain clairvoyancy bonus and should help others",
+            "Stay engaged — offer fresh perspectives and use remaining tokens"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Finishing Phase One",
+          "bullets": [
+            "All psychics solved their combinations with 1 hour to spare",
+            "Advance to Phase 2: Revealing the Culprit",
+            "Group solved cards on table with numbered tokens"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Shared Vision",
+          "bullets": [
+            "Ghost picks 3 vision cards: 1 for character, 1 for location, 1 for object",
+            "Shuffle and place face-down; secretly place culprit token",
+            "Ghost's final communication — every detail matters"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Voting Based on Clairvoyancy",
+          "bullets": [
+            "Cards revealed 1 at a time; lower clairvoyancy votes first",
+            "Low = 1 card, Intermediate = 2 cards, High = 3 cards before voting",
+            "Clairvoyancy track directly impacts final vote quality"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "The Big Reveal",
+          "bullets": [
+            "Majority vote compared to culprit token",
+            "Match = all players win; no match = all players lose",
+            "Tie-break: highest clairvoyancy, then eldest player"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Begin Your Own Game",
+          "bullets": [
+            "Check out General Tips → ghost and psychic strategy basics",
+            "Reference the Appendix → quick-reference for components and terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Let's cover the biggest pitfalls before diving into strategy. First, psychics reading vision cards too literally instead of looking for color, mood, and abstract connections. Second, the ghost overloading a psychic with too many vision cards, creating confusion instead of clarity. Third, psychics ignoring accumulated vision cards from previous rounds and only looking at the newest one. Fourth, hoarding clairvoyancy tokens instead of betting early and often. Fifth, solved psychics disengaging when their help could save a struggling teammate. Keep these in mind and you will avoid the most common traps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Tips for the Ghost",
+          "text": "As the ghost, your job is to find connections between your vision cards and the hidden assignments. Focus on the strongest visual link in each card, even if it is a small detail in the corner. One clear card is almost always better than three vague ones. When choosing cards, think about what will stand out to the psychic, not what makes sense to you. Pay attention to which psychics are behind on the clock and prioritize sending your clearest visions to them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Tips for the Psychics",
+          "text": "As a psychic, train yourself to look at vision cards from multiple angles. Start with color: does the dominant color match any suspect, location, or object card? Then look at mood and atmosphere. Then check small background details. Discuss your thinking out loud so other psychics can build on your observations. When you are stuck, ask yourself what the ghost might be trying to communicate rather than what the vision card literally shows.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Building a Shared Language",
+          "text": "Over the course of the game, your group will develop a shared understanding of how the ghost communicates. Early rounds are about calibrating that language. If the ghost sends a card with a dominant blue tone to indicate a location with water, the psychics start to recognize that pattern. Pay attention to how the ghost thinks and what kinds of connections they tend to use. By mid-game, this shared language makes interpretation much faster and more accurate.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Clock Management",
+          "text": "Seven hours sounds like a lot, but the clock moves quickly. Each psychic needs to solve three cards, which means three correct guesses minimum. If someone guesses wrong even once, they have used two hours on a single category. Keep constant track of who is behind and how many hours remain. The team should prioritize helping the slowest psychic, because one failure means everyone loses. It is better for three psychics to finish early and help the fourth than for everyone to barely scrape by alone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy Strategy",
+          "text": "Your clairvoyancy tokens are free to use and cost you nothing if you are wrong. Place them whenever you have even a mild opinion about another psychic's guess. The upside of advancing on the clairvoyancy track is enormous. In the finale, psychics with high clairvoyancy see all three shared vision cards before voting, while those with low clairvoyancy see only one. That difference can be the margin between winning and losing the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Finale Matters Most",
+          "text": "Everything in Phase one is ultimately preparation for the final vote. Even if all psychics finish their three cards, you still need to correctly identify the culprit. This means the clairvoyancy track, which might seem like a side mechanic, is actually critical. It also means the ghost should save their best crow marker discard for Phase two if possible, since the shared vision is the single most important communication of the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "First Game Ghost Selection",
+          "text": "For your very first game, choose the ghost carefully. The ghost cannot speak, gesture, or react to the psychics' discussion. This requires patience and careful card selection. A new player in the ghost role may feel frustrated by the silence and make poor card choices under pressure. An experienced player who understands the game's visual language and can patiently sift through abstract connections will give the whole table a much better experience.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't read vision cards literally — look for color, mood, abstract links",
+            "Ghost: 1-2 clear cards > 3-4 vague cards",
+            "Always consider ALL accumulated vision cards, not just the newest",
+            "Use clairvoyancy tokens early — hoarding wastes free opportunities",
+            "Solved psychics: stay engaged and help struggling players"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Tips for the Ghost",
+          "bullets": [
+            "Focus on the strongest visual link, even small details",
+            "Think about what the psychic will notice, not what makes sense to you",
+            "Prioritize clearest visions for psychics behind on the clock",
+            "1 clear card almost always better than 3 vague ones"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Tips for the Psychics",
+          "bullets": [
+            "Check color first, then mood, then background details",
+            "Discuss your thinking out loud so others can build on it",
+            "Ask 'what is the ghost trying to say?' not 'what does this card show?'",
+            "When stuck, look at all vision cards together for a combined message"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Building a Shared Language",
+          "bullets": [
+            "Early rounds calibrate how the ghost communicates",
+            "Track patterns: color associations, mood cues, recurring themes",
+            "By mid-game, shared language speeds up interpretation",
+            "Each ghost develops their own 'accent' — learn it quickly"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Clock Management",
+          "bullets": [
+            "7 hours = 7 rounds max; each wrong guess burns a full hour",
+            "Track who is behind and how many hours remain constantly",
+            "Prioritize the slowest psychic — 1 failure = everyone loses",
+            "Better for 3 to finish early and help 1 than all barely scrape by"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy Strategy",
+          "bullets": [
+            "Tokens are free to use — no penalty for wrong bets",
+            "High clairvoyancy = see all 3 shared vision cards in finale",
+            "Low clairvoyancy = see only 1 card — huge disadvantage",
+            "Bet early and often to maximize track advancement"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Finale Matters Most",
+          "bullets": [
+            "Phase 1 is preparation for the final vote",
+            "Clairvoyancy track is critical, not a side mechanic",
+            "Ghost: save a crow discard for Phase 2 if possible",
+            "Shared vision = most important communication of the game"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "First Game Ghost Selection",
+          "bullets": [
+            "Choose an experienced, patient player for the ghost role",
+            "Ghost cannot speak, gesture, or react — requires discipline",
+            "New players may feel frustrated by silence under pressure",
+            "Good ghost = better experience for the whole table"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Ghost: Card Selection Philosophy",
+          "text": "Advanced ghost play is about maximizing separation between the correct answer and all the wrong answers. When you look at your hand, do not just find a card that matches the target. Find a card that matches the target and specifically does not match the other options. If two suspect cards both feature dark clothing, sending a dark-toned vision card is ambiguous. Instead, find a detail that uniquely identifies the correct suspect. The best clue is one that clearly points in one direction only.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Ghost: Reading Your Psychics",
+          "text": "Every psychic interprets vision cards differently. Some think in colors, some in objects, some in emotions. Pay attention to how each psychic discusses the cards during the game. If Alex always notices colors first, send color-based clues to Alex. If Stephanie focuses on small objects, use detail-based connections for her. The ghost's silence is a constraint, but observation is a superpower. Tailor your communication style to each psychic's interpretation pattern.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Ghost: Hand Management",
+          "text": "You draw back to seven cards after serving each psychic, which means the order in which you serve psychics matters. If your current hand has a perfect card for Carl but nothing good for Alex, serve Carl first while you have that card. After drawing new cards, you might find something better for Alex. Also consider saving your crow marker discard for moments when multiple psychics are stuck simultaneously, rather than using it for just one psychic.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Psychic: Process of Elimination",
+          "text": "Advanced psychics use elimination, not just identification. When you receive a vision card, do not just look for the best match. Actively rule out options. If the vision card is overwhelmingly warm-toned, eliminate every cold-toned suspect. If it shows indoor imagery, rule out outdoor locations. By narrowing the field systematically, you can often reduce seven options down to two or three before committing. This approach is especially powerful when combined with accumulated vision cards from previous rounds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Psychic: Cross-Reading Other Players' Visions",
+          "text": "Each psychic has a unique hidden assignment. If you can figure out what another psychic's target is, you can eliminate that option from your own list. Watch what vision cards other psychics receive and listen to their discussions. If it seems obvious that Alex's character is the governess, you can cross that off your own list. This indirect information is free and powerful, especially when you are stuck between two similar options.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy as Team Intelligence",
+          "text": "Think of clairvoyancy tokens not just as personal advancement tools but as team intelligence signals. When you place an agree token, you are telling the table you have confidence in that guess. When you disagree, you are flagging a potential mistake. This meta-information helps the group calibrate confidence levels across all the guesses before the timer runs out. Coordinating clairvoyancy placement can elevate the whole team's accuracy, not just your own track position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Phase Two: Ghost Strategy for the Shared Vision",
+          "text": "The shared vision is the hardest communication challenge in the game because three cards must point to three different elements of the same group, and the psychics do not know which card maps to which element. Advanced ghosts think about this problem in advance and set aside promising vision cards during Phase one. If you know which group will be the culprit by hour four or five, start mentally bookmarking cards that could serve the finale. Use your crow marker discard here if your hand is weak.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Phase Two: Psychic Voting Strategy",
+          "text": "When voting in the finale, do not just go with your gut. Analyze each shared vision card systematically against every group. Ask yourself: which character, location, and object does this card most likely reference? If you see all three cards, try to assign each card to an element and see which group consistently emerges. If you see fewer cards, lean on the strongest connection you can identify and trust the psychics voting after you to have more information. Communicate any insights you have before the staggered voting begins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Ghost: Card Selection Philosophy",
+          "bullets": [
+            "Maximize separation: pick cards that match the target AND exclude wrong answers",
+            "Ambiguous clues (match multiple options) waste turns",
+            "Best clue = points in one direction only",
+            "Ask: does this card also match a wrong answer?"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Ghost: Reading Your Psychics",
+          "bullets": [
+            "Each psychic interprets differently: color vs. objects vs. emotions",
+            "Listen to discussions to learn each psychic's interpretation style",
+            "Tailor clue type to each psychic's strength",
+            "Observation is the ghost's superpower despite silence"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Ghost: Hand Management",
+          "bullets": [
+            "Serve psychics in order that maximizes card usage",
+            "Draw after each psychic → new cards may unlock solutions for others",
+            "Save crow discard for when multiple psychics are stuck",
+            "Consider reserving cards for Phase 2 shared vision"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Psychic: Process of Elimination",
+          "bullets": [
+            "Rule out non-matches rather than only looking for best match",
+            "Warm vision card → eliminate cold-toned options",
+            "Accumulated vision cards help narrow 7 options to 2-3",
+            "Elimination is more reliable than positive identification"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Psychic: Cross-Reading Other Players' Visions",
+          "bullets": [
+            "Each psychic has a unique target — overlap = at least 1 is wrong",
+            "Watch other psychics' vision cards and discussions",
+            "If another psychic's target is obvious, cross it off your list",
+            "Free indirect information, especially when stuck between 2 options"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Clairvoyancy as Team Intelligence",
+          "bullets": [
+            "Agree/disagree tokens signal confidence to the whole table",
+            "Coordinated placement helps calibrate team accuracy",
+            "Meta-information layer on top of personal track advancement",
+            "Group-level clairvoyancy strategy > individual betting"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Phase Two: Ghost Strategy for the Shared Vision",
+          "bullets": [
+            "Mentally bookmark strong vision cards during Phase 1",
+            "Know your culprit group early → plan shared vision cards",
+            "Save crow discard for Phase 2 if possible",
+            "3 cards must point to 3 different elements of the same group"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Phase Two: Psychic Voting Strategy",
+          "bullets": [
+            "Analyze each shared vision card against every group systematically",
+            "Try to assign each card to character/location/object",
+            "With fewer cards: lean on strongest connection + trust later voters",
+            "Communicate insights before staggered voting begins"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Ghost",
+          "definition": "The player who knows the hidden assignments and communicates only through vision cards. The ghost cannot speak, gesture, or react during the game. One player is always the ghost.",
+          "category": "Roles"
+        },
+        {
+          "term": "Psychic",
+          "definition": "All non-ghost players. Psychics receive vision cards, interpret them, discuss hypotheses openly, and place intuition tokens on their guesses. Each psychic has a unique hidden combination of suspect, location, and object to identify.",
+          "category": "Roles"
+        },
+        {
+          "term": "Vision Card",
+          "definition": "One of 84 surreal, abstract artwork cards used by the ghost to communicate. The ghost places one or more face-up in front of a psychic as clues. Connections may be based on color, mood, shapes, objects, or tiny background details.",
+          "category": "Components"
+        },
+        {
+          "term": "Psychic Card",
+          "definition": "One of 54 cards showing characters (suspects), locations, or objects. Laid face-up on the table as the options psychics choose from. Numbered on the back to match ghost cards behind the screen.",
+          "category": "Components"
+        },
+        {
+          "term": "Ghost Card",
+          "definition": "The matching card kept behind the ghost's screen for each psychic card in play. Numbers correspond to psychic card numbers. The ghost draws one per psychic per category to form hidden combinations.",
+          "category": "Components"
+        },
+        {
+          "term": "Game Screen",
+          "definition": "A folding screen that hides the ghost's assignments. The interior has columns (one per psychic) and rows (character, location, object) where ghost cards are placed. Ghost tokens sit at the bottom of each column.",
+          "category": "Components"
+        },
+        {
+          "term": "Intuition Token",
+          "definition": "A colored token each psychic uses to mark their guess. Place it on the psychic card you believe matches the ghost's clue. Moves along the progress boards as you solve each category. Also used to vote in the two-to-three-player variant.",
+          "category": "Components"
+        },
+        {
+          "term": "Sleeve",
+          "definition": "A colored card holder matching each psychic's color. When a psychic correctly identifies a card, they slide it into their sleeve for safekeeping. Also used to hold secret votes during the finale.",
+          "category": "Components"
+        },
+        {
+          "term": "Clock Board",
+          "definition": "Tracks the current hour from I to VII. The hour hand advances once per round after the ghost reveals results. If any psychic has not finished all three categories by the end of hour VII, the team loses.",
+          "category": "Components"
+        },
+        {
+          "term": "Sand Timer",
+          "definition": "A two-minute timer the ghost flips after distributing all vision cards. Psychics must place their intuition tokens and clairvoyancy bets before it runs out. Discussion continues freely during the timer.",
+          "category": "Components"
+        },
+        {
+          "term": "Progress Board",
+          "definition": "Four boards tracking each psychic's advancement: Character, Location, Object, and Epilogue. Psychics move from one board to the next as they correctly identify each category. The Epilogue board holds the mission accomplished and culprit spaces.",
+          "category": "Components"
+        },
+        {
+          "term": "Clairvoyancy Token",
+          "definition": "Double-sided tokens (agree/disagree) that psychics place on other psychics' guesses. Correct bets advance your position on the clairvoyancy track. Tokens are discarded after use and returned at the start of hour four. Not used in the two-to-three-player variant.",
+          "category": "Components"
+        },
+        {
+          "term": "Clairvoyancy Track",
+          "definition": "A scoring track that determines how many shared vision cards a psychic sees before voting in Phase two. Low level sees one card, intermediate sees two, high level sees all three. Advanced by correct clairvoyancy bets and finishing early.",
+          "category": "Components"
+        },
+        {
+          "term": "Ghost Token",
+          "definition": "Colored tokens matching each psychic. The ghost pushes a token against the screen after giving that psychic their vision cards, as a reminder. In Phase two, ghost tokens are numbered and used to label suspect groups.",
+          "category": "Components"
+        },
+        {
+          "term": "Crow Marker",
+          "definition": "Tokens that allow the ghost to discard their entire hand and redraw seven fresh vision cards. The number of crow markers depends on difficulty: Easy allows one discard per turn, Medium three per game, Hard one per game.",
+          "category": "Components"
+        },
+        {
+          "term": "Culprit Token",
+          "definition": "A numbered token the ghost places face-down on the epilogue board during Phase two to secretly designate which suspect group is the true culprit. Revealed at the end of the straw poll to determine if the team wins.",
+          "category": "Components"
+        },
+        {
+          "term": "Phase One: Reconstruction of Events",
+          "definition": "The main phase of the game, lasting up to seven hours. Each hour, the ghost sends vision cards and psychics guess their character, location, or object. Psychics must complete all three categories before the clock runs out.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Phase Two: Revealing the Culprit",
+          "definition": "The finale, triggered only if all psychics finish Phase one in time. Consists of three steps: suspect lineup, shared vision, and straw poll. The team wins if the majority vote matches the culprit token.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Shared Vision",
+          "definition": "Three vision cards selected by the ghost in Phase two that point to the character, location, and object of the culprit's group. Shuffled and placed face-down, then revealed one at a time based on clairvoyancy levels. The ghost's final and most important communication.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Straw Poll",
+          "definition": "The final majority vote in Phase two. Psychics vote secretly using numbered tokens based on their clairvoyancy level. Low-level psychics vote first with less information. The group with the most votes is the team's accusation.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Spectral Manifestation",
+          "definition": "The step within each hour where the ghost reveals whether each psychic guessed correctly or incorrectly. Correct psychics advance; incorrect psychics keep their vision cards and stay on the same progress board.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Mission Accomplished",
+          "definition": "A space on the epilogue progress board where a psychic places their intuition token after solving all three categories. That psychic gains one clairvoyancy track space per remaining hour on the clock and continues helping other psychics.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Difficulty Level",
+          "definition": "Easy, Medium, or Hard. Determines the number of psychic cards laid out per category (more cards equals harder) and how many crow marker discards the ghost gets. Easy is recommended for first games.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Two-to-Three-Player Variant",
+          "definition": "Special rules for small groups. Each player controls two psychics. The clairvoyancy system is removed entirely. In Phase two, two random extra groups are added and the shared vision cards are placed face-up. Voting is open rather than secret.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Combination",
+          "definition": "The set of three cards (one character, one location, one object) secretly assigned to each psychic by the ghost. Each psychic has a unique combination that they must correctly identify during Phase one.",
+          "category": "Terminology"
+        }
+      ]
+    }
+  }
+}

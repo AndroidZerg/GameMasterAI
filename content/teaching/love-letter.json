@@ -1,0 +1,852 @@
+{
+  "game_id": "love-letter",
+  "title": "Love Letter",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Meet the Cards",
+          "text": "Let's get Love Letter set up. First, find the deck of 21 character cards. Each card has a number from zero to nine and a character name. The higher the number, the closer that character is to the Princess. You will also see six reference cards that list all the characters and their effects — these are handy cheat sheets for everyone at the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Out Reference Cards",
+          "text": "Give each player one reference card. These small cards list every character, their number, their effect, and how many copies are in the deck. If you have extra reference cards, just put them back in the box. You will want to glance at your reference card often during the first few rounds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Shuffle and Set Aside",
+          "text": "Shuffle all 21 character cards together into one face-down deck. Now take the top card and set it aside face-down without looking at it. This mystery card is out of the round and nobody knows what it is. If you are playing with just two players, also set aside three more cards face-up so everyone can see them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Starting Hands",
+          "text": "Deal one card face-down to each player. This is your starting hand. Go ahead and peek at your card, but keep it secret from everyone else. In Love Letter, you always have exactly one card in your hand between turns. The rest of the deck stays face-down in the center of the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Set Out Favor Tokens",
+          "text": "Place all 13 favor tokens in a shared pile in the middle of the table. These tokens represent successful letter deliveries to the Princess. You earn them by winning rounds, and the first player to collect enough tokens wins the entire game. The number you need depends on how many players you have — four tokens for four players, for example.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Choose First Player",
+          "text": "The player who most recently hand-wrote a letter goes first. If nobody can remember, just pick someone at random. Play will proceed clockwise from the first player. You are all set up and ready to deliver some love letters.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Meet the Cards",
+          "bullets": [
+            "21 character cards numbered 0–9",
+            "Higher number = closer to the Princess",
+            "6 reference cards listing all characters and effects"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Out Reference Cards",
+          "bullets": [
+            "Give each player 1 reference card",
+            "Lists every character, number, effect, and quantity",
+            "Return extras to the box"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Shuffle and Set Aside",
+          "bullets": [
+            "Shuffle all 21 character cards into 1 face-down deck",
+            "Set top card aside face-down (unknown to all)",
+            "2-player only: also set aside 3 more cards face-up"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Starting Hands",
+          "bullets": [
+            "Deal 1 card to each player",
+            "Keep your card secret — peek but don't reveal",
+            "Remaining deck stays face-down in the center"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Out Favor Tokens",
+          "bullets": [
+            "Place all 13 favor tokens in a shared central pile",
+            "Win threshold: 2p=6, 3p=5, 4p=4, 5p=3, 6p=3"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Choose First Player",
+          "bullets": [
+            "Player who most recently hand-wrote a letter goes first",
+            "Play proceeds clockwise",
+            "Future rounds: previous round winner goes first"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How a Turn Works",
+          "text": "On your turn, you do two simple things. First, draw one card from the top of the deck. Now you have two cards in your hand. Second, choose one of those two cards and play it face-up in front of you, then resolve its effect. The card you keep stays hidden in your hand until your next turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Goal of Each Round",
+          "text": "Each round is its own mini-game. You win a round in one of two ways. Either you are the last player still standing after everyone else has been knocked out by card effects. Or, if the deck runs out, all remaining players reveal their hands and the player holding the highest-numbered card wins. The round winner earns one favor token.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Getting Knocked Out",
+          "text": "Several card effects can knock you out of the round. When you are knocked out, discard your hand face-up for everyone to see, but do not resolve that card's effect. Flip your reference card to the broken-seal side as a reminder. You skip all future turns this round and nobody can target you with card effects until the next round starts.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Cards — Low Numbers",
+          "text": "Let's walk through each card. The Spy is zero and has no immediate effect, but if you are the only remaining player who played or discarded a Spy during the round, you earn one bonus favor token. The Guard is one — choose another player and name any character except Guard. If that player is holding the named card, they are out. The Priest is two — choose another player and secretly look at their hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Cards — Mid Numbers",
+          "text": "The Baron is three — choose another player, then you both secretly compare your hands. Whoever has the lower number is out of the round, and ties mean nobody is eliminated. The Handmaid is four — until the start of your next turn, no other player can choose you as a target for their card effects. The Prince is five — choose any player including yourself, and that player discards their hand and draws a new card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Cards — High Numbers",
+          "text": "The Chancellor is six — draw two cards from the deck, pick one of the three cards in your hand to keep, and put the other two face-down on the bottom of the deck. The King is seven — choose another player and trade hands with them. The Countess is eight — she has no effect when played, but you must play her if your other card is a King or Prince.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Princess",
+          "text": "The Princess is nine, the highest card in the game. If you play or discard the Princess for any reason, you are immediately out of the round. That means you never want to play her voluntarily. Holding the Princess at the end of a round is extremely powerful because she beats every other card in a comparison. But beware — a Prince effect can force you to discard her.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Handmaid Targeting Rules",
+          "text": "The Handmaid creates a special situation. If every other player in the round is protected by a Handmaid, your card that targets another player has no effect. This applies to the Guard, Priest, Baron, and King. However, the Prince requires you to choose any player, so if everyone else is protected, you must target yourself with the Prince effect.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Winning the Game",
+          "text": "After each round, the winner collects one favor token and a new round begins. Shuffle all 21 cards, set one aside, and deal new hands. The round winner goes first. Keep playing rounds until someone reaches the required number of favor tokens. For four players, that is four tokens. For two players it is six, three players need five, and five or six players need three each.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How a Turn Works",
+          "bullets": [
+            "Draw 1 card from the deck → you now hold 2 cards",
+            "Play 1 card face-up → resolve its effect",
+            "Keep the other card hidden in your hand"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Goal of Each Round",
+          "bullets": [
+            "Win by being last player standing (all others knocked out)",
+            "Or: deck empties → highest card among remaining players wins",
+            "Round winner gains 1 favor token"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Getting Knocked Out",
+          "bullets": [
+            "Discard your hand face-up (don't resolve its effect)",
+            "Flip reference card to broken-seal side",
+            "Skip turns and can't be targeted until next round"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Cards — Low Numbers",
+          "bullets": [
+            "Spy (0): No effect; bonus favor token if only player who played/discarded a Spy",
+            "Guard (1): Name a non-Guard character → if target holds it, they're out",
+            "Priest (2): Secretly look at another player's hand"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Cards — Mid Numbers",
+          "bullets": [
+            "Baron (3): Secretly compare hands → lower value is out; tie = safe",
+            "Handmaid (4): Immune to targeting until your next turn",
+            "Prince (5): Target any player (incl. yourself) → discard hand & redraw"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Cards — High Numbers",
+          "bullets": [
+            "Chancellor (6): Draw 2, keep 1 of 3, return 2 to bottom of deck",
+            "King (7): Trade hands with another player",
+            "Countess (8): No effect; MUST play if paired with King or Prince"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Princess",
+          "bullets": [
+            "Princess (9): Highest card in the game",
+            "If played or discarded for ANY reason → you're out",
+            "Best card to hold at round end; worst card to be forced to discard"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Handmaid Targeting Rules",
+          "bullets": [
+            "All targets protected → Guard/Priest/Baron/King have no effect",
+            "All targets protected + Prince → must target yourself",
+            "Handmaid protection expires at start of your next turn"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Winning the Game",
+          "bullets": [
+            "Round winner gets 1 favor token → new round begins",
+            "Win thresholds: 2p=6, 3p=5, 4p=4, 5p=3, 6p=3",
+            "Multiple players can win simultaneously"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Round",
+          "text": "Welcome to your first round of Love Letter! We will walk through a practice round with four players so you can see how the cards interact. Even if you have a different number of players, follow along — the core flow is the same. Let's deal out the cards and get started.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Setup Reminder",
+          "text": "Let's do a quick setup check. Shuffle all 21 cards and set one aside face-down without peeking. Deal one card to each of the four players. Place the remaining deck in the center and put the 13 favor tokens nearby. Everyone peek at your card and keep it secret.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Draws and Plays a Guard",
+          "text": "Player one draws a card from the deck and now holds two cards. Let's say they have a Guard and a Handmaid. They decide to play the Guard. They pick Player three as their target and guess Prince. Player three does not have a Prince, so nothing happens. The Guard goes face-up in front of Player one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Mistake: Blind Guard Guessing",
+          "text": "Player one just made the most common beginner mistake — guessing blindly with a Guard. There are six Guards in the deck, making them the most frequent card. You will draw plenty of them. The trick is to wait until you have information before naming a character. A random guess only has about a one in eight chance of being correct.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two Uses a Priest",
+          "text": "Player two draws and ends up with a Priest and a Baron. They play the Priest targeting Player three and secretly peek at Player three's hand. Now Player two knows exactly what Player three is holding. This information is gold — Player two can use it on a future turn to make a precise Guard call or a safe Baron comparison.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Three Plays a Chancellor",
+          "text": "Player three draws and now has a Chancellor and another card. They play the Chancellor, which lets them draw two more cards from the deck. Now they are holding three cards total. They pick the best one to keep and place the other two face-down on the bottom of the deck. This is a powerful card because you get to choose from three options.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player Four Plays a Handmaid",
+          "text": "Player four draws and gets a Handmaid along with a high card they want to protect. They play the Handmaid, which makes them immune to all targeting effects until the start of their next turn. Now nobody can use a Guard, Baron, Prince, or King against Player four. Smart play — they are shielding their valuable card for one full cycle around the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Mistake: Forgetting the Countess Rule",
+          "text": "Let's say Player one draws the Countess and now holds both the Countess and the King. Here is a critical rule that beginners forget — if you hold the Countess along with either the King or a Prince, you must play the Countess. You cannot play the King instead. Player one is forced to play the Countess this turn, which has no effect but reveals to everyone that they likely had a King or Prince in hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player Two Makes an Informed Guard Call",
+          "text": "Remember that Player two used a Priest earlier to peek at Player three's hand? Now Player two draws a Guard. Instead of guessing randomly, they target Player three and name the exact card they saw. It is a hit — Player three is out of the round. This is the power of using information before making Guard calls.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Mistake: Wasting Handmaid When Safe",
+          "text": "Player four draws and gets another Handmaid. They play it immediately, even though nobody is threatening them right now and two players are focused on each other. This is a wasted protection. A better play would have been to hold the Handmaid for a turn when danger is high, like when only two or three players remain and targeting becomes inevitable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Round Winds Down",
+          "text": "The deck is getting thin. Player one plays a Prince targeting Player four, forcing Player four to discard their hand and draw a new card. If Player four had been holding the Princess, they would have been eliminated. With only a few cards left, every play becomes more dramatic because the possibilities narrow quickly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Round End — Highest Card Wins",
+          "text": "The deck is now empty. All remaining players reveal their hands. Player two is holding a seven, Player one has a five, and Player four has a three. Player two wins the round with the highest card and collects one favor token. If two players had tied with the same number, they would both have earned a favor token.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Spy Bonus Check",
+          "text": "Before starting the next round, check the Spy bonus. Look at all the face-up played and discarded cards. If exactly one remaining player played or discarded a Spy during the round, that player earns one extra favor token on top of whatever else they earned. This bonus is easy to forget, so make it a habit to check at the end of every round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Before You Start Playing",
+          "text": "You have seen how turns flow, how card effects chain together, and the three biggest beginner mistakes — blind Guard guessing, forgetting the Countess rule, and wasting Handmaid protection. Check out General Tips for strategy advice on reading the table and making smarter plays.\n\nReference the Appendix for a quick-reference guide to every card and game term.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Round",
+          "bullets": [
+            "Scripted tutorial with 4 example players",
+            "Follow along regardless of your actual player count",
+            "Covers a complete round from start to finish"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Setup Reminder",
+          "bullets": [
+            "Shuffle 21 cards, set 1 aside face-down",
+            "Deal 1 card to each player",
+            "Place deck centrally, favor tokens nearby"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Draws and Plays a Guard",
+          "bullets": [
+            "Draw 1 card → now holding Guard + Handmaid",
+            "Play Guard, target Player 3, guess Prince",
+            "Wrong guess → no effect, Guard goes face-up"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Mistake: Blind Guard Guessing",
+          "bullets": [
+            "Random Guard guesses have ~1/8 chance of success",
+            "Wait for information before naming a character",
+            "Use Priest, Baron results, or discard tracking first"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Two Uses a Priest",
+          "bullets": [
+            "Play Priest → secretly peek at Player 3's hand",
+            "Now Player 2 has confirmed intel for a future Guard call",
+            "Information is the most valuable resource in Love Letter"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Three Plays a Chancellor",
+          "bullets": [
+            "Play Chancellor → draw 2, now holding 3 cards",
+            "Keep 1, return 2 to bottom of deck face-down",
+            "Powerful: pick the best card from 3 options"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player Four Plays a Handmaid",
+          "bullets": [
+            "Play Handmaid → immune to targeting until next turn",
+            "Shields a valuable high card for 1 full cycle",
+            "Nobody can use Guard/Baron/Prince/King against you"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Mistake: Forgetting the Countess Rule",
+          "bullets": [
+            "Holding Countess + King or Prince → MUST play Countess",
+            "Cannot choose to play King/Prince instead",
+            "Playing Countess signals you likely hold King or Prince"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player Two Makes an Informed Guard Call",
+          "bullets": [
+            "Player 2 draws Guard, targets Player 3 with known info",
+            "Names exact card seen via Priest → Player 3 eliminated",
+            "Priest + Guard combo = reliable elimination"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Mistake: Wasting Handmaid When Safe",
+          "bullets": [
+            "Playing Handmaid when nobody threatens you = wasted protection",
+            "Save Handmaid for high-danger moments (2-3 players left)",
+            "Timing protection is more valuable than reflexive plays"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Round Winds Down",
+          "bullets": [
+            "Prince forces a player to discard and redraw",
+            "If Princess is discarded via Prince → that player is out",
+            "Deck thinning makes every play more impactful"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Round End — Highest Card Wins",
+          "bullets": [
+            "Deck empty → all remaining players reveal hands",
+            "Highest card wins the round → gains 1 favor token",
+            "Ties: all tied players each gain 1 favor token"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Spy Bonus Check",
+          "bullets": [
+            "Check if exactly 1 remaining player played/discarded a Spy",
+            "That player gains 1 extra favor token (on top of round win)",
+            "Easy to forget — make it a habit to check every round end"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Before You Start Playing",
+          "bullets": [
+            "Key mistakes: blind Guard guesses, Countess rule, Handmaid timing",
+            "Check General Tips for strategy, Appendix for card reference",
+            "Ask your GM Guide anytime via the Q&A tab"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Track the Discards",
+          "text": "The single most important skill in Love Letter is tracking which cards have been played and discarded. All played cards stay face-up on the table, so the information is right there. If you see that both Priests have already been played, you know nobody can peek at your hand anymore. If five of the six Guards are gone, the last Guard is less of a threat. Count the discards every turn and you will make smarter plays than most beginners.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Use Guards Wisely",
+          "text": "Guards are your most common elimination tool, but they are useless if you guess blindly. Before naming a character, look at the face-up cards on the table. If both Barons are already played, do not guess Baron. If someone just played a Countess, they might be holding a King or Prince. Combine discard tracking with behavioral reads to narrow your guess. Even a fifty-fifty shot is much better than a random one in eight.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Protect High Cards",
+          "text": "If you are holding a high-numbered card like the King, Countess, or Princess, your priority is survival. Play Handmaids to shield yourself and avoid drawing attention. The Princess is the best card to hold at round's end because she beats everything. But she is also a liability because any Prince effect targeting you will force you to discard her. When holding the Princess, play conservatively and hope the Princes get used up on other targets.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Read the Countess Signal",
+          "text": "When someone plays a Countess, everyone at the table should pay attention. The Countess must be played if your other card is a King or Prince, but you can also play her voluntarily as a bluff. If a player drops the Countess, assume they might hold a King or Prince until proven otherwise. On the flip side, you can play the Countess on purpose when you do not have a King or Prince to fake people out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Information Economy",
+          "text": "Every card you play reveals something about your hand. Playing a low card when you could have played a high one suggests you are protecting a strong hand. Playing the Handmaid signals you have something worth protecting. Be aware of what your plays communicate to others. At the same time, use what other players reveal to build your picture of the remaining cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Adapt to Player Count",
+          "text": "Love Letter plays differently at every player count. With two players, you have much more information because three extra cards are set aside face-up. Use those visible cards to narrow your deductions aggressively. With five or six players, rounds are chaotic and end quickly. In large groups, play aggressively with Guards because you have less time to gather information. With four players, you get the most balanced mix of deduction and action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Do Not Forget the Spy",
+          "text": "The Spy bonus token is free points that many players overlook. If you played or discarded a Spy during the round and no other remaining player did, you earn an extra favor token at round's end. This token is separate from the round-win token, so you can potentially earn two tokens in a single round. In close games where you need one more token to win, the Spy bonus can be the difference.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Tempo and Aggression",
+          "text": "Love Letter rounds are fast. With only about four or five turns per player in a four-player game, you do not have time for a slow buildup. If you have information, act on it immediately. A Guard with confirmed intel is worth more than a Priest looking for info you may never use. When the deck is getting thin, shift to aggressive plays because the round is about to end whether you are ready or not.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Track the Discards",
+          "bullets": [
+            "All played cards stay face-up — count them every turn",
+            "Know which cards are still in play to make informed decisions",
+            "If both copies of a card are gone, that threat is eliminated"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Use Guards Wisely",
+          "bullets": [
+            "Never guess blindly — check discards first to narrow options",
+            "Countess play often signals King or Prince in hand",
+            "50/50 guess >>> random 1-in-8 guess"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Protect High Cards",
+          "bullets": [
+            "Princess = best endgame card but vulnerable to Prince",
+            "Use Handmaid to shield valuable holdings",
+            "Play conservatively when holding 7+ cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Read the Countess Signal",
+          "bullets": [
+            "Countess play = likely holds King or Prince (forced play rule)",
+            "Can also be a deliberate bluff — play Countess voluntarily",
+            "Always consider both possibilities when reading opponents"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Information Economy",
+          "bullets": [
+            "Every card you play reveals info about your hand",
+            "Handmaid signals a card worth protecting",
+            "Watch what opponents play to narrow remaining possibilities"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Adapt to Player Count",
+          "bullets": [
+            "2p: 3 face-up set-aside cards → more deduction data",
+            "4p: balanced mix of deduction and action",
+            "5-6p: rounds are fast and chaotic → play aggressively"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Do Not Forget the Spy",
+          "bullets": [
+            "Spy bonus = 1 extra favor token if you're the only remaining player who played/discarded a Spy",
+            "Stacks with round-win token → can earn 2 tokens per round",
+            "Easy to forget — check every round end"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Tempo and Aggression",
+          "bullets": [
+            "Rounds last ~4-5 turns per player in a 4p game",
+            "Act on info immediately — no time for slow buildup",
+            "Shift aggressive when deck thins; round ends soon"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Card Counting Fundamentals",
+          "text": "Advanced Love Letter play begins with precise card counting. The deck has 21 cards with known quantities: six Guards, two each of Spy, Priest, Baron, Handmaid, Prince, and Chancellor, and one each of King, Countess, and Princess. As cards are played face-up, mentally subtract them. If you see five Guards on the table, you know exactly one Guard remains between the deck, other hands, and the set-aside card. This lets you make near-certain deductions late in a round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Deduction Chains",
+          "text": "Combine card counting with observed behavior to build deduction chains. If a player draws, pauses, and plays a low card, they likely drew something better they want to keep. If someone plays the Countess, cross-reference the King and Prince counts. If no King has been played and one Prince is gone, that Countess player probably has the King. Stack enough observations and you can identify hands with high confidence even without a Priest peek.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Baron Timing",
+          "text": "The Baron is one of the most skill-testing cards in Love Letter. Playing it blindly is a coin flip, but playing it with information is devastating. The ideal Baron play comes after a Priest peek confirms your target has a lower card, or when card counting tells you the remaining pool is mostly low. If you hold a six or seven and your opponent likely holds a three or lower, the Baron is an almost guaranteed elimination.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prince as a Weapon",
+          "text": "The Prince is far more versatile than beginners realize. Targeting yourself with the Prince lets you swap a bad hand for a fresh draw, which is excellent when you are stuck holding a zero or one late in the round. Targeting an opponent who you suspect holds the Princess is devastating because discarding the Princess eliminates them. You can also use the Prince to strip away a known strong card from an opponent, even if it does not eliminate them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Countess Bluffing",
+          "text": "The Countess forced-play rule creates a rich bluffing layer. When you voluntarily play the Countess without holding a King or Prince, opponents will assume you do have one and may waste Guard calls guessing King or Prince. This misdirection can protect whatever card you are actually holding. Experienced players learn to vary their Countess plays so opponents can never be sure whether the play was forced or voluntary.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Handmaid Sequencing",
+          "text": "Handmaid timing separates strong players from average ones. The best time to play a Handmaid is right before a dangerous turn order — for example, when the player before you just used a Priest to peek at your hand and now has a Guard ready. Playing Handmaid reactively after being peeked at wastes the information advantage your opponent gained. Playing it proactively when you sense incoming danger is far more effective. In the late round with two or three players left, Handmaid is often the strongest card because it guarantees survival for another cycle.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "King Swap Strategy",
+          "text": "The King is a high-risk, high-reward card. Trading hands with an opponent is powerful when you hold a low card and suspect they have something strong. Use your Priest information or Countess reads to identify the best swap target. After a King swap, remember that your opponent now knows your old hand, so your new card is only secret to the rest of the table. The King is also great as a desperation play when you are stuck with the Princess and want to pass her to someone else before a Prince can eliminate you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Spy Token Racing",
+          "text": "In close games, the Spy bonus token can decide the winner. If you are one token away from victory, deliberately playing a Spy early in the round puts pressure on opponents. They have to decide whether to play their own Spy to cancel your bonus or save it. If the other Spy has already been played or set aside, your Spy bonus is guaranteed as long as you survive the round. Track both Spies carefully and factor the bonus into your win calculations.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Card Counting Fundamentals",
+          "bullets": [
+            "Deck composition: 6 Guards, 2 each of Spy/Priest/Baron/Handmaid/Prince/Chancellor, 1 each King/Countess/Princess",
+            "Subtract played cards to narrow what remains",
+            "Late-round counting enables near-certain deductions"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Deduction Chains",
+          "bullets": [
+            "Combine card counting + behavioral reads for multi-step deductions",
+            "Countess play + King/Prince count = likely hand ID",
+            "Hesitation after draw often signals a high card kept"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Baron Timing",
+          "bullets": [
+            "Blind Baron = coin flip; informed Baron = near-guaranteed elimination",
+            "Best after Priest peek confirms target holds lower card",
+            "Hold a 6-7 vs. likely 3-or-lower = safe Baron play"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prince as a Weapon",
+          "bullets": [
+            "Self-target: swap a bad hand (0-1) for a fresh draw",
+            "Target suspected Princess holder → forced discard = elimination",
+            "Strip known strong cards from opponents even without a KO"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Countess Bluffing",
+          "bullets": [
+            "Voluntary Countess play tricks opponents into guessing King/Prince",
+            "Protects your actual hidden card via misdirection",
+            "Vary forced vs. voluntary plays to stay unpredictable"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Handmaid Sequencing",
+          "bullets": [
+            "Proactive play (before danger) > reactive play (after being peeked)",
+            "Best when opponent just peeked and has a Guard incoming",
+            "Late-round Handmaid with 2-3 players = guaranteed survival"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "King Swap Strategy",
+          "bullets": [
+            "Swap when holding low card + intel that target has high card",
+            "After swap, opponent knows your old hand — only others are in the dark",
+            "Desperation: pass Princess to opponent before Prince targets you"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Spy Token Racing",
+          "bullets": [
+            "1 token from victory → play Spy early to pressure opponents",
+            "If other Spy is played/set-aside, your bonus is guaranteed if you survive",
+            "Track both Spies and factor bonus into win calculations"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Spy (0)",
+          "definition": "Value 0. Two copies in deck. No immediate effect when played or discarded. At round end, if you are the only remaining player who played or discarded a Spy, gain one bonus favor token. Maximum one Spy token per round even if you played both Spies.",
+          "category": "Cards"
+        },
+        {
+          "term": "Guard (1)",
+          "definition": "Value 1. Six copies in deck (most common card). Choose another player and name any non-Guard character. If the target holds that card, they are immediately out of the round. No effect if all other players are Handmaid-protected.",
+          "category": "Cards"
+        },
+        {
+          "term": "Priest (2)",
+          "definition": "Value 2. Two copies in deck. Choose another player and secretly look at their hand without revealing it to anyone else. No effect if all other players are Handmaid-protected.",
+          "category": "Cards"
+        },
+        {
+          "term": "Baron (3)",
+          "definition": "Value 3. Two copies in deck. Choose another player and secretly compare hands. The player with the lower value is out of the round. If tied, neither player is eliminated. No effect if all other players are Handmaid-protected.",
+          "category": "Cards"
+        },
+        {
+          "term": "Handmaid (4)",
+          "definition": "Value 4. Two copies in deck. Until the start of your next turn, other players cannot choose you for card effects. Protection expires when your next turn begins.",
+          "category": "Cards"
+        },
+        {
+          "term": "Prince (5)",
+          "definition": "Value 5. Two copies in deck. Choose any player including yourself. That player discards their hand without resolving its effect and draws a new card. If the deck is empty, they draw the face-down set-aside card. Discarding the Princess this way eliminates that player.",
+          "category": "Cards"
+        },
+        {
+          "term": "Chancellor (6)",
+          "definition": "Value 6. Two copies in deck. Draw two cards from the deck so you hold three cards total. Keep one and place the other two face-down on the bottom of the deck in any order. If only one card remains in the deck, draw one and return one. If no cards remain, no effect.",
+          "category": "Cards"
+        },
+        {
+          "term": "King (7)",
+          "definition": "Value 7. One copy in deck. Choose another player and trade your entire hand with theirs. No effect if all other players are Handmaid-protected.",
+          "category": "Cards"
+        },
+        {
+          "term": "Countess (8)",
+          "definition": "Value 8. One copy in deck. No effect when played or discarded. You must play the Countess if your other card is a King or Prince. You may also play her voluntarily at any time. The forced-play rule does not apply when drawing cards via Chancellor.",
+          "category": "Cards"
+        },
+        {
+          "term": "Princess (9)",
+          "definition": "Value 9. One copy in deck. Highest card in the game. If you play or discard the Princess for any reason — including being forced by a Prince — you are immediately out of the round.",
+          "category": "Cards"
+        },
+        {
+          "term": "Favor Token",
+          "definition": "Token earned by winning a round (one per winner) or via the Spy bonus. The first player to reach the required number wins the game. Threshold varies by player count: two players need six, three need five, four need four, five or six need three.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Set-Aside Card",
+          "definition": "The top card removed face-down from the deck during setup. No one knows what it is. In a two-player game, three additional cards are also set aside face-up. The face-down card can be drawn via Prince effect when the deck is empty.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Out of the Round",
+          "definition": "When eliminated, discard your hand face-up without resolving its effect. Flip your reference card to the broken-seal side. You are skipped for the rest of the round and cannot be targeted by any card effects.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Handmaid Protection",
+          "definition": "State granted by playing the Handmaid card. You cannot be chosen as a target for any card effect until the start of your next turn. If all valid targets are protected, cards requiring another player have no effect; the Prince forces self-targeting.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Countess Forced-Play Rule",
+          "definition": "If you hold the Countess and your other card is a King or Prince, you must play the Countess. This rule does not apply when temporarily holding extra cards from the Chancellor effect. Playing the Countess does not reveal whether the play was forced or voluntary.",
+          "category": "Rules"
+        },
+        {
+          "term": "Deck Exhaustion",
+          "definition": "When the deck runs out after a turn, all remaining players reveal their hands. The player with the highest-value card wins the round. If tied, all tied players win and each gains one favor token.",
+          "category": "Rules"
+        },
+        {
+          "term": "Classic Version",
+          "definition": "An included variant for two to four players. Before setup, remove one Guard, two Chancellors, and two Spies from the deck. All other rules remain unchanged. Results in a 16-card deck.",
+          "category": "Rules"
+        },
+        {
+          "term": "Open Information",
+          "definition": "All played and discarded cards must remain face-up and visible to all players at all times. This is critical for card counting and deduction. The only hidden information is each player's hand and the face-down set-aside card.",
+          "category": "Rules"
+        }
+      ]
+    }
+  }
+}

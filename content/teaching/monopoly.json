@@ -1,0 +1,961 @@
+{
+  "game_id": "monopoly",
+  "title": "Monopoly",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "text": "Alright, let's get Monopoly set up. First, unfold the game board and place it in the center of the table where everyone can reach it. You will see a square track of forty spaces running around the outside edge, with the GO corner in the bottom right. Make sure the board is oriented so everyone can read the property names on their side.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Sort the Money",
+          "text": "Now let's organize the bank. Sort all the Monopoly money by denomination. You will have bills in seven sizes: one dollar, five, ten, twenty, fifty, one hundred, and five hundred. Stack each denomination neatly and place them near one edge of the board. Pick one player to be the Banker. The Banker manages all the money, property cards, houses, and hotels, but must keep the bank's funds completely separate from their own.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Distribute Starting Cash",
+          "text": "Each player receives fifteen hundred dollars from the bank. The breakdown is two five-hundred-dollar bills, two one-hundreds, two fifties, six twenties, five tens, five fives, and five ones. Count it out carefully and give each player their stack. Keep your money visible in front of you so other players can gauge your wealth.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Property Cards",
+          "text": "Find all twenty-eight title deed cards. These are the property cards with purchase prices and rent tables on them. There are twenty-two colored street properties, four railroads, and two utilities. Sort them and place them face up near the board where everyone can see them. These all belong to the bank until someone buys them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Set Up Houses, Hotels, and Cards",
+          "text": "Place the thirty-two green houses and twelve red hotels near the board within easy reach. Then find the two card decks: Community Chest and Chance. Shuffle each deck separately and place them face down on their marked spaces on the board. The board has labeled spots for each deck right in the middle.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Choose Tokens and Place on GO",
+          "text": "Each player picks a metal token. Classic pieces include the car, top hat, dog, and battleship, but your edition may vary. Once everyone has chosen, place all tokens on the GO corner space. This is your starting position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "text": "Everyone rolls both dice. The player with the highest total goes first, and play will proceed clockwise from there. If there is a tie for the highest roll, those players roll again until someone wins. Hand the dice to the first player. You are ready to play!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "bullets": [
+            "Place board centrally — 40 spaces in a square track",
+            "GO corner at bottom right"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Sort the Money",
+          "bullets": [
+            "Sort bills by denomination: $1, $5, $10, $20, $50, $100, $500",
+            "Designate 1 player as Banker — manages bank funds separately"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Distribute Starting Cash",
+          "bullets": [
+            "Each player gets $1,500 from the bank",
+            "Breakdown: 2×$500, 2×$100, 2×$50, 6×$20, 5×$10, 5×$5, 5×$1"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Property Cards",
+          "bullets": [
+            "28 title deeds: 22 streets, 4 railroads, 2 utilities",
+            "Place face up near board — all start owned by the bank"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Up Houses, Hotels, and Cards",
+          "bullets": [
+            "Place 32 houses and 12 hotels near the board",
+            "Shuffle Community Chest and Chance decks separately",
+            "Place each deck face down on its marked board space"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Choose Tokens and Place on GO",
+          "bullets": [
+            "Each player picks a metal token",
+            "All tokens start on the GO corner"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "bullets": [
+            "All players roll both dice — highest total goes first",
+            "Play proceeds clockwise",
+            "Re-roll ties"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Structure",
+          "text": "On your turn, roll both dice and move your token that many spaces clockwise around the board. If you pass or land on GO, collect two hundred dollars from the bank. After moving, resolve the space you landed on. If you rolled doubles, take your full turn and then roll again for a bonus turn. But be careful: if you roll doubles three times in a row, you go directly to Jail without completing that third move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Landing on Unowned Property",
+          "text": "When you land on a property that nobody owns, you have two choices. You can buy it by paying the printed price to the bank, and you will receive the title deed card. Or you can decline to buy it, in which case the bank immediately auctions it off. Every player, including you, can bid in the auction. Bidding starts at any amount, and the highest bidder gets the deed. Properties can sell at auction for well below the printed price.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Paying Rent",
+          "text": "When you land on a property owned by another player, you owe them rent. The rent amount depends on the property's development. For an undeveloped street, pay the base rent shown on the title deed. If the owner has a complete color group with no mortgages, the base rent on undeveloped streets in that group is doubled. Streets with houses or a hotel charge much higher rent as shown on the card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Railroads and Utilities",
+          "text": "Railroads and utilities have special rent rules. For railroads, the rent depends on how many railroads the owner has: twenty-five dollars for one, fifty for two, one hundred for three, and two hundred for all four. For utilities, if the owner has one utility, rent is four times the dice roll that brought you there. If they own both utilities, rent is ten times the dice roll.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Special Spaces",
+          "text": "Several spaces on the board have special effects. Community Chest and Chance spaces make you draw the top card from the matching deck, follow its instructions, and return it to the bottom. Income Tax costs you two hundred dollars. Luxury Tax costs one hundred dollars. Free Parking does nothing in the official rules. Just Visiting means you landed on the Jail corner normally and can continue on your next turn with no penalty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Going to Jail",
+          "text": "You go to Jail in three ways: landing on the Go to Jail corner, drawing a Go to Jail card, or rolling doubles three times in a row. When sent to Jail, move directly there without passing GO and without collecting two hundred dollars. While in Jail, you can still collect rent, trade, and build houses. On your turn, you have three options to get out: pay fifty dollars before rolling, use a Get Out of Jail Free card, or try to roll doubles. If you fail to roll doubles after three turns in Jail, you must pay fifty dollars and move the number shown.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Building Houses and Hotels",
+          "text": "Once you own all properties in a color group with none mortgaged, you can start building houses. Houses must be built evenly across the group. You cannot put a second house on any property until every property in that group has one house. After all properties have four houses each, you can upgrade to a hotel by paying the hotel price and returning the four houses to the bank. There are only thirty-two houses and twelve hotels in the game, and the bank cannot manufacture more. This scarcity is intentional.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Trading",
+          "text": "Players may trade properties, cash, and Get Out of Jail Free cards with each other at any time, even between turns. All deals must be completed immediately with no loans or IOUs. Houses and hotels cannot be traded. They must be sold back to the bank at half price first. When you receive a mortgaged property in a trade, you must either pay it off immediately or pay ten percent interest now and the full mortgage plus ten percent later to unmortgage it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Mortgaging Properties",
+          "text": "If you need cash, you can mortgage an unimproved property by flipping its deed to the mortgage side and collecting the mortgage value from the bank. Mortgaged properties cannot collect rent. To unmortgage, pay the mortgage value plus ten percent interest. You cannot build on any property in a color group if any property in that group is mortgaged. If a property has buildings, you must sell them back to the bank at half price before mortgaging.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Bankruptcy and Elimination",
+          "text": "If you owe more than you can pay, you must sell buildings and mortgage properties to raise funds. If you still cannot pay, you are bankrupt and out of the game. If you went bankrupt to the bank, all your properties are auctioned off. If you went bankrupt to another player, that player receives all your remaining assets, including any mortgaged properties. The game ends when only one player remains. That player wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Timed Game Variant",
+          "text": "For a shorter game, set a timer before you start, such as sixty or ninety minutes. When time expires, each player adds up their total assets: cash on hand, properties at their printed purchase price, mortgaged properties at half price, and buildings at purchase price. The player with the highest total wins. If there is a tie, the player with more cash wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Structure",
+          "bullets": [
+            "Roll 2 dice → move clockwise → resolve space",
+            "Pass/land on GO → collect $200",
+            "Doubles → roll again; 3 consecutive doubles → Jail"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Landing on Unowned Property",
+          "bullets": [
+            "Buy at printed price → receive title deed",
+            "Decline → bank auctions to all players (can sell below face value)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Paying Rent",
+          "bullets": [
+            "Undeveloped: base rent on title deed",
+            "Complete color group (no mortgages) → base rent doubled",
+            "Houses/hotel → much higher rent per deed chart"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Railroads and Utilities",
+          "bullets": [
+            "Railroads: $25/1, $50/2, $100/3, $200/4 owned",
+            "Utilities: 1 owned = 4× dice roll, 2 owned = 10× dice roll"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Special Spaces",
+          "bullets": [
+            "Community Chest / Chance → draw card, follow it, return to bottom",
+            "Income Tax = $200, Luxury Tax = $100",
+            "Free Parking = nothing (official rules)",
+            "Just Visiting = no penalty"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Going to Jail",
+          "bullets": [
+            "Triggers: Go to Jail space, card, or 3 consecutive doubles",
+            "Don't pass GO, don't collect $200",
+            "Get out: pay $50, use card, or roll doubles (3-turn limit then must pay $50)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Building Houses and Hotels",
+          "bullets": [
+            "Requires complete color group, none mortgaged",
+            "Even building rule — distribute houses evenly",
+            "Hotel = 4 houses returned + hotel price",
+            "32 houses / 12 hotels total — scarcity is intentional"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Trading",
+          "bullets": [
+            "Trade properties, cash, Get Out of Jail Free cards at any time",
+            "No loans/IOUs — deals completed immediately",
+            "Buildings sold to bank (half price) before trading improved property"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Mortgaging Properties",
+          "bullets": [
+            "Flip deed → collect mortgage value from bank",
+            "No rent collected on mortgaged properties",
+            "Unmortgage = mortgage value + 10% interest",
+            "Must sell buildings before mortgaging"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Bankruptcy and Elimination",
+          "bullets": [
+            "Can't pay → sell buildings, mortgage properties",
+            "Still can't pay → bankrupt, out of game",
+            "Bankrupt to bank → properties auctioned",
+            "Bankrupt to player → all assets transfer to that player"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Timed Game Variant",
+          "bullets": [
+            "Set timer (60-90 min) before starting",
+            "When time expires: total cash + properties (purchase price) + buildings",
+            "Mortgaged properties count at half price",
+            "Highest total wins; tie-break = most cash"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Board",
+          "text": "Welcome to your first game of Monopoly! In this practice tutorial, we will walk through several turns with four example players to show you how the game flows. Even if you have a different number of players, follow along to see how buying, renting, trading, and building all work together. Everyone starts on GO with fifteen hundred dollars. Let's roll!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Player 1: First Purchase",
+          "text": "Player 1 rolls a seven and lands on Chance. They draw a card that says Advance to St. Charles Place. Player 1 moves there and finds it unowned. The price is one hundred and forty dollars. Player 1 buys it immediately and receives the title deed. Good start: St. Charles is part of the pink color group, and owning properties is always better than sitting on cash.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player 2: The Auction",
+          "text": "Player 2 rolls and lands on Oriental Avenue, priced at one hundred dollars. Player 2 decides not to buy because they want to save cash. Big mistake! The bank immediately auctions Oriental Avenue. Player 3 bids sixty dollars and wins it below face value. Player 2 just gave an opponent a discount property and got nothing in return.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Always Buy Early Properties",
+          "text": "In the early game, buy every property you land on. Cash sitting in your hand earns you nothing. Properties generate rent, give you trading leverage, and move you toward completing color groups. Skipping a purchase hands a bargain to your opponents through the auction. The only reason to skip is if you are dangerously low on cash late in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player 3: Collecting Rent",
+          "text": "Player 3 already owns Oriental Avenue from that auction. A few turns later, Player 4 lands on it and owes rent. The base rent for Oriental is six dollars, which is not much now. But once Player 3 completes the light blue color group, that rent will double. And with houses, it will climb into the hundreds. Every property is a seed for future income.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player 4: Going to Jail",
+          "text": "Player 4 rolls doubles twice in a row and then rolls doubles a third time. That means Player 4 goes directly to Jail without completing the move. No passing GO, no collecting two hundred dollars. Player 4 will need to get out next turn by paying fifty dollars, using a Get Out of Jail Free card, or rolling doubles.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Jail Strategy Changes Over Time",
+          "text": "Early in the game, get out of Jail as fast as possible. You need to be moving around the board buying properties. Pay the fifty dollars and keep rolling. Later in the game, when the board is covered in houses and hotels, Jail becomes a safe haven. You still collect rent while sitting there, and you avoid landing on opponents' developed properties.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Player 1: Completing a Color Group",
+          "text": "Player 1 already has St. Charles Place from earlier. Through a combination of lucky rolls and smart purchases, they now also own States Avenue and Virginia Avenue. That completes the entire pink color group! Immediately, the base rent on all three pink properties is doubled even without houses. Player 1 is now in a powerful position to start building.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Prioritize Color Group Completion",
+          "text": "Completing a color group is the single most important goal in Monopoly. Doubled rent and the ability to build houses make a complete group exponentially more valuable than scattered properties. When you are one property away from completing a group, look for trades. When an opponent is one property away, think carefully before helping them finish it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "A Trade Happens",
+          "text": "Player 3 has Park Place and wants Boardwalk from Player 2. Player 2 also needs Connecticut Avenue, which Player 3 owns. They negotiate: Player 3 gives Connecticut Avenue plus one hundred dollars cash for Boardwalk. Both players now have a complete color group. This trade accelerated the game for both of them. Trades that give both sides a complete group are almost always worth making.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Trade Carefully but Actively",
+          "text": "Do not be afraid to trade, but always think about what your opponent gains. A trade that gives you a color group is great, but if it also gives your opponent a better color group, you may come out behind. The player who builds houses first after a trade usually wins the exchange. If you can trade and build immediately while your opponent cannot, you have the advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Player 1: Building to Three Houses",
+          "text": "Player 1 has the complete pink group and starts building. They buy one house for each property, then a second house for each, then a third house for each. That is nine houses total costing over five hundred dollars. The rent on Virginia Avenue with three houses jumps from twelve dollars to four hundred and fifty. Three houses is where the rent gets truly dangerous.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Build to Three Houses Quickly",
+          "text": "The rent increase from two houses to three houses is the biggest jump on most properties. Getting to three houses across your color group should be your top priority once you own a complete set. Mortgage other properties if you need to in order to fund this. The income from three houses will more than pay for the ten percent interest on unmortgaging later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Player 4: The Housing Shortage",
+          "text": "Player 4 finally completes the orange group and wants to build. But Player 1 already bought nine houses for the pink group, and Player 3 has been building too. There are only thirty-two houses in the game, and most of them are on the board. Player 4 can only buy three houses because that is all the bank has left. This is a real strategic weapon in Monopoly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: The Housing Shortage Is a Strategy",
+          "text": "Experienced players deliberately build four houses per property without upgrading to hotels. Hotels return houses to the bank, freeing them up for opponents. Keeping houses on the board locks other players out of building entirely. With only thirty-two houses in the game, controlling the supply can be just as powerful as controlling the best properties.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations! You have seen the core flow of Monopoly in action: buying properties, collecting rent, completing color groups, trading, building houses, and using the housing shortage. You watched Player 2 learn that skipping properties is costly, Player 4 discover the housing shortage, and everyone see the power of three houses. You are ready to play a full game on your own.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Roll",
+          "text": "Before you start your first full game, here are three things that can help.\n\nFirst, check out General Tips for beginner strategy and common mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to property groups, rent rules, and game terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Board",
+          "bullets": [
+            "Scripted tutorial with 4 example players demonstrating key mechanics",
+            "Follow along even with a different player count",
+            "Everyone starts on GO with $1,500"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player 1: First Purchase",
+          "bullets": [
+            "Player 1 lands on St. Charles Place (pink group) — buys it for $140",
+            "Receives the title deed card",
+            "Owning properties is always better than sitting on cash"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 2: The Auction",
+          "bullets": [
+            "Player 2 declines to buy Oriental Avenue for $100",
+            "Bank auctions it — Player 3 wins it for $60",
+            "Player 2 gave an opponent a discount property and got nothing"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Always Buy Early Properties",
+          "bullets": [
+            "Buy every property you land on in the early game",
+            "Cash earns nothing — properties generate rent and trading power",
+            "Skipping a purchase gives opponents auction bargains"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 3: Collecting Rent",
+          "bullets": [
+            "Player 4 lands on Player 3's Oriental Ave — pays $6 base rent",
+            "Small now, but doubles with complete color group",
+            "With houses, rent climbs into the hundreds"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 4: Going to Jail",
+          "bullets": [
+            "Player 4 rolls doubles 3 times in a row → sent to Jail",
+            "No passing GO, no $200",
+            "Must pay $50, use card, or roll doubles to get out"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Jail Strategy Changes Over Time",
+          "bullets": [
+            "Early game: get out fast — you need to buy properties",
+            "Late game: stay in — avoid opponents' developed properties",
+            "You still collect rent while in Jail"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 1: Completing a Color Group",
+          "bullets": [
+            "Player 1 now owns all 3 pink properties",
+            "Base rent immediately doubles on the entire group",
+            "Can now start building houses"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Prioritize Color Group Completion",
+          "bullets": [
+            "Complete color groups are exponentially more valuable",
+            "Doubled rent + ability to build houses",
+            "Trade aggressively to complete your group; block opponents from completing theirs"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "A Trade Happens",
+          "bullets": [
+            "Player 3 trades Connecticut Ave + $100 for Player 2's Boardwalk",
+            "Both players get a complete color group",
+            "Mutually beneficial trades accelerate the game"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Trade Carefully but Actively",
+          "bullets": [
+            "Think about what your opponent gains from every trade",
+            "The player who builds first after a trade usually wins the exchange",
+            "Trade when you can build immediately and your opponent cannot"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 1: Building to Three Houses",
+          "bullets": [
+            "Player 1 builds 3 houses on each pink property (9 total)",
+            "Rent on Virginia Ave jumps from $12 to $450 with 3 houses",
+            "3 houses is the biggest rent jump on most properties"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Build to Three Houses Quickly",
+          "bullets": [
+            "2 → 3 houses is the largest rent increase for most properties",
+            "Mortgage other properties to fund building if needed",
+            "The rent income will cover unmortgaging costs later"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player 4: The Housing Shortage",
+          "bullets": [
+            "Only 32 houses in the game — most already on the board",
+            "Player 4 can only buy 3 houses despite having a complete group",
+            "Housing scarcity is a real strategic weapon"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: The Housing Shortage Is a Strategy",
+          "bullets": [
+            "Build 4 houses per property without upgrading to hotels",
+            "Hotels return houses to bank, freeing them for opponents",
+            "Controlling the housing supply locks out other players"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen buying, renting, trading, building, and housing shortage",
+            "Key lessons: buy early, complete groups, build to 3 houses, control supply",
+            "You're ready for a full game!"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Roll",
+          "bullets": [
+            "Check out General Tips → beginner strategy and common mistakes",
+            "Reference the Appendix → property groups, rent rules, game terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we get into strategy, here are the biggest mistakes new players make. First, not buying properties early because you want to save cash. Cash earns no return, but properties generate rent and trade leverage. Second, ignoring auctions when someone else declines to buy. Auctions are where you get bargains. Third, making trades that complete an opponent's color group without getting one yourself. Fourth, building only one or two houses and stopping. The rent jump at three houses is where the real money is. Avoid these traps and you will already play better than most beginners."
+        },
+        {
+          "step": 2,
+          "title": "Property Acquisition Strategy",
+          "text": "In the first few trips around the board, buy every single property you land on. Do not worry about the color or the price. Every property you own is one your opponents do not own, and every property gives you a bargaining chip for trades later. Once the board starts filling up, shift your focus to completing color groups. Buy properties that complete your sets, and be willing to trade for the last piece you need."
+        },
+        {
+          "step": 3,
+          "title": "The Best Properties to Target",
+          "text": "Not all color groups are equal. Statistically, the orange group is the most landed-on set in the game because players leaving Jail frequently roll six, eight, or nine and land right on those spaces. The red group is the second most visited for similar reasons. The light blue group has the best return on investment because houses are cheap and the properties pay for themselves quickly. Boardwalk and Park Place look flashy but are landed on less often than you might expect."
+        },
+        {
+          "step": 4,
+          "title": "Cash Management",
+          "text": "Keep at least two hundred to three hundred dollars in reserve at all times during the early and mid game. This protects you from a bad rent payment that could force you to mortgage at a bad time. That said, do not hoard cash. Once you have a complete color group, spend aggressively to build three houses per property. The rent income from developed properties will refill your cash faster than sitting on a pile of unused bills."
+        },
+        {
+          "step": 5,
+          "title": "Trading Fundamentals",
+          "text": "Good trades are the engine that wins Monopoly games. The most common beneficial trade is one that gives both players a complete color group. When evaluating a trade, ask yourself three questions. Can I build houses immediately after this trade? Does my opponent get a better group than I do? And am I the first to build, or are they? The player who builds first after a trade usually wins the exchange. Never trade away a property that blocks an opponent's color group completion without getting at least equal value in return."
+        },
+        {
+          "step": 6,
+          "title": "Building Strategy",
+          "text": "Once you have a complete color group, build to three houses per property as fast as you can. The rent increase from two houses to three houses is the steepest jump on nearly every property in the game. Mortgage your railroads, utilities, and stray properties to fund this if needed. The ten percent interest on unmortgaging later is a tiny cost compared to the rent you will collect from three houses. After three houses, only upgrade to four if you are controlling the housing supply as a deliberate strategy."
+        },
+        {
+          "step": 7,
+          "title": "Jail Strategy",
+          "text": "Your approach to Jail should flip halfway through the game. In the early rounds, pay fifty dollars immediately to get out. You need to keep moving and buying properties. In the late game, once the board is loaded with houses and hotels, stay in Jail as long as you can. You still collect rent from anyone who lands on your properties while you are safe from landing on theirs. Try to roll doubles first, and only pay the fifty dollars on your third turn if you must."
+        },
+        {
+          "step": 8,
+          "title": "Avoid Common House Rules",
+          "text": "Many families play with house rules that actually make the game worse. Putting tax money on Free Parking injects random cash that drags the game out for hours. Skipping auctions when someone declines to buy removes a key strategic tool. Allowing loans between players creates kingmaker situations. Stick to the official rules. They make the game shorter, more strategic, and more fun."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't hoard cash — properties earn rent, cash doesn't",
+            "Don't ignore auctions — they offer bargain prices",
+            "Don't complete an opponent's group without getting equal value",
+            "Don't stop building at 1-2 houses — 3 houses is the key threshold"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Property Acquisition Strategy",
+          "bullets": [
+            "Buy every property you land on in the first 2-3 trips around the board",
+            "Every property = trade leverage + opponent denial",
+            "Shift to targeted buying for color group completion mid-game"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Best Properties to Target",
+          "bullets": [
+            "Orange group = most landed on (Jail exit rolls hit it frequently)",
+            "Red group = second most visited",
+            "Light blue = best ROI (cheap houses, fast payback)",
+            "Boardwalk/Park Place = flashy but less frequently landed on"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Cash Management",
+          "bullets": [
+            "Keep $200-300 reserve for rent emergencies",
+            "Don't hoard — spend aggressively on houses once you have a color group",
+            "Developed properties refill cash faster than savings"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Trading Fundamentals",
+          "bullets": [
+            "Best trade = both players get a complete color group",
+            "Key question: who builds first after the trade?",
+            "Never give away a blocking property without equal value",
+            "Can I build immediately? → trade is worth it"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Building Strategy",
+          "bullets": [
+            "Build to 3 houses per property ASAP — biggest rent jump",
+            "Mortgage railroads/utilities/strays to fund building",
+            "10% unmortgage interest is tiny vs. rent from 3 houses",
+            "4 houses without upgrading = housing shortage strategy"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Jail Strategy",
+          "bullets": [
+            "Early game: pay $50 immediately, keep moving and buying",
+            "Late game: stay in Jail, collect rent safely",
+            "Try to roll doubles first, pay $50 only on turn 3"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Avoid Common House Rules",
+          "bullets": [
+            "Free Parking money → injects random cash, extends game",
+            "No auctions → removes key strategic tool",
+            "Player loans → creates kingmaker situations",
+            "Official rules = shorter, more strategic, more fun"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Housing Shortage Weapon",
+          "text": "One of the most powerful strategies in Monopoly is deliberately creating a housing shortage. The game only has thirty-two houses, and once they are all on the board, no one else can build. The trick is to build four houses on each property in your color group and never upgrade to hotels. Hotels return the four houses to the bank, which frees them for your opponents. By hoarding houses, you prevent other players from developing their properties even if they complete a color group."
+        },
+        {
+          "step": 2,
+          "title": "Auction Manipulation",
+          "text": "Auctions are one of the most underused tools in Monopoly. When a player declines to buy a property, you can sometimes pick it up for far below face value if other players are not paying attention or are low on cash. Conversely, you can bid up a property you do not even want just to drain an opponent's cash reserves. If an opponent needs one property to complete a group, bid aggressively to either block them or make them overpay. Every dollar they spend at auction is one less dollar for houses."
+        },
+        {
+          "step": 3,
+          "title": "Color Group Valuation",
+          "text": "Understanding which color groups are worth the most helps you make better trades. The orange group has the highest expected income per dollar invested because of Jail exit traffic. The red group is a close second. Light blue offers the cheapest path to three houses, giving you the fastest return on investment. The green group has high rent but astronomical building costs, making it a trap unless you are already ahead. Brown and dark blue are the weakest for generating consistent income. Use these rankings when negotiating trades."
+        },
+        {
+          "step": 4,
+          "title": "Mortgage Optimization",
+          "text": "Strategic mortgaging is about prioritizing which properties to keep active. Always mortgage railroads, utilities, and undeveloped stray properties before touching anything in a color group. The ten percent interest on unmortgaging is a small price compared to the rent you earn from developed streets. Never mortgage a property in a color group that has houses, because you would need to sell all buildings in that group first. If you need cash urgently, sell one house at a time from the group where it will hurt your rent the least."
+        },
+        {
+          "step": 5,
+          "title": "Negotiation Leverage",
+          "text": "The best trades happen when you understand your leverage. If you hold a single property that blocks an opponent from completing a valuable color group, that property is worth far more than its face value. Do not sell it cheaply. Demand a complete group of your own, or a large cash premium. Conversely, if two opponents each need one of your properties, you can play them against each other. Time your trades for when an opponent is cash-poor but desperate, and you will get better terms."
+        },
+        {
+          "step": 6,
+          "title": "Positional Play Around Jail",
+          "text": "The spaces immediately after Jail, particularly the orange and red groups, see the most traffic in the game. Players leaving Jail roll two dice, landing most often on spaces six through nine squares away. This makes the orange group statistically the strongest development target. If you own orange properties with three or four houses, every opponent who lands in Jail is likely paying you rent within a turn or two. Factor this into every trade negotiation."
+        },
+        {
+          "step": 7,
+          "title": "Endgame Timing",
+          "text": "Monopoly has a tipping point where one or two players have developed properties and the rest are slowly bleeding out. Recognize when you are in the leading position and play conservatively. Stay in Jail, collect rent, and let opponents land on your houses. If you are behind, take bigger risks. Trade aggressively even if the deal is slightly unfavorable, because a completed color group with houses is your only path back into the game. Doing nothing when behind guarantees a slow death."
+        },
+        {
+          "step": 8,
+          "title": "Railroad and Utility Strategy",
+          "text": "Railroads are often underrated. Owning all four railroads means two hundred dollars in rent from anyone who lands on one, and there are four chances per trip around the board. That is solid passive income without needing to build houses. However, railroads cannot be developed further, so they fall off in power late game. Utilities are the weakest income properties and should be the first assets you mortgage or trade away. Their rent depends on dice rolls and is inconsistent compared to everything else."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Housing Shortage Weapon",
+          "bullets": [
+            "32 houses total — build 4 per property, never upgrade to hotels",
+            "Hotels return houses to bank → opponents can build",
+            "Hoarding houses blocks opponents from developing",
+            "One of the strongest endgame strategies"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Auction Manipulation",
+          "bullets": [
+            "Buy properties below face value when opponents are cash-poor",
+            "Bid up properties to drain opponents' cash reserves",
+            "Block opponents from completing color groups via bidding",
+            "Every auction dollar spent = one less dollar for houses"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Color Group Valuation",
+          "bullets": [
+            "Orange = highest ROI (Jail exit traffic)",
+            "Red = second best income generator",
+            "Light blue = cheapest path to 3 houses, fastest payback",
+            "Green = high rent but expensive to build (trap if behind)",
+            "Brown/dark blue = weakest consistent income"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Mortgage Optimization",
+          "bullets": [
+            "Mortgage railroads/utilities/strays first — never color groups with buildings",
+            "10% interest is cheap vs. rent from developed streets",
+            "Sell houses one at a time from least impactful group",
+            "Never mortgage within a group that has houses"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Negotiation Leverage",
+          "bullets": [
+            "Blocking properties are worth far more than face value",
+            "Demand a complete group or large cash premium for blockers",
+            "Play two opponents against each other when possible",
+            "Trade when opponent is cash-poor but desperate for a property"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Positional Play Around Jail",
+          "bullets": [
+            "Spaces 6-9 after Jail = most common landing spots",
+            "Orange group sits right in the high-traffic zone",
+            "3-4 houses on orange = rent from nearly every Jail exit",
+            "Factor Jail traffic into every trade negotiation"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Timing",
+          "bullets": [
+            "Ahead → play conservatively, stay in Jail, collect rent",
+            "Behind → trade aggressively, take risks, build fast",
+            "A slightly unfavorable trade is better than slow elimination",
+            "Doing nothing when behind guarantees a loss"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Railroad and Utility Strategy",
+          "bullets": [
+            "4 railroads = $200 rent, 4 landing chances per board trip",
+            "Solid early/mid passive income, falls off late game",
+            "Utilities = weakest income, mortgage/trade first",
+            "Railroads good for cash flow but can't be developed further"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "GO",
+          "definition": "The starting corner space. Collect $200 from the bank every time you pass or land on GO. You do not collect double for landing exactly on it (common house rule, not official).",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Jail / Just Visiting",
+          "definition": "Corner space with two functions. If you land here normally, you are Just Visiting with no penalty. If sent to Jail, you are held until you pay $50, use a Get Out of Jail Free card, or roll doubles (3-turn limit).",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Free Parking",
+          "definition": "Corner space with no official effect. Landing here is simply a free rest. The popular house rule of collecting accumulated money is not in the official rules and significantly extends game length.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Go to Jail",
+          "definition": "Corner space that sends you directly to Jail. Do not pass GO and do not collect $200. This is different from the Just Visiting side of the Jail corner.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Community Chest",
+          "definition": "Three spaces on the board. Draw the top card, follow its instructions, and return it to the bottom of the deck. Cards include collecting money, paying fees, or going to Jail.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Chance",
+          "definition": "Three spaces on the board. Draw the top card, follow its instructions, and return it to the bottom. Cards often move you to specific spaces, which can trigger purchases or rent payments at the destination.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Income Tax",
+          "definition": "Pay $200 to the bank. In older editions, you could choose to pay 10% of total assets instead, but current editions use a flat $200.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Luxury Tax",
+          "definition": "Pay $100 to the bank. This is one of only two tax spaces on the board.",
+          "category": "Board Spaces"
+        },
+        {
+          "term": "Brown (Dark Purple) Group",
+          "definition": "Mediterranean Avenue ($60) and Baltic Avenue ($60). Cheapest color group. Houses cost $50 each. Low rent ceiling but very cheap to develop. Two properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Light Blue Group",
+          "definition": "Oriental Avenue ($100), Vermont Avenue ($100), Connecticut Avenue ($120). Houses cost $50 each. Best return on investment due to cheap building costs and decent rent. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Pink (Magenta) Group",
+          "definition": "St. Charles Place ($140), States Avenue ($140), Virginia Avenue ($160). Houses cost $100 each. Solid mid-tier group with reasonable building costs. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Orange Group",
+          "definition": "St. James Place ($180), Tennessee Avenue ($180), New York Avenue ($200). Houses cost $100 each. Statistically the most landed-on group due to Jail exit traffic. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Red Group",
+          "definition": "Kentucky Avenue ($220), Indiana Avenue ($220), Illinois Avenue ($240). Houses cost $150 each. Second most visited group. Strong rent-to-cost ratio. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Yellow Group",
+          "definition": "Atlantic Avenue ($260), Ventnor Avenue ($260), Marvin Gardens ($280). Houses cost $150 each. Good rent but more expensive to develop than orange or red. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Green Group",
+          "definition": "Pacific Avenue ($300), North Carolina Avenue ($300), Pennsylvania Avenue ($320). Houses cost $200 each. Very high rent when developed but expensive to build. Often a trap if you are behind on cash. Three properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Dark Blue Group",
+          "definition": "Park Place ($350) and Boardwalk ($400). Houses cost $200 each. Highest rent in the game with a hotel on Boardwalk ($2,000), but only two properties means fewer landing chances. Two properties to complete.",
+          "category": "Color Groups"
+        },
+        {
+          "term": "Railroads",
+          "definition": "Reading Railroad, Pennsylvania Railroad, B&O Railroad, Short Line. Rent scales with number owned: $25 for 1, $50 for 2, $100 for 3, $200 for all 4. Cannot be developed with houses or hotels.",
+          "category": "Special Properties"
+        },
+        {
+          "term": "Utilities",
+          "definition": "Electric Company and Water Works. Rent is 4x the dice roll if one utility owned, 10x if both owned. Weakest income properties — best used as trade fodder or mortgage targets.",
+          "category": "Special Properties"
+        },
+        {
+          "term": "Title Deed",
+          "definition": "The property card you receive when buying a property. Shows the property name, purchase price, rent at each development level, mortgage value, and building costs. Flip to the mortgage side when mortgaged.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Mortgage",
+          "definition": "Flip a property's deed to its mortgage side and collect the mortgage value from the bank. Mortgaged properties cannot collect rent. Unmortgage by paying the mortgage value plus 10% interest. Must sell all buildings in a color group before mortgaging any property in it.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Auction",
+          "definition": "When a player declines to buy a property they landed on, the bank auctions it immediately. All players may bid, including the player who declined. Bidding starts at any amount. Highest bidder pays the bank and receives the deed.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Even Building Rule",
+          "definition": "Houses must be distributed evenly across all properties in a color group. You cannot place a second house on any property until every property in the group has one. Same rule applies in reverse when selling houses.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Housing Shortage",
+          "definition": "The game has exactly 32 houses and 12 hotels. When all houses are on the board, no more can be built until some are returned. This is an intentional game mechanic and a key advanced strategy.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Doubles",
+          "definition": "Rolling the same number on both dice. Grants an extra turn after resolving the current one. Three consecutive doubles in a single turn sequence sends you directly to Jail.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Get Out of Jail Free",
+          "definition": "A card from the Community Chest or Chance deck. Use it to leave Jail without paying $50. Can be traded or sold to other players. Return it to the bottom of the appropriate deck after use.",
+          "category": "Terminology"
+        }
+      ]
+    }
+  }
+}
