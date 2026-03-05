@@ -1,0 +1,954 @@
+{
+  "game_id": "gin-rummy",
+  "title": "Rummy / Gin Rummy",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gather Your Materials",
+          "text": "Let's set up Gin Rummy. All you need is a standard 52-card deck and something to keep score with, like pen and paper. No special boards or tokens required. This is a classic two-player card game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Know the Card Values",
+          "text": "Before we deal, let's understand card values. Face cards, meaning Kings, Queens, and Jacks, are each worth ten points. Aces are always worth one point. Number cards are worth their face value. So a seven is worth seven points and a three is worth three points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Determine the Dealer",
+          "text": "Each player draws a card from the deck. The player who draws the lower card becomes the dealer for the first hand. In case of a tie, draw again. The dealer alternates each hand after that.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Ten Cards Each",
+          "text": "The dealer shuffles the deck thoroughly and deals ten cards face down to each player, one at a time, alternating between players. Pick up your cards and look at them, but keep them hidden from your opponent.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Create the Stock and Discard Piles",
+          "text": "Place the remaining 32 cards face down in the center of the table. This is the stock pile. Flip the top card of the stock pile face up and place it beside the stock. This card starts the discard pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "First Card Option",
+          "text": "The non-dealer gets the first option. They may take the face-up discard card or pass. If they pass, the dealer may take it or pass. If both pass, the non-dealer draws from the stock pile and the game begins normally.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Organize Your Hand",
+          "text": "Take a moment to sort your hand. Look for potential melds, which are sets of three or four cards of the same rank, or runs of three or more consecutive cards in the same suit. Group these together so you can plan your strategy. Ready to play? Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gather Your Materials",
+          "bullets": [
+            "Standard 52-card deck + pen and paper for scoring",
+            "2-player card game, no special components needed"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Know the Card Values",
+          "bullets": [
+            "Face cards (K, Q, J) = 10 points each",
+            "Aces = 1 point",
+            "Number cards = face value"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Determine the Dealer",
+          "bullets": [
+            "Each player draws a card — lower card deals",
+            "Tie = draw again",
+            "Dealer alternates each hand"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal Ten Cards Each",
+          "bullets": [
+            "Shuffle and deal 10 cards face down to each player",
+            "Alternate one at a time",
+            "Keep hand hidden from opponent"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Create the Stock and Discard Piles",
+          "bullets": [
+            "Remaining 32 cards = stock pile (face down)",
+            "Flip top card face up = start of discard pile"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "First Card Option",
+          "bullets": [
+            "Non-dealer may take the face-up card or pass",
+            "If passed, dealer may take it or pass",
+            "If both pass, non-dealer draws from stock"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Organize Your Hand",
+          "bullets": [
+            "Sort hand by potential melds",
+            "Sets = 3-4 of same rank, Runs = 3+ consecutive same suit",
+            "Group melds together to plan strategy"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Gin Rummy is a two-player card game where you try to form your hand into melds while reducing your deadwood. Deadwood is any card in your hand that is not part of a meld. Your goal is to get your deadwood low enough to knock, or even better, to go Gin with zero deadwood.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "What Are Melds",
+          "text": "There are two types of melds. A set is three or four cards of the same rank, like three sevens or four Queens. A run is three or more consecutive cards of the same suit, like the four, five, and six of hearts. Each card can only belong to one meld.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Your Turn: Draw",
+          "text": "On your turn, you must first draw one card. You have two choices. Take the top card from the discard pile, which is face up so you know what you are getting. Or draw the top card from the stock pile, which is face down and a mystery. Pick whichever helps your hand more.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Your Turn: Discard",
+          "text": "After drawing, you must discard one card face up onto the discard pile. You now have ten cards again. If you took the top card of the discard pile, you cannot discard that same card on this turn. You must discard a different card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Deadwood Explained",
+          "text": "Any card in your hand that is not part of a meld is called deadwood. The deadwood value is the sum of all your unmelded cards' point values. Face cards are worth ten, so holding even one unmelded King adds ten points of deadwood. Your goal is to reduce this number as quickly as possible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Knocking",
+          "text": "When your deadwood total is ten points or less, you may knock. To knock, discard your final card face down and lay your hand on the table. Separate your melds from your deadwood so both players can see them clearly. You do not have to knock when eligible. You can wait for a better opportunity.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Laying Off",
+          "text": "After the knocker reveals their hand, the opponent gets a chance to lay off. Laying off means adding your unmelded cards to the knocker's melds. For example, if the knocker has three sevens and you have the fourth seven, you can lay it off to reduce your deadwood. Then both players compare remaining deadwood.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Going Gin",
+          "text": "If you knock with zero deadwood, meaning every card in your hand is part of a meld, you have gone Gin. This is the best possible outcome. When you go Gin, your opponent cannot lay off any cards. You score your opponent's full deadwood value plus a 25-point bonus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "The Undercut",
+          "text": "Here is a twist. If you knock and your opponent's deadwood, after laying off, is equal to or less than yours, your opponent undercuts you. The opponent scores the difference between the two deadwood totals plus a 25-point bonus. Getting undercut hurts, which is why knocking with very low deadwood is safer.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Stock Pile Runs Out",
+          "text": "If only two cards remain in the stock pile and neither player has knocked, the hand is a draw. No points are scored and you redeal. This is called a stockout and it rarely happens in practice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Hand Scoring",
+          "text": "Let's summarize scoring for a single hand. If you knock normally, you score the difference between your opponent's deadwood and yours. If you go Gin, you score your opponent's deadwood plus 25 bonus points. If you get undercut, your opponent scores the deadwood difference plus 25 bonus points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Game Scoring",
+          "text": "Play continues across multiple hands until one player reaches 100 points. When that happens, the winner receives a 100-point game bonus. Each player also gets 25 bonus points for every hand they won, called box bonuses. If the loser never scored any points at all, it is a shutout, and all bonuses are doubled.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "2-player card game — form melds, reduce deadwood",
+            "Knock when deadwood is 10 or less, or go Gin at 0"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "What Are Melds",
+          "bullets": [
+            "Set = 3-4 cards of same rank (e.g., 7-7-7)",
+            "Run = 3+ consecutive cards of same suit (e.g., 4-5-6 of hearts)",
+            "Each card belongs to only one meld"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Your Turn: Draw",
+          "bullets": [
+            "Draw 1 card: from discard pile (face up) or stock pile (face down)",
+            "Pick whichever helps your hand more"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Your Turn: Discard",
+          "bullets": [
+            "Discard 1 card face up onto discard pile",
+            "Cannot discard the same card you just picked up from discard",
+            "Hand returns to 10 cards"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Deadwood Explained",
+          "bullets": [
+            "Deadwood = unmelded cards in your hand",
+            "Deadwood value = sum of unmelded cards' point values",
+            "Face cards = 10 pts each — high deadwood risk"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Knocking",
+          "bullets": [
+            "May knock when deadwood total is 10 or less",
+            "Discard final card face down, reveal melds + deadwood",
+            "Knocking is optional — can wait for better opportunity"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Laying Off",
+          "bullets": [
+            "Opponent may add unmelded cards to knocker's melds",
+            "Reduces opponent's deadwood count",
+            "Then compare remaining deadwood totals"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Going Gin",
+          "bullets": [
+            "Knock with 0 deadwood = Gin",
+            "Opponent cannot lay off any cards",
+            "Score = opponent's deadwood + 25 bonus"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "The Undercut",
+          "bullets": [
+            "Opponent's deadwood ≤ knocker's after lay off = undercut",
+            "Opponent scores deadwood difference + 25 bonus",
+            "Lower deadwood = safer knocks"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Stock Pile Runs Out",
+          "bullets": [
+            "Only 2 cards left in stock, no knock = draw hand",
+            "No points scored, redeal",
+            "Rarely happens in practice"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Hand Scoring",
+          "bullets": [
+            "Normal knock: difference in deadwood (knocker's favor)",
+            "Gin: opponent's deadwood + 25 bonus",
+            "Undercut: opponent scores difference + 25 bonus"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Game Scoring",
+          "bullets": [
+            "Play to 100 points across multiple hands",
+            "Game bonus: winner gets +100",
+            "Box bonus: +25 per hand won",
+            "Shutout (loser scored 0): all bonuses doubled"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Gin Rummy",
+          "text": "Welcome to your first hand of Gin Rummy! Let's walk through a complete hand between two example players, Alice and Bob. Alice is the non-dealer. Follow along to see how drawing, discarding, and knocking work in practice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Opening Hands",
+          "text": "Alice looks at her ten cards and spots a run: three, four, five of spades. She also has a pair of nines. Her deadwood includes a King, Queen, and Jack of different suits. That is 30 points of deadwood from face cards alone. Bob has two pairs and a run of two cards that needs a third.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Alice's First Turn",
+          "text": "The face-up discard card is the six of spades. Alice takes it because it extends her run to three, four, five, six of spades. She discards her King of hearts, removing ten deadwood points. Great start.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Bob's First Turn",
+          "text": "Bob sees Alice's discarded King of hearts. He does not need Kings, so he draws from the stock pile instead. He gets the nine of clubs, which gives him three nines. He discards a seven of diamonds that does not fit any meld.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reading the Discard Pile",
+          "text": "Alice notices Bob did not take the King. She now knows Bob probably does not need Kings or high hearts. She also notices Bob discarded a seven of diamonds. She can use this information later. Every discard tells a story about what your opponent is building.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Several Turns Later",
+          "text": "After five turns, Alice has two melds and her deadwood is down to eight points. She could knock now since eight is under ten. But she has two cards that could form a third meld with one more draw. Should she knock or wait?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Alice Decides to Knock",
+          "text": "Alice decides to knock with eight deadwood. She lays down her two melds and shows her deadwood cards. Bob reveals his hand. He has one completed meld of three nines. His deadwood totals 22 points. But Bob can lay off. He has a seven of spades that extends Alice's spade run. That removes seven deadwood from Bob's count, dropping him to 15.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Scoring the Hand",
+          "text": "Alice's deadwood is eight. Bob's deadwood after laying off is 15. The difference is seven points in Alice's favor. Alice scores seven points for the hand. She writes it down. Nice play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Common Mistake: Holding Face Cards Too Long",
+          "text": "In a different hand, Bob holds onto a King and Queen of clubs hoping to draw the Jack for a run. Three turns pass and the Jack never comes. Meanwhile, those two face cards are 20 points of deadwood. Alice knocks with low deadwood and wins big because Bob's hand is bloated with high-value cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Discard High Cards Early",
+          "text": "The lesson here is simple. Face cards are worth ten points each, making them dangerous deadwood. If a face card is not part of a meld or very close to forming one, discard it early. Low cards like twos and threes are much safer to hold because they contribute minimal deadwood.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Common Mistake: Waiting Too Long to Knock",
+          "text": "Alice has nine deadwood and could knock. Instead, she waits, hoping for Gin. Three turns later, Bob knocks with five deadwood. Alice's hand has gotten worse because she drew cards that did not help. Now Bob scores and Alice's patience cost her the hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Knock Early When Able",
+          "text": "Do not wait for Gin when you have low deadwood. A quick knock with a solid low count often beats the risk of waiting. Every turn you wait gives your opponent another chance to improve their hand and potentially knock first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Common Mistake: Ignoring the Discard Pile",
+          "text": "Bob has been drawing exclusively from the stock pile all game, ignoring the discard pile entirely. Meanwhile, Alice has been picking up discards that fit her melds perfectly. She completes three melds quickly while Bob is still searching randomly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Watch the Discard Pile",
+          "text": "The discard pile is public information. When a card appears that fits your melds, take it. Also watch what your opponent takes and discards. If they pick up a six of hearts, they probably need hearts or sixes. Adjust your discards accordingly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations on completing your first practice hand of Gin Rummy! You have seen how drawing, discarding, knocking, and laying off work. You have also learned three common mistakes: holding face cards too long, waiting too long to knock, and ignoring the discard pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Before You Deal",
+          "text": "Before you play a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy on hand management and knock timing.\n\nSecond, reference the Appendix for a quick guide to melds, scoring, and card values.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Gin Rummy",
+          "bullets": [
+            "Practice hand with 2 example players: Alice and Bob",
+            "Alice is non-dealer, gets first option",
+            "Covers drawing, discarding, knocking, laying off"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Opening Hands",
+          "bullets": [
+            "Alice has a spade run (3-4-5) and pair of 9s",
+            "30 pts of face card deadwood (K, Q, J)",
+            "Bob has 2 pairs and a partial run"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Alice's First Turn",
+          "bullets": [
+            "Takes 6 of spades from discard — extends run to 3-4-5-6",
+            "Discards King of hearts — removes 10 deadwood pts",
+            "Picking from discard when it helps is efficient"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Bob's First Turn",
+          "bullets": [
+            "Bob doesn't need Alice's King — draws from stock",
+            "Gets 9 of clubs — completes a set of three 9s",
+            "Discards 7 of diamonds that doesn't fit"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Discard Pile",
+          "bullets": [
+            "Alice notes Bob didn't take the King",
+            "Bob's 7 of diamonds discard gives information",
+            "Every discard tells a story about opponent's melds"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Several Turns Later",
+          "bullets": [
+            "Alice has 2 melds, 8 deadwood — could knock",
+            "Also has 2 cards close to a 3rd meld",
+            "Decision: knock now or wait for the meld?"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Alice Decides to Knock",
+          "bullets": [
+            "Alice knocks with 8 deadwood, reveals melds",
+            "Bob has 22 deadwood, lays off 7 of spades",
+            "Bob's deadwood after lay off = 15"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Scoring the Hand",
+          "bullets": [
+            "Alice's deadwood: 8, Bob's after lay off: 15",
+            "Difference = 7 points for Alice",
+            "Alice records 7 points"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Common Mistake: Holding Face Cards Too Long",
+          "bullets": [
+            "Bob holds K + Q hoping for the J for a run",
+            "Jack never comes — 20 pts of deadwood stuck",
+            "Alice knocks with low deadwood and wins big"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Discard High Cards Early",
+          "bullets": [
+            "Face cards = 10 pts each = dangerous deadwood",
+            "Discard face cards not part of or close to a meld",
+            "Low cards (2s, 3s) are safer to hold"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Common Mistake: Waiting Too Long to Knock",
+          "bullets": [
+            "Alice has 9 deadwood but waits for Gin",
+            "Bob knocks first with 5 deadwood after 3 turns",
+            "Alice's patience cost her the hand"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Knock Early When Able",
+          "bullets": [
+            "Quick knock with low deadwood often beats waiting for Gin",
+            "Every turn gives opponent another chance to improve",
+            "Don't gamble on Gin when a safe knock is available"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Common Mistake: Ignoring the Discard Pile",
+          "bullets": [
+            "Bob draws only from stock, ignoring useful discards",
+            "Alice picks up perfect discard pile cards",
+            "Alice completes melds faster"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Watch the Discard Pile",
+          "bullets": [
+            "Take discards that fit your melds — faster than blind draws",
+            "Watch what opponent picks up — reveals their needs",
+            "Avoid discarding cards your opponent wants"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Completed a full practice hand",
+            "Seen drawing, discarding, knocking, laying off",
+            "Avoid: holding face cards, waiting too long, ignoring discards"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Deal",
+          "bullets": [
+            "Check out General Tips for hand management strategy",
+            "Reference the Appendix for melds, scoring, card values",
+            "Ask your personal GM Guide via Q&A tab anytime"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest mistakes new Gin Rummy players make. First, holding onto high-value face cards that are not forming melds. Second, waiting too long for Gin when a safe knock is available. Third, ignoring what your opponent picks up and discards. Fourth, not adapting when your planned melds are not coming together. Keep these in mind and you will win more hands.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Low Deadwood",
+          "text": "Every card in your hand that is not in a meld counts against you. Prioritize discarding high-value deadwood first. A King in your hand is ten points of dead weight. Get rid of unproductive face cards quickly and hold onto low-value cards when possible. Keeping your deadwood low gives you the option to knock whenever you choose.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Triangle Cards Are Gold",
+          "text": "The most valuable cards are what experienced players call triangle cards. These are cards that can contribute to both a set and a run. For example, the seven of hearts can pair with other sevens for a set, and it can also combine with the six and eight of hearts for a run. Triangle cards double your chances of completing a meld.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Knock Early",
+          "text": "A quick knock with low deadwood is usually better than waiting for Gin. Gin scores 25 bonus points, which is great, but getting undercut costs you 25 bonus points. The risk often outweighs the reward. If your deadwood is four or less, consider knocking immediately. The undercut risk is very low at that point.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Watch the Discard Pile",
+          "text": "The discard pile is a goldmine of information. Every card your opponent takes from the discard tells you something about their hand. If they grab the eight of diamonds, they likely need eights or a diamond run. Use this knowledge to avoid discarding cards they need. Defensive discarding is just as important as building your own melds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Middle Cards Are More Flexible",
+          "text": "Cards in the middle of the range, like fives, sixes, and sevens, have more meld potential than cards at the extremes. Aces can only form a run going up from ace-two-three. Kings can only form a run going down from King-Queen-Jack. But a six can go up or down in a run, making it more versatile. Prefer holding middle cards when choosing what to keep.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Defensive Discarding",
+          "text": "When you know what your opponent is collecting, avoid giving them what they need. A safe discard is a card of the same rank as one your opponent recently discarded, because they clearly do not need that rank. Another safe option is a card adjacent to one they discarded, since they likely already abandoned that run.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Know When to Abandon a Plan",
+          "text": "Sometimes the cards you need simply will not come. If you have been holding two cards waiting for a third to complete a meld for several turns, it might be time to cut your losses. Discard those speculative holds and focus on what you actually have. Flexibility beats stubbornness in Gin Rummy.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't hold high face cards that aren't forming melds",
+            "Don't wait too long for Gin when a safe knock is ready",
+            "Track what opponent picks up and discards",
+            "Adapt when planned melds aren't materializing"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Low Deadwood",
+          "bullets": [
+            "Discard high-value deadwood first (face cards = 10 pts each)",
+            "Hold low-value cards when possible",
+            "Low deadwood = option to knock anytime"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Triangle Cards Are Gold",
+          "bullets": [
+            "Triangle cards work for both sets and runs",
+            "Example: 7 of hearts pairs with other 7s or 6-8 of hearts",
+            "Doubles your meld completion chances"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Knock Early",
+          "bullets": [
+            "Quick knock with low deadwood usually beats waiting for Gin",
+            "Gin bonus = 25, but undercut penalty = -25",
+            "If deadwood is 4 or less, consider immediate knock"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Watch the Discard Pile",
+          "bullets": [
+            "Opponent's discard picks reveal their hand",
+            "Avoid discarding cards they need",
+            "Defensive discarding is as important as building melds"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Middle Cards Are More Flexible",
+          "bullets": [
+            "5s, 6s, 7s have most meld potential",
+            "Can go up or down in runs",
+            "Aces and Kings have limited run directions"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Defensive Discarding",
+          "bullets": [
+            "Safe: same rank as opponent's recent discard",
+            "Safe: cards adjacent to opponent's discarded cards",
+            "Deny opponents the cards they need"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Know When to Abandon a Plan",
+          "bullets": [
+            "If needed cards haven't come in several turns, move on",
+            "Discard speculative holds and focus on actual melds",
+            "Flexibility beats stubbornness"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Early Game Hand Assessment",
+          "text": "In the first two turns, assess your hand's potential. Count your existing melds and near-melds. If you have two melds already, plan to knock fast. If you have zero melds but several triangle cards, build patiently. Your opening assessment determines whether you play aggressively or conservatively.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Tracking the Deck",
+          "text": "Advanced players keep a mental count of what has been played. Thirty-two cards start in the stock. Between discards and draws, cards cycle through. If you need the Jack of spades and you have seen zero Jacks discarded, all four are still live. If three Jacks have been discarded, your odds are very low. This mental math informs every draw decision.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Knock Threshold",
+          "text": "Experienced players rarely wait for Gin. The optimal knock threshold depends on how deep into the stock pile you are. In the first half of the hand, knock at six to eight deadwood to secure points before your opponent can organize. In the second half, if you still have not knocked, the risk of undercut rises. Knock at anything under ten to close out the hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Baiting Your Opponent",
+          "text": "A subtle strategy is to discard cards that are adjacent to your melds, not in them. If you have a run of four-five-six of hearts, discard the three of hearts early. Your opponent may think hearts runs are cold and start discarding hearts to you. This is called salting the discard pile and it requires careful execution.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Undercut Defense",
+          "text": "To minimize undercut risk, knock only when your deadwood is low enough that lay offs cannot save your opponent. If your deadwood is two and your opponent can lay off at most five points of deadwood, their remaining deadwood is still likely higher than yours. The lower your knock count, the safer you are.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Draw Patterns",
+          "text": "When your opponent draws from the stock pile multiple times in a row, they are not finding what they need in the discard. This suggests their hand is struggling. When they suddenly take from the discard pile, they have spotted a useful card. Track these patterns to estimate how close they are to knocking.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Game Score Awareness",
+          "text": "Your strategy should shift based on the overall game score. If you are at 85 points and need only 15 more to win, play conservatively. Knock fast with any eligible deadwood to close out the game. If you are far behind, take more risks and aim for Gin to score the 25-point bonus that could swing the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Shutout Strategy",
+          "text": "If your opponent has scored zero points and you are winning, you are in shutout territory. A shutout doubles all end-of-game bonuses. This creates a powerful incentive to keep knocking fast and deny your opponent any points. Every hand you win without letting them score increases your final bonus dramatically.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Early Game Hand Assessment",
+          "bullets": [
+            "First 2 turns: count melds + near-melds",
+            "2+ melds = plan to knock fast",
+            "0 melds + triangle cards = build patiently"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Tracking the Deck",
+          "bullets": [
+            "Mental count of discarded cards and ranks",
+            "If 3 of 4 Jacks discarded, your Jack odds are very low",
+            "Card counting informs every draw decision"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Knock Threshold",
+          "bullets": [
+            "First half of hand: knock at 6-8 deadwood",
+            "Second half: knock at anything under 10",
+            "Rarely worth waiting for Gin"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Baiting Your Opponent",
+          "bullets": [
+            "Discard cards adjacent to your melds (not in them)",
+            "Opponent thinks that area is cold and discards useful cards",
+            "Called 'salting the discard pile' — requires careful execution"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Undercut Defense",
+          "bullets": [
+            "Knock with very low deadwood to minimize undercut risk",
+            "Consider max possible lay off when deciding to knock",
+            "Lower knock count = safer"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Draw Patterns",
+          "bullets": [
+            "Multiple stock draws = struggling hand",
+            "Sudden discard pile pickup = found something useful",
+            "Track patterns to estimate opponent's knock readiness"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Game Score Awareness",
+          "bullets": [
+            "Close to 100: knock fast, play conservatively",
+            "Far behind: take risks, aim for Gin bonus",
+            "Strategy shifts based on overall game score"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Shutout Strategy",
+          "bullets": [
+            "Opponent at 0 points = shutout territory",
+            "Shutout doubles all end-of-game bonuses",
+            "Keep knocking fast to deny opponent any points"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Meld",
+          "definition": "A valid combination of cards in your hand. Either a set of three or four cards of the same rank, or a run of three or more consecutive cards of the same suit.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Set",
+          "definition": "A meld of three or four cards of the same rank, such as three sevens or four Queens. Suits do not matter for sets.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Run",
+          "definition": "A meld of three or more consecutive cards of the same suit, such as the four, five, and six of hearts. Aces are always low, so Ace-Two-Three is valid but Queen-King-Ace is not.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Deadwood",
+          "definition": "Cards in your hand that are not part of any meld. The total point value of your deadwood determines when you can knock and how scoring works.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Knock",
+          "definition": "Ending the hand by declaring your deadwood total is ten points or less. You lay down your melds, your opponent lays off, and deadwood totals are compared.",
+          "category": "Actions"
+        },
+        {
+          "term": "Gin",
+          "definition": "Knocking with zero deadwood, meaning all ten cards are in melds. Scores the opponent's full deadwood value plus a 25-point bonus. The opponent cannot lay off.",
+          "category": "Actions"
+        },
+        {
+          "term": "Lay Off",
+          "definition": "After the knocker reveals their melds, the opponent may add their unmelded cards to the knocker's melds. For example, adding a fourth card to a set of three. This reduces the opponent's deadwood count.",
+          "category": "Actions"
+        },
+        {
+          "term": "Undercut",
+          "definition": "When the opponent's deadwood after laying off is equal to or less than the knocker's deadwood. The opponent scores the difference plus a 25-point bonus instead of the knocker scoring.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Stock Pile",
+          "definition": "The face-down deck of remaining cards after dealing. Players draw from the stock pile when they do not want the discard pile card.",
+          "category": "Components"
+        },
+        {
+          "term": "Discard Pile",
+          "definition": "The face-up pile next to the stock pile. Players discard one card here each turn. The top card is available for the next player to take.",
+          "category": "Components"
+        },
+        {
+          "term": "Face Cards",
+          "definition": "Kings, Queens, and Jacks. Each is worth ten points. High-value deadwood that should be discarded quickly if not part of a meld.",
+          "category": "Card Values"
+        },
+        {
+          "term": "Ace",
+          "definition": "Always worth one point and always low. Aces can form the run Ace-Two-Three but cannot wrap around as Queen-King-Ace.",
+          "category": "Card Values"
+        },
+        {
+          "term": "Number Cards",
+          "definition": "Cards numbered two through ten. Worth their face value in points. Middle-range cards (fives through sevens) have the most meld flexibility.",
+          "category": "Card Values"
+        },
+        {
+          "term": "Triangle Card",
+          "definition": "A card that can contribute to both a set and a run simultaneously. For example, the seven of hearts can pair with other sevens for a set, or with the six and eight of hearts for a run. These are the most valuable cards to hold.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Defensive Discarding",
+          "definition": "Choosing which card to discard based on what your opponent needs. Safe discards include cards of the same rank as recently discarded cards, since the opponent clearly does not need that rank.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Stockout",
+          "definition": "When only two cards remain in the stock pile and neither player has knocked. The hand is a draw with no points scored and a new hand is dealt.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Game Bonus",
+          "definition": "The winner of the overall game, who first reaches 100 points, receives an additional 100-point bonus added to their final score.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Box Bonus",
+          "definition": "Each player receives 25 bonus points for every individual hand they won during the game. Added to the final score after the game bonus.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Shutout",
+          "definition": "Also called a schneider. Occurs when the losing player scored zero points across all hands. All end-of-game bonuses are doubled for the winner.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Big Gin",
+          "definition": "An optional rule where a player with eleven cards all in melds after drawing, without discarding, scores 31 bonus points instead of the standard 25. Not all groups play with this rule.",
+          "category": "Special Rules"
+        }
+      ]
+    }
+  }
+}

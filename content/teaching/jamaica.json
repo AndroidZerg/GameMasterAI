@@ -1,0 +1,943 @@
+{
+  "game_id": "jamaica",
+  "title": "Jamaica",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Lay Out the Game Board",
+          "text": "Let's get Jamaica set up. Place the game board in the center of the table. The board shows the island of Jamaica surrounded by a race track of numbered sea spaces. You will see port spaces marked along the route with treasure icons and tax symbols. Make sure everyone can comfortably reach the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Token Supply",
+          "text": "Set up the supply piles near the board. Place the gold doubloons, food tokens, and gunpowder tokens in three separate piles where everyone can reach them. These are the cargo resources you will load onto your ship during the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Treasures",
+          "text": "Shuffle the twelve treasure cards and place them face down on the marked space on the board. Then place treasure tokens on the designated port spaces around the track. These are the ports where you can pick up treasure cards when you land on them during the race.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Ships and Get Ship Holds",
+          "text": "Each player picks a colored pirate ship and the matching ship hold board. The ship hold has five cargo compartments. Each compartment can store one type of cargo: gold, food, or gunpowder. You can also store treasure cards in compartments. Five slots means space is tight, so you will need to manage your holds carefully.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Deal Action Cards",
+          "text": "Each player gets a set of eleven action cards in their chosen color. Shuffle your personal deck and deal yourself three cards. This is your starting hand. Keep the rest of your cards as a face-down draw pile. You will draw one new card at the end of each round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Starting Resources",
+          "text": "Each player takes three gold doubloons from the supply and places them in one of their cargo compartments. This is your starting gold. Place your pirate ship on Port Royal, which is the starting and finishing space on the track.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Choose the First Captain",
+          "text": "The player who most recently visited an island takes the compass token and becomes the first captain. If nobody qualifies, the youngest player goes first. The captain rolls the dice each round and assigns them to actions. The compass passes clockwise after each round. Ready to set sail? Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Lay Out the Game Board",
+          "bullets": [
+            "Place the Jamaica board centrally",
+            "Track loops around the island with numbered sea spaces and special ports"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Token Supply",
+          "bullets": [
+            "Gold doubloons, food tokens, and gunpowder tokens in separate piles",
+            "Place near the board within reach of all players"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Treasures",
+          "bullets": [
+            "Shuffle 12 treasure cards face down on the board",
+            "Place treasure tokens on designated port spaces"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Choose Ships and Get Ship Holds",
+          "bullets": [
+            "Each player picks a colored ship + matching hold board",
+            "Ship hold has 5 cargo compartments (1 cargo type per slot)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Deal Action Cards",
+          "bullets": [
+            "Each player gets 11 action cards in their color",
+            "Shuffle personal deck, deal 3 cards as starting hand",
+            "Draw 1 new card at end of each round"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Starting Resources",
+          "bullets": [
+            "Each player takes 3 gold doubloons → place in one hold compartment",
+            "All ships start on Port Royal (start/finish space)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Choose the First Captain",
+          "bullets": [
+            "Most recent island visitor (or youngest) gets compass token",
+            "Captain rolls dice and assigns them to morning/evening",
+            "Compass passes clockwise each round"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Jamaica is a pirate racing game set in sixteen seventy-five. Your goal is to sail your ship around the island while collecting gold, treasures, and engaging in combat. The game ends when any player crosses the finish line at Port Royal, and then the current round is completed. The winner is the player with the most points from track position, gold, and treasure cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Captain Rolls Dice",
+          "text": "Each round starts with the captain rolling both action dice. One die is assigned to the morning action and the other to the evening action. The captain chooses which die goes where. This is a powerful decision because it affects all players. Put the higher die on the action that benefits you most.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Everyone Plays a Card",
+          "text": "After the captain assigns the dice, all players secretly select one action card from their hand and reveal simultaneously. Each card has two sections. The top section applies to the morning die and the bottom section applies to the evening die. The card shows a symbol for each section: move forward, move backward, load gold, load food, or load gunpowder.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Resolve Morning and Evening Actions",
+          "text": "Starting with the captain and going clockwise, each player resolves their morning action first, then their evening action. For movement actions, move your ship forward or backward the number of spaces shown on the die multiplied by your card value. For loading actions, take that many tokens of the indicated type and store them in your holds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Cargo Holds Management",
+          "text": "Your ship has five cargo compartments, and each can hold one type of resource with no upper limit on tokens in that slot. If all five compartments are full and you need to store a new type, you must dump one compartment entirely to make room. Managing your limited hold space is one of the key challenges in Jamaica.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Combat",
+          "text": "When your ship lands on a space occupied by another player, combat happens. The attacker rolls the combat die, and the defender rolls it too. Both players can spend gunpowder tokens to add plus one per token to their roll. The higher total wins. Ties go to the defender. The winner steals one entire cargo compartment from the loser, choosing which one to take.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Treasure Ports",
+          "text": "Some port spaces on the track have treasure tokens. When you land on or pass through a treasure port, you collect the treasure token and draw a treasure card. Treasure cards go face down in a cargo hold. Some treasures are gold worth bonus points. Some give special abilities. But watch out for cursed treasures, which are worth negative points and cannot be voluntarily discarded.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Food and Tax Ports",
+          "text": "Several spaces on the track are tax ports that require food payment when you dock. If you cannot pay the food cost, your ship gets sent backward to the nearest free port that does not require food. Always keep a small food reserve so you do not get pushed back and lose ground in the race.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "End of Round",
+          "text": "After all players have resolved their actions, the compass passes clockwise to the next player, who becomes the new captain. Each player draws one action card from their personal draw pile. Then the next round begins with the new captain rolling the dice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Game End and Scoring",
+          "text": "The game ends when any player reaches or passes Port Royal. The current round is completed so all players get their turns. Then everyone scores. You earn or lose points based on your track position. Each space has a printed point value, and spaces behind Port Royal are negative. Add one point per gold doubloon in your holds. Add or subtract treasure card values. The highest total score wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Race around Jamaica collecting gold, treasures, and fighting pirates",
+            "Game ends when any player crosses Port Royal finish line (complete the round)",
+            "Score = track position + gold + treasure cards"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Captain Rolls Dice",
+          "bullets": [
+            "Captain rolls both action dice",
+            "Assigns one die to morning action, other to evening action",
+            "Strategic die assignment affects all players"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Everyone Plays a Card",
+          "bullets": [
+            "All players secretly select 1 action card, reveal simultaneously",
+            "Top section → morning die, Bottom section → evening die",
+            "Symbols: move forward, move backward, load gold/food/gunpowder"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Resolve Morning and Evening Actions",
+          "bullets": [
+            "Resolve clockwise from captain: morning first, then evening",
+            "Movement: die value x card value = spaces moved",
+            "Loading: take tokens = die value x card value"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Cargo Holds Management",
+          "bullets": [
+            "5 compartments, 1 cargo type per slot, no token limit per slot",
+            "All full? Must dump an entire compartment to make room"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Combat",
+          "bullets": [
+            "Landing on occupied space → both roll combat die",
+            "Spend gunpowder: +1 per token to roll",
+            "Higher total wins (ties → defender)",
+            "Winner steals 1 entire cargo compartment from loser"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Treasure Ports",
+          "bullets": [
+            "Land on treasure port → draw treasure card → store in hold",
+            "Gold treasures = bonus points, Special items = abilities",
+            "Cursed treasures = negative points, cannot be voluntarily discarded"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Food and Tax Ports",
+          "bullets": [
+            "Tax ports require food payment to dock",
+            "Can't pay? Ship sent backward to nearest free port",
+            "Always keep a food reserve"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "End of Round",
+          "bullets": [
+            "Pass compass clockwise → new captain",
+            "Each player draws 1 action card from personal draw pile"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Game End and Scoring",
+          "bullets": [
+            "Game ends when any player crosses Port Royal (finish the round)",
+            "Track position: printed point values (negative behind start)",
+            "Gold: 1 point per doubloon | Treasures: card values (+/-)",
+            "Highest total wins; tiebreak = furthest on track"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome Aboard",
+          "text": "Welcome to your first voyage in Jamaica! In this practice tutorial, we will walk through several rounds with four pirate captains: Player 1 through Player 4. You will see how the dice assignment, card play, combat, and cargo management all work together. Let's set sail.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Round One Setup",
+          "text": "Player 1 is the first captain and holds the compass token. All four ships are on Port Royal. Each player has three gold doubloons in one cargo hold and three action cards in hand. The race around Jamaica is about to begin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Captain Rolls and Assigns Dice",
+          "text": "Player 1 rolls both dice and gets a four and a two. Player 1 assigns the four to the morning action and the two to the evening action. This is a key decision because all players use these same die values. Player 1 wants the higher number on morning because their card has forward movement on top.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Everyone Reveals Cards",
+          "text": "All four players reveal their action cards at the same time. Player 1's card shows forward movement on top and load food on the bottom. Player 2 has load gunpowder on top and forward movement on the bottom. Player 3 has load gold on top and forward movement on the bottom. Player 4 has forward movement on both sections.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Resolving Actions",
+          "text": "Starting with the captain, each player resolves morning then evening. Player 1 moves forward four spaces in the morning, then loads two food tokens in the evening. Player 2 loads four gunpowder, then moves forward two spaces. Player 3 loads four gold doubloons, then moves forward two. Player 4 moves forward four, then forward two more, landing six spaces ahead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Why Loading Matters",
+          "text": "Notice how Player 2 loaded gunpowder and Player 3 loaded gold while Player 4 just raced ahead. All three strategies have merit. Gunpowder wins combats. Gold scores points. Speed gets you the best track position. The trick is balancing all three throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Combat Example",
+          "text": "Let's say in round two, Player 4 lands on the same space as Player 1. Combat begins. Player 4 is the attacker and rolls a three. Player 1 rolls a two. Player 1 has food but no gunpowder to spend. Player 4 spends one gunpowder for plus one, making their total four. Player 4 wins and steals Player 1's cargo hold containing the two food tokens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Ignoring Food",
+          "text": "Player 4 has been racing forward without loading any food. They land on a tax port that requires two food to dock. Player 4 has zero food. Their ship gets sent backward to the nearest free port. All that forward movement was wasted. Player 4 is now behind everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Keep Food",
+          "text": "Tax ports are scattered around the track and they will catch you if you are unprepared. Always keep at least two or three food tokens in a hold. The penalty for running out is brutal. Getting sent backward can cost you several turns of progress. Speed means nothing if a tax port pushes you back.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Ignoring Treasure Ports",
+          "text": "Player 3 has been loading gold every chance they get. They pass right by a treasure port without landing on it. That treasure card could have been worth three to five points, which is more than several gold doubloons. Treasure ports are some of the highest-value spaces on the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Treasures Are Worth Pursuing",
+          "text": "Do not skip treasure ports just because they are slightly off your path. Some treasure cards are worth as many points as a full cargo hold of gold. Even a small detour using backward movement can be worthwhile if it lands you on a treasure port. Just be careful of cursed treasures, which give you negative points and cannot be discarded.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: No Gunpowder",
+          "text": "Player 1 has never loaded gunpowder. When Player 2 attacks them and wins, Player 2 steals Player 1's entire gold compartment. Player 1 loses six doubloons in one combat. A couple of gunpowder tokens would have boosted Player 1's defense and possibly saved all that gold.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Keep Gunpowder for Defense",
+          "text": "Having two or three gunpowder tokens deters attacks and wins combats. Without gunpowder, you are a sitting target. Every pirate at the table will want to land on you because they know they can steal your cargo unopposed. Gunpowder is cheap insurance. Load some early and keep a reserve throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Mid-Game Check",
+          "text": "Several rounds have passed. Player 2 has the most gunpowder and has won two combats, stealing gold from weaker players. Player 3 has the most gold but is a tempting target. Player 1 recovered their food supply and is moving steadily. Player 4 learned from the tax port disaster and now carries food.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Final Push",
+          "text": "As ships approach Port Royal, it becomes a sprint. Player 2 saves their highest movement card for the final round and surges ahead, crossing the finish line. The round completes so everyone gets their actions. Now it is time to score.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring",
+          "text": "Each player counts their track position points. Player 2 is furthest ahead and scores the most position points. Player 3 has the most gold. Player 1 collected two treasure cards worth seven total points. Player 4 got a cursed treasure worth minus three. After adding everything up, the player with the highest total wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations, you have sailed your first game of Jamaica! You saw the importance of balancing speed, cargo, and combat. You learned that food keeps you moving, gunpowder keeps you safe, and treasures can swing the score. Remember: always carry food, keep some gunpowder, and do not skip treasure ports.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Sail",
+          "text": "Before you play a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy on balancing speed versus cargo.\n\nSecond, reference the Appendix for a quick guide to combat rules and treasure types.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome Aboard",
+          "bullets": [
+            "Practice tutorial with 4 pirate captains (Player 1-4)",
+            "Covers dice, cards, combat, and cargo management"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Round One Setup",
+          "bullets": [
+            "Player 1 is first captain with compass token",
+            "All ships on Port Royal, 3 gold each, 3 cards in hand"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Captain Rolls and Assigns Dice",
+          "bullets": [
+            "Captain rolls 2 dice, assigns one to morning, one to evening",
+            "Higher die on your best card section"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Everyone Reveals Cards",
+          "bullets": [
+            "All players reveal action cards simultaneously",
+            "Top section = morning die, bottom section = evening die"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Resolving Actions",
+          "bullets": [
+            "Captain first, then clockwise: morning action, then evening",
+            "Movement and loading based on die value x card value"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Why Loading Matters",
+          "bullets": [
+            "Gunpowder wins combats, gold scores points, speed gets position",
+            "Balance all three throughout the game"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Combat Example",
+          "bullets": [
+            "Landing on occupied space → attacker and defender roll",
+            "Spend gunpowder for +1 each, higher total wins",
+            "Winner steals 1 entire cargo compartment"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Ignoring Food",
+          "bullets": [
+            "Player 4 races ahead with no food",
+            "Hits tax port → sent backward, losing all progress"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Keep Food",
+          "bullets": [
+            "Tax ports require food to dock — no food means sent backward",
+            "Keep 2-3 food at all times",
+            "Speed is worthless if tax ports push you back"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Ignoring Treasure Ports",
+          "bullets": [
+            "Player 3 passes treasure ports to keep loading gold",
+            "Treasure cards can be worth 3-5 points each"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Treasures Are Worth Pursuing",
+          "bullets": [
+            "Treasure cards often outvalue equivalent gold doubloons",
+            "Small detours to treasure ports are worthwhile",
+            "Watch out for cursed treasures (negative points, can't discard)"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: No Gunpowder",
+          "bullets": [
+            "Player 1 never loaded gunpowder",
+            "Lost 6 gold in one combat with no defense"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Keep Gunpowder for Defense",
+          "bullets": [
+            "2-3 gunpowder tokens deters attacks and wins combats",
+            "No gunpowder = easy target for every opponent"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Mid-Game Check",
+          "bullets": [
+            "Player 2 dominates combat, Player 3 has most gold",
+            "Players adapting from earlier mistakes"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Final Push",
+          "bullets": [
+            "Save high-movement cards for the sprint finish",
+            "Game ends when any player crosses Port Royal"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring",
+          "bullets": [
+            "Track position + gold doubloons + treasure cards - cursed treasures",
+            "Highest total wins; tiebreak = furthest on track"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "Balance speed, cargo, and combat",
+            "Always carry food, keep gunpowder, don't skip treasure ports"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Sail",
+          "bullets": [
+            "Check out General Tips → speed vs. cargo balance",
+            "Reference the Appendix → combat rules and treasure types",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the most common mistakes new Jamaica players make. First, racing ahead with no food and getting pushed back by tax ports. Second, carrying zero gunpowder and getting robbed in every combat. Third, ignoring treasure ports that could be worth more than a hold full of gold. Fourth, playing your best movement cards too early instead of saving them for the final sprint. Avoid these and you will sail circles around beginners.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Balance Speed and Cargo",
+          "text": "The biggest strategic question in Jamaica is how much time to spend racing versus loading cargo. Moving fast gets you the best track position, which can be worth significant points. But gold and treasures are what actually win the game. A player in second place with tons of gold and treasure will usually beat the player who crossed the finish line first but with empty holds. Aim for a balance of forward progress and resource accumulation.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Food Is Your Lifeline",
+          "text": "Running out of food at a tax port is the worst thing that can happen in Jamaica. Getting sent backward can cost you five or more spaces of progress. Always maintain a reserve of at least two food tokens. When you are the captain, assign dice to help you load food if your supply is running low. Food does not score points directly, but it prevents devastating setbacks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Gunpowder Is Cheap Insurance",
+          "text": "Two or three gunpowder tokens make you a risky target. Other players will avoid landing on your space if they know you can boost your combat roll. Even if you never fight, the deterrent effect is worth the hold space. Load gunpowder early and keep a reserve. Spending two gunpowder to defend six gold is one of the best trades in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Captain Advantage",
+          "text": "When you hold the compass, you control the dice assignment. This is more powerful than it seems. Put the higher die on the action that matches your card and hurts your opponents. If your card has a big forward movement on top and your opponents have loading on top, assigning the high die to morning benefits your movement while giving them excess cargo they might not need. Pay attention to the cards your opponents tend to play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Treasure Port Strategy",
+          "text": "Treasure cards are some of the highest-value items in the game. A single treasure can be worth three to five points, equivalent to three to five gold doubloons but taking only one hold slot. Sometimes it is worth deliberately moving backward to land on a treasure port. The risk is cursed treasures, which give negative points and cannot be discarded. But the expected value of treasure cards is strongly positive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Hold Management",
+          "text": "Five cargo compartments fill up fast. Each compartment holds one type of cargo with no limit on tokens in that slot. The tough decision comes when all five are full and you need to store something new. Dumping an entire compartment hurts, so plan ahead. Try to keep one slot flexible for opportunities. If a slot has only one or two tokens of a low-value type, it is an easier sacrifice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Save Your Best Cards",
+          "text": "Your action cards have different values and action types. The temptation is to play your best cards early to get a fast start. But the final rounds matter most because track position is scored at the end. Save your highest-movement cards for the last two or three rounds. A big forward movement card in the final round can launch you past opponents and claim the best position bonus on the track.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't race ahead with no food — tax ports will push you back",
+            "Don't skip gunpowder — you'll lose every combat",
+            "Don't ignore treasure ports — cards can be worth 3-5 points each",
+            "Don't blow best movement cards early — save for final sprint"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Balance Speed and Cargo",
+          "bullets": [
+            "Track position matters, but gold and treasures win the game",
+            "2nd place with full holds usually beats 1st place with empty holds",
+            "Aim for balance between forward progress and resource loading"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Food Is Your Lifeline",
+          "bullets": [
+            "Keep minimum 2 food tokens at all times",
+            "Tax port penalty (sent backward) can cost 5+ spaces",
+            "Food doesn't score directly but prevents devastating setbacks"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Gunpowder Is Cheap Insurance",
+          "bullets": [
+            "2-3 gunpowder tokens make you a risky combat target",
+            "Deterrent effect is valuable even if you never fight",
+            "Spending 2 gunpowder to defend 6 gold is a great trade"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Captain Advantage",
+          "bullets": [
+            "As captain, assign dice to favor your card sections",
+            "High die on your movement = big advantage",
+            "Watch opponents' card tendencies to maximize captain power"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Treasure Port Strategy",
+          "bullets": [
+            "Treasures worth 3-5 points = equivalent to 3-5 gold in 1 slot",
+            "Deliberate backward movement to hit treasure ports can be worth it",
+            "Expected value of treasure cards is strongly positive"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Hold Management",
+          "bullets": [
+            "5 compartments fill fast — plan ahead",
+            "Keep 1 slot flexible for opportunities",
+            "Dump low-value compartments first when forced"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Save Your Best Cards",
+          "bullets": [
+            "Save highest-movement cards for final 2-3 rounds",
+            "Track position is scored at game end — final moves matter most",
+            "A late surge can leapfrog multiple opponents"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Aggressive Pirate",
+          "text": "This strategy revolves around gunpowder and combat. Stock up on gunpowder early and intentionally land on opponents to steal their cargo. Target the player with the most gold in their holds. Each successful combat steals an entire compartment, which can be devastating. The key is having three or more gunpowder so you almost always win. This strategy is strongest in games with more players because there are more targets.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Speed Racer",
+          "text": "The speed racer focuses purely on forward movement to claim the best track position. Position points can be very significant, especially for the spaces near Port Royal. Play movement cards almost exclusively and save your best ones for the final push. The risk is that you will have fewer resources and be vulnerable to combat. Mitigate this by carrying just enough gunpowder to deter casual attackers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Treasure Hunter",
+          "text": "Prioritize landing on every treasure port you can. Some treasures are worth three to five points each, rivaling a hold full of gold doubloons. Special item treasures give combat bonuses or other abilities that can be game-changing. The key is using backward movement strategically to hit treasure ports that you would otherwise pass. Accept slightly worse track position in exchange for high-value treasure cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Captain Dice Optimization",
+          "text": "Advanced players plan their entire round around being captain. When you hold the compass, study your hand and think about what your opponents want. If the table has mostly movement cards showing, assigning a low die to the movement slot and a high die to the loading slot disrupts their plans. Your card choice and dice assignment should work as a coordinated pair to maximize your advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Backward Movement Mastery",
+          "text": "Moving backward is counterintuitive in a racing game, but it is one of the most powerful tools in Jamaica. Backward movement lets you land on treasure ports you already passed, avoid tax ports you cannot afford, and dodge combat with a dangerous opponent ahead. The best players deliberately include backward movement cards in their strategy rather than treating them as dead cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Hold Slot Optimization",
+          "text": "Advanced players treat their five hold slots as a portfolio. The ideal distribution depends on your strategy, but a strong default is two gold slots, one food slot, one gunpowder slot, and one treasure slot. Never carry more food or gunpowder than you need. Convert excess capacity to gold whenever possible. Every empty token in a hold at game end is a missed point.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Positioning",
+          "text": "In the final two or three rounds, shift entirely to forward movement. Save your strongest movement cards for this moment. The track position points at the finish are significant, and a well-timed surge can leapfrog multiple opponents. Also consider whether you want to be the player who triggers the game end. If you are ahead in cargo points, crossing the finish line prevents opponents from making more sales and attacks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Threat Assessment",
+          "text": "In a multiplayer game, identifying the real threat is crucial. The player with the most gold is a target for pirates. The player furthest ahead is a target for the finish. Pay attention to who has gunpowder and avoid them. Attack weak opponents with valuable cargo. And if you are the target, invest in gunpowder defense or speed to stay ahead of potential attackers. The social dynamics of who attacks whom can determine the winner.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Aggressive Pirate",
+          "bullets": [
+            "Stock gunpowder early, land on opponents to steal cargo",
+            "Target players with the most gold",
+            "3+ gunpowder = near-guaranteed combat wins",
+            "Strongest in games with more players"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Speed Racer",
+          "bullets": [
+            "Focus on forward movement for track position points",
+            "Save best movement cards for final push",
+            "Carry minimal gunpowder as deterrent",
+            "Risk: fewer resources, vulnerable to combat"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Treasure Hunter",
+          "bullets": [
+            "Land on every treasure port possible",
+            "Use backward movement to hit ports you'd otherwise pass",
+            "Treasures worth 3-5 points rival full gold holds",
+            "Accept slightly worse track position for treasure value"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Captain Dice Optimization",
+          "bullets": [
+            "Coordinate card choice with dice assignment as captain",
+            "Low die on opponents' preferred action, high die on yours",
+            "Study opponents' card tendencies"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Backward Movement Mastery",
+          "bullets": [
+            "Backward movement hits treasure ports you've passed",
+            "Avoids tax ports you can't afford",
+            "Dodges combat with dangerous opponents ahead"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Hold Slot Optimization",
+          "bullets": [
+            "Ideal default: 2 gold, 1 food, 1 gunpowder, 1 treasure",
+            "Don't carry excess food/gunpowder — convert to gold",
+            "Every empty hold token at game end is a missed point"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Positioning",
+          "bullets": [
+            "Final 2-3 rounds: shift entirely to forward movement",
+            "Trigger game end when ahead in cargo points",
+            "Track position points at finish are very significant"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Threat Assessment",
+          "bullets": [
+            "Identify who is the real threat — gold-rich or furthest ahead",
+            "Avoid players with gunpowder, attack weak cargo-rich players",
+            "Social dynamics of targeting can determine the winner"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Action Cards",
+          "definition": "Each player has 11 personal action cards with two sections (morning and evening). Symbols include forward movement, backward movement, load gold, load food, and load gunpowder.",
+          "category": "Components"
+        },
+        {
+          "term": "Compass Token",
+          "definition": "Marks the current captain who rolls and assigns dice. Passes clockwise at the end of each round.",
+          "category": "Components"
+        },
+        {
+          "term": "Ship Hold",
+          "definition": "Personal board with 5 cargo compartments. Each compartment stores one cargo type with no token limit per slot. Treasure cards also take up a compartment.",
+          "category": "Components"
+        },
+        {
+          "term": "Gold Doubloons",
+          "definition": "Cargo tokens worth 1 point each at game end. Loaded via action cards and stolen via combat.",
+          "category": "Resources"
+        },
+        {
+          "term": "Food Tokens",
+          "definition": "Cargo tokens used to pay tax port costs. No direct point value but essential to avoid being sent backward on the track.",
+          "category": "Resources"
+        },
+        {
+          "term": "Gunpowder Tokens",
+          "definition": "Cargo tokens spent in combat to add +1 per token to your roll. Essential for both offense and defense.",
+          "category": "Resources"
+        },
+        {
+          "term": "Treasure Cards",
+          "definition": "Cards drawn from treasure ports. Include gold treasures (bonus points), special items (abilities), and cursed treasures (negative points that cannot be discarded).",
+          "category": "Resources"
+        },
+        {
+          "term": "Morning Action",
+          "definition": "The first action resolved each round, tied to the die the captain assigns to morning. Corresponds to the top section of each player's action card.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Evening Action",
+          "definition": "The second action resolved each round, tied to the die assigned to evening. Corresponds to the bottom section of each player's action card.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Combat",
+          "definition": "Occurs when a ship lands on an occupied space. Both players roll the combat die and may spend gunpowder (+1 each). Higher total wins; ties go to defender. Winner steals one entire cargo compartment.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Tax Port",
+          "definition": "A port space requiring food payment to dock. If you cannot pay, your ship is sent backward to the nearest free port. Always carry food reserves.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Treasure Port",
+          "definition": "A port space where you collect a treasure token and draw a treasure card when landing. High-value spaces worth detouring for.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Port Royal",
+          "definition": "The starting and finishing space on the track. The game ends when any player reaches or passes Port Royal, after which the current round is completed.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Track Position",
+          "definition": "Each space on the board has a printed point value. Spaces beyond the start are positive, spaces behind Port Royal are negative. Scored at game end.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Forward Movement",
+          "definition": "An action card symbol that moves your ship forward along the track. Spaces moved equals die value multiplied by card value.",
+          "category": "Actions"
+        },
+        {
+          "term": "Backward Movement",
+          "definition": "An action card symbol that moves your ship backward along the track. Useful for landing on missed treasure ports or avoiding tax ports.",
+          "category": "Actions"
+        },
+        {
+          "term": "Cursed Treasure",
+          "definition": "A treasure card worth negative points at game end. Cannot be voluntarily discarded. Takes up a cargo hold slot.",
+          "category": "Treasure Types"
+        },
+        {
+          "term": "Special Item Treasure",
+          "definition": "A treasure card granting a unique ability such as extra combat power or other advantages. Stored in a cargo compartment.",
+          "category": "Treasure Types"
+        },
+        {
+          "term": "Captain",
+          "definition": "The player holding the compass token. Rolls both dice each round and assigns them to morning and evening actions. Rotates clockwise.",
+          "category": "Roles"
+        },
+        {
+          "term": "Pirate Lair",
+          "definition": "A special space on the board. Landing exactly on the Pirate Lair grants a combat advantage for the rest of the game.",
+          "category": "Gameplay"
+        }
+      ]
+    }
+  }
+}

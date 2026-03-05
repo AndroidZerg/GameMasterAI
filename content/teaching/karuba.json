@@ -1,0 +1,942 @@
+{
+  "game_id": "karuba",
+  "title": "Karuba",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Give Each Player a Board",
+          "text": "Let's get Karuba set up. First, give each player one jungle board. These are the personal boards with a grid of empty spaces where you will be placing jungle tiles throughout the game. Each player places their board flat in front of them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Sort Your Jungle Tiles",
+          "text": "Each player has an identical set of 36 jungle tiles, numbered one through 36. Let's sort them face up so every player can quickly find any tile by number. You can arrange them in numerical order in rows or stacks, whatever works for you. Every player has the exact same tiles, which is key to how this game works.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Choose the Expedition Leader",
+          "text": "Let's pick one player to be the expedition leader. This person will randomly draw tile numbers each round and announce them to the group. Everyone else will find the matching tile from their own set. The expedition leader still plays normally and makes all the same decisions as everyone else.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Temples",
+          "text": "Now the expedition leader places four colored temples on specific edge spaces along one side of their board. There are four colors, and each temple goes on a different space along the beach edge. Once the leader is happy with the placement, all other players must copy the exact same temple positions on their own boards. Everyone's boards must be identical.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Place the Adventurers",
+          "text": "Next, the expedition leader places four colored adventurer meeples on edge spaces along the opposite side of the board from the temples. Each adventurer color matches one of the temple colors. Again, all other players copy the exact same positions. Each adventurer needs to reach the temple of the same color to score points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up Treasures",
+          "text": "Let's place the treasures on the boards. Certain spaces on the board are marked with gold nugget or crystal symbols. Place gold nuggets and crystals on those marked spaces. Gold nuggets are worth two victory points each, and crystals are worth one. Finally, stack the temple treasure tokens at each temple in descending order: five on top, then four, three, and two. The first player to reach each temple across all players claims the highest remaining token.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Ready to Explore",
+          "text": "Let's do a final check before we begin. Each player should have an empty board with four adventurers on one edge, four temples on the opposite edge, treasures on marked spaces, and 36 sorted tiles ready to go. The expedition leader should have their tiles in a bag or face down for random drawing. We are ready to start exploring the jungle.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Give Each Player a Board",
+          "bullets": [
+            "Each player takes 1 personal jungle board",
+            "Place board flat in front of you"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Sort Your Jungle Tiles",
+          "bullets": [
+            "Each player has 36 identical tiles numbered 1-36",
+            "Sort face-up in numerical order for quick lookup"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Choose the Expedition Leader",
+          "bullets": [
+            "1 player becomes expedition leader",
+            "Leader draws random tile numbers each round",
+            "Leader still plays and makes decisions normally"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place the Temples",
+          "bullets": [
+            "Leader places 4 colored temples on edge spaces (beach side)",
+            "All other players copy exact same positions"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place the Adventurers",
+          "bullets": [
+            "Leader places 4 colored adventurers on opposite edge from temples",
+            "Colors match: each adventurer must reach its matching temple",
+            "All players copy exact positions"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Up Treasures",
+          "bullets": [
+            "Place gold nuggets (2 VP) and crystals (1 VP) on marked board spaces",
+            "Stack temple treasure tokens at each temple: 5/4/3/2 (top to bottom)",
+            "First arrival at each temple claims highest remaining token"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Ready to Explore",
+          "bullets": [
+            "Verify: adventurers on one edge, temples on opposite edge",
+            "Treasures on marked spaces, 36 tiles sorted and ready",
+            "Expedition leader's tiles ready for random draw"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How a Round Works",
+          "text": "Karuba is played over exactly 36 rounds, one for each tile. Every round, the expedition leader randomly draws one of their remaining tiles and announces the number to the group. All players then find the tile with the matching number from their own set. Everyone acts simultaneously, so there is no turn order.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Core Choice: Place or Discard",
+          "text": "Once everyone has found their tile, each player independently makes the same decision. You can either place the tile on your board or discard it to move an adventurer. This is the heart of Karuba. Every tile you place builds your path network, and every tile you discard moves an adventurer closer to their temple. You cannot do both with the same tile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Placing a Tile",
+          "text": "If you choose to place, put the tile on any empty space on your board. You may rotate the tile to any orientation you like. Paths on the tile do not need to connect to existing paths, but unconnected paths are useless for movement. Plan your placements carefully to build continuous routes from your adventurers to their matching temples.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Discarding a Tile to Move",
+          "text": "If you choose to discard, remove the tile from the game and count the number of path exits on it. A straight tile has two exits and gives two steps of movement. A T-junction has three exits and gives three steps. A crossroads has four exits and gives four steps. Choose one adventurer and move them that many spaces along connected paths on your board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Movement Rules",
+          "text": "When moving an adventurer, they can only travel along connected, continuous path segments. An adventurer cannot pass through a space occupied by another adventurer because adventurers block each other. You must use all of your movement steps if the path allows it. If the path runs out before you have used all steps, the adventurer simply stops at the dead end.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Collecting Treasures",
+          "text": "If an adventurer moves onto or through a space that has a gold nugget or crystal on it, they collect that treasure. Pick up the token and keep it near your board. Each treasure can only be collected once, so remove it from the board after collection. Gold nuggets are worth two victory points and crystals are worth one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reaching a Temple",
+          "text": "When an adventurer reaches their matching colored temple, they stop immediately and claim the top temple treasure token from that temple's stack. The first player across all players to reach a particular color temple gets the five-point token. The second player gets four, the third gets three, and the fourth gets two. Racing to temples first is a huge part of the strategy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Simultaneous Play",
+          "text": "Remember that all players act at the same time. You and your opponents may make completely different choices with the same tile. One player might place tile number 15 while another discards it for movement. This means you cannot copy other players' strategies. You are building your own path network independently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "When the Game Ends",
+          "text": "The game ends after all 36 tiles have been drawn and resolved. It can also end early if every player agrees that no further useful moves are possible. At that point, any adventurers who did not reach their matching temple score zero points for that temple.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Final Scoring",
+          "text": "Let's add up the scores. Count the value of any temple treasure tokens you claimed. Add two points for each gold nugget and one point for each crystal your adventurers collected. The player with the most total victory points wins. If there is a tie, the player who reached more temples wins. If still tied, you share the victory.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How a Round Works",
+          "bullets": [
+            "36 rounds total — 1 tile drawn per round",
+            "Leader draws random tile, announces number",
+            "All players find matching tile simultaneously"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Core Choice: Place or Discard",
+          "bullets": [
+            "Place tile on board to build paths, OR",
+            "Discard tile to move an adventurer",
+            "Cannot do both — must choose one"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placing a Tile",
+          "bullets": [
+            "Place on any empty board space",
+            "May rotate to any orientation",
+            "Paths don't need to connect (but unconnected = useless)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Discarding a Tile to Move",
+          "bullets": [
+            "Straight (2 exits) → 2 steps",
+            "T-junction (3 exits) → 3 steps",
+            "Crossroads (4 exits) → 4 steps",
+            "Move 1 adventurer that many spaces along connected paths"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Movement Rules",
+          "bullets": [
+            "Adventurers follow connected paths only",
+            "Cannot pass through another adventurer (blocking)",
+            "Must use all steps if path allows; stop at dead ends"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Collecting Treasures",
+          "bullets": [
+            "Move onto/through a treasure space → collect it",
+            "Gold nuggets = 2 VP, Crystals = 1 VP",
+            "Remove collected treasure from board"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reaching a Temple",
+          "bullets": [
+            "Adventurer stops at matching colored temple",
+            "Claim top token: 1st = 5 VP, 2nd = 4, 3rd = 3, 4th = 2",
+            "Race is across all players — first arrival gets best token"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Simultaneous Play",
+          "bullets": [
+            "All players act at the same time",
+            "Different players may place or discard the same tile differently",
+            "Each player builds their own independent path network"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "When the Game Ends",
+          "bullets": [
+            "Game ends after all 36 tiles drawn",
+            "Can end early if all players agree no useful moves remain",
+            "Unreached temples = 0 VP"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Final Scoring",
+          "bullets": [
+            "Temple tokens + gold nuggets (2 VP each) + crystals (1 VP each)",
+            "Highest total VP wins",
+            "Tiebreaker: most temples reached, then shared victory"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Jungle",
+          "text": "Welcome to your first game of Karuba! In this practice tutorial, we will walk through the first several rounds together. We will follow along with four players who each make different decisions so you can see how the game plays out. Even if you have fewer players, follow along with all four to learn the key concepts.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Starting Position",
+          "text": "Let's look at what everyone has. Each player has an identical board with four adventurers on one edge and four matching temples on the opposite edge. Between them is an empty grid waiting for jungle tiles. The expedition leader has their tiles ready for random drawing. All players have their 36 tiles sorted and within reach.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Round One: First Tile Drawn",
+          "text": "The expedition leader draws the first tile and announces the number. Everyone finds that tile from their set. Let's say it is a straight path tile with two exits. This is your very first decision in the game. Do you place it or discard it?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "All Four Players Place",
+          "text": "In the early game, placing tiles is almost always the right call. All four players decide to place this tile on their boards. Player one puts it near their blue adventurer, starting a path toward the blue temple. Player two rotates it and places it near their red adventurer. Player three and Player four each pick different spots. Remember, everyone starts building their own unique network.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Rounds Two and Three: Building Paths",
+          "text": "The next two tiles are drawn. All four players continue placing tiles, extending their path networks. Player one is focusing on connecting blue and green adventurers toward their temples. Player two is building a wide central path that could serve multiple adventurers. These early rounds are all about laying the groundwork for your routes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Discarding Too Early",
+          "text": "On round four, Player three gets excited and discards a tile to move their yellow adventurer. The tile is a straight path, so yellow moves two spaces. But there is a problem. Player three's paths are barely started, and the adventurer hits a dead end after just two steps. That tile could have been placed to extend the path further. Now it is gone forever.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Build Before You Move",
+          "text": "The takeaway here is important. Do not discard tiles for movement until your paths are well established. Every tile you discard is one fewer tile you can place to extend your network. In the early game, placement almost always beats movement. Build your paths first, then start racing your adventurers once the routes are clear.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "A Crossroads Appears",
+          "text": "A crossroads tile is drawn, the kind with four exits. This is a powerful tile. If placed, it creates a major intersection connecting paths in all four directions. If discarded, it gives four steps of movement, the maximum possible. Player one places it at a strategic junction where multiple paths will converge. Smart move since a crossroads is incredibly valuable as a connector.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player Four's Mistake: Ignoring the Temple Race",
+          "text": "By round eight, Player one has a complete path to the blue temple and discards a T-junction tile for three steps of movement, racing the blue adventurer forward. Meanwhile, Player four has been placing tiles everywhere without any clear plan. Player four has no complete path to any temple yet, and the best temple tokens are about to be claimed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Race for the Temples",
+          "text": "The difference between a five-point and a two-point temple token is enormous. That is three victory points lost just for being slow. Always keep the temple race in mind when deciding whether to place or discard. If an opponent is close to completing a path, you need to prioritize getting your own adventurer to that same color temple before the best tokens are gone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "First Temple Reached",
+          "text": "Player one discards another tile and moves the blue adventurer the rest of the way to the blue temple. Player one claims the five-point blue temple token. The other players will only be able to get four, three, or two points for reaching the blue temple now. This is a big moment in the game and shows why early path completion matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Collecting Treasures Along the Way",
+          "text": "Player two has been building a path that runs through two gold nugget spaces and a crystal. When Player two finally starts moving their green adventurer along this route, they collect all three treasures. That is five extra victory points from treasures alone. Routing your paths through treasure spaces is always worth the slight detour.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Player Three's Mistake: Blocking Their Own Adventurer",
+          "text": "Player three moves the red adventurer along a path, but the yellow adventurer is sitting in the middle of the same path from that early premature move. Red cannot pass through yellow. Player three is stuck and will have to move yellow out of the way first, wasting a future discard. This is the cost of moving adventurers without a plan.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Avoid Blocking Yourself",
+          "text": "When you move adventurers, think about where they will end up. If two adventurers share any part of a path, one can block the other. Build separate routes when possible, or make sure you move adventurers in the right order so they do not jam up. Prevention is much easier than untangling a traffic jam mid-game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Mid-Game Shift",
+          "text": "We are now about halfway through the 36 tiles. By this point, your path network should be mostly established. The balance shifts from placing tiles to discarding them for movement. Look at your board. Which paths are complete? Which adventurers have the best chance of reaching their temples? Focus your remaining discards on the adventurers that can actually finish the race.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Wrapping Up the Tutorial",
+          "text": "Let's see where everyone stands. Player one reached two temples early and collected a few crystals. Player two has been treasure hunting and is about to reach their first temple. Player three lost time from blocking and early discards but is recovering. Player four finally has clear paths and is racing to catch up. The game continues until all 36 tiles are drawn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Explore",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics on when to place versus discard.\n\nSecond, reference the Appendix for a quick guide to tile types and scoring.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun exploring Karuba!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Jungle",
+          "bullets": [
+            "Scripted tutorial with 4 example players making different choices",
+            "Follow along even with fewer players",
+            "Covers early rounds and key decision points"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Starting Position",
+          "bullets": [
+            "Each player: identical board, 4 adventurers, 4 temples, 36 tiles",
+            "Empty grid between adventurers and temples",
+            "Expedition leader ready to draw tiles"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Round One: First Tile Drawn",
+          "bullets": [
+            "Leader draws tile, announces number",
+            "All players find matching tile",
+            "First decision: place or discard?"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "All Four Players Place",
+          "bullets": [
+            "Early game = almost always place tiles",
+            "Each player starts building toward different temples",
+            "Everyone creates their own unique path network"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Rounds Two and Three: Building Paths",
+          "bullets": [
+            "Continue placing tiles, extending path networks",
+            "Some players focus on 1-2 adventurers, others build broadly",
+            "Early rounds = groundwork for routes"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Discarding Too Early",
+          "bullets": [
+            "Player 3 discards a tile for movement on round 4",
+            "Adventurer hits dead end after 2 steps — path incomplete",
+            "Wasted tile that could have extended the network"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Build Before You Move",
+          "bullets": [
+            "Don't discard for movement until paths are established",
+            "Each discarded tile = 1 fewer tile for path building",
+            "Early game: placement almost always beats movement"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "A Crossroads Appears",
+          "bullets": [
+            "Crossroads (4 exits): best connector OR 4 steps if discarded",
+            "Player 1 places it at a strategic junction",
+            "High-exit tiles are extremely valuable for path building"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player Four's Mistake: Ignoring the Temple Race",
+          "bullets": [
+            "Player 1 has a complete path and starts racing",
+            "Player 4 has no complete path to any temple",
+            "Best temple tokens (5 VP) about to be claimed"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Race for the Temples",
+          "bullets": [
+            "Difference between 5 VP and 2 VP temple token = 3 VP swing",
+            "Prioritize completing at least 1-2 paths quickly",
+            "Watch opponents' progress to gauge urgency"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "First Temple Reached",
+          "bullets": [
+            "Player 1 claims the 5 VP blue temple token",
+            "Remaining players can only get 4, 3, or 2 for blue",
+            "Early path completion → best temple rewards"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Collecting Treasures Along the Way",
+          "bullets": [
+            "Player 2 routes through 2 gold + 1 crystal = 5 VP in treasures",
+            "Treasure detours are almost always worth it",
+            "Plan paths through treasure spaces from the start"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player Three's Mistake: Blocking Their Own Adventurer",
+          "bullets": [
+            "Player 3's yellow adventurer blocks red on a shared path",
+            "Must waste a future discard moving yellow out of the way",
+            "Direct result of premature early movement"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Avoid Blocking Yourself",
+          "bullets": [
+            "Adventurers cannot pass through each other",
+            "Build separate routes or move adventurers in correct order",
+            "Prevention > untangling mid-game"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Mid-Game Shift",
+          "bullets": [
+            "Around tile 18: shift from mostly placing to mostly discarding",
+            "Assess which paths are complete and which adventurers can finish",
+            "Focus remaining discards on winnable temple races"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Wrapping Up the Tutorial",
+          "bullets": [
+            "Player 1: 2 temples reached, a few crystals",
+            "Player 2: treasure hunting, about to reach first temple",
+            "Player 3: recovering from blocking/early discards",
+            "Player 4: catching up with clear paths now"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Explore",
+          "bullets": [
+            "Check out General Tips → when to place vs. discard",
+            "Reference the Appendix → tile types and scoring reference",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we get into strategy, here are the most common mistakes new Karuba players make. First, discarding tiles too early before paths are built, leaving adventurers stranded at dead ends. Second, ignoring the temple race and missing out on the five-point tokens. Third, blocking your own adventurers by moving them onto shared paths without thinking ahead. Fourth, spreading too thin and trying to build all four paths at once instead of prioritizing one or two. Keep these in mind and you will avoid the biggest beginner traps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "When to Place vs. Discard",
+          "text": "The place-or-discard decision is the heart of Karuba. In the early game, almost always place tiles. You need a connected network before movement is useful. In the mid-game, start discarding once you have one or two complete routes. In the late game, discard aggressively since any tiles you place now will barely get used. A good rule of thumb is to place for the first 12 to 15 tiles, then gradually shift to discarding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Focus on One or Two Adventurers First",
+          "text": "Trying to build four complete paths simultaneously is a trap. Instead, focus on completing routes for one or two adventurers first. This lets you start racing those adventurers to their temples while other players are still building. Getting two adventurers to temples with five-point and four-point tokens is often better than getting all four adventurers to temples late with only two-point tokens each.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Tile Rotation Matters",
+          "text": "Never forget that you can rotate tiles freely when placing them. A tile that looks useless in its default orientation might be perfect when rotated 90 or 180 degrees. Always check all four orientations before deciding whether to place or discard a tile. New players frequently discard tiles that would have been excellent connectors if they had simply rotated them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Route Through Treasures",
+          "text": "Gold nuggets are worth two victory points and crystals are worth one. A small detour to route a path through a gold nugget space is almost always worth it since two extra points can easily be the difference between winning and losing. Plan your path layouts from the start to pass through as many treasure spaces as practical without creating overly long routes that slow down your temple race.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Save High-Exit Tiles for Movement",
+          "text": "Crossroads tiles with four exits give four steps of movement when discarded, which is the maximum. T-junction tiles give three steps. If you already have solid path connections in an area, consider saving these high-exit tiles for discarding later instead of placing them. Four steps of movement can cover a huge distance and get an adventurer to a temple in one move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the Temple Race",
+          "text": "Pay attention to how close other players' adventurers are to their temples. If someone is about to claim a five-point token for a particular color, you need to decide whether to race for that same temple or accept the smaller token and focus elsewhere. Sometimes it is better to concede one temple race and focus on winning a different color where you have a head start.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Know When to Abandon an Adventurer",
+          "text": "Sometimes an adventurer simply will not reach their temple. Maybe the path is blocked, too long, or there are not enough tiles left to build the route. When that happens, accept it and redirect your efforts toward adventurers who can still score. An unreached temple scores zero points, which is the same whether you almost got there or never tried. Focus your remaining discards on adventurers with realistic paths to their temples.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't discard tiles too early — paths must be built first",
+            "Don't ignore the temple race — 5 VP vs 2 VP is a 3-point swing",
+            "Don't block your own adventurers on shared paths",
+            "Don't spread thin — focus on 1-2 paths first"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "When to Place vs. Discard",
+          "bullets": [
+            "Early game (tiles 1-15): almost always place",
+            "Mid game: start discarding once 1-2 routes are complete",
+            "Late game: discard aggressively — placed tiles barely get used"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Focus on One or Two Adventurers First",
+          "bullets": [
+            "Complete 1-2 routes first, then race those adventurers",
+            "2 temples at 5+4 VP > 4 temples at 2+2+2+2 VP",
+            "Prioritize shortest/easiest paths to complete first"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tile Rotation Matters",
+          "bullets": [
+            "Always check all 4 orientations before deciding",
+            "A 'useless' tile may be perfect when rotated 90°/180°",
+            "New players often discard tiles that were good connectors"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Route Through Treasures",
+          "bullets": [
+            "Gold = 2 VP, Crystal = 1 VP — small detours are worth it",
+            "Plan paths through treasure spaces from the start",
+            "Don't over-detour — balance treasures vs. temple speed"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Save High-Exit Tiles for Movement",
+          "bullets": [
+            "Crossroads (4 exits) → 4 steps when discarded",
+            "T-junction (3 exits) → 3 steps when discarded",
+            "Save these for late-game movement if paths are already connected"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Watch the Temple Race",
+          "bullets": [
+            "Monitor opponents' progress toward each temple color",
+            "Decide: race for same temple or concede and win a different color",
+            "Sometimes accepting 4 VP and winning elsewhere > chasing 5 VP"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Know When to Abandon an Adventurer",
+          "bullets": [
+            "Unreached temple = 0 VP whether you almost got there or never tried",
+            "Redirect discards to adventurers with realistic paths",
+            "Cutting losses early frees resources for winnable races"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Central Highway Strategy",
+          "text": "One of the strongest approaches in Karuba is building a central highway that multiple adventurers share. Instead of creating four separate paths, build one wide corridor through the middle of your board, then branch off to individual temples near the edges. This is more tile-efficient because shared path segments do double or triple duty. Just be careful about adventurer blocking on the shared sections.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Tile Counting and Awareness",
+          "text": "Since every player has the same 36 tiles, experienced players pay attention to which tile types remain. There are a limited number of crossroads, T-junctions, straights, and curves in the set. If you need a specific curve tile to complete a path and most of the curves have already been drawn, you know more are coming. Conversely, if you are hoping for a crossroads and most have already appeared, you may need an alternative plan.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Optimizing Tile Exits for Movement",
+          "text": "Advanced players think about tile exits from the very first draw. When you know you will eventually discard tiles for movement, you want to save the highest-exit tiles. Track how many crossroads and T-junctions remain in your undrawn pile. If you can afford to place a straight tile now and save a crossroads for later, you will get four movement steps instead of two. This planning over 36 rounds adds up to significantly more efficient movement.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Tempo and the Temple Race",
+          "text": "Tempo in Karuba means being the first to complete a path and start moving. Every round you place a tile while your opponent is also placing, you gain nothing relative to them. But the round you start discarding while they are still building, you gain tempo. The goal is to finish your critical paths one or two rounds before your opponents. This means accepting imperfect paths if they are completed faster, rather than building the perfect route that takes three extra rounds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Treasure Efficiency",
+          "text": "Top players calculate the point value of treasure detours versus temple arrival speed. A gold nugget detour that adds two extra steps to your path costs you one round of movement, but gains two points. That is worth it. A crystal that adds three extra steps costs more movement than it gains in points. The math changes in the late game when tiles are running out. Skipping a crystal to claim a five-point temple token instead of a two-point token is a net gain of two points over collecting the crystal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponents",
+          "text": "Even though Karuba is simultaneous, watching your opponents' boards gives you information. If an opponent is close to reaching the green temple, you know the five-point green token is about to be claimed. You can then decide whether to race for green with three points or redirect to a different temple where you can still get five. This awareness often separates experienced players from beginners who play in isolation.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Placement Flexibility",
+          "text": "Experienced players keep their options open by placing tiles in ways that can serve multiple future paths. A T-junction placed at a midpoint can branch in multiple directions depending on later tiles. Avoid committing to a single rigid route too early. Leave one or two key spaces open that could connect to different temples depending on which tiles get drawn. This flexibility becomes more valuable as randomness in tile drawing makes rigid plans risky.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Calculation",
+          "text": "In the last eight to ten rounds, switch to pure calculation mode. Count the remaining tiles and estimate how many movement steps you can still generate from discards. Calculate which adventurers can realistically reach their temples with the steps remaining. Focus all your discards on the highest-value targets. Reaching one more temple is almost always worth more than collecting scattered treasures. A five-point temple token plus a few treasures beats four crystals every time.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Central Highway Strategy",
+          "bullets": [
+            "Build shared central corridor, branch to temples at edges",
+            "Shared path segments serve multiple adventurers = tile efficient",
+            "Watch for blocking on shared sections"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Tile Counting and Awareness",
+          "bullets": [
+            "All players share the same 36-tile set",
+            "Track which tile types remain (crossroads, T-junctions, curves)",
+            "Adjust plans based on remaining tile distribution"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Optimizing Tile Exits for Movement",
+          "bullets": [
+            "Save high-exit tiles (crossroads = 4, T-junction = 3) for discards",
+            "Place low-exit tiles (straights = 2) when possible",
+            "Over 36 rounds, exit optimization adds up significantly"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tempo and the Temple Race",
+          "bullets": [
+            "Tempo = starting to move while opponents still build",
+            "Accept imperfect paths if completed faster",
+            "Finishing 1-2 rounds early is worth more than a perfect route"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Treasure Efficiency",
+          "bullets": [
+            "Gold detour (2 VP, +2 steps) = usually worth it",
+            "Crystal detour (1 VP, +3 steps) = often not worth it",
+            "Late game: temple token swing (5 vs 2 = 3 VP) > crystal (1 VP)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponents",
+          "bullets": [
+            "Watch opponents' boards for temple race progress",
+            "Decide to race or redirect based on who's closest",
+            "Awareness separates experienced players from beginners"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Placement Flexibility",
+          "bullets": [
+            "Place tiles that can serve multiple future paths",
+            "T-junctions at midpoints = branching options",
+            "Avoid rigid commitment to a single route too early"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Calculation",
+          "bullets": [
+            "Last 8-10 tiles: count remaining steps from potential discards",
+            "Calculate which adventurers can realistically finish",
+            "1 temple token (5 VP) > scattered treasures (1-2 VP each)"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Jungle Board",
+          "definition": "Each player's personal board with a grid of empty spaces for placing tiles. Adventurers start on one edge and temples sit on the opposite edge.",
+          "category": "Components"
+        },
+        {
+          "term": "Jungle Tile",
+          "definition": "One of 36 numbered tiles showing path segments. Each player has an identical set. Tiles can be placed on the board or discarded for movement.",
+          "category": "Components"
+        },
+        {
+          "term": "Adventurer",
+          "definition": "A colored meeple that moves along connected paths on the board. Each adventurer must reach the temple of the same color to score temple treasure tokens.",
+          "category": "Components"
+        },
+        {
+          "term": "Temple",
+          "definition": "A colored piece placed on the beach edge of the board. When an adventurer reaches its matching temple, the player claims the top temple treasure token from that temple's stack.",
+          "category": "Components"
+        },
+        {
+          "term": "Temple Treasure Token",
+          "definition": "Tokens stacked at each temple in descending order: 5, 4, 3, 2. The first player across all players to reach a temple claims the highest remaining value.",
+          "category": "Components"
+        },
+        {
+          "term": "Gold Nugget",
+          "definition": "A treasure token placed on specific board spaces worth 2 victory points. Collected when an adventurer moves onto or through the space.",
+          "category": "Components"
+        },
+        {
+          "term": "Crystal",
+          "definition": "A treasure token placed on specific board spaces worth 1 victory point. Collected when an adventurer moves onto or through the space.",
+          "category": "Components"
+        },
+        {
+          "term": "Expedition Leader",
+          "definition": "The designated player who randomly draws tile numbers each round and announces them to the group. The expedition leader plays normally and makes all the same decisions.",
+          "category": "Roles"
+        },
+        {
+          "term": "Straight Tile",
+          "definition": "A tile with 2 path exits connecting opposite edges. When discarded, it provides 2 steps of movement. The simplest tile type.",
+          "category": "Tile Types"
+        },
+        {
+          "term": "Curve Tile",
+          "definition": "A tile with 2 path exits connecting adjacent edges at a 90-degree angle. When discarded, it provides 2 steps of movement.",
+          "category": "Tile Types"
+        },
+        {
+          "term": "T-Junction Tile",
+          "definition": "A tile with 3 path exits. When discarded, it provides 3 steps of movement. Useful for creating branching paths that can serve multiple adventurers.",
+          "category": "Tile Types"
+        },
+        {
+          "term": "Crossroads Tile",
+          "definition": "A tile with 4 path exits connecting all four edges. When discarded, it provides 4 steps of movement — the maximum. Excellent as a central connector or a late-game movement boost.",
+          "category": "Tile Types"
+        },
+        {
+          "term": "Place",
+          "definition": "One of the two choices each round. Put the drawn tile on any empty board space in any orientation to extend your path network.",
+          "category": "Actions"
+        },
+        {
+          "term": "Discard",
+          "definition": "One of the two choices each round. Remove the tile from the game and move one adventurer a number of steps equal to the tile's path exits (2, 3, or 4).",
+          "category": "Actions"
+        },
+        {
+          "term": "Path Connectivity",
+          "definition": "Paths must physically connect from tile to tile for an adventurer to travel along them. Dead-end paths waste tiles and block progress.",
+          "category": "Movement"
+        },
+        {
+          "term": "Blocking",
+          "definition": "An adventurer cannot move through a space occupied by another adventurer. Players must plan routes or movement order to avoid their own adventurers blocking each other.",
+          "category": "Movement"
+        },
+        {
+          "term": "Simultaneous Play",
+          "definition": "All players act at the same time each round. Different players may make different choices with the same tile number. There is no turn order.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Tile Rotation",
+          "definition": "When placing a tile, you may rotate it to any of four orientations. Always check all rotations before deciding to discard a tile.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Temple Race",
+          "definition": "The competition to reach each colored temple first. The first player to arrive gets 5 VP, second gets 4, third gets 3, fourth gets 2. A 3 VP swing between first and last.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Victory Points (VP)",
+          "definition": "The final score combining temple treasure tokens, gold nuggets (2 VP each), and crystals (1 VP each). Highest total wins. Tiebreaker: most temples reached.",
+          "category": "Scoring"
+        }
+      ]
+    }
+  }
+}

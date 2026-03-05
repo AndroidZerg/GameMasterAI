@@ -1,0 +1,913 @@
+{
+  "game_id": "hanabi",
+  "title": "Hanabi",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Shuffle the Firework Cards",
+          "text": "Let's set up Hanabi. First, find all fifty firework cards. There are five colors: white, red, blue, yellow, and green. Each color has three ones, two twos, two threes, two fours, and one five. Give the deck a good shuffle and place it face down in the center of the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Deal the Cards",
+          "text": "Now here is the twist that makes Hanabi unique. Deal cards to each player, but everyone must hold their cards facing outward, away from themselves. You can see everyone else's cards but you cannot see your own. For two or three players, deal five cards each. For four or five players, deal four cards each.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Place the Clock Tokens",
+          "text": "Find the eight blue clock tokens. Place them in the center of the table with the clock side facing up. These tokens are spent when giving hints to other players. When all eight are used, no more hints can be given until someone discards to recover one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Fuse Tokens",
+          "text": "Now find the three red fuse tokens and place them in the center. Each time someone plays a card that does not fit on a firework pile, one fuse is removed. If all three fuses are gone, the fireworks explode and everyone loses immediately. Think of these as your three strikes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Leave Space for Firework Piles",
+          "text": "Clear a visible area in the center of the table for five firework piles, one per color. These piles will be built up from one to five during the game. Right now they are empty. The goal is to complete all five piles for a perfect score of twenty-five.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Choose First Player",
+          "text": "Pick someone to go first. Hanabi recommends the most colorfully dressed player, but any method works. Play will go clockwise from the first player. Remember, do not look at your own cards! You are ready to start the fireworks show.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Shuffle the Firework Cards",
+          "bullets": [
+            "50 cards in 5 colors (white, red, blue, yellow, green)",
+            "Per color: three 1s, two 2s, two 3s, two 4s, one 5",
+            "Shuffle and place face down centrally"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Deal the Cards",
+          "bullets": [
+            "Hold cards OUTWARD — you cannot see your own hand",
+            "2-3 players: 5 cards each; 4-5 players: 4 cards each"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place the Clock Tokens",
+          "bullets": [
+            "8 blue tokens in center, clock side up",
+            "Spent to give hints; recovered by discarding"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place the Fuse Tokens",
+          "bullets": [
+            "3 red tokens in center",
+            "Lose 1 per failed play; all 3 gone = game over"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Leave Space for Firework Piles",
+          "bullets": [
+            "5 piles (1 per color), built from 1→5",
+            "Start empty; goal = complete all 5 for max 25 points"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Choose First Player",
+          "bullets": [
+            "Any selection method; play clockwise",
+            "Do NOT look at your own cards"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Goal",
+          "text": "Hanabi is a cooperative game where everyone works together to build five firework displays, one per color, from one to five. The catch is that you cannot see your own cards. Your teammates give you hints about what you are holding. Together you try to score as close to twenty-five points as possible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Your Three Action Choices",
+          "text": "On your turn, you must do exactly one of three things. You can give a hint to another player, which costs one blue clock token. You can play a card from your hand onto a firework pile. Or you can discard a card to recover one blue clock token. Let's go through each one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Giving a Hint",
+          "text": "To give a hint, flip one blue clock token to its used side. Then point to one other player and tell them about their cards. You must choose either a color or a number. For example, you might say 'these two cards are blue' or 'this card is a three.' You must point to every card in their hand that matches. You cannot give a hint that matches zero cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Playing a Card",
+          "text": "To play a card, choose one from your hand and place it face up. Remember, you cannot see your own cards, so you are relying on hints and memory. If the card is the next number needed for its color pile, it stays. For example, a blue three goes on a blue pile showing one and two. If the card does not fit, it goes to the discard pile and one red fuse token is removed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Completing a Firework",
+          "text": "When you successfully play the five for any color, that firework is complete. As a bonus, one used blue clock token is flipped back to available. This reward encourages you to finish fireworks because it gives your team more hints to work with.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Discarding a Card",
+          "text": "To discard, remove a card from your hand without looking at it first and place it face up in the discard pile. Then flip one used blue clock token back to available, recovering a hint for the team. Finally, draw a new card from the deck. Discarding is how you manage your hint supply, but be careful because discarded cards might have been needed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Drawing Cards",
+          "text": "After playing or discarding a card, draw one new card from the deck. Hold it facing outward so you cannot see it but everyone else can. If the deck is empty, you do not draw. Once the deck runs out, each player gets exactly one more turn before the game ends.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Three Fuses",
+          "text": "Every time a played card does not fit on its firework pile, one red fuse token is removed. If the third fuse is removed, the fireworks explode and the game ends immediately with a score of zero. Three strikes and you are out. Be careful about playing cards you are not sure about.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Card Uniqueness Warning",
+          "text": "Pay attention to the card distribution. Each five exists only once per color. If you discard a five, that color can never be completed. The ones are safest to discard because there are three copies of each. Twos, threes, and fours have two copies each. The discard pile is public information, so always check it before discarding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "End of Game and Scoring",
+          "text": "The game ends in one of three ways. If all three fuses are lost, you score zero. If all five fireworks are completed, you score a perfect twenty-five. If the deck runs out, each player takes one final turn, then tally the highest card played in each of the five piles. Your total is your score. The rating scale goes from horrible at zero to five, up to legendary at twenty-five.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Goal",
+          "bullets": [
+            "Cooperative: build 5 firework piles (1→5), one per color",
+            "Cannot see own cards; rely on teammate hints",
+            "Max score: 25 (all 5 fireworks complete)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Three Action Choices",
+          "bullets": [
+            "Give a hint (costs 1 blue token)",
+            "Play a card onto a firework pile",
+            "Discard a card (recovers 1 blue token)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Giving a Hint",
+          "bullets": [
+            "Flip 1 blue token to used side",
+            "Tell one player about a COLOR or NUMBER in their hand",
+            "Must point to ALL matching cards; cannot hint 0 cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Playing a Card",
+          "bullets": [
+            "Place card face up — if next number needed for that color, it stays",
+            "Wrong card → discard pile + lose 1 red fuse token",
+            "Relying on hints and memory since you can't see your hand"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Completing a Firework",
+          "bullets": [
+            "Playing the 5 completes that color's firework",
+            "Bonus: recover 1 blue clock token"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Discarding a Card",
+          "bullets": [
+            "Remove card from hand (don't look) → discard pile",
+            "Recover 1 blue token + draw 1 new card",
+            "Careful: discarded card might have been needed"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Drawing Cards",
+          "bullets": [
+            "Draw 1 after playing or discarding; hold outward",
+            "Deck empty = no draw; each player gets 1 final turn"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Three Fuses",
+          "bullets": [
+            "Failed play = lose 1 red fuse",
+            "3rd fuse lost = game over, score 0",
+            "Don't play cards you're unsure about"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Card Uniqueness Warning",
+          "bullets": [
+            "5s: 1 copy each — discard = that color can never finish",
+            "1s: 3 copies (safest to discard); 2-4s: 2 copies each",
+            "Discard pile is public — always check before discarding"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "End of Game and Scoring",
+          "bullets": [
+            "End: 3 fuses lost (score 0), all fireworks done (25), or deck empty (1 final turn each)",
+            "Score = sum of highest card in each pile",
+            "Rating: 0-5 horrible → 21-24 amazing → 25 legendary"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Fireworks Show",
+          "text": "Welcome to your first game of Hanabi! We are going to walk through a practice round with three players. Remember, everyone holds their cards facing outward. You can see your teammates' cards but not your own. This feels strange at first, but you will get used to it quickly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Starting Hands",
+          "text": "Each player has five cards held outward. Take a moment to look at your teammates' hands. You can see what everyone else has. Notice any ones? Those need to be played first since every firework starts at one. Mentally note where the important cards are.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Gives a Hint",
+          "text": "Player one sees that player two has a red one and a blue one. Ones are the most important cards early in the game because nothing can be played without them. Player one flips a blue clock token and says, 'these two cards are ones,' pointing to both cards. Now player two knows the positions of their ones.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two Plays a Card",
+          "text": "Player two was just told about two ones. They pick the leftmost one and place it face up. It is the red one! It goes on the empty red pile as the first card. Success! Player two draws a new card from the deck and adds it to their hand, facing outward.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three Gives a Color Hint",
+          "text": "Player three sees that player one has a green one. They flip a blue token and say, 'this card is green,' pointing to the single green card. Player one now knows they have a green card. Combined with the game state showing no green firework started, player one can deduce it is probably the green one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player One Plays Green",
+          "text": "Player one plays the green card. It is the green one! Another firework pile started. Two out of five colors now have their foundation. Player one draws a replacement card. The team is off to a great start.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Tracking Blue Tokens",
+          "text": "Let's check the hint supply. Two blue tokens have been used for hints. Six remain. The team needs to be mindful of this. If hints run out, no one can give information and players are forced to discard or play blind. Managing the hint economy is crucial.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Playing Without Enough Info",
+          "text": "Player two remembers they were told about a second one in their hand. They play it confidently. But wait. It is the blue one, and the blue pile already had a one played earlier in this example. Oh no, that card does not fit because the blue one was already played! A fuse is lost. Player two assumed the card was needed without checking the board state.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Check the Board",
+          "text": "Before playing any card, always check what has already been played on the firework piles. Knowing you have a 'one' is not enough. You need to know which color one, and whether that color's pile already has a one. Combine hint information with the current board state before playing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Discarding a Five",
+          "text": "Player three has no useful hints to give and the team is low on blue tokens. They decide to discard a card to recover a token. They pick a card at random and it turns out to be the yellow five. That card only existed once. The yellow firework can now never be completed. Maximum possible score just dropped from twenty-five to twenty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Protect the Fives",
+          "text": "Fives are irreplaceable. Each color has only one five. If a five is discarded, that firework can never reach completion. The whole team should prioritize hinting about fives as soon as they spot one. If someone hints your card is a five, never discard it. Treat fives like precious gems.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Smart Discarding",
+          "text": "When you must discard, choose wisely. If you have no information about a card, discard from the oldest position, typically the rightmost card in your hand. Cards that have received no hints are less likely to be critical. Always check the discard pile first to see what has already been lost.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Recovering Momentum",
+          "text": "The team has used several hints and lost a fuse, but they are not out yet. Player one gives a carefully chosen hint about player three's hand, identifying a white two. Player three knows the white one has already been played, so they can safely play the white two next turn. The team is back on track.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Building the Fireworks",
+          "text": "Over the next several turns, the team continues giving hints, playing cards, and occasionally discarding to recover tokens. The key rhythm of Hanabi emerges. Hint, play, hint, play. Occasionally discard when tokens run low. The firework piles grow as the team coordinates.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Mistake: Wasting Hints",
+          "text": "Player one uses a hint to tell player two about a card that cannot be played for several turns. That hint spent a precious blue token without enabling an immediate play. Meanwhile, player three had a card that could have been played right now with a single hint. Timing matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Hint for Immediate Plays",
+          "text": "Prioritize hints that enable immediate plays. A hint that lets someone play a card this turn is far more valuable than a hint about a card that cannot be played yet. Save your tokens for high-impact moments. Every blue token is a team resource, not just yours.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations! You have walked through a practice game of Hanabi. You have seen how to give effective hints, play cards safely, and manage the token economy. Remember the three lessons. Always check the board before playing. Protect the fives at all costs. And prioritize hints that enable immediate plays.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Light the Fuse",
+          "text": "Before you play a full game, here are three things that can help.\n\nFirst, check out General Tips for hint conventions and token management strategies.\n\nSecond, reference the Appendix for card distribution and scoring details.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Fireworks Show",
+          "bullets": [
+            "Practice round with 3 players",
+            "Cards held outward — cannot see your own hand"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Starting Hands",
+          "bullets": [
+            "5 cards per player (3-player game)",
+            "Look at teammates' hands, note important cards (especially 1s)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Gives a Hint",
+          "bullets": [
+            "Spots two 1s in Player 2's hand",
+            "Flips blue token, says 'these two cards are 1s'",
+            "Must point to ALL matching cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Two Plays a Card",
+          "bullets": [
+            "Plays leftmost known 1 → red 1, starts red pile",
+            "Draws replacement card from deck"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Three Gives a Color Hint",
+          "bullets": [
+            "Tells Player 1 'this card is green'",
+            "Player 1 deduces it's the green 1 since no green pile exists"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player One Plays Green",
+          "bullets": [
+            "Plays green card → green 1, another pile started",
+            "2 of 5 fireworks now have foundations"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Tracking Blue Tokens",
+          "bullets": [
+            "2 used, 6 remaining",
+            "Running out = no hints → blind plays or forced discards"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Playing Without Enough Info",
+          "bullets": [
+            "Player 2 plays 'a 1' but that color's 1 was already placed",
+            "Card doesn't fit → fuse lost",
+            "Assumed without checking board state"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Check the Board",
+          "bullets": [
+            "Knowing you have 'a 1' isn't enough — which color matters",
+            "Combine hint info + current pile state before playing"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Discarding a Five",
+          "bullets": [
+            "Player 3 discards random card → it's the yellow 5",
+            "Only 1 copy per color — yellow can never be completed",
+            "Max score drops from 25 to 20"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Protect the Fives",
+          "bullets": [
+            "5s are irreplaceable — hint about them immediately",
+            "Never discard a card you've been told is a 5",
+            "Whole team should prioritize 5-protection"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Smart Discarding",
+          "bullets": [
+            "Discard oldest/rightmost card with no hint info",
+            "Check discard pile first — what's already lost?",
+            "Cards with no hints = less likely critical"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Recovering Momentum",
+          "bullets": [
+            "Targeted hint about white 2 enables safe play next turn",
+            "Team coordination gets back on track"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Building the Fireworks",
+          "bullets": [
+            "Core rhythm: hint → play → hint → play → discard when low",
+            "Firework piles grow through coordinated teamwork"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Mistake: Wasting Hints",
+          "bullets": [
+            "Hint about a card that can't be played for several turns",
+            "Spent token without enabling immediate action"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Hint for Immediate Plays",
+          "bullets": [
+            "Prioritize hints that enable THIS turn's play",
+            "Save tokens for high-impact moments",
+            "Every blue token is a shared team resource"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced hints, plays, discards, and token management",
+            "3 lessons: check the board, protect 5s, hint for immediate plays"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Light the Fuse",
+          "bullets": [
+            "Check out General Tips → hint conventions and token management",
+            "Reference the Appendix → card distribution and scoring",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Let's start with the traps new players fall into. First, playing cards with incomplete information. Just knowing a card is a 'one' does not mean it is needed right now. Second, discarding fives or last copies of critical cards. Third, spending hints on information that does not lead to immediate plays. Fourth, forgetting to check the discard pile before deciding what to keep. And fifth, running out of blue tokens by hinting too aggressively without discarding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Getting Ones Out",
+          "text": "Every firework starts at one, so getting all five ones played is the most important early goal. Focus your first hints on identifying ones in other players' hands. Once the ones are down, the team has a foundation to build on. If ones are stuck in players' hands unknowingly, the entire game stalls.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Hint About Playable Cards",
+          "text": "The most valuable hints are the ones that tell a player exactly what to play this turn. If the red pile shows one and two, and you can see a red three in someone's hand, hint about it. A hint that leads to an immediate play is worth far more than general information about cards that cannot be used yet.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Watch the Discard Pile",
+          "text": "The discard pile is public and contains vital information. Before discarding, check if the card you are about to lose is the last copy of its type. If both copies of a blue three have been discarded, the blue firework can never get past two. Use the discard pile to inform your plays, discards, and hint priorities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Token Management",
+          "text": "Eight blue tokens sounds like a lot, but they disappear fast. A good rule of thumb is to keep at least two tokens in reserve at all times. When tokens run low, someone needs to discard to recover one. Plan your discards proactively rather than being forced into them at a bad time. Completing a five also returns one token, which is a valuable bonus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Develop Group Conventions",
+          "text": "Experienced Hanabi teams develop unspoken conventions to make hints more efficient. For example, many groups agree that hinting a number means 'play this card,' while hinting a color means 'do not discard this.' These conventions are not in the rules, but they dramatically improve communication. Discuss with your group what conventions to use before starting.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Discard Order Strategy",
+          "text": "When you have no useful information about your cards and need to discard, use a consistent order. Many groups agree to discard from the oldest position, which is typically the rightmost card. Newest cards go on the left. This way, if someone gives you a hint about a specific card, the team knows you will not accidentally discard it before acting on the hint.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Protect Critical Cards",
+          "text": "Certain cards are more critical than others. Fives are irreplaceable. The last copy of any card is dangerous to lose. When you see a critical card in someone's hand and it is in a discard-vulnerable position, hint about it immediately, even if it cannot be played yet. Preventing a critical loss is sometimes more important than enabling a play.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't play with incomplete info — check board state first",
+            "Don't discard 5s or last copies of critical cards",
+            "Don't spend hints on non-actionable information",
+            "Don't ignore the discard pile or let blue tokens run dry"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Getting Ones Out",
+          "bullets": [
+            "Every firework starts at 1 — must be played first",
+            "Focus early hints on identifying 1s",
+            "Stuck 1s stall the entire game"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Hint About Playable Cards",
+          "bullets": [
+            "Best hints enable immediate plays this turn",
+            "Check piles to see what number each color needs next",
+            "Actionable hints > general information"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Watch the Discard Pile",
+          "bullets": [
+            "Discard pile is public info — check it constantly",
+            "Both copies of a card discarded = that firework is capped",
+            "Use discard info for play, discard, and hint decisions"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Token Management",
+          "bullets": [
+            "Keep 2+ blue tokens in reserve at all times",
+            "Plan discards proactively to recover tokens",
+            "Completing a 5 returns 1 token as bonus"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Develop Group Conventions",
+          "bullets": [
+            "Number hint = 'play this'; color hint = 'don't discard'",
+            "Conventions not in rules but dramatically improve teamwork",
+            "Discuss conventions before starting"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Discard Order Strategy",
+          "bullets": [
+            "Consistent order: discard oldest/rightmost card",
+            "New cards enter on the left",
+            "Team knows hinted cards won't be discarded first"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Protect Critical Cards",
+          "bullets": [
+            "5s and last copies are irreplaceable",
+            "Hint immediately when critical card is in discard-vulnerable position",
+            "Preventing a loss can be more important than enabling a play"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Finesse Plays",
+          "text": "The finesse is an advanced technique where you give a hint to one player that indirectly communicates information to a third player. For example, if player A has a red two and player B has a red three, you hint the red three to player B. Player A, seeing no red two on the board, deduces that they must have the red two and plays it first. This saves a hint and creates a chain of plays.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Reverse Hints",
+          "text": "Sometimes the most valuable hint is about what a card is not. If you hint 'these cards are blue' while pointing to three of five cards, the player knows the other two cards are not blue. This negative information can be just as useful as positive information. Experienced teams track both what they know and what they can rule out about each card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Discard Signal",
+          "text": "In many experienced groups, discarding a specific card position carries meaning. Discarding your newest card can signal that the team should not worry about your hand. Discarding from an unusual position can indicate urgency about other cards. These signals emerge naturally as groups play together and develop shared understanding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Multi-Turn Planning",
+          "text": "Advanced players think multiple turns ahead. If you need to play a blue two, a blue three, and a blue four in sequence, plan the hints to set up this chain. Give the blue two hint first so that card can be played, which unlocks the three, which unlocks the four. Timing your hints to create cascading plays is how you achieve high scores.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "End-Game Token Counting",
+          "text": "When the deck is nearly empty, count remaining cards and hints carefully. Each player gets exactly one final turn after the last card is drawn. Calculate how many plays the team needs to finish as many fireworks as possible. Sometimes it is better to discard for tokens early so you can give critical hints in the final turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Sacrifice Plays",
+          "text": "Sometimes the mathematically correct play is to intentionally burn a fuse. If you are nearly certain a card is playable but cannot verify, playing it and potentially losing a fuse might be worth it if the team has fuses to spare and the alternative is wasting two hints. This is a calculated risk, not recklessness.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Card Counting",
+          "text": "Advanced Hanabi players mentally track which cards remain in the deck. With fifty cards distributed across known hands, the discard pile, played piles, and the unseen deck, you can calculate probabilities. If two of three white ones are visible and one must be in the remaining deck or someone's hand, that narrows possibilities significantly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Pursuing the Perfect Score",
+          "text": "A perfect twenty-five requires completing all five fireworks. This means zero wasted fuses, zero critical card losses, and maximum hint efficiency. It requires the team to work in perfect coordination from start to finish. Most groups aim for a consistent twenty or higher rather than gambling everything on perfection. Know when good enough is the right target.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Finesse Plays",
+          "bullets": [
+            "Hint Player B's card to indirectly inform Player A",
+            "Player A deduces they must have the connecting card",
+            "Saves a hint and creates a chain of plays"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Reverse Hints",
+          "bullets": [
+            "Pointing to 3 of 5 cards tells player the other 2 are NOT that type",
+            "Negative information is as useful as positive",
+            "Track both known and ruled-out information per card"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Discard Signal",
+          "bullets": [
+            "Discard position can carry implicit meaning",
+            "Newest card discard = hand is safe",
+            "Signals develop naturally as groups play together"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Multi-Turn Planning",
+          "bullets": [
+            "Set up cascading plays: hint the 2 first → play → 3 unlocks → 4 unlocks",
+            "Time hints to create sequential play chains",
+            "Requires thinking 2-3 turns ahead"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "End-Game Token Counting",
+          "bullets": [
+            "Count remaining cards and available hints precisely",
+            "1 final turn per player after last draw",
+            "Sometimes discard early to bank tokens for critical final hints"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Sacrifice Plays",
+          "bullets": [
+            "Intentionally burn a fuse when probability favors it",
+            "Worth it if fuses to spare and alternative wastes 2+ hints",
+            "Calculated risk, not recklessness"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Card Counting",
+          "bullets": [
+            "Track visible cards: hands + discard + played piles",
+            "Remaining cards narrow probabilities",
+            "Example: 2 of 3 white 1s visible → 1 in deck or unknown hand"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Pursuing the Perfect Score",
+          "bullets": [
+            "Perfect 25 requires zero wasted fuses and zero critical losses",
+            "Demands perfect coordination from start to finish",
+            "Consistent 20+ is often a better target than gambling on perfection"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Blue Clock Token",
+          "definition": "One of eight tokens spent to give hints. Recovered by discarding a card or completing a firework (playing a 5). Public resource shared by the entire team.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Red Fuse Token",
+          "definition": "One of three tokens lost when a played card does not fit its firework pile. If all three are lost, the game ends immediately with a score of zero.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Firework Pile",
+          "definition": "One of five color-specific card piles built from 1 to 5. Each pile starts empty and grows as correct cards are played. Completed pile = 5 points.",
+          "category": "Game Elements"
+        },
+        {
+          "term": "Give a Hint",
+          "definition": "Action that costs one blue token. Tell one player about all cards of a specific color OR number in their hand. Must indicate every matching card. Cannot hint zero cards.",
+          "category": "Actions"
+        },
+        {
+          "term": "Play a Card",
+          "definition": "Action where you place a card from your hand onto a firework pile. If the card is the next number needed for its color, it stays. Otherwise, it is discarded and a fuse is lost.",
+          "category": "Actions"
+        },
+        {
+          "term": "Discard a Card",
+          "definition": "Action where you remove a card from your hand to the discard pile, recovering one blue token. Then draw a replacement card. Cannot look at the card before discarding.",
+          "category": "Actions"
+        },
+        {
+          "term": "Card Distribution",
+          "definition": "Per color: three 1s, two 2s, two 3s, two 4s, one 5. Fifty cards total across five colors. The 5 is unique and irreplaceable per color.",
+          "category": "Card Info"
+        },
+        {
+          "term": "Hand Size",
+          "definition": "Two to three players hold five cards each. Four to five players hold four cards each. Cards are always held facing outward.",
+          "category": "Card Info"
+        },
+        {
+          "term": "Outward Hold",
+          "definition": "The signature Hanabi rule: hold your cards facing away from you so you cannot see them. Other players can see your hand. You rely on hints and deduction.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Hint Completeness",
+          "definition": "When giving a hint, you must point to every card that matches the stated color or number. Partial hints are not allowed. This ensures hints always convey full information.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Completing a Firework",
+          "definition": "Playing the 5 card of any color. Bonus: recovers one blue clock token. All five completed = perfect score of 25.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Deck Exhaustion",
+          "definition": "When the draw deck runs out, each player gets exactly one more turn. The game then ends and scoring occurs.",
+          "category": "End Game"
+        },
+        {
+          "term": "Scoring Scale",
+          "definition": "0-5: horrible. 6-10: mediocre. 11-15: honorable. 16-20: excellent. 21-24: amazing. 25: legendary. Score equals the sum of the highest card in each firework pile.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Discard Pile",
+          "definition": "Public area where discarded and failed-play cards go. All players can examine it at any time. Critical for tracking which cards are still available.",
+          "category": "Game Elements"
+        },
+        {
+          "term": "Convention",
+          "definition": "An agreed-upon unspoken rule that gives hints extra meaning. Not official rules but widely used. Example: number hint means play, color hint means save.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Finesse",
+          "definition": "Advanced technique where a hint to one player indirectly tells another player what to play. Requires the deducing player to trust the hint-giver's logic.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Negative Information",
+          "definition": "Knowledge about what a card is NOT, derived from hints. If a hint identifies 3 of 5 cards as blue, the other 2 are known to not be blue.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Multicolor Cards",
+          "definition": "Five optional variant cards that add a sixth rainbow color. Counts as all colors for hint purposes. Increases difficulty significantly.",
+          "category": "Variants"
+        }
+      ]
+    }
+  }
+}

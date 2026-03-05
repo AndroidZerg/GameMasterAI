@@ -1,0 +1,982 @@
+{
+  "game_id": "hive",
+  "title": "Hive",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Meet the Components",
+          "text": "Let's get Hive set up. This game has no board at all. Instead, you have twenty-two hexagonal tiles made of sturdy Bakelite. Each player gets eleven tiles in their color, either black or white. The tiles have different bugs printed on them, and each bug moves differently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Sort Your Pieces",
+          "text": "Let's sort out what each player gets. You have one Queen Bee, two Spiders, two Beetles, three Grasshoppers, and three Soldier Ants. That is eleven tiles total. If you are playing with expansion pieces, you may also have a Mosquito, Ladybug, and Pillbug, but let's skip those for your first game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Clear a Flat Surface",
+          "text": "You do not need a board for Hive. Just clear a flat surface like a table or countertop. The hive will grow organically as you place tiles next to each other. Make sure you have plenty of room because the hive can spread in any direction.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Decide Who Goes First",
+          "text": "White always goes first in Hive. Decide who plays white and who plays black however you like. The first player places any one tile on the table to start the hive. The second player then places a tile adjacent to it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Keep Your Pieces Ready",
+          "text": "Keep all your unplaced tiles in front of you where you can see them. This is your supply. You will draw from this supply whenever you place a new tile. Once all your tiles are placed, you can only move pieces already on the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Queen Bee Rule",
+          "text": "One last thing before we start. Your Queen Bee must be placed by your fourth turn at the latest. If you reach your fourth turn and your Queen is still in your supply, you are required to place her. You also cannot move any of your tiles on the board until your Queen is placed. Ready to play? Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Meet the Components",
+          "bullets": [
+            "22 hexagonal Bakelite tiles total, 11 per player (black and white)",
+            "No board needed — tiles form the playing surface"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Sort Your Pieces",
+          "bullets": [
+            "Per player: 1 Queen Bee, 2 Spiders, 2 Beetles, 3 Grasshoppers, 3 Soldier Ants",
+            "Optional expansions: Mosquito, Ladybug, Pillbug (skip for first game)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Clear a Flat Surface",
+          "bullets": [
+            "No board — play on any flat surface",
+            "Leave plenty of room; the hive grows in all directions"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Decide Who Goes First",
+          "bullets": [
+            "White always goes first",
+            "First player places any 1 tile; second player places adjacent to it"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Keep Your Pieces Ready",
+          "bullets": [
+            "Keep unplaced tiles visible in front of you",
+            "Once all tiles are placed, you can only move existing pieces"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Queen Bee Rule",
+          "bullets": [
+            "Queen Bee MUST be placed by your 4th turn",
+            "Cannot move any tiles until your Queen is on the board"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "text": "The goal of Hive is to completely surround your opponent's Queen Bee on all six sides. It does not matter whose tiles are doing the surrounding. Your tiles, your opponent's tiles, or a mix of both all count. If both Queens get surrounded at the same time, the game is a draw.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Options",
+          "text": "On your turn, you do one of two things. You can place a new tile from your supply onto the hive, or you can move a tile that is already on the hive. If you cannot do either, you must pass. You never get to do both in one turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Placement Rules",
+          "text": "When placing a new tile, it must touch at least one tile of your own color. It must not touch any of your opponent's tiles. The only exception is the very first two plays of the game, when each player places their first tile. After that, new tiles must only touch friendly tiles.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The One Hive Rule",
+          "text": "This is the most important rule in the game. The hive must always remain one connected group. Before you move any tile, check whether removing it would split the hive into two separate pieces. If it would, that tile cannot move this turn. Think of it like a load-bearing wall in a building.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Freedom to Move",
+          "text": "A tile can only slide into or out of a space if the gap is physically wide enough. You cannot squeeze a tile between two other tiles that are right next to each other. If you cannot physically slide the tile in without lifting it, the move is not allowed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Queen Bee Movement",
+          "text": "Let's go through each bug's movement. The Queen Bee moves exactly one space. She slides to an adjacent empty hex. She is your most important piece because if she gets surrounded on all six sides, you lose. Keep her protected but not trapped.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Soldier Ant Movement",
+          "text": "The Soldier Ant is the most mobile piece in the game. It can move any number of spaces around the outside edge of the hive. It can reach almost any empty hex on the perimeter in a single move. Ants are your primary offensive weapon for closing in on the enemy Queen.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Spider Movement",
+          "text": "The Spider moves exactly three spaces along the edge of the hive. Not two, not four, exactly three. It also cannot backtrack during those three steps. The Spider is precise but limited, making it good for specific tactical moves rather than long-range offense.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Beetle Movement",
+          "text": "The Beetle moves only one space, just like the Queen. However, the Beetle has a special power. It can climb on top of other tiles. When a Beetle is sitting on top of another tile, that tile is pinned and cannot move at all. The Beetle on top also controls the color of that space for placement purposes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Grasshopper Movement",
+          "text": "The Grasshopper does not slide at all. Instead, it jumps in a straight line over one or more adjacent tiles and lands in the first empty space on the other side. It must jump over at least one tile and cannot change direction mid-jump. Grasshoppers are great for leaping across the hive to reach distant positions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Expansion Pieces",
+          "text": "If you are playing with expansion pieces, here is how they work. The Mosquito copies the movement ability of any piece it is currently touching. The Ladybug moves exactly three spaces: two on top of the hive, then one down to an empty space. The Pillbug moves one space, but it can also pick up an adjacent piece and place it on another adjacent space.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "text": "The game ends the moment a Queen Bee is completely surrounded on all six sides. The player whose Queen is still free wins. If both Queens are surrounded simultaneously, the game is a draw. There is no point scoring in Hive. It is purely a win, loss, or draw.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "bullets": [
+            "Surround opponent's Queen Bee on all 6 sides to win",
+            "Any tiles count (yours or opponent's)",
+            "Both Queens surrounded simultaneously = draw"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Options",
+          "bullets": [
+            "Option A: Place a new tile from your supply",
+            "Option B: Move an existing tile on the hive",
+            "Cannot do both; must pass if neither is possible"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placement Rules",
+          "bullets": [
+            "New tile must touch at least 1 friendly tile",
+            "New tile must NOT touch any enemy tiles",
+            "Exception: first 2 plays of the game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The One Hive Rule",
+          "bullets": [
+            "Hive must always remain one connected group",
+            "Cannot move a tile if it would split the hive into 2+ pieces",
+            "Check connectivity before every move"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Freedom to Move",
+          "bullets": [
+            "Tiles slide along the hive edge",
+            "Cannot squeeze between two adjacent tiles",
+            "If tile can't physically slide in, move is illegal"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Queen Bee Movement",
+          "bullets": [
+            "Moves exactly 1 space to an adjacent empty hex",
+            "Must stay connected to the hive",
+            "Surrounded on all 6 sides = you lose"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Soldier Ant Movement",
+          "bullets": [
+            "Moves any number of spaces along the outside edge",
+            "Most mobile piece in the game",
+            "Primary offensive piece for surrounding the enemy Queen"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Spider Movement",
+          "bullets": [
+            "Moves exactly 3 spaces along the hive edge",
+            "Cannot backtrack during the 3 steps",
+            "Good for precise tactical positioning"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Beetle Movement",
+          "bullets": [
+            "Moves 1 space, but can climb on top of other tiles",
+            "Pinned tile beneath cannot move",
+            "Controls color of space for placement purposes"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Grasshopper Movement",
+          "bullets": [
+            "Jumps in a straight line over 1+ tiles to first empty space",
+            "Must jump over at least 1 tile",
+            "Cannot change direction mid-jump"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Expansion Pieces",
+          "bullets": [
+            "Mosquito: copies movement of any adjacent piece",
+            "Ladybug: 2 spaces on top of hive, then 1 down",
+            "Pillbug: moves 1, OR moves adjacent piece on top of itself then to another space"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "bullets": [
+            "Game ends when any Queen is surrounded on all 6 sides",
+            "No points — pure win/loss/draw",
+            "Both Queens surrounded simultaneously = draw"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "text": "Welcome to your first game of Hive! In this practice tutorial, we will walk through the opening moves of a two-player game between White and Black. We will demonstrate placement, movement, and a few common beginner mistakes. Follow along with your own tiles if you have them handy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "White's Opening Move",
+          "text": "White goes first and places a tile on the table. Let's start with a Soldier Ant. Any tile works for the opening move, but the Ant is a strong choice because of its incredible mobility once the Queen is down. Place it right in the center of your play area.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Black's First Placement",
+          "text": "Black now places a tile adjacent to White's Ant. This is the only time in the game where you can place a tile touching an opponent's piece. Let's have Black place a Grasshopper. From here on, each player must place new tiles touching only their own color.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Building the Early Hive",
+          "text": "White places a second tile, this time a Spider, adjacent to the Ant but not touching Black's Grasshopper. Black responds with another piece touching only their own tiles. The hive is starting to take shape with tiles branching off in different directions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Placing the Queen Early",
+          "text": "Let's have White place the Queen Bee on turn three. Placing the Queen early is a strong move because it unlocks your ability to move pieces. Remember, you cannot move any tile until your Queen is on the board. Getting her out on turn two or three gives you maximum flexibility.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Black Places the Queen Too",
+          "text": "Black follows suit and places the Queen Bee as well. Now both players can move tiles on their future turns. The real game begins here because both Queens are vulnerable to being surrounded.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "First Movement: The Ant",
+          "text": "White decides to move instead of placing a new tile. The Soldier Ant slides along the outside edge of the hive all the way around to the other side, landing near Black's Queen. One tile, one move, and suddenly Black's Queen has pressure on it. This is the power of the Ant.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Ignoring the Queen's Safety",
+          "text": "Black sees a chance to place an Ant offensively near White's Queen and goes for it. But Black forgot to check their own Queen's defense. White's Ant is already adjacent to Black's Queen, and now Black has no pieces positioned to block. This is the most common beginner mistake in Hive: focusing on offense while leaving your own Queen exposed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Check Your Queen",
+          "text": "Before making any move, count the empty hexes around your Queen. If your Queen has only two or three open sides, you need to play defense immediately. A good habit is to always ask yourself: can my opponent surround my Queen next turn? If the answer is yes, defend first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "The Beetle Pin",
+          "text": "White now moves a Beetle onto Black's Queen. Remember, when a Beetle climbs on top of a tile, that tile cannot move. Black's Queen is now pinned in place, unable to escape. White has effectively frozen Black's most important piece.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Trying to Break the One Hive Rule",
+          "text": "Black tries to move a Spider to create a defensive wall, but wait. Removing that Spider would split the hive into two separate groups. That move is illegal. Black did not check the One Hive Rule before planning the move. Always verify that your piece is not a key connector before trying to move it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Check Connectivity First",
+          "text": "Before moving any tile, mentally remove it from the hive and check if all remaining tiles are still connected. If removing your tile creates two groups, that tile is locked in place this turn. Many beginners plan beautiful moves only to realize the piece cannot legally move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Mistake: Waiting Too Long on the Queen",
+          "text": "Let's rewind to a common early-game mistake. Imagine Black waited until turn four to place the Queen, spending the first three turns placing offensive pieces. By turn four, Black must place the Queen, but the board has developed in a way that forces the Queen into a vulnerable position. There is no good hex left that is both legal and safe.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Place Your Queen Early",
+          "text": "Do not wait until you are forced to place the Queen on turn four. Place her on turn two or three while you still have choices about where she goes. An early Queen also unlocks your movement three turns earlier, giving you much more tactical flexibility throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Closing the Noose",
+          "text": "Back to our game. White moves the Soldier Ant to fill another hex around Black's pinned Queen. Black scrambles to place a Grasshopper to block one side, but White already has three of the six hexes covered. The pressure is immense.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Continue Playing",
+          "text": "From here, the game continues as both players try to surround the opponent's Queen while defending their own. Each turn is a tense decision between offense and defense, between placing new tiles and moving existing ones. Keep practicing and you will start to see the tactical patterns emerge.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations! You have walked through your first practice game of Hive. You have seen how to place tiles, move the different bugs, and learned from three common beginner mistakes: ignoring your Queen's safety, forgetting the One Hive Rule, and waiting too long to place the Queen. You are ready to play a full game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Buzz Off",
+          "text": "Before you start your next game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common patterns to look for.\n\nSecond, reference the Appendix for a quick guide to each bug's movement.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "bullets": [
+            "Scripted opening moves between White and Black",
+            "Demonstrates placement, movement, and common mistakes",
+            "Follow along with your own tiles"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "White's Opening Move",
+          "bullets": [
+            "White places any tile to start — Soldier Ant is a strong choice",
+            "Place in center of play area",
+            "Ant has great mobility once Queen is placed"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Black's First Placement",
+          "bullets": [
+            "Black places a tile adjacent to White's tile",
+            "Only time you can place touching an opponent's tile",
+            "After this, new tiles must only touch your own color"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Building the Early Hive",
+          "bullets": [
+            "Each player adds tiles touching only their own color",
+            "Hive begins branching in different directions",
+            "Board shape emerges organically"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Placing the Queen Early",
+          "bullets": [
+            "White places Queen Bee on turn 3",
+            "Unlocks ability to move pieces",
+            "Turn 2-3 placement is recommended"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Black Places the Queen Too",
+          "bullets": [
+            "Both Queens now on the board",
+            "Both players can now move tiles",
+            "Real tactical game begins"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "First Movement: The Ant",
+          "bullets": [
+            "Soldier Ant slides along entire hive perimeter",
+            "Lands near Black's Queen — immediate pressure",
+            "Demonstrates Ant's incredible reach"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Ignoring the Queen's Safety",
+          "bullets": [
+            "Black plays offense while own Queen is exposed",
+            "White's Ant already adjacent to Black's Queen",
+            "Most common beginner error: offense without defense"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Check Your Queen",
+          "bullets": [
+            "Count empty hexes around your Queen before every move",
+            "If only 2-3 sides open, defend immediately",
+            "Ask: can opponent surround my Queen next turn?"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Beetle Pin",
+          "bullets": [
+            "Beetle climbs on top of Black's Queen",
+            "Pinned Queen cannot move at all",
+            "Beetle controls color of that space"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Trying to Break the One Hive Rule",
+          "bullets": [
+            "Black tries to move a Spider that's a connector",
+            "Removing it would split hive into 2 groups — illegal",
+            "Always check connectivity before planning a move"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Check Connectivity First",
+          "bullets": [
+            "Mentally remove tile and check if hive stays connected",
+            "If it creates 2 groups, that tile is locked this turn",
+            "Many planned moves fail due to this rule"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Mistake: Waiting Too Long on the Queen",
+          "bullets": [
+            "Black waited until forced placement on turn 4",
+            "Board developed, Queen forced into vulnerable position",
+            "No good legal hex available for a safe placement"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Place Your Queen Early",
+          "bullets": [
+            "Place Queen on turn 2-3 for best positioning",
+            "Early Queen unlocks movement 1-2 turns sooner",
+            "Waiting until turn 4 limits your options severely"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Closing the Noose",
+          "bullets": [
+            "White fills hexes around Black's pinned Queen",
+            "Black scrambles to block but White has 3 of 6 sides",
+            "Demonstrates how quickly pressure builds"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Continue Playing",
+          "bullets": [
+            "Game continues — surround opponent's Queen, defend your own",
+            "Each turn: offense vs. defense, place vs. move",
+            "Tactical patterns emerge with practice"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced placement, movement, and three common mistakes",
+            "Mistakes: ignoring Queen safety, One Hive Rule, late Queen placement",
+            "Ready to play a full game!"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Buzz Off",
+          "bullets": [
+            "Check out General Tips → strategy basics and patterns",
+            "Reference the Appendix → quick guide to each bug's movement",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we dive into strategy, here are the most common mistakes new Hive players make. First, waiting until turn four to place the Queen, which forces her into a bad position. Second, focusing entirely on offense while leaving your own Queen exposed. Third, forgetting to check the One Hive Rule before planning a move, then realizing the piece is locked. Fourth, underestimating the Beetle's ability to pin the Queen. Keep these in mind and you will avoid the biggest traps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Queen on Turn Two or Three",
+          "text": "Your Queen must be placed by turn four, but you should place her on turn two or three. An early Queen gives you the widest choice of safe positions and unlocks your ability to move pieces sooner. If you wait until turn four, the board has already developed and you may be forced into a vulnerable spot. The tempo advantage of early movement is worth more than placing one extra offensive tile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Use Ants Aggressively",
+          "text": "Soldier Ants are your most powerful offensive pieces. They can reach any hex on the perimeter of the hive in a single move. Use them to pressure your opponent's Queen by filling in hexes around it. Two Ants working together can lock down multiple sides of the enemy Queen very quickly. Always look for opportunities to slide an Ant into a threatening position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Beetle Pin Strategy",
+          "text": "Beetles are slow, moving only one space per turn, but their ability to climb on top of other pieces is devastating. When a Beetle sits on the enemy Queen, that Queen cannot move at all. This forces your opponent to waste turns dealing with the Beetle instead of advancing their own attack. Getting a Beetle onto the enemy Queen early can be game-winning.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Balance Offense and Defense",
+          "text": "Hive is a game of constant tension between attacking and defending. Every tile you move toward your opponent's Queen is one fewer tile protecting your own. A good rule of thumb is to always count the open hexes around both Queens before making your move. If your Queen has fewer open sides than your opponent's, you need to play defense this turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Protect Your Queen Without Trapping Her",
+          "text": "Your Queen needs friendly tiles nearby for protection, but do not box her in completely. A Queen with zero open sides touching only friendly tiles is stuck. She cannot slide out because there are no gaps. The ideal position is having two or three friendly tiles adjacent to the Queen with open escape routes. This way she is partially protected but can still slip away if pressured.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Think Two Moves Ahead",
+          "text": "Hive rewards planning ahead. Before making your move, think about what your opponent will do in response and what your next move will be after that. If you move an Ant to threaten the enemy Queen, will your opponent simply block it? Is there a follow-up move that creates a real trap? The best players always have a second move planned that takes advantage of their opponent's forced response.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Recognize Locked Pieces",
+          "text": "Learning to quickly spot which pieces can and cannot move is a critical skill. A tile that would break the hive if removed is locked. A tile that is squeezed between two adjacent tiles and cannot slide out is locked. Before you build your attack plan around moving a specific piece, verify that it can actually move. Experienced players scan the board for locked and unlocked pieces before deciding their strategy each turn.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't wait until turn 4 to place Queen — forced into bad position",
+            "Don't focus only on offense — your Queen gets surrounded",
+            "Always check One Hive Rule before planning moves",
+            "Don't underestimate Beetles — they pin Queens"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place the Queen on Turn Two or Three",
+          "bullets": [
+            "Turn 2-3 gives widest choice of safe positions",
+            "Unlocks movement 1-2 turns sooner",
+            "Tempo from early movement > one extra offensive tile",
+            "Turn 4 placement = forced into whatever hex is available"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Use Ants Aggressively",
+          "bullets": [
+            "Ants reach any perimeter hex in 1 move",
+            "2 Ants can lock down multiple Queen sides quickly",
+            "Primary offensive piece — always look for threatening slides",
+            "Most mobile piece in the game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Beetle Pin Strategy",
+          "bullets": [
+            "Beetle on enemy Queen = Queen cannot move",
+            "Forces opponent to waste turns dealing with Beetle",
+            "Slow (1 space) but devastating when on target",
+            "Early Beetle pin can be game-winning"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Balance Offense and Defense",
+          "bullets": [
+            "Count open hexes around BOTH Queens every turn",
+            "Your Queen fewer open sides → play defense",
+            "Every offensive move weakens your own defense",
+            "Constant tension between attacking and protecting"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Protect Your Queen Without Trapping Her",
+          "bullets": [
+            "Keep 2-3 friendly tiles adjacent for protection",
+            "Leave escape routes — don't box Queen in completely",
+            "Fully surrounded by friendly tiles = Queen is stuck",
+            "Balance protection with mobility"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Think Two Moves Ahead",
+          "bullets": [
+            "Plan your move AND your next move",
+            "Anticipate opponent's forced response",
+            "Best attacks create traps, not just single threats",
+            "If opponent can block easily, the move isn't strong enough"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Recognize Locked Pieces",
+          "bullets": [
+            "One Hive Rule locks key connector tiles",
+            "Freedom to Move rule locks squeezed tiles",
+            "Scan for locked/unlocked pieces before planning",
+            "Don't build attacks around pieces that can't move"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Opening Theory",
+          "text": "Strong openings in Hive follow a consistent pattern. Place an Ant or Grasshopper first for future mobility. Place the Queen second or third to unlock movement early. Then use your early moves to establish positional control before your opponent does. The player who places their Queen first and starts moving pieces often dictates the pace of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Pin and Surround Strategy",
+          "text": "The most reliable winning strategy combines Beetles and Ants. First, move a Beetle onto the enemy Queen to pin her in place. Then use your Soldier Ants to fill in the remaining hexes around the pinned Queen. Since the Queen cannot slide away, your opponent must spend their turns trying to remove the Beetle or block your Ants. This two-pronged attack is extremely difficult to defend against.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "One Hive Defense",
+          "text": "An advanced defensive technique uses the One Hive Rule to your advantage. Position your Queen so that the pieces around her are critical connectors in the hive. Your opponent cannot move those pieces without breaking the One Hive Rule. This creates a natural fortress around your Queen that requires no active defense. The key is reading the board's connectivity and placing your Queen where she creates maximum structural dependency.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Piece Economy",
+          "text": "Every turn in Hive is either a placement or a movement. Placements add material to the board but do not directly threaten the opponent. Movements apply immediate pressure. The strongest players carefully balance when to place and when to move. Placing too many tiles early means you have a large supply but no offensive pressure. Moving too aggressively with too few pieces means your attack lacks follow-through.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Grasshopper Tactics",
+          "text": "Grasshoppers are often underestimated. Their ability to jump over the entire hive means they can reach hexes that sliding pieces cannot. In tight positions where the hive has grown dense, Grasshoppers are the only pieces that can leap into interior gaps. Use them to fill the final hex around an enemy Queen when Ants cannot slide into the position due to the Freedom to Move rule.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Spider Precision",
+          "text": "The Spider's exactly-three-space movement makes it tricky to use but powerful in the right situations. Because its movement is so specific, opponents often miscalculate where it can reach. Practice counting Spider paths to develop an intuition for its range. Spiders excel at reaching hexes that are exactly three steps away, filling gaps that Ants approach from the wrong direction.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Shape of the Hive",
+          "text": "Advanced players think about the overall shape of the hive, not just individual pieces. A long, thin hive creates more locked pieces due to the One Hive Rule. A compact, round hive gives more movement options. By controlling where you place tiles, you can shape the hive to lock your opponent's key pieces while keeping yours free. Place tiles strategically to create the board geometry that favors your plan.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Expansion Piece Mastery",
+          "text": "If you are playing with expansion pieces, they add powerful new dimensions. The Mosquito is the most versatile piece in the game because it copies any adjacent movement. Position it near an Ant for unlimited range, or near a Beetle to climb onto the Queen. The Ladybug's unique three-step movement over the top of the hive lets it bypass Freedom to Move restrictions entirely. The Pillbug can physically relocate enemy pieces, disrupting your opponent's entire formation.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Opening Theory",
+          "bullets": [
+            "Place Ant or Grasshopper first for future mobility",
+            "Queen on turn 2-3 to unlock early movement",
+            "Player who starts moving first dictates tempo",
+            "Establish positional control before opponent"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Pin and Surround Strategy",
+          "bullets": [
+            "Beetle pins enemy Queen → Ants fill remaining hexes",
+            "Pinned Queen can't slide away = forced defense",
+            "Two-pronged attack extremely hard to defend",
+            "Most reliable winning combination"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "One Hive Defense",
+          "bullets": [
+            "Position Queen so surrounding pieces are hive connectors",
+            "Opponent can't move those pieces without breaking One Hive Rule",
+            "Creates passive fortress requiring no active defense",
+            "Read board connectivity to maximize structural dependency"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Piece Economy",
+          "bullets": [
+            "Placements add material, movements apply pressure",
+            "Too many placements = no offensive pressure",
+            "Too many moves = attack lacks follow-through",
+            "Balance is key — know when to deploy vs. when to move"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Grasshopper Tactics",
+          "bullets": [
+            "Jumps bypass Freedom to Move restrictions",
+            "Can reach interior hexes that sliding pieces can't",
+            "Often underestimated by opponents",
+            "Use to fill the final hex around enemy Queen"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Spider Precision",
+          "bullets": [
+            "Exactly 3-space movement = precise but tricky",
+            "Opponents often miscalculate Spider range",
+            "Practice counting Spider paths for intuition",
+            "Excels at reaching hexes 3 steps away"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Shape of the Hive",
+          "bullets": [
+            "Long/thin hive = more locked pieces (One Hive Rule)",
+            "Compact/round hive = more movement options",
+            "Shape the hive geometry to lock opponent's pieces",
+            "Strategic tile placement controls board structure"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Expansion Piece Mastery",
+          "bullets": [
+            "Mosquito: copies adjacent movement — most versatile piece",
+            "Ladybug: moves over the hive top, bypasses Freedom to Move",
+            "Pillbug: physically relocates enemy pieces",
+            "Expansion pieces add powerful new tactical dimensions"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Queen Bee",
+          "definition": "Moves exactly one space to an adjacent empty hex. Must be placed by your fourth turn. If surrounded on all six sides, you lose the game. Your most important piece.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Soldier Ant",
+          "definition": "Moves any number of spaces around the outside edge of the hive. The most mobile piece in the game. You have three Ants per player. Primary offensive piece for surrounding the enemy Queen.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Spider",
+          "definition": "Moves exactly three spaces along the edge of the hive. Cannot backtrack during its three steps. You have two Spiders per player. Good for precise tactical positioning.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Beetle",
+          "definition": "Moves one space but can climb on top of other tiles. A tile with a Beetle on top cannot move. The Beetle controls the color of that space for placement purposes. You have two Beetles per player.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Grasshopper",
+          "definition": "Jumps in a straight line over one or more adjacent tiles, landing in the first empty space on the other side. Cannot change direction mid-jump. Must jump over at least one tile. You have three Grasshoppers per player.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Mosquito",
+          "definition": "Expansion piece. Copies the movement ability of any piece it is currently touching. Can change which piece it copies each turn. One per player. The most versatile piece in the game.",
+          "category": "Expansion Pieces"
+        },
+        {
+          "term": "Ladybug",
+          "definition": "Expansion piece. Moves exactly three spaces: two on top of the hive, then one down to an adjacent empty space. Bypasses Freedom to Move restrictions. One per player.",
+          "category": "Expansion Pieces"
+        },
+        {
+          "term": "Pillbug",
+          "definition": "Expansion piece. Moves one space like the Queen, or it can pick up an adjacent piece and place it on another adjacent empty space. Can move both friendly and enemy pieces. One per player.",
+          "category": "Expansion Pieces"
+        },
+        {
+          "term": "One Hive Rule",
+          "definition": "The hive must always remain one connected group. A tile cannot be moved if removing it would split the hive into two or more separate groups. This is the fundamental movement constraint in Hive.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Freedom to Move",
+          "definition": "A tile can only slide into or out of a space if the gap is physically wide enough. You cannot squeeze a tile between two tiles that are directly adjacent to each other. If the tile cannot physically slide in, the move is illegal.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Placement Rule",
+          "definition": "When placing a new tile from your supply, it must touch at least one friendly tile and must not touch any enemy tiles. Exception: the first two tiles of the game can touch each other regardless of color.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Queen by Turn Four",
+          "definition": "Your Queen Bee must be placed on the board by your fourth turn at the latest. If she is not placed by then, you must place her. You cannot move any tiles until your Queen is on the board.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Pinning",
+          "definition": "When a Beetle climbs on top of another tile, that tile is pinned and cannot move. The pinned tile remains in the hive and counts for connectivity but cannot take any actions until the Beetle moves off.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Surrounding",
+          "definition": "A Queen Bee is surrounded when all six hexes adjacent to her are occupied by tiles. Any combination of friendly and enemy tiles counts. When a Queen is surrounded, the game ends.",
+          "category": "Terminology"
+        },
+        {
+          "term": "The Hive",
+          "definition": "The connected group of all tiles on the table. There is no board. The hive grows organically as tiles are placed. It can extend in any direction without limits.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Supply",
+          "definition": "Your unplaced tiles kept in front of you. You draw from your supply when placing new tiles. Once your supply is empty, you can only move pieces already in the hive.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Pass",
+          "definition": "If you cannot place a new tile and cannot legally move any tile, you must pass your turn. Passing is relatively rare and usually indicates a disadvantageous position.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Draw",
+          "definition": "If both Queens are simultaneously surrounded on the same turn, the game ends in a draw. Neither player wins.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Connector Piece",
+          "definition": "A tile that, if removed, would split the hive into two separate groups. Connector pieces cannot be moved due to the One Hive Rule. Recognizing connectors is a key tactical skill.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Perimeter",
+          "definition": "The outer edge of the hive where sliding pieces travel. Ants move along the entire perimeter. Spiders move exactly three spaces along it. The perimeter grows as the hive expands.",
+          "category": "Terminology"
+        }
+      ]
+    }
+  }
+}

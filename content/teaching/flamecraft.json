@@ -1,0 +1,965 @@
+{
+  "game_id": "flamecraft",
+  "title": "Flamecraft",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Lay Out the Town Board",
+          "text": "Let's set up Flamecraft! First, place the town board in the center of the table. This shows the village of Flameburgh with six starting shops arranged in a cozy village layout. Each shop has dragon slots, an enchantment slot, and a shop type icon showing what kind of goods it deals in.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Stock the Starting Shops",
+          "text": "Now let's populate the shops with artisan dragons. Follow the setup instructions on the board to place artisan dragon cards face up in each shop's dragon slots. Each dragon shows what type of good it produces. This gives the shops their starting inventory.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Supply and Decks",
+          "text": "Sort all the goods tokens by type into accessible piles near the board. There are six types: bread, iron, meat, potion, plant, and crystal. Then set up the coin supply nearby. Shuffle the enchantment deck and place it face down, then reveal a market row of available enchantments. Shuffle the fancy dragon deck and reveal a display of available fancy dragons.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Set Up Remaining Decks",
+          "text": "Shuffle the remaining shop cards and place them in a pile. These are new shops that will be added to the village as the game progresses. Then reveal the charm dragon objective cards. These show end-game scoring conditions that players can work toward throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Choose Colors and Starting Hands",
+          "text": "Each player picks a dragon meeple in their chosen color. Then deal each player a starting hand of three artisan dragon cards. Give each player their starting goods tokens based on player order. Each player also receives one secret charm dragon card as a personal end-game objective.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Reputation and Choose First Player",
+          "text": "Everyone sets their reputation marker to zero on the track. Give the first player token to the player who most recently saw a dragon. If no one has a good answer, choose randomly. Play proceeds clockwise. Your dragon meeple starts off the board and you will place it at a shop on your first turn.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Lay Out the Town Board",
+          "bullets": [
+            "Place town board centrally — shows 6 starting shops in Flameburgh",
+            "Each shop has dragon slots, enchantment slot, and shop type icon"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Stock the Starting Shops",
+          "bullets": [
+            "Place artisan dragon cards in each shop's dragon slots per setup instructions",
+            "Each dragon produces a good matching the shop type"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Supply and Decks",
+          "bullets": [
+            "Sort goods tokens by type: bread, iron, meat, potion, plant, crystal",
+            "Shuffle enchantment deck → reveal market row",
+            "Shuffle fancy dragon deck → reveal display"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up Remaining Decks",
+          "bullets": [
+            "Shuffle shop cards for town expansion during game",
+            "Reveal charm dragon objective cards for end-game goals"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Choose Colors and Starting Hands",
+          "bullets": [
+            "Each player takes a dragon meeple in their color",
+            "Deal 3 artisan dragon cards per player",
+            "Give starting goods tokens based on player order",
+            "Deal 1 secret charm dragon card per player"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Reputation and Choose First Player",
+          "bullets": [
+            "All players set reputation to 0",
+            "First player: most recently saw a dragon (or random)",
+            "Clockwise turn order; dragon meeple starts off the board"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "text": "On your turn in Flamecraft, you do four things in order. First, move your dragon meeple to any shop in the village. Second, optionally place artisan dragons from your hand into empty slots at that shop. Third, choose one of two actions: Gather or Enchant. Fourth, draw artisan dragon cards if your hand is below your hand limit. Let's break down each step.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Moving Your Dragon",
+          "text": "You can move your dragon meeple to any shop in the village, including the one you are already at. There is no blocking in Flamecraft. Multiple players can visit the same shop on consecutive turns. The village grows as new shops are added, so your options expand throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Placing Artisan Dragons",
+          "text": "Before choosing your main action, you may place artisan dragon cards from your hand into empty dragon slots at your current shop. For each dragon you place, you gain one good matching the shop type. This is a great way to build up shops for bigger payoffs later while earning immediate rewards. But remember, placing dragons depletes your hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Action: Gather",
+          "text": "When you choose Gather, you collect goods matching each artisan dragon currently at the shop. This includes any dragons you just placed this turn. If the shop has four dragons and you just added one for a total of five, you collect five goods. You also activate the shop's bonus ability if it has one. Gathering at a fully stocked shop is extremely rewarding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Action: Enchant",
+          "text": "When you choose Enchant, you spend goods to play an enchantment card onto your current shop. The shop must have an empty enchantment slot. Pay the goods cost shown on the enchantment card, then attach it to the shop. You earn the reputation points printed on the card and may gain an immediate bonus effect. After enchanting, a new shop may be drawn from the shop deck and added to the village.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Drawing Cards",
+          "text": "At the end of your turn, if your hand is below your hand limit of six artisan dragon cards, you draw back up. This happens automatically and keeps your options flowing. Managing your hand is key: you want to place dragons frequently for rewards but also keep enough cards for future turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Fancy Dragons",
+          "text": "Throughout the game, you can spend goods to claim fancy dragons from the display. Each fancy dragon has a powerful one-time ability and is also worth reputation points at end of game. Fancy dragons are expensive but impactful. Budget goods for at least two or three fancy dragon purchases per game. When you claim one, replace it from the deck.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Charm Dragons",
+          "text": "Each player starts with one secret charm dragon card showing an end-game scoring condition. You can gain additional charm dragons through certain shop bonuses and abilities during the game. Charm dragons score bonus reputation at game end based on specific collection criteria, like having enchantments at certain shop types or specific goods collections.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Coins as Wild Goods",
+          "text": "Coins can substitute for any single good when paying costs. This makes them extremely flexible. You earn coins through certain shop bonuses, enchantments, and dragon abilities. Treat coins as strategic reserves. Use them to fill gaps in your goods collection rather than spending them on basic costs when you have the right goods available.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Shop Expansion",
+          "text": "When a shop is enchanted, a new shop card is drawn and added to the village. This means the village grows throughout the game, giving everyone more options. New shops arrive with empty dragon slots and enchantment slots, ready for players to develop. The expanding village is a core feature that makes each game feel different.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Game End and Final Scoring",
+          "text": "The game ends when the enchantment deck runs out or a set number of enchantments have been placed. All players complete an equal number of turns after the trigger. Then add up reputation from enchantments placed during play, fancy dragon values, charm dragon bonuses, and any remaining coins. The player with the highest total reputation wins. Ties are broken by remaining goods, then artisan dragons in hand.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Move dragon meeple to any shop",
+            "Optionally place artisan dragons from hand",
+            "Choose 1 action: Gather or Enchant",
+            "Draw cards up to hand limit (6)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Moving Your Dragon",
+          "bullets": [
+            "Move to any shop (including current one)",
+            "No blocking — multiple players can visit same shop",
+            "Village grows as new shops are added"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placing Artisan Dragons",
+          "bullets": [
+            "Place cards from hand into empty shop dragon slots",
+            "Gain 1 good matching shop type per dragon placed",
+            "Builds up shop for future Gather payoffs"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Action: Gather",
+          "bullets": [
+            "Collect 1 good per artisan dragon at the shop",
+            "Includes dragons you just placed this turn",
+            "Activate shop bonus ability if available"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Action: Enchant",
+          "bullets": [
+            "Spend goods to place enchantment card on shop",
+            "Shop must have empty enchantment slot",
+            "Earn reputation points + possible immediate bonus",
+            "May trigger town expansion (new shop added)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Drawing Cards",
+          "bullets": [
+            "Draw artisan dragon cards up to hand limit (6) at end of turn",
+            "Balance placing dragons vs. keeping hand full"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Fancy Dragons",
+          "bullets": [
+            "Spend goods to claim from display",
+            "Powerful one-time ability + end-game reputation VP",
+            "Budget for 2-3 purchases per game"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Charm Dragons",
+          "bullets": [
+            "Secret end-game scoring objectives",
+            "Start with 1; gain more through shop bonuses",
+            "Score bonus reputation based on collection criteria"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Coins as Wild Goods",
+          "bullets": [
+            "Coins substitute for any 1 good when paying costs",
+            "Earned through shop bonuses, enchantments, abilities",
+            "Save as strategic reserves; use to fill gaps"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Shop Expansion",
+          "bullets": [
+            "Enchanting a shop triggers new shop addition to village",
+            "New shops have empty dragon and enchantment slots",
+            "Village grows throughout game, increasing options"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Game End and Final Scoring",
+          "bullets": [
+            "Ends when enchantment deck depleted or set # placed",
+            "All players complete equal turns after trigger",
+            "Score: enchantments + fancy dragons + charm dragons + coins",
+            "Tiebreaker: remaining goods → artisan dragons in hand"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Flameburgh",
+          "text": "Welcome to your first game of Flamecraft! In this practice tutorial, we will walk through several turns with example players to show you how the shops, dragons, and enchantments work together. Follow along even if your table setup looks a bit different. Ready? Let's visit some dragons.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Player One's First Turn: Gather",
+          "text": "Player 1 moves their dragon meeple to the bakery shop, which already has two artisan dragons. Before taking an action, Player 1 places one artisan dragon from their hand into an empty slot at the bakery. That earns them one bread token immediately. Now they choose to Gather. The bakery now has three dragons, so Player 1 collects three bread tokens. Four goods in one turn!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Why Place Before Gathering",
+          "text": "Notice what Player 1 did there. They placed a dragon before choosing Gather. The placed dragon gave one immediate bread token, and then the Gather action counted all three dragons at the shop including the one just placed. Placing before Gathering maximizes your goods collection. This is the most efficient pattern in Flamecraft.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two's Turn: Building Up",
+          "text": "Player 2 visits the smithy, which has one dragon producing iron. Player 2 places two artisan dragons from their hand into the smithy's empty slots. That earns two iron tokens from the placements alone. Then Player 2 chooses Gather, collecting three iron tokens for the three dragons now at the smithy. Five goods total, but Player 2 used two cards from hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three's Turn: Enchanting",
+          "text": "Player 3 has been saving goods. They move to a shop with a full complement of dragons and an empty enchantment slot. Player 3 chooses to Enchant, spending the required goods to play an enchantment card. They earn reputation points and the enchantment's bonus effect triggers. A new shop card is also drawn and added to the village!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Four's Mistake: Enchanting Too Early",
+          "text": "Player 4 sees an enchantment they really want and rushes to enchant on their very first turn. They spend almost all their starting goods to place the enchantment. It earns them a few reputation points, but now Player 4 has almost no goods left. For the next two turns, they must Gather just to rebuild their supply while other players are making progress.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Gather Before You Enchant",
+          "text": "The takeaway here is simple. Spend your first two or three turns Gathering goods before your first enchantment. Build up a reserve so you can enchant without going broke. Players who Gather efficiently first can chain enchantments later in the game when the reputation payoffs are bigger.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Fancy Dragon Opportunity",
+          "text": "Player 1 has accumulated a nice pile of goods over several turns. They spot a fancy dragon in the display that costs four goods but grants a powerful one-time ability and five reputation points. Player 1 claims the fancy dragon, uses its ability immediately, and scores the reputation. That is a big swing in one turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player Four's Mistake: Ignoring Charm Dragons",
+          "text": "Midway through the game, Player 4 realizes they have completely forgotten about their charm dragon card. Their secret objective rewards having enchantments at potion shops, but Player 4 has been enchanting bakeries and smithies all game. The charm dragon will score almost nothing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Plan Around Your Charm Dragon",
+          "text": "Your charm dragon is a secret scoring multiplier. Read it carefully at the start of the game and let it guide which shops you visit and what enchantments you pursue. Acquiring additional charm dragons with overlapping criteria can multiply your end-game bonus significantly. Do not treat charm dragons as an afterthought.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Player Three's Mistake: Hoarding Dragons",
+          "text": "Player 3 has been drawing cards and holding a full hand of six artisan dragons without placing any at shops. Those dragons in hand produce nothing. Meanwhile, other players have been placing dragons at shops and benefiting from both the placement rewards and bigger Gather yields.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Place Dragons Frequently",
+          "text": "Artisan dragons in your hand are doing nothing for you. Dragons placed at shops produce goods for everyone who visits, including you on return trips. Place dragons frequently, especially at shops you plan to revisit. The placement reward plus future Gather value far exceeds holding cards in hand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Village Grows",
+          "text": "By midgame, the village has expanded with several new shops added through enchantments. There are now more options than ever. New shops have empty dragon slots ready to be filled and empty enchantment slots ready to be claimed. The expanding village makes each game feel fresh and dynamic.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Continue Playing",
+          "text": "Play continues clockwise. Each turn, move to a shop, optionally place dragons, Gather or Enchant, then draw cards. Balance goods accumulation with reputation scoring. Keep an eye on the enchantment deck because when it runs out, the game is almost over.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations! You have seen how Flamecraft's core loop works: visit shops, place dragons, Gather goods, and Enchant for reputation. You have watched three common mistakes. Remember: Gather before you Enchant, plan around your charm dragons, and place artisan dragons frequently. You are ready to play on your own.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Before You Fly",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to shop types, dragon types, and game terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Flameburgh",
+          "bullets": [
+            "Scripted tutorial with example players",
+            "Covers shops, dragons, Gather, and Enchant mechanics",
+            "Follow along even if your setup looks different"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player One's First Turn: Gather",
+          "bullets": [
+            "Move to bakery, place 1 dragon (earn 1 bread), then Gather (earn 3 bread)",
+            "Total: 4 goods in one turn",
+            "Placing before Gathering maximizes yield"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Why Place Before Gathering",
+          "bullets": [
+            "Placed dragons count toward Gather totals",
+            "Placement bonus + Gather yield = double reward",
+            "Most efficient pattern in the game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Two's Turn: Building Up",
+          "bullets": [
+            "Place 2 dragons at smithy → earn 2 iron from placement",
+            "Gather with 3 dragons → earn 3 more iron",
+            "5 goods total, but depleted hand by 2 cards"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Three's Turn: Enchanting",
+          "bullets": [
+            "Spend goods to place enchantment on shop",
+            "Earn reputation points + enchantment bonus",
+            "New shop added to village (town expansion)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Four's Mistake: Enchanting Too Early",
+          "bullets": [
+            "Spent all starting goods on first-turn enchantment",
+            "Earned a few reputation points but emptied reserves",
+            "Stuck Gathering for 2 turns just to rebuild supply"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Gather Before You Enchant",
+          "bullets": [
+            "Spend first 2-3 turns Gathering goods to build a reserve",
+            "Enchant from a position of surplus, not scarcity",
+            "Efficient early Gathering enables enchantment chains later"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Fancy Dragon Opportunity",
+          "bullets": [
+            "Spend goods to claim fancy dragon from display",
+            "Powerful one-time ability + end-game reputation",
+            "Big swing turns from well-timed purchases"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player Four's Mistake: Ignoring Charm Dragons",
+          "bullets": [
+            "Forgot about secret charm dragon objective all game",
+            "Enchanted wrong shop types for their scoring condition",
+            "Charm dragon scores almost nothing at game end"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Plan Around Your Charm Dragon",
+          "bullets": [
+            "Read charm dragon at start and let it guide your strategy",
+            "Visit shops and pursue enchantments that match your objective",
+            "Acquiring overlapping charm dragons multiplies end-game bonus"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player Three's Mistake: Hoarding Dragons",
+          "bullets": [
+            "Held full hand of 6 dragons without placing any",
+            "Dragons in hand produce nothing",
+            "Other players placed dragons and benefited from bigger yields"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Place Dragons Frequently",
+          "bullets": [
+            "Placed dragons produce goods for everyone who visits",
+            "Placement reward + future Gather value > holding cards",
+            "Place at shops you plan to revisit for maximum benefit"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Village Grows",
+          "bullets": [
+            "Village expands through enchantments adding new shops",
+            "More shops = more options for dragons and enchantments",
+            "Each game feels different as the village develops"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Continue Playing",
+          "bullets": [
+            "Clockwise turns: move → place → Gather/Enchant → draw",
+            "Balance goods accumulation with reputation scoring",
+            "Watch enchantment deck — game ends when it depletes"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen the core loop: visit, place, Gather/Enchant",
+            "Three mistakes covered: enchanting too early, ignoring charms, hoarding dragons",
+            "Gather first, plan around charms, place dragons frequently"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Fly",
+          "bullets": [
+            "Check out General Tips → strategy basics for beginners",
+            "Reference the Appendix → quick-reference for shops and dragons",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before diving into strategy, here are the most common mistakes new players make. First, enchanting too early before building a goods reserve. Second, ignoring charm dragon objectives and leaving end-game points on the table. Third, hoarding artisan dragons in hand instead of placing them at shops. Fourth, neglecting fancy dragons entirely. And fifth, spreading too thin across many shops instead of focusing on a few key locations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Gather-Then-Enchant Rhythm",
+          "text": "The most efficient pattern in Flamecraft is to spend your first few turns Gathering goods to build a healthy reserve. Then start Enchanting from a position of surplus. This lets you chain enchantments in quick succession later in the game when reputation payoffs are bigger. Think of it like saving money before making big purchases. Players who Enchant too early run out of resources and stall.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Dragon Placement Strategy",
+          "text": "Every artisan dragon you place at a shop does three things. It earns you an immediate good, it increases the Gather yield for everyone who visits that shop, and it reduces your hand size. The trick is to place dragons at shops you plan to revisit. If you are going to Gather at the bakery next turn, placing a bread dragon there now means you get one bread from placement plus the larger Gather yield when you return.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Charm Dragon Planning",
+          "text": "Your charm dragon is worth significant end-game reputation if you plan around it. Read your charm dragon card at the very start of the game. If it rewards enchantments at potion shops, make potion shops your primary target. If it rewards collecting specific goods, focus your Gathering there. Acquiring additional charm dragons with overlapping criteria can double or triple your end-game bonus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Fancy Dragon Timing",
+          "text": "Fancy dragons provide both a powerful one-time ability and end-game reputation. Buying a fancy dragon early gives you more turns to leverage its ability. Buying one late saves your goods for enchantments first. A balanced approach is to buy one fancy dragon in the early to mid game for its ability, then one more near the end for its reputation value. Budget for at least two per game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Shop Focus Strategy",
+          "text": "Rather than visiting every shop in the village, focus on three or four key shops that align with your charm dragon objectives and enchantment plans. Visiting the same shops repeatedly builds familiarity with what goods you can Gather and lets you plan enchantment plays more efficiently. Spreading across too many shops wastes turns on low-yield visits.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Coin Management",
+          "text": "Coins are the most flexible resource in Flamecraft because they substitute for any good. Earn coins through shop bonuses and abilities, and save them for critical moments. The best use of coins is to fill the one or two gaps in your goods collection when you need to Enchant or buy a fancy dragon. Do not spend coins on basic Gather turns when you could use specific goods instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Awareness",
+          "text": "Watch the enchantment deck throughout the game. As it thins, the game end approaches. In the final rounds, shift your priorities toward maximum reputation per turn. Claim remaining fancy dragons, complete your charm dragon objectives, and place high-value enchantments. The player who recognizes the endgame is coming and adjusts their plan will have a significant advantage.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Enchanting too early before building goods reserve",
+            "Ignoring charm dragon end-game objectives",
+            "Hoarding artisan dragons in hand instead of placing them",
+            "Neglecting fancy dragons; spreading too thin across shops"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Gather-Then-Enchant Rhythm",
+          "bullets": [
+            "Spend first 2-3 turns Gathering to build surplus",
+            "Chain enchantments later for bigger reputation payoffs",
+            "Early enchanting = resource stall",
+            "Think: save first, spend later"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Dragon Placement Strategy",
+          "bullets": [
+            "Placed dragon = immediate good + increased Gather yield",
+            "Place at shops you plan to revisit",
+            "Placement + future Gather = double value",
+            "Balance placement vs. keeping hand cards for flexibility"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Charm Dragon Planning",
+          "bullets": [
+            "Read charm dragon card at game start",
+            "Let it guide shop visits and enchantment targets",
+            "Acquire additional charms with overlapping criteria",
+            "Charm dragon stacking = massive end-game bonuses"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Fancy Dragon Timing",
+          "bullets": [
+            "Early purchase: more turns to leverage one-time ability",
+            "Late purchase: saves goods for enchantments first",
+            "Budget for 2+ fancy dragons per game",
+            "Balanced approach: 1 early for ability, 1 late for reputation"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Shop Focus Strategy",
+          "bullets": [
+            "Focus on 3-4 key shops aligned with charm objectives",
+            "Repeated visits = predictable goods and planned enchantments",
+            "Spreading too thin = low-yield turns",
+            "Build up your best shops rather than sampling everything"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Coin Management",
+          "bullets": [
+            "Coins = wild goods, extremely flexible",
+            "Save for critical Enchant or fancy dragon purchases",
+            "Don't spend coins when specific goods are available",
+            "Best used to fill 1-2 gaps in goods collection"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Awareness",
+          "bullets": [
+            "Watch enchantment deck thickness for game-end timing",
+            "Final rounds: maximize reputation per turn",
+            "Claim remaining fancy dragons, complete charm objectives",
+            "Player who adjusts for endgame earliest has the advantage"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Enchantment Chain Strategy",
+          "text": "The enchantment chain strategy focuses on Enchanting as frequently as possible to maximize reputation and trigger town expansion. Each enchantment earns reputation and opens a new shop. The new shop has empty slots that you can develop for future Gather turns. By chaining enchantments every other turn, you control the village layout and score consistently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Fancy Dragon Rush",
+          "text": "This aggressive strategy prioritizes buying fancy dragons early for their powerful one-time abilities. Some fancy dragon abilities let you Gather extra goods, place extra dragons, or earn bonus reputation. Using these abilities early gives you a tempo advantage that compounds over the game. Budget your first goods haul toward a fancy dragon purchase before your first enchantment.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Charm Dragon Stacking",
+          "text": "Advanced players aggressively acquire multiple charm dragons with overlapping scoring criteria. If your starting charm rewards enchantments at potion shops and you acquire a second charm rewarding total enchantments placed, every potion shop enchantment scores double. Pursue shop bonuses that grant additional charm dragons and orient your entire game around maximizing their combined conditions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Goods Monopoly",
+          "text": "Some games allow a player to dominate a specific goods type by controlling a key shop. If you place multiple dragons at a crystal shop and consistently Gather there, you accumulate a surplus of crystals that other players need for their enchantments. You can time your Enchants when opponents are starved of that goods type, claiming the best enchantment cards before they can compete.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Shop Builder Strategy",
+          "text": "The shop builder focuses on placing artisan dragons at many shops to build up the village infrastructure. By stocking shops with dragons, you create high-yield Gather targets for yourself on return visits. This strategy works well when combined with charm dragons that reward having dragons at multiple shop types. The key is to place dragons at shops you will definitely revisit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Priorities",
+          "text": "In multiplayer games, watch what goods opponents are collecting and which shops they are visiting. If an opponent is clearly saving goods for a specific enchantment, consider claiming that enchantment first. If they are building up a specific shop, visit it yourself to Gather the goods they invested in stocking. Flamecraft is friendly, but strategic timing still matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Tempo Versus Value",
+          "text": "The fundamental tension in Flamecraft is tempo versus value. Gathering builds value slowly but reliably. Enchanting spends resources for immediate reputation but leaves you needing to restock. The best players alternate efficiently: Gather once or twice, then Enchant with a big payoff. Avoid falling into a pattern of Gathering three or four turns in a row without scoring. Every Gather turn with no future Enchant plan is a wasted opportunity.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Sprint",
+          "text": "When the enchantment deck is nearly empty, shift into sprint mode. Spend all remaining goods on enchantments and fancy dragons. Cash in coins for final purchases. Make sure your charm dragon objectives are as complete as possible. The player who enters the endgame with a goods reserve and a plan for their last two or three turns will outscore someone who is still Gathering when the game ends.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Enchantment Chain Strategy",
+          "bullets": [
+            "Enchant every other turn for consistent reputation scoring",
+            "Each enchantment triggers town expansion = new opportunities",
+            "Control village layout by choosing when and where to enchant",
+            "Requires efficient Gathering between enchantment turns"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Fancy Dragon Rush",
+          "bullets": [
+            "Buy fancy dragons early for tempo-boosting abilities",
+            "Abilities compound over more remaining turns",
+            "Budget first goods haul toward fancy dragon, not enchantment",
+            "Aggressive but high-reward opening"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Charm Dragon Stacking",
+          "bullets": [
+            "Acquire multiple charms with overlapping scoring criteria",
+            "Each overlapping enchantment scores double or triple",
+            "Pursue shop bonuses that grant additional charm dragons",
+            "Orient entire strategy around combined charm conditions"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Goods Monopoly",
+          "bullets": [
+            "Dominate a specific goods type by controlling key shop",
+            "Surplus goods = enchant before opponents can compete",
+            "Time enchantments when opponents are resource-starved",
+            "Works best with rare goods types like crystal"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Shop Builder Strategy",
+          "bullets": [
+            "Place dragons at many shops to create high-yield Gather targets",
+            "Return visits to stocked shops = big goods hauls",
+            "Synergizes with charms rewarding dragons at multiple shop types",
+            "Only place at shops you will definitely revisit"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Priorities",
+          "bullets": [
+            "Watch opponents' goods collections and shop visits",
+            "Claim enchantments opponents are saving for",
+            "Visit stocked shops to Gather goods opponents invested in",
+            "Friendly game, but timing still matters competitively"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Tempo Versus Value",
+          "bullets": [
+            "Gather = slow value buildup; Enchant = spend for immediate reputation",
+            "Best pattern: Gather 1-2 turns → Enchant with big payoff",
+            "Avoid 3-4 Gather turns in a row without scoring",
+            "Every Gather needs a future Enchant plan behind it"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Sprint",
+          "bullets": [
+            "When enchantment deck nearly empty, spend all remaining goods",
+            "Cash coins for final enchantments and fancy dragon purchases",
+            "Complete charm dragon objectives before game ends",
+            "Enter endgame with goods reserve + plan for final 2-3 turns"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Artisan Dragon",
+          "definition": "Small dragon cards placed at shops. Each artisan dragon produces one good matching the shop type when a player Gathers at that shop. Placed from hand into empty dragon slots.",
+          "category": "Dragons"
+        },
+        {
+          "term": "Fancy Dragon",
+          "definition": "Powerful dragon cards purchased from the display by spending goods. Each has a one-time ability and is worth reputation points at end of game.",
+          "category": "Dragons"
+        },
+        {
+          "term": "Charm Dragon",
+          "definition": "Secret end-game scoring objective card. Each charm dragon scores bonus reputation based on specific collection criteria such as enchantments placed, goods collected, or dragons at certain shop types.",
+          "category": "Dragons"
+        },
+        {
+          "term": "Dragon Meeple",
+          "definition": "Your player piece that moves between shops in the village of Flameburgh. Starts off the board and is placed at a shop on your first turn.",
+          "category": "Components"
+        },
+        {
+          "term": "Gather",
+          "definition": "One of two main actions. Collect one good per artisan dragon currently at the shop, including dragons you just placed this turn. Also activate the shop bonus if available.",
+          "category": "Actions"
+        },
+        {
+          "term": "Enchant",
+          "definition": "One of two main actions. Spend goods to place an enchantment card on the current shop. Earn reputation points and possibly an immediate bonus. Triggers town expansion.",
+          "category": "Actions"
+        },
+        {
+          "term": "Enchantment Card",
+          "definition": "Card placed on a shop providing a permanent bonus and end-game VP. Each shop has one enchantment slot. Playing an enchantment costs goods and earns reputation.",
+          "category": "Cards"
+        },
+        {
+          "term": "Shop",
+          "definition": "A location in the village of Flameburgh where players visit to Gather goods or place enchantments. Each shop has dragon slots, an enchantment slot, a shop type, and possibly a bonus.",
+          "category": "Locations"
+        },
+        {
+          "term": "Shop Expansion",
+          "definition": "When a shop is enchanted, a new shop card is drawn and added to the village. The village grows throughout the game, providing more options for all players.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Dragon Slot",
+          "definition": "An empty space at a shop where an artisan dragon card can be placed. When a dragon is placed, the player gains one good matching the shop type.",
+          "category": "Locations"
+        },
+        {
+          "term": "Enchantment Slot",
+          "definition": "A single space at each shop where one enchantment card can be placed. Once filled, no additional enchantments can be placed at that shop.",
+          "category": "Locations"
+        },
+        {
+          "term": "Goods",
+          "definition": "Six types of resource tokens: bread, iron, meat, potion, plant, and crystal. Collected through Gathering and spent on enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Bread",
+          "definition": "One of six goods types. Produced at bakery-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Iron",
+          "definition": "One of six goods types. Produced at smithy-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Meat",
+          "definition": "One of six goods types. Produced at butcher-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Potion",
+          "definition": "One of six goods types. Produced at potion-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Plant",
+          "definition": "One of six goods types. Produced at garden-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Crystal",
+          "definition": "One of six goods types. Produced at crystal-type shops. Used as payment for enchantments and fancy dragons.",
+          "category": "Resources"
+        },
+        {
+          "term": "Coin",
+          "definition": "Wild resource that substitutes for any single good when paying costs. Earned through shop bonuses, enchantments, and dragon abilities. Remaining coins may be worth reputation at end of game.",
+          "category": "Resources"
+        },
+        {
+          "term": "Reputation",
+          "definition": "The scoring currency in Flamecraft. Earned from enchantments, fancy dragons, charm dragons, and certain bonuses. Tracked openly on the reputation track. Highest total wins.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Hand Limit",
+          "definition": "Players can hold a maximum of six artisan dragon cards. At the end of each turn, draw up to the hand limit if below it.",
+          "category": "Rules"
+        },
+        {
+          "term": "Shop Bonus",
+          "definition": "Some shops grant a bonus action when visited. Bonuses may include gaining coins, drawing extra cards, or acquiring charm dragons. Activated during a Gather action.",
+          "category": "Locations"
+        },
+        {
+          "term": "First Player Token",
+          "definition": "Dragon-themed token given to the starting player. Play proceeds clockwise from this player each round.",
+          "category": "Components"
+        },
+        {
+          "term": "Game End Trigger",
+          "definition": "The game ends when the enchantment deck runs out or a set number of enchantments have been placed. All players complete an equal number of turns after the trigger.",
+          "category": "Rules"
+        },
+        {
+          "term": "No Blocking",
+          "definition": "Any number of players can visit the same shop on consecutive turns. There is no restriction on multiple players being at the same location.",
+          "category": "Rules"
+        }
+      ]
+    }
+  }
+}

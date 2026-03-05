@@ -1,0 +1,1067 @@
+{
+  "game_id": "keyforge",
+  "title": "KeyForge",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Grab Your Unique Decks",
+          "text": "Let's get KeyForge set up. Each player needs one Archon deck. These are the unique, pre-built decks of thirty-six cards. Every KeyForge deck in the world is different, so no two games are exactly alike. Find your deck's Archon card, which is the oversized identity card showing your deck's unique name and the three houses it contains.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place Your Archon Card",
+          "text": "Set your Archon card face up in front of you. This card identifies your deck and shows which three houses you have access to. Each house has twelve cards in your deck, for a total of thirty-six. Take a moment to look at which houses you have. You will be choosing one of these three houses each turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Out Your Keys",
+          "text": "Each player takes three key tokens and places them unforged side up in front of them. These keys are your path to victory. The first player to forge all three keys wins the game. You forge a key by spending six Aember at the start of your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Token Supply",
+          "text": "Place all the shared tokens in the middle of the table where both players can reach them. You will need Aember tokens, damage tokens, stun cards, and power counters. If you are using the chain handicap system, set the chain tracker cards nearby as well.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Draw",
+          "text": "Each player shuffles their thirty-six card deck thoroughly. The first player draws seven cards, then must discard one card down to six. This mandatory mulligan keeps the first player balanced. The second player draws seven cards and may optionally mulligan by shuffling all seven back, drawing seven new cards, then discarding one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "text": "Use any random method to decide who goes first. Flip a coin, roll a die, or use whatever you like. The first player has a special restriction on their very first turn: they can only play or discard one card. This balances the advantage of going first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Set Up Your Play Area",
+          "text": "Each player needs space for two rows in front of them. The top row is for creatures, which form your battleline. The bottom row is for artifacts. Keep a spot for your Aember pool as well. There is no shared board in KeyForge. Both players maintain their own play area. You are ready to play!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Grab Your Unique Decks",
+          "bullets": [
+            "Each player takes 1 unique Archon deck (36 cards, 3 houses, 12 cards per house)",
+            "Every deck in the world is different — no deckbuilding"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place Your Archon Card",
+          "bullets": [
+            "Set Archon identity card face up in front of you",
+            "Shows deck name and 3 house affiliations"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Out Your Keys",
+          "bullets": [
+            "Each player takes 3 key tokens, unforged side up",
+            "Forge 3 keys to win; default cost = 6 Aember per key"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Token Supply",
+          "bullets": [
+            "Central supply: Aember tokens, damage tokens, stun cards, power counters",
+            "Chain tracker nearby if using handicap system"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Draw",
+          "bullets": [
+            "Shuffle 36-card decks",
+            "First player: draw 7, must discard down to 6 (mandatory)",
+            "Second player: draw 7, optional mulligan (shuffle back, draw 7, discard 1)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "bullets": [
+            "Random method to pick first player",
+            "First player restriction: may only play or discard 1 card on turn 1"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Set Up Your Play Area",
+          "bullets": [
+            "Battleline row for creatures, separate row for artifacts",
+            "Track Aember pool; no shared board"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How to Win",
+          "text": "The goal of KeyForge is simple. Be the first player to forge three keys. You forge a key by spending six Aember at the very start of your turn. Once you flip that third key token to the forged side, you win immediately. There is no point tally or final scoring. It is a pure race to three keys.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "text": "Each turn has five steps that you follow in order. First, forge a key if you have six or more Aember. Second, choose one of your three houses as your active house. Third, play, discard, and use cards from that house. Fourth, ready all your exhausted cards. Fifth, draw cards back up to six in hand. Let's walk through each step.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Step One: Forge a Key",
+          "text": "At the start of your turn, before anything else, check your Aember pool. If you have six or more Aember, you must forge a key. This is mandatory, not optional. Spend six Aember, return them to the supply, and flip one of your key tokens to the forged side. Some card effects can change the cost of forging, making it more or less expensive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Step Two: Choose a House",
+          "text": "Now declare one of your deck's three houses as your active house for this turn. This is the most important decision each turn. You can only play cards from your hand, use creatures in play, and activate artifacts that belong to your chosen house. Cards from your other two houses sit idle this turn. The one exception is cards with Omni abilities, which can be used regardless of the active house.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Step Three: Play and Use Cards",
+          "text": "Now you can play any number of cards from the active house in your hand, and use any active-house cards already in play. You can also discard active-house cards from your hand. There is no limit to how many cards you play or use, as long as they all belong to your chosen house. You can do these actions in any order and mix them freely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Card Types: Creatures",
+          "text": "Creatures are the backbone of your strategy. When you play a creature, it enters play exhausted on either the left or right flank of your battleline. You choose which end. Creatures can do three things when they are ready and belong to the active house. They can reap, which means exhaust to gain one Aember. They can fight an enemy creature. Or they can use an Action ability printed on the card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Card Types: Other Cards",
+          "text": "Artifacts enter play ready and sit in a separate row from creatures. They usually have Action or Omni abilities you activate by exhausting them. Actions are one-time effect cards. You play them, resolve their text immediately, and discard them. Upgrades attach to one of your creatures and modify it, granting extra power, armor, or special abilities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "How Combat Works",
+          "text": "When your creature fights, you exhaust it and choose one enemy creature as the target. Both creatures deal damage equal to their power simultaneously. If a creature has damage equal to or greater than its power, it is destroyed. Fighting is risky because both sides take hits, but sometimes you need to remove a dangerous enemy creature.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Creature Keywords",
+          "text": "Some creatures have special keywords that change how combat works. Taunt means other creatures must attack this creature before non-taunt creatures. It acts like a shield for your other creatures. Elusive means the creature takes no damage the first time it is attacked each turn. Skirmish means the creature deals its damage in a fight but takes none in return.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Aember: The Core Resource",
+          "text": "Aember is the most important resource in the game. You collect it by reaping with creatures, by playing cards that have Aember bonus icons, and through various card abilities. Your Aember pool is always visible to your opponent. Watch your opponent's pool carefully. When they approach six Aember, you need to take action or they will forge a key next turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Aember Control: Steal and Capture",
+          "text": "Two important mechanics let you disrupt your opponent's Aember. Steal means you take Aember from your opponent's pool and add it to yours. This is a huge swing because it hurts them and helps you. Capture means you place Aember from your opponent's pool onto one of your creatures. Captured Aember goes back to your opponent if that creature is destroyed, so protect your captors.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Steps Four and Five: Ready and Draw",
+          "text": "After you finish playing and using cards, ready all of your exhausted cards by turning them upright. This means every card you used this turn will be available again next time their house is called. Finally, draw cards from your deck until you have six cards in hand. If you already have six or more, you do not draw. This refill keeps your hand full every turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Chain Handicap System",
+          "text": "KeyForge has a built-in handicap system called chains. If one deck is much stronger, you can give it chains to even things out. Chains reduce how many cards you draw at the end of your turn. Chains one through six mean you draw one fewer card. Chains seven through twelve mean you draw two fewer. Each time you draw fewer cards because of chains, you shed one chain, so the penalty gradually fades.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Stun and Other Status Effects",
+          "text": "A stunned creature cannot be used normally. If you try to use a stunned creature, instead of reaping, fighting, or using its ability, you simply remove the stun and exhaust the creature. This effectively wastes your creature's turn. Some cards also place power counters on creatures, increasing their power value permanently until the creature leaves play.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How to Win",
+          "bullets": [
+            "First player to forge 3 keys wins immediately",
+            "Forge by spending 6 Aember at start of turn",
+            "Pure race — no VP tally or tiebreaker"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "bullets": [
+            "5 steps: Forge → Choose House → Play/Use → Ready → Draw",
+            "All steps are sequential and mandatory"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Step One: Forge a Key",
+          "bullets": [
+            "Mandatory if you have 6+ Aember at start of turn",
+            "Spend 6 Aember, flip 1 key token to forged side",
+            "Some card effects modify key cost"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Step Two: Choose a House",
+          "bullets": [
+            "Declare 1 of your 3 houses as active",
+            "Only active-house cards can be played/used this turn",
+            "Exception: Omni abilities work regardless of active house"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Step Three: Play and Use Cards",
+          "bullets": [
+            "Play any number of active-house cards from hand",
+            "Use any active-house creatures/artifacts in play",
+            "Discard active-house cards from hand; any order"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Card Types: Creatures",
+          "bullets": [
+            "Enter play exhausted on left or right flank of battleline",
+            "Reap: exhaust → gain 1 Aember",
+            "Fight: exhaust → mutual damage with enemy creature",
+            "Action: exhaust → use printed Action: ability"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Card Types: Other Cards",
+          "bullets": [
+            "Artifacts: enter ready, exhaust for Action/Omni abilities",
+            "Actions: one-time effect, resolve and discard",
+            "Upgrades: attach to a creature, modify it"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "How Combat Works",
+          "bullets": [
+            "Attacker and defender deal power as damage simultaneously",
+            "Creature destroyed when damage >= power",
+            "Fighting is mutual — both sides take hits"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Creature Keywords",
+          "bullets": [
+            "Taunt: must be attacked before non-taunt creatures",
+            "Elusive: no damage the first time attacked each turn",
+            "Skirmish: deals damage but takes none in a fight"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Aember: The Core Resource",
+          "bullets": [
+            "Collected via reaping, Aember bonus icons, card abilities",
+            "Aember pools are always public information",
+            "Opponent at 6+ Aember = they forge next turn unless disrupted"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Aember Control: Steal and Capture",
+          "bullets": [
+            "Steal: take Aember from opponent → add to your pool",
+            "Capture: place opponent's Aember on your creature",
+            "Captured Aember returns to opponent if creature destroyed"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Steps Four and Five: Ready and Draw",
+          "bullets": [
+            "Ready all exhausted cards (turn upright)",
+            "Draw up to 6 cards in hand; do not draw if already at 6+"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Chain Handicap System",
+          "bullets": [
+            "Chains reduce draw count: 1-6 chains = draw 1 fewer, 7-12 = draw 2 fewer",
+            "Shed 1 chain each time you draw fewer",
+            "Used to balance decks of different power levels"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Stun and Other Status Effects",
+          "bullets": [
+            "Stunned creature: using it removes stun instead of acting",
+            "Power counters: permanently increase creature power",
+            "Both persist until removed or creature leaves play"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Crucible",
+          "text": "Welcome to your first game of KeyForge! In this practice tutorial, we will walk through a scripted opening with two players. Player 1 goes first and Player 2 goes second. We will cover several turns so you can see the key mechanics in action. Let's jump in.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Opening Hands",
+          "text": "Both players have shuffled their decks and drawn their starting hands. Player 1 drew seven cards and discarded one down to six, as required. Player 2 drew seven and decided to keep them, so they also discard one to get to six. Both players have their three unforged keys and an empty Aember pool. Let's begin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player 1, Turn 1: Choose a House",
+          "text": "Player 1 checks their hand and sees cards from three houses. They notice they have two creatures and one action from one house, and decide to call that house as active. Remember, Player 1 can only play or discard one card on this first turn due to the first-turn restriction.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player 1 Plays a Creature",
+          "text": "Player 1 plays a creature from the active house onto their left flank. The creature enters play exhausted, so it cannot reap or fight this turn. But it has an Aember bonus icon on the card, so Player 1 gains one Aember just for playing it. That is all Player 1 can do this turn. They ready their cards and draw back up to six.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player 2, Turn 1: Full Turn",
+          "text": "Player 2 has no first-turn restriction. They look at their hand and choose a house with three cards available. They play two creatures onto their battleline, one on each flank. Both enter exhausted. One of them has an Aember bonus, so Player 2 gains one Aember. Player 2 also plays an action card that generates two more Aember. That is three Aember already. Player 2 readies and draws back up to six.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player 1, Turn 2: Forge Check",
+          "text": "At the start of every turn, check for forging. Player 1 has only one Aember, so no key is forged. Now Player 1 picks a house. They choose a different house this time because they have three cards from it. They play a creature and an artifact. The creature enters exhausted on the right flank. The artifact enters ready in the artifact row.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player 2, Turn 2: Reaping",
+          "text": "Player 2 has three Aember and no key to forge. They choose the same house as last turn because both creatures are from that house and are now ready. Player 2 exhausts one creature to reap, gaining one Aember, bringing them to four. They exhaust the other creature to reap as well, bringing them to five. Player 2 is now one Aember away from forging.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Threat of Six Aember",
+          "text": "Player 1 notices Player 2 has five Aember. If Player 2 gains even one more Aember next turn, they will forge a key. This is a critical moment. Player 1 needs to either race ahead in Aember or find a way to steal or capture some of Player 2's Aember. Watching your opponent's Aember count is the most important strategic skill in KeyForge.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player 1 Steals Aember",
+          "text": "Player 1 checks their hand and finds an action card that says steal one Aember. They choose the house that card belongs to. They play the action, stealing one Aember from Player 2. Player 2 drops to four Aember and Player 1 gains one. That bought Player 1 some breathing room. This is Aember control in action, and it is what makes KeyForge so interactive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Player 2 Forges Their First Key",
+          "text": "Player 2's creatures are from the active house and ready to go. They reap with both, gaining two Aember and bringing their total to six. At the start of their next turn, Player 2 must forge. Sure enough, on their next turn, Player 2 spends six Aember and flips a key token to the forged side. One key down, two to go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Ignoring Aember Control",
+          "text": "Let's talk about Player 1's early mistake. On turn two, Player 1 played a creature and an artifact instead of looking for Aember control. They let Player 2 accumulate five Aember unchallenged. If Player 1 had stolen Aember one turn earlier, they could have delayed Player 2's key by a full turn. Always watch the opponent's Aember pool and prioritize disruption when they approach six.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Beginner Mistake: Fighting When You Should Reap",
+          "text": "In the next few turns, Player 1 makes another common mistake. They see Player 2's creatures and decide to fight them all. Fighting destroys enemy creatures, but it also destroys your own creatures because damage is mutual. Meanwhile, Player 1 earns zero Aember from fighting. Reaping generates one Aember per creature per turn. Only fight when the enemy creature is truly dangerous. Otherwise, reap to generate Aember toward your own keys.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Beginner Mistake: Poor House Selection",
+          "text": "A few turns later, Player 1 calls a house that has only one card in hand and no creatures or artifacts from that house in play. This wastes an entire turn. You want to choose the house that gives you the most options, either the most cards to play from hand or the most creatures and artifacts to use in play. Planning your house selection one turn ahead makes a big difference.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Recovery: Board Presence Matters",
+          "text": "Player 1 recovers by switching to a house with three creatures in hand. They play all three onto the battleline. Next turn, those creatures will be ready to reap, generating three Aember in a single turn. Building board presence is essential because creatures generate Aember every turn they reap.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Race Heats Up",
+          "text": "Both players now have one key forged. The race is tight. Player 2 has a strong board with creatures reaping every turn. Player 1 has caught up with a burst of Aember from playing creatures with bonus icons. Both players are watching each other's pools closely, looking for steal and capture opportunities to slow the other down.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Using Artifacts Effectively",
+          "text": "Player 1 remembers the artifact they played earlier. It has an Action ability that generates two Aember when exhausted. Since it belongs to the active house, Player 1 exhausts it and gains two Aember. Artifacts are powerful because they stay in play and can be used every turn their house is active. Do not forget about your artifacts during the action phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Great work! You have now seen the core flow of KeyForge. You know how to choose a house, play creatures, reap for Aember, fight when necessary, use artifacts, and disrupt your opponent's Aember with steal and capture. You have also seen three common beginner mistakes: ignoring Aember control, fighting instead of reaping, and poor house selection.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Play",
+          "text": "Before you dive into your first full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to keywords, card types, and game terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q and A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Crucible",
+          "bullets": [
+            "Scripted tutorial with 2 players covering opening turns",
+            "Demonstrates key mechanics: house selection, reaping, combat, Aember control"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Opening Hands",
+          "bullets": [
+            "Player 1: draw 7, discard to 6 (mandatory)",
+            "Player 2: draw 7, optional mulligan, discard to 6",
+            "Both start with 0 Aember and 3 unforged keys"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1, Turn 1: Choose a House",
+          "bullets": [
+            "Evaluate hand to pick best house",
+            "First-turn restriction: play or discard only 1 card"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 1 Plays a Creature",
+          "bullets": [
+            "Creature enters exhausted on a flank",
+            "Aember bonus icon = gain 1 Aember on play",
+            "Ready and draw back to 6"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 2, Turn 1: Full Turn",
+          "bullets": [
+            "No first-turn restriction for Player 2",
+            "Plays 2 creatures + 1 action card = 3 Aember gained",
+            "Creatures enter exhausted, ready next turn"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 1, Turn 2: Forge Check",
+          "bullets": [
+            "Check Aember at start of turn — not enough to forge",
+            "Pick a different house with more options",
+            "Play creature + artifact; artifact enters ready"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player 2, Turn 2: Reaping",
+          "bullets": [
+            "Both creatures now ready — exhaust each to reap",
+            "Gain 1 Aember per reap = total now 5",
+            "One Aember away from forging"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Threat of Six Aember",
+          "bullets": [
+            "Opponent at 5 Aember = they forge next turn with any gain",
+            "Must steal, capture, or race ahead",
+            "Watching Aember counts is the #1 strategic skill"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 1 Steals Aember",
+          "bullets": [
+            "Plays a steal action — takes 1 Aember from opponent",
+            "Double swing: opponent loses 1, you gain 1",
+            "Aember control is what makes KeyForge interactive"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 2 Forges Their First Key",
+          "bullets": [
+            "Reaps with 2 creatures → reaches 6 Aember",
+            "Must forge at start of next turn (mandatory)",
+            "1 key forged, 2 to go"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Ignoring Aember Control",
+          "bullets": [
+            "Player 1 let opponent accumulate Aember unchallenged",
+            "One turn of early disruption could have delayed the key",
+            "Always prioritize steal/capture when opponent nears 6"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Beginner Mistake: Fighting When You Should Reap",
+          "bullets": [
+            "Fighting earns 0 Aember and often kills your creature too",
+            "Reaping generates 1 Aember per creature per turn",
+            "Only fight when the enemy creature is genuinely threatening"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Beginner Mistake: Poor House Selection",
+          "bullets": [
+            "Calling a house with few cards in hand and no board presence wastes a turn",
+            "Pick the house with the most playable cards + usable creatures/artifacts",
+            "Plan house selection one turn ahead"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Recovery: Board Presence Matters",
+          "bullets": [
+            "Play multiple creatures in one turn to set up future reaping",
+            "More creatures = more Aember generation each turn",
+            "Board presence is key to sustaining Aember income"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Race Heats Up",
+          "bullets": [
+            "Both players at 1 key forged, race is tight",
+            "Aember bonus icons from played cards create burst turns",
+            "Steal and capture opportunities keep the game interactive"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Using Artifacts Effectively",
+          "bullets": [
+            "Artifacts stay in play and can be used every turn their house is active",
+            "Action abilities on artifacts generate Aember or disrupt opponents",
+            "Don't forget artifacts during your action phase"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen house selection, reaping, fighting, artifacts, and Aember control",
+            "Three beginner mistakes: ignoring Aember control, unnecessary fights, poor house picks",
+            "Ready for a full game"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Play",
+          "bullets": [
+            "Check out General Tips → strategy basics for beginners",
+            "Reference the Appendix → quick-reference for keywords and terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we get into strategy, here are the biggest traps new players fall into. First, ignoring your opponent's Aember pool and letting them forge uncontested. Second, fighting every creature you see instead of reaping for Aember. Third, choosing a house with barely any cards to play or use. Fourth, forgetting that forging is mandatory. If you have six Aember at the start of your turn, you must forge, even if you wanted to save it. Keep these in mind and you will be ahead of most beginners.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Aember Awareness is Everything",
+          "text": "KeyForge is fundamentally a race to collect and spend Aember. The single most important skill is tracking both Aember pools at all times. When your opponent hits four or five Aember, you need to start thinking about disruption. When you hit four or five, think about how to protect your lead. Every decision you make should connect back to Aember. Playing a creature? Think about when it will start reaping. Choosing a house? Pick the one that generates or protects the most Aember this turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Reap First, Fight Second",
+          "text": "New players love to fight because it feels powerful. But reaping is how you win games. Each reap generates one Aember, and three creatures reaping every turn is three Aember per turn, which means a key every two turns. Only fight when the enemy creature has a dangerous ability, when it has Taunt blocking your reaps, or when you need to free captured Aember. If none of those apply, reap instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "House Selection Strategy",
+          "text": "Choosing which house to call each turn is the core puzzle of KeyForge. Look at your hand and your board together. Count how many useful actions you can take with each house. A house with two cards in hand and three ready creatures gives you five actions. A house with four cards in hand but nothing on the board gives you only four. Factor in urgency too. If you need Aember control right now, call the house with steal cards even if it is not your biggest house.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Build Board Presence Early",
+          "text": "Creatures on the board generate value every turn they reap. The earlier you play them, the more total Aember they produce over the course of the game. Prioritize playing creatures in the first few turns, even if they do not have flashy abilities. A simple creature with no text generates one Aember per reap per turn. Three plain creatures reaping for five turns is fifteen Aember. That is two and a half keys from reaping alone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Know Your Deck's Strengths",
+          "text": "Every KeyForge deck has a personality. Some decks excel at generating massive bursts of Aember through card abilities and bonus icons. Others focus on board control with fighting, removal, and creature keywords. Some specialize in Aember disruption with steal, capture, and key cost manipulation. Before your first game with a new deck, flip through the cards and identify what your deck does best. Then lean into that strength rather than trying to do everything.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Timing Your Burst Turns",
+          "text": "A burst turn is when you generate a huge amount of Aember in a single turn, often enough to go from zero to forging range. Burst turns are most effective when your opponent cannot respond. If your opponent just used their steal and capture cards last turn, that is the perfect time to burst. If they still have disruption available, they will just steal it back. Pay attention to what your opponent has played and what house they are likely to call next.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Flank Placement Matters",
+          "text": "When you play a creature, you must place it on either the left or right flank of your battleline. This matters because some card abilities reference neighbors, the creature to the left and right. A creature with a powerful neighbor-buff should be placed next to creatures that benefit from it. Also consider Taunt placement. Put Taunt creatures on the flanks to protect your valuable middle creatures from targeted attacks.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't ignore opponent's Aember pool — they forge at 6 uncontested",
+            "Don't fight everything — reaping generates Aember, fighting doesn't",
+            "Don't call a house with nothing to play or use — wasted turn",
+            "Forging is mandatory at 6+ Aember — can't save it"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Aember Awareness is Everything",
+          "bullets": [
+            "Track both Aember pools constantly",
+            "Opponent at 4-5 = plan disruption; you at 4-5 = protect your lead",
+            "Every decision should connect back to Aember generation or control"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Reap First, Fight Second",
+          "bullets": [
+            "Reaping = 1 Aember per creature per turn; fighting = 0 Aember",
+            "3 creatures reaping = key every 2 turns",
+            "Only fight when: dangerous ability, Taunt blocking reaps, or freeing captured Aember"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "House Selection Strategy",
+          "bullets": [
+            "Count total actions per house: hand cards + ready creatures/artifacts",
+            "Pick the house with most impact, not just most cards",
+            "Factor urgency: call steal house when opponent nears 6 Aember"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Build Board Presence Early",
+          "bullets": [
+            "Creatures generate Aember every turn they reap",
+            "Earlier creatures = more total Aember over the game",
+            "3 creatures reaping for 5 turns = 15 Aember (2.5 keys)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Know Your Deck's Strengths",
+          "bullets": [
+            "Every deck has a personality: burst Aember, board control, or disruption",
+            "Flip through cards before your first game with a new deck",
+            "Lean into strengths rather than trying to do everything"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Timing Your Burst Turns",
+          "bullets": [
+            "Burst turn: generate massive Aember in one turn to reach forging range",
+            "Best when opponent's disruption cards were spent last turn",
+            "Track what opponent has played and likely house for next turn"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Flank Placement Matters",
+          "bullets": [
+            "Creatures must go on left or right flank of battleline",
+            "Some abilities reference neighbors — place for synergy",
+            "Put Taunt creatures on flanks to shield valuable creatures"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Aember Burst Strategy",
+          "text": "The Aember burst strategy focuses on generating a massive pile of Aember in a single turn, catching your opponent off guard. Decks with lots of Aember bonus icons and cards that say gain Aember are ideal for this. The key is timing. Wait until your opponent has spent their steal and capture effects, then call the house with your biggest burst potential and go all out. One well-timed burst can forge a key before they can react.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Board Control Strategy",
+          "text": "The board control strategy focuses on keeping the battleline clear so your opponent cannot reap. Decks with strong fighting creatures, board wipes, and removal actions excel here. The goal is not to win through combat directly but to deny your opponent their Aember engine. While they rebuild creatures, you reap freely with your surviving board. This strategy works best against reap-heavy decks that rely on creatures staying alive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Disruption and Denial",
+          "text": "Disruption decks slow down the opponent's key forging through steal, capture, and key cost increase effects. The ideal pattern is to let your opponent accumulate Aember, then steal it at the last moment before they forge. This is more efficient than stealing one at a time because it denies them a full key worth of tempo. Some cards increase the opponent's key cost to seven or eight Aember. Combined with steal effects, this can lock your opponent out of forging for multiple turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Two-Key Pivot",
+          "text": "Once you have two keys forged and your opponent has fewer, the dynamic shifts. Your opponent knows you only need one more burst to win, so they will hold all their disruption for your final push. This is where you want to bait out their responses. Call a house with moderate Aember generation to draw out steal effects. Then on a later turn, burst with your strongest house when they have nothing left. Patience wins the endgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "House Cycling and Tempo",
+          "text": "Advanced players think about house cycling. You have three houses and can only call one per turn. If you call the same house two turns in a row, your other two houses are idle for two turns. Ideally, you want to rotate houses so that every turn you are playing fresh cards and using ready creatures. Some decks have houses that support each other. One house builds the board, another generates Aember, and the third provides disruption. Cycling through them efficiently creates unstoppable tempo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading Your Opponent's Deck",
+          "text": "Because KeyForge decks are fixed, you can learn your opponent's deck over multiple games. Even in a single game, pay attention to what they play. If they play several steal cards from one house, note that house as dangerous when you have high Aember. If they have board wipes, avoid overcommitting creatures to the battleline. The more you learn about what your opponent's deck can do, the better you can time your own plays around their threats.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Efficient Use of Omni Cards",
+          "text": "Cards with Omni abilities are uniquely powerful because they can be used on any turn regardless of which house you call. This means an Omni artifact effectively provides value every turn instead of every third turn. When evaluating your deck, identify your Omni cards and plan around them. They are force multipliers that make every house call stronger.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Capture vs. Steal Awareness",
+          "text": "Understanding the difference between capture and steal is critical for advanced play. Steal moves Aember to your pool permanently. Capture places it on a creature, and it returns to your opponent when that creature dies. This means captured Aember is temporary disruption. If you capture Aember, protect that creature at all costs. If your opponent captures your Aember, prioritize killing that creature to get it back. Build your tactics around this distinction.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Aember Burst Strategy",
+          "bullets": [
+            "Generate massive Aember in 1 turn to forge before opponent reacts",
+            "Wait until opponent's steal/capture effects are spent",
+            "Ideal for decks with many Aember bonus icons"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Board Control Strategy",
+          "bullets": [
+            "Clear opponent's creatures to deny reaping",
+            "You reap freely while they rebuild",
+            "Best against reap-heavy decks relying on creature survival"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Disruption and Denial",
+          "bullets": [
+            "Let opponent accumulate Aember, then steal at the last moment",
+            "Key cost increase cards lock opponent out of forging",
+            "Combine steal + key cost increase for maximum denial"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Two-Key Pivot",
+          "bullets": [
+            "At 2 keys, opponent holds all disruption for your final push",
+            "Bait out steal effects with moderate Aember turns",
+            "Then burst with strongest house when disruption is spent"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "House Cycling and Tempo",
+          "bullets": [
+            "Rotate houses to keep all 3 productive every turn",
+            "Calling the same house twice idles the other 2 for 2 turns",
+            "Best decks cycle: 1 builds board, 1 generates Aember, 1 disrupts"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading Your Opponent's Deck",
+          "bullets": [
+            "Track what opponent plays — note dangerous houses",
+            "If they have board wipes, don't overcommit creatures",
+            "Learn opponent's deck over multiple games for bigger edge"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Efficient Use of Omni Cards",
+          "bullets": [
+            "Omni abilities usable on any turn regardless of active house",
+            "Effectively provides value every turn instead of every 3rd",
+            "Identify Omni cards early and plan around them"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Capture vs. Steal Awareness",
+          "bullets": [
+            "Steal = permanent; Capture = temporary (returns on creature death)",
+            "Protect your capturing creatures at all costs",
+            "Kill opponent's capturers to reclaim your Aember"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Aember",
+          "definition": "The primary resource in KeyForge. Collect Aember through reaping, card abilities, and bonus icons. Spend six Aember to forge one key. First to three keys wins.",
+          "category": "Resources"
+        },
+        {
+          "term": "Key",
+          "definition": "Each player has three key tokens. Forge a key by spending six Aember at the start of your turn. Forging is mandatory when you have enough Aember. First player to forge all three wins.",
+          "category": "Resources"
+        },
+        {
+          "term": "House",
+          "definition": "Each deck contains exactly three houses with twelve cards each. At the start of your turn, you declare one house as active. Only active-house cards can be played, used, or discarded.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Archon",
+          "definition": "The identity of your unique deck. The Archon card shows your deck's name and its three houses. Used for organized play identification.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Battleline",
+          "definition": "The row of creatures in front of each player. New creatures enter on either the left or right flank. Position matters for neighbor-based abilities.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Creature",
+          "definition": "A card type that enters play exhausted on a flank of your battleline. Creatures can reap, fight, or use Action abilities when ready and their house is active.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Artifact",
+          "definition": "A card type that enters play ready in a separate row from creatures. Artifacts have Action or Omni abilities activated by exhausting them.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Action Card",
+          "definition": "A card type that resolves its effect immediately when played, then is discarded. Actions do not remain in play.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Upgrade",
+          "definition": "A card type that attaches to a creature, modifying it with extra power, armor, or special abilities. Destroyed when the attached creature is destroyed.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Reap",
+          "definition": "Exhaust a ready creature to gain one Aember. Triggers any Reap: abilities on the creature. The primary way to generate Aember from board presence.",
+          "category": "Actions"
+        },
+        {
+          "term": "Fight",
+          "definition": "Exhaust a ready creature to attack an enemy creature. Both deal their power as damage simultaneously. Triggers Fight: abilities on the attacker.",
+          "category": "Actions"
+        },
+        {
+          "term": "Steal",
+          "definition": "Take Aember from your opponent's pool and add it to yours. A double swing: opponent loses Aember and you gain it.",
+          "category": "Aember Control"
+        },
+        {
+          "term": "Capture",
+          "definition": "Place Aember from your opponent's pool onto one of your creatures. Captured Aember returns to the opponent if the creature is destroyed. Temporary disruption.",
+          "category": "Aember Control"
+        },
+        {
+          "term": "Taunt",
+          "definition": "Keyword. Creatures with Taunt must be attacked before non-Taunt creatures. Protects other creatures in your battleline from being targeted.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Elusive",
+          "definition": "Keyword. An Elusive creature takes no damage the first time it is attacked each turn. Highly effective at surviving fights.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Skirmish",
+          "definition": "Keyword. A creature with Skirmish deals its damage in a fight but takes no damage in return. Allows safe fighting.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Stun",
+          "definition": "Status effect. Using a stunned creature removes the stun and exhausts it instead of performing an action. Effectively wastes one turn of the creature.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Exhausted",
+          "definition": "A card that has been used this turn is turned sideways to show it is exhausted. Exhausted cards cannot be used again until they are readied.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Ready",
+          "definition": "At the end of your turn, all your exhausted cards are readied by turning them upright. A card must be ready to be used.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Flank",
+          "definition": "The left or right end of a battleline. New creatures must be placed on a flank. Position matters for neighbor-based abilities.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Chains",
+          "definition": "Handicap system. Chains reduce your draw at end of turn. Chains 1-6 draw 1 fewer, 7-12 draw 2 fewer. Shed 1 chain each time you draw fewer. Used to balance different power-level decks.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Omni",
+          "definition": "A card ability that can be used regardless of which house is active. Still requires exhausting the card. Provides value on any turn.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Play:",
+          "definition": "An ability that triggers when the card first enters play. Resolves immediately and does not trigger again.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Reap:",
+          "definition": "An ability that triggers when the creature reaps, in addition to gaining one Aember.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Fight:",
+          "definition": "An ability that triggers when the creature fights, in addition to dealing combat damage.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Destroyed:",
+          "definition": "An ability that triggers when the card is destroyed. Resolves before the card leaves play.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Before Fight:",
+          "definition": "An ability that resolves before combat damage is dealt. Can potentially destroy the enemy before mutual damage occurs.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Action:",
+          "definition": "An ability on a creature or artifact that is activated by exhausting the card. Alternative to reaping or fighting for creatures.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Power",
+          "definition": "A creature's strength value. Determines how much damage it deals in a fight and how much damage it can absorb before being destroyed.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Armor",
+          "definition": "Reduces damage dealt to a creature. Each point of armor prevents one point of damage per source. Armor does not deplete.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Aember Bonus",
+          "definition": "An Aember icon printed on some cards. When you play a card with this icon, you gain that much Aember immediately, in addition to the card's normal effect.",
+          "category": "Resources"
+        }
+      ]
+    }
+  }
+}

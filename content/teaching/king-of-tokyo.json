@@ -1,0 +1,966 @@
+{
+  "game_id": "king-of-tokyo",
+  "title": "King of Tokyo",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Tokyo Board",
+          "text": "Let's set up King of Tokyo. First, place the Tokyo board in the center of the table where everyone can reach it. The board has two zones: Tokyo City and Tokyo Bay. With two to four players, you will only use Tokyo City. With five or six players, you will use both Tokyo City and Tokyo Bay.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Power Cards",
+          "text": "Shuffle the Power card deck and place it face down near the board. Deal three cards face up in a row next to the deck. This is the market where you buy abilities during the game. Place all twenty-eight tokens and the two green dice nearby but set aside. The tokens and green dice are used only with certain Power cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Up Energy and Dice",
+          "text": "Form a shared pool of energy cubes in the middle of the table. These green translucent cubes are the currency for buying Power cards. Place the six black dice at the center of the table. Set the two green bonus dice aside. You will only roll green dice if a Power card specifically allows it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Monster",
+          "text": "Each player picks a monster and takes the matching monster board and cardboard figure. Set your life points dial to ten and your victory points dial to zero. Assemble your figure and keep it near your board. You will place it on the Tokyo board when you enter Tokyo during the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Determine Who Goes First",
+          "text": "Each player rolls all six black dice. Whoever rolls the most claw results goes first. If there is a tie, the tied players reroll until one player has the most claws. Play will proceed clockwise from the first player.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Initial Tokyo State",
+          "text": "No monster starts the game in Tokyo. Tokyo City and Tokyo Bay both begin empty. The first player will be required to enter Tokyo City during their first turn's Enter Tokyo step. Once the first player enters, the battle for Tokyo begins. Let's learn the rules!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Tokyo Board",
+          "bullets": [
+            "Place board centrally — has Tokyo City and Tokyo Bay zones",
+            "2-4 players: use Tokyo City only",
+            "5-6 players: use both Tokyo City and Tokyo Bay"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Power Cards",
+          "bullets": [
+            "Shuffle Power card deck, deal 3 face-up as market",
+            "Place 28 tokens and 2 green dice aside (used with certain cards)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Up Energy and Dice",
+          "bullets": [
+            "Form shared energy cube pool centrally",
+            "6 black dice at center; 2 green dice set aside"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Monster",
+          "bullets": [
+            "Take monster board + cardboard figure",
+            "Set life to 10, VP to 0"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Determine Who Goes First",
+          "bullets": [
+            "All players roll 6 black dice; most claws goes first",
+            "Tied players reroll until one wins; play proceeds clockwise"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Initial Tokyo State",
+          "bullets": [
+            "No monster starts in Tokyo — both zones empty",
+            "First player must enter Tokyo City on their first turn"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How to Win",
+          "text": "There are two ways to win King of Tokyo. First, be the first monster to reach twenty victory points. Second, be the last monster standing after all others have been eliminated. Both conditions trigger an instant win, so the game can end at any time during a turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "text": "On your turn, you follow five steps in order. First, roll the dice. Second, resolve all dice results. Third, enter Tokyo if required. Fourth, buy Power cards. Fifth, end your turn and pass the dice to the left. Let's look at each step in detail.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Rolling the Dice",
+          "text": "On your turn, roll all six black dice. You may also roll one or two green dice if a Power card allows it. After your first roll, you can set aside any dice you want to keep and reroll the rest. You get up to two rerolls for a total of three rolls. On your third roll, you can even pick up dice you previously set aside and reroll them. After your final roll, you must resolve all dice results.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Number Dice: Scoring Victory Points",
+          "text": "The dice have three number faces: one, two, and three. If you roll three of a kind of any number, you score victory points equal to that number. So three ones scores one point, three twos scores two points, and three threes scores three points. Each additional die of the same number beyond three gives you one extra victory point. For example, four twos scores three victory points total.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Claw Dice: Dealing Damage",
+          "text": "Each claw result deals one damage to other monsters. But who you hit depends on where you are. If you are in Tokyo, your claws hit all monsters outside Tokyo. If you are outside Tokyo, your claws hit all monsters inside Tokyo. Monsters in Tokyo do not claw each other. This targeting rule makes Tokyo a powerful but risky position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Heart Dice: Healing",
+          "text": "Each heart result heals one life point, but only if you are outside Tokyo. Monsters inside Tokyo cannot heal from heart dice. Your life cannot go above ten. If you are already at full health, heart results do nothing. Some Power cards override this restriction and let you heal even in Tokyo, but without a card, hearts are useless while you are king.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Energy Dice: Collecting Cubes",
+          "text": "Each energy result gives you one energy cube from the shared pool. Place them in front of you. You keep energy cubes until you spend them on Power cards or certain card effects. Energy has no cap, so stockpile as much as you want.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Enter Tokyo",
+          "text": "After resolving dice, check if Tokyo is empty. If no monster is in Tokyo City, you must enter it and place your figure there. You immediately gain one victory point for entering. With five or six players, if Tokyo City is occupied but Tokyo Bay is empty, you must enter Tokyo Bay instead. Both zones count as being in Tokyo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Being in Tokyo",
+          "text": "Being in Tokyo has big advantages and big drawbacks. At the start of your turn, if you are in Tokyo, you gain two victory points. Your claws hit all monsters outside Tokyo simultaneously. But you cannot heal with heart dice while inside. When you take claw damage from another monster, you may choose to yield and leave Tokyo. The attacker must then take your place.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Yielding Tokyo",
+          "text": "You can only yield Tokyo after taking claw damage from another monster's dice. Damage from Power cards does not let you yield. When you yield, you leave Tokyo and the attacker enters, gaining one victory point. You keep whatever damage you took. Yielding is your escape valve when staying in Tokyo would get you eliminated. Timing your yield is one of the most important decisions in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Buying Power Cards",
+          "text": "After resolving dice and the Tokyo step, you can spend energy cubes to buy Power cards from the three face-up cards in the market. Each card has a cost printed on it. Keep cards stay in front of you with ongoing effects until the end of the game. Discard cards resolve their effect immediately and go to the discard pile. After buying a card, replace it from the deck immediately. You can also spend two energy to sweep all three cards and reveal three new ones.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Elimination",
+          "text": "When a monster's life reaches zero, they are eliminated immediately. They discard all their Keep cards and energy cubes. With five or six players, once the game drops to four or fewer monsters, Tokyo Bay must be vacated immediately. The monster in Tokyo Bay leaves unless Tokyo City is empty, in which case they move to Tokyo City instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "End of Game",
+          "text": "The game ends instantly when someone reaches twenty victory points or when only one monster remains alive. There is no final round. If a monster reaches twenty points and drops to zero life on the same turn due to a Power card effect, they are eliminated and do not win. You must survive your turn to claim victory.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How to Win",
+          "bullets": [
+            "Reach 20 VP → instant win",
+            "Last monster standing → instant win",
+            "Both conditions checked during every turn"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "bullets": [
+            "5 steps: Roll Dice → Resolve → Enter Tokyo → Buy Cards → End Turn",
+            "Pass dice to the left after your turn"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Rolling the Dice",
+          "bullets": [
+            "Roll 6 black dice (+ green dice if card allows)",
+            "Up to 2 rerolls (3 rolls total); can re-open kept dice on 3rd roll",
+            "Must resolve all final results"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Number Dice: Scoring Victory Points",
+          "bullets": [
+            "Three-of-a-kind = VP equal to the number (three 2s = 2 VP)",
+            "Each extra matching die = +1 VP",
+            "Example: four 2s = 3 VP total"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Claw Dice: Dealing Damage",
+          "bullets": [
+            "Each claw = 1 damage to monsters in opposing zone",
+            "In Tokyo → hit all outside; Outside → hit all in Tokyo",
+            "Monsters in Tokyo don't claw each other"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Heart Dice: Healing",
+          "bullets": [
+            "Each heart = heal 1 life (outside Tokyo only)",
+            "Cannot heal above 10 life",
+            "Some Power cards override Tokyo healing restriction"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Energy Dice: Collecting Cubes",
+          "bullets": [
+            "Each energy symbol = gain 1 energy cube",
+            "No cap on energy storage",
+            "Spend on Power cards and card effects"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Enter Tokyo",
+          "bullets": [
+            "If Tokyo City empty → must enter, gain 1 VP",
+            "5-6 players: City occupied + Bay empty → must enter Bay",
+            "Both zones count as 'in Tokyo'"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Being in Tokyo",
+          "bullets": [
+            "Start of turn in Tokyo = +2 VP",
+            "Claws hit ALL monsters outside Tokyo",
+            "Cannot heal with hearts; become target for everyone"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Yielding Tokyo",
+          "bullets": [
+            "May yield only after taking claw damage from dice",
+            "Power card damage does NOT allow yielding",
+            "Attacker must enter your vacated spot, gains 1 VP"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Buying Power Cards",
+          "bullets": [
+            "Spend energy = buy from 3-card market",
+            "Keep cards = ongoing; Discard cards = one-time",
+            "2 energy = sweep market (discard 3, reveal 3 new)"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Elimination",
+          "bullets": [
+            "0 life = eliminated, discard Keep cards + energy",
+            "5-6 players: Tokyo Bay empties at 4 or fewer players",
+            "Exception: if City is empty, Bay monster moves to City"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "End of Game",
+          "bullets": [
+            "Instant win at 20 VP or last monster standing",
+            "Must survive your turn to win — 20 VP + 0 life = eliminated",
+            "If all monsters eliminated simultaneously, everyone loses"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Tokyo",
+          "text": "Welcome to your first game of King of Tokyo! In this practice tutorial, we will walk through a scripted opening with four monsters: Gigazaur, CyberKitty, MekaDragon, and The King. Each will take different actions so you can see all the mechanics in play. Follow along even if you have fewer players at your table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Starting State",
+          "text": "All four monsters are outside Tokyo with ten life and zero victory points. Tokyo City is empty. Tokyo Bay is not used since we have only four players. The market has three Power cards face up and the energy pool is ready. Gigazaur won the claw roll-off and goes first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Gigazaur: First Turn",
+          "text": "Gigazaur rolls the six dice and gets three twos, one claw, one energy, and one heart. The three twos is a three-of-a-kind, scoring two victory points. The energy gives one energy cube. The heart heals one life, but Gigazaur is already at ten, so nothing happens. The claw has no one in Tokyo to hit. Since Tokyo is empty, Gigazaur must enter Tokyo City and gains one victory point. Gigazaur now has three victory points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "CyberKitty: Attacking Tokyo",
+          "text": "CyberKitty rolls and gets two claws, two hearts, one energy, and one three. The two claws deal two damage to Gigazaur in Tokyo City. Gigazaur drops from ten to eight life. Gigazaur can choose to yield or stay. Gigazaur decides to stay because they want the two victory points at the start of their next turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "MekaDragon and The King Take Turns",
+          "text": "MekaDragon rolls three claws, hitting Gigazaur for three damage. Gigazaur drops to five life but still stays. The King rolls one claw, dealing one more damage. Gigazaur is now at four life. After a full round of attacks, Gigazaur has taken six damage from three players. This is the reality of being in Tokyo: everyone hits you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Gigazaur: Reaping the Reward",
+          "text": "Gigazaur starts their turn in Tokyo and gains two victory points, bringing the total to five. They roll the dice and get two energy, two hearts, one claw, and one three. The claw hits all three monsters outside Tokyo for one damage each. The hearts cannot heal because Gigazaur is in Tokyo. The energy gives two cubes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Gigazaur Buys a Card",
+          "text": "Gigazaur now has three energy cubes. They check the Power card market and spot a Keep card that costs three energy. It grants extra life. Gigazaur buys it, spending all three energy. The card is placed in front of Gigazaur and a new card is revealed from the deck. Smart purchase because Gigazaur needs to survive in Tokyo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "CyberKitty: Going for Numbers",
+          "text": "CyberKitty rolls two threes and decides to keep them, rerolling the other four dice hoping for a third three. On the second roll, they get a third three plus one energy and two hearts. Three threes scores three victory points! CyberKitty heals two life even though they were only down one, capping at ten. They gain one energy. CyberKitty now has three victory points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Beginner Mistake: Staying in Tokyo at Low Health",
+          "text": "Gigazaur is still in Tokyo at four life after their turn. On the next round, the other three monsters roll a combined five claws. Gigazaur would drop to zero and be eliminated. Fortunately, after the first claw damage this round, Gigazaur finally yields Tokyo. The lesson is critical: do not stay in Tokyo below four or five life. The victory points are not worth dying for. Yield, heal up, and come back later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Beginner Mistake: Neglecting Energy",
+          "text": "The King has been rolling nothing but claws and hearts for three turns. They have zero energy and zero Power cards while other players have two or three cards each. Power cards are force multipliers. A card that grants extra damage or bonus victory points pays for itself over many turns. Make sure to roll for energy early in the game so you can start buying cards before your opponents outpace you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Randomly Rerolling",
+          "text": "MekaDragon has been rerolling without a clear goal each turn. They roll all six dice, see a mix of results, and randomly set aside a couple without thinking. This scattered approach gets mediocre results every turn. Instead, decide what you need before each reroll. If you need victory points, lock matching numbers and chase a set. If you need claws to eliminate a weak opponent, keep every claw. Focus produces better outcomes than randomness.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "MekaDragon Enters Tokyo",
+          "text": "After Gigazaur yields, MekaDragon was the attacker who dealt the claw damage, so MekaDragon must enter Tokyo City. They place their figure on the board and gain one victory point. MekaDragon now has to survive until their next turn to earn the two-point start-of-turn bonus. The cycle continues!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Midgame Develops",
+          "text": "Several turns pass. Gigazaur healed back to full and re-entered Tokyo for another short visit. CyberKitty invested in energy and bought two powerful Keep cards. MekaDragon focused on number sets and has twelve victory points. The King finally bought a card that grants an extra die. The game is starting to accelerate.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Continue Playing",
+          "text": "The game continues with each player taking one turn per round. Remember the five steps: roll dice, resolve results, enter Tokyo if needed, buy Power cards, and end your turn. Keep an eye on everyone's victory points and life totals. The game can end suddenly when someone hits twenty points or when only one monster survives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Great job! You have now seen all the core mechanics of King of Tokyo. You know how to roll and resolve dice, enter and yield Tokyo, heal, gain energy, buy Power cards, and score victory points from number sets. You also learned three key beginner mistakes: staying in Tokyo at low health, neglecting energy and cards, and rerolling without a plan.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Before You Stomp",
+          "text": "Before you start your first full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to dice faces, Power card types, and game terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q and A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Tokyo",
+          "bullets": [
+            "Scripted tutorial with 4 monsters: Gigazaur, CyberKitty, MekaDragon, The King",
+            "Follow along even with fewer players"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Starting State",
+          "bullets": [
+            "All monsters outside Tokyo, 10 life, 0 VP",
+            "Tokyo City empty; Bay not used (4 players)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Gigazaur: First Turn",
+          "bullets": [
+            "Rolls three 2s = 2 VP from number set",
+            "Tokyo empty → must enter, gains 1 VP; total = 3 VP"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "CyberKitty: Attacking Tokyo",
+          "bullets": [
+            "2 claws → Gigazaur in Tokyo takes 2 damage (10 → 8)",
+            "Gigazaur stays to collect VP next turn"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "MekaDragon and The King Take Turns",
+          "bullets": [
+            "MekaDragon rolls 3 claws, The King rolls 1 → Gigazaur at 4 life",
+            "Full round = 6 total damage from 3 players"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Gigazaur: Reaping the Reward",
+          "bullets": [
+            "Start turn in Tokyo = +2 VP (total 5)",
+            "Claws hit all 3 outside monsters for 1 damage each",
+            "Hearts useless in Tokyo; gains 2 energy"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Gigazaur Buys a Card",
+          "bullets": [
+            "Spends 3 energy on a Keep card granting extra life",
+            "New card revealed from deck to refill market",
+            "Cards help survive longer in Tokyo"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "CyberKitty: Going for Numbers",
+          "bullets": [
+            "Keeps two 3s, rerolls for third → success! Three 3s = 3 VP",
+            "Heals with hearts, gains 1 energy",
+            "Focused rerolling toward one goal"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Beginner Mistake: Staying in Tokyo at Low Health",
+          "bullets": [
+            "Gigazaur at 4 life → nearly eliminated by combined attacks",
+            "Yields just in time; should have yielded earlier",
+            "Don't stay below 4-5 life — VP not worth elimination"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Beginner Mistake: Neglecting Energy",
+          "bullets": [
+            "The King has 0 energy, 0 cards while others have 2-3",
+            "Power cards are force multipliers that compound over turns",
+            "Roll for energy early to start buying"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Randomly Rerolling",
+          "bullets": [
+            "MekaDragon keeps random dice without a plan → mediocre results",
+            "Decide goal before rerolling: numbers, claws, energy, or hearts",
+            "Focus produces better outcomes than randomness"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "MekaDragon Enters Tokyo",
+          "bullets": [
+            "Attacker who caused yield must enter Tokyo City",
+            "Gains 1 VP for entering",
+            "Must survive until next turn for the +2 VP bonus"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Midgame Develops",
+          "bullets": [
+            "Gigazaur re-enters after healing; CyberKitty buys 2 Keep cards",
+            "MekaDragon leads with 12 VP from number sets",
+            "The King bought extra die card — game accelerating"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Continue Playing",
+          "bullets": [
+            "Remember 5 steps: Roll → Resolve → Enter Tokyo → Buy → End",
+            "Watch VP totals and life — game can end suddenly",
+            "20 VP or last standing = instant win"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Seen all core mechanics: dice, Tokyo, healing, energy, cards, scoring",
+            "Three mistakes: overstaying Tokyo, neglecting energy, random rerolls",
+            "Ready for a full game"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Stomp",
+          "bullets": [
+            "Check out General Tips → strategy basics for beginners",
+            "Reference the Appendix → quick-reference for dice and terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest traps for new King of Tokyo players. First, staying in Tokyo at low life and getting eliminated. Second, neglecting energy and never buying Power cards while opponents load up on abilities. Third, rerolling without a plan and getting mediocre results every turn. Fourth, forgetting that hearts do not heal in Tokyo. Fifth, chasing number sets obsessively when claws or energy would be more useful. Keep these in mind and you will outlast most beginners.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "When to Enter and Leave Tokyo",
+          "text": "Tokyo is the fastest path to victory points, but staying too long is the fastest path to elimination. Enter Tokyo when you have high health, ideally eight or more. Collect the two-point start-of-turn bonus for one or two rounds. Then yield as soon as your life drops below five. Do not gamble on surviving one more round for two extra points. A dead monster scores zero for the rest of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Dice Rolling Focus",
+          "text": "Before your first roll, decide what you need this turn. Are you low on health? Keep hearts. Do you need a Power card? Keep energy. Is someone in Tokyo at low life? Keep claws for the kill. Are you close to a number set? Keep matching numbers. Having a clear goal for each roll dramatically improves your results. Scattered rolling gives you a little of everything and not enough of anything.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Invest in Power Cards Early",
+          "text": "Power cards are the biggest differentiator between good and great King of Tokyo players. A Keep card bought on turn two generates value for the entire game. A card bought in the last few turns barely matters. Prioritize energy in your first two or three turns so you can buy strong cards early. Look for cards that give extra dice, bonus damage, healing exceptions, or victory point generation.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Read the Table",
+          "text": "King of Tokyo is a multiplayer game, which means politics and threat assessment matter. If one player is at seventeen victory points, everyone should be attacking them. If you are the leader, expect to be targeted and play defensively. If someone is low on health, consider whether eliminating them helps you. Sometimes letting a weak player survive is better than letting a strong player take Tokyo. Always know who is the biggest threat.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "VP Race vs. Elimination Path",
+          "text": "There are two paths to victory: reaching twenty points or being the last monster alive. Most games are decided by VP, but the elimination path becomes viable when one or two players are already low on health. If you find yourself with strong claw rolls and weak opponents, pivoting to an elimination strategy can be devastating. Fewer opponents means less competition for Tokyo and fewer attackers when you are inside.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Number Set Math",
+          "text": "Number sets are a consistent VP source, but the math matters. Three of a kind scores the face value: one, two, or three points. Each extra die adds one point. Four threes scores four points, five threes scores five. If you have two matching dice after your first roll, it is usually worth chasing the third. But if you have only one matching die, the odds of hitting three are low. Two matching after roll one is your signal to commit to the set.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Sweep the Market Wisely",
+          "text": "Spending two energy to sweep the Power card market is a gamble. You discard all three cards and reveal three new ones. Do this when the current market has nothing useful for you and you have energy to spare. Do not sweep if another player is about to buy a card they need on their turn. Sometimes the best play is letting a mediocre market sit while you stockpile energy for a perfect card that shows up later.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't stay in Tokyo at low life — elimination = game over",
+            "Don't neglect energy — Power cards are force multipliers",
+            "Don't reroll randomly — pick a goal before each roll",
+            "Hearts don't heal in Tokyo; don't chase numbers obsessively"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "When to Enter and Leave Tokyo",
+          "bullets": [
+            "Enter at 8+ life, collect +2 VP/turn for 1-2 rounds",
+            "Yield when life drops below 5",
+            "Dead monster = 0 future points"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Dice Rolling Focus",
+          "bullets": [
+            "Decide goal before rolling: hearts, energy, claws, or numbers",
+            "Having a clear focus dramatically improves results",
+            "Scattered rolling = mediocre everything"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Invest in Power Cards Early",
+          "bullets": [
+            "Early cards generate value all game; late cards barely matter",
+            "Prioritize energy in first 2-3 turns",
+            "Look for: extra dice, bonus damage, healing, VP generation"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Read the Table",
+          "bullets": [
+            "Target the VP leader to prevent them from winning",
+            "If you're the leader, play defensive",
+            "Assess whether eliminating a weak player helps you or helps others"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "VP Race vs. Elimination Path",
+          "bullets": [
+            "Most games decided by VP, but elimination path is viable",
+            "Pivot to claws when opponents are low on life",
+            "Fewer opponents = less competition for Tokyo"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Number Set Math",
+          "bullets": [
+            "Three-of-a-kind = face value VP; each extra = +1 VP",
+            "2 matching after roll 1 = commit to the set",
+            "Only 1 matching = odds are low, consider a different goal"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Sweep the Market Wisely",
+          "bullets": [
+            "2 energy to sweep = gamble on better cards",
+            "Sweep when market is useless and you have energy to spare",
+            "Don't sweep if opponent is about to buy something they need"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Tokyo Tempo Strategy",
+          "text": "The tempo strategy is about controlling when you enter and leave Tokyo to maximize victory points while minimizing damage. Enter Tokyo when opponents have just rolled and will not attack again for a full round. Collect the two-point bonus on your next turn, deal damage to everyone with claws, and yield immediately when hit. Then heal and re-enter. Each cycle gives you three or more points for minimal risk. Over four or five cycles, that is fifteen points from Tokyo alone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Power Card Synergy",
+          "text": "The card synergy strategy focuses on energy collection and buying Power cards that work together. Some cards grant extra dice, which give more results per turn. Others provide bonus VP for specific actions or conditions. The dream combo is a card that grants an extra die plus a card that gives bonus points for rolling claws. Together they turn every roll into a scoring machine. Spend the first three turns collecting energy, then buy two or three synergistic cards in a burst.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Aggressive Elimination",
+          "text": "Instead of racing to twenty points, the aggressive strategy targets weak opponents for elimination. Keep every claw you roll and reroll everything else toward more claws. A concentrated three or four claw turn can eliminate a wounded monster in one hit. Each elimination reduces the number of attackers, making Tokyo safer for you. In a four-player game, eliminating two opponents means only one-on-one combat for the endgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Number Set Farming",
+          "text": "Number sets provide a steady, reliable source of victory points that does not require being in Tokyo. Three threes gives three points and is achievable in a single roll with good luck or two rerolls with decent luck. If you can average two to three points per turn from number sets while staying safely outside Tokyo, you will reach twenty in six to ten turns. This strategy pairs well with healing to stay at maximum life so you can afford to enter Tokyo for a burst when needed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Defensive Tanking",
+          "text": "The defensive strategy centers on survival. Buy cards that increase your life maximum above ten, grant healing exceptions in Tokyo, or provide armor that reduces incoming damage. The goal is to stay in Tokyo longer than anyone expects. Where most monsters yield after one round, a well-built tank can survive two or three rounds, collecting four to six bonus victory points while shrugging off attacks. This strategy requires early energy investment but becomes dominant in the midgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Endgame Sprint Planning",
+          "text": "When you are within five points of winning, plan your exact path to twenty. If you are at fifteen, entering Tokyo gives one point, starting a turn in Tokyo gives two more, and rolling three ones gives another point. That is four points across two turns if you survive. Calculate the minimum number of turns to win and compare it against the risk of elimination. Sometimes the aggressive play is correct even at low health if the math works out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Multiplayer Dynamics",
+          "text": "In games with five or six players, the dynamics change significantly. Tokyo Bay adds a second zone, meaning two monsters are always taking damage from everyone else. This makes Tokyo much more dangerous. With more players, the elimination path becomes stronger because there are more weak targets. Also pay attention to who is in Tokyo Bay. If both Tokyo zones are occupied, claws from outside hit both monsters, splitting the table's aggression. Use this to your advantage by entering Tokyo when the other zone is empty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Card Market Denial",
+          "text": "Advanced players pay attention not just to what they want to buy, but to what their opponents want. If a powerful card appears in the market that would perfectly suit an opponent's strategy, consider buying it yourself even if it is not ideal for you, or sweeping the market to remove it. Two energy to deny a game-changing card is a great investment. This is especially important in the endgame when one card could push an opponent to twenty points.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Tokyo Tempo Strategy",
+          "bullets": [
+            "Enter → collect +2 VP → deal claws → yield when hit → heal → repeat",
+            "Each cycle = 3+ VP for minimal risk",
+            "4-5 cycles = 15+ VP from Tokyo alone"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Power Card Synergy",
+          "bullets": [
+            "Focus energy early, buy 2-3 synergistic cards in a burst",
+            "Extra dice + bonus VP cards = scoring machine",
+            "Card combos compound over many turns"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Aggressive Elimination",
+          "bullets": [
+            "Keep all claws, reroll everything else toward more claws",
+            "Target wounded opponents for one-hit kills",
+            "Each elimination = fewer attackers, safer Tokyo"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Number Set Farming",
+          "bullets": [
+            "Three-of-a-kind for steady 2-3 VP per turn, no Tokyo risk",
+            "Average 2-3 VP/turn = 20 VP in 6-10 turns",
+            "Pairs well with healing and occasional Tokyo bursts"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Defensive Tanking",
+          "bullets": [
+            "Buy life-boost, armor, and healing-in-Tokyo cards",
+            "Survive 2-3 rounds in Tokyo instead of 1",
+            "4-6 bonus VP from extended Tokyo stays"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Endgame Sprint Planning",
+          "bullets": [
+            "Calculate exact turns to 20 VP from current total",
+            "Tokyo entry (1) + start-of-turn (2) + number set = 4-6 points in 2 turns",
+            "Sometimes aggressive play at low health is correct if math works"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Multiplayer Dynamics",
+          "bullets": [
+            "5-6 players: Tokyo Bay makes Tokyo much more dangerous",
+            "More players = stronger elimination path (more weak targets)",
+            "Enter Tokyo when the other zone is empty to split aggression"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Card Market Denial",
+          "bullets": [
+            "Buy or sweep cards that would help opponents",
+            "2 energy to deny a game-changing card = great investment",
+            "Especially important in endgame near 20 VP"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Claw",
+          "definition": "A die face representing an attack. Each claw deals one life point of damage to monsters in the opposing zone. In Tokyo, you hit all outside; outside Tokyo, you hit all inside.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Heart",
+          "definition": "A die face representing healing. Each heart heals one life point if you are outside Tokyo. Cannot heal above ten. Hearts do nothing while in Tokyo.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Energy (Die Face)",
+          "definition": "A die face granting one energy cube from the supply. Energy is spent to buy Power cards or activate certain card effects.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Number 1",
+          "definition": "A die face. Three ones scores one victory point. Each additional one beyond three adds one more VP.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Number 2",
+          "definition": "A die face. Three twos scores two victory points. Each additional two beyond three adds one more VP.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Number 3",
+          "definition": "A die face. Three threes scores three victory points. Each additional three beyond three adds one more VP.",
+          "category": "Dice Faces"
+        },
+        {
+          "term": "Tokyo City",
+          "definition": "The primary zone on the Tokyo board. Used in all player counts. A monster in Tokyo City gains benefits but is targeted by all outside monsters and cannot heal with hearts.",
+          "category": "Locations"
+        },
+        {
+          "term": "Tokyo Bay",
+          "definition": "The secondary zone on the Tokyo board. Only used with five or six players. Functions identically to Tokyo City. When the game drops to four or fewer players, Tokyo Bay must be vacated.",
+          "category": "Locations"
+        },
+        {
+          "term": "Power Card",
+          "definition": "Cards purchased with energy cubes from the face-up market. Come in two types: Keep cards with ongoing effects and Discard cards with one-time effects.",
+          "category": "Cards"
+        },
+        {
+          "term": "Keep Card",
+          "definition": "A Power card that stays face up in front of you with ongoing effects until end of game or until removed by another effect.",
+          "category": "Cards"
+        },
+        {
+          "term": "Discard Card",
+          "definition": "A Power card that resolves its effect immediately when purchased, then is discarded.",
+          "category": "Cards"
+        },
+        {
+          "term": "Energy Cube",
+          "definition": "Green translucent cubes used as currency to buy Power cards and activate certain effects. Gained from energy die faces. No storage cap.",
+          "category": "Resources"
+        },
+        {
+          "term": "Victory Points",
+          "definition": "Tracked on your monster board dial. First to twenty wins. Earned from number sets, Tokyo entry, Tokyo start-of-turn bonus, and Power card effects.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Life Points",
+          "definition": "Your monster's health, tracked on the monster board dial. Starts at ten, maximum ten. Reaching zero means elimination.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Yield",
+          "definition": "When in Tokyo and damaged by another monster's claw dice, you may choose to leave Tokyo. The attacker then enters your vacated zone and gains one VP. Power card damage does not allow yielding.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Elimination",
+          "definition": "A monster at zero life is permanently removed from the game. They discard all Keep cards and energy cubes. Cannot take further turns.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Sweep",
+          "definition": "Spend two energy cubes to discard all three face-up Power cards and reveal three new ones. Can be done multiple times per Buy step.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Three-of-a-Kind",
+          "definition": "Rolling three dice showing the same number. Scores VP equal to that number. Each additional matching die adds one VP.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Green Dice",
+          "definition": "Two bonus dice with enhanced faces. Only rolled when a Power card specifically allows it. Rolled in addition to the six black dice.",
+          "category": "Components"
+        },
+        {
+          "term": "Monster Board",
+          "definition": "Each player's tracking board with two dials: one for life points (starts at ten) and one for victory points (starts at zero).",
+          "category": "Components"
+        },
+        {
+          "term": "Smoke Token",
+          "definition": "One of four token types used with specific Power cards. Three Smoke tokens are included.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Mimic Token",
+          "definition": "A special token that copies the effects of another Keep card in play. One Mimic token is included.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Shrink Token",
+          "definition": "Status token placed on monsters. Twelve Shrink tokens are included. Associated with the Shrink Ray Power card.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Poison Token",
+          "definition": "Status token placed on monsters. Twelve Poison tokens are included. Associated with the Poison Spit Power card. Cannot be removed while in Tokyo.",
+          "category": "Tokens"
+        }
+      ]
+    }
+  }
+}

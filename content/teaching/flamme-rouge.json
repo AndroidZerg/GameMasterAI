@@ -1,0 +1,952 @@
+{
+  "game_id": "flamme-rouge",
+  "title": "Flamme Rouge",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Build the Race Track",
+          "text": "Let's set up Flamme Rouge! First, grab the modular track tiles. These are the large cardboard pieces showing straights, curves, and hills. Connect them together to form your race course. You can follow a suggested layout from the rulebook or build your own. Make sure to mark where the finish line is on the last tile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Know Your Cyclists",
+          "text": "Each player controls two cyclist miniatures. One is your Rouleur, the steady and reliable rider. The other is your Sprinteur, the explosive burst rider. They look different so you can tell them apart. Each cyclist has their own separate deck of cards that controls how they move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Card Decks",
+          "text": "Each player takes two decks of 15 cards. The Rouleur deck has consistent values: threes, fours, fives, sixes, and sevens. The Sprinteur deck has extreme values: twos and nines, plus some threes, fours, and fives in between. Shuffle each deck separately and place them face down near you. You do not hold a hand of cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Exhaustion Cards",
+          "text": "Place the exhaustion cards in a supply near the track. These are weak cards with a value of two that get shuffled into your decks during the race. The more exhaustion cards you accumulate, the weaker your future draws become. You want to avoid getting these whenever possible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Place Cyclists on the Starting Grid",
+          "text": "Place all cyclists on the starting grid at the beginning of the track. The starting positions are determined by player order. Each player places both their Rouleur and Sprinteur on the grid. The track is two lanes wide, so two cyclists can sit side by side in the same row.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Choose Starting Positions",
+          "text": "Players take turns choosing starting positions for their cyclists. Generally you want your Sprinteur further back and your Rouleur further forward, but it depends on your strategy. Once all cyclists are placed, the race is ready to begin. Let's go over the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Build the Race Track",
+          "bullets": [
+            "Connect modular track tiles (straights, curves, hills)",
+            "Follow rulebook layout or design your own course",
+            "Mark the finish line on the final tile"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Know Your Cyclists",
+          "bullets": [
+            "Each player has 2 cyclists: Rouleur (steady) and Sprinteur (explosive)",
+            "Each has a separate deck controlling movement"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Card Decks",
+          "bullets": [
+            "Rouleur deck: 15 cards (values 3-7, consistent spread)",
+            "Sprinteur deck: 15 cards (values 2-9, extreme highs and lows)",
+            "Shuffle each deck separately, no starting hand"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Exhaustion Cards",
+          "bullets": [
+            "Place exhaustion cards (value 2) in a supply near the track",
+            "Added to decks during the race as a penalty",
+            "Dilute your deck and weaken future draws"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place Cyclists on the Starting Grid",
+          "bullets": [
+            "All cyclists start on the grid at the track beginning",
+            "Track is 2 lanes wide — cyclists can be side by side",
+            "Starting positions determined by player order"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Choose Starting Positions",
+          "bullets": [
+            "Players choose positions for both cyclists",
+            "Consider Sprinteur placement (further back) vs. Rouleur (further forward)",
+            "Once all placed, the race begins"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Simultaneous Turns",
+          "text": "Flamme Rouge is played simultaneously. All players act at the same time each turn, so there is no waiting around. Everyone draws cards, everyone picks cards, everyone reveals, and then all cyclists move. This keeps the game fast and exciting.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Draw and Choose for Sprinteur",
+          "text": "At the start of each turn, draw four cards from your Sprinteur deck. Look at them and choose one to play this turn. Shuffle the other three back into the deck without showing anyone. The card value you chose determines how many spaces your Sprinteur will move forward.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Draw and Choose for Rouleur",
+          "text": "Now do the same for your Rouleur. Draw four cards from the Rouleur deck, pick one, and shuffle the rest back. You now have two face-down cards ready to reveal: one for your Sprinteur and one for your Rouleur. Both cyclists get separate movement this turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Reveal and Move",
+          "text": "All players reveal their chosen cards at the same time. Now move the cyclists. The cyclist furthest ahead on the track moves first. Move each cyclist forward exactly the number of spaces shown on their card. If a cyclist hits an occupied space, they stack behind the last cyclist in that group. You cannot pass through occupied spaces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Slipstream (Drafting)",
+          "text": "After all cyclists have moved, check for slipstreaming. Any cyclist with exactly one empty space between them and the next cyclist ahead gets to move forward one space for free. Keep checking repeatedly until no more slipstream moves are possible. Slipstreaming is free movement and does not cost a card. It is the most important tactical element in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Exhaustion Phase",
+          "text": "After slipstreaming, check which cyclists are at the front of a group with no one directly ahead of them. Each of those leaders receives one exhaustion card shuffled into their deck. Exhaustion cards have a value of two, which is very weak. The more exhaustion cards in your deck, the more likely you are to draw bad hands in future turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Two-Lane Track",
+          "text": "The track is two lanes wide. Two cyclists can sit side by side in the same row. When a cyclist moves forward and the space is partially occupied, they slide into the empty lane of that row. Some track sections narrow to one lane, creating bottlenecks. Movement through occupied spaces means stacking behind the group.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Hills: Uphill and Downhill",
+          "text": "Hills add a special challenge. On uphill sections, the maximum card value is capped at five. Even if you play a nine, your Sprinteur only moves five spaces uphill. On downhill sections, the minimum card value is five. Even a two-value exhaustion card moves you five spaces downhill. Hills reward the Rouleur's consistent values and punish the Sprinteur's extremes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Deck Depletion",
+          "text": "There is no deck reshuffling in Flamme Rouge. When your deck runs out, you only draw from whatever cards remain. If you have fewer than four cards left, you draw what you can and choose from those. This means every card you play is gone forever, and every exhaustion card you gain permanently weakens your future options.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Crossing the Finish Line",
+          "text": "The first cyclist of any player to cross the finish line wins the race for their team. If multiple cyclists cross on the same turn, the one that ends up furthest past the finish line wins. There are no points or scoring. It is a pure race. Get one of your two riders across first and you win!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Simultaneous Turns",
+          "bullets": [
+            "All players act at the same time each turn",
+            "No waiting — draw, choose, reveal, move together"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Draw and Choose for Sprinteur",
+          "bullets": [
+            "Draw 4 from Sprinteur deck, pick 1, shuffle rest back",
+            "Chosen card = Sprinteur's movement this turn"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Draw and Choose for Rouleur",
+          "bullets": [
+            "Draw 4 from Rouleur deck, pick 1, shuffle rest back",
+            "Both cyclists get separate movement cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Reveal and Move",
+          "bullets": [
+            "All players reveal simultaneously",
+            "Front cyclist moves first → move exactly card value spaces",
+            "Cannot pass through occupied spaces; stack behind"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Slipstream (Drafting)",
+          "bullets": [
+            "After movement: cyclist with 1 empty space to next rider → move forward 1 free",
+            "Repeat until no more slipstream moves possible",
+            "Free movement, no card cost; key tactical element"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Exhaustion Phase",
+          "bullets": [
+            "Cyclists at front of group (no one ahead) gain 1 exhaustion card",
+            "Exhaustion cards = value 2, shuffled into their deck",
+            "More exhaustion = weaker future draws"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Two-Lane Track",
+          "bullets": [
+            "2 lanes wide; 2 cyclists can be side by side",
+            "Some sections narrow to 1 lane (bottlenecks)",
+            "Occupied spaces block movement; stack behind"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Hills: Uphill and Downhill",
+          "bullets": [
+            "Uphill: max card value capped at 5 (even 9 → moves 5)",
+            "Downhill: min card value is 5 (even 2 → moves 5)",
+            "Hills favor Rouleur; punish Sprinteur's extremes"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Deck Depletion",
+          "bullets": [
+            "No reshuffling — when deck runs out, draw from remaining cards",
+            "Every card played is gone forever",
+            "Exhaustion cards permanently weaken your deck"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Crossing the Finish Line",
+          "bullets": [
+            "First cyclist across finish line wins for their team",
+            "Tie: furthest past the line wins",
+            "Pure race — no points, no scoring"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Peloton",
+          "text": "Welcome to your first race of Flamme Rouge! In this practice tutorial, we will walk through several turns of a race with example players to show you how card selection, movement, slipstreaming, and exhaustion work together. Follow along even if your track layout is different. Ready? Let's race.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Starting Grid",
+          "text": "Four players have placed their cyclists on the starting grid. Each player has a Rouleur and a Sprinteur. The cyclists are lined up two across in the two-lane track. The pack is tight right now, but that will change quickly once cards are played.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Turn One: Drawing Cards",
+          "text": "Everyone draws four cards for their Sprinteur first. Player 1 draws a two, a three, a five, and a nine. That nine is tempting but it is the first turn. Now everyone draws four for their Rouleur. Player 1 draws a three, a four, a five, and a seven. Time to choose.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player One's Smart Choice",
+          "text": "Player 1 picks the five for their Sprinteur and the four for their Rouleur. Why not the nine? Because on the first turn, playing a nine would launch the Sprinteur way ahead of the pack. Being in front means eating exhaustion cards every turn. Player 1 saves the nine for later and stays in the draft.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three's Mistake: The Early Sprint",
+          "text": "Player 3 cannot resist the nine they drew for their Sprinteur. They play it on turn one, launching their Sprinteur far ahead of the pack. Exciting? Yes. Smart? No. With no one in front to draft behind, Player 3's Sprinteur will receive an exhaustion card at the end of this turn and every turn they remain in the lead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Save Your Nines",
+          "text": "The Sprinteur's nine-value cards are your secret weapons for the final stretch. Playing them early gets you ahead temporarily, but the exhaustion penalty for leading is devastating over many turns. Two or three exhaustion cards in your Sprinteur deck mean you will draw twos when you need nines later. Save sprint cards for when the finish line is in sight.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Movement and Stacking",
+          "text": "All players reveal their cards. The frontmost cyclist moves first. Player 3's Sprinteur rockets forward nine spaces. Other cyclists move their chosen values. Some land behind occupied spaces and stack up. The pack is starting to stretch out along the track.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Slipstreaming in Action",
+          "text": "After all movement, we check for slipstreaming. Player 2's Rouleur has exactly one empty space between them and the next cyclist ahead. They slide forward one space for free. Check again. Now Player 4's Sprinteur has a one-space gap. They slide forward too. Free movement just for staying close to the pack.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Exhaustion Check",
+          "text": "Now check who is leading. Player 3's Sprinteur is alone at the front with no one ahead. They receive one exhaustion card shuffled into their Sprinteur deck. Everyone else is in a group with riders ahead, so they avoid exhaustion. Player 3 is already paying the price for that early sprint.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Turn Two: The Hill",
+          "text": "The track ahead has an uphill section. Remember, uphill caps card values at five. Player 3 drew the nine for their Sprinteur again, but uphill it only moves five spaces. Meanwhile, Player 1's Rouleur plays a five and gets the full value. Uphill sections equalize everyone and reward consistent riders.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Player Four's Mistake: Breaking Away Too Early",
+          "text": "Player 4 sees their Rouleur near the front and plays a seven to break away from the pack. But the pack is still tightly bunched on the hill. After slipstreaming, the pack closes the gap completely. Player 4's breakaway achieved nothing except burning a seven-value card. And now the Rouleur is at the front, earning an exhaustion card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Stay in the Pack",
+          "text": "Breaking away from the peloton only works near the finish line. In the middle of the race, the pack will catch you through slipstreaming, and you will eat exhaustion cards the entire time you are in front. Use your Rouleur to maintain position in the pack. Let other players do the leading. Draft behind them for free movement.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Team Coordination",
+          "text": "Smart players use their two cyclists as a team. Your Rouleur can lead for a few turns, absorbing exhaustion while your Sprinteur drafts behind. Then when the Rouleur slows down from exhaustion, your Sprinteur rockets past with a saved nine. Think of your Rouleur as the engine and your Sprinteur as the finisher.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Player Two's Mistake: Ignoring Deck Management",
+          "text": "Player 2 has been playing their highest available card every single turn for both cyclists. They burned through their best cards early. Now, with several turns left in the race, Player 2's draws are all threes, fours, and exhaustion twos. They have no burst left when they need it most.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Manage Your Deck",
+          "text": "Every card you play is gone forever. There is no reshuffling. If you play all your high cards early, your late-game draws will be terrible. Play medium-value cards to keep pace and save your highest cards for the final sprint. Deck management is the difference between winning and fading in the last stretch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Final Sprint",
+          "text": "The finish line is in sight. Player 1 has been saving a nine for their Sprinteur. The pack is bunched up on the straight. Player 1 plays the nine and their Sprinteur rockets forward. Other players play their remaining high cards too, but Player 1 had the better deck management. Their Sprinteur crosses the finish line first!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations! You have just raced your first Flamme Rouge tutorial. You have seen how card selection, slipstreaming, exhaustion, and deck management all connect. Remember: save your sprint nines for the finish, stay in the pack to avoid exhaustion, and manage your deck for the late game. You are ready to race for real!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Race",
+          "text": "Before you start a full race, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common racing mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to card values, slipstreaming rules, and hill effects.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your race. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Peloton",
+          "bullets": [
+            "Scripted tutorial walking through race turns with example players",
+            "Covers card selection, movement, slipstreaming, and exhaustion",
+            "Follow along even with a different track layout"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Starting Grid",
+          "bullets": [
+            "4 players with Rouleur and Sprinteur each on the grid",
+            "Two-lane track, cyclists lined up 2 across",
+            "Pack is tight at the start"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Turn One: Drawing Cards",
+          "bullets": [
+            "Draw 4 for Sprinteur first, then 4 for Rouleur",
+            "Choose 1 card for each cyclist, shuffle rest back",
+            "Player 1 draws: Sprinteur (2,3,5,9) and Rouleur (3,4,5,7)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player One's Smart Choice",
+          "bullets": [
+            "Picks 5 for Sprinteur, 4 for Rouleur (saves 9 for later)",
+            "Staying in the pack avoids exhaustion",
+            "Save high cards for the final sprint"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Three's Mistake: The Early Sprint",
+          "bullets": [
+            "Plays 9 on turn one — Sprinteur rockets ahead of pack",
+            "Alone in front = exhaustion card every turn",
+            "Exciting but strategically terrible"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Save Your Nines",
+          "bullets": [
+            "Sprint nines are endgame weapons for the final stretch",
+            "Early sprinting = exhaustion accumulation over many turns",
+            "2-3 exhaustion cards ruin your late-game draws"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Movement and Stacking",
+          "bullets": [
+            "Front cyclist moves first; all reveal simultaneously",
+            "Cyclists stack behind occupied spaces",
+            "Pack begins to stretch out along the track"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Slipstreaming in Action",
+          "bullets": [
+            "1 empty space to next rider ahead → free forward move",
+            "Check repeatedly until no more slipstream triggers",
+            "Free movement just for staying close to the pack"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Exhaustion Check",
+          "bullets": [
+            "Cyclists at front with no one ahead → gain 1 exhaustion card",
+            "Player 3's Sprinteur alone at front = exhaustion",
+            "Pack riders avoid exhaustion by drafting"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Turn Two: The Hill",
+          "bullets": [
+            "Uphill caps card values at 5 (nine → moves 5)",
+            "Rouleur's consistent values work well uphill",
+            "Hills equalize and reward steady riders"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player Four's Mistake: Breaking Away Too Early",
+          "bullets": [
+            "Plays 7 to break away, but pack closes gap via slipstream",
+            "Breakaway achieved nothing; wasted a 7-value card",
+            "Now at front earning exhaustion for no benefit"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Stay in the Pack",
+          "bullets": [
+            "Mid-race breakaways get caught by slipstreaming pack",
+            "Leading = exhaustion; drafting = free movement",
+            "Breakaways only work near the finish line"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Team Coordination",
+          "bullets": [
+            "Rouleur leads (absorbs exhaustion) while Sprinteur drafts",
+            "When Rouleur slows, Sprinteur rockets past with saved 9",
+            "Rouleur = engine, Sprinteur = finisher"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player Two's Mistake: Ignoring Deck Management",
+          "bullets": [
+            "Played highest card every turn, burned all best cards early",
+            "Late draws are all 3s, 4s, and exhaustion 2s",
+            "No burst remaining when needed most"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Manage Your Deck",
+          "bullets": [
+            "No reshuffling — every card played is gone forever",
+            "Play medium cards to keep pace, save high cards for sprint",
+            "Deck management = difference between winning and fading"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Final Sprint",
+          "bullets": [
+            "Finish line in sight — Player 1 plays saved 9",
+            "Sprinteur rockets past the pack and crosses first",
+            "Better deck management = winning the race"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen card selection, slipstreaming, exhaustion, and deck management",
+            "Three mistakes: early sprinting, breaking away mid-race, burning high cards",
+            "Save nines, stay in pack, manage your deck"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Race",
+          "bullets": [
+            "Check out General Tips → racing strategy for beginners",
+            "Reference the Appendix → card values, slipstream rules, hill effects",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before diving into strategy, here are the most common mistakes new racers make. First, playing sprint nines on the first few turns and leading the pack into exhaustion. Second, trying to break away mid-race when slipstreaming will catch you. Third, burning all high-value cards early and having nothing left for the finish. Fourth, forgetting to coordinate your two cyclists as a team. Keep these in mind and you will avoid the biggest beginner traps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Draft Behind the Pack",
+          "text": "The single most important tactic in Flamme Rouge is drafting. Stay close to the pack and let slipstreaming give you free movement every turn. Being at the front earns exhaustion cards that permanently weaken your deck. Being in the middle or back of the pack gets you free forward movement without any penalty. Let other players take the lead and suffer the consequences.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Save Your Sprint Cards",
+          "text": "The Sprinteur's three nine-value cards are your most powerful weapons. Do not play them until the finish line is within nine spaces or you are setting up for a final push. Playing a nine mid-race wastes its value because the pack will catch up through slipstreaming and you will eat exhaustion. Save nines for a decisive final sprint when the gap matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Rouleur as Your Workhorse",
+          "text": "The Rouleur deck has consistent values from three to seven. Use your Rouleur to maintain steady progress throughout the race. The Rouleur is excellent on hills because the five-cap uphill barely affects them while the Sprinteur's nines are wasted. Let the Rouleur do the work through the middle of the race while saving the Sprinteur for the end.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Team Coordination",
+          "text": "Think of your two cyclists as a team working together. Your Rouleur can lead for a few turns, absorbing exhaustion while your Sprinteur hides behind in the draft. When the Rouleur slows from accumulated exhaustion, your fresh Sprinteur can launch past with saved high cards. Sacrifice one rider's deck quality to preserve the other's finishing power.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Hill Strategy",
+          "text": "Uphill sections cap card values at five and downhill sections set a minimum of five. On uphills, play your lowest cards because anything above five is wasted. Save high cards for flat sections or the finish. On downhills, play your exhaustion twos or lowest cards because they get boosted to five automatically. Hills are where deck management really pays off.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reading the Track",
+          "text": "Before the race starts, look at the track layout. Identify where the hills are, where narrow sections create bottlenecks, and how far the finish line is from the last hill. Plan your card usage around these features. If there is a long flat stretch before the finish, that is where you want your sprint cards. If there is a hill right before the end, the Rouleur may be your finisher instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Exhaustion Mitigation",
+          "text": "Every exhaustion card in your deck is a future turn where you might draw a two instead of something useful. The best mitigation is simply not leading. Stay in the pack. If you must lead, try to lead with your Rouleur rather than your Sprinteur, because the Rouleur's consistent deck handles exhaustion dilution better than the Sprinteur's boom-or-bust deck.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Playing sprint nines early = exhaustion accumulation",
+            "Mid-race breakaways = slipstream catches you",
+            "Burning high cards early = nothing left for finish",
+            "Forgetting to coordinate two cyclists as a team"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Draft Behind the Pack",
+          "bullets": [
+            "Slipstreaming = free forward movement every turn",
+            "Leading = exhaustion cards permanently weakening your deck",
+            "Middle/back of pack = free movement with no penalty",
+            "Let others lead and suffer the consequences"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Save Your Sprint Cards",
+          "bullets": [
+            "Sprinteur's three 9-value cards are endgame weapons",
+            "Save until finish is within 9 spaces or final push",
+            "Mid-race nines: pack catches up + you eat exhaustion",
+            "Decisive sprint at end > temporary lead mid-race"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Rouleur as Your Workhorse",
+          "bullets": [
+            "Consistent values (3-7) for steady mid-race progress",
+            "Excellent on hills (5-cap barely affects Rouleur)",
+            "Use Rouleur through middle of race, save Sprinteur for end",
+            "Rouleur handles exhaustion dilution better than Sprinteur"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Team Coordination",
+          "bullets": [
+            "Rouleur leads (absorbs exhaustion), Sprinteur drafts behind",
+            "When Rouleur fades, Sprinteur launches with saved high cards",
+            "Sacrifice one rider's deck quality to preserve the other's power",
+            "Think of cyclists as engine (Rouleur) and finisher (Sprinteur)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Hill Strategy",
+          "bullets": [
+            "Uphill: play lowest cards (anything above 5 is wasted)",
+            "Downhill: play exhaustion 2s or lowest cards (boosted to 5)",
+            "Save high cards for flat sections and the finish",
+            "Hills = where deck management pays off most"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading the Track",
+          "bullets": [
+            "Study track layout before the race starts",
+            "Identify hills, bottlenecks, and flat finishing stretches",
+            "Long flat before finish = use Sprinteur's nines there",
+            "Hill before finish = Rouleur may be your finisher"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Exhaustion Mitigation",
+          "bullets": [
+            "Each exhaustion card = future draw of a 2 instead of useful card",
+            "Best mitigation: don't lead, stay in the pack",
+            "If you must lead, use Rouleur (handles dilution better)",
+            "Sprinteur's boom-or-bust deck suffers more from exhaustion"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Peloton Riding",
+          "text": "The most consistent winning strategy is peloton riding. Stay in the middle of the pack for as long as possible, collecting free slipstream movement every turn while other players absorb exhaustion at the front. The goal is to arrive at the final stretch with a clean deck, full of high-value cards, while opponents are drawing exhaustion twos. Position both cyclists in the pack and only break away in the last two or three turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Leadout Train",
+          "text": "This is the classic cycling team tactic adapted for the game. Position your Rouleur ahead of your Sprinteur. The Rouleur plays high cards to maintain the lead, absorbing all the exhaustion while the Sprinteur drafts behind for free movement. When the finish is close, the Rouleur pulls aside and the Sprinteur plays back-to-back nines to rocket across the line. Your Rouleur's deck gets destroyed, but your Sprinteur's deck stays fresh.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Hill Optimization",
+          "text": "Advanced players plan their entire card selection around hill placement on the track. On uphills, play your twos, threes, and exhaustion cards because everything caps at five anyway. On downhills, play your remaining low cards because they get boosted to five. Save all your sixes, sevens, and nines for flat sections where their full value matters. This strategy effectively turns bad cards into good ones by playing them at the right terrain.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Blocking Strategy",
+          "text": "Use one cyclist to block opponents at narrow track sections or bottlenecks. If your Rouleur is in front at a narrow section, playing a low card keeps them moving slowly while the pack stacks up behind. This prevents opponents from passing while your Sprinteur sits safely in the draft. Blocking is especially effective on uphill narrow sections where everyone is capped at five anyway.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Sprint Timing Calculation",
+          "text": "Precise sprint timing wins races. Count the spaces to the finish line and calculate exactly when to play your nines. If the finish is 14 spaces away, playing a five this turn and a nine next turn gets you there. Factor in slipstreaming too. If you expect one slipstream move per turn, you effectively gain one extra space. The player who starts their sprint at the mathematically optimal moment will beat players who sprint too early or too late.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Deck Counting",
+          "text": "Advanced players track which cards they have already played and which remain in their deck. If you know you have two nines and three fives left in your Sprinteur deck, you can calculate the probability of drawing them. When your deck is low, you know exactly what is coming. This information lets you plan your final turns with precision rather than hoping for good draws.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Forcing Opponents to Lead",
+          "text": "Sometimes the best strategy is to play slightly lower cards to avoid being at the front. If you and an opponent are neck and neck, playing a four instead of a six can keep you behind them. They lead, they get exhaustion, and you get free slipstreaming. This is a psychological game. Experienced players will try to force each other into the lead. The player who is best at staying second wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Multi-Race Campaign Thinking",
+          "text": "If your group plays multiple races in a session or uses a campaign mode, think about consistency across races. Avoid strategies that only work on specific track layouts. The peloton riding approach works on almost any track. Save aggressive sprint strategies for tracks with long flat finishes. Adaptability across different track configurations is the mark of an elite Flamme Rouge player.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Peloton Riding",
+          "bullets": [
+            "Stay in middle of pack for free slipstream movement",
+            "Others absorb exhaustion at front; you keep a clean deck",
+            "Break away only in last 2-3 turns with high-value cards",
+            "Most consistent winning strategy"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Leadout Train",
+          "bullets": [
+            "Rouleur leads, absorbing exhaustion; Sprinteur drafts behind",
+            "Near finish: Rouleur pulls aside, Sprinteur plays back-to-back 9s",
+            "Sacrifices Rouleur's deck to keep Sprinteur fresh",
+            "Classic cycling team tactic"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Hill Optimization",
+          "bullets": [
+            "Uphill: play 2s, 3s, exhaustion cards (everything caps at 5)",
+            "Downhill: play lowest cards (boosted to 5 minimum)",
+            "Save 6s, 7s, 9s for flat sections where full value counts",
+            "Turns bad cards into good ones with terrain timing"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Blocking Strategy",
+          "bullets": [
+            "Use one cyclist to block at narrow/bottleneck sections",
+            "Play low cards to move slowly, stacking pack behind",
+            "Sprinteur drafts safely while Rouleur blocks",
+            "Especially effective on uphill narrow sections"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Sprint Timing Calculation",
+          "bullets": [
+            "Count spaces to finish; calculate when to play 9s",
+            "Factor in expected slipstream movement (+1 per turn)",
+            "Start sprint at mathematically optimal moment",
+            "Too early = exhaustion; too late = can't catch up"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Deck Counting",
+          "bullets": [
+            "Track which cards are played and which remain",
+            "Low deck = exact knowledge of upcoming draws",
+            "Calculate probability of drawing nines when needed",
+            "Precise planning > hoping for good draws"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Forcing Opponents to Lead",
+          "bullets": [
+            "Play slightly lower cards to stay behind opponents",
+            "They lead → get exhaustion; you draft → free movement",
+            "Psychological game of avoiding the front position",
+            "Best at staying second = best at winning"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Multi-Race Campaign Thinking",
+          "bullets": [
+            "Peloton riding works on almost any track layout",
+            "Save aggressive sprint strategies for long flat finishes",
+            "Adaptability across different tracks = elite play",
+            "Consistency > track-specific gimmicks"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Rouleur",
+          "definition": "One of your two cyclists. Has a deck of 15 cards with consistent values: three sets each of 3, 4, 5, 6, and 7. The steady, reliable rider for mid-race progress.",
+          "category": "Cyclists"
+        },
+        {
+          "term": "Sprinteur",
+          "definition": "One of your two cyclists. Has a deck of 15 cards with extreme values: three 2s, three 3s, three 4s, three 5s, and three 9s. The explosive burst rider for the final sprint.",
+          "category": "Cyclists"
+        },
+        {
+          "term": "Exhaustion Card",
+          "definition": "A card with a value of 2 shuffled into a cyclist's deck as a penalty. Gained when a cyclist is at the front of a group with no one ahead after the slipstream phase. Permanently weakens the deck.",
+          "category": "Cards"
+        },
+        {
+          "term": "Slipstream (Drafting)",
+          "definition": "After all movement, any cyclist with exactly one empty space between them and the next cyclist ahead moves forward one space for free. Checked repeatedly until no more moves trigger. The key tactical mechanic of the game.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Uphill",
+          "definition": "Track section that caps the maximum card value at 5. Even a 9-value card only moves a cyclist 5 spaces uphill. Equalizes all riders and favors the Rouleur's consistent values.",
+          "category": "Track"
+        },
+        {
+          "term": "Downhill",
+          "definition": "Track section that sets the minimum card value to 5. Even a 2-value exhaustion card moves a cyclist 5 spaces downhill. Ideal for playing low-value and exhaustion cards.",
+          "category": "Track"
+        },
+        {
+          "term": "Two-Lane Track",
+          "definition": "The track is two lanes wide. Two cyclists can occupy the same row side by side. Movement into partially occupied rows slides the cyclist into the empty lane.",
+          "category": "Track"
+        },
+        {
+          "term": "Narrow Section",
+          "definition": "A track section that narrows to one lane wide. Creates bottlenecks where cyclists must stack single-file. Strategic for blocking opponents.",
+          "category": "Track"
+        },
+        {
+          "term": "Finish Line",
+          "definition": "Marked on the final track tile. The first cyclist of any player to cross wins the race for their team. If multiple cross on the same turn, furthest past the line wins.",
+          "category": "Track"
+        },
+        {
+          "term": "Starting Grid",
+          "definition": "The section at the beginning of the track where all cyclists are placed during setup. Starting positions are chosen by players in turn order.",
+          "category": "Track"
+        },
+        {
+          "term": "Movement",
+          "definition": "Move a cyclist forward exactly the number of spaces shown on their played card. Cannot pass through occupied spaces; stack behind the last cyclist in a group.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Front Cyclist Moves First",
+          "definition": "During the movement phase, the cyclist furthest ahead on the track moves first. This prevents conflicts when multiple cyclists are close together.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "No Reshuffling",
+          "definition": "Decks are never reshuffled in Flamme Rouge. When your deck runs out, draw from whatever cards remain. Every card played is gone permanently. Exhaustion cards stay in the deck forever.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Draw Four",
+          "definition": "Each turn, draw 4 cards from each cyclist's deck. Choose 1 to play, shuffle the other 3 back. If fewer than 4 cards remain, draw what you can.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Peloton",
+          "definition": "The main group of cyclists riding together. Staying in the peloton provides slipstream benefits and avoids exhaustion. Breaking away from the peloton is risky.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Breakaway",
+          "definition": "When a cyclist pulls ahead of the peloton with a gap. The breakaway cyclist leads alone, gaining exhaustion each turn. Only effective near the finish line.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Leadout",
+          "definition": "A team tactic where one cyclist leads to absorb exhaustion while the other drafts behind. Near the finish, the leading cyclist pulls aside and the trailing cyclist sprints past.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Deck Management",
+          "definition": "The strategy of choosing when to play high vs. low cards throughout the race. Saving high cards for the finish and playing low cards on hills is key to winning.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Modular Track Tiles",
+          "definition": "Cardboard pieces including straights, curves, and hills that connect together to form the race course. Different configurations create different racing experiences.",
+          "category": "Components"
+        },
+        {
+          "term": "Simultaneous Play",
+          "definition": "All players draw, choose, and reveal cards at the same time. No waiting for other players' turns. Keeps the game fast and prevents analysis paralysis.",
+          "category": "Mechanics"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,974 @@
+{
+  "game_id": "forbidden-desert",
+  "title": "Forbidden Desert",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Create the Desert Grid",
+          "text": "Let's set up Forbidden Desert! First, find all 24 desert tiles. Shuffle them face down and arrange them in a five by five grid, leaving the center space empty. That empty center space is the storm's eye, the starting point of the sandstorm. All tiles start face down with their sandy side up.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place Initial Sand Markers",
+          "text": "Now grab the sand markers from the supply. Place one sand marker on each of the eight tiles directly surrounding the center empty space. That is the ring of tiles adjacent to the storm eye. These tiles are already partially buried and will need clearing before they can be excavated.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set the Storm Meter",
+          "text": "Find the storm meter and its clip. Choose your difficulty level. Novice starts at two, Normal at three, Elite at four, and Legendary at five. The storm meter determines how many storm cards you draw each turn. For your first game, we recommend starting at Novice. Place the clip at your chosen level.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Card Decks",
+          "text": "Shuffle all 31 storm cards and place them face down as a draw pile. These cards drive the storm and can be devastating. Separately, shuffle the equipment cards and place them face down near the board. Equipment cards are your lifeline, so keep them accessible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Set Out the Machine Parts",
+          "text": "Place the four flying machine parts near the board where everyone can reach them. You need all four: the Propeller, the Engine, the Navigation Deck, and the Crystal. Finding and assembling these parts is how you win the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Assign Roles",
+          "text": "Shuffle the six adventurer cards and deal one to each player. Each role has a unique power and a different starting water level. The Explorer can move diagonally. The Meteorologist can manage storm cards. The Navigator can move other players. The Water Carrier starts with extra water and can share it. The Climber can cross blocked tiles. The Archaeologist clears sand faster.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Set Up Players",
+          "text": "Each player takes their matching pawn and places their water meter clip at the maximum water level shown on their adventurer card. All players place their pawns in the center of the grid, which is the crash site where the storm eye is. The thirstiest player goes first, or choose randomly. You are ready to begin.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Create the Desert Grid",
+          "bullets": [
+            "Shuffle 24 desert tiles face down",
+            "Arrange in 5x5 grid, center space empty (storm eye)",
+            "All tiles start face down (sand side up)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place Initial Sand Markers",
+          "bullets": [
+            "Place 1 sand marker on each of the 8 tiles surrounding the center",
+            "These tiles are partially buried from the start"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set the Storm Meter",
+          "bullets": [
+            "Choose difficulty: Novice (2), Normal (3), Elite (4), Legendary (5)",
+            "Storm meter = # storm cards drawn per turn",
+            "Recommended: start at Novice for first game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prepare the Card Decks",
+          "bullets": [
+            "Shuffle 31 storm cards → face-down draw pile",
+            "Shuffle equipment cards → face-down pile nearby"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Out the Machine Parts",
+          "bullets": [
+            "Place 4 parts near board: Propeller, Engine, Navigation Deck, Crystal",
+            "Collecting all 4 is the win condition"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Assign Roles",
+          "bullets": [
+            "Shuffle 6 adventurer cards, deal 1 per player",
+            "Each role has unique power and different starting water",
+            "Explorer (diagonal), Meteorologist (storm management), Navigator (move others), Water Carrier (extra water), Climber (cross blocked), Archaeologist (clear 2 sand)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Set Up Players",
+          "bullets": [
+            "Each player: take pawn, set water clip to max",
+            "All pawns start at center (crash site / storm eye)",
+            "Thirstiest player goes first (or random)"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Structure",
+          "text": "On your turn, you do two things. First, take up to four actions. You can choose from moving, removing sand, excavating tiles, or picking up machine parts. You can take fewer than four actions if you want. Second, draw storm cards equal to the current storm meter level and resolve each one immediately. Then pass to the next player clockwise.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Action: Move",
+          "text": "Spend one action to move your pawn to an adjacent tile. You can move up, down, left, or right, but not diagonally unless you are the Explorer. You cannot move onto a tile with two or more sand markers because it is blocked, unless you are the Climber. Excavated tunnel tiles let you travel between any two tunnel entrances as a single move action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Action: Remove Sand",
+          "text": "Spend one action to remove one sand marker from your current tile or an adjacent tile. A tile must have zero sand markers before it can be excavated. The Archaeologist is extra powerful here, removing two sand markers per action instead of one. Sand builds up quickly, so clearing it is a constant priority.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Action: Excavate",
+          "text": "Spend one action to flip a face-down tile that you are standing on, as long as it has zero sand markers. Excavating reveals what is underneath: gear tiles give you equipment cards, water tiles restore water, tunnel tiles provide shelter and fast travel, clue tiles help locate machine parts, and the launch pad is where you escape.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Finding Machine Parts",
+          "text": "Each of the four machine parts has two clue tiles. One clue shows the row and the other shows the column. When both clue tiles for a part are excavated, the part appears at the tile where the row and column intersect. A player standing on that tile can pick it up. Finding parts requires excavating clues, not digging randomly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Storm Cards: Wind",
+          "text": "Most storm cards show directional wind arrows. When drawn, tiles shift in the indicated direction. The storm eye stays fixed while tiles slide around it. One, two, or three tiles shift depending on the card. After tiles shift, place one sand marker on each tile that just moved. This is how sand piles up across the desert.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Storm Cards: Sun Beats Down",
+          "text": "When a Sun Beats Down card is drawn, every player not on a tunnel tile or protected by a Solar Shield loses one water. No tiles shift. This is the most dangerous card type because it drains water from everyone simultaneously. Staying near tunnel tiles or holding Solar Shields is your best defense.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Storm Cards: Storm Picks Up",
+          "text": "When a Storm Picks Up card is drawn, advance the storm meter one level. This means future turns draw more storm cards, accelerating the danger. No tiles shift on this card either. Each Storm Picks Up card makes the game permanently harder. There is no way to reverse the storm meter.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Equipment Cards",
+          "text": "Equipment cards are powerful tools. The Dune Blaster removes all sand from one tile. The Jet Pack moves you or another player to any unblocked tile. The Terrascope lets you peek at a face-down tile. The Solar Shield protects from Sun Beats Down. The Secret Water Reserve gives two water to any player. The Time Throttle grants two extra actions. Equipment does not cost an action to use and can be played on any player's turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Water Management",
+          "text": "Water is your most precious resource. Each player tracks water on their adventurer card. When water reaches the skull, that player dies and everyone loses. The Water Carrier can share water with adjacent players as an action and can revisit excavated well tiles for more water. Protect the Water Carrier and keep them mobile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Winning and Losing",
+          "text": "You win by gathering all four machine parts and getting every player to the launch pad tile. Then you escape the desert together. You lose if any player's water reaches the skull symbol, if a sand marker must be placed but the supply is empty, or if the storm meter reaches the skull at the top. This is a cooperative game with no individual scoring. You win or lose as a team.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Structure",
+          "bullets": [
+            "Take up to 4 actions (Move, Remove Sand, Excavate, Pick Up Part)",
+            "Draw storm cards = current storm meter level",
+            "Resolve each storm card immediately → pass clockwise"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Action: Move",
+          "bullets": [
+            "1 action: move to adjacent tile (orthogonal; Explorer: diagonal too)",
+            "Blocked tiles (2+ sand) impassable unless Climber",
+            "Tunnels: travel between any 2 tunnel entrances for 1 action"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Action: Remove Sand",
+          "bullets": [
+            "1 action: remove 1 sand marker from your tile or adjacent tile",
+            "Tile must have 0 sand to be excavated",
+            "Archaeologist removes 2 sand per action"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Action: Excavate",
+          "bullets": [
+            "1 action: flip face-down tile you're standing on (0 sand required)",
+            "Reveals: gear, water, tunnel, clue, mirage, or launch pad"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Finding Machine Parts",
+          "bullets": [
+            "Each part has 2 clue tiles (1 row + 1 column)",
+            "Both clues excavated → part appears at row/column intersection",
+            "Player on that tile picks it up"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Storm Cards: Wind",
+          "bullets": [
+            "Tiles shift in arrow direction (1-3 tiles per card)",
+            "Storm eye stays fixed; tiles slide around it",
+            "1 sand marker placed on each shifted tile"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Storm Cards: Sun Beats Down",
+          "bullets": [
+            "All players not on tunnel/Solar Shield lose 1 water",
+            "No tile shifting occurs",
+            "Most dangerous card type — drains whole team"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Storm Cards: Storm Picks Up",
+          "bullets": [
+            "Storm meter advances 1 level → more cards drawn per turn",
+            "Permanently increases difficulty",
+            "No tile shifting occurs; no way to reverse"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Equipment Cards",
+          "bullets": [
+            "Dune Blaster (clear all sand), Jet Pack (teleport), Terrascope (peek)",
+            "Solar Shield (block Sun), Secret Water Reserve (+2 water), Time Throttle (+2 actions)",
+            "Free to use (no action cost); can play on any player's turn"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Water Management",
+          "bullets": [
+            "Water at skull = player dies, team loses",
+            "Water Carrier: share water + revisit excavated wells",
+            "Protect and mobilize the Water Carrier"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Winning and Losing",
+          "bullets": [
+            "Win: all 4 parts collected + all players on launch pad",
+            "Lose: any player dehydrates, sand supply empty, storm meter maxed",
+            "Cooperative: team wins or loses together, no individual score"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Desert",
+          "text": "Welcome to your first game of Forbidden Desert! In this practice tutorial, we will walk through several turns with an example team to show you how actions, storm cards, and teamwork combine. Your team has crash-landed in the desert and must find four machine parts to escape. Follow along even if your roles are different. Ready? Let's survive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Meet the Team",
+          "text": "Our example team has four players. The Explorer, who can move and remove sand diagonally. The Water Carrier, who starts with five water and can share it. The Archaeologist, who removes two sand per action. And the Navigator, who can move other players. Everyone starts at the crash site in the center of the grid.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Explorer's First Turn",
+          "text": "The Explorer goes first. They spend their first action removing sand from an adjacent tile. Second action, they remove sand from another adjacent tile. Third action, they move onto the now-cleared tile. Fourth action, they excavate it, revealing a clue tile for the Engine! Now the Explorer draws storm cards. Two wind cards shift tiles and pile more sand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Water Carrier's Turn",
+          "text": "The Water Carrier moves toward a different section of the grid, clearing sand along the way. They excavate a water tile, restoring water for themselves and nearby players. The Water Carrier is the team's lifeline. Keep them moving to wells and distributing water.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Archaeologist's Turn",
+          "text": "The Archaeologist shines at clearing sand. They remove two sand markers per action, so in four actions they can clear eight sand markers. The Archaeologist clears a path toward an unexplored section of the grid and excavates a gear tile, drawing an equipment card: a Jet Pack! Powerful tool saved for later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Navigator's Turn",
+          "text": "The Navigator has a unique ability: they can move other players up to three spaces as a single action. The Navigator uses this to reposition the Water Carrier closer to a thirsty teammate. Then the Navigator excavates their own tile, finding another clue. Two clues for the Engine are now revealed, and the Engine part appears on the board!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Ignoring Sand Buildup",
+          "text": "After several turns, the team notices a problem. Sand has been piling up on the east side of the grid because no one has been clearing it. Three tiles now have three or four sand markers each. They are completely blocked. Even the Archaeologist would need two full turns just to clear one tile. The team has let sand get out of control.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Clear Sand Early and Often",
+          "text": "Sand buildup is the number one way teams lose Forbidden Desert. Once a tile has three or four sand markers, it costs most of a turn just to clear it. Address sand early when it is one or two markers. Assign the Archaeologist to the most sand-heavy areas and do not let any tile go above two markers if you can help it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Sun Beats Down!",
+          "text": "The next storm card drawn is Sun Beats Down. Every player not on a tunnel tile loses one water. The Explorer and Archaeologist are exposed. They each drop one water level. The Navigator is on a tunnel tile and is safe. The Water Carrier uses their ability to share water with the Explorer nearby. Sun Beats Down is devastating to spread-out teams.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Splitting Too Far Apart",
+          "text": "The team realizes the Explorer is three tiles away from the nearest teammate and nearly out of water. If another Sun Beats Down hits, the Explorer could die. The team split up to cover more ground but forgot about water logistics. The Water Carrier cannot reach the Explorer in time without the Navigator's help.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Stay Within Water Range",
+          "text": "Never let a player wander so far from the team that the Water Carrier cannot reach them within one or two turns. Communication is everything in a cooperative game. Before each turn, discuss as a team where everyone needs to be. Keep the Water Carrier central and mobile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: Hoarding Equipment",
+          "text": "The Archaeologist has been holding the Jet Pack for five turns, waiting for the perfect moment. Meanwhile, the Explorer nearly died from dehydration and the Jet Pack could have moved them to a tunnel for safety. Equipment cards are powerful and time-sensitive. Waiting for the perfect play often means losing before you use them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Use Equipment Aggressively",
+          "text": "Equipment cards do not cost an action to play. There is no reason to hoard them when a teammate is in danger. Use the Jet Pack to rescue stranded players. Use the Dune Blaster to clear sand emergencies. Use the Solar Shield before Sun Beats Down decimates your water. Play equipment early and often.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Collecting Parts and Heading to the Launch Pad",
+          "text": "The team recovers and works together. They excavate remaining clue tiles, locate all four machine parts, and collect them. Now everyone needs to converge on the launch pad tile. The Navigator moves teammates efficiently. The Water Carrier keeps everyone hydrated. The Archaeologist clears a path through the sand.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations! You have seen how Forbidden Desert's mechanics work together: actions, storm cards, water management, and team coordination. You watched three common mistakes. Remember: clear sand early, stay within water range, and use equipment aggressively. You are ready to brave the desert for real!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Before You Explore",
+          "text": "Before you start a full game, here are three things that can help.\n\nFirst, check out General Tips for cooperative strategy basics and role-specific advice.\n\nSecond, reference the Appendix for a quick guide to tile types, equipment cards, and role powers.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Desert",
+          "bullets": [
+            "Scripted tutorial with 4 example players demonstrating teamwork",
+            "Covers actions, storm cards, and cooperative strategy",
+            "Follow along even with different roles"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Meet the Team",
+          "bullets": [
+            "Explorer (diagonal movement), Water Carrier (5 water, shares)",
+            "Archaeologist (clears 2 sand), Navigator (moves others)",
+            "All start at crash site in center of grid"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Explorer's First Turn",
+          "bullets": [
+            "4 actions: remove sand x2 → move → excavate (reveals Engine clue)",
+            "Then draw storm cards and resolve",
+            "Efficient action sequence: clear path → excavate"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Water Carrier's Turn",
+          "bullets": [
+            "Moves toward water tile, clears sand along the way",
+            "Excavates water tile → restores water for nearby players",
+            "Water Carrier is the team's lifeline"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Archaeologist's Turn",
+          "bullets": [
+            "Removes 2 sand per action (8 sand in 4 actions)",
+            "Clears path and excavates gear tile → draws Jet Pack",
+            "Archaeologist is the sand-clearing specialist"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Navigator's Turn",
+          "bullets": [
+            "Moves Water Carrier closer to thirsty teammate (up to 3 spaces)",
+            "Excavates own tile, finding second Engine clue",
+            "Both Engine clues revealed → Engine part appears on board"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Ignoring Sand Buildup",
+          "bullets": [
+            "Sand piled to 3-4 markers on multiple tiles",
+            "Completely blocked — costs full turns to clear",
+            "Team let sand get out of control"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Clear Sand Early and Often",
+          "bullets": [
+            "Sand buildup is #1 way teams lose",
+            "Address sand at 1-2 markers before it snowballs",
+            "Assign Archaeologist to sand-heavy areas",
+            "Never let tiles go above 2 markers if possible"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Sun Beats Down!",
+          "bullets": [
+            "All players not on tunnel/Solar Shield lose 1 water",
+            "Explorer and Archaeologist exposed — lose water",
+            "Water Carrier shares water with nearby Explorer"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Splitting Too Far Apart",
+          "bullets": [
+            "Explorer 3 tiles from nearest teammate, nearly out of water",
+            "Water Carrier can't reach in time without help",
+            "Team spread out for coverage but forgot water logistics"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Stay Within Water Range",
+          "bullets": [
+            "Never let a player wander beyond Water Carrier's reach",
+            "Discuss positioning as a team before each turn",
+            "Keep Water Carrier central and mobile"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: Hoarding Equipment",
+          "bullets": [
+            "Archaeologist held Jet Pack for 5 turns waiting for 'perfect moment'",
+            "Meanwhile Explorer nearly died from dehydration",
+            "Jet Pack could have rescued them earlier"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Use Equipment Aggressively",
+          "bullets": [
+            "Equipment costs no action — no reason to hoard",
+            "Use Jet Pack for rescue, Dune Blaster for emergencies",
+            "Play equipment early and often to prevent crises"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Collecting Parts and Heading to the Launch Pad",
+          "bullets": [
+            "Find all clue tiles → locate all 4 parts → collect them",
+            "Converge all players on launch pad tile",
+            "Navigator moves teammates, Water Carrier hydrates, Archaeologist clears"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen actions, storm cards, water management, and team coordination",
+            "Three mistakes: ignoring sand, splitting too far, hoarding equipment",
+            "Clear sand early, stay in water range, use equipment aggressively"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Explore",
+          "bullets": [
+            "Check out General Tips → cooperative strategy and role advice",
+            "Reference the Appendix → tile types, equipment, and role powers",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before diving into strategy, here are the most common mistakes teams make. First, letting sand pile up to three or four markers before addressing it. Second, splitting too far apart so the Water Carrier cannot help thirsty teammates. Third, hoarding equipment cards instead of using them when needed. Fourth, chasing machine parts before both clue tiles are revealed. And fifth, forgetting to use tunnel tiles for shelter from Sun Beats Down cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Clue Tiles",
+          "text": "You cannot find machine parts until both clue tiles for each part are excavated. This means your primary goal is uncovering clue tiles as fast as possible. Gear tiles and water tiles are nice bonuses, but clue tiles are what actually progress the win condition. When deciding which direction to explore, prioritize paths toward unexcavated tiles rather than clearing sand on already-known locations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Sand Management",
+          "text": "Sand is the silent killer in Forbidden Desert. One or two markers per tile is manageable. Three or more is a crisis. The Archaeologist should focus on the sandiest areas because they clear two markers per action. Everyone else should chip in when passing through. A good rule of thumb: never end your turn leaving a tile above two sand markers if you are adjacent to it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Water Conservation",
+          "text": "Water is finite and Sun Beats Down cards drain everyone simultaneously. Position players near tunnel tiles whenever possible because tunnels provide shelter. The Water Carrier is your most important player. Keep them near the team center so they can share water quickly. Do not waste actions having the Water Carrier excavate random tiles. Their job is water logistics.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Use Your Role Powers",
+          "text": "Each role has a powerful ability that should be used every turn if possible. The Explorer's diagonal movement lets them reach tiles others cannot. The Navigator's ability to move other players saves the team actions. The Archaeologist's double sand removal is essential for keeping paths clear. The Meteorologist can reduce storm card draws, slowing the storm. Do not play generically. Lean into your role's strength.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Tunnel Network",
+          "text": "Excavated tunnel tiles are incredibly valuable. They provide shelter from Sun Beats Down and allow free travel between any two tunnel entrances. Once you have two or more tunnels excavated, your team can move across the board efficiently. Prioritize excavating tunnel tiles early because they pay dividends for the rest of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Storm Card Awareness",
+          "text": "Pay attention to which storm cards have been drawn. Track how many Storm Picks Up and Sun Beats Down cards have appeared. If most Sun Beats Down cards are already drawn, you can be more aggressive about positioning outside tunnels. If the storm meter is climbing quickly, accelerate your part collection because time is running out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Coordination",
+          "text": "Once all four parts are collected, you need every player on the launch pad. This is where games are won or lost. Start positioning players toward the launch pad as soon as the third part is collected. The Navigator can move teammates efficiently. Save a Jet Pack card for emergency transport. Do not wait until all parts are collected to start converging. Plan ahead.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Letting sand pile to 3-4 markers before clearing",
+            "Splitting too far from Water Carrier's reach",
+            "Hoarding equipment instead of using it proactively",
+            "Chasing parts before both clue tiles are revealed"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prioritize Clue Tiles",
+          "bullets": [
+            "Clue tiles progress the win condition; gear/water are bonuses",
+            "Can't find parts until both clues per part are excavated",
+            "Explore toward unexcavated tiles, not known locations"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Sand Management",
+          "bullets": [
+            "1-2 markers = manageable; 3+ = crisis",
+            "Archaeologist focuses on sandiest areas (2 per action)",
+            "Never leave adjacent tile above 2 markers if you can help it"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Water Conservation",
+          "bullets": [
+            "Position near tunnels for Sun Beats Down shelter",
+            "Water Carrier stays central for quick sharing",
+            "Don't waste Water Carrier on random excavation",
+            "Water is finite — every drop counts"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Use Your Role Powers",
+          "bullets": [
+            "Explorer: diagonal reach for hard-to-access tiles",
+            "Navigator: moves teammates, saves team actions",
+            "Archaeologist: essential sand control (2 per action)",
+            "Meteorologist: slows the storm by managing card draws"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Tunnel Network",
+          "bullets": [
+            "Tunnels = shelter from Sun Beats Down + fast travel",
+            "2+ tunnels = efficient cross-board movement",
+            "Prioritize excavating tunnel tiles early"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Storm Card Awareness",
+          "bullets": [
+            "Track how many Storm Picks Up and Sun Beats Down have appeared",
+            "Most Sun Beats Down drawn = safer outside tunnels",
+            "Storm meter climbing fast = accelerate part collection"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Coordination",
+          "bullets": [
+            "Start converging on launch pad after 3rd part collected",
+            "Navigator moves teammates efficiently",
+            "Save Jet Pack for emergency transport to launch pad",
+            "Don't wait until all parts found to start positioning"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Optimal Exploration Pattern",
+          "text": "Advanced teams explore in a systematic pattern rather than randomly. Start by clearing the tiles adjacent to the crash site, then spiral outward. This minimizes backtracking and ensures you find clue tiles efficiently. The Explorer and Archaeologist push outward while the Water Carrier and Navigator support from behind. Cover the board methodically rather than chasing individual tiles.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Storm Eye Tracking",
+          "text": "The storm eye moves when wind cards are drawn. Advanced players track the storm eye's position and avoid excavating tiles near it because those tiles will receive the most sand. Instead, explore tiles on the far side of the board from the storm eye. Sand tends to accumulate in predictable patterns based on the eye's movement.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Water Carrier Optimization",
+          "text": "The Water Carrier's ability to revisit excavated well tiles is incredibly powerful. Advanced teams position the Water Carrier near a well tile and have them shuttle water back and forth. The Water Carrier spends one action filling up at the well and one action sharing water with a teammate. This creates a sustainable water pipeline that keeps the team alive longer than any other strategy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Meteorologist Storm Management",
+          "text": "The Meteorologist can spend actions to draw fewer storm cards at the end of their turn or peek at upcoming storm cards. Advanced teams have the Meteorologist spend one or two actions per turn reducing storm card draws, especially when the storm meter is at four or five. This effectively slows the game's clock, giving the team more time to find parts. The trade-off is fewer excavation actions, but the time saved is usually worth it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Navigator as Force Multiplier",
+          "text": "The Navigator can move another player up to three spaces as a single action. This is equivalent to giving another player three extra actions worth of movement. Advanced teams use the Navigator to teleport the Archaeologist to sand-heavy areas and the Water Carrier to thirsty teammates. The Navigator often spends most of their actions moving others rather than excavating, acting as a team coordinator.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Equipment Timing",
+          "text": "While general advice says to use equipment early, advanced teams time equipment for maximum impact. The Dune Blaster is best when a critical path has three or more sand markers. The Jet Pack is saved for getting the last player to the launch pad. The Time Throttle is used when one player needs six actions in a turn to complete a critical task. The key is proactive timing, not reactive panic.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Sand Triage",
+          "text": "When sand is accumulating faster than you can clear it, you need to triage. Focus sand clearing only on tiles that are on the direct path to clue tiles, machine parts, or the launch pad. Let non-essential tiles bury themselves. Clearing sand on a random corner tile while a critical path is blocked is a wasted action. Ruthless prioritization wins Elite and Legendary difficulty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Sprint Planning",
+          "text": "The final phase of the game is a sprint to the launch pad. Advanced teams plan this sprint several turns in advance. Count the number of actions needed to get every player to the launch pad. Factor in the Navigator's movement ability and any remaining Jet Packs. Coordinate so that the last part is picked up by a player already near the launch pad. The team that plans the sprint earliest wins the most games.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Optimal Exploration Pattern",
+          "bullets": [
+            "Spiral outward from crash site rather than random exploration",
+            "Minimizes backtracking, ensures efficient clue finding",
+            "Explorer/Archaeologist push out; Water Carrier/Navigator support",
+            "Methodical coverage > chasing individual tiles"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Storm Eye Tracking",
+          "bullets": [
+            "Track storm eye position as wind cards shift tiles",
+            "Avoid excavating near the storm eye (highest sand accumulation)",
+            "Explore far side of board from storm eye",
+            "Sand patterns are predictable based on eye movement"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Water Carrier Optimization",
+          "bullets": [
+            "Position Water Carrier near excavated well tile",
+            "Shuttle water: fill at well → share with teammate → repeat",
+            "Creates sustainable water pipeline for the team",
+            "Most effective water strategy at higher difficulties"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Meteorologist Storm Management",
+          "bullets": [
+            "Spend actions to reduce storm card draws per turn",
+            "Effectively slows the game clock at high storm levels",
+            "Fewer excavations, but time saved is usually worth it",
+            "Critical when storm meter is at 4-5"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Navigator as Force Multiplier",
+          "bullets": [
+            "Move another player 3 spaces = 3 movement actions saved",
+            "Teleport Archaeologist to sand-heavy areas",
+            "Move Water Carrier to thirsty teammates",
+            "Navigator often moves others more than themselves"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Equipment Timing",
+          "bullets": [
+            "Dune Blaster: critical path with 3+ sand markers",
+            "Jet Pack: save for last player to launch pad",
+            "Time Throttle: when one player needs 6 actions in a turn",
+            "Proactive timing > reactive panic"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Sand Triage",
+          "bullets": [
+            "Clear only sand on paths to clues, parts, and launch pad",
+            "Let non-essential tiles bury themselves",
+            "Ruthless prioritization wins at Elite/Legendary difficulty",
+            "Clearing irrelevant sand = wasted actions"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Sprint Planning",
+          "bullets": [
+            "Plan sprint to launch pad several turns in advance",
+            "Count total actions needed to converge all players",
+            "Factor in Navigator movement + remaining Jet Packs",
+            "Last part should be picked up near the launch pad"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Explorer",
+          "definition": "Adventurer role. Can move and remove sand diagonally in addition to orthogonally. Starting water: 4. Adds flexibility in movement and sand clearing.",
+          "category": "Roles"
+        },
+        {
+          "term": "Meteorologist",
+          "definition": "Adventurer role. Can spend actions to draw fewer storm cards at end of turn or peek at upcoming storm cards. Starting water: 4. Slows the storm's progression.",
+          "category": "Roles"
+        },
+        {
+          "term": "Navigator",
+          "definition": "Adventurer role. Can move another player up to 3 spaces as a single action. Starting water: 4. Acts as a team coordinator and force multiplier.",
+          "category": "Roles"
+        },
+        {
+          "term": "Water Carrier",
+          "definition": "Adventurer role. Starting water: 5. Can take water from excavated well tiles and give water to adjacent players as an action. The team's primary water source.",
+          "category": "Roles"
+        },
+        {
+          "term": "Climber",
+          "definition": "Adventurer role. Can move onto and through tiles with 2 or more sand markers (blocked tiles) and carry one other player along. Starting water: 3.",
+          "category": "Roles"
+        },
+        {
+          "term": "Archaeologist",
+          "definition": "Adventurer role. Removes 2 sand markers per action instead of the normal 1. Starting water: 3. Essential for keeping paths clear.",
+          "category": "Roles"
+        },
+        {
+          "term": "Storm Eye",
+          "definition": "The empty center space in the 5x5 grid. Tiles slide around this space when wind cards are drawn. The storm eye effectively moves as tiles shift.",
+          "category": "Board"
+        },
+        {
+          "term": "Sand Marker",
+          "definition": "Stackable sand piece placed on tiles. Tiles with 1+ sand cannot be excavated. Tiles with 2+ sand are blocked (impassable except by Climber). If sand supply runs out, the team loses.",
+          "category": "Board"
+        },
+        {
+          "term": "Storm Meter",
+          "definition": "Tracks storm intensity from 2 to the skull (loss). Determines how many storm cards are drawn per turn. Advances when Storm Picks Up cards are drawn. Cannot be reversed.",
+          "category": "Board"
+        },
+        {
+          "term": "Clue Tile",
+          "definition": "When excavated, shows the row or column location for one machine part. Each part has 2 clue tiles. When both are revealed, the part appears at the intersection.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Gear Tile",
+          "definition": "When excavated, draw equipment cards equal to the number shown (1 or 2). Equipment cards provide powerful abilities.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Water Tile",
+          "definition": "When excavated, players on or adjacent to the tile gain 2 water (up to max). Water Carrier can revisit excavated water tiles for additional water.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Tunnel Tile",
+          "definition": "When excavated, provides shelter from Sun Beats Down cards and allows travel between any two tunnel entrances as a single move action. Extremely valuable.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Mirage Tile",
+          "definition": "When excavated, looks like a water tile but provides no water. A trap that wastes an excavation.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Launch Pad",
+          "definition": "The tile where all players must gather with all 4 machine parts to win the game. Protecting and reaching the launch pad is the ultimate goal.",
+          "category": "Tiles"
+        },
+        {
+          "term": "Wind Card",
+          "definition": "Storm card showing 1-3 directional arrows. Shifts tiles in the indicated direction. After shifting, 1 sand marker is placed on each tile that moved.",
+          "category": "Storm Cards"
+        },
+        {
+          "term": "Sun Beats Down",
+          "definition": "Storm card. All players not on a tunnel tile or protected by Solar Shield lose 1 water. No tile shifting occurs. Most dangerous card type.",
+          "category": "Storm Cards"
+        },
+        {
+          "term": "Storm Picks Up",
+          "definition": "Storm card. Advances storm meter 1 level, increasing future storm card draws. No tile shifting. Permanently increases difficulty.",
+          "category": "Storm Cards"
+        },
+        {
+          "term": "Dune Blaster",
+          "definition": "Equipment card. Remove all sand markers from one tile. Free to use (no action cost). Best for clearing heavily buried critical tiles.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Jet Pack",
+          "definition": "Equipment card. Move yourself or another player to any unblocked tile on the board. Free to use. Best saved for emergency rescue or endgame launch pad convergence.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Terrascope",
+          "definition": "Equipment card. Secretly look at any face-down tile without excavating it. Free to use. Helps plan exploration efficiently.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Solar Shield",
+          "definition": "Equipment card. Protects you from the next Sun Beats Down card. Free to use. Play proactively when you expect Sun Beats Down soon.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Secret Water Reserve",
+          "definition": "Equipment card. Gain 2 water for any player. Free to use. Emergency hydration for a dehydrating teammate.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Time Throttle",
+          "definition": "Equipment card. Take 2 extra actions immediately on your current turn. Free to use. Best for critical turns requiring 6 total actions.",
+          "category": "Equipment"
+        },
+        {
+          "term": "Flying Machine Parts",
+          "definition": "Four parts that must be collected to win: Propeller, Engine, Navigation Deck, and Crystal. Located by excavating both clue tiles for each part.",
+          "category": "Win Condition"
+        }
+      ]
+    }
+  }
+}
