@@ -482,148 +482,683 @@
         }
       ]
     },
-    "strategy": {
+    "practice_tutorial": {
       "walkthrough": [
         {
           "step": 1,
-          "title": "Think Five Moves Ahead",
-          "text": "The number one mistake new players make is programming one card at a time without thinking about the whole sequence. Your robot will execute all five registers no matter what. If register three turns you to face a pit, registers four and five better not move you forward. Before you place any cards, mentally walk through all five moves in order. Visualize where your robot will be after each step. It takes practice, but this is the core skill of Robo Rally."
+          "title": "Welcome to the Factory Floor",
+          "text": "Welcome to the factory floor! Your robots are about to crash into each other, get shoved by conveyor belts, and laser their friends. It is going to be glorious chaos — but there is a method to the madness. In this practice tutorial, we will walk through one complete round of Robo Rally with four players. Each player programs their robot differently, and one of them — Spin Bot — is going to learn some hard lessons the fun way. Follow along even if you have fewer players at your table. Ready? Robots, power up!",
+          "image": "robo-rally-setup-02-robots.jpg",
+          "image_caption": "All six robot miniatures ready for action"
         },
         {
           "step": 2,
-          "title": "Energy Management",
-          "text": "Energy cubes are your currency for upgrades, and upgrades can be game-changing. Do not spend all your energy early on mediocre upgrades. Power Up cards might seem boring compared to a Move three, but building up a reserve of six or eight energy lets you buy the really powerful permanent upgrades when they appear in the shop. That said, if a great upgrade shows up in round one and you can afford it, grab it. The earlier you install an upgrade, the more rounds you benefit from it."
+          "title": "Meet the Robots",
+          "text": "Here are our four players for this round. Player 1 is Zoom Bot, the green speedster — they are going to show clean, fundamental programming. Player 2 is Hammer Bot, the purple tactician — they will use conveyor belts strategically for free movement. Player 3 is Twonky, the orange aggressor — they are going after lasers and energy pickups. And Player 4 is Spin Bot, the blue newcomer — well, Spin Bot is going to learn by making mistakes. Three of them, actually. But that is how every robot operator learns."
         },
         {
           "step": 3,
-          "title": "Shortest Path vs Safest Path",
-          "text": "The shortest route to the next checkpoint might take you across three conveyor belts, past two lasers, and through a crowd of other robots. Sometimes the longer route with fewer hazards gets you there faster because you are not rebooting along the way. Every reboot costs you two SPAM cards and the rest of your round. That is a huge setback. Look at the board and find routes that avoid the most dangerous elements, especially pits and board edges. A safe arrival beats a dramatic crash every time."
+          "title": "The Board State",
+          "text": "We are on Dizzy Highway, the beginner course. Checkpoint one is a few spaces ahead with some conveyor belts in between. There is a priority antenna on the board, a couple of board lasers, and some energy spaces scattered around. All four robots start on the start board, facing toward the course. Everyone draws their nine programming cards and it is time to plan five moves.",
+          "image": "robo-rally-rules-02-board-elements.jpg",
+          "image_caption": "Dizzy Highway board with conveyor belts, lasers, and checkpoints"
         },
         {
           "step": 4,
-          "title": "Use Board Elements to Your Advantage",
-          "text": "Conveyor belts are free movement. If you can end a register on a conveyor belt that points toward your checkpoint, you get a bonus space of movement without using a card. Gears can save you a Turn card if you plan around them. Even push panels can be useful if you time your movement to land on them during the right register. The best players read the board like a puzzle and use the factory elements as tools, not just obstacles."
+          "title": "Programming Phase: Everyone Plans",
+          "text": "Remember, everyone programs at the same time. You draw nine cards from your personal deck and pick five to place on your registers in order, one through five. The other four cards get discarded. Think of it like writing a five-step dance routine for your robot. Let's see what each player decides."
         },
         {
           "step": 5,
-          "title": "Blocking and Pushing",
-          "text": "Robo Rally is not just a solo race. Other robots are on the same factory floor, and you can absolutely use them to your advantage. Pushing an opponent into a pit or off the board is a legitimate and hilarious strategy. Parking your robot in front of a checkpoint forces opponents to deal with you before they can claim it. If you are behind in the race, aggressive play like pushing leaders off course can level the playing field. Just watch out, because they will do the same to you."
+          "title": "Zoom Bot's Program (Clean Play)",
+          "text": "Player 1, Zoom Bot, looks at the board carefully. Checkpoint one is ahead and slightly to the right. Zoom Bot programs: Register 1 — Move 1. Register 2 — Move 2. Register 3 — Turn Right. Register 4 — Move 1. Register 5 — Move 1. Zoom Bot traced the full path with their finger before placing any cards. They know exactly where their robot will be after each register. This is textbook programming."
         },
         {
           "step": 6,
-          "title": "Managing Your Deck",
-          "text": "Your programming deck gets worse over time as SPAM and damage cards accumulate. Every SPAM card in your deck means one fewer useful card when you draw nine. If you have four or five SPAM cards mixed in, your programming options become very limited. Look for ways to remove SPAM. The Spam Folder special programming card permanently removes one SPAM card. Some upgrades help with damage management too. Keeping your deck clean is like maintaining your robot. A well-tuned bot programs better."
+          "title": "Why Tracing Your Path Works",
+          "text": "Before Zoom Bot placed a single card, they pointed at the board and traced every step. After Move 1 — here. After Move 2 — here. Turn Right — now facing this way. Move 1 — here. Move 1 — lands right next to the checkpoint. No walls in the way, no pits, no surprises. This is the single most important habit in Robo Rally. Trace your path with your finger before you lock in. Every time."
         },
         {
           "step": 7,
-          "title": "Priority Antenna Awareness",
-          "text": "Priority is not just about who moves first. Moving first means you can push opponents before they get to move, which can completely wreck their programming. But moving last means you see where everyone ends up before your robot moves, giving you more predictable outcomes. Think about whether you want high or low priority for each register. If you need to push someone, get close to the antenna. If you want stability, stay farther away."
+          "title": "Hammer Bot's Program (Conveyor Strategy)",
+          "text": "Player 2, Hammer Bot, spots a blue conveyor belt two spaces ahead that points toward checkpoint one. Hammer Bot programs: Register 1 — Move 2 to land on the blue conveyor. Registers 2 through 5 continue toward the checkpoint. The key insight? After Register 1, the board elements activate, and that blue conveyor carries Hammer Bot two extra spaces for free. Hammer Bot effectively moved four spaces with one Move 2 card.",
+          "image": "robo-rally-rules-02-board-elements.jpg",
+          "image_caption": "Blue conveyor belts — two spaces of free movement"
         },
         {
           "step": 8,
-          "title": "Upgrade Strategy",
-          "text": "Permanent upgrades are almost always better value than temporary ones because they benefit you every round for the rest of the game. Look for upgrades that complement your play style. Defensive upgrades are great if you are taking a lot of laser fire. Movement upgrades help if the course requires precise positioning. Upgrades that help with damage removal are universally useful. Do not hoard energy waiting for the perfect upgrade though. A good upgrade now is better than a great upgrade three rounds from now."
+          "title": "The Conveyor Bonus Explained",
+          "text": "Here is why Hammer Bot's play is so clever. After all robots execute their programming for a register, board elements activate. Blue conveyors move robots two spaces. Green conveyors move one. If you can land on a conveyor that points where you want to go, that is free movement without spending a programming card. The best Robo Rally players treat conveyors as part of their route, not just obstacles."
         },
         {
           "step": 9,
-          "title": "The Timer Pressure",
-          "text": "When that sand timer flips, do not panic. The thirty second pressure is designed to create funny mistakes, and it works. The best way to handle the timer is to have a rough plan before you start placing cards. Look at the board, identify your target space, and figure out the general direction you need to go. Then when you draw your nine cards, you already know what you are looking for. Fast programmers who finish first can flip the timer to pressure opponents, which is a sneaky but legal tactic."
+          "title": "Twonky's Program (Aggressive Play)",
+          "text": "Player 3, Twonky, has a different plan. Twonky sees an energy space and notices that Spin Bot will be in laser range after a couple of moves. Twonky programs: Register 1 — Move 1 toward the energy space. Register 2 — Move 1 to land on it and collect a cube. Then Turn Left in Register 3 to line up a robot laser shot at another player. Registers 4 and 5 continue toward the checkpoint. Twonky is collecting resources while keeping other robots in their crosshairs."
         },
         {
           "step": 10,
-          "title": "Adapting to Chaos",
-          "text": "Here is the ultimate Robo Rally truth: your plan will fall apart. Other robots will push you off course. Conveyors will carry you the wrong direction. SPAM cards will replace your carefully chosen Move three with a random card draw. The best players do not try to prevent chaos. They plan for it. Leave yourself escape routes. If your ideal path fails, have a backup. If registers one and two go wrong, make sure registers three through five can still get you somewhere useful. Flexibility wins races."
+          "title": "Energy and Lasers",
+          "text": "Twonky's plan combines two key elements. First, landing on an energy space to pick up a free energy cube — that is currency for upgrades later. Second, positioning for robot laser shots. After each register, every robot fires its laser straight ahead. If another robot is in the line of fire without a wall blocking it, they take SPAM damage. Twonky is playing the board AND playing the opponents."
+        },
+        {
+          "step": 11,
+          "title": "Spin Bot's Program (The Mistakes Begin)",
+          "text": "Now for Player 4, Spin Bot. Spin Bot looks at the nine cards in hand and starts placing them quickly. Move 2 in Register 1 — sure, go forward. Turn Left in Register 2 — that should help. Move 3 in Register 3 — cover lots of ground. Move 1 in Register 4. Turn Right in Register 5. Spin Bot did not trace the path. They just placed cards that seemed good individually. Let's see what happens."
+        },
+        {
+          "step": 12,
+          "title": "Mistake 1: Wrong Card Order",
+          "text": "Activation Phase begins. Register 1: Spin Bot moves forward 2 spaces. So far so good. Register 2: Turn Left. Wait — now Spin Bot is facing a wall! Register 3: Move 3. Spin Bot slams into the wall after one space and stops dead. Two wasted spaces of movement. Registers 4 and 5 push Spin Bot further into the wrong area of the board, ending up nowhere near the checkpoint. The problem? Spin Bot placed cards without thinking about the ORDER of the full sequence. Each card looked fine alone, but together they sent the robot on a completely wrong path.",
+          "image": "robo-rally-setup-01-player-mat.jpg",
+          "image_caption": "Five register slots — order matters enormously"
+        },
+        {
+          "step": 13,
+          "title": "Lesson 1: Trace Your Full Path",
+          "text": "Always visualize your full five-card sequence before locking in. Trace your robot's path on the board with your finger first. Card by card, register by register. Where am I after Register 1? Which direction am I facing? What about after Register 2? If you hit a wall at any point, you need to rearrange your cards. A Move 3 is only useful if all three spaces ahead are clear. The five seconds it takes to trace your route saves you an entire round of wasted movement."
+        },
+        {
+          "step": 14,
+          "title": "Round Continues: Zoom Bot Cruises",
+          "text": "Meanwhile, Zoom Bot executes their clean program perfectly. Move 1, Move 2, Turn Right, Move 1, Move 1 — each register lands exactly where planned. No walls, no surprises. Zoom Bot ends the round within striking distance of checkpoint one. This is what happens when you trace your path first. Boring? Maybe. Effective? Absolutely."
+        },
+        {
+          "step": 15,
+          "title": "Round Continues: Hammer Bot Surfs",
+          "text": "Hammer Bot's conveyor play pays off beautifully. After Register 1's Move 2 lands them on the blue conveyor, the board elements activate and carry them two bonus spaces toward the checkpoint. Hammer Bot covered four spaces of ground with a single programming card. By the end of the round, Hammer Bot is right at checkpoint one. Free movement is the best movement."
+        },
+        {
+          "step": 16,
+          "title": "Next Round: Spin Bot Programs Again",
+          "text": "New round. Spin Bot draws nine fresh cards and tries again. This time Spin Bot remembers lesson one — trace the path first. They point at the board and map out five moves. Move 1, Move 2, Turn Right, Move 1, Move 2. That should take them around the wall and toward the checkpoint. The path looks clean. Spin Bot places the cards and feels confident. But there is something Spin Bot forgot to check."
+        },
+        {
+          "step": 17,
+          "title": "Mistake 2: Forgetting Board Elements",
+          "text": "Activation Phase begins. Registers 1 and 2 go perfectly — Spin Bot moves forward 3 total spaces. But after Register 2, board elements activate. There is a green conveyor belt on the space where Spin Bot landed, and it pushes them one space to the left. Now Spin Bot is one space off from where they expected to be! Register 3's Turn Right now points them in a slightly wrong direction, and the rest of the program sends them off course. Spin Bot traced the robot's path but forgot to account for what the board does AFTER each register.",
+          "image": "robo-rally-rules-02-board-elements.jpg",
+          "image_caption": "Board elements activate AFTER all robots move each register"
+        },
+        {
+          "step": 18,
+          "title": "Lesson 2: Account for Board Elements",
+          "text": "Board elements activate AFTER all robots move in each register. Conveyors, pushers, and gears can completely change where you end up. Always check what is on the spaces you will land on. When you trace your path, do not just trace your programming cards — also check: is there a conveyor belt here? A gear? A push panel that fires this register? Add those effects to your mental path. Your real position after each register is your programmed move PLUS whatever the board does to you."
+        },
+        {
+          "step": 19,
+          "title": "Twonky Fires Lasers",
+          "text": "Twonky has been executing their aggressive plan. After positioning in Register 3, Twonky's robot laser fires straight ahead — and Spin Bot is in the line of fire. Spin Bot takes a SPAM damage card. That SPAM card goes into Spin Bot's discard pile and will pollute their programming deck later. Twonky grins. Meanwhile, Twonky collected an energy cube from the energy space back in Register 2. Aggressive play pays off when you plan for it."
+        },
+        {
+          "step": 20,
+          "title": "Next Round: Spin Bot's Third Attempt",
+          "text": "Another new round. Spin Bot is determined to get this right. This time they carefully trace the path AND check for conveyor belts and gears along the way. The plan looks solid: Move 2, Move 1, Turn Left, Move 2, Move 1 — heading straight for checkpoint one. But Spin Bot notices that Zoom Bot is programming too, and Zoom Bot is closer to the priority antenna. Does that matter? Spin Bot ignores it and locks in."
+        },
+        {
+          "step": 21,
+          "title": "Mistake 3: Ignoring the Priority Antenna",
+          "text": "Register 3 is where it goes wrong. Spin Bot programmed Turn Left then Move 2 to land on the checkpoint space. But Zoom Bot programmed the same destination space! Since Zoom Bot is closer to the priority antenna, Zoom Bot has higher priority and moves first. Zoom Bot moves onto the checkpoint space before Spin Bot gets there. When Spin Bot tries to move onto that space, they push Zoom Bot forward one space — but Spin Bot ends up on the checkpoint space, not where they actually wanted to be for Registers 4 and 5. The push also sent Zoom Bot in an unintended direction, and now both robots are scrambled.",
+          "image": "robo-rally-setup-08-priority-antenna.jpg",
+          "image_caption": "Priority antenna — the robot closest to it moves first each register"
+        },
+        {
+          "step": 22,
+          "title": "Lesson 3: Priority Matters",
+          "text": "Priority matters! The player closest to the priority antenna moves first in each register. If you are far from the antenna, other robots might block your planned path. Before you lock in your program, look at where the other robots are. Think about who moves first. If someone closer to the antenna is heading for the same space, they will get there before you, and you will either push them or get blocked. Factor other robots into your planning, especially in crowded areas near checkpoints."
+        },
+        {
+          "step": 23,
+          "title": "Spin Bot's Redemption",
+          "text": "One more round. Spin Bot has learned all three lessons the hard way. This time, they go through the full checklist. Step one: trace the path with a finger on the board. Move 1, Turn Right, Move 2, Move 1, Move 1. Step two: check every space for board elements. There is a green conveyor on space three that actually helps — it pushes Spin Bot one space closer to the checkpoint. Step three: check the priority antenna. Spin Bot is closer to it than the other robots heading this direction, so they will move first. Spin Bot locks in with confidence.",
+          "image": "robo-rally-setup-01-player-mat.jpg",
+          "image_caption": "Five registers programmed with confidence"
+        },
+        {
+          "step": 24,
+          "title": "The Clean Run",
+          "text": "The Activation Phase plays out perfectly. Register 1 — Move 1, right on track. Register 2 — Turn Right, now facing the checkpoint. Register 3 — Move 2, plus the green conveyor gives a bonus space. Register 4 — Move 1, lands on the checkpoint! Spin Bot claims checkpoint one and advances their tracker. Register 5 — Move 1, continuing toward checkpoint two. No walls, no surprises, no collisions. Spin Bot used the conveyor as a tool, moved with priority advantage, and traced every step. That is Robo Rally played right."
+        },
+        {
+          "step": 25,
+          "title": "Congratulations",
+          "text": "Congratulations — you have just survived your first rounds on the factory floor! You saw Zoom Bot's clean fundamentals, Hammer Bot's conveyor surfing, Twonky's aggressive laser play, and Spin Bot's journey from chaos to mastery. Remember Spin Bot's three hard-earned lessons: always trace your full five-card path before locking in. Always account for board elements that activate after your moves. And always check who has priority before planning your route through traffic. You are ready to race."
+        },
+        {
+          "step": 26,
+          "title": "Before You Race",
+          "text": "Before you hit the factory floor for real, here are three things that can help.\n\nFirst — check out General Tips for strategy basics and common mistakes to avoid.\n\nSecond — reference the Appendix for a quick guide to programming cards, board elements, and damage types.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Now get out there and race!",
+          "cta": true
         }
       ],
       "summary": [
         {
           "step": 1,
-          "title": "Think Five Moves Ahead",
+          "title": "Welcome to the Factory Floor",
           "bullets": [
-            "Mentally walk through all five registers before placing any cards",
-            "Visualize robot position after each step",
-            "Core skill — avoid programming yourself into pits or walls"
+            "Scripted tutorial with 4 robots: Zoom Bot, Hammer Bot, Twonky, Spin Bot",
+            "Covers programming, board elements, priority, and common mistakes",
+            "Follow along even with fewer players at your table"
           ]
         },
         {
           "step": 2,
-          "title": "Energy Management",
+          "title": "Meet the Robots",
           "bullets": [
-            "Power Up cards build energy reserves for powerful upgrades",
-            "Save for strong permanent upgrades (six to eight energy)",
-            "Buy great upgrades early — more rounds to benefit"
+            "Zoom Bot (Green): Clean, fundamental programming",
+            "Hammer Bot (Purple): Strategic conveyor belt usage",
+            "Twonky (Orange): Aggressive laser and energy play",
+            "Spin Bot (Blue): The mistake-maker who learns the hard way"
           ]
         },
         {
           "step": 3,
-          "title": "Shortest Path vs Safest Path",
+          "title": "The Board State",
           "bullets": [
-            "Rebooting costs two SPAM plus rest of round — huge setback",
-            "Avoid pits, board edges, and heavy traffic zones",
-            "Longer safe route often beats shorter dangerous route"
+            "Dizzy Highway beginner course with conveyors, lasers, energy spaces",
+            "Priority antenna determines who moves first each register",
+            "All four robots start on the start board facing the course"
           ]
         },
         {
           "step": 4,
-          "title": "Use Board Elements to Your Advantage",
+          "title": "Programming Phase: Everyone Plans",
           "bullets": [
-            "Conveyor belts give free movement — plan to land on them",
-            "Gears save Turn cards if timed correctly",
-            "Read the board as a puzzle, not just an obstacle course"
+            "Draw 9 cards, pick 5, place on registers 1 through 5",
+            "Discard remaining 4 cards",
+            "Everyone programs simultaneously"
           ]
         },
         {
           "step": 5,
-          "title": "Blocking and Pushing",
+          "title": "Zoom Bot's Program (Clean Play)",
           "bullets": [
-            "Push opponents into pits or off the board edge",
-            "Park on checkpoints to block leaders",
-            "Aggressive play can equalize a losing position"
+            "Move 1, Move 2, Turn Right, Move 1, Move 1",
+            "Traced full path with finger before placing any cards",
+            "Textbook programming — knows exact position after each register"
           ]
         },
         {
           "step": 6,
-          "title": "Managing Your Deck",
+          "title": "Why Tracing Your Path Works",
           "bullets": [
-            "SPAM cards pollute your deck — fewer good draws per round",
-            "Use Spam Folder to permanently remove SPAM",
-            "Keep deck clean for better programming options"
+            "Point at the board and trace every step before locking in",
+            "Check for walls, pits, and obstacles along each space",
+            "Five seconds of tracing saves an entire round of wasted movement"
           ]
         },
         {
           "step": 7,
-          "title": "Priority Antenna Awareness",
+          "title": "Hammer Bot's Program (Conveyor Strategy)",
           "bullets": [
-            "High priority (close to antenna) = push opponents before they move",
-            "Low priority (far from antenna) = more predictable outcomes",
-            "Consider desired priority when choosing your path"
+            "Programs Move 2 to land on a blue conveyor belt",
+            "Conveyor carries robot 2 extra spaces for free after the register",
+            "Effectively 4 spaces of movement from one card"
           ]
         },
         {
           "step": 8,
-          "title": "Upgrade Strategy",
+          "title": "The Conveyor Bonus Explained",
           "bullets": [
-            "Permanent upgrades usually better value than temporary",
-            "Match upgrades to play style: defensive, movement, or damage removal",
-            "A good upgrade now beats a perfect upgrade three rounds later"
+            "Board elements activate after all robots move each register",
+            "Blue conveyors = 2 free spaces, green conveyors = 1 free space",
+            "Treat conveyors as part of your route, not just obstacles"
           ]
         },
         {
           "step": 9,
-          "title": "The Timer Pressure",
+          "title": "Twonky's Program (Aggressive Play)",
           "bullets": [
-            "Have a rough plan before drawing cards",
-            "Know your target direction first, then find matching cards",
-            "Finishing first lets you flip timer to pressure opponents"
+            "Moves to energy space to collect a free energy cube",
+            "Positions for robot laser shots at other players",
+            "Combines resource gathering with offensive positioning"
           ]
         },
         {
           "step": 10,
-          "title": "Adapting to Chaos",
+          "title": "Energy and Lasers",
           "bullets": [
-            "Plans will fall apart — other robots, conveyors, SPAM randomness",
-            "Always have a backup route if registers one and two go wrong",
-            "Flexibility wins races — adapt rather than force a broken plan"
+            "Energy spaces give free cubes — currency for upgrades",
+            "Robot lasers fire straight ahead after each register",
+            "First robot in line of fire takes SPAM damage"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Spin Bot's Program (The Mistakes Begin)",
+          "bullets": [
+            "Places cards quickly without tracing the full path",
+            "Each card seems good individually but the sequence is flawed",
+            "Did not visualize where the robot ends up after all 5 registers"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Mistake 1: Wrong Card Order",
+          "bullets": [
+            "Turn Left in Register 2 points Spin Bot at a wall",
+            "Move 3 in Register 3 wastes 2 spaces crashing into the wall",
+            "Remaining registers push Spin Bot further off course"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson 1: Trace Your Full Path",
+          "bullets": [
+            "Visualize all 5 registers before locking in any cards",
+            "Trace with your finger: Where am I? Which direction am I facing?",
+            "A Move 3 is only useful if all 3 spaces ahead are clear"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Round Continues: Zoom Bot Cruises",
+          "bullets": [
+            "Clean program executes perfectly — no walls, no surprises",
+            "Ends within striking distance of checkpoint 1",
+            "Tracing your path leads to consistent results"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Round Continues: Hammer Bot Surfs",
+          "bullets": [
+            "Blue conveyor carries Hammer Bot 2 bonus spaces toward checkpoint",
+            "4 spaces from one Move 2 card — free movement is the best movement",
+            "Hammer Bot reaches checkpoint 1 by end of round"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Next Round: Spin Bot Programs Again",
+          "bullets": [
+            "Applies Lesson 1 — traces path before placing cards",
+            "Program looks clean: avoids walls, path makes sense",
+            "But forgets to check something important on the board"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Mistake 2: Forgetting Board Elements",
+          "bullets": [
+            "Lands on a green conveyor after Register 2 — pushed 1 space off course",
+            "Rest of program based on wrong position — everything drifts",
+            "Traced movement cards but forgot conveyors activate between registers"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Lesson 2: Account for Board Elements",
+          "bullets": [
+            "Board elements activate AFTER all robots move each register",
+            "Check every landing space for conveyors, gears, and push panels",
+            "Real position = your programmed move + board element effects"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Twonky Fires Lasers",
+          "bullets": [
+            "Twonky's robot laser hits Spin Bot — 1 SPAM damage card",
+            "SPAM pollutes Spin Bot's programming deck for future rounds",
+            "Twonky collected energy earlier — aggressive play pays off with planning"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Next Round: Spin Bot's Third Attempt",
+          "bullets": [
+            "Traces path AND checks for board elements — solid plan",
+            "Heading straight for checkpoint 1",
+            "Notices Zoom Bot is also programming nearby but ignores priority"
+          ]
+        },
+        {
+          "step": 21,
+          "title": "Mistake 3: Ignoring the Priority Antenna",
+          "bullets": [
+            "Zoom Bot has higher priority (closer to antenna) and moves first",
+            "Zoom Bot reaches the destination space before Spin Bot",
+            "Spin Bot pushes Zoom Bot — both robots end up scrambled"
+          ]
+        },
+        {
+          "step": 22,
+          "title": "Lesson 3: Priority Matters",
+          "bullets": [
+            "Closest robot to priority antenna moves first each register",
+            "If someone else is heading for the same space, check who arrives first",
+            "Factor other robots into your planning, especially near checkpoints"
+          ]
+        },
+        {
+          "step": 23,
+          "title": "Spin Bot's Redemption",
+          "bullets": [
+            "Full checklist: trace path, check board elements, check priority",
+            "Uses a green conveyor as free movement toward the checkpoint",
+            "Has priority advantage — moves first in the contested area"
+          ]
+        },
+        {
+          "step": 24,
+          "title": "The Clean Run",
+          "bullets": [
+            "All 5 registers execute perfectly — claims checkpoint 1",
+            "Conveyor bonus used as a tool, not just survived",
+            "Spin Bot applies all 3 lessons for a flawless round"
+          ]
+        },
+        {
+          "step": 25,
+          "title": "Congratulations",
+          "bullets": [
+            "Watched 4 play styles: clean, conveyor, aggressive, and learning",
+            "Spin Bot's 3 lessons: trace your path, check board elements, mind priority",
+            "You're ready to race on the factory floor"
+          ]
+        },
+        {
+          "step": 26,
+          "title": "Before You Race",
+          "bullets": [
+            "Check out General Tips → strategy basics for beginners",
+            "Reference the Appendix → programming cards, board elements, damage types",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Always Trace Your Full Path",
+          "text": "This is the number one tip for new Robo Rally players, and it is worth repeating until it becomes second nature. Before you place a single card on your registers, point at the board and trace your robot's full five-move path. After Register 1, where are you? Which direction are you facing? After Register 2? Register 3? All the way through Register 5. Check every space for walls. If your Move 2 would hit a wall after one space, you only move one space and waste the rest. Five seconds of tracing saves entire rounds of wasted movement. Do this every single time you program."
+        },
+        {
+          "step": 2,
+          "title": "Account for Board Elements in Your Planning",
+          "text": "Tracing your programming cards is only half the picture. After each register, board elements activate: blue conveyors move you two spaces, green conveyors move you one space, gears rotate you, and push panels shove you during specific registers. When you trace your path, add these effects after each register. Your real position is your programmed move PLUS whatever the board does to you. A perfectly planned path can go completely wrong if you forget about a conveyor belt that pushes you sideways after Register 2."
+        },
+        {
+          "step": 3,
+          "title": "Understand Priority — Who Moves First Matters",
+          "text": "The priority antenna determines who moves first in each register. The robot closest to the antenna gets highest priority. This matters because if two robots are heading for the same space, whoever has priority gets there first and the other robot either pushes them or gets blocked. Before you lock in your program, look at where other robots are and who is closest to the antenna. If someone with higher priority is heading your way, you might collide. Adjust your path to avoid traffic, or plan to use the push to your advantage."
+        },
+        {
+          "step": 4,
+          "title": "Energy Management — Power Up vs Move Forward",
+          "text": "Power Up cards let your robot stand still while collecting one energy cube. Energy buys upgrades, and upgrades can be game-changing. New players often skip Power Up because it feels like wasting a turn, but building up five or six energy lets you buy a powerful permanent upgrade that helps you every round for the rest of the game. The key is timing. Do not Power Up when you are one space away from a checkpoint. Do Power Up when you are in a safe position with no immediate path to your next goal. Think of energy as an investment in your robot's future performance."
+        },
+        {
+          "step": 5,
+          "title": "Do Not Panic About Damage Cards",
+          "text": "Getting hit is normal in Robo Rally. Lasers, collisions, and hazards will give you SPAM cards that pollute your programming deck. One or two SPAM cards in your deck are manageable — you draw nine cards and only need five good ones. Do not waste moves trying to avoid every single laser. Focus on reaching checkpoints efficiently and treat minor damage as the cost of doing business. The real danger is accumulating four or five SPAM cards, which severely limits your programming options. Look for chances to use the Spam Folder card to clean up your deck when damage starts piling up."
+        },
+        {
+          "step": 6,
+          "title": "Checkpoints Must Be Reached in Order",
+          "text": "A common beginner mistake is racing to whichever checkpoint looks closest on the board. You must claim checkpoints in numerical order — checkpoint one before two, two before three, and so on. Landing on checkpoint three when you have not claimed checkpoint one does nothing. Before you plan your route, check your player mat to see which checkpoint you need next, then plan your path to that specific flag. Skipping ahead wastes rounds and lets other players pull ahead in the race."
+        },
+        {
+          "step": 7,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest beginner traps, all in one place. First, programming without tracing — this leads to running into walls and wasting entire rounds. Second, ignoring conveyor belts — they activate after your move and can push you off your planned path. Third, forgetting priority — if someone closer to the antenna is heading for the same space, they get there first. Fourth, hoarding energy without ever buying upgrades — energy in your supply scores zero points, but upgrades can win you the race. Fifth, panicking when the sand timer flips — have a rough plan before drawing cards so you can program quickly when pressured."
+        },
+        {
+          "step": 8,
+          "title": "Use the Safest Path, Not the Shortest",
+          "text": "The shortest route to your next checkpoint might run through a gauntlet of lasers, past a pit, and through a crowd of other robots. Every reboot costs you two SPAM cards AND the rest of your round — that is a massive setback. Sometimes the route that takes one extra round but avoids pits and heavy traffic gets you there faster overall. Look for paths that steer clear of board edges, pits, and congested areas. A safe arrival beats a dramatic crash every time. Save the risky plays for when you are behind and need to catch up."
+        },
+        {
+          "step": 9,
+          "title": "Read the Board Before You Draw Cards",
+          "text": "Before you even draw your nine programming cards, spend a few seconds studying the board. Where is your next checkpoint? What board elements are between you and it? Where are the other robots? Who has priority? Once you have a rough plan — go forward two, turn right, go forward three — then draw your cards and look for the pieces that fit. Players who plan before drawing program faster and make fewer mistakes. Players who draw first and plan second are the ones scrambling when the sand timer flips."
+        },
+        {
+          "step": 10,
+          "title": "Have Fun with the Chaos",
+          "text": "Here is the most important tip of all: Robo Rally is meant to be chaotic and hilarious. Your carefully planned path WILL fall apart. Another robot WILL push you into a pit. A SPAM card WILL replace your perfect Move 3 with a random draw. That is not the game breaking — that IS the game. The best players laugh when their robot gets shoved off course, adapt on the fly, and come up with a new plan. Do not get frustrated by chaos. Embrace it. The funniest moments come from the biggest disasters, and those disasters make the eventual victories even sweeter."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Always Trace Your Full Path",
+          "bullets": [
+            "Point at the board and trace all 5 registers before placing cards",
+            "Check every space for walls — hitting a wall wastes movement",
+            "Five seconds of tracing saves entire rounds of bad programming"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Account for Board Elements",
+          "bullets": [
+            "Board elements activate AFTER all robots move each register",
+            "Blue conveyors = 2 spaces, green conveyors = 1 space, gears rotate",
+            "Real position = programmed move + board element effects"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Understand Priority",
+          "bullets": [
+            "Closest robot to priority antenna moves first each register",
+            "Two robots heading for the same space = collision",
+            "Check other robots' likely paths before locking in"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Energy Management",
+          "bullets": [
+            "Power Up = stand still + collect 1 energy for upgrades",
+            "Build up 5-6 energy for powerful permanent upgrades",
+            "Time it right: Power Up when safe, move when near checkpoints"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Do Not Panic About Damage",
+          "bullets": [
+            "1-2 SPAM cards are manageable — you draw 9 and only need 5",
+            "Focus on checkpoints, treat minor damage as cost of business",
+            "Use Spam Folder to clean up when damage piles up"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Checkpoints Must Be in Order",
+          "bullets": [
+            "Must claim 1 before 2 before 3 — no skipping ahead",
+            "Landing on a future checkpoint before claiming previous ones does nothing",
+            "Always check your tracker to know which checkpoint is next"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Programming without tracing your path first",
+            "Ignoring conveyors and gears that activate after your move",
+            "Forgetting priority — who moves first matters in crowded areas",
+            "Panicking when the sand timer flips"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Use the Safest Path",
+          "bullets": [
+            "Rebooting costs 2 SPAM + rest of your round — huge setback",
+            "Avoid pits, board edges, and heavy traffic when possible",
+            "One extra round of safe travel beats a dramatic crash"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Read the Board Before Drawing Cards",
+          "bullets": [
+            "Study the board and form a rough plan BEFORE drawing 9 cards",
+            "Know your target direction, then find matching cards",
+            "Planning first = faster programming when the timer hits"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Have Fun with the Chaos",
+          "bullets": [
+            "Plans will fall apart — that IS the game, not a bug",
+            "Laugh at disasters, adapt on the fly, make new plans",
+            "The funniest moments come from the biggest crashes"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Conveyor Surfing",
+          "text": "Advanced players do not just avoid conveyor belts — they ride them. Conveyor surfing means intentionally programming your robot to land on conveyor belts that point toward your objective. A blue conveyor gives you two free spaces of movement, and a green gives you one. If you can chain two blue conveyors together, that is four bonus spaces in a single register. Plan your programming cards so that your move ends on a conveyor, let the board carry you, then program your next move from the new position. On courses like Dizzy Highway and Twister, conveyor surfing can shave entire rounds off your race time."
+        },
+        {
+          "step": 2,
+          "title": "Laser Positioning",
+          "text": "Your robot fires its laser straight ahead after every register. Good players position their robot to get free shots at opponents across multiple registers. The ideal laser position is a long, clear corridor with no walls between you and a traffic lane where other robots are likely to pass. If you can line up your robot facing down a corridor at the start of a round, you might hit opponents in two or three consecutive registers without moving. Each hit is a SPAM card that degrades their programming deck. Over several rounds, consistent laser pressure makes opponents noticeably weaker."
+        },
+        {
+          "step": 3,
+          "title": "Upgrade Card Tier List",
+          "text": "Not all upgrades are created equal. The top tier permanent upgrades are ones that give you extra movement options, damage protection, or deck improvement every single round. Movement upgrades like Rear Laser or Brakes let you play more aggressively without as much risk. Damage-reduction upgrades keep your deck clean and your programming options wide. Mid tier upgrades are situationally powerful, like ones that interact with specific board elements. Low tier upgrades are temporary one-shot effects that rarely justify their energy cost. When the shop refreshes, identify the tier first and only spend energy on top or strong mid tier cards."
+        },
+        {
+          "step": 4,
+          "title": "Damage Management",
+          "text": "At the advanced level, damage is not just something that happens to you — it is something you manage strategically. Sometimes taking one SPAM card to reach a checkpoint this round is better than spending two extra rounds on a safe route. The decision framework is simple: will this damage cost me more time than the shortcut saves? One or two SPAM cards are easily absorbed. Three or four start limiting your options. Five or more means your programming phase becomes a desperate scramble. Use Spam Folder aggressively to keep your deck under three SPAM cards. If an upgrade offers damage removal, it is almost always worth buying."
+        },
+        {
+          "step": 5,
+          "title": "Blocking Strategies",
+          "text": "Your robot is a physical obstacle that other robots must deal with. Parking on a checkpoint forces every opponent to push you off before they can claim it — and pushing you means they end up one space past the checkpoint, wasting their programming. Blocking a narrow corridor prevents opponents from using an optimal path. You can even use your robot as a wall to redirect conveyor belt traffic — if a robot would be pushed onto your space by a conveyor, the push is blocked. Advanced players think about where their robot's body physically disrupts opponent routes, especially in the late game when everyone is converging on the same checkpoints."
+        },
+        {
+          "step": 6,
+          "title": "Checkpoint Rush vs Energy Farming",
+          "text": "Two viable race strategies exist: checkpoint rushing and energy farming. Rushers program maximum movement every round, skipping Power Up cards and energy spaces to reach checkpoints as fast as possible. They win by speed and accept a messy, SPAM-filled deck. Farmers spend the first two or three rounds collecting energy and buying powerful upgrades, then use those upgrades to blitz through checkpoints faster in the mid and late game. The best choice depends on the course. Short courses with two or three checkpoints favor rushing. Long courses with five or six checkpoints favor farming because upgrades compound over more rounds."
+        },
+        {
+          "step": 7,
+          "title": "Reading the Board",
+          "text": "Every Robo Rally course has optimal paths hidden in its layout. Reading the board means identifying the fastest route through hazards by combining programmed movement with board elements. Look for conveyor chains that carry you multiple spaces toward checkpoints. Identify safe lanes with no lasers and no pit adjacency. Find gear spaces that give you a free turn in the direction you need. Map out push panel timings — which registers do they fire, and can you use them for free movement? The best players spend the first round studying the board layout as much as they study their cards. Once you see the optimal paths, you can program them round after round."
+        },
+        {
+          "step": 8,
+          "title": "Multi-Register Planning",
+          "text": "Beginner planning stops at where am I after each register. Advanced planning considers the cascading effects across all five registers plus board element interactions. For example: if Register 1's Move 2 lands you on a blue conveyor, after board elements you are two spaces further. That means Register 2's Move 1 starts from a position three spaces ahead of where you began. A gear in Register 3's landing space rotates you, saving a Turn card for Register 4. This cascading awareness — programming plus board plus programming plus board — is what separates advanced players from beginners. Think of your five registers as one continuous sequence with board element bonuses woven in, not five separate moves."
+        },
+        {
+          "step": 9,
+          "title": "Priority Manipulation",
+          "text": "At the advanced level, you can manipulate your priority intentionally. If you want to push an opponent off a checkpoint, program a path that moves you closer to the priority antenna before the critical register, guaranteeing you move first. If you want to avoid collisions, stay far from the antenna so you move last and can see where everyone ends up. Some players even sacrifice one register of forward progress to reposition relative to the antenna for a crucial push play in the next register. Priority is not random — it is a tool you can control through positioning."
+        },
+        {
+          "step": 10,
+          "title": "Endgame Tactics",
+          "text": "The final checkpoint approach requires different thinking than the rest of the race. Everyone converges on the same small area, creating maximum chaos. Advanced endgame tactics include: programming to arrive at the checkpoint in Register 5, which is harder to block because opponents have already moved. Using Again cards to repeat a successful move from the previous register for guaranteed positioning. Intentionally pushing the leader away from the checkpoint while positioning yourself to claim it. And sacrificing your body — rebooting on purpose near the final checkpoint because the reboot token is closer to the goal than your current position. The endgame is where knowledge of pushing, priority, and board elements all combine for the final sprint."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Conveyor Surfing",
+          "bullets": [
+            "Intentionally land on conveyors pointing toward your objective",
+            "Blue = 2 free spaces, green = 1 — chain them for massive bonus movement",
+            "Plan your Move card to end on a conveyor, then program from the new position"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Laser Positioning",
+          "bullets": [
+            "Position robot facing down corridors where opponents will pass",
+            "Free SPAM damage across 2-3 consecutive registers without moving",
+            "Consistent laser pressure degrades opponent decks over time"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Upgrade Card Tier List",
+          "bullets": [
+            "Top tier: extra movement, damage protection, deck improvement (permanent)",
+            "Mid tier: situationally powerful board element interactions",
+            "Low tier: temporary one-shot effects rarely worth the energy cost"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Damage Management",
+          "bullets": [
+            "1-2 SPAM: easily absorbed. 3-4: limiting. 5+: desperate scramble",
+            "Taking damage for a shortcut can be worth it if it saves a full round",
+            "Use Spam Folder aggressively — keep deck under 3 SPAM cards"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Blocking Strategies",
+          "bullets": [
+            "Park on checkpoints to force opponents to push you off first",
+            "Block narrow corridors to deny optimal routes",
+            "Your robot body blocks conveyor pushes — use it to redirect traffic"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Checkpoint Rush vs Energy Farming",
+          "bullets": [
+            "Rush: max movement, skip Power Up, win by raw speed",
+            "Farm: collect energy, buy upgrades, blitz checkpoints later",
+            "Short courses (2-3 flags) favor rush; long courses (5-6) favor farming"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading the Board",
+          "bullets": [
+            "Identify conveyor chains, safe lanes, and useful gear rotations",
+            "Map push panel timing — which registers they fire",
+            "Spend Round 1 studying the board layout as much as your cards"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Multi-Register Planning",
+          "bullets": [
+            "Think of 5 registers as one continuous sequence with board bonuses woven in",
+            "Each register starts from post-board-element position, not just post-card",
+            "Cascading: Move + conveyor + Move + gear + Move = far more ground than 3 cards alone"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Priority Manipulation",
+          "bullets": [
+            "Move closer to antenna before critical registers to guarantee moving first",
+            "Stay far from antenna when you want predictable, collision-free movement",
+            "Sacrifice one register of progress to reposition for a crucial push play"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Endgame Tactics",
+          "bullets": [
+            "Arrive at final checkpoint in Register 5 — hardest to block",
+            "Use Again cards for guaranteed repeat positioning",
+            "Push the leader away while claiming the checkpoint yourself",
+            "Consider rebooting near a closer reboot token as a shortcut"
           ]
         }
       ]
