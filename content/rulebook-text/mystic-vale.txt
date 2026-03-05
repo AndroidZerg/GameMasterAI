@@ -1,105 +1,1064 @@
-# SOURCE: AI knowledge summary — verify against official rulebook
-# Game: Mystic Vale
-# Publisher: AEG (Alderac Entertainment Group)
-# Players: 2-4 | Time: 45-60 min | Weight: 2.2/5
+# Mystic Vale -- Rulebook Text
+# Source: https://www.alderac.com/wp-content/uploads/2016/03/mystic-vale-rulebook.pdf
+# Extracted: 2026-03-05
 
-## OVERVIEW
-Mystic Vale is a deck-building game that pioneered the "Card Crafting System" — instead of adding new cards to your deck, you slide transparent plastic advancement cards INTO clear card sleeves, upgrading existing cards with new abilities. Each base card has three slots, and over the course of the game you layer advancements onto them to create increasingly powerful custom cards. A push-your-luck mechanism drives the core gameplay: reveal cards until you choose to stop or bust.
+     John D Clair
 
-## COMPONENTS
-- 20 base cards per player (in clear card sleeves — these have 3 blank zones: top, middle, bottom, with some starting with Cursed Land symbols (red decay) or Fertile Soil symbols (green growth))
-- Starting advancement cards (pre-printed transparent overlays already inserted in some base cards)
-- Advancement card supply (large pool of transparent plastic cards in 3 levels: Level 1, Level 2, Level 3)
-- Vale cards (large cards providing ongoing powers and end-game victory points)
-- Mana tokens (currency to buy advancements and vale cards)
-- Victory Point tokens (green VP tokens in various denominations)
-- Spirit tokens (blue tokens used for special abilities)
-- Decay tokens (red — penalty markers)
-- On-Deck area / Field area (player play zones)
-- Advancement card display (shared market rows for Levels 1, 2, and 3)
-- Vale card display (shared market of available vale cards)
+                                                                                      TM
 
-## SETUP
-1. Each player takes a deck of 20 base cards in clear sleeves. Of these:
-   - 9 cards have a **Cursed Land** symbol (red decay, top slot) — these start with 1 decay icon each.
-   - 3 cards have a **Fertile Soil** symbol (green, with 1 mana each).
-   - 8 cards are completely blank.
-2. Shuffle your 20-card personal deck.
-3. Set up the Advancement display: create rows of face-up Level 1, Level 2, and Level 3 advancement cards (typically 4 cards per level available at a time, refilled from their respective decks).
-4. Set up the Vale card display: lay out a number of Vale cards (typically 4 face-up, drawn from the Vale deck).
-5. Place Mana tokens, VP tokens, and Spirit tokens in a shared supply.
-6. Each player begins the **Planting Phase** for the first turn (see below).
+Rules of Play
+Mystic Vale                                              Contents
 
-## GAMEPLAY / TURN STRUCTURE
+A game by John D Clair                                   Introduction. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 2
+For 24 players, ages 14 and up                          Game Overview. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 3
+                                                         Goal.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 3
+Introduction                                             Components.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 3
+                                                         Setup. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 4
+Centuries ago, a dying, wicked king pleaded for help     Card Anatomy.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 7
+from the druids of Gaia. Knowing that to heal him        How to Play. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+would only bring more suffering, the druids refused.     Taking a Turn. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+Infuriated, with his final breath the king pronounced
+a dire curse that desolated the fertile Valley of Life.       1) Planting Phase .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+Empowered by the dark ruler's spiteful vengeance,                   Spoiling .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+the king's spell spread pestilence and blight over
+the land.                                                     2) Harvest Phase. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+                                                                    Resolve Harvest Abilities .  .  .  .  .  .  .  .  .  .  .  .  . 9
+The Valley of Life had been sacred to Gaia, a                       Score VP. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+birthplace for vital spirits of nature. These spirits               Buy Vale Cards .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+cried out for aid as the land slowly withered. Worse                 Buy Advancements. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+still, some of the spirits grew corrupt and twisted
+by the blight. Left unchecked, this corruption would          3) Discard Phase.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 12
+consume every spirit in the valley and irrevocably                  Sleeve Advancements. .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 12
+destroy a portion of Gaia's power forever.                          Replenish Vales.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 12
+                                                                    Replenish Advancements.  .  .  .  .  .  .  .  .  .  .  . 12
+In response, the Druid Council dispatched druids
+into the valley to restore its verdant beauty. Gaia           4) Prep Phase.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 13
+herself blessed this mission, and the spirits welcomed   End of the Game.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 13
+the druids' much-needed assistance. Into the cursed      Additional Rules.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+valley the druids came, prepared to nurture and heal
+the land with their life-giving powers. The spirits          Mana Token. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+pledged to ally with the druids and bring forth new          Guardian Symbol .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+life into the valley's glens and groves.                     Wild Spirit Symbol.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+                                                             On-deck Card.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+Although Gaia's blessings beget life, the cursed blight      Using Abilities.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+fights back, and careless druids may be thwarted             Planting Your Field. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+by its evil and falter on their mission. Attempting          Open and Hidden Information. .  .  .  .  .  .  .  .  .  .  .  .  . 15
+to restore too much, too quickly can backfire                Decay. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+and impede the road to recovery. To remove the               Card vs. Advancement .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+desecration and return the Valley of Life to nature's    Card Clarifications. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+bounty will require courage and caution in equal             Advancements.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+measure.                                                     Vales .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 19
+                                                         Credits.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 21
+                                                         Quick Reference.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 24
 
-### Phase 1: PLANTING (Push Your Luck)
-This is the core mechanism of the game.
+2
+Game Overview Components
 
-1. **On-Deck Area**: At the start of your turn, you have some cards already face-up in your field from the previous turn's prep. Flip cards from your deck into your **on-deck area** (a staging zone) one at a time.
-2. **Count Decay symbols**: Each red decay symbol (Cursed Land and any added decay advancements) on your face-up cards in your field AND on-deck area counts toward your decay total.
-3. **Spoil threshold**: If you have **3 or more decay symbols** showing across ALL your revealed cards, you **SPOIL** (bust):
-   - You lose your turn. You cannot buy advancements or vale cards.
-   - You gain 1 VP token as consolation.
-   - Discard all revealed cards and prep for next turn.
-4. **Choose to stop**: If you have NOT spoiled, you may choose to stop revealing cards. Push the on-deck cards into your field (they're now committed). The decay symbols on your field are "locked in" — if exactly 2 decay, you're safe but can't push further.
-5. **Prep for next turn**: After your field is set, flip cards from your deck until you have a card with at least one decay symbol in your on-deck area — this is your starting point for next turn. (This "prep" step means you always start a turn with some risk already showing.)
+Players take on the role of druidic clans attempting   Your game of Mystic Vale should include the
+to restore the cursed lands to their former vitality.  following. If it does not, contact
+The cards in your deck represent the parts of the      customerservice@alderac.com for assistance.
+valley that you are tasked with revitalizing, and
+each advancement you add to the cards represents          80 Starting cards divided into 4 identical decks
+new life and vitality you have brought to that land.       consisting of:
+Your power is tied to the land, and as more life                 Beastbrothers deck (20 cards)
+grows in your valleys and groves, so too does your               Dawnseekers deck (20 cards)
+power, and with it the spirits of nature to revive               Lifewardens deck (20 cards)
+the miraculous vales.                                            Waveguards deck (20 cards)
 
-**Key nuance**: You are tracking decay across ALL face-up cards. Cards already in your field from prep count. You're deciding whether to flip one more card or stop.
+Each turn you play cards into your field to gain          96 Advancements consisting of:
+powerful advancements and valuable vale cards.                   33 Level 1
+But you must be careful not to overuse your power                30 Level 2
+or it will result in decay and end your turn. During             33 Level 3
+the game you will be able to build up your cards
+by adding powerful advancements. Crafting your            18 Fertile Soil advancements
+cards with advancements and buying vale cards
+at the right time will help you bring back the most       36 Vale Cards consisting of:
+miraculous portion of the Mystic Vale to life, and to            18 Level 1
+achieve victory!                                                 18 Level 2
 
-### Phase 2: HARVEST (Gain Resources)
-If you did NOT spoil:
-1. **Count mana symbols** on all your field cards. This is your mana for the turn.
-2. **Count spirit symbols** on all your field cards. Gain that many spirit tokens.
-3. **Activate any "on harvest" abilities** printed on advancement cards in your field.
-4. **Gain VP tokens** from any VP-generating advancement cards in your field.
+Goal                       (victory points) at            4 Reference cards
 
-### Phase 3: BUYING (Spend Resources)
-Use your mana to buy:
+The player with the most                                  44 1-point VP tokens
+the end of the game wins.
+                                                          10 5-point VP tokens
 
-1. **Advancement Cards**: Pay the mana cost shown on an advancement card in the display. Take the transparent card and **slide it into one of your base cards' empty slots** (top, middle, or bottom). The advancement becomes a permanent part of that card for the rest of the game.
-   - **Slot restrictions**: Each card has 3 slots. You cannot overlap — one advancement per slot. Choose wisely which card gets which advancement.
-   - **Level 1 advancements** are cheap (1-3 mana) and provide basic benefits.
-   - **Level 2 advancements** are mid-range (3-5 mana) and more powerful.
-   - **Level 3 advancements** are expensive (5-8 mana) and very powerful.
+                                                          4 Mana tokens
 
-2. **Vale Cards**: Pay the mana cost to buy a Vale card. Vale cards go into your personal tableau (NOT into your deck). They provide:
-   - Ongoing abilities (triggered each turn)
-   - End-game VP bonuses
-   - Special powers
+                                                          100 card sleeves (20 of the sleeves are extra in
+                                                           case replacements are required)
 
-3. You may buy **multiple** advancements and/or vale cards per turn, as long as you can afford them.
+                                                          Rulebook
 
-### Phase 4: DISCARD AND PREP
-1. Discard all field cards to your personal discard pile.
-2. **Prep for next turn**: Flip cards from your deck to the on-deck area until you reveal a card with at least 1 decay symbol. This card (and any non-decay cards flipped before it) sit in your on-deck area, ready for your next Planting phase.
-3. If your deck runs out, shuffle your discard pile to form a new deck.
+                                                       For the First Game
 
-### Turn Summary
-Planting (push your luck) -> Harvest (gain resources) -> Buy (spend mana on advancements/vales) -> Discard and Prep
+                                                       Before playing the first game, each starting card
+                                                       should be placed in a clear plastic sleeve. Once
+                                                       placed, starting cards should remain in the sleeves
+                                                       since there is no purpose in the game to remove
+                                                       them. Vale cards are not sleeved. Also note that
+                                                       the game includes 20 additional plastic sleeves in
+                                                       case replacements are required.
 
-## SCORING / WINNING
+                                                       We also recommend that new players take a
+                                                       reference card in order to review the phases
+                                                       during their turn.
 
-### Game End Trigger
-The game ends when the **VP token pool runs out** (all VP tokens have been claimed from the supply). Finish the current round so all players have equal turns.
+                                                       3
+Setup                                                        Player Deck
 
-### Final Scoring
-Add up:
-1. **VP tokens** collected during the game.
-2. **VP values on Vale cards** in your tableau.
-3. **VP symbols on advancement cards** in your deck (some advancements have VP icons).
-4. Any end-game scoring bonuses from Vale cards or special advancements.
+1. Player Decks
 
-**The player with the most VP wins.** Tiebreaker: most mana remaining, then most spirit tokens.
+Each player takes a deck of 20 sleeved starting cards
+(cards belonging to a specific deck are denoted by their
+card back). Each player's deck should have 9 Cursed
+Land, 3 Fertile Soil, and 8 blank cards. Each player should
+shuffle their deck and place it face down in front of them.
 
-## KEY RULES & TIPS
-- **Card crafting is the core strategy**: Think carefully about which advancements go on which base cards. A card with a great top-slot advancement and a great bottom-slot advancement creates a powerhouse when you draw it.
-- **Reduce decay early**: Advancements that remove or blank out decay symbols are extremely valuable. They reduce your spoil risk AND free up space for productive symbols.
-- **Mana generation is essential**: You need mana to buy things. Prioritize mana-producing advancements early so you can afford better purchases later.
-- **Push your luck intelligently**: Count your decay. If you have 2 showing, every additional card flip risks spoiling. Know the ratio of decay to non-decay cards in your remaining deck.
-- **Vale cards provide endgame VP**: Don't ignore them. A well-chosen vale card can be worth 5+ VP.
-- **Thin your risk**: As you add advancements that replace decay symbols with productive ones, your deck becomes safer to push through. Late-game turns should involve flipping many cards without spoiling.
-- **Spirit tokens**: Some powerful abilities require spirit tokens. Stockpile them if your strategy depends on activated abilities.
-- **Level 3 advancements are game-changers**: They're expensive but dramatically powerful. Building toward affording them is a solid strategy.
-- **Watch the VP pool**: When it's getting low, the game is ending soon. Shift to maximizing immediate VP rather than long-term deck building.
-- **Deck familiarity**: You always have exactly 20 cards. Over time, you'll know what's in your deck. Track which powerful cards have been played and which are coming.
-- **Blank cards are opportunities**: Those 8 blank base cards are canvases for building exactly what you need. Don't waste slots on weak advancements.
+2. The Commons                                               Level 3 Advancements
+                                                                                                       The Commons
+The commons is a set of 9 advancements
+available to buy during the game in the center               Level 2 Advancements
+of the table. To set this up, you first take out all
+the Fertile Soil advancements and place them                 Level 1 Advancements
+in a separate deck. Then separate all the other
+advancements into decks denoted by their                                                     Fertile Soil
+level symbols (see "Card Anatomy" on page 7).                                                    Deck
+
+. Level 1 Advancements:                                                 Player Deck
+
+Shuffle all of the level 1 advancements
+together. Then count out a number of
+advancements into a deck face down and
+put the rest back in the box. The number of
+advancements in the deck is based on the
+number of players in the game, which is
+listed below:
+
+   2 players  count out 12 advancements and
+    leave the rest in the box.
+
+   3 players  count out 15 advancements and
+    leave the rest in the box.
+
+   4 players  count out 18 advancements and
+    leave the rest in the box.
+
+Then turn over the first 3 advancements of the
+deck as shown in the setup diagram.
+
+.. Level 2 Advancements:
+
+Use all of the level 2 advancements, then turn
+over the first 3 advancements of the deck.
+
+... Level 3 Advancements:
+
+Use all of the level 3 advancements, then turn
+over the first 3 advancements of the deck.
+
+                                                      4
+                                                                 Player Deck
+
+3. Vale Cards
+
+Separate the vale cards into a level 1
+deck and a level 2 deck. Shuffle the level
+1 deck and turn over 4 cards face up,
+then do the same with the level 2 deck.
+
+                   Level 1 Vale Cards                            Level 2 Vale Cards
+
+I                                      Ley Line Nexus  II                            Fungal Forest
+
+2                                                      3
+
+  Haest: Gain 1 .                      Azure Lake      II                            Wellspring Glade
+I
+
+                                                       7
+
+I                                                            II                      Verdant Valley
+
+                                       World Tree
+
+2                                                      6
+
+I                                      Talonthorn Den  II                            Feral Grove
+
+Haest: Gain 1 . 1                                      3
+
+                                                                                                       Player Deck
+
+Pool of VP Tokens  4. Setup VP Tokens
+
+                   Place the tokens in a pool based
+                   on the number of players:
+
+                      2 players  count out 23
+                       and leave the rest in the box.
+
+                      3 players  count out 28
+                       and leave the rest in the box.
+
+                      4 players  count out 33
+                       and leave the rest in the box.
+
+                                  5
+5. Setup Fields                                       6. Determine Starting Player
+
+During the game you will always have 20 cards.        Take a number of (mana) tokens equal to the
+Your cards will be in one of four locations: your     number of players and be sure to include the token
+deck, your field, your discard pile, and you will     with the starting player symbol.
+have one on-deck card. During setup, players will
+create their starting field and on-deck card.                 Active Side Used Side
+
+Each player makes their starting field using the
+following steps:
+
+A. Shuffle your 20 card deck and place it face
+   down in front of you.
+
+B. Turn over the top card of your deck and place      Starting Player
+   it back on top of your deck face up. This is your  Symbol
+   on-deck card.
+
+C. Place your on-deck card in your play area,         Place the tokens so that their active side is face
+   creating the start of your field, then turn over   up and shuffle them. Each player takes one token
+   a new on-deck card.                                at random and turns it over so the spent side is
+                                                      face up. The player with the starting player symbol
+D. Repeat step C until you have two Cursed Lands      will be the starting player for this game.
+   in your field and a third one on-deck.
+                                                      Players are now ready to begin the game!
+
+      Example Starting Field
+
+Deck  On-deck
+        Card
+
+                                                   6
+Card Anatomy
+
+        Advancement                              Vale Card
+
+Title                     Cost         Title  Talonthorn Den
+
+                          Level                                      Cost
+
+Spirit                    Victory
+
+Symbol  Guardian Ability Points
+
+        Symbol            (during end
+
+                          of game)
+
+                                              I  Haest: Gain 1 . 1
+
+                                       Level                Ability  Victory
+                                                                     Points
+        Advancement                                                  (during end
+                                                                     of game)
+
+Victory         Title     Cost                     Level Symbols
+Points           Ability
+(during                   Level               The level of each advancement is
+Harvest)                                      indicated by the number of pips
+                          Victory             below its cost. The border on the top
+       Decay              Points              and bottom of the advancement also
+       Symbol             (during end         indicates its level as shown below.
+                          of game)
+                                              . Level 1:
+
+                                              .. Level 2:
+
+                                              ... Level 3:
+
+                                    7
+How to Play                                          1) Planting Phase
+
+The starting player takes the first turn of          You resolve your Planting Phase using the
+the game.                                            following steps:
+
+When a player finishes their Discard Phase, the       A. You must choose to either pass or push.
+next player clockwise around the table takes a            If you pass, skip immediately to your
+turn. Players continue taking turns until the             Harvest Phase.
+end of the game.
+                                                      B. If you chose to push, place your on-deck card
+Taking a Turn                                             into your field, to the right of any previously
+                                                          played card. Resolve "When Played" abilities
+When a player is taking a turn, they are considered       on that card (if any), then turn over the top
+the active player. During your turn, you must take        card of your deck and place it back on top of
+the following phases in order:                            your deck face up as your new on-deck card.
+
+ 1. Planting Phase                                    C. Determine if you have Spoiled (see "Spoiling"
+                                                          on page 9).
+ 2. Harvest Phase
+                                                      D. If you have not Spoiled, go back to step A
+ 3. Discard Phase                                         and repeat.
+
+ 4. Prep Phase                                       In this manner, you continue until you either pass
+                                                     or Spoil. Whenever your deck is empty and you
+                                                     need to reveal a new on-deck card, shuffle your
+                                                     discard pile; it becomes your draw deck. If all of
+                                                     your cards are in your field, then you must pass.
+
+8
+Spoiling                                                           Turn Tip
+
+Some cards have (decay) symbols on the left               While you may resolve your various
+side of the card.                                         actions during the Harvest Phase in any
+                                                          order you wish, we recommend that you
+              If at any time during your Planting         generally follow the order below so that
+              Phase or Prep Phase you have 4 or           your resources and abilities are easier to
+              more revealed, then you Spoil.              manage:
+
+                   are counted on cards in your            1. Count up your and spirit symbols.
+field as well as your on-deck card. When you
+Spoil, you immediately skip your Harvest Phase             2. Resolve "Harvest" abilities on cards in
+and jump straight to your Discard Phase. You also              your field.
+turn over your token to the active side as a
+consolation for Spoiling.                                  3. Score .
+
+Some cards have (growth) symbols on the left               4. Buy vale cards.
+side of the card.
+                                                           5. Buy advancements.
+              Each you have revealed in your
+              field, your on-deck card, and from any  Resolve Harvest Abilities
+              other abilities cancels 1 . Meaning,
+              for example, if you have 1 , then       You must resolve "Harvest" abilities on cards in
+you Spoil only if you have 5 revealed instead of      your field (do not count your on-deck card) unless
+the normal 4.                                         it specifically states otherwise. However, you may
+                                                      use the ability at any time during your Harvest
+2) Harvest Phase                                      Phase.
+
+If you chose to end your Planting Phase before        Each "Harvest" ability on an advancement can only
+Spoiling, you now complete your Harvest Phase         be used once each Harvest Phase.
+(again, only if you did not Spoil).
+                                                      Score VP
+The Harvest Phase is when you count up your
+and spirit symbols ( , , , ), resolve                 Any card in your field (do not count your on-deck
+"Harvest" abilities on cards in your field, score     card) showing a (victory point) symbol on the
+                                                      left side of the card means that you must gain that
+    , buy vale cards, and buy advancements.           many tokens from the pool.
+All of this can be done in any order.
+                                                      Important: You do not gain tokens from gray
+You could for example buy an advancement,                 symbols on the right side of cards. Vale cards
+then resolve a "Harvest" ability on one of your
+cards, then buy a vale card, then buy another         and advancements with a gray symbol on the
+advancement.                                          right side of the card are added to your total
+                                                      at the end of the game (see "End of the Game" on
+                                                      page 13).
+
+                                                      9
+Buy Vale Cards                                         Buy Advancements
+
+You will not be able to buy vale cards for your first  With the you have in your field (do not count
+few turns since you need to have spirit symbols        your on-deck card) you may buy up to two
+and none of your starting cards have any.              advancements per turn, which includes Fertile Soil
+                                                       and any of the 9 advancements available in the
+There are 4 spirit symbols in the game:                commons. The cost of each advancement is shown
+                                                       in the top right of each advancement. When buying
+                                                       a Fertile Soil, you may buy any one you want.
+
+Animal Forest Sky Wild                                 If your token is on the active side, you may
+ Spirit Spirit Spirit Spirit                           spend it by turning the token over to the spent
+                                                       side. You then gain 1 additional to spend during
+You will put these symbols on your cards by            that Harvest Phase.
+adding advancements. If you have the right spirit
+symbols on the cards in your field (do not count       Any that you did not spend is lost at the end of
+your on-deck card) to match one of the eight           your Harvest Phase. However, if you choose not to
+revealed vale cards, then you may buy that card.       spend your active token it will remain active
+                                                       for your next turn.
+You may buy up to two vale cards per turn.
+When you buy a vale card, place it face up in          Advancements that you buy are not sleeved until
+your play area.                                        your Discard Phase. Abilities and symbols on
+                                                       advancements that are not sleeved cannot
+A symbol used to buy one vale card may not be          be used.
+used to buy another. For example, if you want to
+buy two different vale cards and they each have        Note: You are not allowed to buy an advancement
+an in their cost, then you must have two               if you do not have a legal place to sleeve it on a card
+different symbols in your field.                       in your field.
+
+Some vale cards feature an ability that you can use
+during the turns after you buy the card. Vale cards
+with a gray symbol on the right side of the
+card add to your total at the end of the game.
+
+If a vale card shows a in its cost, you may use
+any spirit symbol to pay that cost.
+
+Important: Abilities on vale cards may not be
+used during the turn that you buy them.
+
+Tip: In order to help track which vale cards
+you have used during your turn, you can simply
+rotate them 90 degrees. When you buy a vale
+card, immediately rotate it to indicate that you
+cannot use the card during this turn. At the end
+of your turn, rotate all of your used vale cards
+counterclockwise so they are ready to use
+next turn.
+
+                                                   10
+Example Buying Vale Cards
+
+Feral Grove                                                        Ley Line Nexus
+
+II                                                              3  I               2
+
+The player has the following spirit symbols from cards in her field: , , , , , .
+
+She spends , , , to buy the Feral Grove. Note that she can use any symbol for the
+Feral Grove's cost, so she chooses to spend an for that cost. She spends her remaining
+and to buy the Ley Line Nexus. Note that she can spend her to pay for any spirit symbol
+cost, so she chooses to spend the to pay for the cost.
+
+     Example Buying Advancements
+
+Deck
+
+Mana Token
+  (active)
+
+       In this example, the player has 3 on cards in her field
+       and an active token. Note that on the on-deck card
+       does not count (only and are counted on the
+       on-deck card).
+
+       The player is interested in buying the Podlings which
+       costs 2 and a Fertile Soil which costs 2 . Since the
+       player only has 3 , she decides to use her token
+       and turns it over to the spent side. She now has 4 and
+       buys both the Podlings and a Fertile Soil.
+
+                                                 11
+3) Discard Phase                                         Tip: Avoid crafting a card with 2 or more .
+
+You must first sleeve each advancement you               After your advancements are sleeved (if any), put
+bought during your Harvest Phase (if any), then          all cards in your field off to the side in your own
+replenish vale cards and advancements in the             personal discard pile face down. Don't discard
+commons.                                                 your on-deck card.
+
+Sleeve Advancements                                      Replenish Vales
+
+For each advancement you bought, choose a card in        Replace any vale cards you bought by drawing vale
+your field (you cannot choose your on-deck card)         cards from the top of the respective deck. If the
+and sleeve the advancement on the card.                  deck of level 1 vale cards runs out, replace bought
+                                                         level 1 vale cards with cards from the level 2 deck.
+                      You may not sleeve an
+                      advancement if it will cover       Replenish Advancements
+                      another advancement already
+                      on the card (including             Any advancements you bought from the commons
+                      advancements on starting           are replaced with new advancements of the same
+                      cards). There is one exception     level from the top of the corresponding deck(s). If
+                      to this rule. Some advancements    the deck of level 1 advancements runs out, replace
+                      have abilities that run long-wise  bought level 1 advancements with advancements
+                      down the card. You may sleeve      from the level 2 deck. Likewise if the level 2
+                      an advancement such that one       deck runs out and you need to replace a level 2
+                      long-wise ability is covering      advancement, instead replace it with a level 3
+                      another long-wise ability.         advancement.
+                      Whichever ability gets covered
+                      is no longer active and is         The next player may now begin their turn.
+                      ignored.
+
+                     Example Play Area
+
+                         Deck                                               Field
+
+ Discard Pile        On-deck
+                       Card
+  Mana Token
+     (used)          Fungal Forest                       Verdant Valley
+
+VP Tokens                                                                   Vale Cards
+
+                     II                          3       II              6
+
+                                                 12
+4) Prep Phase                                          End of the Game
+
+While your opponent is beginning their turn, you       When the tokens in the pool run out, finish
+can now prep your field. Play your on-deck card as     playing the current round so that each player gets
+the first card in your new field and resolve "When     an equal number of turns, then the game ends. If
+Played" abilities on that card (if any). Then turn
+over the top card of your deck, as a new on-deck           tokens in the pool run out and a player would
+card. Continue to place your on-deck card into your    still gain , take them from the tokens that were
+field, to the right of any previously played card and  left in the box.
+resolve any "When Played" abilities, until you have
+three or more showing (in your field and your          Players now count their points.
+on-deck card). Most often this will be 2 in your
+field and 1 on-deck.                                   You may have accumulated tokens from cards
+                                                       that give you tokens each time you play them.
+If your field has 2 and your on-deck card shows
+an additional 2 or more , you automatically            Some advancements are worth points at the end of
+Spoil and must skip your Harvest Phase next turn       the game, which is indicated by the gray
+and jump straight to your Discard Phase. You also      symbol on the right side of the card. You should go
+turn over your token to the active side as a           through all of your cards and count up all the
+consolation for Spoiling. As general advice, avoid     you have on advancements.
+crafting a card with 2 or more .
+                                                       Many vale cards are also worth points at the end of
+When you have 3 or more showing, your field is         the game, which is indicated by the gray
+prepped for your next turn.                            symbol on the right side of the card.
+
+Note: If a player deems it important, they may wait    The player with the most total points is the winner.
+until the previous player has finished their Prep      If two or more players are tied, the player with the
+Phase before starting their own Planting Phase.        most combined level 3 advancements and level 2
+                                                       vale cards is the winner. If there is still a tie, then
+                                                       players share the win.
+
+                     Example Final Scoring                                                   Cascading Falls
+
+In this example, the player scores the                        Talonthorn Den
+following at the end of the game:
+                                                           SHaenacrttuwaoryod
+   12 VP from accumulated tokens.
+   8 VP from on advancements.                                                               I  Haest: Gain 1 . 1
+   5 VP from on vale cards.
+
+The player scores a total of 25 points
+(12+8+5=25).
+
+                                                           I  Haest: Gain 1 .                   1
+
+                                                           II
+
+                                                                                          3
+
+                                                       13
+Additional Rules                                         On-deck Card
+
+This section covers additional explanations beyond       Your on-deck card is not considered to be in your
+the basic rules required to play.                        deck or in your field. Abilities that reference your
+                                                         deck, like "search your deck", do not include your
+Mana Token                      token during             on-deck card.
+
+You may only spend your active                           The only symbols that count on your on-deck
+your Harvest Phase.                                      card are and symbols. You must play the
+                                                         card into your field to get any other symbols on
+If you choose not to spend your active token,            the card.
+it will remain active for your next turns until you
+spend it.                                                "Harvest" and "When Played" abilities cannot be
+                                                         used on your on-deck card. "Ongoing" abilities
+If your token is already active and you Spoil,           however, continually affect the card even when it is
+the token remains active but you don't receive           your on-deck card.
+any other reward.
+                                                         Using Abilities
+
+Guardian Symbol                                          If an ability specifically contradicts the rules, the
+                                                         ability takes precedence.
+           Some cards have one or more
+           (guardian symbol). These symbols have         Each ability on an advancement or vale card can
+           no effect unless an ability on a card         only be used once per turn unless it specifically
+           references them.                              states otherwise.
+
+                                                         Most abilities list when they can be used at the
+                                                         start of their text, like "Harvest" or "When Played"
+                                                         for example, otherwise the ability describes when
+                                                         it can be used. If two or more abilities would
+                                                         resolve at the same time, like two "Harvest"
+                                                         abilities for example, the active player chooses
+                                                         the order they are resolved.
+
+Wild Spirit Symbol                                       "When Played" abilities are resolved when they
+                                                         are played into your field, before revealing a new
+The (wild spirit symbol) is considered any of            on-deck card; they are not resolved when they are
+the spirit symbols: , , , .                              revealed as your on-deck card.
+
+If a vale card shows a in its cost, you may use          "Harvest" abilities in your field are resolved
+any spirit symbol to pay that cost.                      during your Harvest Phase; they are not resolved
+                                                         while they are your on-deck card.
+If a card or ability gives you a , you may use it
+to pay for any spirit symbol on a vale card's cost.      "Ongoing" abilities continually affect the card
+                                                         whether that card is on-deck, in your field, in your
+                                                         discard pile, or in your deck. These effects have no
+                                                         trigger, as they are always active.
+
+                                                     14
+Planting Your Field                                 Card Clarifications
+
+New cards that are added into your field must       This section covers additional explanations
+always be placed to the right of any cards          for advancements and vale cards that may be
+previously placed in your field. The cards are      referenced during play.
+designed such that those without text effects can
+be overlapped and only the left half of each card   Advancements
+needs to be seen. Try not to overlap cards with
+"Ongoing" or "Harvest" abilities, or you may        Aurora
+miss them.
+                                                                         This is a "Harvest" ability,
+Open and Hidden                                                          meaning if it's in your field, it
+Information                                                              resolves during your Harvest
+                                                                         Phase. You cannot resolve this
+You may not look at any cards in a deck unless an   ability if you Spoil. Count up the number of cards in
+ability allows you to do so.                        your field (don't count your on-deck card). A "card"
+                                                    means everything in a single sleeve--
+You may always look at any cards in your own        advancements are not counted as individual cards.
+discard pile. You may not look at cards in other    For every 2 cards, rounded down, gain 1 .
+players' discard piles unless an ability allows     For example, if there 9 cards in your field, you
+you to do so.                                       gain 4 .
+
+When you gain tokens they are placed in your        Calm Weather
+play area and are open information to all players.
+                                                                         This is a "When Played" ability,
+Decay                                                                    meaning it resolves when it goes
+                                                                         from being your on-deck card to
+You can only Spoil during your Planting Phase and                        being placed into your field. It
+Prep Phase. If you have 4 or more revealed                               resolves before you turn over
+during your Harvest Phase or Discard Phase, you                          your next on-deck card. This
+do not Spoil and there is no effect.                                     ability means you look at the top
+                                                                         card of your deck (which is
+Card vs. Advancement                                                     about to be your on-deck card).
+                                                                         Then either discard it or put it
+A card is comprised of everything in its sleeve,    back on top of your deck. Regardless, you then turn
+including the starting card itself and any          over a new on-deck card.
+advancements that are placed in the sleeve.
+
+An advancement is one of the three "slots" that
+make up a card; advancements are not counted
+as individual cards. Advancements that are
+printed on starting cards are still considered an
+advancement in regards to rules and abilities.
+The "blank" starting card is not considered an
+advancement.
+
+                                                    15
+Cleansing Rain                                          Earthchant Chorus
+
+                     This is a "When Played" ability,                        During your Harvest Phase
+                     meaning it resolves when it goes                        (when you buy advancements),
+                     from being your on-deck card to                         if Earthchant Chorus is on a
+                     being placed into your field. It                        card in your field and that card
+resolves before you turn over your next on-deck         has one or two open slots to sleeve a new
+card. Search your deck for any card and you may         advancement, you may declare that you are
+put it into your discard pile (you'll probably want     purchasing an advancement that will be sleeved
+to choose a Cursed Land), then shuffle your deck        on the same card as Earthchant Chorus (it must be
+(don't shuffle your discard pile into your deck) and    able to fit an open slot on the card). If you do, that
+reveal your next on-deck card. If you choose not to     advancement costs 2 less to buy (to a minimum
+discard the card, you must still shuffle your deck.     of zero), and during your Discard Phase you must
+                                                        sleeve it where you said you would. Note that
+If Cleansing Rain was the bottom card of your           during the turn you buy and sleeve Earthchant
+deck, such that when you play it there are no cards     Chorus its effect is not active and should be
+in your deck, first shuffle your discard pile to        ignored.
+create a new deck, then resolve Cleansing Rain's
+ability.                                                Feral Chieftain
+
+Dawnsinger                                                                   This is a "Harvest" ability,
+                                                                             meaning if it's in your field, it
+                     This is a "Harvest" ability,                            resolves during your Harvest
+                     meaning if it's in your field, it                       Phase. You cannot resolve this
+                     resolves during your Harvest       ability if you Spoil. For each on the card,
+                     Phase. You cannot resolve this     including the on Feral Chieftain plus any other
+ability if you Spoil. For each on the card,                 on advancements also in the same sleeve, you
+including the on Dawnsinger plus any other              get 1 . For example, if Feral Chieftain and Stag
+    on advancements also in the same sleeve, you        were sleeved together on the same card, Feral
+get 1 additional to spend this turn. For                Chieftain would give you 3 during your
+example, if Dawnsinger and Stag were sleeved            Harvest Phase.
+together on the same card, Dawnsinger would give
+you 3 during your Harvest Phase.                        Gaia's Chosen
+
+Deadwood Harvester                                                           This is an effect that only
+                                                                             matters when counting total
+                     This is a "When Played" ability,                        points at the end of the game.
+                     meaning it resolves when it goes                        The advancement gives you 2
+                     from being your on-deck card to                         end of the game as normal,
+                     being placed into your field. It                        but it also gives you an
+                     resolves before you turn over                           additional 1 for every ,
+                     your next on-deck card. This
+                     ability means you may discard                                , , , ,,,
+                     any other card which was                                and on the card.
+                     already placed in your field                            However, these are only
+                     (typically a Cursed Land). If      counted after ignoring text effects.
+Deadwood Harvester is the first card placed into
+your field its effect does nothing.
+
+                16
+For example, if Gaia's Chosen is sleeved together on   Lifebringer Seed
+the same card as both Stag and Dawnsinger, this
+ability would give you 6 (3 for the , 2 for                                 This is an "Ongoing" ability,
+the and , and 1 for the , but 0 from                                        meaning if Lifebringer Seed is
+Dawnsinger's ability because text effects are                               sleeved on a card, thereafter,
+ignored).                                                                   whether that card is on-deck, in
+                                                       your field, in your discard pile, or in your deck, it is
+For example, if Gaia's Chosen is sleeved together on   considered to have no on it.
+the same card as both Stag and Lifebringer Seed,
+this ability would give you 4 (2 for the ,             Magic Seed
+1 for the , and 1 for the . Even though
+Lifebringer Seed has an "Ongoing" ability that                     This is a "Harvest" ability,
+cancels the , Gaia's Chosen specifically says to                   meaning if it's in your field, it
+ignore text effects, so the is still worth 1 ).                    resolves during your Harvest
+                                                                   Phase. You cannot resolve this
+Grassland                                                          ability if you Spoil. Count up the
+                                                                   number of other cards in your
+                     While Grassland is in your field              field (don't count your on-deck
+                     during your Harvest Phase,                    card or the card that Magic Seed
+                     when you count up the you                     is sleeved on). You gain that
+                     get from symbols on cards                     much additional to spend
+and abilities, you must subtract 1 from the total. If
+you do not have any to lose due to the                 this turn.
+Grassland's ability, there is no effect.
+                                                       Mindful Owl
+
+Grovetender                                                                 This is a "When Played" ability,
+                                                                            meaning it resolves when it goes
+                     This is an "Ongoing" ability,                          from being your on-deck card to
+                     meaning if Grovetender is                              being placed into your field. It
+                     sleeved on a card, thereafter,                         resolves before you turn over
+                     whether that card is on-deck, in                       your next on-deck card. This
+your field, in your discard pile, or in your deck,                          ability means you may discard
+Grovetender's ability is in effect. For each on                             any other card which was
+the card ( on advancements in the same sleeve),                             already placed in your field
+Grovetender is considered to have +1 . For                                  (typically a Cursed Land). If
+example, if Grovetender and Stag were sleeved          Mindful Owl is the first card placed into your field,
+together on the same card, Grovetender would be        then its effect does nothing.
+considered to have 2 . You still, of course, only
+get these while Grovetender is in your field or
+on-deck.
+
+                                                       17
+Peacekeeper Druid                                         Woodland Warden
+
+                     If Peacekeeper Druid is in your                           This is a "Harvest" ability,
+                     field, its ability is available for                       meaning if it's in your field, it
+                     use during your Planting Phase                            resolves during your Harvest
+                     (or, more rarely, your Prep                               Phase. You cannot resolve this
+Phase). During your Planting Phase, if you push           ability if you Spoil. For each on the card,
+and the new on-deck card you reveal would result          including the on Woodland Warden plus any
+in you Spoiling, instead of Spoiling, you may use         other on advancements also in the same sleeve,
+Peacekeeper Druid's ability and discard your              you get 2 . For example, if Woodland Warden
+current on-deck card. Then reveal a new                   and Stag were sleeved together on the same card,
+on-deck card.                                             Woodland Warden would give you 6 during
+                                                          your Harvest Phase.
+You may not use the ability more than once during
+your turn. For example, if you were to Spoil but you
+use Peacekeeper Druid's ability to discard your
+on-deck card and reveal a new on-deck card, which
+also results in you Spoiling, then too bad, you Spoil
+anyway.
+
+In the rare case of Spoiling during your Prep Phase,
+if Peacekeeper Druid is in your field, you may use
+its ability once then as well, but then you cannot
+use the ability again during your next Planting
+Phase.
+
+Seedling
+
+                     This is an "Ongoing" ability,
+                     meaning if Seedling is sleeved
+                     on a card, thereafter, whether
+                     that card is on-deck, in your
+field, in your discard pile, or in your deck, that card
+is considered to have no more than 1 on it. For
+example, if Seedling is sleeved on a Cursed Soil
+with no other advancement, its ability effectively
+does nothing. However, if you also sleeve an
+advancement with on it on the same card, like
+Hulking Thornhide, then Seedling's ability cancel's
+the second so the card is considered to have
+only 1 on it.
+
+                   18
+Vales                                                                        Cascading Falls
+
+Ancient Liferoots                                                                Cascading Falls                   This ability means that every
+                                                                                                                   Harvest Phase you gain 1
+Ancient Liferoots                         You always are considered to                                             to spend during that Harvest
+                                          have +1 . If you already have                                            Phase. You cannot use this
+                                          an Ancient Liferoots vale card,                                          ability the turn you buy
+                                          you may not gain a second.                                               this card.
+
+                                                                                 I   Haest: Gain 1 . 1
+
+         Gain 1 permanent .                                                  Conclave of Ents
+               You may not have more
+             than one copy of this card.
+
+II
+
+                                                                                 Conclave of Ents                  This ability means that once
+
+Azure Lake                                                                                                         every turn, at any time during
+
+Azure Lake                                This ability means that every                                            that turn, you may choose a
+                                          Harvest Phase you gain 1
+                                          to spend during that Harvest                                             card in your field or on-deck.
+                                          Phase. You cannot use this
+                                          ability the turn you buy                                                 That card is considered to have
+                                          this card.
+                                                                                                                   +1 on it. For example, if you
+
+                                                                                                                   were about to Spoil and
+
+                                                                                     Once per turn, choose a card  Grovetender was sleeved on
+                                                                                                                   your on-deck card, then you
+                                                                                     in your field or on-deck.     may use Conclave of Ents'
+
+                                                                                     That card gains 1
+
+                                                                                 II  until the end of turn.
+
+                                                                             ability to temporarily give the Grovetender card
+
+          Haest: Gain 1 .                                                    +1 until the end of your turn, which means
+I
+
+                                                                             Grovetender gains +1 until the end of your
+
+Blooming Arbor                                                               turn and you no longer Spoil.
+
+Blooming Arbor                            This ability is available for use  In the rare case you use Conclave of Ent's ability
+                                                                             during your Prep Phase, the ability stays in effect
+                                          during your Planting Phase (or,    during your next Planting Phase.
+
+                                          more rarely, your Prep Phase).
+
+                                          During your Planting Phase, if     Pool of Light
+
+                                          you push and the new on-deck
+
+                                          card you reveal would result in        Pool of Light                     This ability means that every
+                                                                                                                   Harvest Phase you gain 1
+                                          you Spoiling, then instead of                                            to spend during that Harvest
+                                                                                                                   Phase. You cannot use this
+                                          Spoiling, you may discard                                                ability the turn you buy this
+                                                                                                                   card. The may be used to
+   If you were to Spoil,                  Blooming Arbor (put it back in                                           pay for any spirit symbol on a
+                                          the game box and it's considered                                         vale card's cost.
+   you may discard this
+
+I  card to gain 1 .
+
+out of the game). If you do, you gain 1 . If that
+
+results in you no longer Spoiling, then you now
+
+continue your turn as normal by choosing to either
+
+pass or push.
+
+                                                                                           Haest: Gain 1 .
+                                                                                 II
+
+In the rare case of Spoiling during your Prep Phase,
+you may also use Blooming Arbor at that time to
+gain 1 until your next Prep Phase.
+
+                                                                             19
+Radiant Pinnacle                                                   Stream of Vigor
+
+Radiant Pinnacle              This ability means that every        Stream of Vigor                 This ability means that every
+                              Harvest Phase you gain 1                                             Harvest Phase you gain 2
+                              to spend during that Harvest                   Haest: Gain 2         to spend during that Harvest
+                              Phase. You cannot use this                  and you may buy a third  Phase. In addition, you are now
+                              ability the turn you buy             II advancement this turn.       limited to buying 0 to 3
+                              this card.                                                           advancements each turn instead
+                                                                                                   of 0 to 2. You cannot use this
+I  Haest: Gain 1 . 1                                                                               ability the turn you buy
+                                                                                                   this card.
+
+Sunstone Aerie                                                     Talonthorn Den
+
+Sunstone Aerie                This ability means that once         Talonthorn Den                  This ability means that every
+                                                                                                   Harvest Phase you gain 1
+                              each turn during your Harvest                                        to spend during that Harvest
+                                                                                                   Phase. You cannot use this
+                              Phase you may spend 2                                                ability the turn you buy
+                                                                                                   this card.
+                              (meaning you have 2 less to
+
+                              buy advancements with) and
+
+                              choose 1 spirit symbol ( ,
+
+                              , ) you have available to
+
+       Haest: Once per turn,  spend and treat it as though it      I  Haest: Gain 1 . 1
+      you may spend 2 to use  were a (wild spirit symbol)
+I any , , or as 1 .
+
+until the end of your turn. For example, if you
+
+wanted to buy a Ley Line Nexus which costs 1
+
+and 1 , but you only have 1 and 1 , you
+
+may use this ability to treat the as a and
+
+buy the Ley Line Nexus with a and a .
+
+You cannot use this ability the turn you buy
+
+this card.
+
+                                                               20
+Credits                                               Designer Special Thanks:
+                                                      I want to specifically thank the awesome people
+Game Design: John D Clair                             who volunteered their time to help me playtest
+                                                      and develop Mystic Vale. If it's not 100% true to say
+Project Lead: John Goodenough                         that a game is only as good as its playtesters, it's
+                                                      at least 90% true, and the thanks owed to these
+Development: Bryan Reese, Mark Wootton                great contributors should not be understated.
+                                                      The first on the list has to be Csilla Balogh for all
+Art Direction: Todd Rowland                           the wonderful support, input, help, and playtests.
+                                                      This game would not be what it is without her.
+Cover Art: Kiki Moch Rizky                            Katalin and Eva Balogh have to be next for their
+                                                      excitement and willingness to play over and
+Card Art: Jess Alphonso, Jack Baker, Storn Cook,      over nearly every iteration of the game. Other
+Amber Debelak, Martin de Diego, Andrew Gaia,          fantastic contributors who cannot go unmentioned
+Krzysztof Hain, Yogesh Joshi, Heather Kreiter, Jeff   include, in no particular order, Sam Nazarian,
+Porter, Kezrek Laczin, Kiri Leonard, Matt Paquette,   Chris Buckley, Steve Behnke, Chris Buskirk, Alex
+Kiki Moch Rizky                                       Daar, Sean Growley, Chris Johnson, Pace and Leo
+                                                      Porter-Zasada, David Mines, Ben Lesel, Zak Stoltz,
+Graphic Design: Kali Fitzgerald                       and Eric Martinez. Many others also offered their
+                                                      time to playtest. You know who you are and you
+Packaging Design: Sean Glenn                          have my thanks! Finally, much credit and thanks
+                                                      should be given to the great team at AEG for the
+Story Text: Ross Watson                               professionalism, talent, and friendship of each and
+                                                      every person I worked with. Working with them
+Editing: Nicolas Bongiu, Bryan Reese, Todd            has been rewarding, inspiring, and fun.
+Rowland, Mark Wootton
+
+Production: Dave Lepore
+
+Playtesters: Csilla Balogh, Eva Balogh, Katalin       Copyright & Contact
+Balogh, Steve Behnke, Maryne Blanchetire,
+Nicolas Bongiu, Chris Buckley, Chris Buskirk,          2016 Alderac Entertainment Group. Mystic Vale,
+Vincent Carassus, Alex Daar, Ryan Dancy, Kali         Card Crafting System, and all related marks are TM
+Fitzgerald, John Goodenough, Sean Growley, Sean       and  Alderac Entertainment Group, Inc. 4045 E.
+Heaney, Chris Johnson, Matt Joyce, Kyle Huibers,      Guasti Road #210, Ontario, CA 91761 USA
+Jason Krause, Jean Le Bail, Ben Lesel, Tobias Loc,
+Stan Lovelace, Eric Martinez, Mike McDonald,          All rights reserved. Printed in China.
+David Mines, Tim Moore, Chris Mroz, Sam               Warning: Choking hazard!
+Nazarian, Josh Nichols, Will Pell, Bryan Reese, Todd  Not for use by children under 3 years of age.
+Rowland, Brandon Snyder, Richard Stewart, Zak
+Stoltz, Chris Swales, Eric Swanson, Richard Tatge,    Visit our website at www.alderac.com/mystic_vale
+Thorin Tatge, Christie Thompson, Mark Wootton,        Questions? Email CustomerService@alderac.com
+Erik Yaple, Leo Porter-Zasada, Pace Porter-Zasada,
+John Zinser
+
+                                                      21
+                           Druidic Clans
+
+There are many druidic clans devoted to nurturing and guarding the Valley of Life. Each
+clan focuses on a certain aspect based on the primal forces of nature. This aspect shapes
+the clan's rituals, which grants them different powers and blessings from Gaia. When the
+spirits of nature cried out for aid, the Druid Council first sent the four most prominent clans:
+Beastbrothers, Lifewardens, Dawnseekers, and Waveguards.
+
+Beastbrothers
+
+Druids belonging to the circle of animals are called Beastbrothers. These
+druids form lasting bonds with all forms of animal life. Beastbrothers are
+often considered barbaric, preferring to lair in caves and dark forests.
+Beastbrothers honor and respect the ways of animals, including the nature
+of predator and prey.
+
+Lifewardens
+
+Some druids join a circle dedicated to plant life, the power of growth, and
+harmony of nature. These druids are known as Lifewardens. They are
+gardeners and caretakers, nurturing life that comes from the earth. Plants,
+trees, farms, and gardens are where they roam. Lifewardens catalogue
+every plant they encounter, memorizing the uses of herbs, roots, and other
+growing things, making them excellent healers.
+
+Dawnseekers
+
+The light of the sun marks the passage of the seasons, and druids who
+venerate this process are known as Dawnseekers. This circle of druids
+mark the calendar, preferring to make their homes amongst the plains and
+savannas where the sun is clearly seen throughout the day. Dawnseekers
+rise early, hence their name, though some amongst their number prefer to
+remain awake until midnight to mark the end of another day.
+
+Waveguards
+
+Wherever the rivers flow, you can find druids who honor the rushing
+waters. These druids are sometimes called Waveguards, and they travel
+along stony riverbeds, frost-lined coasts, and into the icy mountains.
+Waveguards understand the majesty and power of water like no others,
+able to divine weather patterns from a single drop of rain and predict the
+tides with uncanny accuracy.
+
+                                            22
+                                                                                                                               TM
+
+Mystic Vale is just the beginning!
+
+   The evil forces which curse the Vale have laid waste
+   to most of the world. Only one city stands against the
+   foul tide  a last beacon of hope in a world gone Dark.
+   Edge of DarknessTM is a revolutionary new game from
+   AEG that combines aspects of worker placement,
+   deck building, and fastpaced combat with the
+   Card Crafting SystemTM that debuts in Mystic ValeTM.
+   Exciting industry newcomer John D Clair is the
+   designer of both games.
+   Edge of Darkness is AEG's most ambitious,
+   deluxe, tabletop gaming experience ever. Up to
+   4 players lead factions in the City on the Edge
+   of Darkness as they struggle against the odds
+   to survive in the face of monstrous evil and
+   civil strife to light a beacon of hope for the
+   whole world  a promise that Light shall not
+   be extinguished and that hope remains.
+
+                             23
+Quick Reference
+
+Setup                                               Taking a Turn
+
+1. Player Decks                                     Take the following phases in order.
+
+Each player should shuffle their deck and place it  1) Planting Phase
+face down in front of them.
+                                                    Resolve the following steps:
+2. The Commons
+                                                     A. You must choose to either pass or push.
+Take out all the Fertile Soil advancements and           If you pass, skip immediately to your
+place them in a separate deck. Separate all the          Harvest Phase.
+other advancements into decks denoted by their
+level symbols.                                       B. If you chose push, place your on-deck card into
+                                                         your field, to the right of any previously played
+Shuffle all of the level 1 advancements and count        card. Resolve "When Played" abilities on that
+out a number of advancements into a deck based           card (if any), then turn over the top card of
+on the number of players:                                your deck and place it back on top of your
+                                                         deck face up as your new on-deck card.
+   2 players: 12 advancements
+   3 players: 15 advancements                       C. Determine if you have Spoiled.
+   4 players: 18 advancements
+                                                     D. If you have not Spoiled, go back to step A
+Then turn over the first 3 advancements of the           and repeat.
+level 1, 2, and 3 deck.
+                                                    2) Harvest Phase
+3. Vale Cards
+                                                    If you chose to end your Planting Phase before
+Shuffle both vale decks, then turn over 4 cards     Spoiling, you now complete your Harvest Phase
+face up from each deck.                             (again, only if you did not Spoil).
+
+4. Setup VP Tokens                                  Count up your and spirit symbols ( , ,
+                                                    , ), resolve "Harvest" abilities on cards in your
+Place the tokens in a pool based on the             field, score , buy vale cards, and buy
+number of players:                                  advancements. All of this can be done in
+                                                    any order.
+   2 players: 23
+   3 players: 28                                   3) Discard Phase
+   4 players: 33
+                                                    Sleeve each advancement you bought (if any),
+5. Setup Fields                                     then replenish vale cards and advancements in
+                                                    the commons.
+Each player makes their starting field until
+they have two Cursed Lands in their field           The next player may now begin their turn.
+and a third one on-deck.
+                                                    4) Prep Phase
+6. Determine Starting Player
+                                                    While your opponent is beginning their turn,
+Place the tokens so that their active side is face  prep your field until you have three or more
+up and shuffle them. Each player takes one token    showing (in your field and your on-deck card).
+at random and turns it over. The player with the
+starting player symbol will be the starting player
+for this game.
+
+Players are now ready to begin the game!
+
+                                          24
+
