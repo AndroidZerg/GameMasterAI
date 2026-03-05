@@ -41,11 +41,48 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Prepare the Market Deck", "bullets": ["Shuffle 80 market cards face down", "4 factions: Imperial, Necros, Wild, Guild"]},
-        {"step": 2, "title": "Reveal the Market Row", "bullets": ["Flip 5 cards face up as the Market Row", "Replace purchased cards immediately"]},
-        {"step": 3, "title": "Set Out Fire Gems", "bullets": ["10 Fire Gems in a face-up pile", "Always available for 2 Gold", "Provide 2 Gold or sacrifice for 3 Combat"]},
-        {"step": 4, "title": "Build Starting Decks", "bullets": ["10 cards each: 7 Gold, 1 Dagger, 1 Ruby, 1 Short Sword", "Shuffle and place as personal draw deck"]},
-        {"step": 5, "title": "Set Authority and Draw", "bullets": ["Starting Authority: 50", "Opening hand: 3 cards (5 cards from turn 2 onward)", "Choose starting player randomly"]}
+        {
+          "step": 1,
+          "title": "Prepare the Market Deck",
+          "bullets": [
+            "Shuffle 80 market cards face down",
+            "4 factions: Imperial, Necros, Wild, Guild"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Reveal the Market Row",
+          "bullets": [
+            "Flip 5 cards face up as the Market Row",
+            "Replace purchased cards immediately"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Out Fire Gems",
+          "bullets": [
+            "10 Fire Gems in a face-up pile",
+            "Always available for 2 Gold",
+            "Provide 2 Gold or sacrifice for 3 Combat"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Build Starting Decks",
+          "bullets": [
+            "10 cards each: 7 Gold, 1 Dagger, 1 Ruby, 1 Short Sword",
+            "Shuffle and place as personal draw deck"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Authority and Draw",
+          "bullets": [
+            "Starting Authority: 50",
+            "Opening hand: 3 cards (5 cards from turn 2 onward)",
+            "Choose starting player randomly"
+          ]
+        }
       ]
     },
     "rules": {
@@ -122,16 +159,97 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Turn Overview", "bullets": ["Main Phase → Discard Phase → Draw Phase", "Main Phase: play cards, buy, attack", "Draw 5 cards at end of turn"]},
-        {"step": 2, "title": "Playing Cards", "bullets": ["Play any number of cards in any order", "Actions: immediate effect, discarded at end of turn", "Champions: stay in play until stunned"]},
-        {"step": 3, "title": "Accumulating Resources", "bullets": ["Gold and Combat pool during your turn", "Spend anytime during Main Phase", "Unspent resources vanish at end of turn"]},
-        {"step": 4, "title": "Buying Cards", "bullets": ["Spend Gold to buy from Market Row or Fire Gem pile", "Purchased cards → your discard pile", "Market Row refills immediately"]},
-        {"step": 5, "title": "Attacking", "bullets": ["Spend Combat to reduce opponent's Authority", "Must stun all Guard champions before attacking player", "Stun cost = champion's defense value"]},
-        {"step": 6, "title": "Champions and Abilities", "bullets": ["Ready all champions at start of your turn", "Expend: tap sideways for ability (1/turn)", "Ally: triggers with same-faction card in play", "Sacrifice: remove permanently for powerful effect"]},
-        {"step": 7, "title": "Faction Ally Abilities", "bullets": ["Trigger when same-faction card is in play", "Champions from previous turns count", "Focus 1-2 factions for reliable triggers"]},
-        {"step": 8, "title": "Sacrifice Mechanic", "bullets": ["Remove card permanently for powerful one-time effect", "Deck thinning: sacrifice weak starting cards", "Draw good cards more often with a thinner deck"]},
-        {"step": 9, "title": "Drawing and Shuffling", "bullets": ["End of turn: discard all, draw 5", "Empty deck → shuffle discard pile into new deck", "Every purchased card will cycle into your hand"]},
-        {"step": 10, "title": "Winning the Game", "bullets": ["Authority hits 0 → eliminated", "Last player standing wins", "No point scoring — pure elimination"]}
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Main Phase → Discard Phase → Draw Phase",
+            "Main Phase: play cards, buy, attack",
+            "Draw 5 cards at end of turn"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Playing Cards",
+          "bullets": [
+            "Play any number of cards in any order",
+            "Actions: immediate effect, discarded at end of turn",
+            "Champions: stay in play until stunned"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Accumulating Resources",
+          "bullets": [
+            "Gold and Combat pool during your turn",
+            "Spend anytime during Main Phase",
+            "Unspent resources vanish at end of turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Buying Cards",
+          "bullets": [
+            "Spend Gold to buy from Market Row or Fire Gem pile",
+            "Purchased cards → your discard pile",
+            "Market Row refills immediately"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Attacking",
+          "bullets": [
+            "Spend Combat to reduce opponent's Authority",
+            "Must stun all Guard champions before attacking player",
+            "Stun cost = champion's defense value"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Champions and Abilities",
+          "bullets": [
+            "Ready all champions at start of your turn",
+            "Expend: tap sideways for ability (1/turn)",
+            "Ally: triggers with same-faction card in play",
+            "Sacrifice: remove permanently for powerful effect"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Faction Ally Abilities",
+          "bullets": [
+            "Trigger when same-faction card is in play",
+            "Champions from previous turns count",
+            "Focus 1-2 factions for reliable triggers"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Sacrifice Mechanic",
+          "bullets": [
+            "Remove card permanently for powerful one-time effect",
+            "Deck thinning: sacrifice weak starting cards",
+            "Draw good cards more often with a thinner deck"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Drawing and Shuffling",
+          "bullets": [
+            "End of turn: discard all, draw 5",
+            "Empty deck → shuffle discard pile into new deck",
+            "Every purchased card will cycle into your hand"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "bullets": [
+            "Authority hits 0 → eliminated",
+            "Last player standing wins",
+            "No point scoring — pure elimination"
+          ]
+        }
       ]
     },
     "practice_tutorial": {
@@ -139,7 +257,7 @@
         {
           "step": 1,
           "title": "Welcome to Hero Realms",
-          "text": "Welcome to your first game of Hero Realms! We will play through several turns of a two-player game, showing you how to buy cards, build your deck, attack your opponent, and avoid common beginner mistakes. Both players start with fifty Authority and three-card opening hands. Let's go!",
+          "text": "We will play through several turns of a two-player game, showing you how to buy cards, build your deck, attack your opponent, and avoid common beginner mistakes. Both players start with fifty Authority and three-card opening hands. Let's go!",
           "image": null,
           "image_caption": null
         },
@@ -230,7 +348,7 @@
         {
           "step": 14,
           "title": "Congratulations",
-          "text": "Congratulations! You have seen how to build a deck, use champions, trigger Ally abilities, and attack through Guards. Remember: focus on one or two factions for Ally triggers, always stun Guards before attacking players, and never waste Combat. You are ready for a full game!",
+          "text": "You have seen how to build a deck, use champions, trigger Ally abilities, and attack through Guards. Remember: focus on one or two factions for Ally triggers, always stun Guards before attacking players, and never waste Combat. You are ready for a full game!",
           "image": null,
           "image_caption": null
         },
@@ -242,21 +360,124 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Welcome to Hero Realms", "bullets": ["2-player tutorial covering buying, building, and attacking"]},
-        {"step": 2, "title": "Player 1's Opening Turn", "bullets": ["Play cards for Gold/Combat → buy a card and attack"]},
-        {"step": 3, "title": "Player 2's Opening Turn", "bullets": ["Ruby provides 2 Gold — enables mid-range purchases early"]},
-        {"step": 4, "title": "Building Economy", "bullets": ["Buy Gold-generating cards first", "Fire Gems: reliable 2-Gold upgrade"]},
-        {"step": 5, "title": "Player 1's Mistake: Faction Sprawl", "bullets": ["Bought from all 4 factions", "Ally abilities never trigger"]},
-        {"step": 6, "title": "Lesson: Focus on One or Two Factions", "bullets": ["Ally abilities need same-faction cards in play", "Focused buying = reliable triggers"]},
-        {"step": 7, "title": "Player 2 Deploys a Guard Champion", "bullets": ["Guard must be stunned before attacking player", "4 defense = need 4 Combat to remove"]},
-        {"step": 8, "title": "Player 1's Mistake: Ignoring the Guard", "bullets": ["Tried to attack player directly — all Combat goes to Guard", "Zero direct damage dealt"]},
-        {"step": 9, "title": "Lesson: Always Stun Guards First", "bullets": ["All Combat must clear Guards before hitting player", "Calculate Guard cost + remaining damage"]},
-        {"step": 10, "title": "Deck Thinning in Action", "bullets": ["Sacrifice weak cards to improve deck quality", "Better ratio of good cards = stronger hands"]},
-        {"step": 11, "title": "The Mid-Game Push", "bullets": ["Focused faction = double Ally triggers", "8 Gold + 7 Combat in one turn"]},
-        {"step": 12, "title": "Player 1's Mistake: Wasting Combat", "bullets": ["4 Combat unspent → vanishes at end of turn", "Always spend Combat on something"]},
-        {"step": 13, "title": "Lesson: Never Waste Combat", "bullets": ["Combat disappears at end of turn", "Even 1 damage to Authority adds up"]},
-        {"step": 14, "title": "Congratulations", "bullets": ["Focus factions, stun Guards, spend all Combat"]},
-        {"step": 15, "title": "Before You Battle", "bullets": ["General Tips → strategy basics", "Appendix → factions, card types, keywords", "GM Guide → Q&A for answers"], "cta": true}
+        {
+          "step": 1,
+          "title": "Welcome to Hero Realms",
+          "bullets": [
+            "2-player tutorial covering buying, building, and attacking"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player 1's Opening Turn",
+          "bullets": [
+            "Play cards for Gold/Combat → buy a card and attack"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 2's Opening Turn",
+          "bullets": [
+            "Ruby provides 2 Gold — enables mid-range purchases early"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Building Economy",
+          "bullets": [
+            "Buy Gold-generating cards first",
+            "Fire Gems: reliable 2-Gold upgrade"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 1's Mistake: Faction Sprawl",
+          "bullets": [
+            "Bought from all 4 factions",
+            "Ally abilities never trigger"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Focus on One or Two Factions",
+          "bullets": [
+            "Ally abilities need same-faction cards in play",
+            "Focused buying = reliable triggers"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player 2 Deploys a Guard Champion",
+          "bullets": [
+            "Guard must be stunned before attacking player",
+            "4 defense = need 4 Combat to remove"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 1's Mistake: Ignoring the Guard",
+          "bullets": [
+            "Tried to attack player directly — all Combat goes to Guard",
+            "Zero direct damage dealt"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Always Stun Guards First",
+          "bullets": [
+            "All Combat must clear Guards before hitting player",
+            "Calculate Guard cost + remaining damage"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Deck Thinning in Action",
+          "bullets": [
+            "Sacrifice weak cards to improve deck quality",
+            "Better ratio of good cards = stronger hands"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Mid-Game Push",
+          "bullets": [
+            "Focused faction = double Ally triggers",
+            "8 Gold + 7 Combat in one turn"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 1's Mistake: Wasting Combat",
+          "bullets": [
+            "4 Combat unspent → vanishes at end of turn",
+            "Always spend Combat on something"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Never Waste Combat",
+          "bullets": [
+            "Combat disappears at end of turn",
+            "Even 1 damage to Authority adds up"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Congratulations",
+          "bullets": [
+            "Focus factions, stun Guards, spend all Combat"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Before You Battle",
+          "bullets": [
+            "General Tips → strategy basics",
+            "Appendix → factions, card types, keywords",
+            "GM Guide → Q&A for answers"
+          ],
+          "cta": true
+        }
       ]
     },
     "general_tips": {
@@ -312,13 +533,63 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Economy First", "bullets": ["Buy Gold-generating cards in early turns", "Need economy to afford 5-7 cost power cards"]},
-        {"step": 2, "title": "Focus Your Factions", "bullets": ["1-2 factions for reliable Ally triggers", "Focused deck > scattered strong cards"]},
-        {"step": 3, "title": "Champions Are High Priority", "bullets": ["Stay in play between turns = repeated value", "Guard champions protect Authority"]},
-        {"step": 4, "title": "Thin Your Deck", "bullets": ["Sacrifice weak starting cards", "Lean 8-card deck > bloated 15-card deck"]},
-        {"step": 5, "title": "Common Mistakes to Avoid", "bullets": ["Don't buy from all 4 factions", "Don't leave enemy Guards alive", "Don't waste unspent Combat"]},
-        {"step": 6, "title": "Stun Enemy Champions", "bullets": ["Dangerous champions generate value every turn", "Sometimes stunning > chipping Authority"]},
-        {"step": 7, "title": "Know When to Pivot", "bullets": ["Behind → invest in Guards and healing", "Ahead → go aggressive and close out"]}
+        {
+          "step": 1,
+          "title": "Economy First",
+          "bullets": [
+            "Buy Gold-generating cards in early turns",
+            "Need economy to afford 5-7 cost power cards"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Focus Your Factions",
+          "bullets": [
+            "1-2 factions for reliable Ally triggers",
+            "Focused deck > scattered strong cards"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Champions Are High Priority",
+          "bullets": [
+            "Stay in play between turns = repeated value",
+            "Guard champions protect Authority"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Thin Your Deck",
+          "bullets": [
+            "Sacrifice weak starting cards",
+            "Lean 8-card deck > bloated 15-card deck"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't buy from all 4 factions",
+            "Don't leave enemy Guards alive",
+            "Don't waste unspent Combat"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Stun Enemy Champions",
+          "bullets": [
+            "Dangerous champions generate value every turn",
+            "Sometimes stunning > chipping Authority"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Know When to Pivot",
+          "bullets": [
+            "Behind → invest in Guards and healing",
+            "Ahead → go aggressive and close out"
+          ]
+        }
       ]
     },
     "advanced_strategies": {
@@ -374,35 +645,158 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Faction Deep Dives", "bullets": ["Imperial: sustain and draw", "Necros: sacrifice and control", "Wild: massive Combat", "Guild: economy for expensive cards"]},
-        {"step": 2, "title": "Explosive Turn Setup", "bullets": ["Chain Ally abilities + card draw effects", "Build for combo turns, not consistent moderate ones"]},
-        {"step": 3, "title": "Fire Gem Sacrifice Timing", "bullets": ["2 Gold ongoing vs 3 Combat one-time", "Save sacrifice for killing blow or critical Guard stun"]},
-        {"step": 4, "title": "Guard Wall Strategy", "bullets": ["Multiple Guards = opponent must break through", "Absorbs 10+ Combat while you build your deck"]},
-        {"step": 5, "title": "Market Row Manipulation", "bullets": ["Hate-draft cards that help your opponent", "Buying clears slots for potentially better reveals"]},
-        {"step": 6, "title": "Aggression Timing", "bullets": ["Below 20 Authority = stop buying economy", "Shift to direct damage and Fire Gem sacrifices"]},
-        {"step": 7, "title": "Deck Cycling Speed", "bullets": ["Smaller deck = see power cards more often", "Sacrifice weak cards + buy card draw effects"]}
+        {
+          "step": 1,
+          "title": "Faction Deep Dives",
+          "bullets": [
+            "Imperial: sustain and draw",
+            "Necros: sacrifice and control",
+            "Wild: massive Combat",
+            "Guild: economy for expensive cards"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Explosive Turn Setup",
+          "bullets": [
+            "Chain Ally abilities + card draw effects",
+            "Build for combo turns, not consistent moderate ones"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Fire Gem Sacrifice Timing",
+          "bullets": [
+            "2 Gold ongoing vs 3 Combat one-time",
+            "Save sacrifice for killing blow or critical Guard stun"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Guard Wall Strategy",
+          "bullets": [
+            "Multiple Guards = opponent must break through",
+            "Absorbs 10+ Combat while you build your deck"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Market Row Manipulation",
+          "bullets": [
+            "Hate-draft cards that help your opponent",
+            "Buying clears slots for potentially better reveals"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Aggression Timing",
+          "bullets": [
+            "Below 20 Authority = stop buying economy",
+            "Shift to direct damage and Fire Gem sacrifices"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Deck Cycling Speed",
+          "bullets": [
+            "Smaller deck = see power cards more often",
+            "Sacrifice weak cards + buy card draw effects"
+          ]
+        }
       ]
     },
     "appendix": {
       "entries": [
-        {"term": "Authority", "definition": "Your health total, starting at fifty. When it reaches zero, you are eliminated. The last player standing wins.", "category": "Core Concepts"},
-        {"term": "Gold", "definition": "Currency used to buy cards from the Market Row and Fire Gem pile. Pools during your turn and vanishes at end of turn.", "category": "Resources"},
-        {"term": "Combat", "definition": "Damage resource used to attack opponents and stun champions. Pools during your turn and vanishes at end of turn.", "category": "Resources"},
-        {"term": "Market Row", "definition": "Five face-up cards available for purchase. Refilled immediately when a card is bought.", "category": "Components"},
-        {"term": "Fire Gem", "definition": "Always-available card costing two Gold. Provides two Gold when played or can be sacrificed for three Combat.", "category": "Cards"},
-        {"term": "Action Card", "definition": "A card played for immediate effect during your Main Phase. Discarded at end of turn.", "category": "Card Types"},
-        {"term": "Champion", "definition": "A card that stays in play between turns. Has defense value. Can be stunned by spending Combat equal to its defense.", "category": "Card Types"},
-        {"term": "Guard", "definition": "A champion keyword. All Guard champions must be stunned before you can attack the player or non-Guard champions.", "category": "Keywords"},
-        {"term": "Expend Ability", "definition": "Champion ability activated by turning the card sideways. Can only be used once per turn. Champion readies at start of your next turn.", "category": "Abilities"},
-        {"term": "Ally Ability", "definition": "Bonus ability that triggers when another card of the same faction is in play. Champions from previous turns count.", "category": "Abilities"},
-        {"term": "Sacrifice Ability", "definition": "Remove the card from the game permanently for a powerful one-time effect. Also used to thin weak cards from your deck.", "category": "Abilities"},
-        {"term": "Imperial (Yellow)", "definition": "Faction focused on Authority gain, card draw, and healing. Creates sustain and card advantage.", "category": "Factions"},
-        {"term": "Necros (Purple)", "definition": "Faction focused on sacrifice effects, discard manipulation, and graveyard interaction. Control-oriented.", "category": "Factions"},
-        {"term": "Wild (Green)", "definition": "Faction focused on high Combat damage and direct aggression. Best for rushing opponents down.", "category": "Factions"},
-        {"term": "Guild (Blue)", "definition": "Faction focused on Gold generation and versatile economy. Enables purchasing expensive power cards.", "category": "Factions"},
-        {"term": "Stun", "definition": "Spending Combat equal to a champion's defense to defeat it. Stunned champions go to owner's discard pile at start of their next turn.", "category": "Combat"},
-        {"term": "Deck Thinning", "definition": "Removing weak cards from your deck via sacrifice to improve the average quality of your draws.", "category": "Strategy"},
-        {"term": "Prepare Step", "definition": "At the start of your turn, ready all your champions (turn upright) and discard any stunned champions.", "category": "Rules"}
+        {
+          "term": "Authority",
+          "definition": "Your health total, starting at fifty. When it reaches zero, you are eliminated. The last player standing wins.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Gold",
+          "definition": "Currency used to buy cards from the Market Row and Fire Gem pile. Pools during your turn and vanishes at end of turn.",
+          "category": "Resources"
+        },
+        {
+          "term": "Combat",
+          "definition": "Damage resource used to attack opponents and stun champions. Pools during your turn and vanishes at end of turn.",
+          "category": "Resources"
+        },
+        {
+          "term": "Market Row",
+          "definition": "Five face-up cards available for purchase. Refilled immediately when a card is bought.",
+          "category": "Components"
+        },
+        {
+          "term": "Fire Gem",
+          "definition": "Always-available card costing two Gold. Provides two Gold when played or can be sacrificed for three Combat.",
+          "category": "Cards"
+        },
+        {
+          "term": "Action Card",
+          "definition": "A card played for immediate effect during your Main Phase. Discarded at end of turn.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Champion",
+          "definition": "A card that stays in play between turns. Has defense value. Can be stunned by spending Combat equal to its defense.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Guard",
+          "definition": "A champion keyword. All Guard champions must be stunned before you can attack the player or non-Guard champions.",
+          "category": "Keywords"
+        },
+        {
+          "term": "Expend Ability",
+          "definition": "Champion ability activated by turning the card sideways. Can only be used once per turn. Champion readies at start of your next turn.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Ally Ability",
+          "definition": "Bonus ability that triggers when another card of the same faction is in play. Champions from previous turns count.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Sacrifice Ability",
+          "definition": "Remove the card from the game permanently for a powerful one-time effect. Also used to thin weak cards from your deck.",
+          "category": "Abilities"
+        },
+        {
+          "term": "Imperial (Yellow)",
+          "definition": "Faction focused on Authority gain, card draw, and healing. Creates sustain and card advantage.",
+          "category": "Factions"
+        },
+        {
+          "term": "Necros (Purple)",
+          "definition": "Faction focused on sacrifice effects, discard manipulation, and graveyard interaction. Control-oriented.",
+          "category": "Factions"
+        },
+        {
+          "term": "Wild (Green)",
+          "definition": "Faction focused on high Combat damage and direct aggression. Best for rushing opponents down.",
+          "category": "Factions"
+        },
+        {
+          "term": "Guild (Blue)",
+          "definition": "Faction focused on Gold generation and versatile economy. Enables purchasing expensive power cards.",
+          "category": "Factions"
+        },
+        {
+          "term": "Stun",
+          "definition": "Spending Combat equal to a champion's defense to defeat it. Stunned champions go to owner's discard pile at start of their next turn.",
+          "category": "Combat"
+        },
+        {
+          "term": "Deck Thinning",
+          "definition": "Removing weak cards from your deck via sacrifice to improve the average quality of your draws.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Prepare Step",
+          "definition": "At the start of your turn, ready all your champions (turn upright) and discard any stunned champions.",
+          "category": "Rules"
+        }
       ]
     }
   }

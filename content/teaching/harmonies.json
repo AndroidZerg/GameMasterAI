@@ -48,12 +48,55 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Give Out Player Boards", "bullets": ["1 hex board per player", "Empty board — no starting tokens"]},
-        {"step": 2, "title": "Prepare the Token Supply", "bullets": ["5 colors: green (trees), yellow (fields), gray (mountains), brown (buildings), blue (water)", "Place token bag centrally"]},
-        {"step": 3, "title": "Fill the Central Pool", "bullets": ["Draw tokens into groups of 3 for the display", "Number of groups scales with player count"]},
-        {"step": 4, "title": "Deal Animal Cards", "bullets": ["Shuffle and deal animal cards", "Each player selects scoring targets", "Cards show 3D token patterns to build"]},
-        {"step": 5, "title": "Optional Landscape Bonus Cards", "bullets": ["Extra scoring for terrain arrangements", "Skip for first game if desired"]},
-        {"step": 6, "title": "Choose First Player", "bullets": ["Random or youngest player", "Play proceeds clockwise"]}
+        {
+          "step": 1,
+          "title": "Give Out Player Boards",
+          "bullets": [
+            "1 hex board per player",
+            "Empty board — no starting tokens"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Token Supply",
+          "bullets": [
+            "5 colors: green (trees), yellow (fields), gray (mountains), brown (buildings), blue (water)",
+            "Place token bag centrally"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Fill the Central Pool",
+          "bullets": [
+            "Draw tokens into groups of 3 for the display",
+            "Number of groups scales with player count"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal Animal Cards",
+          "bullets": [
+            "Shuffle and deal animal cards",
+            "Each player selects scoring targets",
+            "Cards show 3D token patterns to build"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Optional Landscape Bonus Cards",
+          "bullets": [
+            "Extra scoring for terrain arrangements",
+            "Skip for first game if desired"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Choose First Player",
+          "bullets": [
+            "Random or youngest player",
+            "Play proceeds clockwise"
+          ]
+        }
       ]
     },
     "rules": {
@@ -82,7 +125,7 @@
         {
           "step": 4,
           "title": "Stacking Rules",
-          "text": "Let's talk about the stacking rules. Level one tokens sit directly on the board. Level two tokens must rest on a level one token beneath them. Level three tokens go on top of a level two stack. You cannot skip levels. This vertical dimension is what makes Harmonies unique.",
+          "text": "Level one tokens sit directly on the board. Level two tokens must rest on a level one token beneath them. Level three tokens go on top of a level two stack. You cannot skip levels. This vertical dimension is what makes Harmonies unique.",
           "image": null,
           "image_caption": null
         },
@@ -116,14 +159,79 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Turn Overview", "bullets": ["Take 3 tokens from 1 group in the display", "Place all 3 on your board, one at a time", "Display refills for next player"]},
-        {"step": 2, "title": "Drafting Tokens", "bullets": ["Must take all 3 from same group", "Choose colors that match your animal patterns", "Consider denying opponents' needed colors"]},
-        {"step": 3, "title": "Placing Tokens on Your Board", "bullets": ["Place on empty hex spaces (level 1) or stack on existing tokens", "Max height: 3 tokens", "Top color counts for pattern matching"]},
-        {"step": 4, "title": "Stacking Rules", "bullets": ["Level 1: directly on board", "Level 2: on top of level 1", "Level 3: on top of level 2 (maximum)", "Cannot skip levels"]},
-        {"step": 5, "title": "Animal Card Patterns", "bullets": ["Show color patterns as seen from above", "Some require specific heights (e.g., gray at level 3)", "Adjacent tokens must match the pattern layout"]},
-        {"step": 6, "title": "Completing Animal Patterns", "bullets": ["All tokens in correct positions/colors/heights → score immediately", "Tokens stay and can contribute to other patterns", "Complex patterns = more VP"]},
-        {"step": 7, "title": "Covering and Changing the Landscape", "bullets": ["Stacking changes visible color of that space", "Can complete one pattern but break another", "Tokens cannot be moved once placed"]},
-        {"step": 8, "title": "Game End and Scoring", "bullets": ["Ends when token supply exhausted", "VP from completed animal cards + landscape bonuses", "Most VP wins; tiebreaker: most completed animals"]}
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Take 3 tokens from 1 group in the display",
+            "Place all 3 on your board, one at a time",
+            "Display refills for next player"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Drafting Tokens",
+          "bullets": [
+            "Must take all 3 from same group",
+            "Choose colors that match your animal patterns",
+            "Consider denying opponents' needed colors"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placing Tokens on Your Board",
+          "bullets": [
+            "Place on empty hex spaces (level 1) or stack on existing tokens",
+            "Max height: 3 tokens",
+            "Top color counts for pattern matching"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Stacking Rules",
+          "bullets": [
+            "Level 1: directly on board",
+            "Level 2: on top of level 1",
+            "Level 3: on top of level 2 (maximum)",
+            "Cannot skip levels"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Animal Card Patterns",
+          "bullets": [
+            "Show color patterns as seen from above",
+            "Some require specific heights (e.g., gray at level 3)",
+            "Adjacent tokens must match the pattern layout"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Completing Animal Patterns",
+          "bullets": [
+            "All tokens in correct positions/colors/heights → score immediately",
+            "Tokens stay and can contribute to other patterns",
+            "Complex patterns = more VP"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Covering and Changing the Landscape",
+          "bullets": [
+            "Stacking changes visible color of that space",
+            "Can complete one pattern but break another",
+            "Tokens cannot be moved once placed"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Game End and Scoring",
+          "bullets": [
+            "Ends when token supply exhausted",
+            "VP from completed animal cards + landscape bonuses",
+            "Most VP wins; tiebreaker: most completed animals"
+          ]
+        }
       ]
     },
     "practice_tutorial": {
@@ -131,7 +239,7 @@
         {
           "step": 1,
           "title": "Welcome to Harmonies",
-          "text": "Welcome to your first game of Harmonies! We will walk through several turns with three players, showing how to draft, place, stack, and score animal patterns. Player 1, Player 2, and Player 3 each have empty boards and a selection of animal cards to complete. Let's build some landscapes!",
+          "text": "We will walk through several turns with three players, showing how to draft, place, stack, and score animal patterns. Player 1, Player 2, and Player 3 each have empty boards and a selection of animal cards to complete. Let's build some landscapes!",
           "image": null,
           "image_caption": null
         },
@@ -215,7 +323,7 @@
         {
           "step": 13,
           "title": "Congratulations",
-          "text": "Congratulations! You have learned how to draft tokens, build landscapes in three dimensions, and score animal patterns. Remember to place with purpose, think before you stack, and stay flexible about which animals to pursue. Harmonies rewards careful spatial planning.",
+          "text": "You have learned how to draft tokens, build landscapes in three dimensions, and score animal patterns. Remember to place with purpose, think before you stack, and stay flexible about which animals to pursue. Harmonies rewards careful spatial planning.",
           "image": null,
           "image_caption": null
         },
@@ -227,20 +335,118 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Welcome to Harmonies", "bullets": ["3-player tutorial covering drafting, placing, stacking, scoring"]},
-        {"step": 2, "title": "Choosing Your Animal Cards", "bullets": ["Start with simple patterns (2-3 tokens, level 1)", "Complex multi-height animals can wait"]},
-        {"step": 3, "title": "Player 1's First Draft", "bullets": ["Take 3 tokens from 1 group matching your patterns", "Place purposefully — adjacent for deer pattern"]},
-        {"step": 4, "title": "Player 2 Drafts and Places", "bullets": ["Mountain animal needs gray at level 3", "Start by building a base of gray tokens at level 1"]},
-        {"step": 5, "title": "Player 3's Mistake: Random Placement", "bullets": ["Scattered tokens with no plan", "Zero progress toward any animal pattern"]},
-        {"step": 6, "title": "Lesson: Place with Purpose", "bullets": ["Every token should advance at least 1 pattern", "Place tokens that serve multiple patterns when possible"]},
-        {"step": 7, "title": "Building Height", "bullets": ["Stack gray on gray → level 2", "Next turn: add third gray → level 3 for mountain animal"]},
-        {"step": 8, "title": "Player 1's Mistake: Covering a Pattern", "bullets": ["Stacked gray on green → broke deer pattern", "Visible color changed from green to gray"]},
-        {"step": 9, "title": "Lesson: Think Before You Stack", "bullets": ["Stacking changes visible color", "Check if bottom color is part of a needed pattern first"]},
-        {"step": 10, "title": "Completing the First Animal", "bullets": ["3 adjacent green at level 1 = deer pattern complete", "Claim card for VP; tokens stay on board"]},
-        {"step": 11, "title": "Drafting to Deny", "bullets": ["Take groups your opponents need", "Competitive drafting is valid and important"]},
-        {"step": 12, "title": "Late Game Decisions", "bullets": ["Incomplete animals score 0", "Pivot to achievable patterns if time is short"]},
-        {"step": 13, "title": "Congratulations", "bullets": ["Place with purpose, think before stacking, stay flexible"]},
-        {"step": 14, "title": "Before You Explore", "bullets": ["General Tips → strategy basics", "Appendix → terrain types and scoring", "GM Guide → Q&A for answers during play"], "cta": true}
+        {
+          "step": 1,
+          "title": "Welcome to Harmonies",
+          "bullets": [
+            "3-player tutorial covering drafting, placing, stacking, scoring"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Choosing Your Animal Cards",
+          "bullets": [
+            "Start with simple patterns (2-3 tokens, level 1)",
+            "Complex multi-height animals can wait"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1's First Draft",
+          "bullets": [
+            "Take 3 tokens from 1 group matching your patterns",
+            "Place purposefully — adjacent for deer pattern"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 2 Drafts and Places",
+          "bullets": [
+            "Mountain animal needs gray at level 3",
+            "Start by building a base of gray tokens at level 1"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 3's Mistake: Random Placement",
+          "bullets": [
+            "Scattered tokens with no plan",
+            "Zero progress toward any animal pattern"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Place with Purpose",
+          "bullets": [
+            "Every token should advance at least 1 pattern",
+            "Place tokens that serve multiple patterns when possible"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Building Height",
+          "bullets": [
+            "Stack gray on gray → level 2",
+            "Next turn: add third gray → level 3 for mountain animal"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 1's Mistake: Covering a Pattern",
+          "bullets": [
+            "Stacked gray on green → broke deer pattern",
+            "Visible color changed from green to gray"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Think Before You Stack",
+          "bullets": [
+            "Stacking changes visible color",
+            "Check if bottom color is part of a needed pattern first"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Completing the First Animal",
+          "bullets": [
+            "3 adjacent green at level 1 = deer pattern complete",
+            "Claim card for VP; tokens stay on board"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Drafting to Deny",
+          "bullets": [
+            "Take groups your opponents need",
+            "Competitive drafting is valid and important"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Late Game Decisions",
+          "bullets": [
+            "Incomplete animals score 0",
+            "Pivot to achievable patterns if time is short"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Congratulations",
+          "bullets": [
+            "Place with purpose, think before stacking, stay flexible"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Before You Explore",
+          "bullets": [
+            "General Tips → strategy basics",
+            "Appendix → terrain types and scoring",
+            "GM Guide → Q&A for answers during play"
+          ],
+          "cta": true
+        }
       ]
     },
     "general_tips": {
@@ -296,13 +502,63 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Choose Complementary Animals", "bullets": ["Pick animals with overlapping color needs", "Avoid cards needing conflicting colors in same spaces"]},
-        {"step": 2, "title": "Build a Foundation First", "bullets": ["Place ground-level tokens early for stacking base", "Plan height zones before you need them"]},
-        {"step": 3, "title": "Draft with Multiple Purposes", "bullets": ["Best groups serve 2+ animal patterns", "Avoid groups with wasted tokens"]},
-        {"step": 4, "title": "Height Planning", "bullets": ["Level 3 needs 3 turns of stacking — start early", "Balance height animals with quick ground-level ones"]},
-        {"step": 5, "title": "Common Mistakes to Avoid", "bullets": ["Don't pick conflicting animal cards", "Don't stack carelessly over needed colors", "Don't scatter tokens randomly"]},
-        {"step": 6, "title": "Know When to Abandon", "bullets": ["Incomplete animals = 0 VP", "Redirect efforts to finishable patterns"]},
-        {"step": 7, "title": "Watch the Display", "bullets": ["Plan your draft before your turn", "Deny opponents when possible"]}
+        {
+          "step": 1,
+          "title": "Choose Complementary Animals",
+          "bullets": [
+            "Pick animals with overlapping color needs",
+            "Avoid cards needing conflicting colors in same spaces"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Build a Foundation First",
+          "bullets": [
+            "Place ground-level tokens early for stacking base",
+            "Plan height zones before you need them"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Draft with Multiple Purposes",
+          "bullets": [
+            "Best groups serve 2+ animal patterns",
+            "Avoid groups with wasted tokens"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Height Planning",
+          "bullets": [
+            "Level 3 needs 3 turns of stacking — start early",
+            "Balance height animals with quick ground-level ones"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't pick conflicting animal cards",
+            "Don't stack carelessly over needed colors",
+            "Don't scatter tokens randomly"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Know When to Abandon",
+          "bullets": [
+            "Incomplete animals = 0 VP",
+            "Redirect efforts to finishable patterns"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Watch the Display",
+          "bullets": [
+            "Plan your draft before your turn",
+            "Deny opponents when possible"
+          ]
+        }
       ]
     },
     "advanced_strategies": {
@@ -358,32 +614,141 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Multi-Pattern Overlap", "bullets": ["Build zones serving 2-3 animal patterns at once", "Shared tokens = maximum efficiency"]},
-        {"step": 2, "title": "Strategic Stacking Order", "bullets": ["Place bottom colors for ground patterns first", "Top color at desired height completes height patterns"]},
-        {"step": 3, "title": "Landscape Bonus Optimization", "bullets": ["Plan terrain to hit bonus thresholds", "Stack bonuses with animal card scoring"]},
-        {"step": 4, "title": "Denial Drafting", "bullets": ["Track opponents' patterns and needed colors", "Hate-draft when it blocks a completion"]},
-        {"step": 5, "title": "Tempo and Efficiency", "bullets": ["Maximize VP per token placed", "Overlapping patterns = better efficiency"]},
-        {"step": 6, "title": "Reading the Token Pool", "bullets": ["Track color distribution in remaining supply", "Adjust priorities based on what's left"]},
-        {"step": 7, "title": "Endgame Pivots", "bullets": ["Stop building for future — close out patterns now", "Abandon lost causes ruthlessly"]}
+        {
+          "step": 1,
+          "title": "Multi-Pattern Overlap",
+          "bullets": [
+            "Build zones serving 2-3 animal patterns at once",
+            "Shared tokens = maximum efficiency"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Strategic Stacking Order",
+          "bullets": [
+            "Place bottom colors for ground patterns first",
+            "Top color at desired height completes height patterns"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Landscape Bonus Optimization",
+          "bullets": [
+            "Plan terrain to hit bonus thresholds",
+            "Stack bonuses with animal card scoring"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Denial Drafting",
+          "bullets": [
+            "Track opponents' patterns and needed colors",
+            "Hate-draft when it blocks a completion"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Tempo and Efficiency",
+          "bullets": [
+            "Maximize VP per token placed",
+            "Overlapping patterns = better efficiency"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading the Token Pool",
+          "bullets": [
+            "Track color distribution in remaining supply",
+            "Adjust priorities based on what's left"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Pivots",
+          "bullets": [
+            "Stop building for future — close out patterns now",
+            "Abandon lost causes ruthlessly"
+          ]
+        }
       ]
     },
     "appendix": {
       "entries": [
-        {"term": "Green Token (Trees/Forest)", "definition": "Represents trees and forests. Commonly used at various heights for woodland animals.", "category": "Terrain"},
-        {"term": "Yellow Token (Fields/Plains)", "definition": "Represents fields and meadows. Often used at ground level for prairie and grassland animals.", "category": "Terrain"},
-        {"term": "Gray Token (Mountains/Rock)", "definition": "Represents mountains and rocky terrain. Frequently needed at level two or three for mountain-dwelling animals.", "category": "Terrain"},
-        {"term": "Brown Token (Buildings)", "definition": "Represents settlements and structures. Used for animals associated with human habitations.", "category": "Terrain"},
-        {"term": "Blue Token (Water/Lakes)", "definition": "Represents water features. Usually placed at ground level for aquatic and waterside animals.", "category": "Terrain"},
-        {"term": "Level 1 (Ground)", "definition": "A token placed directly on an empty hex space on the board. The base layer of the landscape.", "category": "Height"},
-        {"term": "Level 2", "definition": "A token stacked on top of a level one token. Requires a foundation beneath it.", "category": "Height"},
-        {"term": "Level 3 (Maximum)", "definition": "A token stacked on top of a level two token. The maximum height. Creates peaks and towers in the landscape.", "category": "Height"},
-        {"term": "Animal Card", "definition": "A scoring card showing a specific pattern of colored tokens at specific heights. Claimed for VP when the pattern is completed on your board.", "category": "Cards"},
-        {"term": "Landscape Bonus Card", "definition": "Optional scoring cards that reward specific terrain coverage or height achievements on your board.", "category": "Cards"},
-        {"term": "Central Display", "definition": "Shared area where token groups are available for drafting. Refilled from the bag after each turn.", "category": "Components"},
-        {"term": "Token Group", "definition": "A set of three tokens in the central display. Players must take all three from one group on their turn.", "category": "Components"},
-        {"term": "Pattern Matching", "definition": "Comparing the top-visible colors and heights on your board to the requirements on an animal card. All positions must match for completion.", "category": "Rules"},
-        {"term": "Covering", "definition": "Placing a token on top of another, changing the visible color of that space. Can complete or break existing patterns.", "category": "Rules"},
-        {"term": "Hex Board", "definition": "Personal player board with hexagonal spaces where tokens are placed. The foundation for building your 3D landscape.", "category": "Components"}
+        {
+          "term": "Green Token (Trees/Forest)",
+          "definition": "Represents trees and forests. Commonly used at various heights for woodland animals.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Yellow Token (Fields/Plains)",
+          "definition": "Represents fields and meadows. Often used at ground level for prairie and grassland animals.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Gray Token (Mountains/Rock)",
+          "definition": "Represents mountains and rocky terrain. Frequently needed at level two or three for mountain-dwelling animals.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Brown Token (Buildings)",
+          "definition": "Represents settlements and structures. Used for animals associated with human habitations.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Blue Token (Water/Lakes)",
+          "definition": "Represents water features. Usually placed at ground level for aquatic and waterside animals.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Level 1 (Ground)",
+          "definition": "A token placed directly on an empty hex space on the board. The base layer of the landscape.",
+          "category": "Height"
+        },
+        {
+          "term": "Level 2",
+          "definition": "A token stacked on top of a level one token. Requires a foundation beneath it.",
+          "category": "Height"
+        },
+        {
+          "term": "Level 3 (Maximum)",
+          "definition": "A token stacked on top of a level two token. The maximum height. Creates peaks and towers in the landscape.",
+          "category": "Height"
+        },
+        {
+          "term": "Animal Card",
+          "definition": "A scoring card showing a specific pattern of colored tokens at specific heights. Claimed for VP when the pattern is completed on your board.",
+          "category": "Cards"
+        },
+        {
+          "term": "Landscape Bonus Card",
+          "definition": "Optional scoring cards that reward specific terrain coverage or height achievements on your board.",
+          "category": "Cards"
+        },
+        {
+          "term": "Central Display",
+          "definition": "Shared area where token groups are available for drafting. Refilled from the bag after each turn.",
+          "category": "Components"
+        },
+        {
+          "term": "Token Group",
+          "definition": "A set of three tokens in the central display. Players must take all three from one group on their turn.",
+          "category": "Components"
+        },
+        {
+          "term": "Pattern Matching",
+          "definition": "Comparing the top-visible colors and heights on your board to the requirements on an animal card. All positions must match for completion.",
+          "category": "Rules"
+        },
+        {
+          "term": "Covering",
+          "definition": "Placing a token on top of another, changing the visible color of that space. Can complete or break existing patterns.",
+          "category": "Rules"
+        },
+        {
+          "term": "Hex Board",
+          "definition": "Personal player board with hexagonal spaces where tokens are placed. The foundation for building your 3D landscape.",
+          "category": "Components"
+        }
       ]
     }
   }

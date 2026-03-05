@@ -164,7 +164,7 @@
         {
           "step": 7,
           "title": "Phase Two: Draw Treasure Cards",
-          "text": "After your actions, draw two cards from the treasure deck. If you draw a Waters Rise card, resolve it immediately. The water level goes up one notch, and you shuffle the flood discard pile and place it on top of the flood draw pile. This means recently flooded tiles will flood again soon. Waters Rise cards do not go to your hand.",
+          "text": "If you draw a Waters Rise card, resolve it immediately. The water level goes up one notch, and you shuffle the flood discard pile and place it on top of the flood draw pile. This means recently flooded tiles will flood again soon. Waters Rise cards do not go to your hand.",
           "image": null,
           "image_caption": null
         },
@@ -320,7 +320,7 @@
         {
           "step": 1,
           "title": "Welcome to the Island",
-          "text": "Welcome to your first game of Forbidden Island! In this practice tutorial, we will walk through a few turns with three players. Player 1 is the Engineer, Player 2 is the Explorer, and Player 3 is the Messenger. The island is flooding around you, and you need to work together to grab four treasures and escape. Let's go!",
+          "text": "In this practice tutorial, we will walk through a few turns with three players. Player 1 is the Engineer, Player 2 is the Explorer, and Player 3 is the Messenger. The island is flooding around you, and you need to work together to grab four treasures and escape. Let's go!",
           "image": null,
           "image_caption": null
         },
@@ -425,7 +425,7 @@
         {
           "step": 16,
           "title": "Congratulations",
-          "text": "Congratulations! You have walked through the core flow of Forbidden Island. You have seen how to use role powers effectively, why shoring up treasure tiles is essential, and why you must save a Helicopter Lift for the escape. Remember, this is a cooperative game. Talk through every decision with your team.",
+          "text": "You have walked through the core flow of Forbidden Island. You have seen how to use role powers effectively, why shoring up treasure tiles is essential, and why you must save a Helicopter Lift for the escape. Remember, this is a cooperative game. Talk through every decision with your team.",
           "image": null,
           "image_caption": null
         },
@@ -855,27 +855,111 @@
     },
     "appendix": {
       "entries": [
-        {"term": "Diver", "definition": "Can move through one or more adjacent flooded or missing tiles for a single action, reaching the nearest reachable tile beyond. Best in sinking zones.", "category": "Roles"},
-        {"term": "Engineer", "definition": "Can shore up two tiles for one action instead of the normal one tile. Extremely valuable for keeping the island intact.", "category": "Roles"},
-        {"term": "Explorer", "definition": "Can move and shore up diagonally in addition to orthogonally. Covers more ground than any other role.", "category": "Roles"},
-        {"term": "Messenger", "definition": "Can give treasure cards to any player regardless of location. Does not need to be on the same tile to trade.", "category": "Roles"},
-        {"term": "Navigator", "definition": "Can move another player up to two adjacent tiles for one action. Great for repositioning teammates.", "category": "Roles"},
-        {"term": "Pilot", "definition": "Once per turn, can fly to any tile on the island for one action. Acts as a firefighter for distant emergencies.", "category": "Roles"},
-        {"term": "Shore Up", "definition": "Flip a flooded tile back to its normal side. Costs one action. Can target your current tile or any adjacent tile.", "category": "Actions"},
-        {"term": "Capture a Treasure", "definition": "Discard four matching treasure cards while standing on a corresponding treasure tile to claim the treasure figurine.", "category": "Actions"},
-        {"term": "Flooded", "definition": "A tile flipped to its blue side. Still usable for movement and actions but in danger. If flooded again, it sinks.", "category": "Tile States"},
-        {"term": "Sunken", "definition": "A tile removed from the game permanently. Cannot be moved onto or through. The flood card is also removed.", "category": "Tile States"},
-        {"term": "Waters Rise!", "definition": "A treasure card that raises the water level by one and shuffles the flood discard pile on top of the flood deck. Does not go to your hand.", "category": "Cards"},
-        {"term": "Helicopter Lift", "definition": "Move any number of pawns from one tile to any other tile. Playable anytime, even on other players' turns. Required for the final escape.", "category": "Cards"},
-        {"term": "Sandbags", "definition": "Shore up any tile anywhere on the island. Playable anytime. Does not cost an action.", "category": "Cards"},
-        {"term": "Fools' Landing", "definition": "The helicopter pad tile. All players must gather here and play a Helicopter Lift card to win. If this tile sinks, the game is lost.", "category": "Locations"},
-        {"term": "Water Meter", "definition": "Tracks the current flood level from one to five plus skull. Determines how many flood cards are drawn each turn. Raised by Waters Rise! cards.", "category": "Components"},
-        {"term": "Hand Limit", "definition": "Maximum of five treasure cards in hand. If you exceed five after drawing, immediately discard down to five.", "category": "Rules"},
-        {"term": "Swimming", "definition": "When a tile sinks under a player, they must immediately move to an adjacent tile. If no adjacent tile exists, the game is lost.", "category": "Rules"},
-        {"term": "Earth Stone", "definition": "One of four treasures. Associated tiles: Temple of the Moon, Temple of the Sun.", "category": "Treasures"},
-        {"term": "Statue of the Wind", "definition": "One of four treasures. Associated tiles: Howling Garden, Whispering Garden.", "category": "Treasures"},
-        {"term": "Crystal of Fire", "definition": "One of four treasures. Associated tiles: Cave of Embers, Cave of Shadows.", "category": "Treasures"},
-        {"term": "Ocean's Chalice", "definition": "One of four treasures. Associated tiles: Coral Palace, Tidal Palace.", "category": "Treasures"}
+        {
+          "term": "Diver",
+          "definition": "Can move through one or more adjacent flooded or missing tiles for a single action, reaching the nearest reachable tile beyond. Best in sinking zones.",
+          "category": "Roles"
+        },
+        {
+          "term": "Engineer",
+          "definition": "Can shore up two tiles for one action instead of the normal one tile. Extremely valuable for keeping the island intact.",
+          "category": "Roles"
+        },
+        {
+          "term": "Explorer",
+          "definition": "Can move and shore up diagonally in addition to orthogonally. Covers more ground than any other role.",
+          "category": "Roles"
+        },
+        {
+          "term": "Messenger",
+          "definition": "Can give treasure cards to any player regardless of location. Does not need to be on the same tile to trade.",
+          "category": "Roles"
+        },
+        {
+          "term": "Navigator",
+          "definition": "Can move another player up to two adjacent tiles for one action. Great for repositioning teammates.",
+          "category": "Roles"
+        },
+        {
+          "term": "Pilot",
+          "definition": "Once per turn, can fly to any tile on the island for one action. Acts as a firefighter for distant emergencies.",
+          "category": "Roles"
+        },
+        {
+          "term": "Shore Up",
+          "definition": "Flip a flooded tile back to its normal side. Costs one action. Can target your current tile or any adjacent tile.",
+          "category": "Actions"
+        },
+        {
+          "term": "Capture a Treasure",
+          "definition": "Discard four matching treasure cards while standing on a corresponding treasure tile to claim the treasure figurine.",
+          "category": "Actions"
+        },
+        {
+          "term": "Flooded",
+          "definition": "A tile flipped to its blue side. Still usable for movement and actions but in danger. If flooded again, it sinks.",
+          "category": "Tile States"
+        },
+        {
+          "term": "Sunken",
+          "definition": "A tile removed from the game permanently. Cannot be moved onto or through. The flood card is also removed.",
+          "category": "Tile States"
+        },
+        {
+          "term": "Waters Rise!",
+          "definition": "A treasure card that raises the water level by one and shuffles the flood discard pile on top of the flood deck. Does not go to your hand.",
+          "category": "Cards"
+        },
+        {
+          "term": "Helicopter Lift",
+          "definition": "Move any number of pawns from one tile to any other tile. Playable anytime, even on other players' turns. Required for the final escape.",
+          "category": "Cards"
+        },
+        {
+          "term": "Sandbags",
+          "definition": "Shore up any tile anywhere on the island. Playable anytime. Does not cost an action.",
+          "category": "Cards"
+        },
+        {
+          "term": "Fools' Landing",
+          "definition": "The helicopter pad tile. All players must gather here and play a Helicopter Lift card to win. If this tile sinks, the game is lost.",
+          "category": "Locations"
+        },
+        {
+          "term": "Water Meter",
+          "definition": "Tracks the current flood level from one to five plus skull. Determines how many flood cards are drawn each turn. Raised by Waters Rise! cards.",
+          "category": "Components"
+        },
+        {
+          "term": "Hand Limit",
+          "definition": "Maximum of five treasure cards in hand. If you exceed five after drawing, immediately discard down to five.",
+          "category": "Rules"
+        },
+        {
+          "term": "Swimming",
+          "definition": "When a tile sinks under a player, they must immediately move to an adjacent tile. If no adjacent tile exists, the game is lost.",
+          "category": "Rules"
+        },
+        {
+          "term": "Earth Stone",
+          "definition": "One of four treasures. Associated tiles: Temple of the Moon, Temple of the Sun.",
+          "category": "Treasures"
+        },
+        {
+          "term": "Statue of the Wind",
+          "definition": "One of four treasures. Associated tiles: Howling Garden, Whispering Garden.",
+          "category": "Treasures"
+        },
+        {
+          "term": "Crystal of Fire",
+          "definition": "One of four treasures. Associated tiles: Cave of Embers, Cave of Shadows.",
+          "category": "Treasures"
+        },
+        {
+          "term": "Ocean's Chalice",
+          "definition": "One of four treasures. Associated tiles: Coral Palace, Tidal Palace.",
+          "category": "Treasures"
+        }
       ]
     }
   }

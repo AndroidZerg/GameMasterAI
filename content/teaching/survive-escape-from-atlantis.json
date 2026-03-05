@@ -14,7 +14,7 @@
         {
           "step": 2,
           "title": "Build the Island of Atlantis",
-          "text": "Now build the island of Atlantis in the center of the board. Place the land tiles randomly in the designated area. Mountains, the darkest tiles, go in the center. Forests, the medium-shaded tiles, surround the mountains. Beaches, the lightest tiles, form the outer ring. Place the volcano tile at the very center.",
+          "text": "Place the land tiles randomly in the designated area. Mountains, the darkest tiles, go in the center. Forests, the medium-shaded tiles, surround the mountains. Beaches, the lightest tiles, form the outer ring. Place the volcano tile at the very center.",
           "image": null,
           "image_caption": null
         },
@@ -188,7 +188,7 @@
         {
           "step": 10,
           "title": "Creature Interactions",
-          "text": "Let's be clear about what each creature does when it enters an occupied space. A sea serpent destroys any boat in its space and eats all swimmers. A shark eats all swimmers but ignores boats entirely. A whale destroys any boat, turning passengers into swimmers, but does not eat swimmers. Understanding these interactions is crucial for both protecting your explorers and threatening opponents.",
+          "text": "A sea serpent destroys any boat in its space and eats all swimmers. A shark eats all swimmers but ignores boats entirely. A whale destroys any boat, turning passengers into swimmers, but does not eat swimmers. Understanding these interactions is crucial for both protecting your explorers and threatening opponents.",
           "image": null,
           "image_caption": null
         },
@@ -320,7 +320,7 @@
         {
           "step": 1,
           "title": "Welcome to Atlantis",
-          "text": "Welcome to Survive: Escape from Atlantis! In this practice tutorial, we will walk through the first few turns of a four-player game. You will learn how to move explorers, manage boats, sink tiles, and use sea creatures. The island is sinking, so let's not waste time. Let's go.",
+          "text": "In this practice tutorial, we will walk through the first few turns of a four-player game. You will learn how to move explorers, manage boats, sink tiles, and use sea creatures. The island is sinking, so let's not waste time. Let's go.",
           "image": null,
           "image_caption": null
         },
@@ -355,7 +355,7 @@
         {
           "step": 6,
           "title": "Player Three: Boat Politics",
-          "text": "Player three has two explorers near a boat that already has one of Player one's explorers on it. Player three loads both of their explorers onto the boat, giving them two out of three passengers. Now Player three controls the boat. They can sail it in any direction they want, even away from Player one's corner island. Boat control through majority is a powerful tool.",
+          "text": "Player three loads both of their explorers onto the boat, giving them two out of three passengers. Now Player three controls the boat. They can sail it in any direction they want, even away from Player one's corner island. Boat control through majority is a powerful tool.",
           "image": null,
           "image_caption": null
         },
@@ -376,7 +376,7 @@
         {
           "step": 9,
           "title": "Tile Effect: Creature Spawns",
-          "text": "Player one removes a beach tile and flips it to reveal a green-bordered immediate effect: a sea serpent spawns in that space. A sea serpent in open water near boats is extremely dangerous because serpents destroy boats and eat swimmers. Players will need to route their boats around this new threat.",
+          "text": "A sea serpent in open water near boats is extremely dangerous because serpents destroy boats and eat swimmers. Players will need to route their boats around this new threat.",
           "image": null,
           "image_caption": null
         },
@@ -418,7 +418,7 @@
         {
           "step": 15,
           "title": "Congratulations",
-          "text": "Congratulations! You have survived the opening rounds of Atlantis. You have moved explorers, boarded boats, sunk tiles, spawned creatures, and used creature movement offensively. Remember: prioritize high-value explorers, control boats through majority, and use every creature roll strategically. The island is doomed, but your explorers do not have to be.",
+          "text": "You have survived the opening rounds of Atlantis. You have moved explorers, boarded boats, sunk tiles, spawned creatures, and used creature movement offensively. Remember: prioritize high-value explorers, control boats through majority, and use every creature roll strategically. The island is doomed, but your explorers do not have to be.",
           "image": null,
           "image_caption": null
         },
@@ -835,28 +835,116 @@
     },
     "appendix": {
       "entries": [
-        {"term": "Explorer", "definition": "A player meeple with a hidden point value (one to six) on its bottom. Explorers must reach corner islands to score their hidden value. Each player has ten explorers.", "category": "Components"},
-        {"term": "Hidden Value", "definition": "The number on the bottom of each explorer meeple, ranging from one to six. Distribution per player: one six, one five, one four, two threes, two twos, three ones. Cannot be checked after placement.", "category": "Components"},
-        {"term": "Boat", "definition": "Token that carries up to three explorers from any players. Controlled by the player with the most explorers aboard. Delivers all passengers to safety when reaching a corner island.", "category": "Components"},
-        {"term": "Corner Island", "definition": "One of four safe destinations at the board corners. An explorer reaching a corner island is permanently safe and scores their hidden point value at game end.", "category": "Components"},
-        {"term": "Beach Tile", "definition": "The lightest-colored land tiles forming the outer ring of Atlantis. Must be removed first during the sinking phase. Beach explorers are in the most immediate danger.", "category": "Land Tiles"},
-        {"term": "Forest Tile", "definition": "Medium-shaded land tiles forming the middle ring. Removed after all beaches are gone. Provide moderate time for evacuation.", "category": "Land Tiles"},
-        {"term": "Mountain Tile", "definition": "The darkest land tiles at the center of the island. Removed last, after all forests. The last mountain removal triggers the volcano and ends the game.", "category": "Land Tiles"},
-        {"term": "Volcano", "definition": "The central tile of Atlantis. When the last mountain tile is removed, the volcano erupts and the game ends immediately. All explorers not on corner islands are lost.", "category": "Land Tiles"},
-        {"term": "Sea Serpent", "definition": "The most dangerous creature. Moves one space. Destroys boats and eats all swimmers in its space. Five sea serpents in the game.", "category": "Creatures"},
-        {"term": "Shark", "definition": "A creature that eats swimmers but ignores boats. Moves one to two spaces. Six sharks in the game.", "category": "Creatures"},
-        {"term": "Whale", "definition": "A creature that destroys boats, turning passengers into swimmers, but does not eat swimmers. Moves one to three spaces. Five whales in the game.", "category": "Creatures"},
-        {"term": "Creature Die", "definition": "Rolled at the end of each turn to determine which creature type you must move. You choose which specific creature of that type to move.", "category": "Components"},
-        {"term": "Swimmer", "definition": "An explorer in the water without a boat. Moves one space per movement point. Extremely vulnerable to sharks and sea serpents.", "category": "Movement"},
-        {"term": "Movement Points", "definition": "Three points per turn, spent across your explorers. Land-to-land: one point, swimming: one point, boat movement: one point per space.", "category": "Movement"},
-        {"term": "Boat Control", "definition": "The player with the most explorers on a boat controls it. Tied players: active player controls if tied. Controls decide where the boat moves.", "category": "Mechanics"},
-        {"term": "Sinking Order", "definition": "The mandatory order for removing land tiles: all beaches first, then all forests, then all mountains. You choose which specific tile within the current tier.", "category": "Mechanics"},
-        {"term": "Immediate Effect", "definition": "A tile effect with a green border that resolves immediately when flipped. Examples: spawn a creature, place a new boat, trigger a whirlpool.", "category": "Tile Effects"},
-        {"term": "Saved Effect", "definition": "A tile effect with a red border that you keep and can play at the start of a future turn. Examples: dolphin movement, extra boat movement, creature removal.", "category": "Tile Effects"},
-        {"term": "Whirlpool", "definition": "An immediate tile effect that destroys all explorers and boats in adjacent spaces. One of the most devastating events in the game.", "category": "Tile Effects"},
-        {"term": "Dolphin", "definition": "A saved tile effect that lets one of your swimmers move three spaces safely, ignoring creatures. Best used on high-value stranded explorers.", "category": "Tile Effects"},
-        {"term": "Player Elimination", "definition": "If all of a player's explorers are destroyed or safe, that player continues taking turns (removing tiles and rolling creature die) to influence the game.", "category": "Mechanics"},
-        {"term": "Scoring", "definition": "At game end, flip surviving explorers. Add up hidden values. Highest total wins. Tiebreaker: player with the single most valuable surviving explorer.", "category": "Scoring"}
+        {
+          "term": "Explorer",
+          "definition": "A player meeple with a hidden point value (one to six) on its bottom. Explorers must reach corner islands to score their hidden value. Each player has ten explorers.",
+          "category": "Components"
+        },
+        {
+          "term": "Hidden Value",
+          "definition": "The number on the bottom of each explorer meeple, ranging from one to six. Distribution per player: one six, one five, one four, two threes, two twos, three ones. Cannot be checked after placement.",
+          "category": "Components"
+        },
+        {
+          "term": "Boat",
+          "definition": "Token that carries up to three explorers from any players. Controlled by the player with the most explorers aboard. Delivers all passengers to safety when reaching a corner island.",
+          "category": "Components"
+        },
+        {
+          "term": "Corner Island",
+          "definition": "One of four safe destinations at the board corners. An explorer reaching a corner island is permanently safe and scores their hidden point value at game end.",
+          "category": "Components"
+        },
+        {
+          "term": "Beach Tile",
+          "definition": "The lightest-colored land tiles forming the outer ring of Atlantis. Must be removed first during the sinking phase. Beach explorers are in the most immediate danger.",
+          "category": "Land Tiles"
+        },
+        {
+          "term": "Forest Tile",
+          "definition": "Medium-shaded land tiles forming the middle ring. Removed after all beaches are gone. Provide moderate time for evacuation.",
+          "category": "Land Tiles"
+        },
+        {
+          "term": "Mountain Tile",
+          "definition": "The darkest land tiles at the center of the island. Removed last, after all forests. The last mountain removal triggers the volcano and ends the game.",
+          "category": "Land Tiles"
+        },
+        {
+          "term": "Volcano",
+          "definition": "The central tile of Atlantis. When the last mountain tile is removed, the volcano erupts and the game ends immediately. All explorers not on corner islands are lost.",
+          "category": "Land Tiles"
+        },
+        {
+          "term": "Sea Serpent",
+          "definition": "The most dangerous creature. Moves one space. Destroys boats and eats all swimmers in its space. Five sea serpents in the game.",
+          "category": "Creatures"
+        },
+        {
+          "term": "Shark",
+          "definition": "A creature that eats swimmers but ignores boats. Moves one to two spaces. Six sharks in the game.",
+          "category": "Creatures"
+        },
+        {
+          "term": "Whale",
+          "definition": "A creature that destroys boats, turning passengers into swimmers, but does not eat swimmers. Moves one to three spaces. Five whales in the game.",
+          "category": "Creatures"
+        },
+        {
+          "term": "Creature Die",
+          "definition": "Rolled at the end of each turn to determine which creature type you must move. You choose which specific creature of that type to move.",
+          "category": "Components"
+        },
+        {
+          "term": "Swimmer",
+          "definition": "An explorer in the water without a boat. Moves one space per movement point. Extremely vulnerable to sharks and sea serpents.",
+          "category": "Movement"
+        },
+        {
+          "term": "Movement Points",
+          "definition": "Three points per turn, spent across your explorers. Land-to-land: one point, swimming: one point, boat movement: one point per space.",
+          "category": "Movement"
+        },
+        {
+          "term": "Boat Control",
+          "definition": "The player with the most explorers on a boat controls it. Tied players: active player controls if tied. Controls decide where the boat moves.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Sinking Order",
+          "definition": "The mandatory order for removing land tiles: all beaches first, then all forests, then all mountains. You choose which specific tile within the current tier.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Immediate Effect",
+          "definition": "A tile effect with a green border that resolves immediately when flipped. Examples: spawn a creature, place a new boat, trigger a whirlpool.",
+          "category": "Tile Effects"
+        },
+        {
+          "term": "Saved Effect",
+          "definition": "A tile effect with a red border that you keep and can play at the start of a future turn. Examples: dolphin movement, extra boat movement, creature removal.",
+          "category": "Tile Effects"
+        },
+        {
+          "term": "Whirlpool",
+          "definition": "An immediate tile effect that destroys all explorers and boats in adjacent spaces. One of the most devastating events in the game.",
+          "category": "Tile Effects"
+        },
+        {
+          "term": "Dolphin",
+          "definition": "A saved tile effect that lets one of your swimmers move three spaces safely, ignoring creatures. Best used on high-value stranded explorers.",
+          "category": "Tile Effects"
+        },
+        {
+          "term": "Player Elimination",
+          "definition": "If all of a player's explorers are destroyed or safe, that player continues taking turns (removing tiles and rolling creature die) to influence the game.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Scoring",
+          "definition": "At game end, flip surviving explorers. Add up hidden values. Highest total wins. Tiebreaker: player with the single most valuable surviving explorer.",
+          "category": "Scoring"
+        }
       ]
     }
   }

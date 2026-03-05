@@ -245,7 +245,7 @@
         {
           "step": 4,
           "title": "Agent Turn: Play a Card",
-          "text": "On an Agent Turn, you play one card from your hand face up in front of you. Look at the icons in the top left corner of the card. These icons tell you which board spaces this card can access. Then place one of your agents on a matching board space that is not already occupied by another agent. Each board space can only hold one agent per round, so if someone beats you to a space, it is blocked.",
+          "text": "Look at the icons in the top left corner of the card. These icons tell you which board spaces this card can access. Then place one of your agents on a matching board space that is not already occupied by another agent. Each board space can only hold one agent per round, so if someone beats you to a space, it is blocked.",
           "image": null,
           "image_caption": null
         },
@@ -500,7 +500,7 @@
         {
           "step": 1,
           "title": "Welcome to the Desert",
-          "text": "Welcome to your first round of Dune Imperium! In this practice tutorial, we will walk through a scripted first round with three example players. Player one is playing Duke Leto Atreides, Player two is playing Baron Vladimir Harkonnen, and Player three is playing Glossu Rabban. Each player will take different actions so you can see how everything works. Follow along even if your player count is different.",
+          "text": "In this practice tutorial, we will walk through a scripted first round with three example players. Player one is playing Duke Leto Atreides, Player two is playing Baron Vladimir Harkonnen, and Player three is playing Glossu Rabban. Each player will take different actions so you can see how everything works. Follow along even if your player count is different.",
           "image": null,
           "image_caption": null
         },
@@ -514,7 +514,7 @@
         {
           "step": 3,
           "title": "Player One: Agent to Arrakeen",
-          "text": "Player one plays a card with a city icon from their hand and sends an agent to Arrakeen. This space gives one troop deployment and one card draw. Player one moves a troop from their garrison to the conflict area and draws a card. A great first move because it builds combat presence while also improving the hand for later.",
+          "text": "This space gives one troop deployment and one card draw. Player one moves a troop from their garrison to the conflict area and draws a card. A great first move because it builds combat presence while also improving the hand for later.",
           "image": null,
           "image_caption": null
         },
@@ -528,14 +528,14 @@
         {
           "step": 5,
           "title": "Player Two: Agent to Wealth",
-          "text": "Player two plays a card with an Emperor icon and sends an agent to the Wealth space. This gives two solari and one influence with the Emperor faction. Player two takes two gold solari tokens and moves their marker up one step on the Emperor influence track. Solari is the workhorse currency — you need it for the Swordmaster, the Mentat, and many card effects.",
+          "text": "This gives two solari and one influence with the Emperor faction. Player two takes two gold solari tokens and moves their marker up one step on the Emperor influence track. Solari is the workhorse currency — you need it for the Swordmaster, the Mentat, and many card effects.",
           "image": null,
           "image_caption": null
         },
         {
           "step": 6,
           "title": "Player Three: Agent to the Great Flat",
-          "text": "Player three plays a card with a spice trade icon and sends an agent to The Great Flat. This space costs one water to use but rewards two spice plus any bonus spice that has accumulated there. Player three pays one water and collects the spice. Spice is the premium resource in this game, and Player three just made a big grab.",
+          "text": "This space costs one water to use but rewards two spice plus any bonus spice that has accumulated there. Player three pays one water and collects the spice. Spice is the premium resource in this game, and Player three just made a big grab.",
           "image": null,
           "image_caption": null
         },
@@ -633,7 +633,7 @@
         {
           "step": 20,
           "title": "Congratulations",
-          "text": "Congratulations! You have walked through your first round of Dune Imperium. You have seen how Agent Turns and Reveal Turns work, how cards serve dual purposes, how combat resolves, and how faction influence earns victory points. You have also learned from common beginner mistakes: unlock the Swordmaster early, thin your deck, pick your battles, pursue alliance tokens, and do not sleep on spice.",
+          "text": "You have walked through your first round of Dune Imperium. You have seen how Agent Turns and Reveal Turns work, how cards serve dual purposes, how combat resolves, and how faction influence earns victory points. You have also learned from common beginner mistakes: unlock the Swordmaster early, thin your deck, pick your battles, pursue alliance tokens, and do not sleep on spice.",
           "image": null,
           "image_caption": null
         },
@@ -1104,61 +1104,93 @@
           "term": "Agent",
           "definition": "A worker meeple placed on board spaces during Agent Turns. Each player starts with two agents and can unlock a third (the Swordmaster). The Mentat can be hired as a temporary additional agent.",
           "category": "Components",
-          "related_items": ["Swordmaster", "Mentat"]
+          "related_items": [
+            "Swordmaster",
+            "Mentat"
+          ]
         },
         {
           "term": "Swordmaster",
           "definition": "A third agent that can be unlocked for eight Solari. Once purchased, the Swordmaster is a permanent agent available every round for the rest of the game. One of the most powerful investments available.",
           "category": "Components",
-          "related_items": ["Agent", "Solari"]
+          "related_items": [
+            "Agent",
+            "Solari"
+          ]
         },
         {
           "term": "Mentat",
           "definition": "A special token on the board that any player can hire for two Solari during their turn. The Mentat acts as an additional agent for that round only, then returns to the board. Also draws you a card when hired.",
           "category": "Components",
-          "related_items": ["Agent", "Solari"]
+          "related_items": [
+            "Agent",
+            "Solari"
+          ]
         },
         {
           "term": "Spice",
           "definition": "The premium resource in the game, represented by orange crystal tokens. Gained primarily from desert board spaces. Used for powerful card effects, board space costs, and high-value Imperium cards. Also serves as the tiebreaker for final scoring.",
           "category": "Resources",
-          "related_items": ["Solari", "Water"]
+          "related_items": [
+            "Solari",
+            "Water"
+          ]
         },
         {
           "term": "Solari",
           "definition": "The gold coin currency used for everyday purchases. Needed to hire the Mentat (two Solari) and unlock the Swordmaster (eight Solari). Also used at certain board spaces and for card effects.",
           "category": "Resources",
-          "related_items": ["Spice", "Water"]
+          "related_items": [
+            "Spice",
+            "Water"
+          ]
         },
         {
           "term": "Water",
           "definition": "The most constrained resource, represented by blue drop tokens. Required to access the most lucrative desert board spaces like The Great Flat and Hagga Basin. Harder to acquire than Spice or Solari.",
           "category": "Resources",
-          "related_items": ["Spice", "Solari"]
+          "related_items": [
+            "Spice",
+            "Solari"
+          ]
         },
         {
           "term": "Troops",
           "definition": "Cube-shaped pieces in each player's color. Start in the garrison and can be deployed to the conflict area via board spaces and card effects. Each troop in the conflict area adds two combat strength. Surviving troops return to the garrison after combat.",
           "category": "Components",
-          "related_items": ["Garrison", "Conflict Area", "Combat Strength"]
+          "related_items": [
+            "Garrison",
+            "Conflict Area",
+            "Combat Strength"
+          ]
         },
         {
           "term": "Garrison",
           "definition": "The area on the board where a player's unused troops are stored. Troops deploy from the garrison to the conflict area and return to the garrison after combat resolves.",
           "category": "Board Areas",
-          "related_items": ["Troops", "Conflict Area"]
+          "related_items": [
+            "Troops",
+            "Conflict Area"
+          ]
         },
         {
           "term": "Conflict Area",
           "definition": "The zone on the board where deployed troops are placed to participate in combat. Each troop here adds two combat strength. After combat, all troops return to their owner's garrison.",
           "category": "Board Areas",
-          "related_items": ["Troops", "Garrison", "Combat Strength"]
+          "related_items": [
+            "Troops",
+            "Garrison",
+            "Combat Strength"
+          ]
         },
         {
           "term": "Combat Strength",
           "definition": "Your total fighting power in a round's combat. Calculated by adding sword icons from revealed cards plus two per troop in the conflict area, plus any combat intrigue card bonuses. Tracked on the combat track.",
           "category": "Combat",
-          "related_items": ["Troops", "Combat Intrigue"]
+          "related_items": [
+            "Troops",
+            "Combat Intrigue"
+          ]
         },
         {
           "term": "Combat Track",
@@ -1169,7 +1201,10 @@
           "term": "Conflict Card",
           "definition": "A card flipped at the start of each round showing rewards for first, second, and third place in combat. Conflict cards escalate across three tiers (I, II, III), with later cards offering better rewards including victory points.",
           "category": "Combat",
-          "related_items": ["Combat Strength", "Conflict Area"]
+          "related_items": [
+            "Combat Strength",
+            "Conflict Area"
+          ]
         },
         {
           "term": "Conflict Tier I",
@@ -1190,37 +1225,53 @@
           "term": "Persuasion",
           "definition": "The buying power generated by revealed cards during your Reveal Turn. Spend persuasion to acquire new cards from the Imperium Row or the Reserve. Persuasion does not carry over between rounds.",
           "category": "Deck Building",
-          "related_items": ["Imperium Row", "Reserve"]
+          "related_items": [
+            "Imperium Row",
+            "Reserve"
+          ]
         },
         {
           "term": "Imperium Row",
           "definition": "The market of five face-up cards available for purchase with persuasion. Refilled from the Imperium deck whenever a card is bought. Cards vary in cost and power.",
           "category": "Deck Building",
-          "related_items": ["Persuasion", "Imperium Deck"]
+          "related_items": [
+            "Persuasion",
+            "Imperium Deck"
+          ]
         },
         {
           "term": "Imperium Deck",
           "definition": "The large shuffled deck of cards that refills the Imperium Row. Contains a wide variety of cards with different agent icons, combat strength, persuasion values, and special abilities.",
           "category": "Deck Building",
-          "related_items": ["Imperium Row"]
+          "related_items": [
+            "Imperium Row"
+          ]
         },
         {
           "term": "Reserve",
           "definition": "Two always-available card piles: Arrakis Liaison (costs two persuasion, basic utility) and The Spice Must Flow (costs nine persuasion, worth one victory point). Unlike the Imperium Row, these never run out.",
           "category": "Deck Building",
-          "related_items": ["Arrakis Liaison", "The Spice Must Flow"]
+          "related_items": [
+            "Arrakis Liaison",
+            "The Spice Must Flow"
+          ]
         },
         {
           "term": "Arrakis Liaison",
           "definition": "A Reserve card costing two persuasion. A basic card useful for early deck building when the Imperium Row does not have affordable options. Provides flexible agent icons.",
           "category": "Deck Building",
-          "related_items": ["Reserve"]
+          "related_items": [
+            "Reserve"
+          ]
         },
         {
           "term": "The Spice Must Flow",
           "definition": "A Reserve card costing nine persuasion that is worth one victory point. One of the most reliable late-game victory point sources. Often the card that pushes a player to ten victory points for the win.",
           "category": "Deck Building",
-          "related_items": ["Reserve", "Victory Points"]
+          "related_items": [
+            "Reserve",
+            "Victory Points"
+          ]
         },
         {
           "term": "Trash",
@@ -1231,61 +1282,90 @@
           "term": "Intrigue Card",
           "definition": "Special cards drawn from the intrigue deck via board spaces and card effects. Kept secret in hand until played. Come in three types: Combat, Plot, and Endgame. Powerful surprises that can swing the game.",
           "category": "Intrigue",
-          "related_items": ["Combat Intrigue", "Plot Intrigue", "Endgame Intrigue"]
+          "related_items": [
+            "Combat Intrigue",
+            "Plot Intrigue",
+            "Endgame Intrigue"
+          ]
         },
         {
           "term": "Combat Intrigue",
           "definition": "A type of intrigue card played during the combat phase. Adds extra combat strength or provides other combat-related bonuses. Most valuable during late-game conflicts with big rewards.",
           "category": "Intrigue",
-          "related_items": ["Intrigue Card", "Combat Strength"]
+          "related_items": [
+            "Intrigue Card",
+            "Combat Strength"
+          ]
         },
         {
           "term": "Plot Intrigue",
           "definition": "A type of intrigue card that can be played during your Agent Turn or Reveal Turn. Provides immediate bonuses like extra resources, troops, or influence. Should be played as soon as conditions are met.",
           "category": "Intrigue",
-          "related_items": ["Intrigue Card"]
+          "related_items": [
+            "Intrigue Card"
+          ]
         },
         {
           "term": "Endgame Intrigue",
           "definition": "A type of intrigue card that is scored at the end of the game for bonus victory points if specific conditions are met. Held in hand throughout the game and never played — just revealed during final scoring.",
           "category": "Intrigue",
-          "related_items": ["Intrigue Card", "Victory Points"]
+          "related_items": [
+            "Intrigue Card",
+            "Victory Points"
+          ]
         },
         {
           "term": "Emperor (Faction)",
           "definition": "One of the four faction influence tracks. The Emperor faction is associated with Solari generation and military power. Board spaces aligned with the Emperor often grant Solari, troops, or combat bonuses.",
           "category": "Factions",
-          "related_items": ["Alliance Token", "Faction Influence"]
+          "related_items": [
+            "Alliance Token",
+            "Faction Influence"
+          ]
         },
         {
           "term": "Spacing Guild (Faction)",
           "definition": "One of the four faction influence tracks. The Spacing Guild controls interstellar travel and commerce. Board spaces aligned with the Guild often grant economic benefits, spice trade opportunities, and card manipulation.",
           "category": "Factions",
-          "related_items": ["Alliance Token", "Faction Influence"]
+          "related_items": [
+            "Alliance Token",
+            "Faction Influence"
+          ]
         },
         {
           "term": "Bene Gesserit (Faction)",
           "definition": "One of the four faction influence tracks. The Bene Gesserit are a secretive sisterhood with mental and physical training. Board spaces aligned with the Bene Gesserit often grant intrigue cards, card draw, and deck manipulation including trashing.",
           "category": "Factions",
-          "related_items": ["Alliance Token", "Faction Influence"]
+          "related_items": [
+            "Alliance Token",
+            "Faction Influence"
+          ]
         },
         {
           "term": "Fremen (Faction)",
           "definition": "One of the four faction influence tracks. The Fremen are the native people of Arrakis. Board spaces aligned with the Fremen involve desert travel, water management, and troop deployment. Higher Fremen influence unlocks powerful desert bonuses.",
           "category": "Factions",
-          "related_items": ["Alliance Token", "Faction Influence"]
+          "related_items": [
+            "Alliance Token",
+            "Faction Influence"
+          ]
         },
         {
           "term": "Faction Influence",
           "definition": "A measure of your relationship with each of the four factions, tracked on influence tracks running from level zero to level four. Gained by sending agents to faction-aligned board spaces. Higher levels unlock alliance tokens, bonus victory points, and powerful board spaces.",
           "category": "Factions",
-          "related_items": ["Alliance Token"]
+          "related_items": [
+            "Alliance Token"
+          ]
         },
         {
           "term": "Alliance Token",
           "definition": "A token on each faction track at level two, worth one victory point. When you reach level two, you claim it. If another player also reaches level two on the same track, they steal it from you. Push to level four for a permanent bonus victory point that cannot be stolen.",
           "category": "Factions",
-          "related_items": ["Faction Influence", "Victory Points"]
+          "related_items": [
+            "Faction Influence",
+            "Victory Points"
+          ]
         },
         {
           "term": "Victory Points",
@@ -1301,19 +1381,26 @@
           "term": "Signet Ring",
           "definition": "An icon on each leader card. Some Imperium cards have a signet ring symbol that grants a bonus effect when played by a player whose leader matches. Adds thematic flavor and strategic variation between leaders.",
           "category": "Components",
-          "related_items": ["Leader Card"]
+          "related_items": [
+            "Leader Card"
+          ]
         },
         {
           "term": "Starting Deck",
           "definition": "The identical ten-card deck each player begins with. Contains basic cards with limited agent icons, weak persuasion, and minimal combat strength. Designed to be improved through buying and trashing over the course of the game.",
           "category": "Deck Building",
-          "related_items": ["Trash", "Imperium Row"]
+          "related_items": [
+            "Trash",
+            "Imperium Row"
+          ]
         },
         {
           "term": "Makers",
           "definition": "A phase at the end of each round. If any desert board spaces with the maker icon were occupied this round, bonus spice tokens are placed on designated board spaces. This creates accumulating spice incentives for future rounds.",
           "category": "Turn Structure",
-          "related_items": ["Spice"]
+          "related_items": [
+            "Spice"
+          ]
         },
         {
           "term": "Recall",
@@ -1334,31 +1421,47 @@
           "term": "The Great Flat",
           "definition": "A desert board space that costs one water and grants two spice plus any accumulated bonus spice. One of the highest-value spaces on the board when bonus spice has piled up over multiple rounds.",
           "category": "Board Spaces",
-          "related_items": ["Water", "Spice", "Makers"]
+          "related_items": [
+            "Water",
+            "Spice",
+            "Makers"
+          ]
         },
         {
           "term": "Hagga Basin",
           "definition": "A desert board space that costs one water and grants one spice plus any accumulated bonus spice. Slightly less rewarding than The Great Flat but still a strong spice collection option.",
           "category": "Board Spaces",
-          "related_items": ["Water", "Spice", "Makers"]
+          "related_items": [
+            "Water",
+            "Spice",
+            "Makers"
+          ]
         },
         {
           "term": "Wealth",
           "definition": "An Emperor-aligned board space that grants two Solari and one Emperor influence. A key destination for players pursuing the Swordmaster or building Solari reserves.",
           "category": "Board Spaces",
-          "related_items": ["Solari", "Emperor (Faction)"]
+          "related_items": [
+            "Solari",
+            "Emperor (Faction)"
+          ]
         },
         {
           "term": "Selective Breeding",
           "definition": "A Bene Gesserit-aligned board space that grants one Bene Gesserit influence and lets you trash a card from your hand or discard pile. Essential for deck thinning and one of the most strategically important spaces.",
           "category": "Board Spaces",
-          "related_items": ["Bene Gesserit (Faction)", "Trash"]
+          "related_items": [
+            "Bene Gesserit (Faction)",
+            "Trash"
+          ]
         },
         {
           "term": "High Council",
           "definition": "A board space that grants one victory point and a seat on the High Council for the rest of the game, providing a permanent bonus. Extremely competitive — only one player can claim it per game.",
           "category": "Board Spaces",
-          "related_items": ["Victory Points"]
+          "related_items": [
+            "Victory Points"
+          ]
         }
       ]
     }

@@ -205,7 +205,7 @@
         {
           "step": 7,
           "title": "Buy Phase: Buying a Card",
-          "text": "You get one Buy per turn unless an Action card gave you extra Buys. To buy a card, choose any card from the Supply whose cost is equal to or less than your total coins. Take one copy from the top of that pile and place it face up on your discard pile. Not your hand, not your deck, your discard pile. You do not get to use a newly purchased card until it cycles through your deck later. If you cannot afford anything or do not want to buy, you can choose to buy nothing.",
+          "text": "To buy a card, choose any card from the Supply whose cost is equal to or less than your total coins. Take one copy from the top of that pile and place it face up on your discard pile. Not your hand, not your deck, your discard pile. You do not get to use a newly purchased card until it cycles through your deck later. If you cannot afford anything or do not want to buy, you can choose to buy nothing.",
           "image": null
         },
         {
@@ -401,7 +401,7 @@
         {
           "step": 1,
           "title": "Welcome to Your First Game",
-          "text": "Welcome to your first game of Dominion! We are going to walk through a few scripted turns with two example players so you can see how everything works. Player 1 and Player 2 each have their starting deck of seven Coppers and three Estates, shuffled and with five cards drawn. The Supply is set up with ten Kingdom piles. Ready? Let's go.",
+          "text": "We are going to walk through a few scripted turns with two example players so you can see how everything works. Player 1 and Player 2 each have their starting deck of seven Coppers and three Estates, shuffled and with five cards drawn. The Supply is set up with ten Kingdom piles. Ready? Let's go.",
           "image": null
         },
         {
@@ -515,7 +515,7 @@
         {
           "step": 20,
           "title": "Congratulations",
-          "text": "Congratulations, you have just walked through your first game of Dominion! You have seen all three turn phases in action, learned about terminal collisions, green bloat, trashing, and deck cycling. The beautiful thing about Dominion is that every game plays differently because the ten Kingdom cards change. Once you are comfortable with the basics, start experimenting with different card combinations.",
+          "text": "You have seen all three turn phases in action, learned about terminal collisions, green bloat, trashing, and deck cycling. The beautiful thing about Dominion is that every game plays differently because the ten Kingdom cards change. Once you are comfortable with the basics, start experimenting with different card combinations.",
           "image": null
         },
         {
@@ -994,37 +994,61 @@
           "term": "Copper",
           "definition": "The weakest Treasure card, worth one coin when played. Every player starts with seven Coppers. Costs zero to buy. Often a target for trashing to thin your deck.",
           "category": "Card Types",
-          "related_items": ["Silver", "Gold", "Treasure"]
+          "related_items": [
+            "Silver",
+            "Gold",
+            "Treasure"
+          ]
         },
         {
           "term": "Silver",
           "definition": "A mid-tier Treasure card worth two coins when played. Costs three to buy. A reliable early purchase that improves hand quality.",
           "category": "Card Types",
-          "related_items": ["Copper", "Gold", "Treasure"]
+          "related_items": [
+            "Copper",
+            "Gold",
+            "Treasure"
+          ]
         },
         {
           "term": "Gold",
           "definition": "The strongest basic Treasure card, worth three coins when played. Costs six to buy. The primary payload card for Big Money strategies.",
           "category": "Card Types",
-          "related_items": ["Copper", "Silver", "Treasure"]
+          "related_items": [
+            "Copper",
+            "Silver",
+            "Treasure"
+          ]
         },
         {
           "term": "Estate",
           "definition": "The weakest Victory card, worth one victory point at game end. Every player starts with three Estates. Costs two to buy. A common trashing target because it provides minimal VP and clogs your hand.",
           "category": "Card Types",
-          "related_items": ["Duchy", "Province", "Victory Card"]
+          "related_items": [
+            "Duchy",
+            "Province",
+            "Victory Card"
+          ]
         },
         {
           "term": "Duchy",
           "definition": "A mid-tier Victory card worth three victory points at game end. Costs five to buy. Becomes important in the endgame when Provinces are running low.",
           "category": "Card Types",
-          "related_items": ["Estate", "Province", "Victory Card"]
+          "related_items": [
+            "Estate",
+            "Province",
+            "Victory Card"
+          ]
         },
         {
           "term": "Province",
           "definition": "The most valuable basic Victory card, worth six victory points at game end. Costs eight to buy. The primary goal of most strategies. When the Province pile empties, the game ends immediately.",
           "category": "Card Types",
-          "related_items": ["Estate", "Duchy", "Victory Card"]
+          "related_items": [
+            "Estate",
+            "Duchy",
+            "Victory Card"
+          ]
         },
         {
           "term": "Curse",
@@ -1050,37 +1074,59 @@
           "term": "Attack Card",
           "definition": "A subtype of Action card that negatively affects other players when played. Effects include forcing opponents to discard, gain Curses, or reveal and modify their hands. Blocked by Reaction cards like Moat.",
           "category": "Card Types",
-          "related_items": ["Reaction Card", "Moat"]
+          "related_items": [
+            "Reaction Card",
+            "Moat"
+          ]
         },
         {
           "term": "Reaction Card",
           "definition": "A subtype of Action card that can be revealed from your hand in response to an Attack to negate or modify its effect. The most common Reaction is Moat, which completely blocks an Attack.",
           "category": "Card Types",
-          "related_items": ["Attack Card", "Moat"]
+          "related_items": [
+            "Attack Card",
+            "Moat"
+          ]
         },
         {
           "term": "+Cards",
           "definition": "An Action card effect that lets you draw additional cards from your draw pile into your hand. For example, +3 Cards means draw three cards. This is the primary way to see more of your deck each turn.",
           "category": "Resources",
-          "related_items": ["+Actions", "+Coins", "+Buy"]
+          "related_items": [
+            "+Actions",
+            "+Coins",
+            "+Buy"
+          ]
         },
         {
           "term": "+Actions",
           "definition": "An Action card effect that grants additional Action plays during your Action Phase. You start each turn with one Action. +2 Actions means you can play two more Action cards after the current one resolves.",
           "category": "Resources",
-          "related_items": ["+Cards", "+Coins", "+Buy"]
+          "related_items": [
+            "+Cards",
+            "+Coins",
+            "+Buy"
+          ]
         },
         {
           "term": "+Coins",
           "definition": "An Action card effect that adds virtual coins to your total for the Buy Phase. These coins combine with coins from Treasure cards. For example, +3 Coins plus two Coppers gives you five coins total to spend.",
           "category": "Resources",
-          "related_items": ["+Cards", "+Actions", "+Buy"]
+          "related_items": [
+            "+Cards",
+            "+Actions",
+            "+Buy"
+          ]
         },
         {
           "term": "+Buy",
           "definition": "An Action card effect that grants additional purchases during your Buy Phase. You start each turn with one Buy. +1 Buy means you can buy two cards this turn instead of one, spending from your total coin pool.",
           "category": "Resources",
-          "related_items": ["+Cards", "+Actions", "+Coins"]
+          "related_items": [
+            "+Cards",
+            "+Actions",
+            "+Coins"
+          ]
         },
         {
           "term": "Supply",
@@ -1096,13 +1142,19 @@
           "term": "Draw Pile",
           "definition": "Your personal face-down deck of cards. You draw from the top of this pile to fill your hand. When it runs out, shuffle your discard pile to form a new draw pile.",
           "category": "Terminology",
-          "related_items": ["Discard Pile", "Reshuffle"]
+          "related_items": [
+            "Discard Pile",
+            "Reshuffle"
+          ]
         },
         {
           "term": "Discard Pile",
           "definition": "Your personal face-up pile of used cards. Cards go here during Clean-up and when you buy or gain new cards. When your draw pile is empty, your discard pile is shuffled to become your new draw pile.",
           "category": "Terminology",
-          "related_items": ["Draw Pile", "Reshuffle"]
+          "related_items": [
+            "Draw Pile",
+            "Reshuffle"
+          ]
         },
         {
           "term": "Trash",
@@ -1113,13 +1165,17 @@
           "term": "Gain",
           "definition": "To acquire a card and add it to your discard pile without spending coins or using a Buy. Cards are gained through Action card effects. Gaining is distinct from buying, though both typically send cards to your discard pile.",
           "category": "Terminology",
-          "related_items": ["Buy"]
+          "related_items": [
+            "Buy"
+          ]
         },
         {
           "term": "Buy",
           "definition": "To spend coins during your Buy Phase to acquire a card from the Supply. The purchased card goes to your discard pile. You get one Buy per turn unless increased by +Buy effects. Buying uses a Buy and coins; gaining does not.",
           "category": "Terminology",
-          "related_items": ["Gain"]
+          "related_items": [
+            "Gain"
+          ]
         },
         {
           "term": "Reveal",
@@ -1135,13 +1191,19 @@
           "term": "Terminal Action",
           "definition": "An Action card that does not provide +Actions. Playing a terminal ends your Action Phase unless you have leftover Actions from a previously played card. Too many terminals cause collisions where one sits unplayable in your hand.",
           "category": "Terminology",
-          "related_items": ["Village", "+Actions"]
+          "related_items": [
+            "Village",
+            "+Actions"
+          ]
         },
         {
           "term": "Terminal Collision",
           "definition": "When you draw two or more terminal Action cards in the same hand and can only play one of them. The unplayed terminals are wasted. Avoided by balancing terminals with +Actions cards like Village.",
           "category": "Terminology",
-          "related_items": ["Terminal Action", "Village"]
+          "related_items": [
+            "Terminal Action",
+            "Village"
+          ]
         },
         {
           "term": "Green Bloat",
@@ -1152,7 +1214,10 @@
           "term": "Deck Thinning",
           "definition": "The strategy of removing weak cards like Copper and Estate from your deck via trashing. A thinner deck cycles faster and draws more consistent, powerful hands. One of the strongest fundamental strategies in Dominion.",
           "category": "Terminology",
-          "related_items": ["Trash", "Chapel"]
+          "related_items": [
+            "Trash",
+            "Chapel"
+          ]
         },
         {
           "term": "Engine",
@@ -1168,7 +1233,10 @@
           "term": "Reshuffle",
           "definition": "When your draw pile is empty and you need to draw cards, shuffle your entire discard pile to create a new face-down draw pile. This is how cards you buy eventually appear in your hand.",
           "category": "Terminology",
-          "related_items": ["Draw Pile", "Discard Pile"]
+          "related_items": [
+            "Draw Pile",
+            "Discard Pile"
+          ]
         },
         {
           "term": "Cellar",
@@ -1184,7 +1252,10 @@
           "term": "Moat",
           "definition": "Kingdom Action-Reaction card costing two. Gives +2 Cards. As a Reaction, reveal from hand when another player plays an Attack to be unaffected by it. The primary defense against Attack cards.",
           "category": "Kingdom Cards",
-          "related_items": ["Attack Card", "Reaction Card"]
+          "related_items": [
+            "Attack Card",
+            "Reaction Card"
+          ]
         },
         {
           "term": "Harbinger",
@@ -1200,7 +1271,10 @@
           "term": "Village",
           "definition": "Kingdom Action card costing three. Gives +1 Card and +2 Actions. The classic enabler for playing multiple Action cards per turn. Essential for engine strategies to avoid terminal collisions.",
           "category": "Kingdom Cards",
-          "related_items": ["Terminal Action", "+Actions"]
+          "related_items": [
+            "Terminal Action",
+            "+Actions"
+          ]
         },
         {
           "term": "Workshop",
@@ -1241,7 +1315,9 @@
           "term": "Smithy",
           "definition": "Kingdom Action card costing four. Gives +3 Cards. A powerful terminal draw card. The backbone of many Big Money and engine strategies. Draws three cards but provides no +Actions.",
           "category": "Kingdom Cards",
-          "related_items": ["Terminal Action"]
+          "related_items": [
+            "Terminal Action"
+          ]
         },
         {
           "term": "Throne Room",

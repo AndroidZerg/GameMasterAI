@@ -21,7 +21,7 @@
         {
           "step": 3,
           "title": "Deal Monument Cards",
-          "text": "Deal two monument cards to each player. Monuments are unique buildings with powerful scoring abilities. Look at both cards secretly, choose one to keep, and return the other face down without revealing it. Keep your monument card hidden until you build it during the game.",
+          "text": "Monuments are unique buildings with powerful scoring abilities. Look at both cards secretly, choose one to keep, and return the other face down without revealing it. Keep your monument card hidden until you build it during the game.",
           "image": null,
           "image_caption": null
         },
@@ -291,7 +291,7 @@
         {
           "step": 1,
           "title": "Welcome to Your Tiny Town",
-          "text": "Welcome to your first game of Tiny Towns! In this practice tutorial, we will walk through several turns with four players to demonstrate how resource placement, pattern building, and construction work. Follow along even if you have a different player count at your table.",
+          "text": "In this practice tutorial, we will walk through several turns with four players to demonstrate how resource placement, pattern building, and construction work. Follow along even if you have a different player count at your table.",
           "image": null,
           "image_caption": null
         },
@@ -305,14 +305,14 @@
         {
           "step": 3,
           "title": "Turn One: Master Builder Names Wood",
-          "text": "Player one, the Master Builder, names wood. Everyone takes a brown wood cube and places it on their grid. Player one places wood in the bottom-left corner, starting a planned pattern. Player two places in the center. Player three places in the top-right corner. Player four places in the bottom row. Each player has a different strategy in mind.",
+          "text": "Everyone takes a brown wood cube and places it on their grid. Player one places wood in the bottom-left corner, starting a planned pattern. Player two places in the center. Player three places in the top-right corner. Player four places in the bottom row. Each player has a different strategy in mind.",
           "image": null,
           "image_caption": null
         },
         {
           "step": 4,
           "title": "Turn Two: Master Builder Names Brick",
-          "text": "The hammer passes to Player two, who names brick. Everyone places a red brick cube. Player one puts brick next to their wood, forming two-thirds of a Cottage pattern. Player three puts brick adjacent to their wood, also starting a pattern. Notice how every player is working on different building patterns simultaneously.",
+          "text": "Everyone places a red brick cube. Player one puts brick next to their wood, forming two-thirds of a Cottage pattern. Player three puts brick adjacent to their wood, also starting a pattern. Notice how every player is working on different building patterns simultaneously.",
           "image": null,
           "image_caption": null
         },
@@ -396,7 +396,7 @@
         {
           "step": 16,
           "title": "Congratulations",
-          "text": "Congratulations! You have seen how resource placement works, watched buildings get constructed from patterns, witnessed the Factory advantage, and learned from three beginner mistakes. Remember to always plan ahead, treat space as your most precious resource, and use the Master Builder role strategically. You are ready to build your own tiny town.",
+          "text": "You have seen how resource placement works, watched buildings get constructed from patterns, witnessed the Factory advantage, and learned from three beginner mistakes. Remember to always plan ahead, treat space as your most precious resource, and use the Master Builder role strategically. You are ready to build your own tiny town.",
           "image": null,
           "image_caption": null
         },
@@ -835,28 +835,116 @@
     },
     "appendix": {
       "entries": [
-        {"term": "Master Builder", "definition": "The player holding the hammer token. Names one resource type each turn that all players must place. Hammer passes clockwise.", "category": "Roles"},
-        {"term": "Resource Cube", "definition": "Small colored cubes representing five resource types. Placed on grid spaces and removed when constructing buildings.", "category": "Components"},
-        {"term": "Wood", "definition": "Brown resource cube. One of five resource types used in building patterns.", "category": "Resources"},
-        {"term": "Wheat", "definition": "Yellow resource cube. One of five resource types used in building patterns.", "category": "Resources"},
-        {"term": "Brick", "definition": "Red resource cube. One of five resource types used in building patterns.", "category": "Resources"},
-        {"term": "Glass", "definition": "Blue resource cube. One of five resource types used in building patterns.", "category": "Resources"},
-        {"term": "Stone", "definition": "Gray resource cube. One of five resource types used in building patterns.", "category": "Resources"},
-        {"term": "Cottage", "definition": "Building type that scores its printed value only if fed. Feeding requires adjacency to a completed farm-type building. Typically scores three VP when fed.", "category": "Buildings"},
-        {"term": "Chapel", "definition": "Building type that scores based on the number of fed cottages on your grid at the time of construction. Build after establishing cottages for maximum value.", "category": "Buildings"},
-        {"term": "Tavern", "definition": "Building type using set collection scoring. 1 tavern = 2 VP, 2 = 5, 3 = 9, 4 = 14, 5 = 20. Exponential scaling rewards committing to multiple taverns.", "category": "Buildings"},
-        {"term": "Theater", "definition": "Building type that scores based on the number of unique building types in the same row and column as the Theater. Place at intersections of diverse rows and columns.", "category": "Buildings"},
-        {"term": "Factory", "definition": "Building that grants one extra resource placement of your choice each turn. Extra resource placed after the Master Builder's resource. Multiple Factories do not stack.", "category": "Buildings"},
-        {"term": "Monument", "definition": "A unique secret building dealt to each player. Has its own resource pattern and scoring condition. Can only be built once per game. Revealed when constructed.", "category": "Buildings"},
-        {"term": "Pattern Matching", "definition": "Resources on your grid must match a building card's pattern exactly. Patterns can be rotated 90/180/270 degrees but cannot be mirrored or flipped.", "category": "Rules"},
-        {"term": "Construction", "definition": "When resources match a building pattern, remove all resource cubes used and place the building miniature on any one of the freed spaces.", "category": "Rules"},
-        {"term": "Dead Cube", "definition": "A resource cube stranded on the grid that cannot be part of any building pattern. Effectively wastes a grid space and costs one VP as an empty space penalty at game end.", "category": "Strategy"},
-        {"term": "Empty Space Penalty", "definition": "Each grid space not occupied by a building at game end costs minus one victory point. Filling your entire grid is ideal.", "category": "Scoring"},
-        {"term": "Grid Space", "definition": "One of sixteen spaces on the four-by-four player board. Can hold one resource cube or one building miniature. Never more than one item per space.", "category": "Components"},
-        {"term": "Building Card", "definition": "Card showing a building's resource pattern and scoring rules. Seven building types displayed face up for all players during the game.", "category": "Components"},
-        {"term": "Fed Cottage", "definition": "A cottage that is adjacent to a completed farm-type building. Only fed cottages score their printed value. Unfed cottages score zero.", "category": "Scoring"},
-        {"term": "Solo Mode", "definition": "Single-player variant where you draw from a shuffled resource card deck instead of using a Master Builder. Choose one of three face-up resource cards each turn.", "category": "Variants"},
-        {"term": "Town Hall Variant", "definition": "Alternative mode where all players choose from available resources instead of having a Master Builder dictate. Adds more individual control.", "category": "Variants"}
+        {
+          "term": "Master Builder",
+          "definition": "The player holding the hammer token. Names one resource type each turn that all players must place. Hammer passes clockwise.",
+          "category": "Roles"
+        },
+        {
+          "term": "Resource Cube",
+          "definition": "Small colored cubes representing five resource types. Placed on grid spaces and removed when constructing buildings.",
+          "category": "Components"
+        },
+        {
+          "term": "Wood",
+          "definition": "Brown resource cube. One of five resource types used in building patterns.",
+          "category": "Resources"
+        },
+        {
+          "term": "Wheat",
+          "definition": "Yellow resource cube. One of five resource types used in building patterns.",
+          "category": "Resources"
+        },
+        {
+          "term": "Brick",
+          "definition": "Red resource cube. One of five resource types used in building patterns.",
+          "category": "Resources"
+        },
+        {
+          "term": "Glass",
+          "definition": "Blue resource cube. One of five resource types used in building patterns.",
+          "category": "Resources"
+        },
+        {
+          "term": "Stone",
+          "definition": "Gray resource cube. One of five resource types used in building patterns.",
+          "category": "Resources"
+        },
+        {
+          "term": "Cottage",
+          "definition": "Building type that scores its printed value only if fed. Feeding requires adjacency to a completed farm-type building. Typically scores three VP when fed.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Chapel",
+          "definition": "Building type that scores based on the number of fed cottages on your grid at the time of construction. Build after establishing cottages for maximum value.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Tavern",
+          "definition": "Building type using set collection scoring. 1 tavern = 2 VP, 2 = 5, 3 = 9, 4 = 14, 5 = 20. Exponential scaling rewards committing to multiple taverns.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Theater",
+          "definition": "Building type that scores based on the number of unique building types in the same row and column as the Theater. Place at intersections of diverse rows and columns.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Factory",
+          "definition": "Building that grants one extra resource placement of your choice each turn. Extra resource placed after the Master Builder's resource. Multiple Factories do not stack.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Monument",
+          "definition": "A unique secret building dealt to each player. Has its own resource pattern and scoring condition. Can only be built once per game. Revealed when constructed.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Pattern Matching",
+          "definition": "Resources on your grid must match a building card's pattern exactly. Patterns can be rotated 90/180/270 degrees but cannot be mirrored or flipped.",
+          "category": "Rules"
+        },
+        {
+          "term": "Construction",
+          "definition": "When resources match a building pattern, remove all resource cubes used and place the building miniature on any one of the freed spaces.",
+          "category": "Rules"
+        },
+        {
+          "term": "Dead Cube",
+          "definition": "A resource cube stranded on the grid that cannot be part of any building pattern. Effectively wastes a grid space and costs one VP as an empty space penalty at game end.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Empty Space Penalty",
+          "definition": "Each grid space not occupied by a building at game end costs minus one victory point. Filling your entire grid is ideal.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Grid Space",
+          "definition": "One of sixteen spaces on the four-by-four player board. Can hold one resource cube or one building miniature. Never more than one item per space.",
+          "category": "Components"
+        },
+        {
+          "term": "Building Card",
+          "definition": "Card showing a building's resource pattern and scoring rules. Seven building types displayed face up for all players during the game.",
+          "category": "Components"
+        },
+        {
+          "term": "Fed Cottage",
+          "definition": "A cottage that is adjacent to a completed farm-type building. Only fed cottages score their printed value. Unfed cottages score zero.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Solo Mode",
+          "definition": "Single-player variant where you draw from a shuffled resource card deck instead of using a Master Builder. Choose one of three face-up resource cards each turn.",
+          "category": "Variants"
+        },
+        {
+          "term": "Town Hall Variant",
+          "definition": "Alternative mode where all players choose from available resources instead of having a Master Builder dictate. Adds more individual control.",
+          "category": "Variants"
+        }
       ]
     }
   }

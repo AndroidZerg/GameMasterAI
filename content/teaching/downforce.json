@@ -311,7 +311,7 @@
         {
           "step": 1,
           "title": "Welcome to the Track",
-          "text": "Welcome to your first race of Downforce! In this practice tutorial, we will walk through a scripted game with four example players. You will see the auction, the race, betting, and some common beginner mistakes along the way. Even if you have a different number of players at your table, follow along to learn the flow of the game. Let's head to the starting line.",
+          "text": "In this practice tutorial, we will walk through a scripted game with four example players. You will see the auction, the race, betting, and some common beginner mistakes along the way. Even if you have a different number of players at your table, follow along to learn the flow of the game. Let's head to the starting line.",
           "image": null
         },
         {
@@ -341,7 +341,7 @@
         {
           "step": 6,
           "title": "First Turn: Playing a Speed Card",
-          "text": "Player one plays their first speed card. It shows red moves four, blue moves two, and green moves one. Here is what trips up beginners: Player one must move all three of those cars, not just red. Even though blue belongs to Player two and green belongs to Player three, Player one still moves them forward. Player one moves red four spaces, then blue two spaces, then green one space, in that order from top to bottom on the card.",
+          "text": "It shows red moves four, blue moves two, and green moves one. Here is what trips up beginners: Player one must move all three of those cars, not just red. Even though blue belongs to Player two and green belongs to Player three, Player one still moves them forward. Player one moves red four spaces, then blue two spaces, then green one space, in that order from top to bottom on the card.",
           "image": null
         },
         {
@@ -413,7 +413,7 @@
         {
           "step": 18,
           "title": "Congratulations",
-          "text": "Congratulations! You have just raced through your first game of Downforce. You saw how the auction sets up the race, how speed cards move all listed cars, how blocking works in narrow sections, and how betting and card tracking can make or break your final score. Remember: bid conservatively, move all cars on your card, bet early, watch for blocking opportunities, and track what has been played. You are ready to race for real!",
+          "text": "You have just raced through your first game of Downforce. You saw how the auction sets up the race, how speed cards move all listed cars, how blocking works in narrow sections, and how betting and card tracking can make or break your final score. Remember: bid conservatively, move all cars on your card, bet early, watch for blocking opportunities, and track what has been played. You are ready to race for real!",
           "cta": true
         }
       ],
@@ -833,19 +833,29 @@
           "term": "Auction",
           "definition": "The first phase of the game where all six cars are bid on one at a time. Players bid by playing speed cards from their hand. The highest bidder wins the car, its power card, and keeps the bid card. The winning bid amount is deducted from the winner's final score.",
           "category": "Phases",
-          "related_items": ["Speed Card", "Car Power Card"]
+          "related_items": [
+            "Speed Card",
+            "Car Power Card"
+          ]
         },
         {
           "term": "Race Phase",
           "definition": "The second phase of the game. Players take turns playing one speed card each to move cars around the track. The race continues until all cars cross the finish line or all cards are played.",
           "category": "Phases",
-          "related_items": ["Speed Card", "Blocking", "Betting Checkpoint"]
+          "related_items": [
+            "Speed Card",
+            "Blocking",
+            "Betting Checkpoint"
+          ]
         },
         {
           "term": "Blocking",
           "definition": "When a car cannot move through a space occupied by another car. The blocked car stops immediately and any remaining movement from the current speed card is lost. Most impactful in narrow single-lane track sections.",
           "category": "Movement",
-          "related_items": ["Narrow Section", "Excess Movement"]
+          "related_items": [
+            "Narrow Section",
+            "Excess Movement"
+          ]
         },
         {
           "term": "Excess Movement",
@@ -856,7 +866,9 @@
           "term": "Narrow Section",
           "definition": "A portion of the track where lanes reduce to one or two wide. Cars in front effectively block all cars behind them because there is no room to pass. Key strategic locations on both track sides.",
           "category": "Movement",
-          "related_items": ["Blocking"]
+          "related_items": [
+            "Blocking"
+          ]
         },
         {
           "term": "Movement Order",
@@ -867,7 +879,10 @@
           "term": "Betting Checkpoint",
           "definition": "One of three lines marked on the race track. When the first car crosses a checkpoint, all players must secretly bet on which car they think will win the race. The three checkpoints offer decreasing payouts for correct bets.",
           "category": "Betting",
-          "related_items": ["Betting Sheet", "Correct Bet Payout"]
+          "related_items": [
+            "Betting Sheet",
+            "Correct Bet Payout"
+          ]
         },
         {
           "term": "Correct Bet Payout",
@@ -883,7 +898,10 @@
           "term": "Car Ownership",
           "definition": "The result of winning a car in the auction. The owner receives the car's power card and earns a payout based on the car's finishing position. A player can own multiple cars. Unowned cars race but generate no payout.",
           "category": "Scoring",
-          "related_items": ["Auction", "Finishing Position Payout"]
+          "related_items": [
+            "Auction",
+            "Finishing Position Payout"
+          ]
         },
         {
           "term": "Finishing Position Payout",
@@ -894,7 +912,11 @@
           "term": "Net Profit",
           "definition": "Your final score in Downforce. Calculated as car ownership payouts plus correct bet payouts minus money spent in the auction. The player with the highest net profit wins. Tiebreaker goes to the player who spent less in the auction.",
           "category": "Scoring",
-          "related_items": ["Finishing Position Payout", "Correct Bet Payout", "Auction"]
+          "related_items": [
+            "Finishing Position Payout",
+            "Correct Bet Payout",
+            "Auction"
+          ]
         },
         {
           "term": "Payout Chart",
@@ -905,7 +927,10 @@
           "term": "Unowned Car",
           "definition": "A car that received no bids during the auction. It still races and can be moved by speed cards, but it has no active car power and generates no ownership payout. Players can still bet on it to win.",
           "category": "Terminology",
-          "related_items": ["Car Ownership", "Auction"]
+          "related_items": [
+            "Car Ownership",
+            "Auction"
+          ]
         },
         {
           "term": "Starting Spaces",
@@ -921,13 +946,18 @@
           "term": "Face-Up Play",
           "definition": "All speed cards are played face up and remain visible to all players. This makes card counting and hand reading possible. Tracking which cards have been played is a key advanced skill.",
           "category": "Terminology",
-          "related_items": ["Speed Card"]
+          "related_items": [
+            "Speed Card"
+          ]
         },
         {
           "term": "Bidding Currency",
           "definition": "Speed cards serve double duty as both race fuel and auction currency. The bid value for a car is the movement number shown for that car's color on the card you play. Higher movement values let you make bigger bids but also mean losing a powerful racing card.",
           "category": "Terminology",
-          "related_items": ["Auction", "Speed Card"]
+          "related_items": [
+            "Auction",
+            "Speed Card"
+          ]
         }
       ]
     }

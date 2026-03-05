@@ -197,7 +197,7 @@
         {
           "step": 1,
           "title": "Welcome to the Table",
-          "text": "Welcome to your first game of Exploding Kittens! We will walk through a practice game with three example players. Everyone has been dealt their eight cards, including one Defuse, and two Exploding Kittens are lurking somewhere in the draw pile. Let's see how things unfold.",
+          "text": "We will walk through a practice game with three example players. Everyone has been dealt their eight cards, including one Defuse, and two Exploding Kittens are lurking somewhere in the draw pile. Let's see how things unfold.",
           "image": null
         },
         {
@@ -616,97 +616,141 @@
           "term": "Exploding Kitten",
           "definition": "The core danger card. If drawn, you must play a Defuse card immediately or you are eliminated. Cannot be Noped. Four in the deck, but only (players minus one) are inserted during setup.",
           "category": "Card Types",
-          "related_items": ["Defuse"]
+          "related_items": [
+            "Defuse"
+          ]
         },
         {
           "term": "Defuse",
           "definition": "Saves you when you draw an Exploding Kitten. Play it to survive, discard the Defuse, then secretly reinsert the Exploding Kitten anywhere in the draw pile. Six in the deck; each player starts with one, extras are shuffled in.",
           "category": "Card Types",
-          "related_items": ["Exploding Kitten"]
+          "related_items": [
+            "Exploding Kitten"
+          ]
         },
         {
           "term": "Attack",
           "definition": "Ends your turn without drawing. The next player must take two turns in a row. Attacks stack — if the next player is already under Attack, they owe additional turns. Four in the deck.",
           "category": "Card Types",
-          "related_items": ["Skip", "Nope"]
+          "related_items": [
+            "Skip",
+            "Nope"
+          ]
         },
         {
           "term": "Skip",
           "definition": "Ends your turn immediately without drawing a card. If you owe multiple turns from an Attack, Skip only cancels one of them. Four in the deck.",
           "category": "Card Types",
-          "related_items": ["Attack", "Nope"]
+          "related_items": [
+            "Attack",
+            "Nope"
+          ]
         },
         {
           "term": "Favor",
           "definition": "Force any other player to give you one card from their hand. The targeted player chooses which card to give. Four in the deck.",
           "category": "Card Types",
-          "related_items": ["Nope"]
+          "related_items": [
+            "Nope"
+          ]
         },
         {
           "term": "Shuffle",
           "definition": "Randomize the entire draw pile. Useful after someone reinserts an Exploding Kitten or when See the Future reveals danger on top. Four in the deck.",
           "category": "Card Types",
-          "related_items": ["See the Future"]
+          "related_items": [
+            "See the Future"
+          ]
         },
         {
           "term": "See the Future",
           "definition": "Privately peek at the top three cards of the draw pile without changing their order. Best used immediately before your draw so you can react with Skip, Attack, or Shuffle. Five in the deck.",
           "category": "Card Types",
-          "related_items": ["Shuffle", "Skip", "Attack"]
+          "related_items": [
+            "Shuffle",
+            "Skip",
+            "Attack"
+          ]
         },
         {
           "term": "Nope",
           "definition": "Cancel any action card played by any player. Can be played at any time, even on other players' turns. Cannot cancel Exploding Kittens or Defuse cards. Nopes can chain — odd number cancels, even number resolves. Five in the deck.",
           "category": "Card Types",
-          "related_items": ["Exploding Kitten", "Defuse"]
+          "related_items": [
+            "Exploding Kitten",
+            "Defuse"
+          ]
         },
         {
           "term": "Cat Cards",
           "definition": "Five types of cat cards (Taco Cat, Hairy Potato Cat, Beard Cat, Cattermelon, Rainbow Ralphing Cat) with four copies each, totaling twenty cards. No individual power. Used in matching pairs or triples for steal combos.",
           "category": "Card Types",
-          "related_items": ["Pair Steal", "Triple Demand"]
+          "related_items": [
+            "Pair Steal",
+            "Triple Demand"
+          ]
         },
         {
           "term": "Pair Steal",
           "definition": "Play two matching cat cards to steal one random card from any opponent. The opponent fans their hand face down and you pick blindly. Works with any two cards of the same type.",
           "category": "Actions",
-          "related_items": ["Cat Cards", "Triple Demand"]
+          "related_items": [
+            "Cat Cards",
+            "Triple Demand"
+          ]
         },
         {
           "term": "Triple Demand",
           "definition": "Play three matching cat cards to name a specific card and demand it from any opponent. If they have it, they must hand it over. If not, you get nothing. The most precise stealing tool in the game.",
           "category": "Actions",
-          "related_items": ["Cat Cards", "Pair Steal"]
+          "related_items": [
+            "Cat Cards",
+            "Pair Steal"
+          ]
         },
         {
           "term": "Drawing",
           "definition": "Taking the top card from the draw pile. Mandatory at the end of every turn unless avoided by Skip or Attack. Drawing an Exploding Kitten triggers the Defuse-or-die sequence.",
           "category": "Mechanics",
-          "related_items": ["Skip", "Attack", "Exploding Kitten"]
+          "related_items": [
+            "Skip",
+            "Attack",
+            "Exploding Kitten"
+          ]
         },
         {
           "term": "Elimination",
           "definition": "When you draw an Exploding Kitten without a Defuse, you are out of the game. Discard all your cards and sit out. The game continues until only one player remains.",
           "category": "Mechanics",
-          "related_items": ["Exploding Kitten", "Defuse"]
+          "related_items": [
+            "Exploding Kitten",
+            "Defuse"
+          ]
         },
         {
           "term": "Nope Chain",
           "definition": "When multiple Nope cards are played in sequence on the same action. An odd total number of Nopes cancels the original action. An even total number means the action resolves normally. Any player can add to the chain.",
           "category": "Mechanics",
-          "related_items": ["Nope"]
+          "related_items": [
+            "Nope"
+          ]
         },
         {
           "term": "Attack Stacking",
           "definition": "When an Attack is played on a player who already owes extra turns from a previous Attack, the turn count increases. The targeted player owes the remaining turns plus two more from the new Attack.",
           "category": "Mechanics",
-          "related_items": ["Attack"]
+          "related_items": [
+            "Attack"
+          ]
         },
         {
           "term": "Kitten Reinsertion",
           "definition": "After Defusing an Exploding Kitten, you secretly place it back anywhere in the draw pile. Other players cannot see where you put it. This is a major strategic decision — top placement targets the next player, deep placement buys time.",
           "category": "Mechanics",
-          "related_items": ["Defuse", "Exploding Kitten"]
+          "related_items": [
+            "Defuse",
+            "Exploding Kitten"
+          ]
         },
         {
           "term": "Hand Limit",
@@ -717,7 +761,11 @@
           "term": "Turn Structure",
           "definition": "Each turn has two phases: an optional action phase where you may play any number of cards, followed by a mandatory draw phase. The draw phase ends your turn. Skip and Attack cards allow you to bypass the draw.",
           "category": "Mechanics",
-          "related_items": ["Drawing", "Skip", "Attack"]
+          "related_items": [
+            "Drawing",
+            "Skip",
+            "Attack"
+          ]
         },
         {
           "term": "Last Player Standing",

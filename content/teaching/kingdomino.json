@@ -48,12 +48,56 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Choose Your Kingdom", "bullets": ["Pick color → take castle, starting tile, king(s)", "2 players: 2 kings each; 3-4 players: 1 king each"]},
-        {"step": 2, "title": "Place Your Starting Tile", "bullets": ["Starting tile face up, castle on top", "Wild tile — connects to any terrain", "Kingdom must fit in 5×5 grid"]},
-        {"step": 3, "title": "Prepare the Domino Pool", "bullets": ["4 players: all 48 dominoes", "3 players: 36 (remove 12)", "2 players: 24 (remove 24)"]},
-        {"step": 4, "title": "Create the First Row", "bullets": ["Draw 4 dominoes (3 for 3-player)", "Sort ascending by number → flip to landscape side"]},
-        {"step": 5, "title": "Claim Your First Domino", "bullets": ["Random king draw → place on unclaimed domino", "Last king takes remaining domino"]},
-        {"step": 6, "title": "Create the Second Row", "bullets": ["Draw new dominoes, sort, flip", "Lowest-numbered claimed domino goes first"]}
+        {
+          "step": 1,
+          "title": "Choose Your Kingdom",
+          "bullets": [
+            "Pick color → take castle, starting tile, king(s)",
+            "2 players: 2 kings each; 3-4 players: 1 king each"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place Your Starting Tile",
+          "bullets": [
+            "Starting tile face up, castle on top",
+            "Wild tile — connects to any terrain",
+            "Kingdom must fit in 5×5 grid"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Domino Pool",
+          "bullets": [
+            "4 players: all 48 dominoes",
+            "3 players: 36 (remove 12)",
+            "2 players: 24 (remove 24)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Create the First Row",
+          "bullets": [
+            "Draw 4 dominoes (3 for 3-player)",
+            "Sort ascending by number → flip to landscape side"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Claim Your First Domino",
+          "bullets": [
+            "Random king draw → place on unclaimed domino",
+            "Last king takes remaining domino"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Create the Second Row",
+          "bullets": [
+            "Draw new dominoes, sort, flip",
+            "Lowest-numbered claimed domino goes first"
+          ]
+        }
       ]
     },
     "rules": {
@@ -117,7 +161,7 @@
         {
           "step": 9,
           "title": "Scoring Your Kingdom",
-          "text": "Let's score your kingdom. Identify each connected group of matching terrain. For each group, count the number of squares and the number of crowns. Multiply squares times crowns. That is the score for that region. A group of four forest squares with two crowns scores eight points. Add all regions together for your total.",
+          "text": "Identify each connected group of matching terrain. For each group, count the number of squares and the number of crowns. Multiply squares times crowns. That is the score for that region. A group of four forest squares with two crowns scores eight points. Add all regions together for your total.",
           "image": null,
           "image_caption": null
         },
@@ -130,16 +174,91 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Turn Overview", "bullets": ["Place your claimed domino in your kingdom", "Claim a new domino in the next row", "Turn order: lowest to highest number in current row"]},
-        {"step": 2, "title": "Placing a Domino", "bullets": ["1 half must touch matching terrain (orthogonal)", "Starting tile is wild — matches all", "Rotate freely"]},
-        {"step": 3, "title": "The Five by Five Rule", "bullets": ["Kingdom cannot exceed 5×5 grid", "No legal placement → discard domino (0 points)"]},
-        {"step": 4, "title": "Connection Rules", "bullets": ["Orthogonal adjacency only (no diagonal)", "Starting tile matches all terrain types"]},
-        {"step": 5, "title": "Claiming a New Domino", "bullets": ["Move king to unclaimed domino in next row", "1 king per domino", "Lower number = earlier turn but weaker tile"]},
-        {"step": 6, "title": "Refilling the Row", "bullets": ["Draw new dominoes, sort ascending, flip", "Becomes the next row"]},
-        {"step": 7, "title": "The Last Round", "bullets": ["No more dominoes to draw → final placement", "No new claim; game ends after all place"]},
-        {"step": 8, "title": "Understanding Crowns", "bullets": ["Crown symbols on some squares", "0 crowns in a region = 0 points regardless of size"]},
-        {"step": 9, "title": "Scoring Your Kingdom", "bullets": ["Group connected same-terrain squares", "Score = squares × crowns per region", "Sum all regions for total"]},
-        {"step": 10, "title": "Winning the Game", "bullets": ["Highest score wins", "Tiebreaker: largest territory → most crowns → shared victory", "Optional: +5 for complete kingdom, +10 for centered castle"]}
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Place your claimed domino in your kingdom",
+            "Claim a new domino in the next row",
+            "Turn order: lowest to highest number in current row"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placing a Domino",
+          "bullets": [
+            "1 half must touch matching terrain (orthogonal)",
+            "Starting tile is wild — matches all",
+            "Rotate freely"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Five by Five Rule",
+          "bullets": [
+            "Kingdom cannot exceed 5×5 grid",
+            "No legal placement → discard domino (0 points)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Connection Rules",
+          "bullets": [
+            "Orthogonal adjacency only (no diagonal)",
+            "Starting tile matches all terrain types"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Claiming a New Domino",
+          "bullets": [
+            "Move king to unclaimed domino in next row",
+            "1 king per domino",
+            "Lower number = earlier turn but weaker tile"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Refilling the Row",
+          "bullets": [
+            "Draw new dominoes, sort ascending, flip",
+            "Becomes the next row"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Last Round",
+          "bullets": [
+            "No more dominoes to draw → final placement",
+            "No new claim; game ends after all place"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Understanding Crowns",
+          "bullets": [
+            "Crown symbols on some squares",
+            "0 crowns in a region = 0 points regardless of size"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Scoring Your Kingdom",
+          "bullets": [
+            "Group connected same-terrain squares",
+            "Score = squares × crowns per region",
+            "Sum all regions for total"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "bullets": [
+            "Highest score wins",
+            "Tiebreaker: largest territory → most crowns → shared victory",
+            "Optional: +5 for complete kingdom, +10 for centered castle"
+          ]
+        }
       ]
     },
     "practice_tutorial": {
@@ -147,7 +266,7 @@
         {
           "step": 1,
           "title": "Welcome to Kingdomino",
-          "text": "Welcome to your first game of Kingdomino! We will walk through a four-player game where each player takes one king and builds a kingdom. This is a quick, elegant game with one core decision each turn: which domino to claim and where to place it. Let's build some kingdoms!",
+          "text": "We will walk through a four-player game where each player takes one king and builds a kingdom. This is a quick, elegant game with one core decision each turn: which domino to claim and where to place it. Let's build some kingdoms!",
           "image": null,
           "image_caption": null
         },
@@ -245,7 +364,7 @@
         {
           "step": 15,
           "title": "Congratulations",
-          "text": "Congratulations! You have played through a full game of Kingdomino. The three key lessons are: every terrain region needs at least one crown, manage your five by five grid to avoid forced discards, and keep matching terrain connected for maximum multiplication. Simple rules, deep decisions!",
+          "text": "You have played through a full game of Kingdomino. The three key lessons are: every terrain region needs at least one crown, manage your five by five grid to avoid forced discards, and keep matching terrain connected for maximum multiplication. Simple rules, deep decisions!",
           "image": null,
           "image_caption": null
         },
@@ -257,22 +376,134 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Welcome to Kingdomino", "bullets": ["4-player tutorial covering placement, claiming, scoring"]},
-        {"step": 2, "title": "First Claims Are Random", "bullets": ["Random king draw for first round", "Trade-off: tile quality vs turn order"]},
-        {"step": 3, "title": "Player 1 Places and Claims", "bullets": ["Place domino → connect to starting tile", "Claim new domino in next row"]},
-        {"step": 4, "title": "Players 2 and 3 Take Turns", "bullets": ["Form clusters of matching terrain", "Grouping terrain = better scoring"]},
-        {"step": 5, "title": "Player 4's Mistake: No Crowns", "bullets": ["6-square forest with 0 crowns = 0 points", "Squares × crowns — anything × 0 = 0"]},
-        {"step": 6, "title": "Lesson: Crowns Are Essential", "bullets": ["1 crown turns a region from 0 to valuable", "Always get at least 1 crown per major region"]},
-        {"step": 7, "title": "Mid-Game Kingdom Building", "bullets": ["Group terrain types together", "Connected squares × crowns = exponential scoring"]},
-        {"step": 8, "title": "Player 2's Mistake: Border Lock", "bullets": ["Filled top rows too aggressively", "Forced to discard domino — exceeded 5×5 grid"]},
-        {"step": 9, "title": "Lesson: Manage Your Grid Space", "bullets": ["Grow evenly from center", "Leave flexible edges for awkward later dominoes"]},
-        {"step": 10, "title": "The Tempo vs Power Trade-Off", "bullets": ["Low number = first pick but weaker tiles", "High number = strong tiles but act last"]},
-        {"step": 11, "title": "Player 3's Mistake: Fragmented Terrain", "bullets": ["3 separate forest clusters instead of 1 connected region", "Fragmentation halves scoring potential"]},
-        {"step": 12, "title": "Lesson: Keep Terrain Connected", "bullets": ["1 big region scores more than multiple small ones", "4 squares + 2 crowns = 8 vs two 2+1 regions = 4"]},
-        {"step": 13, "title": "Final Rounds", "bullets": ["Complete largest regions, add crowns to crownless areas", "Last domino: no claiming step, maximize immediate score"]},
-        {"step": 14, "title": "Scoring Example", "bullets": ["4 wheat × 1 crown = 4, 3 lake × 2 crowns = 6", "2 forest × 0 crowns = 0, total = 10"]},
-        {"step": 15, "title": "Congratulations", "bullets": ["Key lessons: crowns essential, manage grid, keep terrain connected"]},
-        {"step": 16, "title": "Before You Rule", "bullets": ["General Tips → strategy basics", "Appendix → terrain types and scoring", "GM Guide → Q&A for answers"], "cta": true}
+        {
+          "step": 1,
+          "title": "Welcome to Kingdomino",
+          "bullets": [
+            "4-player tutorial covering placement, claiming, scoring"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "First Claims Are Random",
+          "bullets": [
+            "Random king draw for first round",
+            "Trade-off: tile quality vs turn order"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1 Places and Claims",
+          "bullets": [
+            "Place domino → connect to starting tile",
+            "Claim new domino in next row"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Players 2 and 3 Take Turns",
+          "bullets": [
+            "Form clusters of matching terrain",
+            "Grouping terrain = better scoring"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 4's Mistake: No Crowns",
+          "bullets": [
+            "6-square forest with 0 crowns = 0 points",
+            "Squares × crowns — anything × 0 = 0"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Crowns Are Essential",
+          "bullets": [
+            "1 crown turns a region from 0 to valuable",
+            "Always get at least 1 crown per major region"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Mid-Game Kingdom Building",
+          "bullets": [
+            "Group terrain types together",
+            "Connected squares × crowns = exponential scoring"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 2's Mistake: Border Lock",
+          "bullets": [
+            "Filled top rows too aggressively",
+            "Forced to discard domino — exceeded 5×5 grid"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Manage Your Grid Space",
+          "bullets": [
+            "Grow evenly from center",
+            "Leave flexible edges for awkward later dominoes"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Tempo vs Power Trade-Off",
+          "bullets": [
+            "Low number = first pick but weaker tiles",
+            "High number = strong tiles but act last"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player 3's Mistake: Fragmented Terrain",
+          "bullets": [
+            "3 separate forest clusters instead of 1 connected region",
+            "Fragmentation halves scoring potential"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Keep Terrain Connected",
+          "bullets": [
+            "1 big region scores more than multiple small ones",
+            "4 squares + 2 crowns = 8 vs two 2+1 regions = 4"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Final Rounds",
+          "bullets": [
+            "Complete largest regions, add crowns to crownless areas",
+            "Last domino: no claiming step, maximize immediate score"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Scoring Example",
+          "bullets": [
+            "4 wheat × 1 crown = 4, 3 lake × 2 crowns = 6",
+            "2 forest × 0 crowns = 0, total = 10"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Key lessons: crowns essential, manage grid, keep terrain connected"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Rule",
+          "bullets": [
+            "General Tips → strategy basics",
+            "Appendix → terrain types and scoring",
+            "GM Guide → Q&A for answers"
+          ],
+          "cta": true
+        }
       ]
     },
     "general_tips": {
@@ -328,13 +559,64 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Crown Priority", "bullets": ["0 crowns = 0 points regardless of region size", "1 crown in 5 squares = 5 points; always take crowns"]},
-        {"step": 2, "title": "Plan Your Grid Early", "bullets": ["Visualize 5×5 boundary from turn 1", "Castle should end up near center"]},
-        {"step": 3, "title": "Merge Over Fragment", "bullets": ["1 connected region scores more than scattered pieces", "Bigger regions with crowns = exponential scoring"]},
-        {"step": 4, "title": "The Turn Order Trade-Off", "bullets": ["Low number: early pick, weaker tile", "High number: strong tile, later pick", "Generally take crowns over turn order"]},
-        {"step": 5, "title": "Common Mistakes to Avoid", "bullets": ["Crownless territories = 0 points", "Over-filling borders → forced discards", "Fragmenting terrain types"]},
-        {"step": 6, "title": "Watch Your Opponents", "bullets": ["Pivot to terrain nobody else wants", "Deny key dominoes by claiming them"]},
-        {"step": 7, "title": "Use the Starting Tile Wisely", "bullets": ["Wild connection hub — don't block it early", "Branch different terrain in different directions"]}
+        {
+          "step": 1,
+          "title": "Crown Priority",
+          "bullets": [
+            "0 crowns = 0 points regardless of region size",
+            "1 crown in 5 squares = 5 points; always take crowns"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Plan Your Grid Early",
+          "bullets": [
+            "Visualize 5×5 boundary from turn 1",
+            "Castle should end up near center"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Merge Over Fragment",
+          "bullets": [
+            "1 connected region scores more than scattered pieces",
+            "Bigger regions with crowns = exponential scoring"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Turn Order Trade-Off",
+          "bullets": [
+            "Low number: early pick, weaker tile",
+            "High number: strong tile, later pick",
+            "Generally take crowns over turn order"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Crownless territories = 0 points",
+            "Over-filling borders → forced discards",
+            "Fragmenting terrain types"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Watch Your Opponents",
+          "bullets": [
+            "Pivot to terrain nobody else wants",
+            "Deny key dominoes by claiming them"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Use the Starting Tile Wisely",
+          "bullets": [
+            "Wild connection hub — don't block it early",
+            "Branch different terrain in different directions"
+          ]
+        }
       ]
     },
     "advanced_strategies": {
@@ -390,37 +672,168 @@
         }
       ],
       "summary": [
-        {"step": 1, "title": "Focus on Two to Three Terrain Types", "bullets": ["Can't build large regions in all types within 5×5", "2-3 focused regions > 5 small scattered ones"]},
-        {"step": 2, "title": "Crown Stacking", "bullets": ["Multiple crowns in 1 large region = massive score", "6 squares × 3 crowns = 18 points from one region"]},
-        {"step": 3, "title": "Turn Order Manipulation", "bullets": ["Sacrifice quality to guarantee first pick next round", "Worth it when next row has game-changing tiles"]},
-        {"step": 4, "title": "Spatial Optimization", "bullets": ["Plan 5×5 grid from the start", "Compact regions avoid wasted space", "Leave flexible corners for late-game"]},
-        {"step": 5, "title": "Denial Drafting", "bullets": ["Deny opponents their key crown tiles", "Cost to you < damage to their scoring"]},
-        {"step": 6, "title": "Two-Player King Strategy", "bullets": ["1 king for quality tiles, 1 for turn order", "Coordinate both for best of both worlds"]},
-        {"step": 7, "title": "Variant Scoring Goals", "bullets": ["Middle Kingdom: +10 for centered castle", "Harmony: +5 for never discarding", "Both require strategic grid planning"]}
+        {
+          "step": 1,
+          "title": "Focus on Two to Three Terrain Types",
+          "bullets": [
+            "Can't build large regions in all types within 5×5",
+            "2-3 focused regions > 5 small scattered ones"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Crown Stacking",
+          "bullets": [
+            "Multiple crowns in 1 large region = massive score",
+            "6 squares × 3 crowns = 18 points from one region"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Turn Order Manipulation",
+          "bullets": [
+            "Sacrifice quality to guarantee first pick next round",
+            "Worth it when next row has game-changing tiles"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Spatial Optimization",
+          "bullets": [
+            "Plan 5×5 grid from the start",
+            "Compact regions avoid wasted space",
+            "Leave flexible corners for late-game"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Denial Drafting",
+          "bullets": [
+            "Deny opponents their key crown tiles",
+            "Cost to you < damage to their scoring"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Two-Player King Strategy",
+          "bullets": [
+            "1 king for quality tiles, 1 for turn order",
+            "Coordinate both for best of both worlds"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Variant Scoring Goals",
+          "bullets": [
+            "Middle Kingdom: +10 for centered castle",
+            "Harmony: +5 for never discarding",
+            "Both require strategic grid planning"
+          ]
+        }
       ]
     },
     "appendix": {
       "entries": [
-        {"term": "Wheat Field", "definition": "Yellow terrain type showing grain. Common terrain with occasional crowns.", "category": "Terrain"},
-        {"term": "Forest", "definition": "Dark green terrain type showing trees. Common terrain with moderate crown frequency.", "category": "Terrain"},
-        {"term": "Lake", "definition": "Blue terrain type showing water. Medium frequency with good crown potential.", "category": "Terrain"},
-        {"term": "Grassland", "definition": "Light green terrain type showing plains. Common terrain, less frequent crowns.", "category": "Terrain"},
-        {"term": "Swamp", "definition": "Dark terrain type showing marshland. Less common but often has crowns.", "category": "Terrain"},
-        {"term": "Mine", "definition": "Dark brown terrain showing mountains or mines. Least common terrain type but highest crown density.", "category": "Terrain"},
-        {"term": "Crown", "definition": "Symbol on domino squares that acts as a scoring multiplier. Region score = squares × crowns. Zero crowns = zero points.", "category": "Scoring"},
-        {"term": "Territory/Region", "definition": "A group of connected same-terrain squares. Only orthogonal connections count, not diagonal.", "category": "Scoring"},
-        {"term": "Starting Tile", "definition": "Single square tile placed at game start. Acts as a wild terrain matching all types. Castle is placed on it.", "category": "Components"},
-        {"term": "Castle", "definition": "Player marker placed on the starting tile. Identifies the kingdom's center.", "category": "Components"},
-        {"term": "King", "definition": "Wooden meeple placed on dominoes to claim them. Determines turn order based on domino number.", "category": "Components"},
-        {"term": "Domino", "definition": "Two-square tile with terrain on one side and a number on the other. Higher numbers generally have better terrain or more crowns.", "category": "Components"},
-        {"term": "Five by Five Grid", "definition": "Maximum kingdom size. All placed dominoes plus starting tile must fit within a 5×5 square area.", "category": "Rules"},
-        {"term": "Claiming", "definition": "Placing your king on an unclaimed domino in the next row. Determines which domino you get and your turn order.", "category": "Rules"},
-        {"term": "Discard", "definition": "If no legal placement exists for a domino, it is discarded and scores zero points.", "category": "Rules"},
-        {"term": "Turn Order", "definition": "Determined by position in the current row. Lower-numbered domino = earlier turn. Resets each round.", "category": "Rules"},
-        {"term": "Middle Kingdom", "definition": "Optional variant: score ten bonus points if your castle is in the exact center of a complete 5×5 kingdom.", "category": "Variants"},
-        {"term": "Harmony", "definition": "Optional variant: score five bonus points if your kingdom is complete with no discarded dominoes.", "category": "Variants"},
-        {"term": "Dynasty", "definition": "Optional variant: play three games and sum scores. Highest cumulative score wins.", "category": "Variants"},
-        {"term": "Mighty Duel", "definition": "Two-player variant using all forty-eight dominoes and building a 7×7 kingdom.", "category": "Variants"}
+        {
+          "term": "Wheat Field",
+          "definition": "Yellow terrain type showing grain. Common terrain with occasional crowns.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Forest",
+          "definition": "Dark green terrain type showing trees. Common terrain with moderate crown frequency.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Lake",
+          "definition": "Blue terrain type showing water. Medium frequency with good crown potential.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Grassland",
+          "definition": "Light green terrain type showing plains. Common terrain, less frequent crowns.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Swamp",
+          "definition": "Dark terrain type showing marshland. Less common but often has crowns.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Mine",
+          "definition": "Dark brown terrain showing mountains or mines. Least common terrain type but highest crown density.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Crown",
+          "definition": "Symbol on domino squares that acts as a scoring multiplier. Region score = squares × crowns. Zero crowns = zero points.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Territory/Region",
+          "definition": "A group of connected same-terrain squares. Only orthogonal connections count, not diagonal.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Starting Tile",
+          "definition": "Single square tile placed at game start. Acts as a wild terrain matching all types. Castle is placed on it.",
+          "category": "Components"
+        },
+        {
+          "term": "Castle",
+          "definition": "Player marker placed on the starting tile. Identifies the kingdom's center.",
+          "category": "Components"
+        },
+        {
+          "term": "King",
+          "definition": "Wooden meeple placed on dominoes to claim them. Determines turn order based on domino number.",
+          "category": "Components"
+        },
+        {
+          "term": "Domino",
+          "definition": "Two-square tile with terrain on one side and a number on the other. Higher numbers generally have better terrain or more crowns.",
+          "category": "Components"
+        },
+        {
+          "term": "Five by Five Grid",
+          "definition": "Maximum kingdom size. All placed dominoes plus starting tile must fit within a 5×5 square area.",
+          "category": "Rules"
+        },
+        {
+          "term": "Claiming",
+          "definition": "Placing your king on an unclaimed domino in the next row. Determines which domino you get and your turn order.",
+          "category": "Rules"
+        },
+        {
+          "term": "Discard",
+          "definition": "If no legal placement exists for a domino, it is discarded and scores zero points.",
+          "category": "Rules"
+        },
+        {
+          "term": "Turn Order",
+          "definition": "Determined by position in the current row. Lower-numbered domino = earlier turn. Resets each round.",
+          "category": "Rules"
+        },
+        {
+          "term": "Middle Kingdom",
+          "definition": "Optional variant: score ten bonus points if your castle is in the exact center of a complete 5×5 kingdom.",
+          "category": "Variants"
+        },
+        {
+          "term": "Harmony",
+          "definition": "Optional variant: score five bonus points if your kingdom is complete with no discarded dominoes.",
+          "category": "Variants"
+        },
+        {
+          "term": "Dynasty",
+          "definition": "Optional variant: play three games and sum scores. Highest cumulative score wins.",
+          "category": "Variants"
+        },
+        {
+          "term": "Mighty Duel",
+          "definition": "Two-player variant using all forty-eight dominoes and building a 7×7 kingdom.",
+          "category": "Variants"
+        }
       ]
     }
   }
