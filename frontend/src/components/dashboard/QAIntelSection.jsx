@@ -24,9 +24,9 @@ const tdStyle = {
   fontSize: "0.85rem",
 };
 
-export default function QAIntelSection({ token, refreshKey }) {
+export default function QAIntelSection({ token, refreshKey, venueId }) {
   const [qaAnalytics, setQaAnalytics] = useState([]);
-  const [stationActivity, setStationActivity] = useState([]);
+  const [tableActivity, setTableActivity] = useState([]);
   const [questionTrends, setQuestionTrends] = useState([]);
   const [loading, setLoading] = useState(true);
   const [gameFilter, setGameFilter] = useState("");
@@ -36,31 +36,38 @@ export default function QAIntelSection({ token, refreshKey }) {
     setLoading(true);
 
     const headers = { Authorization: `Bearer ${token}` };
-    const qaUrl = gameFilter
-      ? `${API_BASE}/api/v1/sessions/crm/qa-analytics?game_id=${encodeURIComponent(gameFilter)}`
-      : `${API_BASE}/api/v1/sessions/crm/qa-analytics`;
+    const venueQs = venueId ? `&venue_id=${encodeURIComponent(venueId)}` : "";
+    const gameQs = gameFilter ? `&game_id=${encodeURIComponent(gameFilter)}` : "";
+
+    const qaUrl = `${API_BASE}/api/v1/sessions/crm/qa-analytics?_=1${venueQs}${gameQs}`;
+    const tableUrl = `${API_BASE}/api/v1/sessions/crm/table-activity?_=1${venueQs}`;
+    const trendsUrl = `${API_BASE}/api/v1/sessions/crm/question-trends?_=1${venueQs}`;
 
     Promise.all([
       fetch(qaUrl, { headers }).then((r) => (r.ok ? r.json() : { analytics: [] })),
-      fetch(`${API_BASE}/api/v1/sessions/crm/station-activity`, { headers }).then((r) =>
-        r.ok ? r.json() : { stations: [] }
-      ),
-      fetch(`${API_BASE}/api/v1/sessions/crm/question-trends`, { headers }).then((r) =>
-        r.ok ? r.json() : { trends: [] }
-      ),
+      fetch(tableUrl, { headers }).then((r) => (r.ok ? r.json() : { tables: [] })),
+      fetch(trendsUrl, { headers }).then((r) => (r.ok ? r.json() : { trends: [] })),
     ])
-      .then(([qa, stations, trends]) => {
+      .then(([qa, tables, trends]) => {
         setQaAnalytics(qa.analytics || []);
-        setStationActivity(stations.stations || []);
+        setTableActivity(tables.tables || []);
         setQuestionTrends(trends.trends || []);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [token, refreshKey, gameFilter]);
+  }, [token, refreshKey, gameFilter, venueId]);
 
   if (loading) return <div style={{ textAlign: "center", padding: 40 }}>Loading Q&A Intelligence...</div>;
 
   const poorAnswers = qaAnalytics.filter((q) => !q.has_good_answer);
+
+  // Group table activity by venue
+  const byVenue = {};
+  for (const t of tableActivity) {
+    const vid = t.venue_id || "unknown";
+    if (!byVenue[vid]) byVenue[vid] = [];
+    byVenue[vid].push(t);
+  }
 
   return (
     <div>
@@ -85,35 +92,42 @@ export default function QAIntelSection({ token, refreshKey }) {
         />
       </div>
 
-      {/* Station Activity */}
+      {/* Table Activity — grouped by venue */}
       <div style={cardStyle}>
-        <h3 style={{ fontSize: "1rem", fontWeight: 600, marginBottom: 12 }}>Station Activity</h3>
-        {stationActivity.length === 0 ? (
-          <div style={{ color: "#64748b" }}>No station data yet</div>
+        <h3 style={{ fontSize: "1rem", fontWeight: 600, marginBottom: 12 }}>Table Activity</h3>
+        {tableActivity.length === 0 ? (
+          <div style={{ color: "#64748b" }}>No table data yet</div>
         ) : (
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            {stationActivity.map((s) => (
-              <div
-                key={s.station_id}
-                style={{
-                  background: "#0f172a",
-                  borderRadius: 8,
-                  padding: "12px 20px",
-                  textAlign: "center",
-                  minWidth: 120,
-                  border: "1px solid #334155",
-                }}
-              >
-                <div style={{ fontSize: "1.4rem", fontWeight: 700 }}>Table {s.station_id}</div>
-                <div style={{ fontSize: "0.85rem", color: "#94a3b8", marginTop: 4 }}>
-                  {s.total_sessions} sessions
-                </div>
-                <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
-                  {s.unique_devices} unique devices
-                </div>
+          Object.entries(byVenue).map(([vid, tables]) => (
+            <div key={vid} style={{ marginBottom: 16 }}>
+              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#94a3b8", marginBottom: 8 }}>
+                {vid}
               </div>
-            ))}
-          </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                {tables.map((t) => (
+                  <div
+                    key={`${t.venue_id}-${t.table_number}`}
+                    style={{
+                      background: "#0f172a",
+                      borderRadius: 8,
+                      padding: "12px 20px",
+                      textAlign: "center",
+                      minWidth: 120,
+                      border: "1px solid #334155",
+                    }}
+                  >
+                    <div style={{ fontSize: "1.4rem", fontWeight: 700 }}>Table {t.table_number}</div>
+                    <div style={{ fontSize: "0.85rem", color: "#94a3b8", marginTop: 4 }}>
+                      {t.total_sessions} sessions
+                    </div>
+                    <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
+                      {t.unique_devices} unique devices
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
         )}
       </div>
 
@@ -130,6 +144,7 @@ export default function QAIntelSection({ token, refreshKey }) {
               <thead>
                 <tr>
                   <th style={thStyle}>Game</th>
+                  <th style={thStyle}>Venue</th>
                   <th style={thStyle}>Total Questions</th>
                   <th style={thStyle}>Unique Askers</th>
                   <th style={thStyle}>First Asked</th>
@@ -137,9 +152,10 @@ export default function QAIntelSection({ token, refreshKey }) {
                 </tr>
               </thead>
               <tbody>
-                {questionTrends.map((t) => (
-                  <tr key={t.game_id}>
+                {questionTrends.map((t, i) => (
+                  <tr key={`${t.game_id}-${t.venue_id}-${i}`}>
                     <td style={tdStyle}>{t.game_id}</td>
+                    <td style={tdStyle}>{t.venue_id || "\u2014"}</td>
                     <td style={tdStyle}>{t.total_questions}</td>
                     <td style={tdStyle}>{t.unique_askers}</td>
                     <td style={tdStyle}>{t.first_asked?.slice(0, 16) || "\u2014"}</td>
@@ -163,6 +179,7 @@ export default function QAIntelSection({ token, refreshKey }) {
               <thead>
                 <tr>
                   <th style={thStyle}>#</th>
+                  <th style={thStyle}>Venue</th>
                   <th style={thStyle}>Game</th>
                   <th style={thStyle}>Question</th>
                   <th style={thStyle}>Times Asked</th>
@@ -173,6 +190,7 @@ export default function QAIntelSection({ token, refreshKey }) {
                 {qaAnalytics.slice(0, 25).map((q, i) => (
                   <tr key={q.id || i}>
                     <td style={tdStyle}>{i + 1}</td>
+                    <td style={tdStyle}>{q.venue_id || "\u2014"}</td>
                     <td style={tdStyle}>{q.game_id}</td>
                     <td style={{ ...tdStyle, maxWidth: 400, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {q.question_text}
@@ -197,6 +215,7 @@ export default function QAIntelSection({ token, refreshKey }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr>
+                  <th style={thStyle}>Venue</th>
                   <th style={thStyle}>Game</th>
                   <th style={thStyle}>Question</th>
                   <th style={thStyle}>Times Asked</th>
@@ -205,6 +224,7 @@ export default function QAIntelSection({ token, refreshKey }) {
               <tbody>
                 {poorAnswers.map((q, i) => (
                   <tr key={q.id || i}>
+                    <td style={tdStyle}>{q.venue_id || "\u2014"}</td>
                     <td style={tdStyle}>{q.game_id}</td>
                     <td style={{ ...tdStyle, maxWidth: 400 }}>{q.question_text}</td>
                     <td style={tdStyle}>{q.times_asked}</td>

@@ -23,7 +23,8 @@ class QueryRequest(BaseModel):
     question: str
     device_id: Optional[str] = None
     session_id: Optional[int] = None
-    station_id: Optional[int] = None
+    venue_id: Optional[str] = None
+    table_number: Optional[int] = None
 
 
 @router.post("/query")
@@ -62,19 +63,19 @@ KNOWLEDGE BASE:
             db = get_analytics_db()
             # Log to device Q&A history
             db.execute(
-                "INSERT INTO device_qa_history (device_id, session_id, game_id, question, answer, station_id) VALUES (?, ?, ?, ?, ?, ?)",
-                (req.device_id, req.session_id, req.game_id, req.question, answer, req.station_id),
+                "INSERT INTO device_qa_history (device_id, session_id, game_id, question, answer, venue_id, table_number) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                (req.device_id, req.session_id, req.game_id, req.question, answer, req.venue_id, req.table_number),
             )
-            # Log to CRM analytics (upsert by question hash)
-            q_hash = hashlib.md5(f"{req.game_id}:{req.question.lower().strip()}".encode()).hexdigest()
+            # Log to CRM analytics (upsert by question hash — scoped per venue)
+            q_hash = hashlib.md5(f"{req.venue_id or ''}:{req.game_id}:{req.question.lower().strip()}".encode()).hexdigest()
             db.execute(
-                """INSERT INTO crm_qa_analytics (game_id, question_text, question_hash, answer_text)
-                   VALUES (?, ?, ?, ?)
+                """INSERT INTO crm_qa_analytics (game_id, venue_id, question_text, question_hash, answer_text)
+                   VALUES (?, ?, ?, ?, ?)
                    ON CONFLICT(question_hash) DO UPDATE SET
                        times_asked = times_asked + 1,
                        last_asked_at = datetime('now'),
                        answer_text = ?""",
-                (req.game_id, req.question, q_hash, answer, answer),
+                (req.game_id, req.venue_id, req.question, q_hash, answer, answer),
             )
             db.commit()
         except Exception:
