@@ -9,18 +9,26 @@ export default function TableOfContents({ tabName, steps, onStepSelect }) {
 
   return (
     <div style={{ animation: "fadeIn 0.25s ease-out", padding: "4px 0" }}>
-      {/* Header */}
-      <h3
+      {/* Start button — top of TOC */}
+      <button
+        onClick={() => onStepSelect(0)}
         style={{
-          margin: "0 0 16px 0",
-          fontSize: "1.15rem",
+          display: "block",
+          width: "100%",
+          marginBottom: "16px",
+          padding: "14px 20px",
+          borderRadius: "12px",
+          border: "none",
+          background: "var(--accent, #e94560)",
+          color: "#fff",
+          fontSize: "1rem",
           fontWeight: 700,
-          color: "var(--text-primary)",
+          cursor: "pointer",
           textAlign: "center",
         }}
       >
-        {tabName}
-      </h3>
+        Start from beginning
+      </button>
 
       {/* Step list */}
       <div
@@ -74,27 +82,6 @@ export default function TableOfContents({ tabName, steps, onStepSelect }) {
           </button>
         ))}
       </div>
-
-      {/* Start button */}
-      <button
-        onClick={() => onStepSelect(0)}
-        style={{
-          display: "block",
-          width: "100%",
-          marginTop: "16px",
-          padding: "14px 20px",
-          borderRadius: "12px",
-          border: "none",
-          background: "var(--accent, #e94560)",
-          color: "#fff",
-          fontSize: "1rem",
-          fontWeight: 700,
-          cursor: "pointer",
-          textAlign: "center",
-        }}
-      >
-        Start from beginning
-      </button>
     </div>
   );
 }

@@ -220,7 +220,7 @@ export default function TeachingNavBar({
               boxShadow: "0 -4px 20px rgba(0,0,0,0.4)",
             }}
           >
-            {(speedOptions || [0.75, 1.0, 1.25, 1.5, 2.0]).map((speed) => (
+            {(speedOptions || [0.75, 1.0, 1.25]).map((speed) => (
               <button
                 key={speed}
                 onClick={() => { onSpeedChange(speed); setShowSpeedMenu(false); }}

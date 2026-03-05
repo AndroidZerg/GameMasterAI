@@ -10,7 +10,7 @@ import {
   setOnRateChange,
 } from "../components/ResponseDisplay";
 
-const SPEED_OPTIONS = [0.75, 1.0, 1.25, 1.5, 2.0];
+const SPEED_OPTIONS = [0.75, 1.0, 1.25];
 
 /**
  * useTeachingMode — manages step-by-step teaching with TTS.
@@ -81,7 +81,11 @@ export default function useTeachingMode(sectionData, activeTab) {
   const getStepText = useCallback((step) => {
     if (!step) return "";
     if (currentMode === "walkthrough") {
-      return step.text || "";
+      // Read title first, then body text
+      const parts = [];
+      if (step.title) parts.push(step.title + ".");
+      if (step.text) parts.push(step.text);
+      return parts.join(" ");
     }
     // Summary mode — combine title + bullets
     const parts = [];
