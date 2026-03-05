@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { queryGame, fetchGame, fetchVenueConfig } from "../services/api";
+import { queryGame, fetchGame, fetchVenueConfig, fetchNotes, saveNotes as saveNotesApi, fetchQAHistory } from "../services/api";
 import VoiceButton from "./VoiceButton";
 import Leaderboard from "./Leaderboard";
 
@@ -487,17 +487,40 @@ function QAPanel({ gameId, gameTitle }) {
     try { const s = JSON.parse(localStorage.getItem(collapseKey)); return s?.notes !== false; } catch { return true; }
   });
 
-  // Load notes on mount / gameId change
+  // Load notes on mount / gameId change — try API first, fall back to localStorage
   useEffect(() => {
-    try { setNotes(localStorage.getItem(notesStorageKey) || ""); } catch { /* ignore */ }
-  }, [notesStorageKey]);
+    let cancelled = false;
+    async function loadNotes() {
+      const deviceId = sessionStorage.getItem('gmg_device_id');
+      if (deviceId) {
+        try {
+          const data = await fetchNotes(gameId, deviceId);
+          if (!cancelled && data.content) {
+            setNotes(data.content);
+            return;
+          }
+        } catch { /* fall through to localStorage */ }
+      }
+      if (!cancelled) {
+        try { setNotes(localStorage.getItem(notesStorageKey) || ""); } catch { /* ignore */ }
+      }
+    }
+    loadNotes();
+    return () => { cancelled = true; };
+  }, [notesStorageKey, gameId]);
 
-  // Debounced notes save (2s) + analytics (5s debounce)
+  // Debounced notes save (2s) — localStorage + API + analytics (5s debounce)
   const notesTrackRef = useRef(null);
   useEffect(() => {
     clearTimeout(notesSaveRef.current);
     notesSaveRef.current = setTimeout(() => {
+      // Always save to localStorage as backup
       try { localStorage.setItem(notesStorageKey, notes); } catch { /* ignore */ }
+      // Also save to API if device session exists
+      const deviceId = sessionStorage.getItem('gmg_device_id');
+      if (deviceId) {
+        saveNotesApi(gameId, deviceId, notes).catch(() => { /* API save failed, localStorage is backup */ });
+      }
     }, 2000);
     // Track notes_edited with 5s debounce
     clearTimeout(notesTrackRef.current);
@@ -508,6 +531,30 @@ function QAPanel({ gameId, gameTitle }) {
     }
     return () => { clearTimeout(notesSaveRef.current); clearTimeout(notesTrackRef.current); };
   }, [notes, notesStorageKey, gameId]);
+
+  // Load Q&A history from API on mount (supplements localStorage)
+  useEffect(() => {
+    let cancelled = false;
+    async function loadQAHistory() {
+      const deviceId = sessionStorage.getItem('gmg_device_id');
+      if (!deviceId) return;
+      try {
+        const data = await fetchQAHistory(gameId, deviceId);
+        if (!cancelled && data.history && data.history.length > 0) {
+          // Only replace if localStorage was empty (API is source of truth for returning users)
+          setHistory((prev) => {
+            if (prev.length > 0) return prev; // local already has data
+            return data.history.flatMap(h => [
+              { role: 'user', content: h.question, timestamp: h.timestamp || new Date().toISOString() },
+              { role: 'assistant', content: h.answer, question: h.question, timestamp: h.timestamp || new Date().toISOString() },
+            ]);
+          });
+        }
+      } catch { /* API not available, localStorage fallback is fine */ }
+    }
+    loadQAHistory();
+    return () => { cancelled = true; };
+  }, [gameId]);
 
   // Persist collapse states
   useEffect(() => {
@@ -545,7 +592,10 @@ function QAPanel({ gameId, gameTitle }) {
     EventTracker.track('question_asked', gameId, { question_text: question, question_length: question.length, input_method: questionText ? 'voice' : 'text' });
     const qaStart = performance.now();
     try {
-      const result = await queryGame(gameId, question);
+      const result = await queryGame(gameId, question, {
+        device_id: sessionStorage.getItem('gmg_device_id') || undefined,
+        station_id: sessionStorage.getItem('gmg_station_id') ? parseInt(sessionStorage.getItem('gmg_station_id')) : undefined,
+      });
       const elapsed = Math.round(performance.now() - qaStart);
       EventTracker.track('response_delivered', gameId, { response_length: result.answer.length, response_time_ms: elapsed });
       setHistory((prev) => [...prev, { role: "assistant", content: result.answer, question, timestamp: new Date().toISOString() }]);
@@ -1007,6 +1057,16 @@ export default function GameTeacher() {
           <h1 style={{ fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
             {gameTitle}
           </h1>
+          {sessionStorage.getItem('gmg_station_id') && (
+            <span style={{
+              fontSize: "0.7rem", fontWeight: 600, padding: "2px 8px",
+              borderRadius: "6px", background: "rgba(99,102,241,0.25)",
+              color: "#a5b4fc", border: "1px solid rgba(99,102,241,0.3)",
+              whiteSpace: "nowrap",
+            }}>
+              Table {sessionStorage.getItem('gmg_station_id')}
+            </span>
+          )}
         </div>
         {/* Order button — pinned top-right */}
         <button onClick={() => {

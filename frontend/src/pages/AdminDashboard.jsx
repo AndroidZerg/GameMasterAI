@@ -12,6 +12,7 @@ import VenuesSection from "../components/dashboard/VenuesSection";
 import LeadsSection from "../components/dashboard/LeadsSection";
 import ConfigSection from "../components/dashboard/ConfigSection";
 import QAIntelSection from "../components/dashboard/QAIntelSection";
+import RentalsSection from "../components/dashboard/RentalsSection";
 
 const SIDEBAR_ITEMS = [
   { key: "overview", label: "Overview", icon: "\u{1F4CA}" },
@@ -19,6 +20,7 @@ const SIDEBAR_ITEMS = [
   { key: "games", label: "Games", icon: "\u{1F3AE}" },
   { key: "qa", label: "Q&A", icon: "\u{1F4AC}" },
   { key: "orders", label: "Orders", icon: "\u{1F354}" },
+  { key: "rentals", label: "Rentals & MRR", icon: "\u{1F4E6}", superOnly: true },
   { key: "voice", label: "Voice", icon: "\u{1F50A}", superOnly: true },
   { key: "venues", label: "Venues", icon: "\u{1F3EA}", superOnly: true },
   { key: "leads", label: "Leads", icon: "\u{1F4E8}", superOnly: true },
@@ -394,6 +396,7 @@ export default function AdminDashboard() {
       case "games": return <GamesSection {...filterProps} />;
       case "qa": return <QASection {...filterProps} />;
       case "orders": return <OrdersSection {...filterProps} />;
+      case "rentals": return isSuperAdmin ? <RentalsSection {...filterProps} /> : null;
       case "voice": return <VoiceSection {...filterProps} />;
       case "venues": return isSuperAdmin ? <VenuesSection {...filterProps} /> : null;
       case "leads": return isSuperAdmin ? <LeadsSection {...filterProps} /> : null;

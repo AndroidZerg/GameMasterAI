@@ -131,6 +131,47 @@ async def magic_link_join(key: str = Query(..., min_length=1)):
     }
 
 
+@router.get("/guest")
+async def guest_auth(venue: str = Query(None, min_length=1),
+                     table: Optional[int] = Query(None)):
+    """QR code guest auth — issue a guest JWT for a venue by slug.
+
+    The slug is matched against venue_ids after stripping hyphens,
+    so ``shallweplay`` resolves to venue_id ``shall-we-play``.
+    """
+    if not venue:
+        raise HTTPException(status_code=400, detail="venue parameter is required")
+
+    slug = venue.strip().lower()
+
+    # Try exact match first
+    matched = get_venue_by_id(slug)
+
+    # Fuzzy match: strip hyphens from both slug and stored venue_ids
+    if not matched:
+        from app.models.venues import get_all_venues
+        normalised = slug.replace("-", "")
+        for v in get_all_venues():
+            if v["venue_id"].replace("-", "") == normalised:
+                matched = v
+                break
+
+    if not matched:
+        raise HTTPException(status_code=404, detail="Unknown venue")
+
+    token = create_token(matched["venue_id"], matched["venue_name"], role="guest")
+    update_venue_login(matched["venue_id"])
+    return {
+        "token": token,
+        "venue_id": matched["venue_id"],
+        "venue_name": matched["venue_name"],
+        "role": "guest",
+        "status": matched.get("status", "active"),
+        "expires_at": None,
+        "table": table,
+    }
+
+
 @router.post("/verify")
 async def verify_token(venue: dict = Depends(get_current_venue)):
     """Verify a JWT token. Returns venue info or 401."""

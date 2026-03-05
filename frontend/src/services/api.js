@@ -45,11 +45,14 @@ export async function fetchGame(gameId) {
   return handleResponse(res);
 }
 
-export async function queryGame(gameId, question) {
+export async function queryGame(gameId, question, extra = {}) {
+  const body = { game_id: gameId, question };
+  if (extra.device_id) body.device_id = extra.device_id;
+  if (extra.station_id) body.station_id = extra.station_id;
   const res = await fetch(`${API_BASE}/api/query`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ game_id: gameId, question }),
+    body: JSON.stringify(body),
   });
   return handleResponse(res);
 }
@@ -86,6 +89,13 @@ export async function signupConvention(email, trial = false) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email }),
   });
+  return handleResponse(res);
+}
+
+export async function guestAuth(venueSlug, table) {
+  const params = new URLSearchParams({ venue: venueSlug });
+  if (table != null) params.set("table", table);
+  const res = await fetch(`${API_BASE}/api/auth/guest?${params}`);
   return handleResponse(res);
 }
 
@@ -253,6 +263,32 @@ export async function saveAdminStaffPicks(gameIds) {
   return handleResponse(res);
 }
 
+// ── Rentals ──
+
+export async function submitRentalRequest(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/request`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchMyRental() {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/me`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchMrrDashboard(venueId) {
+  const params = venueId ? `?venue_id=${encodeURIComponent(venueId)}` : "";
+  const res = await fetch(`${API_BASE}/api/v1/crm/mrr${params}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
 // ── Orders ──
 
 export async function placeOrder(order) {
@@ -313,5 +349,30 @@ export async function leaveLobby(lobbyId, playerId) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ player_id: playerId }),
   });
+  return handleResponse(res);
+}
+
+// ── Device session endpoints (no auth required) ──
+
+export async function fetchNotes(gameId, deviceId) {
+  const res = await fetch(
+    `${API_BASE}/api/v1/sessions/notes/${encodeURIComponent(gameId)}?device_id=${encodeURIComponent(deviceId)}`
+  );
+  return handleResponse(res);
+}
+
+export async function saveNotes(gameId, deviceId, content) {
+  const res = await fetch(`${API_BASE}/api/v1/sessions/notes/${encodeURIComponent(gameId)}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ device_id: deviceId, content }),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchQAHistory(gameId, deviceId) {
+  const res = await fetch(
+    `${API_BASE}/api/v1/sessions/qa/history/${encodeURIComponent(gameId)}?device_id=${encodeURIComponent(deviceId)}`
+  );
   return handleResponse(res);
 }

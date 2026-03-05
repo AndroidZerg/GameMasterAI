@@ -35,6 +35,8 @@ from app.api.routes.crm import router as crm_router
 from app.api.routes.analytics_dashboard import router as analytics_dashboard_router
 from app.api.routes.device_sessions import router as device_sessions_router
 from app.api.routes.device_sessions import init_device_session_tables
+from app.api.routes.rentals import router as rentals_router
+from app.api.routes.rentals import init_rental_tables
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -71,6 +73,7 @@ async def lifespan(app: FastAPI):
     init_score_history_table()
     init_house_rules_table()
     init_orders_table()
+    init_rental_tables()
     init_turso_analytics()
     init_device_session_tables()
     run_venue_platform_migrations()
@@ -165,6 +168,9 @@ app.include_router(lobby_router)
 
 # --- Orders ---
 app.include_router(orders_router)
+
+# --- Rentals ---
+app.include_router(rentals_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

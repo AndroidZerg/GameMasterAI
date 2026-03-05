@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, fetchClearRecentTs, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -435,6 +435,346 @@ function GenreCarousel({ title, games, onGameClick, color, source }) {
   );
 }
 
+// ── Rental system (SWP venue only) ──────────────────────────────
+
+const RENTAL_VENUES = new Set(["shallweplay"]);
+
+function isRentalVenue() {
+  const venueId = localStorage.getItem("gmai_venue_id") || "";
+  if (RENTAL_VENUES.has(venueId)) return true;
+  // Also check URL param for /play?venue=shallweplay flow
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (RENTAL_VENUES.has(params.get("venue"))) return true;
+  } catch {}
+  return false;
+}
+
+function RentalBanner({ onDismiss }) {
+  return (
+    <div style={{
+      position: "relative",
+      background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+      borderRadius: "16px",
+      padding: "20px 24px",
+      marginBottom: "20px",
+      border: "1px solid rgba(233, 69, 96, 0.3)",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+    }}>
+      {/* Dismiss button */}
+      <button
+        onClick={onDismiss}
+        aria-label="Dismiss rental banner"
+        style={{
+          position: "absolute", top: "10px", right: "10px",
+          background: "rgba(255,255,255,0.1)", border: "none",
+          color: "rgba(255,255,255,0.6)", width: "28px", height: "28px",
+          borderRadius: "50%", cursor: "pointer", fontSize: "0.9rem",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}
+      >
+        &times;
+      </button>
+
+      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+        <span style={{ fontSize: "1.4rem" }}>{"\u{1F3B2}"}</span>
+        <h3 style={{
+          margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "#fff",
+          letterSpacing: "0.02em",
+        }}>
+          TAKE HOME RENTALS &mdash; $10/month
+        </h3>
+      </div>
+
+      <p style={{
+        color: "rgba(255,255,255,0.8)", fontSize: "0.9rem",
+        margin: "0 0 14px 0", lineHeight: 1.5,
+      }}>
+        Borrow one game at a time. Play at home. Return when ready. No late fees.
+      </p>
+
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <button
+          onClick={() => {
+            const grid = document.getElementById("game-grid");
+            if (grid) grid.scrollIntoView({ behavior: "smooth" });
+          }}
+          style={{
+            padding: "8px 18px", borderRadius: "10px", fontWeight: 700,
+            fontSize: "0.85rem", background: "var(--accent)", color: "#fff",
+            border: "none", cursor: "pointer",
+          }}
+        >
+          Browse Rentals
+        </button>
+        <details style={{ display: "inline-block" }}>
+          <summary style={{
+            padding: "8px 18px", borderRadius: "10px", fontWeight: 600,
+            fontSize: "0.85rem", background: "rgba(255,255,255,0.1)",
+            color: "rgba(255,255,255,0.9)", border: "1px solid rgba(255,255,255,0.2)",
+            cursor: "pointer", listStyle: "none",
+          }}>
+            Learn More
+          </summary>
+          <ul style={{
+            margin: "12px 0 0", padding: "0 0 0 18px",
+            color: "rgba(255,255,255,0.8)", fontSize: "0.85rem", lineHeight: 1.8,
+          }}>
+            <li>$10/month unlimited rentals</li>
+            <li>Borrow one game at a time from our library</li>
+            <li>Return anytime, no late fees</li>
+            <li>Pick up in store</li>
+            <li>Cancel anytime</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  );
+}
+
+function RentalModal({ game, onClose }) {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [result, setResult] = useState(null); // { email, password, game, is_returning }
+  const [copied, setCopied] = useState(false);
+
+  if (!game) return null;
+
+  const handleSubmit = async () => {
+    if (!name.trim() || !contact.trim()) return;
+    setSubmitting(true);
+    try {
+      const venueId = localStorage.getItem("gmai_venue_id") || "";
+      const res = await submitRentalRequest({
+        game_id: game.game_id,
+        name: name.trim(),
+        contact: contact.trim(),
+        venue_id: venueId,
+        table_number: null,
+        device_id: localStorage.getItem("gmai_device_id") || null,
+      });
+      EventTracker.track("rental_requested", game.game_id, {
+        game_title: game.title,
+      });
+      setResult(res);
+    } catch (err) {
+      console.error("Rental request failed:", err);
+    }
+    setSubmitting(false);
+  };
+
+  const handleCopy = () => {
+    if (!result) return;
+    const text = result.password
+      ? `GameMaster Guide Home Access\nLogin: ${result.email}\nPassword: ${result.password}\nURL: playgmg.com/login`
+      : `GameMaster Guide Home Access\nLogin: ${result.email}\nURL: playgmg.com/login`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {});
+  };
+
+  const inputStyle = {
+    width: "100%", padding: "12px 14px", borderRadius: "10px",
+    border: "1px solid var(--border)", background: "var(--bg-secondary)",
+    color: "var(--text-primary)", fontSize: "0.95rem",
+    outline: "none", boxSizing: "border-box",
+  };
+
+  return (
+    <div
+      style={{
+        position: "fixed", inset: 0, zIndex: 1400,
+        background: "rgba(0,0,0,0.7)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "20px",
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: "var(--bg-primary)", borderRadius: "16px",
+          padding: "24px", width: "100%", maxWidth: "380px",
+          border: "1px solid var(--border)",
+          animation: "fadeIn 0.2s ease-out",
+          maxHeight: "90vh", overflowY: "auto",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {result ? (
+          /* ── Confirmation screen with account info ── */
+          <div style={{ padding: "8px 0" }}>
+            <div style={{ textAlign: "center", marginBottom: "16px" }}>
+              <div style={{ fontSize: "2.5rem", marginBottom: "8px" }}>&#x2705;</div>
+              <h3 style={{ color: "var(--text-primary)", fontSize: "1.15rem", marginBottom: "6px" }}>
+                Rental Request Submitted!
+              </h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", margin: 0 }}>
+                Staff will prepare <strong>{result.game}</strong> for pickup.
+              </p>
+            </div>
+
+            {/* Home access credentials — only for new subscribers */}
+            {result.password && (
+              <div style={{
+                background: "var(--bg-secondary)", borderRadius: "12px",
+                border: "1px solid var(--border)", padding: "16px", marginBottom: "16px",
+              }}>
+                <div style={{
+                  fontSize: "0.75rem", fontWeight: 700, color: "var(--text-secondary)",
+                  textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "12px",
+                  borderBottom: "1px solid var(--border)", paddingBottom: "8px",
+                }}>
+                  Your GMG Home Access
+                </div>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.8rem", margin: "0 0 12px", lineHeight: 1.5 }}>
+                  Use the teaching guides, Q&amp;A, and rules at home while you play your rental.
+                </p>
+                <div style={{ marginBottom: "8px" }}>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>Login: </span>
+                  <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", fontFamily: "monospace" }}>
+                    {result.email}
+                  </span>
+                </div>
+                <div style={{ marginBottom: "8px" }}>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>Password: </span>
+                  <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", fontFamily: "monospace" }}>
+                    {result.password}
+                  </span>
+                </div>
+                <div>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>URL: </span>
+                  <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--accent)" }}>
+                    playgmg.com/login
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Returning subscriber — welcome back */}
+            {result.is_returning && (
+              <div style={{
+                background: "var(--bg-secondary)", borderRadius: "12px",
+                border: "1px solid var(--border)", padding: "16px", marginBottom: "16px",
+                textAlign: "center",
+              }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", margin: 0 }}>
+                  Welcome back! Your GMG account is still active. Log in at{" "}
+                  <span style={{ color: "var(--accent)", fontWeight: 600 }}>playgmg.com/login</span>{" "}
+                  with your original credentials.
+                </p>
+              </div>
+            )}
+
+            <div style={{ display: "flex", gap: "10px" }}>
+              {result.password && (
+                <button
+                  onClick={handleCopy}
+                  style={{
+                    flex: 1, padding: "12px", borderRadius: "10px",
+                    background: "var(--bg-secondary)", color: "var(--text-primary)",
+                    border: "1px solid var(--border)", fontWeight: 600,
+                    cursor: "pointer", fontSize: "0.85rem",
+                  }}
+                >
+                  {copied ? "Copied!" : "Copy Login Info"}
+                </button>
+              )}
+              <button
+                onClick={onClose}
+                style={{
+                  flex: 1, padding: "12px", borderRadius: "10px",
+                  background: "var(--accent)", color: "#fff",
+                  border: "none", fontWeight: 600, cursor: "pointer",
+                  fontSize: "0.85rem",
+                }}
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        ) : (
+          /* ── Rental request form ── */
+          <>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+              <span style={{ fontSize: "1.3rem" }}>{"\u{1F3B2}"}</span>
+              <h3 style={{ margin: 0, fontSize: "1.15rem", fontWeight: 700, color: "var(--text-primary)" }}>
+                Rent This Game
+              </h3>
+            </div>
+
+            {/* Game preview */}
+            <div style={{
+              display: "flex", gap: "14px", padding: "14px",
+              background: "var(--bg-secondary)", borderRadius: "12px",
+              border: "1px solid var(--border)", marginBottom: "16px",
+            }}>
+              <img
+                src={`${API_BASE}/api/images/${game.game_id}.jpg`}
+                alt={game.title}
+                onError={(e) => { e.target.style.display = "none"; }}
+                style={{
+                  width: "64px", height: "64px", borderRadius: "10px",
+                  objectFit: "cover", flexShrink: 0,
+                }}
+              />
+              <div>
+                <div style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--text-primary)" }}>
+                  {game.title}
+                </div>
+                <div style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.9rem", marginTop: "4px" }}>
+                  $10/mo &middot; Unlimited Rentals
+                </div>
+              </div>
+            </div>
+
+            <p style={{
+              color: "var(--text-secondary)", fontSize: "0.85rem",
+              margin: "0 0 16px", lineHeight: 1.5,
+            }}>
+              One game at a time. Return anytime. No late fees.
+            </p>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={{ display: "block", fontWeight: 600, color: "var(--text-primary)", fontSize: "0.85rem", marginBottom: "6px" }}>
+                Name <span style={{ color: "var(--accent)" }}>*</span>
+              </label>
+              <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" style={inputStyle} />
+            </div>
+
+            <div style={{ marginBottom: "16px" }}>
+              <label style={{ display: "block", fontWeight: 600, color: "var(--text-primary)", fontSize: "0.85rem", marginBottom: "6px" }}>
+                Phone or Email <span style={{ color: "var(--accent)" }}>*</span>
+              </label>
+              <input type="text" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone number or email" style={inputStyle} />
+            </div>
+
+            <button
+              disabled={submitting || !name.trim() || !contact.trim()}
+              onClick={handleSubmit}
+              style={{
+                width: "100%", padding: "14px", borderRadius: "12px",
+                background: submitting || !name.trim() || !contact.trim() ? "#6b7280" : "#22c55e",
+                color: "#fff", border: "none", fontSize: "0.95rem",
+                fontWeight: 700, cursor: submitting || !name.trim() || !contact.trim() ? "not-allowed" : "pointer",
+                opacity: submitting || !name.trim() || !contact.trim() ? 0.7 : 1,
+                marginBottom: "10px",
+              }}
+            >
+              {submitting ? "Submitting\u2026" : "Request This Game"}
+            </button>
+
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.75rem", textAlign: "center", margin: 0 }}>
+              Staff will prepare your game for pickup.
+            </p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function GameSelector() {
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState("");
@@ -448,7 +788,15 @@ export default function GameSelector() {
   const [apiStaffPicks, setApiStaffPicks] = useState(null);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { isLoggedIn, venueName } = useAuth();
+  const { isLoggedIn, venueName, role, venueId } = useAuth();
+
+  // Rental system state — show for SWP venue OR rental_subscriber role
+  const rentalsEnabled = isRentalVenue() || role === "rental_subscriber";
+  const [rentalBannerDismissed, setRentalBannerDismissed] = useState(
+    () => sessionStorage.getItem("gmai_rental_banner_dismissed") === "1"
+  );
+  const [rentalGame, setRentalGame] = useState(null); // game object for modal
+  const [currentRental, setCurrentRental] = useState(null); // { game_id, title } for subscriber banner
 
   // Read filter state from URL params
   const [complexity, setComplexityState] = useState(searchParams.get("complexity") || "all");
@@ -601,6 +949,16 @@ export default function GameSelector() {
       });
   }, []);
 
+  // Fetch current rental for rental_subscriber users
+  useEffect(() => {
+    if (role !== "rental_subscriber") return;
+    let mounted = true;
+    fetchMyRental()
+      .then((data) => { if (mounted && data.current_game) setCurrentRental(data.current_game); })
+      .catch(() => {});
+    return () => { mounted = false; };
+  }, [role]);
+
   const handleGameClick = (game, source = 'browse') => {
     try {
       const key = "gmai_recent";
@@ -647,6 +1005,11 @@ export default function GameSelector() {
     .slice(0, 8);
 
   const hasActiveFilters = complexity !== "all" || playerCount > 0 || playTime > 0 || bestFor !== "Any";
+
+  const dismissRentalBanner = () => {
+    setRentalBannerDismissed(true);
+    sessionStorage.setItem("gmai_rental_banner_dismissed", "1");
+  };
 
   // Game of the Day + Staff Picks (prefer API, fallback to client-side)
   const allBaseGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
@@ -706,6 +1069,30 @@ export default function GameSelector() {
           </p>
         )}
       </div>
+
+      {/* Rental Banner — SWP venues only */}
+      {rentalsEnabled && !rentalBannerDismissed && role !== "rental_subscriber" && (
+        <RentalBanner onDismiss={dismissRentalBanner} />
+      )}
+
+      {/* Current rental status for subscribers */}
+      {currentRental && (
+        <div style={{
+          display: "flex", alignItems: "center", gap: "10px", padding: "12px 16px",
+          background: "linear-gradient(135deg, #064e3b, #065f46)",
+          borderRadius: "12px", marginBottom: "16px",
+          border: "1px solid rgba(34,197,94,0.3)",
+        }}>
+          <span style={{ fontSize: "1.2rem" }}>{"\u{1F3B2}"}</span>
+          <div style={{ flex: 1 }}>
+            <span style={{ color: "#d1fae5", fontSize: "0.85rem" }}>Currently renting: </span>
+            <strong style={{ color: "#fff", fontSize: "0.9rem" }}>{currentRental.title}</strong>
+          </div>
+          <span style={{ color: "#86efac", fontSize: "0.75rem" }}>
+            Return anytime at Shall We Play?
+          </span>
+        </div>
+      )}
 
       {isOffline && (
         <div style={{ background: "#4a3a1a", borderRadius: "8px", padding: "8px 16px", marginBottom: "16px", textAlign: "center", fontSize: "0.85rem", color: "#f59e0b", border: "1px solid #5a4a2a" }}>
@@ -816,12 +1203,35 @@ export default function GameSelector() {
           {recentGameData.length > 0 && !search && !hasActiveFilters && (
             <h2 style={{ fontSize: "1.15rem", color: "var(--text-secondary)", marginBottom: "12px" }}>All Games</h2>
           )}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "16px" }}>
+          <div id="game-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "16px" }}>
             {displayGames.map((game) => (
-              <GameCard key={game.game_id} game={game} onClick={() => handleGameClick(game)} />
+              <div key={game.game_id} style={{ position: "relative" }}>
+                <GameCard game={game} onClick={() => handleGameClick(game)} />
+                {rentalsEnabled && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setRentalGame(game); }}
+                    aria-label={`Rent ${game.title}`}
+                    style={{
+                      position: "absolute", bottom: "8px", right: "8px",
+                      padding: "5px 12px", borderRadius: "8px", fontSize: "0.75rem",
+                      fontWeight: 700, background: "rgba(34,197,94,0.9)", color: "#fff",
+                      border: "none", cursor: "pointer", zIndex: 2,
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                      display: "flex", alignItems: "center", gap: "4px",
+                    }}
+                  >
+                    + Rent
+                  </button>
+                )}
+              </div>
             ))}
           </div>
         </>
+      )}
+
+      {/* Rental request modal */}
+      {rentalGame && (
+        <RentalModal game={rentalGame} onClose={() => setRentalGame(null)} />
       )}
     </div>
   );

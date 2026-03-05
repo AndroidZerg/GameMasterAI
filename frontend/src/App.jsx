@@ -29,6 +29,7 @@ import VenueDashboard from "./pages/VenueDashboard";
 import CRMPage from "./pages/CRMPage";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import PlayLanding from "./components/PlayLanding";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -119,6 +120,7 @@ function AppShell() {
         <Route path="/" element={<RootRedirect />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/play" element={<PlayLanding />} />
         <Route path="/expired" element={<ExpiredPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/games" element={<ProtectedRoute><GameSelector /></ProtectedRoute>} />
