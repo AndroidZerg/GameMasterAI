@@ -160,7 +160,8 @@ export default function NavMenu() {
         }}
       >
         {/* Venue header */}
-        <div style={{ padding: "8px 8px 20px", borderBottom: "1px solid var(--border)", marginBottom: "12px" }}>
+        <div style={{ padding: "8px 8px 20px", borderBottom: "1px solid var(--border)", marginBottom: "12px", display: "flex", alignItems: "center", gap: "10px" }}>
+          <img src="/gmg-logo.svg" alt="GMG" style={{ height: "36px" }} />
           <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--accent)" }}>GameMaster Guide</div>
           <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginTop: "2px" }}>
             {isLoggedIn && venueName ? venueName : "Board Game Teaching"}
