@@ -28,6 +28,8 @@ export default function TabNavigator({ tabs, activeTab, onTabChange }) {
   return (
     <div
       style={{
+        position: "relative",
+        zIndex: 50,
         display: "flex",
         alignItems: "center",
         gap: "4px",

@@ -1,0 +1,33 @@
+{
+  "cycle": 6,
+  "timestamp": "2026-02-26T06:14:17",
+  "test_report": {
+    "timestamp": "2026-02-26T06:14:16",
+    "total": 176,
+    "passed": 175,
+    "failed": 1,
+    "pass_rate": 99.43181818181817,
+    "failures": [
+      {
+        "test_id": "invalid login shows error and stays on login page",
+        "status": "unexpected",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"invalid\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[39m\n\u001b[31m    \ud83c\udfb2welcome to gamemaster guidesign in to your venue accountemail or usernamepasswordsigning in...new to gamemaster guide? try it free \u2192questions? contact tim.minh.pham@gmail.com\u00b7\u00b7\u00b7\u00b7\u00b7\u001b[39m\n\u001b[31m\"\u001b[39m"
+      }
+    ]
+  },
+  "config_status": {
+    "config_intact": true
+  },
+  "fixes": [
+    {
+      "test_id": "invalid login shows error and stays on login page",
+      "success": false,
+      "description": "Failed after 5 attempts",
+      "attempt": 5
+    }
+  ],
+  "human_review": [
+    "Could not fix: invalid login shows error and stays on login page"
+  ],
+  "next_run": "07:14:17"
+}

@@ -1,0 +1,45 @@
+{
+  "cycle": 1,
+  "timestamp": "2026-02-26T00:53:10",
+  "test_report": {
+    "timestamp": "2026-02-26T00:53:08",
+    "total": 176,
+    "passed": 174,
+    "failed": 2,
+    "pass_rate": 98.86363636363636,
+    "failures": [
+      {
+        "test_id": "18. Step 1 form accepts venue info",
+        "status": "unexpected",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m0\u001b[39m"
+      },
+      {
+        "test_id": "21. Back button returns to previous step",
+        "status": "unexpected",
+        "error": "Test not found in the worker process. Make sure test title does not change."
+      }
+    ]
+  },
+  "config_status": {
+    "config_intact": true
+  },
+  "fixes": [
+    {
+      "test_id": "18. Step 1 form accepts venue info",
+      "success": false,
+      "description": "Failed after 5 attempts",
+      "attempt": 5
+    },
+    {
+      "test_id": "21. Back button returns to previous step",
+      "success": false,
+      "description": "Failed after 5 attempts",
+      "attempt": 5
+    }
+  ],
+  "human_review": [
+    "Could not fix: 18. Step 1 form accepts venue info",
+    "Could not fix: 21. Back button returns to previous step"
+  ],
+  "next_run": "01:53:10"
+}
