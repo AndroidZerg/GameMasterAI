@@ -1,0 +1,11 @@
+{
+  "game_id": "farms-race",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "houses", "label": "Houses", "points_each": 1, "type": "count", "description": "1 VP per house built"},
+    {"id": "barns", "label": "Barns", "points_each": 2, "type": "count", "description": "2 VP per barn built"},
+    {"id": "award_cards", "label": "Award Cards", "points_each": 1, "type": "count", "description": "1 VP per award card earned (e.g. Nukiest)"},
+    {"id": "espionage_vp", "label": "VP Espionage Cards", "points_each": 1, "type": "count", "description": "1 VP per espionage VP card played"},
+    {"id": "territory_bonuses", "label": "Territory Bonuses", "type": "manual", "description": "VP from controlling territories at game end"}
+  ]
+}

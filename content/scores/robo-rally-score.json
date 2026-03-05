@@ -1,0 +1,10 @@
+{
+  "game_id": "robo-rally",
+  "scoring_type": "race",
+  "win_condition": "First player to reach all checkpoints in order wins",
+  "categories": [
+    {"id": "checkpoints", "label": "Checkpoints Reached", "points_each": 1, "type": "count", "description": "Checkpoints claimed in order (course has 2–6)"},
+    {"id": "energy", "label": "Energy Cubes", "points_each": 1, "type": "count", "description": "Current energy (max 10, used to buy upgrades)"},
+    {"id": "damage", "label": "Damage Cards", "points_each": 1, "type": "count", "description": "SPAM/Worm/Trojan/Virus cards in hand (fewer is better)"}
+  ]
+}
