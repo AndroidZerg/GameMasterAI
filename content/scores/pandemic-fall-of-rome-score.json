@@ -1,0 +1,9 @@
+{
+  "game_id": "pandemic-fall-of-rome",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "alliances", "label": "Alliances Forged", "points_each": 1, "type": "count", "description": "Number of barbarian tribes allied with (out of 5)"},
+    {"id": "eliminated", "label": "Tribes Eliminated", "points_each": 1, "type": "count", "description": "Number of barbarian tribes with no cubes remaining on the board"},
+    {"id": "result", "label": "Game Result", "type": "enum", "options": ["Victory - All Tribes Resolved", "Defeat - Roma Sacked", "Defeat - Decline Track", "Defeat - Player Deck Empty", "Defeat - Barbarians Overrun"], "description": "How the game ended"}
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "game_id": "the-colonists",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "buildings",
+      "label": "Buildings",
+      "type": "manual",
+      "description": "Dollar value of all buildings in your community"
+    },
+    {
+      "id": "improvements",
+      "label": "Improvements",
+      "type": "manual",
+      "description": "Dollar value of all improvement cards played"
+    },
+    {
+      "id": "embassies",
+      "label": "Embassies",
+      "type": "manual",
+      "description": "Dollar value of all embassies built"
+    },
+    {
+      "id": "warehouse",
+      "label": "Warehouse",
+      "type": "manual",
+      "description": "Dollar value of goods stored in your warehouse"
+    },
+    {
+      "id": "farmers",
+      "label": "Farmers",
+      "type": "count",
+      "points_each": 2,
+      "description": "Each employed farmer is worth 2 dollars"
+    },
+    {
+      "id": "citizens",
+      "label": "Citizens",
+      "type": "count",
+      "points_each": 6,
+      "description": "Each employed citizen is worth 6 dollars"
+    },
+    {
+      "id": "merchants",
+      "label": "Merchants",
+      "type": "count",
+      "points_each": 16,
+      "description": "Each employed merchant is worth 16 dollars"
+    },
+    {
+      "id": "dollars",
+      "label": "Remaining Dollars",
+      "type": "manual",
+      "description": "Dollar tokens in your supply"
+    }
+  ],
+  "win_condition": "Most total dollars after final era scoring",
+  "tiebreaker": "Player with more employed colonists"
+}

@@ -1,0 +1,36 @@
+{
+  "game_id": "century-golem-edition",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when point card limit reached",
+  "tiebreaker": "Last player to take a turn wins",
+  "categories": [
+    {
+      "id": "point_cards",
+      "label": "Point Cards",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Sum of victory points on all claimed golem cards"
+    },
+    {
+      "id": "copper_tokens",
+      "label": "Copper Tokens",
+      "points_each": 3,
+      "type": "count",
+      "description": "3 points per copper token"
+    },
+    {
+      "id": "silver_tokens",
+      "label": "Silver Tokens",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 point per silver token"
+    },
+    {
+      "id": "non_yellow_crystals",
+      "label": "Non-Yellow Crystals",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 point per green, turquoise, or magenta crystal remaining"
+    }
+  ]
+}

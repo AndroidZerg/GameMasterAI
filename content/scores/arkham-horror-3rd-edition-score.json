@@ -1,0 +1,35 @@
+{
+  "game_id": "arkham-horror-3rd-edition",
+  "scoring_type": "cooperative",
+  "categories": [
+    {
+      "id": "scenario_outcome",
+      "label": "Scenario Outcome",
+      "type": "enum",
+      "options": ["Victory", "Defeat"],
+      "description": "Whether investigators won or lost the scenario"
+    },
+    {
+      "id": "investigators_defeated",
+      "label": "Investigators Defeated",
+      "type": "count",
+      "points_each": 0,
+      "description": "Number of investigators defeated or devoured during the game"
+    },
+    {
+      "id": "doom_remaining",
+      "label": "Doom on Scenario Sheet",
+      "type": "manual",
+      "description": "Amount of doom on the scenario sheet at game end"
+    },
+    {
+      "id": "monsters_defeated",
+      "label": "Monsters Defeated",
+      "type": "count",
+      "points_each": 0,
+      "description": "Total monsters defeated by all investigators"
+    }
+  ],
+  "win_condition": "Progress codex cards to meet scenario victory condition",
+  "tiebreaker": "Cooperative — all players win or lose together"
+}

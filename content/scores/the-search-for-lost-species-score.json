@@ -1,0 +1,26 @@
+{
+  "game_id": "the-search-for-lost-species",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "correct_sightings",
+      "label": "Correct Sightings",
+      "type": "manual",
+      "description": "Points earned from correctly reporting animal sightings"
+    },
+    {
+      "id": "lost_species_bonus",
+      "label": "Lost Species Bonus",
+      "type": "manual",
+      "description": "Bonus points for correctly locating the Lost Species"
+    },
+    {
+      "id": "expedition_contributions",
+      "label": "Expedition Contributions",
+      "type": "manual",
+      "description": "Points from contributions to the expedition"
+    }
+  ],
+  "win_condition": "Most contribution points at end of game",
+  "tiebreaker": "Player who found the Lost Species"
+}

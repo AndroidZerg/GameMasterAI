@@ -1,0 +1,44 @@
+{
+  "game_id": "deal-with-the-devil",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "building_points",
+      "label": "Building Points",
+      "type": "manual",
+      "description": "Victory points from constructed buildings"
+    },
+    {
+      "id": "minor_achievements",
+      "label": "Minor Achievements",
+      "type": "manual",
+      "description": "Points from completed minor achievement tiles"
+    },
+    {
+      "id": "major_achievements",
+      "label": "Major Achievements",
+      "type": "manual",
+      "description": "Points from completed major achievement tiles"
+    },
+    {
+      "id": "reputation_bonus",
+      "label": "Reputation Bonus",
+      "type": "manual",
+      "description": "Points gained or lost based on reputation track position"
+    },
+    {
+      "id": "role_scoring",
+      "label": "Role-Specific Scoring",
+      "type": "manual",
+      "description": "Bonus/penalty points from your secret role (mortal soul retention, cultist goals, devil soul collection)"
+    },
+    {
+      "id": "remaining_resources",
+      "label": "Remaining Resources",
+      "type": "manual",
+      "description": "Points from leftover premium resources and coins"
+    }
+  ],
+  "win_condition": "Most total victory points after 5 rounds",
+  "tiebreaker": "Player with more remaining resources"
+}

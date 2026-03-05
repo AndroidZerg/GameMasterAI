@@ -1,0 +1,9 @@
+{
+  "game_id": "shadows-over-camelot",
+  "scoring_type": "cooperative",
+  "categories": [
+    {"id": "white_swords", "label": "White Swords", "points_each": 1, "type": "count", "description": "Number of white swords on the Round Table"},
+    {"id": "black_swords", "label": "Black Swords", "points_each": 1, "type": "count", "description": "Number of black swords on the Round Table"},
+    {"id": "result", "label": "Game Result", "type": "enum", "options": ["Knights Win", "Evil Wins - Black Swords", "Evil Wins - Siege Engines", "Evil Wins - All Knights Dead"], "description": "How the game ended"}
+  ]
+}

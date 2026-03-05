@@ -1,0 +1,743 @@
+{
+  "game_id": "deal-with-the-devil",
+  "title": "Deal with the Devil",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Download the Companion App",
+          "text": "Before anything else, make sure someone at the table has the Deal with the Devil companion app installed on their phone or tablet. This app is mandatory. It handles secret role distribution, the dealing phase where players trade soul pieces for resources, and identity guessing at the end. You cannot play without it. One device is enough for the whole table. Open the app and select New Game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Main Board and Inquisition Board",
+          "text": "Unfold the main game board and place it in the center of the table. This board shows the building market area, the event card space, and the production wheel. Next to it, place the inquisition board. The inquisition board has two tracks: the reputation track along the outside edge, and the scoring track used during final scoring. Make sure everyone can reach both boards comfortably.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Building Deck",
+          "text": "Find all the building cards. They are divided into sets numbered 1 through 5 on the back. Set aside set 1 for now. Shuffle sets 2 through 5 together into one big face-down deck and place it on the designated space on the main board. Set 1 cards will be dealt out as the starting building market, so keep them handy. Buildings are the primary way to earn victory points, so this deck is the heart of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Building Market",
+          "text": "Deal out the set 1 building cards face up into the building market slots on the main board. These are the buildings available for purchase in round one. Each building card shows its cost in resources, its victory point value, and any special abilities. In later rounds, new buildings will be revealed from the shuffled deck to refill the market.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Prepare Event Cards and Achievement Tiles",
+          "text": "Find the event cards, which are split into A and B decks. Shuffle each deck separately, then stack deck A on top of deck B to form one event deck. Place it on the event space on the main board. Next, lay out the achievement tiles near the board. There are minor achievements and major achievements. Minor achievements are smaller bonuses you can claim during the game, while major achievements are worth more but have steeper requirements.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Player Components",
+          "text": "Each player takes a player wall, an action board, and a set of action tokens in their color. The player wall is the folding screen that hides your action board and resources from other players. Behind this wall you will place your action board, which has slots for your action tokens. Each player also receives a production wheel tile. Set each production wheel to its starting position. The wheel advances each round and determines what resources you produce.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Distribute Starting Resources",
+          "text": "Hand out starting resources based on seat position. The first player gets fewer resources to offset the advantage of going first, and later players get progressively more. Resources come in two tiers: basic resources are wood, stone, and wheat, while premium resources are marble and glass. Each player also receives a starting amount of coins. Place all resources and coins behind your player wall so opponents cannot see your exact supply.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Assign Secret Roles via the App",
+          "text": "Now for the exciting part. Use the companion app to assign secret roles. The app will ask each player to take a numbered chest. Inside each chest the app places a role card: two players will be mortals, one will be the cultist, and one will be the devil. Each player privately checks their role. Mortals start with a complete soul of three pieces. The cultist has a tainted soul of only two pieces. The devil has no soul at all. Do not reveal your role to anyone. Place any soul pieces you received behind your wall. The game is ready to begin.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Download the Companion App",
+          "bullets": [
+            "Install the Deal with the Devil companion app (required)",
+            "One device needed for the whole table",
+            "Handles role distribution, dealing phase, and identity guessing"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place the Main Board and Inquisition Board",
+          "bullets": [
+            "Main board in center with building market, event space, production wheel",
+            "Inquisition board nearby with reputation and scoring tracks"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Building Deck",
+          "bullets": [
+            "Separate building cards by set number (1-5)",
+            "Set aside set 1 for starting market",
+            "Shuffle sets 2-5 together into one face-down deck"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Building Market",
+          "bullets": [
+            "Deal set 1 cards face up into market slots",
+            "Each card shows resource cost, VP value, and special abilities"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Prepare Event Cards and Achievement Tiles",
+          "bullets": [
+            "Shuffle A and B event decks separately, stack A on top of B",
+            "Lay out minor and major achievement tiles near the board"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Distribute Player Components",
+          "bullets": [
+            "Each player gets: player wall, action board, action tokens, production wheel",
+            "Wall hides your action board and resources from opponents"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Distribute Starting Resources",
+          "bullets": [
+            "Starting resources vary by seat position (first player gets fewer)",
+            "Basic resources: wood, stone, wheat",
+            "Premium resources: marble, glass",
+            "Each player also gets starting coins — hide everything behind your wall"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Assign Secret Roles via the App",
+          "bullets": [
+            "App assigns roles through numbered chests: 2 mortals, 1 cultist, 1 devil",
+            "Mortals get 3 soul pieces, cultist gets 2, devil gets none",
+            "Keep your role and soul pieces hidden behind your wall"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Structure: Five Rounds",
+          "text": "Deal with the Devil is played over exactly five rounds. Each round follows the same sequence of phases, but the stakes escalate as buildings become more valuable and the inquisition closes in. After all five rounds, there is a final scoring phase where points are tallied and the winner is determined. Every player, regardless of role, is trying to score the most victory points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Phase 1: Production",
+          "text": "At the start of each round, every player produces resources according to their production wheel. The wheel shows which resources you generate this round. As the game progresses and you advance your wheel, your production improves. You also receive income in coins. All production happens simultaneously. Take your resources and coins from the supply and place them behind your wall.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Phase 2: The Deal (via App)",
+          "text": "This is what makes Deal with the Devil unique. The companion app facilitates secret trades between players. The devil wants to buy soul pieces from other players, offering resources and coins in exchange. Mortals and the cultist can choose to sell parts of their soul for a material advantage, but selling your soul has consequences during the inquisition. The app ensures all trades are anonymous. You never know for certain who you dealt with. Each player interacts with the app privately behind their wall.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Phase 3: Event",
+          "text": "Flip the top event card from the deck. Events affect all players and can change the game state in various ways. Some events grant bonus resources, others impose costs or shift the inquisition. Read the card aloud and resolve its effect before moving on. Events from deck A tend to be milder, while deck B events in later rounds are more dramatic.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Phase 4: Actions",
+          "text": "This is the main phase where players place their action tokens on their personal action boards to take actions. Everyone plans simultaneously behind their walls, then all actions are revealed at once. Actions include gathering resources, gaining coins, constructing buildings, advancing on the inquisition track, claiming achievement tiles, and upgrading your production wheel. You have a limited number of action tokens each round, so you must prioritize carefully.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Constructing Buildings",
+          "text": "The most important action is constructing buildings. To build, you select a building card from the market and pay its resource cost. Buildings are placed in front of you and are worth victory points shown on the card. Some buildings also grant ongoing abilities or bonuses. Premium resources like marble and glass are needed for the most valuable buildings. Managing your resource engine to afford key buildings is the central challenge of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Inquisition Track",
+          "text": "The inquisition board tracks each player's reputation. Certain actions and events move your marker up or down the reputation track. Higher reputation is valuable because it scores points at the end of the game and protects you from suspicion. Lower reputation can indicate you have been making shady deals. The inquisition is also where identity guessing comes into play. Players can spend actions to investigate others or try to prove their own innocence.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Achievement Tiles",
+          "text": "Throughout the game, players can claim achievement tiles by meeting specific conditions. Minor achievements are easier to obtain and worth fewer points, while major achievements require significant investment but provide a larger payoff. Each achievement can only be claimed once, so there is a race to grab the ones that align with your strategy. You claim achievements during the action phase by spending the appropriate action token.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Secret Roles and Soul Pieces",
+          "text": "Let's talk about what your secret role means for gameplay. Mortals want to keep their soul intact if possible, because having all three soul pieces scores bonus points at game end. But selling a piece during the deal phase gives you extra resources that might let you build more. The cultist has fewer soul pieces to sell but is trying to blend in with the mortals. The devil cannot build certain powerful buildings but gains advantages from collecting soul pieces. The devil wins by outscoring everyone through economic dominance and collected souls.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Phase 5: Cleanup and Advance",
+          "text": "After all actions are resolved, the round ends. Retrieve your action tokens. Advance the production wheel one step so your production changes for the next round. Refill the building market with new cards from the deck. Discard the current event card. Check if any ongoing effects expire. Then begin the next round starting with production again.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Identity Guessing (End of Game)",
+          "text": "After the fifth round, before final scoring, the companion app runs the identity guessing phase. Mortals can try to correctly identify who is the devil and who is the cultist. Correct guesses earn bonus victory points for the mortal who guessed right. Incorrect guesses earn nothing. The cultist and devil do not guess identities. This mechanic rewards players who paid attention to deal patterns and suspicious behavior throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Final Scoring",
+          "text": "Add up all victory points. Points come from constructed buildings, achievement tiles, position on the reputation track, soul-related bonuses, and identity guessing bonuses. The player with the most victory points wins, regardless of their secret role. This means a mortal, cultist, or even the devil can win. In the case of a tie, the player with more remaining coins wins. If still tied, the player higher on the reputation track wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Structure: Five Rounds",
+          "bullets": [
+            "5 rounds total, each with the same sequence of phases",
+            "All players trying to score the most VP regardless of role"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Phase 1: Production",
+          "bullets": [
+            "All players simultaneously produce resources from their production wheel",
+            "Wheel advances each round, improving production over time",
+            "Also receive coin income"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Phase 2: The Deal (via App)",
+          "bullets": [
+            "Secret anonymous trades facilitated by the companion app",
+            "Devil offers resources/coins in exchange for soul pieces",
+            "All trades are anonymous — you never know who you dealt with"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Phase 3: Event",
+          "bullets": [
+            "Flip top event card and resolve its effect",
+            "Deck A (early rounds) is milder, deck B (later rounds) is more dramatic"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Phase 4: Actions",
+          "bullets": [
+            "All players simultaneously place action tokens on personal action boards behind walls",
+            "Actions: gather resources, gain coins, build, advance inquisition, claim achievements, upgrade production",
+            "Limited tokens per round — prioritize carefully"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Constructing Buildings",
+          "bullets": [
+            "Select a building card from the market and pay its resource cost",
+            "Buildings provide VP and sometimes ongoing abilities",
+            "Best buildings require premium resources (marble, glass)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Inquisition Track",
+          "bullets": [
+            "Reputation track on the inquisition board — higher is better",
+            "Actions and events move your marker up or down",
+            "High reputation scores end-game points and deflects suspicion"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Achievement Tiles",
+          "bullets": [
+            "Claim by meeting specific conditions during the action phase",
+            "Minor achievements: easier, fewer points",
+            "Major achievements: harder, more points",
+            "Each tile can only be claimed once — race to grab them"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Secret Roles and Soul Pieces",
+          "bullets": [
+            "Mortals: 3 soul pieces, bonus for keeping them, can sell for resources",
+            "Cultist: 2 soul pieces, tries to blend in with mortals",
+            "Devil: no soul, buys pieces, cannot build certain buildings, wins through economic dominance"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Phase 5: Cleanup and Advance",
+          "bullets": [
+            "Retrieve action tokens, advance production wheel",
+            "Refill building market, discard event card",
+            "Begin next round"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Identity Guessing (End of Game)",
+          "bullets": [
+            "After round 5, app runs identity guessing phase",
+            "Mortals guess who is the devil and cultist for bonus VP",
+            "Cultist and devil do not guess"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Final Scoring",
+          "bullets": [
+            "Points from: buildings, achievements, reputation, soul bonuses, identity guessing",
+            "Highest VP wins regardless of role",
+            "Tiebreaker: most coins, then highest reputation"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Check Your Secret Role",
+          "text": "Let's walk through a sample first round so everyone gets the feel. First, check your secret role behind your wall. If you are a mortal, you should see three soul piece tokens. If you are the cultist, you have two. If you are the devil, you have none. Remember your role but keep a poker face. Everyone at the table should be acting the same way right now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Collect Your First Production",
+          "text": "Look at your production wheel. It shows what resources you produce this round. Take the indicated resources and coins from the supply and place them behind your wall. In round one, production is modest. You might get a couple of basic resources and a coin or two. This is your starting economy, and it will grow as your wheel advances.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Experience the Deal Phase",
+          "text": "Now the app runs the deal phase. Pass the device around as prompted. The devil player will see options to offer deals to other players, proposing resources in exchange for soul pieces. Mortals and the cultist will see incoming offers and can accept or decline. If you are not the devil, think carefully about whether the offered resources are worth the risk of losing a soul piece. If you are the devil, try to make offers that are tempting but not so generous that you go bankrupt.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Resolve the Event Card",
+          "text": "Flip the top event card and read it aloud. For this practice round, just follow the instructions on the card. Early events are usually straightforward, such as gaining a bonus resource or moving slightly on the reputation track. Pay attention to how events can shift the game state and plan accordingly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Actions Behind the Wall",
+          "text": "Now for the action phase. Look at your action board behind your wall. You have several action token slots. Place your tokens on the actions you want to take this round. For your first round, a good approach is to gather some resources and attempt to build one building from the market. Check the building costs and match them to what you have. Do not forget you can also spend an action on advancing the inquisition or claiming an achievement if one is within reach.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reveal and Resolve Actions",
+          "text": "Once everyone has placed their tokens, remove your walls to reveal actions simultaneously. Resolve actions in the order specified by the rules. First, gather resources and coins. Then construct buildings by paying their costs and placing them in front of you. Then resolve inquisition actions and achievement claims. If you cannot afford a building you planned to construct, you lose that action. Planning around your budget is a skill you will develop.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Build Your First Building",
+          "text": "Try to build at least one building this round. Look at the market and find the cheapest option that gives decent points. Pay the listed resources from behind your wall to the supply. Take the building card and place it face up in front of you. Congratulations, you just scored your first victory points. Notice how the building might also give you an ongoing bonus. Read it carefully because those bonuses compound over future rounds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Observe the Inquisition",
+          "text": "Check the reputation track on the inquisition board. After the action phase, some players may have moved up or down. If your reputation is low, other players might suspect you of being the devil or cultist. If your reputation is high, you look more trustworthy. As a mortal, high reputation protects you and scores well. As the devil or cultist, maintaining decent reputation is a survival tactic to avoid being correctly identified later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Cleanup and Advance the Wheel",
+          "text": "Retrieve all your action tokens. Advance your production wheel one notch. Check the new position to see how your production changes for round two. Refill any empty building market slots with cards from the deck. Discard the resolved event card. Take a moment to assess your position. How many resources do you have? What buildings are now available? What can you afford next round?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Ready for the Full Game",
+          "text": "You have now completed one full round. The remaining four rounds follow the same structure but with increasing tension. The deal phase gets more interesting as the devil becomes more desperate for soul pieces and players have more information about suspicious behavior. Buildings become more expensive but more rewarding. The final identity guessing adds a social deduction layer that keeps everyone engaged. You are ready to play for real. Good luck and watch your soul.",
+          "image": null,
+          "image_caption": null,
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Check Your Secret Role",
+          "bullets": [
+            "Check your role behind your wall: mortal (3 soul pieces), cultist (2), devil (0)",
+            "Keep a poker face — everyone should act the same"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Collect Your First Production",
+          "bullets": [
+            "Take resources and coins as shown on your production wheel",
+            "Round 1 production is modest — it grows as the wheel advances"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Experience the Deal Phase",
+          "bullets": [
+            "Pass the app device around as prompted",
+            "Devil offers resources for soul pieces; others accept or decline",
+            "All deals are anonymous through the app"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Resolve the Event Card",
+          "bullets": [
+            "Flip and read aloud the top event card",
+            "Early events are straightforward — follow the instructions"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Actions Behind the Wall",
+          "bullets": [
+            "Place action tokens on your action board behind your wall",
+            "Good first-round plan: gather resources and build one building",
+            "Check building costs against your available resources"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reveal and Resolve Actions",
+          "bullets": [
+            "Remove walls and reveal all actions simultaneously",
+            "Resolve in order: gather resources, construct buildings, inquisition, achievements",
+            "If you cannot afford a planned building, that action is lost"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Build Your First Building",
+          "bullets": [
+            "Find the cheapest building with decent VP in the market",
+            "Pay resource cost from behind your wall, take the card",
+            "Check for ongoing bonuses on the building"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Observe the Inquisition",
+          "bullets": [
+            "Check reputation track after the action phase",
+            "Low reputation draws suspicion; high reputation deflects it",
+            "Reputation scores VP at game end"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Cleanup and Advance the Wheel",
+          "bullets": [
+            "Retrieve action tokens, advance production wheel one notch",
+            "Refill building market, discard event card",
+            "Assess your position for next round"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Ready for the Full Game",
+          "bullets": [
+            "Remaining 4 rounds follow the same structure with escalating tension",
+            "Deal phase gets more interesting as information accumulates",
+            "Identity guessing after round 5 adds a social deduction finale"
+          ]
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Do Not Sell Your Soul Too Cheaply",
+          "text": "If you are a mortal, your soul pieces are extremely valuable. Selling one gives you immediate resources, but you lose end-game scoring bonuses and become more vulnerable during the inquisition. Only sell a soul piece if the deal is generous enough to fund a major building that will outscore the loss. If the devil offers you a mediocre deal, decline it. The devil needs your soul more than you need their coins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Watch What Others Build",
+          "text": "Pay close attention to what buildings other players are constructing. If someone is spending heavily on premium buildings early, they might have gotten extra resources from a deal. This can be a clue about who made a trade with the devil. Also watch for players who are building aggressively without apparent resource production to match. Their extra income had to come from somewhere.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Balance Building and Reputation",
+          "text": "It is tempting to focus entirely on building the most expensive buildings, but neglecting your reputation is dangerous. Reputation scores significant points at game end and being too low on the track can expose your role. Spend at least some actions advancing on the inquisition track throughout the game. A strong reputation position is worth as much as a good building.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Claim Achievements Early",
+          "text": "Achievement tiles are first-come, first-served. If you see one that aligns with your current strategy, grab it before someone else does. Minor achievements are easy to overlook, but they add up quickly. Major achievements require planning, so identify which ones you are aiming for early and work toward them across multiple rounds. Do not leave points on the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Production Wheel Upgrades",
+          "text": "Your production wheel is your economic engine. Upgrading it early means you generate more resources for the rest of the game, which compounds over multiple rounds. But upgrading costs actions that you could spend building. The sweet spot is usually to invest in one or two upgrades in the first two rounds, then pivot to building for the remaining three rounds. Think of it as the difference between saving and spending.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Use the Deal Phase Strategically",
+          "text": "Even if you do not want to sell your soul, the deal phase gives you information. Pay attention to whether deals are offered and how generous they are. If the devil is offering huge amounts of resources, they might be desperate. If offers are sparse, the devil might already have what they need. As the devil, vary your offers to avoid being predictable. As a mortal, consider accepting one deal early for a resource boost, then holding firm for the rest of the game.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Do Not Sell Your Soul Too Cheaply",
+          "bullets": [
+            "Soul pieces are worth end-game bonuses — only sell for a very strong deal",
+            "The devil needs your soul more than you need their coins",
+            "Declining a weak deal is often the right play"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Watch What Others Build",
+          "bullets": [
+            "Players building beyond their visible production may have sold soul pieces",
+            "Track who is spending more resources than they should have",
+            "Unexplained wealth is a clue to secret dealings"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Balance Building and Reputation",
+          "bullets": [
+            "Reputation scores significant end-game points",
+            "Low reputation makes you a target for identity guessing",
+            "Invest actions in the inquisition track throughout the game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Claim Achievements Early",
+          "bullets": [
+            "First-come, first-served — do not wait",
+            "Minor achievements add up; major achievements need advance planning",
+            "Identify target achievements early and work toward them"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Production Wheel Upgrades",
+          "bullets": [
+            "Early upgrades compound over remaining rounds",
+            "Aim for 1-2 upgrades in rounds 1-2, then focus on building",
+            "Production is your economic engine — invest wisely"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Use the Deal Phase Strategically",
+          "bullets": [
+            "Pay attention to offer generosity — it reveals the devil's desperation",
+            "As the devil, vary your offers to avoid patterns",
+            "As a mortal, consider one early sale for a resource boost, then hold firm"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Mortal Bluff: Sell to Accuse",
+          "text": "As a mortal, you can sell a soul piece in an early round to get a massive resource advantage, then use the identity guessing phase to recover points by correctly accusing the devil. The resources from the sale can fund a powerful building that sets you ahead. Then at the end, if you correctly guess the devil, you recoup much of the lost soul value through identity guessing points. This is risky but can produce the highest scoring mortal games.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Devil Economy: Invest in Production Early",
+          "text": "As the devil, you cannot build certain powerful buildings, so your points must come from other sources. Focus heavily on upgrading your production wheel in rounds one and two. The compounding resource generation lets you offer very attractive deals in later rounds when soul pieces are scarcer. A devil with a strong economy can outpace mortals who squander their resources on mediocre buildings.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Cultist Camouflage",
+          "text": "The cultist's biggest challenge is being mistaken for the devil. Since you only have two soul pieces instead of three, keen observers might notice you acting slightly different during deals. Counteract this by maintaining high reputation and building patterns that mirror what a mortal would do. If mortals incorrectly accuse you of being the devil, they waste their guessing bonus, which helps you and the actual devil. Your goal is to blend in perfectly while outbuilding everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Premium Resource Denial",
+          "text": "Marble and glass are required for the most valuable buildings. If you notice another player stockpiling premium resources, consider racing them to the buildings they are likely targeting. Denying an opponent a key building can be worth more than the building itself if it strands their investment. Alternatively, if you control the premium resource flow through production upgrades, you dictate the tempo of the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reputation as a Weapon",
+          "text": "The inquisition track is not just a scoring mechanism. It is a social weapon. If you push your reputation high while others lag behind, you cast suspicion on them. As a mortal, this helps you identify the devil. As the devil, if you sacrifice some efficiency to maintain strong reputation, you become much harder to identify during the guessing phase, protecting your final score. The best devil players often have the second-highest reputation at the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Timing the Achievement Race",
+          "text": "Major achievements are the swing points of close games. Watch what conditions the major achievements require and track how close each opponent is. Sometimes it is worth diverting your entire round plan to snatch a major achievement one turn before your opponent can claim it. The five to eight point swing of claiming it versus letting them have it can decide the game. Time your action token placement to grab achievements on the same round you make your biggest build.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Mortal Bluff: Sell to Accuse",
+          "bullets": [
+            "Sell a soul piece early for a massive resource advantage",
+            "Fund a powerful building, then recover points by correctly guessing the devil",
+            "High risk, high reward — produces the best mortal scores when it works"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Devil Economy: Invest in Production Early",
+          "bullets": [
+            "Cannot build certain powerful buildings — need alternative point sources",
+            "Upgrade production in rounds 1-2 for compounding returns",
+            "Strong economy lets you make irresistible deals in later rounds"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Cultist Camouflage",
+          "bullets": [
+            "Maintain high reputation and build like a mortal to blend in",
+            "If mortals accuse you as the devil, they waste their guessing bonus",
+            "Goal: blend in perfectly while outbuilding everyone"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Premium Resource Denial",
+          "bullets": [
+            "Marble and glass fuel the best buildings — control the flow",
+            "Race opponents to high-value buildings if they are stockpiling",
+            "Denying a key building can strand their resource investment"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reputation as a Weapon",
+          "bullets": [
+            "High reputation casts suspicion on lower players",
+            "As the devil, strong reputation makes you harder to identify",
+            "Best devil players often have the second-highest reputation"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Timing the Achievement Race",
+          "bullets": [
+            "Major achievements are swing points in close games",
+            "Track opponents' progress toward achievement conditions",
+            "Divert your plan to snatch a major achievement one turn before an opponent"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Mortal", "definition": "One of two players who start with a complete soul (3 pieces). Mortals can sell soul pieces during deals and guess identities at game end for bonus points.", "category": "roles"},
+        {"term": "Cultist", "definition": "A player who has already partially fallen to temptation. Starts with only 2 soul pieces instead of 3. Tries to blend in with mortals while scoring the most points.", "category": "roles"},
+        {"term": "Devil", "definition": "A player with no soul who seeks to buy soul pieces from others. Cannot construct certain powerful buildings. Wins by outscoring everyone through economic dominance and collected souls.", "category": "roles"},
+        {"term": "Soul Piece", "definition": "Token representing a fragment of a player's soul. Mortals start with 3, the cultist starts with 2, the devil starts with 0. Can be sold during the deal phase. Keeping them scores end-game bonuses.", "category": "components"},
+        {"term": "Companion App", "definition": "Mandatory digital application that handles secret role distribution, the deal phase, and identity guessing. One device is needed per table.", "category": "components"},
+        {"term": "Chest", "definition": "Physical container used during setup. The app assigns roles to numbered chests, and each player takes one to receive their secret role and soul pieces.", "category": "components"},
+        {"term": "Player Wall", "definition": "Folding screen that hides each player's action board, resources, coins, and soul pieces from other players.", "category": "components"},
+        {"term": "Action Board", "definition": "Personal board placed behind the player wall. Players place action tokens here to select their actions each round before simultaneous reveal.", "category": "components"},
+        {"term": "Action Token", "definition": "Colored tokens placed on the action board to indicate which actions a player takes during the action phase. Limited supply per round.", "category": "components"},
+        {"term": "Production Wheel", "definition": "Rotatable component that determines which resources and coins a player produces each round. Advances automatically each round and can be upgraded with actions.", "category": "components"},
+        {"term": "Main Board", "definition": "Central game board showing the building market area, event card space, and production wheel reference.", "category": "components"},
+        {"term": "Inquisition Board", "definition": "Board with the reputation track and scoring track. Used to monitor player reputation and for final scoring.", "category": "components"},
+        {"term": "Wood", "definition": "A basic resource used to pay building costs. Produced through the production wheel.", "category": "resources"},
+        {"term": "Stone", "definition": "A basic resource used to pay building costs. Produced through the production wheel.", "category": "resources"},
+        {"term": "Wheat", "definition": "A basic resource used to pay building costs. Produced through the production wheel.", "category": "resources"},
+        {"term": "Marble", "definition": "A premium resource required for the most valuable buildings. Harder to produce and more scarce than basic resources.", "category": "resources"},
+        {"term": "Glass", "definition": "A premium resource required for the most valuable buildings. Harder to produce and more scarce than basic resources.", "category": "resources"},
+        {"term": "Coins", "definition": "Currency used for various costs and as a tiebreaker. Earned through production and deals. Kept hidden behind the player wall.", "category": "resources"},
+        {"term": "Building Card", "definition": "Cards representing structures worth victory points. Each shows a resource cost, VP value, and sometimes ongoing abilities. Organized into sets 1-5 by difficulty.", "category": "cards"},
+        {"term": "Building Market", "definition": "The display of available building cards on the main board. Refilled from the deck at the end of each round.", "category": "game-zones"},
+        {"term": "Event Card", "definition": "Cards drawn each round that affect all players. Deck A contains milder events for early rounds, deck B contains more dramatic events for later rounds.", "category": "cards"},
+        {"term": "Minor Achievement", "definition": "Smaller achievement tiles with easier conditions and fewer victory points. First-come, first-served.", "category": "scoring"},
+        {"term": "Major Achievement", "definition": "Larger achievement tiles with more demanding conditions but higher point values. First-come, first-served.", "category": "scoring"},
+        {"term": "Reputation Track", "definition": "Track on the inquisition board measuring each player's public standing. Higher reputation scores more end-game points and deflects suspicion.", "category": "tracks"},
+        {"term": "Deal Phase", "definition": "Phase each round where the companion app facilitates anonymous trades. The devil offers resources and coins in exchange for soul pieces from other players.", "category": "phases"},
+        {"term": "Production Phase", "definition": "First phase of each round. All players simultaneously receive resources and coins according to their production wheel position.", "category": "phases"},
+        {"term": "Event Phase", "definition": "Phase where the top event card is revealed and resolved, affecting all players.", "category": "phases"},
+        {"term": "Action Phase", "definition": "Main phase where players simultaneously place action tokens behind walls, then reveal and resolve all actions.", "category": "phases"},
+        {"term": "Cleanup Phase", "definition": "End-of-round phase where action tokens are retrieved, the production wheel advances, and the building market is refilled.", "category": "phases"},
+        {"term": "Identity Guessing", "definition": "End-of-game phase run through the companion app. Mortals can guess who the devil and cultist are for bonus victory points.", "category": "phases"},
+        {"term": "Basic Resource", "definition": "Wood, stone, and wheat. Easier to produce and used for cheaper buildings.", "category": "resources"},
+        {"term": "Premium Resource", "definition": "Marble and glass. Harder to produce and required for the most valuable buildings.", "category": "resources"},
+        {"term": "Set 1 Buildings", "definition": "Starting building cards used to populate the initial market. Generally cheaper and lower VP than later sets.", "category": "cards"},
+        {"term": "Simultaneous Action Selection", "definition": "Core mechanic where all players secretly choose actions behind walls and then reveal them at the same time.", "category": "mechanics"},
+        {"term": "Victory Points (VP)", "definition": "The measure of success. Earned from buildings, achievements, reputation, soul bonuses, and identity guessing. Highest total wins.", "category": "scoring"},
+        {"term": "Tiebreaker", "definition": "If VP is tied, the player with more remaining coins wins. If still tied, the player higher on the reputation track wins.", "category": "scoring"},
+        {"term": "Round", "definition": "One complete cycle of all phases: production, deal, event, actions, and cleanup. The game lasts exactly 5 rounds.", "category": "mechanics"}
+      ]
+    }
+  }
+}

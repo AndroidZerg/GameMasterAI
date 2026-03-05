@@ -1,0 +1,782 @@
+{
+  "game_id": "diplomacy",
+  "title": "Diplomacy",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "text": "Welcome to Diplomacy, set in Europe on the eve of World War I. Unfold the large map and place it in the center of the table. The board shows Europe and the surrounding seas divided into roughly 75 provinces. Some provinces contain supply center dots, 34 in total. These supply centers are the lifeblood of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Great Powers",
+          "text": "There are seven Great Powers: England, France, Germany, Italy, Austria-Hungary, Russia, and Turkey. Each player draws or chooses one nation. With fewer than seven players, assign powers randomly and leave the unclaimed nations as uncontrolled neutrals with no units on the board. The game is best with all seven players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Distribute Starting Units",
+          "text": "Each power starts with units on specific home supply centers. England gets a Fleet in London, a Fleet in Edinburgh, and an Army in Liverpool. France gets a Fleet in Brest, an Army in Paris, and an Army in Marseilles. Germany gets a Fleet in Kiel, an Army in Berlin, and an Army in Munich. Italy gets a Fleet in Naples, an Army in Rome, and an Army in Venice. Austria-Hungary gets a Fleet in Trieste, an Army in Vienna, and an Army in Budapest. Turkey gets a Fleet in Ankara, an Army in Constantinople, and an Army in Smyrna. Russia gets four units: a Fleet in St. Petersburg (south coast), a Fleet in Sevastopol, an Army in Moscow, and an Army in Warsaw.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Identify Supply Centers",
+          "text": "Look at the board. Each dot marks a supply center. There are 22 home supply centers, spread across the seven Great Powers, and 12 neutral supply centers scattered around Europe. The neutral centers include Belgium, Holland, Denmark, Sweden, Norway, Spain, Portugal, Tunis, Greece, Serbia, Romania, and Bulgaria. Capturing these neutrals in the early game is critical for growth.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Prepare Order Sheets and Pens",
+          "text": "Give each player a stack of order sheets or slips of paper, plus a pen. In Diplomacy, all orders are written secretly and revealed simultaneously. Players will need to write clearly using standard abbreviations. You may want a reference card handy showing province abbreviations and order format.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Game Calendar",
+          "text": "The game begins in Spring 1901. Each game year has two main seasons: Spring and Fall. After each Fall turn, there is an adjustment phase where you gain or lose units based on your supply center count. Keep a visible record of the current year and season near the board so everyone stays synchronized.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Understand the Win Condition",
+          "text": "The first player to control 18 of the 34 supply centers wins an outright solo victory. This is a majority of all supply centers on the board. If no one reaches 18, players may agree to a draw at any time, but all surviving players must unanimously consent. There are no partial victories in standard Diplomacy. You either win alone or share a draw.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Final Setup Notes",
+          "text": "Place all units on their starting positions. Make sure everyone can see the board clearly. Designate a separate area away from the table for private negotiations, or agree on a timer for the negotiation phase. A typical negotiation phase lasts 10 to 15 minutes. You are now ready for Spring 1901. Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "bullets": [
+            "Place the map of Europe in the center of the table",
+            "Board shows ~75 provinces with 34 supply centers marked by dots"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Choose Great Powers",
+          "bullets": [
+            "7 Great Powers: England, France, Germany, Italy, Austria-Hungary, Russia, Turkey",
+            "Draw or choose nations; unclaimed powers in fewer-than-7 games remain empty"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Distribute Starting Units",
+          "bullets": [
+            "Each power starts with 3 units on home supply centers (Russia gets 4)",
+            "Units are either Armies (land) or Fleets (sea/coast), placed in specific provinces"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Identify Supply Centers",
+          "bullets": [
+            "22 home supply centers split among the 7 powers",
+            "12 neutral supply centers (Belgium, Holland, Denmark, Sweden, Norway, Spain, Portugal, Tunis, Greece, Serbia, Romania, Bulgaria)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Prepare Order Sheets and Pens",
+          "bullets": [
+            "Each player needs paper and a pen to write secret orders",
+            "Have province abbreviation reference cards available"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Game Calendar",
+          "bullets": [
+            "Game begins in Spring 1901",
+            "Each year has Spring and Fall turns, with adjustments after Fall"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Understand the Win Condition",
+          "bullets": [
+            "Control 18 of 34 supply centers for a solo victory",
+            "Players may unanimously agree to a draw at any time"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Final Setup Notes",
+          "bullets": [
+            "Place all units on starting positions",
+            "Designate a negotiation area and agree on phase timers (10-15 min recommended)"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Turn Sequence",
+          "text": "Each turn follows a strict sequence. First comes the Diplomatic Phase, where players negotiate freely. Then the Order Writing Phase, where everyone secretly writes orders for all their units. Next is the Order Resolution Phase, where all orders are revealed and resolved simultaneously. After that, the Retreat and Disbanding Phase handles any dislodged units. Finally, after Fall turns only, the Gaining and Losing Units Phase adjusts each player's unit count to match their supply center count.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Diplomatic Phase",
+          "text": "This is what makes Diplomacy unique. During this phase, players may talk to anyone, anywhere, about anything. You can negotiate in pairs, small groups, or address the whole table. You can share information, make promises, propose alliances, or lie through your teeth. Nothing said during negotiation is binding. There is no mechanism to enforce any deal. This phase is the heart of the game and typically takes 10 to 15 minutes per turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Four Order Types",
+          "text": "Every unit receives exactly one order each turn. Hold means the unit stays in place and defends its province. Move means the unit attempts to enter an adjacent province. Support means the unit lends its strength to help another unit hold or move. Convoy means a Fleet in a sea zone carries an Army across water. If a unit receives no valid order, it holds by default.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "How Movement Works",
+          "text": "Armies move to any adjacent land province. Fleets move to any adjacent sea zone or coastal province. Only one unit may occupy a province at a time. If two units try to move to the same province and neither has support, both moves fail and the units stay where they were. This is called a standoff or bounce. If a unit moves into an occupied province without enough strength to dislodge the defender, the move fails.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "How Support Works",
+          "text": "Support is the core tactical mechanism. When a unit supports an attack, it adds one strength to that attack. For example, if an Army in Burgundy moves to Paris, it attacks with a strength of one. But if a second unit in Picardy supports that move, the attack now has strength two. A defender holding Paris with no support has strength one, so the attacker wins and the defender is dislodged. Support can also be given to a unit holding in place, making it harder to dislodge. A unit can only support moves into provinces it could legally move to itself.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Cutting Support",
+          "text": "Support is not guaranteed. If a unit giving support is itself attacked from any direction, its support is cut and does not count. This is called cutting support. Importantly, a unit cannot cut support that is being used to attack itself. For example, if an Army in Paris is attacking Burgundy with support from Munich, and the Army in Burgundy attacks Munich to cut that support, it does not work because Munich's support is directed against Burgundy. However, any other unit attacking Munich from a different province would successfully cut Munich's support.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "How Convoys Work",
+          "text": "Convoys allow Armies to cross bodies of water. A Fleet in a sea zone can convoy an Army from one coastal province to another. Multi-step convoys are possible with a chain of Fleets across multiple sea zones. The Army writes an order to move to the destination, and each Fleet in the chain writes a convoy order. If any Fleet in the chain is dislodged, the entire convoy fails and the Army stays put. Fleets cannot be convoyed, only Armies.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Retreats and Disbanding",
+          "text": "When a unit is dislodged, it must retreat. It can move to any adjacent empty province that was not the source of the attack and was not involved in a standoff during the same turn. If no valid retreat exists, or if two dislodged units try to retreat to the same province, the units are destroyed and removed from the board. A player may also choose to disband a dislodged unit voluntarily rather than retreat.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Supply Centers and Ownership",
+          "text": "A supply center changes ownership whenever a unit occupies it after a Fall turn resolution. You do not need to keep a unit on a supply center to maintain control of it. Once you capture it, it stays yours until someone else occupies it after a Fall turn. Your unit count must always equal your supply center count after the Fall adjustment phase. This means capturing centers lets you build new units, and losing centers forces you to disband.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Building and Disbanding Units",
+          "text": "After each Fall turn, count how many supply centers each player controls. If you have more centers than units, you may build new units on your unoccupied home supply centers. You can build an Army or a Fleet on any open home center, but Fleets can only be built on home centers with a coastline. If you have more units than centers, you must disband units of your choice until the numbers match. If a home center is occupied by an enemy, you cannot build there.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Special Coast Rules",
+          "text": "Some provinces border two separate coastlines. Spain has a north coast and a south coast. St. Petersburg has a north coast and a south coast. Bulgaria has an east coast and a south coast. When a Fleet moves to one of these provinces, you must specify which coast it occupies. This matters because the Fleet can only move to zones adjacent to that specific coast in future turns. Armies are unaffected by coasts.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Simultaneous Resolution",
+          "text": "All orders are resolved at the same time. There is no turn order advantage. This means every standoff, support, and attack is calculated as if they all happen in the same instant. A common beginner mistake is thinking moves happen one at a time. They do not. Two units can swap provinces if one is convoyed, but two adjacent units cannot simply swap by both ordering a move to each other's province. That results in a standoff where both stay in place.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Draw and Endgame",
+          "text": "The game ends immediately when one player controls 18 supply centers. That player wins outright. If no solo victory is reached, any player may propose a draw at any time. All surviving players, meaning anyone who still controls at least one supply center, must unanimously agree for the draw to take effect. Eliminated players have no vote. If the draw is rejected, play continues. Games can also end by time limit in tournament settings.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Turn Sequence",
+          "bullets": [
+            "Diplomatic Phase, Order Writing, Order Resolution, Retreat/Disband, Adjustments (Fall only)",
+            "All phases happen every turn; adjustments only after Fall turns"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Diplomatic Phase",
+          "bullets": [
+            "Talk to anyone freely: propose alliances, share info, bluff, or lie",
+            "Nothing said is binding; broken promises are part of the game"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Four Order Types",
+          "bullets": [
+            "Hold: stay and defend; Move: enter adjacent province; Support: add strength to another unit; Convoy: Fleet carries Army across sea",
+            "Every unit gets exactly one order; no order defaults to Hold"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "How Movement Works",
+          "bullets": [
+            "Armies move to adjacent land, Fleets to adjacent sea/coast",
+            "Only one unit per province; equal-strength moves to the same province bounce"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "How Support Works",
+          "bullets": [
+            "A supporting unit adds +1 strength to an attack or defense",
+            "Unit can only support into provinces it could legally move to itself"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Cutting Support",
+          "bullets": [
+            "Attacking a supporting unit cuts its support (cancels the bonus)",
+            "A unit cannot cut support directed against itself"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "How Convoys Work",
+          "bullets": [
+            "Fleet(s) in sea zones can carry an Army across water",
+            "If any Fleet in the chain is dislodged, the convoy fails"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Retreats and Disbanding",
+          "bullets": [
+            "Dislodged units must retreat to an adjacent empty province (not the attacker's origin, not a standoff province)",
+            "If no valid retreat exists, the unit is destroyed"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Supply Centers and Ownership",
+          "bullets": [
+            "Ownership changes when a unit occupies a center after Fall resolution",
+            "You keep a center until someone else takes it; no need to garrison it"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Building and Disbanding Units",
+          "bullets": [
+            "After Fall: build new units on open home supply centers if you gained centers",
+            "If you lost centers, disband units of your choice to match your center count"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Special Coast Rules",
+          "bullets": [
+            "Spain, St. Petersburg, and Bulgaria have split coasts",
+            "Fleets must specify which coast; this affects future movement options"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Simultaneous Resolution",
+          "bullets": [
+            "All orders resolve at the same time; no turn-order advantage",
+            "Two adjacent units cannot simply swap positions (they bounce); swap requires a convoy"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Draw and Endgame",
+          "bullets": [
+            "Control 18 of 34 supply centers for a solo win",
+            "Draws require unanimous agreement from all surviving players"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Setting the Scene: Spring 1901",
+          "text": "Let's walk through a scripted first turn to see how Diplomacy works in practice. The board is set up with all seven powers in their starting positions. It is Spring 1901. Every power has three units, except Russia with four. There are 12 unclaimed neutral supply centers on the board, and every player wants to grab as many as possible this year. The race for neutrals defines the opening.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Negotiation Begins",
+          "text": "The diplomatic phase starts. France's player approaches England privately and says: 'Let's work together against Germany. I'll move to Belgium, you take Holland and Norway. We split the neutrals and squeeze Germany from both sides.' Meanwhile, Germany's player finds Russia and proposes: 'Let's both leave each other alone and grab the Scandinavian and Balkan neutrals. I won't touch Warsaw if you stay out of Silesia.' At the same time, Austria and Italy are discussing whether to cooperate in the Balkans or compete for Serbia and Greece. Turkey is making promises to both Austria and Russia. Everyone is talking. Everyone is planning. Not everyone is telling the truth.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Writing Orders: France's Perspective",
+          "text": "After 15 minutes of negotiation, the timer runs out. Everyone sits down and writes orders secretly. Let's look at France. Based on the deal with England, France writes: Army Paris moves to Burgundy. Army Marseilles moves to Spain. Fleet Brest moves to the Mid-Atlantic Ocean. France is positioning to claim Spain in the Fall while moving to Burgundy as a defensive buffer against Germany. The Fleet in the Mid-Atlantic can later support a move to Spain's south coast or pivot toward Portugal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Writing Orders: Germany and England",
+          "text": "England, honoring the deal with France, writes: Fleet London moves to the North Sea. Fleet Edinburgh moves to the Norwegian Sea. Army Liverpool moves to Yorkshire. England is headed toward Norway and keeping options open for Holland. Germany, who heard rumors about the Franco-English alliance, writes cautiously: Army Berlin moves to Kiel. Fleet Kiel moves to Denmark. Army Munich moves to Ruhr. Germany is securing Denmark as a stepping stone to Scandinavia while positioning Ruhr to defend against or counterattack toward Belgium.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Writing Orders: The Eastern Powers",
+          "text": "Austria writes: Army Vienna moves to Galicia. Army Budapest moves to Serbia. Fleet Trieste moves to Albania. Austria is grabbing Serbia and positioning for Greece. Russia writes: Army Moscow moves to Ukraine. Fleet Sevastopol moves to the Black Sea. Army Warsaw moves to Galicia. Fleet St. Petersburg (south coast) moves to the Gulf of Bothnia. Uh oh. Both Austria and Russia have ordered a unit into Galicia. Turkey writes: Army Constantinople moves to Bulgaria. Fleet Ankara moves to the Black Sea. Army Smyrna moves to Constantinople. Turkey is heading for Bulgaria, but also sent a Fleet to the Black Sea where Russia is heading too.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Resolving Orders: The Bounces",
+          "text": "All orders are revealed simultaneously. Most moves succeed because units are heading to empty provinces. But two key conflicts emerge. First, Austria's Army Vienna and Russia's Army Warsaw both ordered a move to Galicia. Neither has support. Equal strength means a standoff: both units bounce and stay in Vienna and Warsaw respectively. Second, Russia's Fleet Sevastopol and Turkey's Fleet Ankara both move to the Black Sea. Again, equal strength with no support. Both Fleets bounce and remain in Sevastopol and Ankara. These bounces are significant because they reveal broken promises or conflicting intentions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Resolving Orders: The Successes",
+          "text": "Everything else goes through. France's Army reaches Burgundy, Army reaches Spain, and Fleet reaches the Mid-Atlantic. England's Fleets reach the North Sea and Norwegian Sea, while the Army reaches Yorkshire. Germany occupies Denmark and Ruhr, and moves into Kiel. Austria takes Serbia and moves to Albania, though the Galicia move failed. Russia's Fleet reaches the Gulf of Bothnia and Army reaches Ukraine, though the other two bounced. Turkey's Army reaches Bulgaria, Fleet stays in Ankara, and the Constantinople Army backfills. Italy, whom we haven't focused on, moves toward Tyrolia, Apulia, and the Ionian Sea.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Reading the Board After Spring 1901",
+          "text": "No supply centers change hands yet since ownership only changes after Fall turns. But look at what Spring revealed. The Austria-Russia bounce in Galicia tells everyone that this relationship is already tense. The Russia-Turkey bounce in the Black Sea signals potential conflict in the south. France and England appear to be working together smoothly. Germany successfully staked a claim to Denmark. These results reshape every negotiation going into Fall 1901.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "What Happens Next: Fall 1901",
+          "text": "In Fall 1901, the same cycle repeats: negotiate, write orders, resolve. But now the stakes are higher because supply centers change hands after Fall. Most players will try to move units onto neutral supply centers this turn. England wants Norway. France wants Spain and possibly Portugal. Germany wants Holland or Belgium. Austria already has Serbia and eyes Greece. Russia wants Romania and Sweden. Turkey wants Bulgaria (already there) and maybe Greece. Italy is eyeing Tunis and possibly Greece or Turkey. The neutrals grabbed this Fall determine who gets to build new units in Winter.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Winter 1901 Builds",
+          "text": "After Fall 1901 resolves, each player counts supply centers. If you now control four centers but only have three units, you build one new unit on an open home supply center. You choose whether to build an Army or a Fleet based on your strategic plans. If Russia grabbed Sweden and Romania, Russia now has six centers and four units, so Russia builds two new units. Powers that failed to grab neutrals are stuck at three units while their rivals grow. This snowball effect makes early diplomacy crucial.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Long Game Ahead",
+          "text": "Spring 1901 is just the opening move. A typical Diplomacy game lasts 8 to 14 game years. The early game is about grabbing neutrals and forming alliances. The midgame is about coordinating attacks on weaker players and deciding when to betray your ally. The endgame is a knife fight for the 18th supply center, often against a former best friend. The beauty of Diplomacy is that there are no dice, no cards, no luck. Every outcome is the result of human decisions: who you trusted, who you betrayed, and who outplayed you at the negotiation table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "You're Ready to Play",
+          "text": "You now understand the core loop: negotiate, write orders, resolve, adjust. You've seen how bounces work, how support changes the math, and how the diplomatic phase drives everything. The best way to learn Diplomacy is to play it. Gather seven players, set a timer for the negotiation phase, and dive in. Your first game will be messy and educational. Trust no one completely, keep your options open, and remember: the player who wins Diplomacy is not the strongest tactician but the best diplomat.",
+          "image": null,
+          "image_caption": null,
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Setting the Scene: Spring 1901",
+          "bullets": [
+            "All 7 powers in starting positions, 12 neutral supply centers up for grabs",
+            "The opening year defines alliances and territorial claims"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Negotiation Begins",
+          "bullets": [
+            "Players break into private conversations proposing alliances and deals",
+            "France proposes a Franco-English alliance against Germany; Germany approaches Russia for a non-aggression pact"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Writing Orders: France's Perspective",
+          "bullets": [
+            "A Par-Bur, A Mar-Spa, F Bre-MAO",
+            "Burgundy as a buffer against Germany; Mid-Atlantic for flexibility toward Spain or Portugal"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Writing Orders: Germany and England",
+          "bullets": [
+            "England: F Lon-NTH, F Edi-NWG, A Lvp-Yor (headed for Norway)",
+            "Germany: A Ber-Kie, F Kie-Den, A Mun-Ruh (securing Denmark, defending west)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Writing Orders: The Eastern Powers",
+          "bullets": [
+            "Austria and Russia both order a unit into Galicia (will bounce)",
+            "Russia and Turkey both order a Fleet to the Black Sea (will bounce)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Resolving Orders: The Bounces",
+          "bullets": [
+            "Galicia standoff: Austrian Army stays in Vienna, Russian Army stays in Warsaw",
+            "Black Sea standoff: Russian Fleet stays in Sevastopol, Turkish Fleet stays in Ankara"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Resolving Orders: The Successes",
+          "bullets": [
+            "France, England, Germany, and Italy all move without conflict",
+            "Austria takes Serbia; Turkey occupies Bulgaria; partial Russian success"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Reading the Board After Spring 1901",
+          "bullets": [
+            "No centers change hands until Fall; but bounces reveal tensions",
+            "Austria-Russia and Russia-Turkey conflicts are now visible to all players"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "What Happens Next: Fall 1901",
+          "bullets": [
+            "Same negotiate-write-resolve cycle; now centers actually change hands",
+            "Everyone races to occupy neutral supply centers before the Winter adjustment"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Winter 1901 Builds",
+          "bullets": [
+            "Players build new units on open home centers if they gained supply centers",
+            "Failing to grab neutrals in 1901 means falling behind while rivals grow"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Long Game Ahead",
+          "bullets": [
+            "Games last 8-14 years: early neutrals, midgame alliances, endgame betrayals",
+            "No dice, no luck; every result comes from negotiation and strategy"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "You're Ready to Play",
+          "bullets": [
+            "Negotiate, write orders, resolve, adjust: that's the core loop",
+            "Gather 7 players, set a negotiation timer, and remember: the best diplomat wins"
+          ]
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Talk to Everyone, Every Turn",
+          "text": "The single most important habit in Diplomacy is talking to every player every single turn. Even if you have no plans involving someone, check in with them. Ask what they are seeing, share a small piece of information, or just maintain a friendly rapport. Players who feel ignored become unpredictable enemies. Players who feel heard become potential allies. Information is currency in Diplomacy, and conversations are how you gather it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Never Make an Enemy You Don't Need",
+          "text": "Beginners often open aggressively against a neighbor just because they can. This is almost always a mistake. Fighting on two fronts is devastating in Diplomacy because your units are divided. Focus your attacks on one direction and keep peace on the other. If you must fight Germany, make sure France or Russia is your firm ally. The player who fights everyone loses. The player who fights one enemy with two allies wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Watch the Supply Center Count",
+          "text": "Always know how many centers every player controls. The supply center count is the only objective measure of who is winning. A player who jumps from 5 to 8 centers in a single year is becoming dangerous and everyone should notice. Similarly, be aware of your own growth rate. If you are growing too fast, other players will form a coalition against you. Sometimes it is better to grow slowly and steadily than to surge and attract a dogpile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Use Support Proactively",
+          "text": "New players tend to move all their units every turn, rarely using support orders. This is a tactical mistake. A supported attack has strength two versus a lone defender's strength one, guaranteeing you take the province. A supported hold makes your defensive position nearly impregnable without a coordinated multi-unit assault. Learn to identify the one or two critical battles each turn and use support to win them decisively rather than spreading your forces thin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reliability Is Your Greatest Asset",
+          "text": "In your first several games, focus on being a reliable ally rather than a cunning backstabber. Players remember who kept their word. If you build a reputation for honoring agreements, more players will want to ally with you in future games. The temptation to stab an ally for short-term gain is strong, but a poorly timed betrayal can leave you surrounded by enemies with no one willing to work with you. When you do eventually betray someone, make sure it is decisive enough to be worth the cost.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Secure Your Home Centers",
+          "text": "Your home supply centers are where you build new units. If an enemy occupies even one of your home centers, you lose both the supply center and a build spot. Protecting your home territory is not glamorous, but losing a home center can spiral into collapse. Always think about whether your expansion is leaving your backfield exposed. A single Fleet or Army left behind as a garrison can save your game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Read the Board, Not Just Your Corner",
+          "text": "Many beginners focus exclusively on their own borders. But Diplomacy is a seven-player game, and what happens across the map affects you. If Turkey is demolishing Russia unopposed, that is your problem even if you play England, because a dominant Turkey will eventually come for you. Use the negotiation phase to coordinate distant players against anyone growing too large. The best Diplomacy players think about the whole board, not just their own neighborhood.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Talk to Everyone, Every Turn",
+          "bullets": [
+            "Maintain relationships with all players, not just your neighbors",
+            "Information is currency; conversations are how you gather it"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Never Make an Enemy You Don't Need",
+          "bullets": [
+            "Fighting on two fronts divides your forces and leads to elimination",
+            "Focus aggression in one direction and keep peace on the other"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Watch the Supply Center Count",
+          "bullets": [
+            "Track every player's center count each year; it's the only scoreboard",
+            "Growing too fast invites coalitions; steady growth is safer"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Use Support Proactively",
+          "bullets": [
+            "Supported attacks guarantee taking contested provinces",
+            "Don't move every unit; identify key battles and support them"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reliability Is Your Greatest Asset",
+          "bullets": [
+            "Build a reputation for keeping your word in early games",
+            "When you do betray, make it decisive enough to be worth the diplomatic cost"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Secure Your Home Centers",
+          "bullets": [
+            "Losing a home center costs you a supply point and a build location",
+            "Leave a unit behind to garrison if your expansion overextends you"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Read the Board, Not Just Your Corner",
+          "bullets": [
+            "A dominant power anywhere on the map eventually threatens everyone",
+            "Coordinate with distant players to contain anyone growing too fast"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Art of the Stab",
+          "text": "A stab is a sudden betrayal of an ally, and it is the defining strategic move in Diplomacy. The best stabs share three characteristics: they gain you multiple supply centers in a single turn, they cripple your former ally so they cannot retaliate effectively, and they happen when you have a new ally lined up to replace the old one. Never stab just for one center. The diplomatic cost of betrayal is enormous, so the territorial gain must be game-changing. Time your stab when your ally's units are pointed away from you, committed to a different front.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Lepanto Opening (Italy)",
+          "text": "The Lepanto is Italy's most famous opening, designed to project power into the eastern Mediterranean. In Spring 1901, Italy moves the Fleet to the Ionian Sea and the Army to Apulia while the remaining Army goes to Tyrolia or Venice. In Fall, the Fleet convoys the Army from Apulia to Tunis or directly into Turkish territory. This opening lets Italy build a second Fleet in Naples during Winter, creating a powerful naval strike force. The Lepanto works best when Italy has agreed with Austria to cooperate against Turkey.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Juggernaut (Russia-Turkey Alliance)",
+          "text": "The Juggernaut is the most feared alliance in Diplomacy. Russia and Turkey agree to carve up the entire eastern half of the board. Turkey pushes west through the Mediterranean while Russia pushes into Scandinavia and central Europe. The alliance is devastating because it eliminates Austria quickly and then presents a united front that is very hard to stop. The counter to a Juggernaut is early intervention: western powers must support Austria and Italy to create resistance before the eastern bloc becomes unstoppable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Defensive Positioning",
+          "text": "Advanced players think in terms of tempo. Every unit you move forward is one fewer unit defending your territory. The trick is to expand at exactly the pace where you gain centers without leaving gaps that an opportunistic neighbor can exploit. Stalemate lines are a key concept: certain configurations of provinces where a defensive line of units cannot be broken regardless of how many attackers the enemy commits. Learning the major stalemate lines, such as the line across the Mediterranean or the line through Munich-Burgundy-Belgium, lets you know when you are safe and when you are vulnerable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Playing the Kingmaker",
+          "text": "If you are losing and cannot win, you still have enormous power. You can choose which of the remaining contenders to support. This is called being a kingmaker. A savvy losing player uses their remaining units and votes to extract concessions, secure a draw, or ensure that the player who wronged them does not win. Never simply give up. Your units still matter, and the threat of throwing your support behind a rival is a powerful negotiating tool even when you control only two or three centers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Order Guessing and Misdirection",
+          "text": "At high levels, Diplomacy becomes a game of predicting what others will write. If you know your neighbor is moving their Army east, you can safely move into the province they are vacating without needing support. Conversely, you can feed false information during negotiations to trick opponents into writing the wrong orders. Tell Germany you are attacking France, then attack Germany. Announce you are holding, then strike. The negotiation phase is not just about making deals; it is about manipulating what orders other players write.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Solo Win vs. the Survival Draw",
+          "text": "Most Diplomacy games end in a draw, not a solo victory. Understanding this shapes strategy. Pushing for a solo win requires immense risk: you must betray your last ally and race to 18 centers before the remaining players unite against you. Sometimes the correct strategic decision is to accept a draw when you are in a strong position rather than gamble everything on a solo attempt that could backfire. Knowing when to press for the win and when to secure the draw separates tournament champions from overextended losers.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Art of the Stab",
+          "bullets": [
+            "A stab must gain multiple centers and cripple the target in one turn",
+            "Never betray without a replacement ally; time it when the victim's units face away"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Lepanto Opening (Italy)",
+          "bullets": [
+            "Italy moves Fleet to Ionian Sea, Army to Apulia in Spring; convoy to Tunis or Turkey in Fall",
+            "Works best with Austrian cooperation against Turkey"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Juggernaut (Russia-Turkey Alliance)",
+          "bullets": [
+            "Russia and Turkey carve the east; eliminates Austria fast, then presents a united front",
+            "Counter it with early western intervention to support Austria and Italy"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Defensive Positioning",
+          "bullets": [
+            "Expand at a pace that gains centers without leaving exploitable gaps",
+            "Learn key stalemate lines (Mediterranean, Munich-Burgundy-Belgium) for endgame defense"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Playing the Kingmaker",
+          "bullets": [
+            "Even a losing player controls who wins by choosing whom to support",
+            "Use remaining units as leverage to extract concessions or force a draw"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Order Guessing and Misdirection",
+          "bullets": [
+            "Predict opponents' orders based on board state and negotiation intel",
+            "Feed false information during diplomacy to manipulate what orders others write"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Solo Win vs. the Survival Draw",
+          "bullets": [
+            "Most games end in draws; pushing for solo requires betraying your last ally",
+            "Know when to press for the win vs. when to secure a draw"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Army", "definition": "A land unit that can move between adjacent land provinces. Cannot enter sea zones. Written as 'A' in orders.", "category": "units"},
+        {"term": "Fleet", "definition": "A naval unit that can move between adjacent sea zones and coastal provinces. Cannot move inland. Written as 'F' in orders.", "category": "units"},
+        {"term": "Supply Center", "definition": "One of 34 special provinces marked with a dot on the board. Controlling supply centers determines how many units you can maintain.", "category": "core"},
+        {"term": "Home Supply Center", "definition": "The supply centers where a power starts the game and where new units can be built. Each power has 3 home centers (Russia has 4).", "category": "core"},
+        {"term": "Neutral Supply Center", "definition": "One of 12 supply centers not owned by any power at the start. Grabbing neutrals in 1901 is critical for early growth.", "category": "core"},
+        {"term": "Province", "definition": "A single territory on the board. Each province can hold at most one unit. Provinces are either land, sea, or coastal.", "category": "core"},
+        {"term": "Hold", "definition": "An order directing a unit to stay in its current province and defend at strength one. Default order if none is written.", "category": "orders"},
+        {"term": "Move", "definition": "An order directing a unit to attempt to enter an adjacent province. Written as 'A Par-Bur' (Army Paris moves to Burgundy).", "category": "orders"},
+        {"term": "Support", "definition": "An order directing a unit to add +1 strength to another unit's hold or move. The supporting unit must be able to legally move to the target province.", "category": "orders"},
+        {"term": "Convoy", "definition": "An order allowing a Fleet in a sea zone to transport an Army from one coastal province to another across water.", "category": "orders"},
+        {"term": "Standoff / Bounce", "definition": "When two or more units of equal strength try to move to the same province, all moves fail and units remain in place.", "category": "resolution"},
+        {"term": "Dislodge", "definition": "When an attacking force has greater strength than a defending unit, the defender is dislodged and must retreat or be destroyed.", "category": "resolution"},
+        {"term": "Cut Support", "definition": "When a unit giving support is attacked from any province, its support is canceled. Exception: a unit cannot cut support aimed at itself.", "category": "resolution"},
+        {"term": "Retreat", "definition": "A dislodged unit may move to an adjacent empty province that was not the attacker's origin and was not involved in a standoff.", "category": "resolution"},
+        {"term": "Disband", "definition": "Removing a unit from the board, either because it cannot retreat or because you have more units than supply centers after Fall.", "category": "resolution"},
+        {"term": "Build", "definition": "Placing a new unit on an unoccupied home supply center after a Fall turn when you have more centers than units.", "category": "resolution"},
+        {"term": "Spring Turn", "definition": "The first movement phase of each game year. Orders are written and resolved but supply centers do not change ownership.", "category": "turns"},
+        {"term": "Fall Turn", "definition": "The second movement phase of each game year. After resolution, supply center ownership is updated and adjustments occur.", "category": "turns"},
+        {"term": "Adjustment Phase", "definition": "After each Fall turn, players build or disband units to match their supply center count. Also called Winter or the build phase.", "category": "turns"},
+        {"term": "Diplomatic Phase", "definition": "The negotiation period before orders are written. Players may talk freely and make any promises, but nothing is binding.", "category": "turns"},
+        {"term": "Stab", "definition": "A sudden betrayal of an ally, typically involving unexpected attacks on their territory. The most dramatic and consequential move in Diplomacy.", "category": "strategy"},
+        {"term": "Juggernaut", "definition": "A powerful Russia-Turkey alliance that aims to dominate the eastern half of the board by eliminating Austria first.", "category": "strategy"},
+        {"term": "Lepanto", "definition": "Italy's classic opening where a Fleet moves to the Ionian Sea and convoys an Army to North Africa or Turkey's coast.", "category": "strategy"},
+        {"term": "Stalemate Line", "definition": "A defensive configuration of units and provinces where the defending side cannot be broken through regardless of attacking strength.", "category": "strategy"},
+        {"term": "Kingmaker", "definition": "A player who cannot win but whose remaining units can determine which of the leading players ultimately wins or draws.", "category": "strategy"},
+        {"term": "Solo Victory", "definition": "Winning the game outright by controlling 18 of 34 supply centers. The only way to win without sharing.", "category": "victory"},
+        {"term": "Draw", "definition": "A shared result agreed upon unanimously by all surviving players. The most common game outcome in competitive Diplomacy.", "category": "victory"},
+        {"term": "Elimination", "definition": "When a player loses all their supply centers and units. Eliminated players have no further moves or votes on draw proposals.", "category": "victory"},
+        {"term": "Great Power", "definition": "One of the seven nations in the game: England, France, Germany, Italy, Austria-Hungary, Russia, and Turkey.", "category": "core"},
+        {"term": "Convoy Chain", "definition": "Multiple Fleets in adjacent sea zones working together to transport a single Army across a large body of water.", "category": "orders"},
+        {"term": "Split Coast", "definition": "Provinces with two separate coastlines (Spain, St. Petersburg, Bulgaria). Fleets must specify which coast when entering.", "category": "core"},
+        {"term": "Garrison", "definition": "A unit left behind in a supply center or strategic province to defend it rather than advancing forward.", "category": "strategy"},
+        {"term": "DMZ", "definition": "A demilitarized zone agreed upon between two players where neither will move units. Useful for building trust but not enforceable.", "category": "strategy"},
+        {"term": "NMR (No Moves Received)", "definition": "When a player fails to submit orders. All their units default to Hold. Repeated NMRs may result in removal from tournament games.", "category": "turns"},
+        {"term": "Gunboat Diplomacy", "definition": "A variant where players cannot communicate at all. All decisions are made purely through orders on the board, removing the negotiation element.", "category": "variants"},
+        {"term": "Press", "definition": "In-game communication between players. Full press means unrestricted negotiation. No press (gunboat) means zero communication.", "category": "variants"}
+      ]
+    }
+  }
+}

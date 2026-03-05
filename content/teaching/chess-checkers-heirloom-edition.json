@@ -1,0 +1,1190 @@
+{
+  "game_id": "chess-checkers-heirloom-edition",
+  "title": "Chess & Checkers Heirloom Edition",
+  "complexity": "heavy",
+  "recommended_players": 2,
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Orient the Board",
+          "text": "Place the board between both players so that each player has a light-colored square in the bottom-right corner. This is the most common setup mistake \u00e2\u20ac\u201d if the bottom-right square is dark, rotate the board 90 degrees.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Rooks",
+          "text": "Each player places their two Rooks on the corner squares of their back rank (the row closest to them). White's Rooks go on a1 and h1; Black's Rooks go on a8 and h8.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Place the Knights",
+          "text": "Each player places their two Knights on the squares directly next to the Rooks. White's Knights go on b1 and g1; Black's Knights go on b8 and g8.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Bishops",
+          "text": "Each player places their two Bishops on the squares next to the Knights. White's Bishops go on c1 and f1; Black's Bishops go on c8 and f8.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Place the Queen \u00e2\u20ac\u201d Queen on Her Color",
+          "text": "Place your Queen on the remaining center square of the back rank that matches her color. The White Queen goes on d1 (a light square), and the Black Queen goes on d8 (a dark square). Remember: 'Queen on her color.'",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Place the King",
+          "text": "Place your King on the last remaining square of the back rank, right next to the Queen. White's King goes on e1; Black's King goes on e8.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Place the Pawns",
+          "text": "Each player lines up all eight Pawns on the second row from their side. White's Pawns fill the entire second rank (a2 through h2); Black's Pawns fill the seventh rank (a7 through h7).",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Verify and Begin",
+          "text": "Double-check your setup: back rank should be Rook-Knight-Bishop-Queen-King-Bishop-Knight-Rook, with Queen on her own color. White always moves first. You are ready to play!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Orient the Board",
+          "bullets": [
+            "Light-colored square in the bottom-right corner for both players",
+            "Rotate 90 degrees if the bottom-right square is dark"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place the Rooks",
+          "bullets": [
+            "Rooks go on both corner squares of each player's back rank"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place the Knights",
+          "bullets": [
+            "Knights go on the squares directly next to the Rooks"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place the Bishops",
+          "bullets": [
+            "Bishops go on the squares next to the Knights"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place the Queen \u00e2\u20ac\u201d Queen on Her Color",
+          "bullets": [
+            "White Queen on the light center square (d1)",
+            "Black Queen on the dark center square (d8)",
+            "Remember: 'Queen on her color'"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Place the King",
+          "bullets": [
+            "King goes on the remaining center square next to the Queen"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Place the Pawns",
+          "bullets": [
+            "All eight Pawns fill the entire second row from each player's side"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Verify and Begin",
+          "bullets": [
+            "Back rank order: Rook-Knight-Bishop-Queen-King-Bishop-Knight-Rook",
+            "Queen on her own color",
+            "White moves first"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The King",
+          "text": "The King can move exactly one square in any direction \u00e2\u20ac\u201d horizontally, vertically, or diagonally. The King is the most important piece on the board: if your King is trapped with no legal escape, you lose the game. The King can capture enemy pieces by moving onto their square, but it can never move into a square that is attacked by an opponent's piece.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Queen",
+          "text": "The Queen is the most powerful piece. She combines the movement of the Rook and Bishop \u00e2\u20ac\u201d she can move any number of squares horizontally, vertically, or diagonally, as long as no piece blocks her path. She captures by moving onto an enemy piece's square.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Rook",
+          "text": "The Rook moves any number of squares in a straight line, either horizontally or vertically. It cannot jump over other pieces. Rooks are especially powerful on open files (columns with no Pawns) and are key pieces in the endgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Bishop",
+          "text": "The Bishop moves any number of squares diagonally. Each Bishop stays on the same color square for the entire game \u00e2\u20ac\u201d you start with one light-squared Bishop and one dark-squared Bishop. Bishops are strongest on long, open diagonals.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Knight",
+          "text": "The Knight moves in an 'L' shape: two squares in one direction and then one square perpendicular (or vice versa). The Knight is the only piece that can jump over other pieces. Knights are especially effective in crowded positions where other pieces are blocked.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Pawn",
+          "text": "Pawns move forward one square at a time, but capture diagonally one square forward. On a Pawn's very first move, it has the option to advance two squares forward instead of one. Pawns can never move backward. Despite being the weakest piece individually, Pawns are the 'soul of chess' \u00e2\u20ac\u201d their structure shapes the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Capturing",
+          "text": "Most pieces capture by moving onto a square occupied by an opponent's piece, which removes that piece from the board. The Pawn is the exception: it moves forward but captures diagonally. You can never capture your own pieces, and capturing is always optional (except when it is the only legal move to escape check).",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Castling",
+          "text": "Castling is a special move involving the King and one Rook. The King moves two squares toward a Rook, and that Rook jumps to the other side of the King. Kingside castling (short) moves the King from e1 to g1 and the Rook from h1 to f1. Queenside castling (long) moves the King from e1 to c1 and the Rook from a1 to d1. You may only castle if: neither the King nor that Rook has moved yet, there are no pieces between them, the King is not currently in check, and the King does not pass through or land on a square attacked by an enemy piece.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "En Passant",
+          "text": "En passant is a special Pawn capture. If an opponent's Pawn advances two squares from its starting position and lands beside your Pawn, you may capture it as if it had only moved one square forward. This capture must be made immediately on the very next move or the right to do so is lost. En passant is the most commonly forgotten rule in chess.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Pawn Promotion",
+          "text": "When a Pawn reaches the opposite end of the board (the 8th rank for White, the 1st rank for Black), it must be promoted. The player replaces the Pawn with a Queen, Rook, Bishop, or Knight of the same color. Promoting to a Queen is almost always the best choice. Yes, you can have two Queens on the board at the same time!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Check and Checkmate",
+          "text": "When a piece directly attacks the opponent's King, the King is in 'check.' The player in check must immediately resolve it by: (1) moving the King to a safe square, (2) blocking the attacking piece with another piece, or (3) capturing the attacking piece. If none of these options are possible, it is 'checkmate' and the game is over \u00e2\u20ac\u201d the player delivering checkmate wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Stalemate and Draws",
+          "text": "If a player is NOT in check but has no legal moves available, the game is a 'stalemate' \u00e2\u20ac\u201d a draw. Other draw conditions include: draw by agreement (both players agree), threefold repetition (the same position occurs three times), the fifty-move rule (50 consecutive moves with no capture or Pawn move), and insufficient material (neither side has enough pieces to deliver checkmate, such as King vs. King).",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The King",
+          "bullets": [
+            "Moves one square in any direction",
+            "Cannot move into an attacked square",
+            "Most important piece \u00e2\u20ac\u201d losing it means losing the game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Queen",
+          "bullets": [
+            "Moves any number of squares horizontally, vertically, or diagonally",
+            "Most powerful piece on the board",
+            "Cannot jump over other pieces"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Rook",
+          "bullets": [
+            "Moves any number of squares horizontally or vertically",
+            "Cannot jump over pieces",
+            "Strongest on open files"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Bishop",
+          "bullets": [
+            "Moves any number of squares diagonally",
+            "Stays on the same color square the entire game",
+            "Strongest on long, open diagonals"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Knight",
+          "bullets": [
+            "Moves in an L-shape: two squares plus one square perpendicular",
+            "Only piece that can jump over other pieces",
+            "Effective in crowded positions"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Pawn",
+          "bullets": [
+            "Moves forward one square; optionally two squares on its first move",
+            "Captures diagonally one square forward",
+            "Cannot move backward"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Capturing",
+          "bullets": [
+            "Move onto an opponent's square to capture their piece",
+            "Pawns capture diagonally, not straight ahead",
+            "Capturing is optional unless it is the only way to escape check"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Castling",
+          "bullets": [
+            "King moves two squares toward a Rook; Rook jumps to the other side",
+            "Kingside (short) or Queenside (long)",
+            "Neither piece can have moved; no pieces between them; King not in, through, or into check"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "En Passant",
+          "bullets": [
+            "Special Pawn capture when opponent advances two squares and lands beside your Pawn",
+            "Capture as if the Pawn moved only one square",
+            "Must be done immediately on the next move or the right is lost"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Pawn Promotion",
+          "bullets": [
+            "Pawn reaching the far end of the board must be promoted",
+            "Replace with Queen, Rook, Bishop, or Knight",
+            "Promoting to Queen is almost always best"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Check and Checkmate",
+          "bullets": [
+            "Check: King is under direct attack",
+            "Must resolve by moving King, blocking, or capturing the attacker",
+            "Checkmate: no way to escape check \u00e2\u20ac\u201d game over, attacker wins"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Stalemate and Draws",
+          "bullets": [
+            "Stalemate: not in check but no legal moves \u00e2\u20ac\u201d draw",
+            "Also draw by agreement, threefold repetition, fifty-move rule, or insufficient material"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "text": "Let's walk through a scripted game between two players \u00e2\u20ac\u201d White and Black \u00e2\u20ac\u201d to see the rules in action. We will demonstrate opening principles, special moves, tactical ideas, and common mistakes. Set up the board and follow along move by move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "White Opens: King's Pawn (1. e4)",
+          "text": "White begins by moving the Pawn in front of the King two squares forward to e4. This is the most popular opening move in chess. It immediately controls two important center squares (d5 and f5) and opens lines for the Queen and the light-squared Bishop.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Black Responds: Sicilian Defense (1... c5)",
+          "text": "Black pushes the c-Pawn two squares to c5. This is the Sicilian Defense, Black's most popular response to 1. e4. It fights for the center from the side rather than mirroring White's move. Already, Black is showing fighting spirit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "White Develops a Knight (2. Nf3)",
+          "text": "White develops the King's Knight to f3. This is a textbook developing move \u00e2\u20ac\u201d it brings a piece toward the center, prepares to castle kingside, and attacks the d4 and e5 squares. Good opening play means getting your pieces off the back rank quickly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Black's Mistake #1: Moving the Same Pawn Again (2... c4?)",
+          "text": "Instead of developing a piece, Black pushes the c-Pawn again to c4. This is a mistake! Black wastes a turn advancing a Pawn that no longer controls the center, rather than developing a Knight or Bishop. In the opening, every move should bring a new piece into play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "White Develops the Bishop (3. Bc4)",
+          "text": "Wait \u00e2\u20ac\u201d that c4-Pawn is actually there. White develops the light-squared Bishop to c4 by capturing Black's Pawn on c4 (3. Bxc4). White gains material and develops a piece simultaneously, placing the Bishop on a powerful diagonal aimed at f7, one of the weakest squares in Black's position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Black Develops a Knight (3... Nc6)",
+          "text": "Black brings the Queen's Knight to c6, a good developing move. The Knight controls d4 and e5, blocks the c-file, and prepares to support central play. Better late than never \u00e2\u20ac\u201d Black starts developing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "White Castles Kingside (4. O-O)",
+          "text": "White castles kingside! The King moves from e1 to g1, and the Rook jumps from h1 to f1. White has tucked the King into safety behind a wall of Pawns and activated the Rook \u00e2\u20ac\u201d all within four moves. This is a model opening: develop pieces, then castle early.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Black's Mistake #2: Bringing the Queen Out Early (4... Qb6?)",
+          "text": "Black brings the Queen to b6, attacking the b2-Pawn. This looks aggressive, but it is a common beginner mistake. The Queen is vulnerable out in the open this early \u00e2\u20ac\u201d White can gain time by developing pieces that attack the Queen, forcing it to retreat.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "White Plays d3, Building the Center (5. d3)",
+          "text": "White calmly plays d3, supporting the e4-Pawn and opening a path for the dark-squared Bishop. White does not panic about the b2-Pawn. Solid development is more important than defending every Pawn immediately when you have a lead in development.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Black Takes the Bait (5... Qxb2?)",
+          "text": "Black captures the b2-Pawn with the Queen. While Black wins a Pawn, the Queen is now deep in enemy territory with no support. White will use this to gain a huge development advantage by attacking the Queen while bringing out more pieces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "White Demonstrates a Pin (6. Bd2 \u00e2\u20ac\u201d Developing with Tempo)",
+          "text": "White develops the dark-squared Bishop to d2, and now the Knight on c6 is pinned to the Queen! If the Knight moves, White's Bishop captures the Queen on b2. This is a 'pin' \u00e2\u20ac\u201d one of the most important tactical patterns in chess. A piece is pinned when moving it would expose a more valuable piece behind it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Black Retreats the Queen (6... Qa3)",
+          "text": "Black moves the Queen to a3 to escape. The Queen has now moved three times in the opening while White has developed four pieces. Black is far behind in development \u00e2\u20ac\u201d a direct consequence of bringing the Queen out too early and chasing Pawns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "White Demonstrates a Fork (7. Ng5!)",
+          "text": "White jumps the Knight to g5, creating a 'fork' \u00e2\u20ac\u201d the Knight simultaneously threatens f7 (a classic weakness near Black's King) and eyes the d5 square. A fork is when one piece attacks two or more enemy pieces at the same time. Black must deal with the threat to f7 immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Black's Mistake #3: Forgetting About f7 (7... d6?)",
+          "text": "Black plays d6, trying to develop the dark-squared Bishop. But this ignores the critical threat to f7! Black needed to play a move like e6 to defend f7 directly, or Nh6 to add a defender. Not seeing immediate threats is one of the most common errors for newer players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "White Strikes f7 (8. Bxf7+)",
+          "text": "White's Bishop captures the Pawn on f7 with check! The King is attacked and must respond. This sacrifice cracks open Black's King position. The Knight on g5 and Bishop on f7 are working together beautifully \u00e2\u20ac\u201d this is piece coordination in action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Black's King Is Displaced (8... Kd8)",
+          "text": "Black cannot castle anymore because the King has moved. The King retreats to d8, but it is stuck in the center of the board \u00e2\u20ac\u201d the most dangerous place for a King. Black has lost the right to castle, and White has a massive advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "White Demonstrates a Skewer (9. Be6!)",
+          "text": "White retreats the Bishop to e6, and now it is a 'skewer' \u00e2\u20ac\u201d the Bishop attacks through the e-file toward the King on d8, and if the King moves, the Rook on a8 or other pieces behind it are exposed. A skewer is the reverse of a pin: the more valuable piece is in front and must move, exposing the piece behind it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Black Tries to Develop (9... Nf6)",
+          "text": "Black finally develops the King's Knight to f6, trying to get some pieces active and defend. But White's lead in development and Black's exposed King make the position very difficult. Let's see White finish the attack.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "White Piles On (10. Nc3)",
+          "text": "White develops the last minor piece \u00e2\u20ac\u201d the Queen's Knight to c3. Every single White piece is now developed and active, while Black still has a Bishop and Rook stuck on the back rank. This is what happens when one side develops efficiently and the other wastes time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 21,
+          "title": "Black Blunders Into Checkmate (10... Ke8??)",
+          "text": "Black moves the King back to e8, walking into disaster. This is the kind of mistake that happens when your King is exposed and your pieces are undeveloped \u00e2\u20ac\u201d there are threats everywhere and it is hard to find safe squares.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 22,
+          "title": "White Delivers Checkmate (11. Nd5!)",
+          "text": "White plays Knight to d5. The Knight attacks f6, driving away the defender, and also eyes c7. After Nxf6+, the Black King has no escape. Together with the Bishop on e6 and the other Knight, White has constructed a mating net. Checkmate! The game is over.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 23,
+          "title": "Post-Game Review",
+          "text": "Let's review the key mistakes Black made: (1) moving the same Pawn twice instead of developing, (2) bringing the Queen out too early and chasing Pawns, (3) ignoring a direct threat to f7. White won by following simple principles: develop all your pieces, castle early, control the center, and punish mistakes with tactics like pins, forks, and skewers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 24,
+          "title": "Congratulations!",
+          "text": "You have just walked through a full chess game featuring real opening principles, three major tactical patterns (pin, fork, and skewer), and common mistakes to avoid. You now know more than enough to start playing! Set up the board and try a game \u00e2\u20ac\u201d every game you play will teach you something new. Have fun!",
+          "image": null,
+          "cta": true,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "bullets": [
+            "Scripted game between White and Black demonstrating real concepts"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "White Opens: King's Pawn (1. e4)",
+          "bullets": [
+            "Most popular opening move",
+            "Controls d5 and f5, opens lines for Queen and Bishop"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Black Responds: Sicilian Defense (1... c5)",
+          "bullets": [
+            "Fights for the center from the flank",
+            "Black's most popular response to 1. e4"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "White Develops a Knight (2. Nf3)",
+          "bullets": [
+            "Develops toward the center",
+            "Prepares kingside castling"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Black's Mistake #1: Moving the Same Pawn Again",
+          "bullets": [
+            "Wastes a tempo pushing the same Pawn",
+            "Lesson: develop a new piece every move in the opening"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "White Develops the Bishop (3. Bxc4)",
+          "bullets": [
+            "Gains material while developing",
+            "Bishop aims at the weak f7 square"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Black Develops a Knight (3... Nc6)",
+          "bullets": [
+            "Good developing move controlling d4 and e5"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "White Castles Kingside (4. O-O)",
+          "bullets": [
+            "King tucked to safety",
+            "Rook activated \u00e2\u20ac\u201d model opening play"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Black's Mistake #2: Bringing the Queen Out Early",
+          "bullets": [
+            "Queen is vulnerable to attack in the opening",
+            "Opponents gain tempo by developing pieces that threaten it"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "White Plays d3, Building the Center",
+          "bullets": [
+            "Supports e4 and opens a path for the dark-squared Bishop",
+            "Solid development over Pawn defense"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Black Takes the Bait (5... Qxb2?)",
+          "bullets": [
+            "Wins a Pawn but Queen is stranded in enemy territory",
+            "White gets a huge development lead"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "White Demonstrates a Pin",
+          "bullets": [
+            "Knight on c6 is pinned to the Queen",
+            "A pin restricts a piece from moving because it would expose a more valuable piece"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Black Retreats the Queen",
+          "bullets": [
+            "Queen has moved three times; White has developed four pieces",
+            "Development lead is crushing"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "White Demonstrates a Fork",
+          "bullets": [
+            "Knight on g5 attacks f7 and d5 simultaneously",
+            "A fork attacks two or more pieces at once"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Black's Mistake #3: Ignoring the Threat",
+          "bullets": [
+            "Fails to defend f7",
+            "Always check for opponent threats before making your move"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "White Strikes f7 with Check",
+          "bullets": [
+            "Bishop captures on f7, exposing Black's King",
+            "Piece coordination between Bishop and Knight"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Black's King Is Displaced",
+          "bullets": [
+            "King forced to d8 \u00e2\u20ac\u201d loses the right to castle",
+            "King stuck in the center is very dangerous"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "White Demonstrates a Skewer",
+          "bullets": [
+            "Bishop attacks the King with pieces behind it exposed",
+            "A skewer is a reverse pin: the more valuable piece is in front"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Black Tries to Develop",
+          "bullets": [
+            "Too little, too late \u00e2\u20ac\u201d White's lead is overwhelming"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "White Piles On",
+          "bullets": [
+            "All White pieces are developed and active",
+            "Black still has pieces stuck on the back rank"
+          ]
+        },
+        {
+          "step": 21,
+          "title": "Black Blunders Into Checkmate",
+          "bullets": [
+            "Exposed King and undeveloped pieces lead to fatal errors"
+          ]
+        },
+        {
+          "step": 22,
+          "title": "White Delivers Checkmate",
+          "bullets": [
+            "Knight, Bishop, and pieces combine for a mating net",
+            "Game over \u00e2\u20ac\u201d White wins by checkmate"
+          ]
+        },
+        {
+          "step": 23,
+          "title": "Post-Game Review",
+          "bullets": [
+            "Black's mistakes: same Pawn twice, Queen out early, ignored threats",
+            "White's principles: develop pieces, castle early, control center, use tactics"
+          ]
+        },
+        {
+          "step": 24,
+          "title": "Congratulations!",
+          "bullets": [
+            "You have seen pins, forks, skewers, and common mistakes",
+            "Set up the board and try a game \u00e2\u20ac\u201d every game teaches you something new"
+          ]
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Control the Center",
+          "text": "The four central squares (d4, d5, e4, e5) are the most important real estate on the board. Pieces placed in or near the center control more squares and have more mobility. Open with a center Pawn (e4 or d4) and try to maintain Pawns and pieces in the center throughout the opening.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Develop Your Pieces Quickly",
+          "text": "In the opening, bring your Knights and Bishops off the back rank as fast as possible. Each move should ideally develop a new piece. Pieces sitting on the back rank are doing nothing \u00e2\u20ac\u201d a developed piece is a working piece. Aim to have all minor pieces (Knights and Bishops) developed within the first 8-10 moves.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Castle Early",
+          "text": "Castle within the first 10 moves to get your King to safety and connect your Rooks. A King stuck in the center is vulnerable to attacks along open files and diagonals. Castling kingside is more common because it requires moving fewer pieces out of the way.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Don't Move the Same Piece Twice in the Opening",
+          "text": "Every time you move the same piece again, you give your opponent a free turn to develop. The only exception is if you are capturing something valuable or avoiding a real threat. Otherwise, develop a different piece with each move.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Don't Bring Your Queen Out Too Early",
+          "text": "The Queen is powerful, but she is also a target. If you bring her out early, your opponent will develop pieces while attacking your Queen, gaining time and activity. Keep the Queen back until you have developed your minor pieces and castled.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Don't Sacrifice Material Without Good Reason",
+          "text": "Every piece has a relative value: Pawn = 1, Knight = 3, Bishop = 3, Rook = 5, Queen = 9. Avoid giving up material for free. A piece is only worth sacrificing if you gain a forced checkmate, win back more material, or gain a decisive positional advantage. Beginners often lose by 'hanging' (leaving undefended) pieces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Think About Your Opponent's Threats",
+          "text": "Before making any move, ask yourself: 'What did my opponent just threaten?' Check if any of your pieces are attacked, if your King is safe, and whether your opponent has a tactical trick. Defensive awareness prevents most blunders.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Have a Plan",
+          "text": "A bad plan is better than no plan at all. Every move should have a purpose \u00e2\u20ac\u201d whether it is developing a piece, controlling a key square, starting an attack, or improving your worst-placed piece. If you do not know what to do, ask: 'Which of my pieces is least active?' and try to improve it.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Control the Center",
+          "bullets": [
+            "d4, d5, e4, e5 are the key squares",
+            "Open with a center Pawn and maintain central presence"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Develop Your Pieces Quickly",
+          "bullets": [
+            "Bring Knights and Bishops out first",
+            "Each move should develop a new piece",
+            "Aim for all minor pieces out within 8-10 moves"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Castle Early",
+          "bullets": [
+            "Castle within the first 10 moves",
+            "Gets King to safety and connects Rooks",
+            "Kingside castling is more common"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Don't Move the Same Piece Twice",
+          "bullets": [
+            "Each repeated move gives opponent a free development turn",
+            "Exception: capturing something valuable or escaping a real threat"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Don't Bring Your Queen Out Too Early",
+          "bullets": [
+            "Queen is a target \u00e2\u20ac\u201d opponents gain tempo attacking her",
+            "Develop minor pieces and castle before activating the Queen"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Don't Sacrifice Material Without Good Reason",
+          "bullets": [
+            "Piece values: Pawn=1, Knight=3, Bishop=3, Rook=5, Queen=9",
+            "Only sacrifice for checkmate, material gain, or decisive advantage"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Think About Your Opponent's Threats",
+          "bullets": [
+            "Before every move, check what your opponent is threatening",
+            "Defensive awareness prevents most blunders"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Have a Plan",
+          "bullets": [
+            "Every move should have a purpose",
+            "If unsure, improve your worst-placed piece"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Pins",
+          "text": "A pin occurs when an attacking piece threatens a piece that cannot move without exposing a more valuable piece behind it. An 'absolute pin' is against the King \u00e2\u20ac\u201d the pinned piece literally cannot move because it would leave the King in check. A 'relative pin' is against another valuable piece like the Queen. Pins are one of the most common winning tactics. Look for opportunities to pin Knights against Kings or Queens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Forks",
+          "text": "A fork is when a single piece attacks two or more enemy pieces simultaneously. Knights are the most dangerous forking pieces because they attack in unusual patterns that are hard to see coming. A Knight fork on the King and Queen is one of the most devastating tactics in chess. But any piece can fork \u00e2\u20ac\u201d even Pawns. Always scan for double attacks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Skewers",
+          "text": "A skewer is the reverse of a pin \u00e2\u20ac\u201d a valuable piece is attacked, and when it moves, a less valuable piece behind it is captured. Bishops, Rooks, and Queens can all deliver skewers along lines and diagonals. A common example: a Bishop checks the King, and when the King moves, the Bishop captures a Rook behind it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Discovered Attacks",
+          "text": "A discovered attack happens when one piece moves out of the way, revealing an attack from a piece behind it. The moving piece can create its own threat, giving you two attacks for the price of one move. A 'discovered check' (the revealed attack is a check) is especially powerful because the opponent must deal with the check, giving you a free move with the piece that moved.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Pawn Structure",
+          "text": "Pawn structure \u00e2\u20ac\u201d the arrangement of your Pawns \u00e2\u20ac\u201d shapes the entire game. Key concepts: 'doubled Pawns' (two Pawns on the same file, generally weak), 'isolated Pawns' (no friendly Pawns on adjacent files, vulnerable to attack), 'passed Pawns' (no enemy Pawns can block them from promoting, very strong in endgames), and 'Pawn chains' (diagonal Pawns supporting each other, attack at the base).",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Endgame Basics: King Activity",
+          "text": "In the endgame (when most pieces are traded off), the King transforms from a liability into a powerful attacking piece. Bring your King to the center and use it aggressively to support Pawn promotion, attack enemy Pawns, and control key squares. The principle of 'King opposition' \u00e2\u20ac\u201d placing your King directly facing the opponent's King with one square between them \u00e2\u20ac\u201d is crucial for winning Pawn endgames.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Endgame Basics: Passed Pawns",
+          "text": "A passed Pawn is one that has no opposing Pawns blocking or guarding its path to promotion. Passed Pawns become increasingly powerful as pieces are traded. The rule of thumb: create a passed Pawn and push it. Your opponent will be forced to dedicate pieces to stopping it, giving you freedom elsewhere. 'A passed Pawn is a criminal that must be kept under lock and key' \u00e2\u20ac\u201d Aron Nimzowitsch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Piece Coordination",
+          "text": "Individual pieces are strong, but coordinated pieces are devastating. Rooks are strongest when doubled on an open file (one Rook behind the other). Bishops work beautifully in a 'Bishop pair' controlling both color diagonals. Knights and Bishops complement each other. The goal is to make your pieces work together toward a shared purpose \u00e2\u20ac\u201d whether that is attacking the King, controlling a key file, or supporting a passed Pawn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Fool's Mate and Scholar's Mate",
+          "text": "Fool's Mate is the fastest checkmate: 1. f3 e5 2. g4 Qh4# \u00e2\u20ac\u201d Black mates in just two moves because White fatally weakened the King's diagonal. Scholar's Mate (1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6?? 4. Qxf7#) targets the f7 square early. Knowing these patterns teaches a critical lesson: always be aware of your King's safety, especially along diagonals, and watch for threats to f7/f2 in the opening.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Basic Opening Strategy",
+          "text": "Beyond the individual tips, here is a framework for the opening phase: (1) Control the center with Pawns. (2) Develop Knights before Bishops \u00e2\u20ac\u201d Knights have fewer good squares, so develop them first. (3) Castle early, usually kingside. (4) Connect your Rooks by clearing the back rank. (5) Place Rooks on open or semi-open files. (6) Only then start middlegame operations. Following this framework will give you a solid, playable position out of the opening against any opponent.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Pins",
+          "bullets": [
+            "A piece cannot move without exposing a more valuable piece behind it",
+            "Absolute pin (against King) \u00e2\u20ac\u201d piece literally cannot move",
+            "Relative pin (against Queen or other piece) \u00e2\u20ac\u201d piece can move but at great cost"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Forks",
+          "bullets": [
+            "One piece attacks two or more enemy pieces simultaneously",
+            "Knights are the most dangerous forking pieces",
+            "Any piece can fork, including Pawns"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Skewers",
+          "bullets": [
+            "Reverse of a pin: valuable piece is in front and must move",
+            "Piece behind it is then captured",
+            "Bishops, Rooks, and Queens can deliver skewers"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Discovered Attacks",
+          "bullets": [
+            "Moving one piece reveals an attack from a piece behind it",
+            "Two threats for the price of one move",
+            "Discovered check is especially powerful"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pawn Structure",
+          "bullets": [
+            "Doubled Pawns: generally weak",
+            "Isolated Pawns: vulnerable to attack",
+            "Passed Pawns: very strong in endgames",
+            "Attack Pawn chains at the base"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Endgame Basics: King Activity",
+          "bullets": [
+            "King becomes a powerful piece in the endgame",
+            "Bring King to the center and use it aggressively",
+            "King opposition is crucial in Pawn endgames"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Basics: Passed Pawns",
+          "bullets": [
+            "No opposing Pawns can block its path to promotion",
+            "Create a passed Pawn and push it",
+            "Opponent must dedicate pieces to stopping it"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Piece Coordination",
+          "bullets": [
+            "Doubled Rooks on an open file are very strong",
+            "Bishop pair controls both color diagonals",
+            "Make pieces work together toward a shared goal"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Fool's Mate and Scholar's Mate",
+          "bullets": [
+            "Fool's Mate: fastest checkmate in 2 moves exploiting weakened King diagonal",
+            "Scholar's Mate: targets f7 square early with Queen and Bishop",
+            "Lesson: always watch King safety and f7/f2 threats"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Basic Opening Strategy",
+          "bullets": [
+            "Control center, develop Knights before Bishops, castle early",
+            "Connect Rooks by clearing the back rank",
+            "Place Rooks on open files, then start middlegame plans"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "King",
+          "definition": "The most important piece. Moves one square in any direction. If checkmated, the game is lost.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Queen",
+          "definition": "The most powerful piece. Moves any number of squares horizontally, vertically, or diagonally.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Rook",
+          "definition": "Moves any number of squares horizontally or vertically. Worth approximately 5 points.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Bishop",
+          "definition": "Moves any number of squares diagonally. Each Bishop stays on one color for the entire game. Worth approximately 3 points.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Knight",
+          "definition": "Moves in an L-shape (two squares plus one square perpendicular). The only piece that can jump over others. Worth approximately 3 points.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Pawn",
+          "definition": "Moves forward one square (or two on its first move). Captures diagonally. Cannot move backward. Worth 1 point.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Castling",
+          "definition": "A special move where the King moves two squares toward a Rook, and the Rook jumps to the other side. Requires neither piece to have moved, no pieces between them, and the King not in, through, or into check.",
+          "category": "Special Moves"
+        },
+        {
+          "term": "Kingside Castling (O-O)",
+          "definition": "Castling toward the h-file. The King moves from e1 to g1 (or e8 to g8) and the Rook from h1 to f1 (or h8 to f8). Also called 'short castling.'",
+          "category": "Special Moves"
+        },
+        {
+          "term": "Queenside Castling (O-O-O)",
+          "definition": "Castling toward the a-file. The King moves from e1 to c1 (or e8 to c8) and the Rook from a1 to d1 (or a8 to d8). Also called 'long castling.'",
+          "category": "Special Moves"
+        },
+        {
+          "term": "En Passant",
+          "definition": "A special Pawn capture. When an opponent's Pawn advances two squares and lands beside your Pawn, you may capture it as if it moved only one square. Must be done immediately on the next move.",
+          "category": "Special Moves"
+        },
+        {
+          "term": "Pawn Promotion",
+          "definition": "When a Pawn reaches the opposite end of the board, it must be replaced with a Queen, Rook, Bishop, or Knight of the same color. Promoting to Queen is almost always the best choice.",
+          "category": "Special Moves"
+        },
+        {
+          "term": "Underpromotion",
+          "definition": "Promoting a Pawn to a Rook, Bishop, or Knight instead of a Queen. Rare, but sometimes necessary to avoid stalemate or to deliver a Knight fork.",
+          "category": "Special Moves"
+        },
+        {
+          "term": "Pin",
+          "definition": "A tactic where an attacking piece threatens a piece that cannot move without exposing a more valuable piece behind it. An absolute pin is against the King; a relative pin is against another piece.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Fork",
+          "definition": "A tactic where a single piece attacks two or more enemy pieces simultaneously. Knights are especially effective at forking because of their unusual movement pattern.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Skewer",
+          "definition": "The reverse of a pin. An attacking piece targets a valuable piece, and when it moves, a less valuable piece behind it is captured.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Discovered Attack",
+          "definition": "A tactic where moving one piece reveals an attack from a piece behind it, creating two threats in one move.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Discovered Check",
+          "definition": "A discovered attack where the revealed attack is a check on the King. Especially powerful because the opponent must address the check, giving the moving piece a free action.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Double Check",
+          "definition": "A check delivered by two pieces simultaneously \u00e2\u20ac\u201d typically the moving piece and the revealed piece. The only way to escape a double check is to move the King.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Sacrifice",
+          "definition": "Intentionally giving up material (a piece or Pawn) to gain a positional advantage, a mating attack, or to win back more material later.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Zugzwang",
+          "definition": "A situation where any move a player makes worsens their position. Common in endgames. The obligation to move is a disadvantage.",
+          "category": "Tactics"
+        },
+        {
+          "term": "Check",
+          "definition": "When a piece directly attacks the opponent's King. The player in check must immediately escape by moving the King, blocking, or capturing the attacker.",
+          "category": "Game States"
+        },
+        {
+          "term": "Checkmate",
+          "definition": "When a King is in check and there is no legal way to escape. The game is over and the player delivering checkmate wins.",
+          "category": "Game States"
+        },
+        {
+          "term": "Stalemate",
+          "definition": "When a player is not in check but has no legal moves. The game is a draw.",
+          "category": "Game States"
+        },
+        {
+          "term": "Draw",
+          "definition": "A game with no winner. Can occur by stalemate, agreement, threefold repetition, the fifty-move rule, or insufficient material.",
+          "category": "Game States"
+        },
+        {
+          "term": "Resignation",
+          "definition": "A player voluntarily concedes the game, typically when their position is hopeless. The opponent is awarded the win.",
+          "category": "Game States"
+        },
+        {
+          "term": "Threefold Repetition",
+          "definition": "A draw condition where the exact same board position (with the same player to move and same castling/en passant rights) occurs three times. Either player may claim a draw.",
+          "category": "Game States"
+        },
+        {
+          "term": "Fifty-Move Rule",
+          "definition": "A draw condition where 50 consecutive moves have been made by both sides with no Pawn move and no capture.",
+          "category": "Game States"
+        },
+        {
+          "term": "Insufficient Material",
+          "definition": "A draw condition where neither side has enough pieces to deliver checkmate. Examples: King vs King, King+Bishop vs King, King+Knight vs King.",
+          "category": "Game States"
+        },
+        {
+          "term": "Algebraic Notation",
+          "definition": "The standard system for recording chess moves. Files are lettered a-h (left to right from White's view) and ranks are numbered 1-8 (bottom to top from White's view). A move is written as the piece letter plus the destination square (e.g., Nf3 means Knight to f3). Pawns omit the piece letter (e.g., e4).",
+          "category": "Notation"
+        },
+        {
+          "term": "Notation Symbols",
+          "definition": "Common symbols: x = capture, + = check, # = checkmate, O-O = kingside castling, O-O-O = queenside castling, = = promotion (e.g., e8=Q), ! = good move, ? = mistake, !! = brilliant move, ?? = blunder.",
+          "category": "Notation"
+        },
+        {
+          "term": "Fool's Mate",
+          "definition": "The fastest possible checkmate: 1. f3 e5 2. g4 Qh4#. White weakens the King's diagonal fatally. A reminder to never weaken squares around your King.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Scholar's Mate",
+          "definition": "A four-move checkmate: 1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6?? 4. Qxf7#. Targets the weak f7 square. Easily defended if you know the pattern.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Opening Principles",
+          "definition": "The fundamental guidelines for the first phase of the game: control the center, develop pieces quickly, castle early, do not move the same piece twice, do not bring the Queen out early.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Development",
+          "definition": "Moving pieces from their starting squares to active positions. A lead in development means your pieces are more active than your opponent's, giving you the initiative.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Tempo",
+          "definition": "A unit of time measured in moves. 'Gaining a tempo' means forcing your opponent to waste a move (e.g., by attacking their piece). 'Losing a tempo' means making a move that does not improve your position.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Initiative",
+          "definition": "Having the ability to create threats and dictate the flow of the game. The player with the initiative forces the opponent to react rather than execute their own plans.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Control the Center",
+          "definition": "The principle of placing Pawns and pieces to influence the four central squares (d4, d5, e4, e5). Central control gives pieces maximum mobility and flexibility.",
+          "category": "Strategy"
+        },
+        {
+          "term": "King Safety",
+          "definition": "Keeping the King protected, usually by castling and maintaining a solid Pawn shield in front of it. A King exposed in the center is vulnerable to attack.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Piece Value",
+          "definition": "Relative point values used to evaluate trades: Pawn = 1, Knight = 3, Bishop = 3, Rook = 5, Queen = 9. The King is invaluable. These are guidelines, not absolute \u00e2\u20ac\u201d position matters.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Passed Pawn",
+          "definition": "A Pawn with no opposing Pawns blocking or guarding its path to promotion. Very powerful in endgames and often decides the outcome.",
+          "category": "Strategy"
+        }
+      ]
+    }
+  }
+}

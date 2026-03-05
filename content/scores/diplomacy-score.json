@@ -1,0 +1,21 @@
+{
+  "game_id": "diplomacy",
+  "scoring_type": "win-lose",
+  "categories": [
+    {
+      "id": "supply_centers",
+      "label": "Supply Centers Controlled",
+      "type": "manual",
+      "description": "Number of supply centers your Great Power controls (18 to win)"
+    },
+    {
+      "id": "result",
+      "label": "Game Result",
+      "type": "enum",
+      "options": ["Solo Victory (18 SC)", "Draw", "Survived", "Eliminated"],
+      "description": "Final outcome for your Great Power"
+    }
+  ],
+  "win_condition": "Control 18 of 34 supply centers, or share in a draw by agreement",
+  "tiebreaker": "No tiebreaker — game continues until 18 SC or draw agreement"
+}

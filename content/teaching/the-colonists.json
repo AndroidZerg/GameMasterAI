@@ -1,0 +1,173 @@
+{
+  "game_id": "the-colonists",
+  "title": "The Colonists",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {"step": 1, "title": "Decide How Many Eras to Play", "text": "The Colonists can span 1 to 4 Eras. Before setup, agree on which Era to start in and which to end with. Era I alone takes about 30-60 minutes. All 4 Eras can take 4-6 hours. For your first game, play Era I only (use the side of the Community board showing 12 Building spots).", "image": null, "image_caption": null},
+        {"step": 2, "title": "Place Buildings, Storage, and Goods", "text": "Place all Building tiles and Storage Facilities for the Eras you're playing at the edge of the play area. Set out the goods you'll need: Wood, Clay, Planks, Bricks, Ore, Coal, Iron, Robes, Tools, Food, and Dollars. Later Eras introduce additional goods. Return anything from unplayed Eras to the box.", "image": null, "image_caption": null},
+        {"step": 3, "title": "Set Up Colonies", "text": "Shuffle the 9 Colony overview cards and draw 4 at random. These define the active Colonies for the game — each provides unique Embassies and special rules. Place the corresponding Embassy tiles (one per player per Colony) nearby. In Era III, a 5th Colony is added.", "image": null, "image_caption": null},
+        {"step": 4, "title": "Build the Starting Game Board", "text": "Place the first Market tile in the center. Take the 12 starting Place tiles (marked '0' on back, excluding Day Laborer). Shuffle face down. Starting with the first player, each player draws a Place and adds it to the board — each must share at least 2 edges with existing tiles. Then the starting player adds the second Market (at least 2 Places away from the first).", "image": null, "image_caption": null},
+        {"step": 5, "title": "Set Up Your Community Board", "text": "Take a Community board in your color (12-spot side for Era I only, 20-spot side otherwise). Place 2 Farms on available Building spots with 1 Farmer in each. Fill your Basic Storage with any combination of Wood and Clay (up to 3 total). Place 1 Food in your Warehouse and 6 Tools in the Toolbox.", "image": null, "image_caption": null},
+        {"step": 6, "title": "Take Your Steward and Cards", "text": "Take 1 Steward figure, a Balance card, and an Overview card in your color. You'll place your Steward on your first turn. The Balance card tracks income vs. expenses during the Sustenance phase (mainly needed from Era II onward).", "image": null, "image_caption": null},
+        {"step": 7, "title": "Prepare Era I Cards", "text": "Place the Era I card to the left of the Round card. Shuffle the 7 Era I Market cards, return 2 unseen to the box, and place the remaining 5 face down to the right of the Round card. Shuffle Era I Improvements into a face-down draw pile. Shuffle Era I Places face down nearby. Place the Round indicator.", "image": null, "image_caption": null},
+        {"step": 8, "title": "Determine Starting Player", "text": "Randomly determine who goes first and give them the starting player marker. Starting player money: none (Era I starts lean). Each player begins with their Basic Storage goods, 2 occupied Farms, 1 Food, and 6 Tools. You're ready to build your community!", "image": null, "image_caption": null}
+      ],
+      "summary": [
+        {"step": 1, "title": "Decide Eras to Play", "bullets": ["Choose start and end Era (1-4)", "Era I alone: ~30-60 min; All 4: ~4-6 hours", "First game: Era I only, 12-spot Community board"]},
+        {"step": 2, "title": "Place Buildings, Storage, and Goods", "bullets": ["Building tiles and Storage Facilities at play area edge", "Goods: Wood, Clay, Planks, Bricks, Ore, Coal, Iron, Robes, Tools, Food, Dollars", "Return unused Era components to box"]},
+        {"step": 3, "title": "Set Up Colonies", "bullets": ["Draw 4 of 9 Colony overviews", "Each Colony has unique Embassies and rules", "Place Embassy tiles (1 per player per Colony)"]},
+        {"step": 4, "title": "Build the Starting Game Board", "bullets": ["First Market in center", "12 starting Places drawn and placed (share ≥2 edges)", "Second Market placed ≥2 Places from first"]},
+        {"step": 5, "title": "Set Up Community Board", "bullets": ["2 Farms with 1 Farmer each on Building spots", "Basic Storage: up to 3 Wood/Clay (your choice)", "1 Food in Warehouse, 6 Tools in Toolbox"]},
+        {"step": 6, "title": "Take Steward and Cards", "bullets": ["1 Steward figure (placed on first turn)", "Balance card for Sustenance tracking", "Overview card for reference"]},
+        {"step": 7, "title": "Prepare Era I Cards", "bullets": ["Era I card beside Round card", "5 of 7 Market cards (2 returned unseen)", "Shuffle Era I Improvements and Places"]},
+        {"step": 8, "title": "Determine Starting Player", "bullets": ["Random first player, gets marker", "All start with storage goods, 2 Farms, 1 Food, 6 Tools"]}
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {"step": 1, "title": "Game Structure Overview", "text": "Each Era has 5 Years. Each Year has 2 Half-Years (rounds). Each Half-Year, every player takes 3 consecutive turns. At the end of each Year: redistribute workers, sustain them (feed), and produce goods. At the end of the final Era, score everything.", "image": null, "image_caption": null},
+        {"step": 2, "title": "Start of an Era", "text": "At each new Era, place the Era card (showing new game elements, max Colony level, and Fee amount). Set up new Market cards (5 of 7), shuffle new Improvements and Places. Era I adds the 2nd Market, Era II the 3rd, Era III a 5th Colony, Era IV replaces Head Official with Chief Officer.", "image": null, "image_caption": null},
+        {"step": 3, "title": "Start of a Year", "text": "Turn the top Market card face up — it shows available goods and prices for this Year. Then turn 3 Place tiles face up (in Years 1-4; Year 5 gets no new Places). These join the available face-up Places that can be added to the board.", "image": null, "image_caption": null},
+        {"step": 4, "title": "Your Turn — Move Your Steward", "text": "On each turn, move your Steward to an adjacent Place tile on the game board and perform that Place's action. Your Steward must move — it cannot stay on the same Place. If another player's Steward is on a Place, you can still move there but must pay a Fee (shown on the Era card). Your Steward starts each game on any Place you choose on your first turn.", "image": null, "image_caption": null},
+        {"step": 5, "title": "Collecting Goods", "text": "Many Places let you collect goods (Wood, Clay, Ore, Food, etc.). Take the goods from the general supply and store them in your Warehouse or Basic Storage. Storage is limited — you can only hold what your storage facilities allow. Upgrading storage is essential as you grow.", "image": null, "image_caption": null},
+        {"step": 6, "title": "Building in Your Community", "text": "Builder Places let you construct Buildings on your Community board. Pay the required resources, take the Building tile, and place it on an available Building spot. Each Building provides a workplace for Colonists. Important: Remodeling (upgrading a building) does NOT count as razing.", "image": null, "image_caption": null},
+        {"step": 7, "title": "Employing Colonists", "text": "You can place Colonists in Buildings at any time during your turn. There are three types: Farmers (basic, worth 2$ at endgame), Citizens (advanced, worth 6$), and Merchants (expert, worth 16$). Each Building specifies which Colonist type it employs. Colonists can only be removed from Buildings at the end of a Year.", "image": null, "image_caption": null},
+        {"step": 8, "title": "Improvements", "text": "Some Places let you draw or play Improvement cards. Improvements provide ongoing bonuses, one-time effects, or endgame scoring. Once added to your hand, you keep them even across Eras. You cannot voluntarily discard hand cards.", "image": null, "image_caption": null},
+        {"step": 9, "title": "Embassies and Diplomacy", "text": "Embassy Places let you build Embassies for active Colonies on your Community board. Each Embassy costs specific resources and provides benefits tied to the Colony's theme. The max Colony level (shown on the Era card) limits how advanced your Embassies can be.", "image": null, "image_caption": null},
+        {"step": 10, "title": "End of a Year — Sustenance", "text": "After all Half-Years are played, the Year ends. First, determine the new starting player (if applicable). Then the starting player may add new Place tiles to the board. All players may redistribute their Colonists between Buildings. Then comes Sustenance: each Colonist must be fed (Citizens and Merchants cost more than Farmers). Use your Balance card to track costs.", "image": null, "image_caption": null},
+        {"step": 11, "title": "End of a Year — Production", "text": "After Sustenance, your Buildings produce. Each occupied Building generates goods based on its type. Your Smithy also produces Tools. Production is how your community grows — more Buildings with more workers means more output each Year. Store produced goods in your Warehouse.", "image": null, "image_caption": null},
+        {"step": 12, "title": "Adding New Places to the Board", "text": "At the end of Years 1-4, the starting player adds face-up Place tiles to the game board. Each new Place must share at least 2 edges with existing tiles. This expands the options for all Stewards. In Year 5, no new Places are added.", "image": null, "image_caption": null},
+        {"step": 13, "title": "End of the Final Era — Scoring", "text": "After the last Year of the final Era, score your Community. Add up: Dollar value of all Buildings + Improvements + Embassies + Warehouse contents + employed Colonists (Farmers=2$, Citizens=6$, Merchants=16$) + remaining Dollars. The player with the most total Dollars wins.", "image": null, "image_caption": null}
+      ],
+      "summary": [
+        {"step": 1, "title": "Game Structure", "bullets": ["Each Era: 5 Years, each Year: 2 Half-Years", "Each Half-Year: 3 turns per player", "Year end: redistribute, sustain, produce"]},
+        {"step": 2, "title": "Start of an Era", "bullets": ["Place Era card (new elements, Colony level, Fee)", "Set up 5 of 7 new Market cards", "Shuffle new Improvements and Places"]},
+        {"step": 3, "title": "Start of a Year", "bullets": ["Reveal top Market card (goods/prices)", "Turn up 3 new Place tiles (Years 1-4)", "New Places available for board expansion"]},
+        {"step": 4, "title": "Your Turn", "bullets": ["Move Steward to adjacent Place tile", "Perform that Place's action", "Pay Fee if another Steward is there"]},
+        {"step": 5, "title": "Collecting Goods", "bullets": ["Take goods from supply to Warehouse/Storage", "Storage is limited by facilities", "Upgrade storage as you grow"]},
+        {"step": 6, "title": "Building", "bullets": ["Pay resources, place Building on Community board", "Each Building = workplace for Colonists", "Remodeling ≠ razing"]},
+        {"step": 7, "title": "Employing Colonists", "bullets": ["Farmers (2$), Citizens (6$), Merchants (16$)", "Place in Buildings any time on your turn", "Remove only at Year end"]},
+        {"step": 8, "title": "Improvements", "bullets": ["Cards with ongoing bonuses or endgame scoring", "Kept across Eras, cannot voluntarily discard"]},
+        {"step": 9, "title": "Embassies", "bullets": ["Build for active Colonies on Community board", "Colony level limited by Era card", "Specific resource costs and Colony-themed benefits"]},
+        {"step": 10, "title": "Year End — Sustenance", "bullets": ["Redistribute Colonists between Buildings", "Feed all Colonists (Citizens/Merchants cost more)", "Use Balance card to track"]},
+        {"step": 11, "title": "Year End — Production", "bullets": ["Occupied Buildings produce goods", "Smithy produces Tools", "More workers = more output"]},
+        {"step": 12, "title": "Adding Places", "bullets": ["Starting player adds Places end of Years 1-4", "Must share ≥2 edges with existing tiles", "Expands options for all Stewards"]},
+        {"step": 13, "title": "Final Scoring", "bullets": ["Buildings + Improvements + Embassies + Warehouse", "Colonists: Farmers=2$, Citizens=6$, Merchants=16$", "Plus remaining Dollars; most total wins"]}
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {"step": 1, "title": "Meet the Community Builders", "text": "Let's play through the first Year of Era I with three players: Alex (red), Blake (blue), and Casey (green). The game board has 12 starting Places plus a Market. Each player has 2 Farms with Farmers, some Wood/Clay in storage, 1 Food, and 6 Tools.", "image": null, "image_caption": null},
+        {"step": 2, "title": "Summer Half-Year — Alex's First Turn", "text": "Alex places their Steward on the Forester's House, which allows collecting 2 Wood. Alex takes 2 Wood from the supply and adds them to the Warehouse. Wood is essential for early building. Alex now has 2 Wood in Warehouse plus whatever was in Basic Storage.", "image": null, "image_caption": null},
+        {"step": 3, "title": "Alex's Second Turn", "text": "Alex moves the Steward to an adjacent Builder Place. Alex pays 3 Wood and 1 Clay to build a Storage Shed on the Community board. This expands storage capacity — critical as the community grows and produces more goods.", "image": null, "image_caption": null},
+        {"step": 4, "title": "Alex's Third Turn", "text": "Alex moves to the Riverbank Grove, gaining 1 Wood and 1 Clay. That completes Alex's 3 turns for the Summer Half-Year. Alex has built a Storage Shed and gathered resources — a solid start.", "image": null, "image_caption": null},
+        {"step": 5, "title": "Blake's Summer Turns", "text": "Blake focuses on a different strategy. Turn 1: Move to the Hollow, gaining Clay. Turn 2: Move to a Builder Place, spending Wood and Clay to build a Flat (housing for a future Farmer). Turn 3: Move to the Market, buying a Farmer for 2 Food. Blake places the new Farmer in the Flat immediately.", "image": null, "image_caption": null},
+        {"step": 6, "title": "Player Mistake — Blake Forgets Storage Limits", "text": "Blake tried to store 4 Clay in Basic Storage, but it only holds 3 goods total! Always check your storage capacity before collecting. If you can't store it, you can't take it. Building Storage Sheds and Houses early solves this problem.", "image": null, "image_caption": null},
+        {"step": 7, "title": "Casey's Summer Turns", "text": "Casey goes for early Improvement cards. Turn 1: Move to a Place that offers drawing Improvement cards — Casey draws 2 and keeps 1 (a bonus scoring card). Turn 2: Collect Wood. Turn 3: Build a Farm and place a recruited Farmer. Casey is investing in long-term scoring.", "image": null, "image_caption": null},
+        {"step": 8, "title": "Winter Half-Year Begins", "text": "All Stewards stay where they are (they don't reset between Half-Years). The Winter Half-Year proceeds the same way — 3 turns each. Players continue moving Stewards, collecting goods, and building. Remember: if your Steward lands on a Place occupied by another player's Steward, you must pay the Fee.", "image": null, "image_caption": null},
+        {"step": 9, "title": "Player Mistake — Casey Ignores the Fee", "text": "Casey moves to the same Forester's House where Alex's Steward sits but forgets to pay the Fee (1 good in Era I). Always check for other Stewards before moving! The Fee is shown on the Era card and must be paid or you can't go there.", "image": null, "image_caption": null},
+        {"step": 10, "title": "End of Year 1 — Redistribution", "text": "After all 6 turns (3 per Half-Year), Year 1 ends. Each player may now redistribute their Colonists among Buildings — remove workers from one Building and place them in another. This is the ONLY time you can move employed Colonists (except when a Building is razed).", "image": null, "image_caption": null},
+        {"step": 11, "title": "End of Year 1 — Sustenance Phase", "text": "Each Farmer needs 1 Food. Alex has 3 Farmers (2 starting + 0 new) needing 3 Food total. Alex only has 1 Food in the Warehouse! Alex must either have produced Food or bought it. Unfinished Sustenance means losing Colonists — a painful setback. Plan your Food supply.", "image": null, "image_caption": null},
+        {"step": 12, "title": "End of Year 1 — Production", "text": "Each occupied Building produces its listed output. Alex's 2 Farms each produce 1 Food (since they have Farmers). The Smithy produces Tools based on available resources. Production refills your stores for the next Year. This cycle of collect-build-sustain-produce repeats for 5 Years.", "image": null, "image_caption": null},
+        {"step": 13, "title": "Ready for Year 2", "text": "The starting player reveals the next Market card and turns up 3 new Places. New places expand movement options for everyone. As Years progress, more advanced Buildings and Improvements become reachable. Keep balancing expansion with sustaining your growing population of Colonists!", "cta": true, "image": null, "image_caption": null}
+      ],
+      "summary": [
+        {"step": 1, "title": "Meet the Builders", "bullets": ["3 players: Alex, Blake, Casey", "Each starts with 2 Farms, Farmers, Wood/Clay, 1 Food, 6 Tools"]},
+        {"step": 2, "title": "Alex Turn 1 — Collect Wood", "bullets": ["Steward to Forester's House", "Collect 2 Wood to Warehouse"]},
+        {"step": 3, "title": "Alex Turn 2 — Build Storage", "bullets": ["Move to Builder Place", "Pay 3 Wood + 1 Clay for Storage Shed", "Expands storage capacity"]},
+        {"step": 4, "title": "Alex Turn 3 — Gather Resources", "bullets": ["Move to Riverbank Grove", "Gain 1 Wood + 1 Clay", "Solid first half-year: storage + resources"]},
+        {"step": 5, "title": "Blake's Summer Turns", "bullets": ["Collects Clay, builds Flat, buys Farmer from Market", "Places Farmer in Flat immediately", "Housing + population growth strategy"]},
+        {"step": 6, "title": "Mistake — Storage Limits", "bullets": ["Basic Storage holds only 3 goods", "Can't take what you can't store", "Build Storage Sheds/Houses early"]},
+        {"step": 7, "title": "Casey's Summer Turns", "bullets": ["Draws Improvement cards (long-term scoring)", "Collects Wood, builds Farm, recruits Farmer", "Investing in endgame points"]},
+        {"step": 8, "title": "Winter Half-Year", "bullets": ["Stewards stay in place (no reset)", "3 more turns each", "Pay Fee if landing on occupied Place"]},
+        {"step": 9, "title": "Mistake — Ignoring the Fee", "bullets": ["Must pay Fee for occupied Places", "Fee amount on Era card (1 good in Era I)", "Check for other Stewards before moving"]},
+        {"step": 10, "title": "Year End — Redistribution", "bullets": ["Move Colonists between Buildings", "Only time to relocate (except razing)", "Optimize your workforce"]},
+        {"step": 11, "title": "Year End — Sustenance", "bullets": ["Each Farmer needs 1 Food", "Citizens and Merchants need more", "Unfed Colonists are lost!"]},
+        {"step": 12, "title": "Year End — Production", "bullets": ["Occupied Buildings produce goods", "Smithy produces Tools", "Cycle: collect → build → sustain → produce"]},
+        {"step": 13, "title": "Ready for Year 2", "bullets": ["New Market card + 3 new Places", "More advanced options each Year", "Balance expansion with sustenance"]}
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {"step": 1, "title": "Storage First, Then Build", "text": "New players often build production Buildings before having storage for the output. If you can't store produced goods, they're wasted. Prioritize Storage Sheds and Storage Houses early. Having 2-3 extra storage spots makes everything else flow smoothly.", "image": null, "image_caption": null},
+        {"step": 2, "title": "Plan Your Sustenance", "text": "Every Colonist must be fed at Year end. Farmers need 1 Food, Citizens need more. Always count your Colonists and verify you'll have enough Food before the Sustenance phase. Running out of Food forces you to lose Colonists — one of the biggest setbacks in the game.", "image": null, "image_caption": null},
+        {"step": 3, "title": "Upgrade Colonists Efficiently", "text": "Farmers (2$) upgrade to Citizens (6$) and then to Merchants (16$). The jump from Citizen to Merchant is the highest value gain. But Merchants require the most sustenance and specific Buildings. Don't rush upgrades without the infrastructure to support them.", "image": null, "image_caption": null},
+        {"step": 4, "title": "Watch the Board for Steward Paths", "text": "Your Steward must move to adjacent Places. Plan 2-3 turns ahead to ensure you can reach the Places you need in sequence. Getting stuck in a corner of the board wastes turns. The board grows each Year, so new paths open up — position your Steward near new additions.", "image": null, "image_caption": null},
+        {"step": 5, "title": "Don't Hoard Improvements", "text": "Improvement cards in your hand provide no benefit until played. Some are one-time effects that should be used immediately. Others are endgame scoring that you should evaluate against your current strategy. Don't hold cards you'll never use — but remember you can't discard them either.", "image": null, "image_caption": null},
+        {"step": 6, "title": "Embassies Are Powerful But Expensive", "text": "Each Embassy costs significant resources but provides unique abilities tied to its Colony. Evaluate which Colonies synergize with your strategy before committing. Building 1-2 targeted Embassies is usually better than spreading thin across all Colonies.", "image": null, "image_caption": null},
+        {"step": 7, "title": "Tools Are Your Hidden Resource", "text": "Tools are needed for many Building actions and some Place actions. Your Smithy produces them each Year, but running out of Tools mid-Year can stall your plans. Keep a reserve of 2-3 Tools and upgrade your Smithy when possible.", "image": null, "image_caption": null}
+      ],
+      "summary": [
+        {"step": 1, "title": "Storage First", "bullets": ["Build storage before production", "Unstored goods are wasted", "2-3 extra storage spots early"]},
+        {"step": 2, "title": "Plan Sustenance", "bullets": ["Count Colonists before Year end", "Verify Food supply covers everyone", "Losing Colonists is devastating"]},
+        {"step": 3, "title": "Upgrade Colonists Efficiently", "bullets": ["Farmer→Citizen→Merchant value: 2→6→16$", "Merchant = biggest value jump", "Need infrastructure to support upgrades"]},
+        {"step": 4, "title": "Watch Steward Paths", "bullets": ["Must move to adjacent Places", "Plan 2-3 turns ahead", "Position near board expansions"]},
+        {"step": 5, "title": "Don't Hoard Improvements", "bullets": ["Hand cards provide no benefit until played", "Evaluate against current strategy", "Can't discard — choose wisely"]},
+        {"step": 6, "title": "Target Embassies", "bullets": ["Expensive but powerful Colony abilities", "1-2 targeted > spread thin", "Match Colony to your strategy"]},
+        {"step": 7, "title": "Tools as Hidden Resource", "bullets": ["Needed for Buildings and Place actions", "Smithy produces yearly", "Keep 2-3 in reserve, upgrade Smithy"]}
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {"step": 1, "title": "Merchant Rush Strategy", "text": "Focus on getting Citizens upgraded to Merchants as fast as possible. Each Merchant is worth 16$ at endgame — more than triple a Citizen. Build the required Merchant Buildings early and invest in the infrastructure to sustain them. In shorter games (1-2 Eras), Merchants may not be reachable.", "image": null, "image_caption": null},
+        {"step": 2, "title": "Board Control and Blocking", "text": "Your Steward's position affects opponents. By occupying key Places, you force others to pay Fees. In a 2-player game, blocking is especially powerful. Target Places your opponent needs (Builders, Markets, resource gathering) to tax their economy while fueling yours.", "image": null, "image_caption": null},
+        {"step": 3, "title": "Colony Synergies", "text": "Some Colony combinations create powerful synergies. The Laborer Colony benefits players who build near Market tiles, while the Industrialist Colony rewards heavy building. Study the 4 active Colonies at game start and identify which pair synergizes best with your opening strategy.", "image": null, "image_caption": null},
+        {"step": 4, "title": "Remodeling Over Razing", "text": "Remodeling upgrades a Building in place without razing. This preserves the Colonist in the Building and gives you a better building. Razing removes the Building and displaces the worker. Always prefer remodeling when the upgrade path is available.", "image": null, "image_caption": null},
+        {"step": 5, "title": "Year 5 Optimization", "text": "No new Places are added in Year 5, so the board is final. Use Year 4 to position your Steward for optimal Year 5 pathing. In Year 5, focus on high-value actions: building the most expensive Buildings, upgrading Colonists, and completing Improvement card requirements.", "image": null, "image_caption": null},
+        {"step": 6, "title": "Multi-Era Planning", "text": "In games spanning multiple Eras, plan your Community board layout for future Era buildings. Don't fill all Building spots in Era I — reserve the best positions for Era II-III Buildings worth more points. The Borderland spots (dark) unlock with the Community Hall in Era III.", "image": null, "image_caption": null}
+      ],
+      "summary": [
+        {"step": 1, "title": "Merchant Rush", "bullets": ["Each Merchant = 16$ at endgame", "Build required Buildings + sustenance infrastructure early", "Not viable in 1-Era games"]},
+        {"step": 2, "title": "Board Control", "bullets": ["Occupy key Places to force Fee payments", "Especially powerful in 2-player", "Target opponent's needed resources"]},
+        {"step": 3, "title": "Colony Synergies", "bullets": ["Study 4 active Colonies at game start", "Identify complementary Colony pairs", "Match Colony benefits to your strategy"]},
+        {"step": 4, "title": "Remodeling > Razing", "bullets": ["Remodeling preserves Colonist in Building", "Razing displaces workers", "Always prefer upgrade path when available"]},
+        {"step": 5, "title": "Year 5 Optimization", "bullets": ["No new Places added — board is final", "Position Steward in Year 4 for optimal pathing", "Focus on high-value: expensive Buildings, upgrades"]},
+        {"step": 6, "title": "Multi-Era Planning", "bullets": ["Reserve Community board spots for later Eras", "Era II-III Buildings worth more", "Borderland spots unlock with Community Hall (Era III)"]}
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Steward", "definition": "Your main figure on the game board. Moves to adjacent Places each turn to perform actions. Must move every turn (cannot stay).", "category": "core-concepts"},
+        {"term": "Community Board", "definition": "Your personal board with Building spots, Storage spaces, Smithy, and Warehouse. Represents the community you're developing.", "category": "components"},
+        {"term": "Place", "definition": "Hexagonal tile on the shared game board. Each provides a specific action when your Steward visits.", "category": "components"},
+        {"term": "Market", "definition": "Special board tile where goods can be bought and sold. Each Year reveals a new Market card showing available trades.", "category": "components"},
+        {"term": "Era", "definition": "A major game phase consisting of 5 Years. The game spans 1-4 Eras, each introducing new components and complexity.", "category": "game-structure"},
+        {"term": "Year", "definition": "Two Half-Years (rounds) followed by redistribution, sustenance, and production phases.", "category": "game-structure"},
+        {"term": "Half-Year", "definition": "A round in which each player takes 3 consecutive turns moving their Steward.", "category": "game-structure"},
+        {"term": "Fee", "definition": "Cost paid when moving to a Place occupied by another player's Steward. Amount shown on the current Era card.", "category": "core-concepts"},
+        {"term": "Farmer", "definition": "Basic Colonist type worth 2$ at endgame. Works in Farmer Buildings, needs 1 Food for sustenance.", "category": "colonists"},
+        {"term": "Citizen", "definition": "Advanced Colonist type worth 6$ at endgame. Upgraded from Farmer, works in Citizen Buildings, needs more sustenance.", "category": "colonists"},
+        {"term": "Merchant", "definition": "Expert Colonist type worth 16$ at endgame. Upgraded from Citizen, works in Merchant Buildings, needs the most sustenance.", "category": "colonists"},
+        {"term": "Building", "definition": "Tile placed on your Community board. Provides a workplace for Colonists and may produce goods during the Production phase.", "category": "core-concepts"},
+        {"term": "Remodeling", "definition": "Upgrading a Building in place (e.g., Flat to Apartment). Preserves the employed Colonist. Does NOT count as razing.", "category": "actions"},
+        {"term": "Razing", "definition": "Removing a Building from your Community board. Displaces the Colonist and frees the Building spot.", "category": "actions"},
+        {"term": "Embassy", "definition": "Special building tied to a Colony. Costs resources to build, provides Colony-specific benefits.", "category": "buildings"},
+        {"term": "Colony", "definition": "One of 9 possible factions providing unique rules and Embassy options. 4 are active each game (5 from Era III).", "category": "core-concepts"},
+        {"term": "Improvement", "definition": "Card providing bonuses, one-time effects, or endgame scoring. Kept in hand once drawn, cannot be discarded.", "category": "components"},
+        {"term": "Basic Storage", "definition": "Starting storage area on your Community board holding up to 3 units of Wood and/or Clay.", "category": "storage"},
+        {"term": "Warehouse", "definition": "Storage area for produced and collected goods. Capacity depends on Storage Facilities built.", "category": "storage"},
+        {"term": "Storage Shed", "definition": "Basic Storage Facility providing additional storage space on your Community board.", "category": "storage"},
+        {"term": "Storage House", "definition": "Mid-level Storage Facility with more capacity than a Shed.", "category": "storage"},
+        {"term": "Storage Hall", "definition": "Advanced Storage Facility with the most capacity.", "category": "storage"},
+        {"term": "Smithy", "definition": "Section of your Community board that produces Tools during the Production phase.", "category": "components"},
+        {"term": "Toolbox", "definition": "Storage area on your Community board specifically for Tools. Starts with 6 Tools.", "category": "components"},
+        {"term": "Sustenance Phase", "definition": "End-of-Year phase where each Colonist must be fed. Unfed Colonists are lost.", "category": "game-structure"},
+        {"term": "Production Phase", "definition": "End-of-Year phase where occupied Buildings produce their listed goods and the Smithy produces Tools.", "category": "game-structure"},
+        {"term": "Wood", "definition": "Basic good used for early construction. Collected from Forester's House and other Places.", "category": "goods"},
+        {"term": "Clay", "definition": "Basic good used with Wood for construction. Collected from Hollow and other Places.", "category": "goods"},
+        {"term": "Food", "definition": "Essential good for feeding Colonists during Sustenance. Produced by Farms.", "category": "goods"},
+        {"term": "Tools", "definition": "Good needed for various Building and Place actions. Produced by the Smithy.", "category": "goods"},
+        {"term": "Planks", "definition": "Processed good (from Wood) used for advanced construction. Available from Era I.", "category": "goods"},
+        {"term": "Bricks", "definition": "Processed good (from Clay) used for advanced construction.", "category": "goods"},
+        {"term": "Ore", "definition": "Raw material collected from mines. Processed into Iron.", "category": "goods"},
+        {"term": "Iron", "definition": "Processed good (from Ore) used for advanced construction.", "category": "goods"},
+        {"term": "Dollars", "definition": "Currency used for purchases and the primary scoring unit at endgame.", "category": "goods"},
+        {"term": "Community Hall", "definition": "Special Building that unlocks the 10 Borderland Building spots on your Community board. Available from Era III.", "category": "buildings"},
+        {"term": "Balance Card", "definition": "Player card used to track income and expenses during the Sustenance phase.", "category": "components"},
+        {"term": "Round Card", "definition": "Central card showing the current Year and Half-Year. Era and Market cards are placed beside it.", "category": "components"},
+        {"term": "Starting Player Marker", "definition": "Given to first player. Changes at end of each Year.", "category": "components"}
+      ]
+    }
+  }
+}

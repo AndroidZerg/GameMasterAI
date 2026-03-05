@@ -1,0 +1,56 @@
+{
+  "game_id": "kutna-hora-the-city-of-silver",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after final scoring",
+  "tiebreaker": "Most groschen remaining",
+  "categories": [
+    {
+      "id": "guild_building_vp",
+      "label": "Guild Building VP",
+      "type": "manual",
+      "description": "Points earned from constructed guild buildings"
+    },
+    {
+      "id": "public_building_vp",
+      "label": "Public Building VP",
+      "type": "manual",
+      "description": "Points earned from constructed public buildings"
+    },
+    {
+      "id": "cathedral_vp",
+      "label": "St. Barbara's Cathedral VP",
+      "type": "manual",
+      "description": "Points from cathedral tile contributions"
+    },
+    {
+      "id": "mine_row_dominance",
+      "label": "Mine Row Dominance",
+      "type": "manual",
+      "description": "Bonus points for having the most mine tiles in each row on the Prospecting board"
+    },
+    {
+      "id": "dot_matching",
+      "label": "Dot Matching VP",
+      "type": "manual",
+      "description": "Points from matching colored dots on adjacent buildings in the city"
+    },
+    {
+      "id": "patrician_scoring",
+      "label": "Patrician Scoring VP",
+      "type": "manual",
+      "description": "Points earned across the three patrician scoring rounds (end of last 3 rounds)"
+    },
+    {
+      "id": "reputation_bonus",
+      "label": "Reputation Bonus/Penalty",
+      "type": "manual",
+      "description": "Points gained or lost from reputation standing at end of game"
+    },
+    {
+      "id": "remaining_groschen",
+      "label": "Remaining Groschen VP",
+      "type": "manual",
+      "description": "Points from leftover groschen at end of game"
+    }
+  ]
+}
