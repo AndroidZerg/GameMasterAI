@@ -1,0 +1,1224 @@
+{
+  "game_id": "cryptid",
+  "title": "Cryptid",
+  "complexity": "midweight",
+  "player_count": {
+    "min": 3,
+    "max": 5,
+    "recommended": 4
+  },
+  "categories": ["deduction", "logic-puzzle", "modular-board"],
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose a Setup Card",
+          "text": "Let's get Cryptid set up. First, grab the deck of setup cards. Each card tells you everything you need to build the map and assign clues. Pick one card at random, or choose a specific number if you like. The card will show a difficulty level — start with an easier one for your first game. Make sure everyone can see the card number but not each other's clue assignments.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Build the Map",
+          "text": "Now look at the setup card. It shows a diagram of how to arrange the six double-sided hex map tiles. Each tile has a letter and a side indicator. Flip each tile to the correct side and arrange them in the pattern shown on the card. The tiles snap together to form a large hex grid with different terrain types, structures, and animal territory borders. Take your time getting the orientation right — the map must match the card exactly or the clues won't work.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Identify the Terrain Types",
+          "text": "Take a moment to look at the map you just built. You will see five different terrain types across the hexes. Forest hexes are dark green with trees. Desert hexes are sandy yellow. Water hexes are blue. Swamp hexes are murky green-brown. And mountain hexes are gray with rocky peaks. Every hex on the map is exactly one of these five terrain types. Get familiar with them now because your clue will likely reference terrain.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Structures",
+          "text": "The setup card also tells you where to place structures on the map. There are two types of structures: standing stones and abandoned shacks. Each comes in three colors — blue, green, and white. The card shows exactly which hex each structure goes on. Place them carefully. Structures are important because many clues reference proximity to a specific structure type or color.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Note the Animal Territories",
+          "text": "You will also notice animal territory borders printed on some map tiles. There are two animal types: bears and cougars. Their territories are marked by colored borders around groups of hexes — bear territory has one color border and cougar territory has another. These territories are fixed on the tiles and cannot be moved. Some clues reference whether the Cryptid lives within a specific animal's territory.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Player Pieces",
+          "text": "Each player picks a color and takes all the pieces of that color. You get a set of cubes and a set of discs. Cubes are your negative markers — you will place them on hexes that do not match your clue. Discs are your positive markers — you place them on hexes that do match your clue. Keep your cubes and discs in front of you where everyone can see your supply.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Open the Clue Book",
+          "text": "Now grab the clue book. This is the spiral-bound book that contains all the secret clues for every setup card. Find the page that matches your setup card number. The page will list clue assignments by player count and player number. Each player gets assigned a specific clue number.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Assign Secret Clues",
+          "text": "Each player looks up their assigned clue in the book. Your clue tells you one true fact about where the Cryptid lives. For example, your clue might say the Cryptid is within two spaces of a standing stone, or the Cryptid is on forest or desert. Read your clue carefully and memorize it. Do not share it with anyone. The key to the whole game is that exactly one hex on the map satisfies every player's clue simultaneously.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Understand Normal vs Advanced Clues",
+          "text": "The setup card will indicate whether you are playing normal or advanced mode. In normal mode, all clues are positive statements like 'the Cryptid is within one space of water' or 'the Cryptid is on forest or mountain.' In advanced mode, some clues include negation — statements like 'the Cryptid is not on desert or swamp.' Negation clues are trickier to work with and harder for opponents to deduce. Stick with normal mode for your first game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Place Initial Cubes",
+          "text": "Before the game begins, each player must place one cube on the map. Starting with the first player and going clockwise, place a cube on any hex that does not match your clue. This is a negative marker — it tells everyone that the Cryptid definitely does not live on that hex according to your clue. Choose carefully because this initial cube gives other players information about what your clue might be.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Select the First Player",
+          "text": "Choose a first player by any method you like. Play proceeds clockwise from the first player. Unlike many games, turn order in Cryptid can matter quite a bit. The player who goes last in initial cube placement gets to see everyone else's cubes before placing theirs, which is a small informational advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Ready to Play",
+          "text": "Your map is built, structures are placed, everyone has their secret clue memorized, and initial cubes are on the board. The hunt for the Cryptid begins. Remember: there is exactly one hex on this map where the Cryptid lives, and it is the only hex that satisfies all players' clues at the same time. Your job is to figure out which hex it is before anyone else does. Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose a Setup Card",
+          "bullets": [
+            "Pick a random setup card from the deck",
+            "Card determines map layout, structure placement, and clue assignments",
+            "Start with an easier difficulty for your first game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Build the Map",
+          "bullets": [
+            "Arrange 6 double-sided hex tiles as shown on the setup card",
+            "Each tile must be on the correct side and in the correct orientation",
+            "Map must match exactly or clues will not work"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Identify the Terrain Types",
+          "bullets": [
+            "5 terrain types: forest, desert, water, swamp, mountain",
+            "Every hex is exactly one terrain type",
+            "Many clues reference terrain"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place the Structures",
+          "bullets": [
+            "Two structure types: standing stones and abandoned shacks",
+            "Three colors each: blue, green, white",
+            "Place on exact hexes shown on setup card"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Note the Animal Territories",
+          "bullets": [
+            "Two animal types: bear territory and cougar territory",
+            "Territories are printed on tiles with colored borders",
+            "Some clues reference animal territory proximity"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Distribute Player Pieces",
+          "bullets": [
+            "Each player picks a color",
+            "Cubes = negative markers (hex does NOT match your clue)",
+            "Discs = positive markers (hex DOES match your clue)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Open the Clue Book",
+          "bullets": [
+            "Find the page matching your setup card number",
+            "Page lists clue assignments by player count and player number"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Assign Secret Clues",
+          "bullets": [
+            "Each player reads their assigned clue — memorize it, keep it secret",
+            "Clue is one true fact about the Cryptid's location",
+            "Exactly one hex satisfies ALL players' clues simultaneously"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Understand Normal vs Advanced Clues",
+          "bullets": [
+            "Normal mode: all clues are positive ('on forest or desert')",
+            "Advanced mode: some clues include negation ('not on swamp')",
+            "Stick with normal for your first game"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Place Initial Cubes",
+          "bullets": [
+            "Each player places 1 cube on a hex that does NOT match their clue",
+            "Go clockwise starting from first player",
+            "This initial cube reveals some information — choose carefully"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Select the First Player",
+          "bullets": [
+            "Choose first player by any method",
+            "Play proceeds clockwise",
+            "Last player to place initial cube has a slight informational advantage"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Ready to Play",
+          "bullets": [
+            "Map built, structures placed, clues memorized, initial cubes down",
+            "Exactly one hex satisfies all clues — find it first to win"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Cryptid is a pure deduction game. There is no luck once the game begins — only logic. Every player has one secret clue about where the Cryptid lives. Exactly one hex on the map satisfies all players' clues simultaneously. Your goal is to figure out which hex that is and prove it by making a successful attempt. The first player to correctly identify the Cryptid's location wins immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "text": "On your turn, you must do exactly one of two things. You can Search — which means you ask another player about a specific hex. Or you can Attempt — which means you declare that you have found the Cryptid's location. You must do one or the other every turn. You cannot pass. Let's look at each action in detail.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Search Action",
+          "text": "To Search, point to any hex on the map and ask one other player: does this hex match your clue? The questioned player must answer honestly. If the hex matches their clue, they place one of their discs on that hex. If it does not match, they place one of their cubes on that hex. All markers are permanent and public — they stay on the board for the rest of the game. Everyone can see and use this information.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Forced Cube Follow-Up",
+          "text": "Here is a critical rule that catches new players off guard. When you Search and the other player places a cube — meaning the hex does not match their clue — you must also place one of your own cubes on the map. You must place your cube on a hex that does not match your own clue. This is mandatory. It represents a cost for asking an unproductive question — you give away information about your own clue in return.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Search Results: Disc",
+          "text": "If your Search gets a disc response — meaning the hex does match the questioned player's clue — great news. You learned something useful, and there is no penalty. You do not have to place anything. The disc stays on the board as a positive marker. This tells everyone that the questioned player's clue includes that hex as a possibility. Use this information to narrow down what their clue might be.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Choosing Where to Search",
+          "text": "Choosing which hex to ask about is the heart of the game. Ideally, you want to ask about hexes that will give you useful information no matter the answer. A disc tells you the hex could be the Cryptid's location according to that player's clue. A cube eliminates that hex. Both outcomes narrow down the possibilities. Think about what you already know from previous markers before choosing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Attempt Action",
+          "text": "When you think you know where the Cryptid lives, you can Attempt instead of Searching. Point to a hex and declare it as the Cryptid's location. Now every other player must respond, starting with the player to your left and going clockwise. Each player checks whether the hex matches their clue and places either a disc or a cube accordingly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Successful Attempt",
+          "text": "If every player places a disc on the attempted hex — meaning it matches all of their clues — you win. The Cryptid has been found. The game ends immediately. You do not need to place your own marker because you already know it matches your clue. Congratulations, you are the greatest Cryptid hunter at the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Failed Attempt",
+          "text": "If any player places a cube during your attempt — meaning the hex does not match their clue — the attempt fails immediately. Stop going around the table. The player who placed the cube has proven the Cryptid does not live there. Here is the punishment: you, the player who attempted, must place one of your cubes on a hex that does not match your own clue. This is the same forced cube rule as a failed Search. A failed attempt costs you information and wastes your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Why Failed Attempts Are Costly",
+          "text": "Failed attempts are doubly punishing. First, you waste your turn without learning much — you only confirmed that one specific hex is wrong. Second, you must place a forced cube, which gives opponents free information about your clue. Third, the discs placed by players before the cube response give everyone else useful data for free. A reckless attempt hands your opponents information on a silver platter. Only attempt when you are confident.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "All Markers Are Honest",
+          "text": "This is an absolute rule — you can never lie with your markers. If a hex matches your clue, you must place a disc. If it does not, you must place a cube. There is no bluffing in Cryptid. Every marker on the board is guaranteed truthful information. This is what makes the deduction work — you can trust every single marker and build your logic from there.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "All Markers Are Permanent",
+          "text": "Once placed, markers never move. A hex can accumulate multiple markers from different players over the course of the game. If a hex has a cube from any player, the Cryptid cannot live there — you need all players to agree for a hex to be the solution. A hex with discs from every player is the answer. Tracking the accumulation of markers is how you solve the puzzle.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Understanding Hex Adjacency",
+          "text": "Many clues reference distance from features, like 'within two spaces of water.' In Cryptid, adjacency follows standard hex rules. Each hex has six neighbors. Distance is counted by the shortest path through adjacent hexes. 'Within one space' means the hex itself or any of its six neighbors. 'Within two spaces' extends that radius one ring further. 'Within three spaces' adds another ring. The hex the feature is on counts as distance zero.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Deduction Is the Whole Game",
+          "text": "The core skill in Cryptid is deduction. Every cube and disc on the board is a data point. When you see another player's cube, ask yourself: what clues would cause them to say no about that hex? When you see a disc, ask: what clues would include that hex? Over time, you can narrow down each player's clue by looking at the pattern of their markers. The player who reads the board best will find the Cryptid first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Winning the Game",
+          "text": "The game ends the moment a player makes a successful attempt — all other players place discs on the attempted hex. That player wins. There are no points, no tiebreakers, and no second place. It is a race of pure logic. If you want to play again, grab a new setup card and go. Each card creates a completely different puzzle.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Pure deduction — no luck once the game begins",
+            "Each player has one secret clue about the Cryptid's location",
+            "Exactly one hex satisfies ALL clues — find it first to win"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "bullets": [
+            "On your turn, do exactly one action: Search OR Attempt",
+            "You cannot pass — must take one of the two actions"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Search Action",
+          "bullets": [
+            "Point to any hex, ask one other player: does it match your clue?",
+            "Player answers honestly with a disc (yes) or cube (no)",
+            "All markers are permanent and public"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Forced Cube Follow-Up",
+          "bullets": [
+            "If your Search gets a CUBE (no), you must also place one of your cubes",
+            "Your cube goes on any hex that does NOT match your clue",
+            "Mandatory — you give away information as a penalty"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Search Results: Disc",
+          "bullets": [
+            "If your Search gets a DISC (yes), no penalty for you",
+            "The disc confirms that hex matches the questioned player's clue",
+            "Use this to narrow down their clue"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Choosing Where to Search",
+          "bullets": [
+            "Pick hexes that give useful info regardless of disc or cube",
+            "A disc confirms possibility, a cube eliminates the hex",
+            "Consider what previous markers already tell you"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Attempt Action",
+          "bullets": [
+            "Declare a hex as the Cryptid's location",
+            "Every other player responds clockwise with disc or cube",
+            "Stops immediately if any player places a cube"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Successful Attempt",
+          "bullets": [
+            "All players place discs = you win immediately",
+            "Game ends — no further rounds needed"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Failed Attempt",
+          "bullets": [
+            "Any player places a cube = attempt fails immediately",
+            "You must place a forced cube on a non-matching hex",
+            "Wastes your turn AND gives opponents free information"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Why Failed Attempts Are Costly",
+          "bullets": [
+            "Wasted turn — only confirmed one hex is wrong",
+            "Forced cube reveals info about your clue",
+            "Discs placed before the failure give opponents free data"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "All Markers Are Honest",
+          "bullets": [
+            "You can NEVER lie — disc if it matches, cube if it does not",
+            "No bluffing allowed in Cryptid",
+            "Every marker on the board is guaranteed truthful"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "All Markers Are Permanent",
+          "bullets": [
+            "Markers never move once placed",
+            "Any cube on a hex = Cryptid cannot live there",
+            "Track accumulated markers to solve the puzzle"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Understanding Hex Adjacency",
+          "bullets": [
+            "Each hex has 6 neighbors",
+            "'Within 1 space' = the hex itself + its 6 neighbors",
+            "'Within 2 spaces' extends one ring further",
+            "Feature's own hex = distance zero"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Deduction Is the Whole Game",
+          "bullets": [
+            "Every marker is a data point — read the board carefully",
+            "Cubes: what clues would make this player say no?",
+            "Discs: what clues would include this hex?",
+            "The player who reads the board best wins"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Winning the Game",
+          "bullets": [
+            "Game ends instantly on a successful attempt (all discs)",
+            "No points, no tiebreakers — first to find it wins",
+            "Grab a new setup card to play again with a fresh puzzle"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome & Meet the Players",
+          "text": "Welcome to your first game of Cryptid! In this practice tutorial, we will walk through a scripted game with four players — Player 1 through Player 4. Each player has a secret clue, and we will follow their thought processes as they search, deduce, and make mistakes. Player 4 will be our learner who stumbles into the three most common beginner errors. Follow along even if you have fewer players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Setup",
+          "text": "The map is built from the setup card. Six hex tiles form a landscape of forests, deserts, water, swamps, and mountains. Standing stones and abandoned shacks dot the terrain. Bear and cougar territories are marked. Each player has read their secret clue from the clue book. The initial cubes have been placed — each player put one cube on a hex that does not match their clue. The game is ready to begin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player 1's Turn: A Smart Search",
+          "text": "Player 1 starts by Searching. They point to a forest hex near a blue standing stone and ask Player 3: does this match your clue? Player 3 thinks about it and places a disc. That is a positive result — the hex does match Player 3's clue. Player 1 does not have to place anything because the answer was a disc. Player 1 now knows this hex is valid for Player 3. That is useful information to file away.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Why That Search Was Smart",
+          "text": "Player 1 chose a hex that sat at the intersection of multiple possible clue types — it was forest terrain, near a standing stone, and inside bear territory. No matter what Player 3's clue is about, the disc or cube response narrows it down. Good searches target hexes that are informative regardless of the answer.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player 2's Turn: Probing a Theory",
+          "text": "Player 2 has been studying the initial cubes on the board. They notice Player 4's initial cube is on a mountain hex far from any water. Player 2 has a theory that Player 4's clue might involve water proximity. To test this, Player 2 searches a water hex and asks Player 4. Player 4 places a disc. Interesting — this is consistent with Player 2's theory, but does not confirm it yet. Player 2 files this away and plans another test for later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player 3's Turn: Gathering Data",
+          "text": "Player 3 searches a desert hex and asks Player 1. Player 1 places a cube — the hex does not match their clue. Because the answer was a cube, Player 3 must now place a forced cube. Player 3 places their cube on a swamp hex that does not match their own clue. Both cubes are now on the board for everyone to analyze. Player 3 learned something, but also gave something away.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player 4's First Mistake: Premature Attempt",
+          "text": "Player 4 looks at the board and thinks they have it figured out. They have only seen a few markers, but one forest hex near a green shack has a disc from Player 3 and looks promising. Player 4 declares an Attempt on that hex. Player 1 checks their clue and places a disc — it matches. Player 2 checks their clue and places a cube. The attempt fails immediately. Player 4 must now place a forced cube.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Don't Attempt Too Early",
+          "text": "Player 4 attempted with almost no information. They had only confirmed one other player's match, not all three. A successful attempt requires every player to place a disc. With four players, you need to be confident about three other clues, not just one. Early attempts are almost always wrong, and the forced cube penalty gives opponents a free window into your clue. Patience pays off in Cryptid — gather more data before you guess.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player 1's Second Turn: Cross-Referencing",
+          "text": "Player 1 is methodically cross-referencing the markers on the board. They have seen Player 3's disc on a forest hex and Player 3's forced cube on a swamp hex. Could Player 3's clue be terrain-based — perhaps forest or desert? To test this, Player 1 searches a desert hex and asks Player 3. Player 3 places a disc. Two discs on different terrains that share nothing except both being non-swamp. Player 1 is getting closer to cracking Player 3's clue.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Player 2's Second Turn: Confirming a Theory",
+          "text": "Player 2 is still working on their theory about Player 4. They search a mountain hex that is far from any water and ask Player 4. Player 4 places a cube. Now Player 2 has a pattern: Player 4's disc was on water, their initial cube was far from water, and now another cube far from water. Player 2 is growing more confident that Player 4's clue involves proximity to water. This is excellent deductive work.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Player 3's Second Turn: Narrowing Down",
+          "text": "Player 3 searches a hex inside cougar territory and asks Player 2. Player 2 places a disc. Player 3 notes this. They also look at Player 2's earlier markers and start forming a theory. The board is filling up with information. Every new marker constrains the possibilities further. The puzzle is getting tighter.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Player 4's Second Mistake: Ignoring Others' Searches",
+          "text": "Player 4 has been so focused on their own questions and their own clue that they have completely ignored the searches happening between other players. Player 1 asked Player 3 two questions and got two discs. Player 2 confirmed something about Player 4's own patterns. Player 3 learned about Player 2. But Player 4 did not pay attention to any of it. They only know what they personally asked.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Watch Every Search",
+          "text": "In Cryptid, you learn from every interaction at the table, not just your own. When Player 1 asks Player 3 about a hex and gets a disc, everyone learns that hex matches Player 3's clue. When Player 2 asks Player 4 and gets a cube, everyone can use that data. The best players are the ones who track every single marker placed by every player. If you only pay attention on your own turns, you are playing with a fraction of the available information.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Player 1's Third Turn: Building the Picture",
+          "text": "Player 1 has been tracking everything. They now have a strong theory about Player 3's clue and a partial theory about Player 2's. They search a hex that will help them narrow down Player 2's clue. They ask Player 2 about a hex in bear territory near a white shack. Player 2 places a disc. Player 1 is assembling the full picture piece by piece.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Player 4's Third Mistake: Revealing Their Clue with Forced Cubes",
+          "text": "Player 4 searches a hex and gets a cube response, triggering a forced cube placement. Without thinking carefully, Player 4 places their forced cube on a desert hex that is right next to the hex they just got a cube on. The problem? All of Player 4's cubes are now clustered together on non-water hexes far from water. It is painfully obvious to everyone that Player 4's clue involves water proximity. Player 4 has essentially revealed their clue for free.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Hide Your Clue with Forced Cubes",
+          "text": "When you must place a forced cube, think carefully about where you put it. Your cube goes on a hex that does not match your clue, but you get to choose which non-matching hex. If all your cubes cluster on one terrain type, or all sit outside one territory, opponents will read your clue like an open book. Instead, spread your cubes across different terrain types and different map regions. Place cubes on hexes that could belong to several different clue types. Make opponents work to figure you out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "The Game Tightens",
+          "text": "Several more rounds of searching have passed. The board is covered in cubes and discs from all four players. Player 1 and Player 2 have been methodically narrowing down each opponent's clue. Player 3 has been doing solid work too. Player 4, despite the earlier mistakes, has started paying attention to other players' searches and is catching up. The number of possible hexes for the Cryptid is shrinking rapidly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Player 1's Winning Attempt",
+          "text": "Player 1 has identified every player's clue with high confidence. They have mentally checked each remaining hex against all four clues and found exactly one that satisfies all of them. On their turn, Player 1 declares an Attempt, pointing to a forest hex at the edge of bear territory, near a blue standing stone. Player 2 places a disc. Player 3 places a disc. Player 4 places a disc. All discs — Player 1 wins!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Why Player 1 Won",
+          "text": "Player 1 won because they did three things consistently. First, they chose smart searches that were informative regardless of the answer. Second, they tracked every marker on the board — not just their own questions, but everyone else's too. Third, they waited to attempt until they had enough data to be confident. Patience, observation, and logic — those are the keys to Cryptid.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "Reviewing Player 4's Mistakes",
+          "text": "Let's recap Player 4's three mistakes so you can avoid them. First, they attempted way too early with barely any information — wasting a turn and giving away a free cube. Second, they only paid attention to their own searches and missed critical information from other players' interactions. Third, they placed forced cubes carelessly, clustering them in a pattern that revealed their clue type. All three mistakes are fixable with awareness and practice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 21,
+          "title": "Congratulations",
+          "text": "Congratulations — you have walked through a full game of Cryptid! You have seen how searches generate information, how forced cubes work, why premature attempts backfire, and how careful observation wins the game. The beauty of Cryptid is that every game creates a unique logic puzzle with the same simple rules. You are ready to hunt the Cryptid yourself.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 22,
+          "title": "Before You Hunt",
+          "text": "Before you dive into your first real game, here are three things that can help.\n\nFirst — check out General Tips for strategy basics and deduction techniques.\n\nSecond — reference the Appendix for a quick guide to terrain types, clue categories, and game terms.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome & Meet the Players",
+          "bullets": [
+            "Scripted tutorial with 4 players — Player 4 makes common mistakes",
+            "Follow along even with fewer players",
+            "Covers a full game from setup to winning attempt"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Setup",
+          "bullets": [
+            "Map built from setup card: 5 terrains, structures, animal territories",
+            "Each player has a secret clue from the clue book",
+            "Initial cubes placed — one per player on a non-matching hex"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1's Turn: A Smart Search",
+          "bullets": [
+            "Player 1 searches a forest hex near a standing stone, asks Player 3",
+            "Player 3 places a disc — hex matches their clue",
+            "No penalty for Player 1 because the answer was a disc"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Why That Search Was Smart",
+          "bullets": [
+            "Hex sat at the intersection of multiple possible clue types",
+            "Informative regardless of disc or cube response",
+            "Good searches target hexes with overlapping features"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 2's Turn: Probing a Theory",
+          "bullets": [
+            "Player 2 noticed Player 4's initial cube placement pattern",
+            "Searched a water hex and asked Player 4 — got a disc",
+            "Consistent with a water proximity theory but not confirmed yet"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 3's Turn: Gathering Data",
+          "bullets": [
+            "Player 3 searched a desert hex, asked Player 1 — got a cube",
+            "Forced cube: Player 3 must place their own cube on a non-matching hex",
+            "Both players gave away information"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player 4's First Mistake: Premature Attempt",
+          "bullets": [
+            "Player 4 attempted with almost no information",
+            "Player 2 placed a cube — attempt failed immediately",
+            "Player 4 must place a forced cube as penalty"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Don't Attempt Too Early",
+          "bullets": [
+            "Need ALL players to place discs — not just one or two",
+            "Early attempts are almost always wrong",
+            "Forced cube penalty gives opponents a free look at your clue"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 1's Second Turn: Cross-Referencing",
+          "bullets": [
+            "Player 1 cross-references Player 3's disc and cube placements",
+            "Searches a desert hex, asks Player 3 — gets a disc",
+            "Two discs on different terrains help narrow Player 3's clue type"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 2's Second Turn: Confirming a Theory",
+          "bullets": [
+            "Player 2 searched a mountain hex far from water, asked Player 4",
+            "Player 4 placed a cube — consistent with water proximity clue",
+            "Pattern forming: Player 4's markers cluster around water"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player 3's Second Turn: Narrowing Down",
+          "bullets": [
+            "Player 3 searches a hex in cougar territory, asks Player 2",
+            "Player 2 places a disc — more data to work with",
+            "The board fills with information, constraining possibilities"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 4's Second Mistake: Ignoring Others' Searches",
+          "bullets": [
+            "Player 4 only tracked their own questions",
+            "Missed critical information from other players' interactions",
+            "Playing with a fraction of the available data"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Watch Every Search",
+          "bullets": [
+            "You learn from EVERY interaction, not just your own turns",
+            "Track every marker placed by every player",
+            "Best players use all available information, not just their own"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player 1's Third Turn: Building the Picture",
+          "bullets": [
+            "Player 1 has strong theories about multiple players' clues",
+            "Searches strategically to confirm remaining unknowns",
+            "Assembling the full picture piece by piece"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Player 4's Third Mistake: Revealing Their Clue with Forced Cubes",
+          "bullets": [
+            "Player 4 placed forced cubes carelessly — all clustered on non-water hexes",
+            "Pattern makes their clue type obvious to everyone",
+            "Essentially revealed their clue for free"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Hide Your Clue with Forced Cubes",
+          "bullets": [
+            "Spread forced cubes across different terrains and map regions",
+            "Avoid clustering cubes in patterns that reveal your clue type",
+            "Place cubes on hexes that could belong to several different clue types"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "The Game Tightens",
+          "bullets": [
+            "Board is covered in markers from all players",
+            "Players 1 and 2 have been methodically deducing",
+            "Possible Cryptid locations are shrinking rapidly"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Player 1's Winning Attempt",
+          "bullets": [
+            "Player 1 identifies the one hex satisfying all clues",
+            "Declares an Attempt — all three other players place discs",
+            "Player 1 wins the game immediately"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Why Player 1 Won",
+          "bullets": [
+            "Smart searches that were informative regardless of the answer",
+            "Tracked every marker on the board — not just their own",
+            "Waited to attempt until confident — patience paid off"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Reviewing Player 4's Mistakes",
+          "bullets": [
+            "Mistake 1: Attempted too early — wasted turn and gave away a cube",
+            "Mistake 2: Ignored other players' searches — missed critical data",
+            "Mistake 3: Placed forced cubes carelessly — revealed clue type"
+          ]
+        },
+        {
+          "step": 21,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen searches, forced cubes, failed/successful attempts",
+            "Every game creates a unique logic puzzle with the same rules",
+            "You're ready to hunt the Cryptid yourself"
+          ]
+        },
+        {
+          "step": 22,
+          "title": "Before You Hunt",
+          "bullets": [
+            "Check out General Tips → deduction techniques and strategy basics",
+            "Reference the Appendix → terrain types, clue categories, game terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before diving into strategy, here are the most common mistakes new Cryptid players make. First, attempting too early without enough data — this wastes your turn and hands opponents free information via the forced cube. Second, only paying attention on your own turn and ignoring the valuable information generated when other players search each other. Third, placing forced cubes carelessly in patterns that reveal your clue type. Fourth, forgetting that the Cryptid must satisfy all clues, not just yours — you need to figure out what everyone else knows too. Keep these in mind and you will avoid the biggest beginner traps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "How to Choose Good Search Targets",
+          "text": "The best searches are informative no matter what the answer is. Target hexes that sit at the intersection of multiple features — for example, a forest hex inside bear territory near a standing stone. If you get a disc, you learn that hex is valid for that player's clue, but you still need to figure out which feature their clue references. If you get a cube, you eliminate the hex and learn that at least one of those features is not in their clue. Avoid searching hexes with only one notable feature, because the answer immediately narrows their clue to that single feature.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Track Everything on the Board",
+          "text": "The most important habit in Cryptid is watching every single interaction, even when it is not your turn. When Player 2 asks Player 3 about a hex and gets a cube, that is information you can use. Build a mental map of what each player's clue could or could not be based on all the markers on the board, not just the ones from your own searches. Some players find it helpful to take notes. There is no rule against writing things down, and it can make a huge difference.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Strategic Forced Cube Placement",
+          "text": "When you must place a forced cube, treat it as a chance to mislead opponents rather than just a penalty. You must place it on a hex that does not match your clue, but you choose which one. If your clue is about terrain, place cubes on hexes with varied terrains so opponents cannot easily narrow it down. If your clue is about proximity, spread cubes at different distances from various features. The goal is to make your cube pattern consistent with as many possible clues as you can, keeping opponents guessing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "When to Attempt",
+          "text": "Only attempt when you have strong evidence about every other player's clue. The ideal scenario is that you have identified a single hex that you believe satisfies all clues, and you have logically eliminated alternatives. A rough guideline: you should feel confident about at least two other players' clues before attempting. If you are guessing about even one player, you are likely to fail. Remember, a failed attempt costs you a forced cube and gives everyone else free disc data. Patience almost always beats speed in Cryptid.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Patterns",
+          "text": "Every player's markers tell a story. Look at where their cubes are — what do those hexes have in common? They are all outside the player's clue criteria. If every cube is on a hex without a standing stone nearby, maybe their clue involves standing stones. If every disc is on swamp or water, maybe their clue is about those terrain types. Cross-reference multiple markers to triangulate. The more data you collect, the more patterns emerge. This is the detective work at the core of Cryptid.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Asking the Right Player",
+          "text": "You do not just choose which hex to search — you also choose which player to ask. Ask players whose clues you are least sure about, since that is where you have the most to learn. If you have already figured out Player 2's clue, do not keep asking Player 2. Shift your searches to the players who remain mysterious. Also consider that asking a specific player about a hex that already has markers from others can create useful combinations of data.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Elimination Mindset",
+          "text": "Think of Cryptid as a process of elimination. Start with all possible hexes and whittle them down. Every cube placed by any player eliminates that hex permanently. Every disc narrows the set of possible clues for that player. Your job is to eliminate hexes until only one remains that could satisfy all clues. This is more reliable than trying to guess the answer directly. Work the logic, trust the process, and the answer will reveal itself.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't attempt too early — wastes turn and gives away forced cube info",
+            "Don't ignore other players' searches — all markers are useful data",
+            "Don't cluster forced cubes in revealing patterns",
+            "Remember: Cryptid must satisfy ALL clues, not just yours"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "How to Choose Good Search Targets",
+          "bullets": [
+            "Target hexes at the intersection of multiple features",
+            "Good search is informative whether it returns disc or cube",
+            "Avoid single-feature hexes that make the answer too revealing"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Track Everything on the Board",
+          "bullets": [
+            "Watch every interaction, even when it's not your turn",
+            "Build a mental map of what each player's clue could be",
+            "Taking notes is allowed and highly recommended"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Strategic Forced Cube Placement",
+          "bullets": [
+            "Treat forced cubes as a chance to mislead, not just a penalty",
+            "Spread cubes across varied terrains and distances",
+            "Goal: make your cube pattern consistent with many possible clues"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "When to Attempt",
+          "bullets": [
+            "Only attempt with strong evidence about ALL other players' clues",
+            "Should be confident about at least 2 other players before trying",
+            "Failed attempts cost a forced cube and give opponents free disc data",
+            "Patience beats speed in Cryptid"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading Opponent Patterns",
+          "bullets": [
+            "Study where each player's cubes are — what do those hexes share?",
+            "Cross-reference cubes and discs to triangulate their clue",
+            "More data = more patterns = stronger deductions"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Asking the Right Player",
+          "bullets": [
+            "Ask the player whose clue you know least about",
+            "Don't keep asking a player whose clue you've already figured out",
+            "Consider how new markers combine with existing ones for more info"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Elimination Mindset",
+          "bullets": [
+            "Think of Cryptid as elimination — start with all hexes, whittle down",
+            "Every cube eliminates a hex, every disc narrows a player's clue",
+            "Work the logic, trust the process — the answer will reveal itself"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Information Asymmetry",
+          "text": "In Cryptid, information is the currency. The player who gathers the most information while revealing the least about their own clue has a massive advantage. Every search you make potentially costs you a forced cube if you get a negative answer. So think about each search as a trade: you gain information about an opponent's clue, but you might have to reveal something about yours. The best players minimize their information leakage while maximizing their information intake.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Disc Fishing",
+          "text": "One advanced technique is to deliberately search hexes where you expect a disc response. If you already suspect a player's clue, search a hex you think matches it. When you get the disc, you confirm your theory without paying the forced cube penalty. This is efficient because you gain confirmation for free. Stack several confirmed discs across different players and you can triangulate the solution with minimal information leakage. The risk is that if you are wrong, you get a cube response and must pay the penalty anyway.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Defensive Cube Placement",
+          "text": "Advanced players treat forced cube placement as a strategic tool. The key is to place your cubes in locations that are consistent with as many different clue types as possible. If your clue is about terrain, place cubes on hexes that also happen to be far from structures and outside animal territories. This makes it impossible for opponents to tell whether your clue is about terrain, structures, or territories based on your cubes alone. The more ambiguous your cube pattern, the harder you are to read.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Clue Elimination Logic",
+          "text": "There is a finite set of possible clues in the clue book. Advanced players memorize or reference the clue types: terrain (on X or Y), proximity to structure types, proximity to structure colors, proximity to animal territories, and in advanced mode, negations. When you see a player's disc, mentally check which clue types are consistent with that hex. When you see their cube, eliminate clue types that would have included that hex. After three or four markers, you can often narrow a player down to one or two possible clues.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reading the Initial Cubes",
+          "text": "The initial cubes placed during setup are your first and free source of information. Experienced players analyze them carefully before the first turn. Each initial cube tells you one hex that does not match that player's clue. What terrain is it? What structures are nearby? Is it in an animal territory? Cross-reference all initial cubes with the possible clue types and you can eliminate several options before anyone even takes a turn. Some players even choose their initial cube placement strategically to mislead from the very start.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Attempt",
+          "text": "Knowing when to attempt is the most critical skill in advanced play. Attempt too early and you waste a turn and leak information. Attempt too late and someone else beats you to it. The ideal moment is when you have logically confirmed the solution but before your opponents have. Watch for signs that other players are close — if they start searching hexes near your suspected solution, or if they stop searching and seem to be studying the board intently, they might be about to attempt. When you sense the race is on, it is time to pull the trigger.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Counter-Deduction",
+          "text": "Advanced Cryptid is not just about figuring out the puzzle — it is about figuring out how close your opponents are to figuring it out. Watch what they search and who they ask. If Player 2 keeps asking Player 3 about specific hexes, Player 2 is probably trying to confirm Player 3's clue. If a player suddenly shifts from asking one opponent to another, they may have already cracked the first opponent's clue. This meta-level awareness helps you gauge the race and decide when to attempt.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Advanced Mode: Negation Clues",
+          "text": "In advanced mode, some clues use negation — 'the Cryptid is NOT on desert or water.' Negation clues are harder to deduce because they define a wider set of valid hexes. A negation clue player will have discs on many different hex types, making it harder to spot a pattern. When you suspect a player has a negation clue, flip your thinking. Instead of asking what their discs have in common, ask what their cubes have in common — the cubes will cluster on the negated terrain types or features. Negation clues also make the puzzle harder for everyone, so expect longer games in advanced mode.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Information Asymmetry",
+          "bullets": [
+            "Information is the currency — gather more, reveal less",
+            "Every search risks a forced cube if you get a negative answer",
+            "Minimize information leakage while maximizing intake"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Disc Fishing",
+          "bullets": [
+            "Search hexes where you expect a disc — confirms theory with no penalty",
+            "Stack confirmed discs across players to triangulate the solution",
+            "Risk: wrong guess means cube penalty anyway"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Defensive Cube Placement",
+          "bullets": [
+            "Place cubes in locations consistent with many different clue types",
+            "Mix terrains, distances, and territory presence in your cube pattern",
+            "Goal: make your cube pattern ambiguous and hard to read"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Clue Elimination Logic",
+          "bullets": [
+            "Memorize clue types: terrain, structure proximity, territory, negation",
+            "Discs: which clue types include this hex?",
+            "Cubes: which clue types would have excluded this hex?",
+            "3-4 markers often narrow a player to 1-2 possible clues"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Initial Cubes",
+          "bullets": [
+            "Initial cubes are free information — analyze before turn 1",
+            "Check terrain, structure proximity, and territory for each cube",
+            "Cross-reference with possible clue types to eliminate options early"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Attempt",
+          "bullets": [
+            "Too early = wasted turn + info leak; too late = someone beats you",
+            "Watch for signs opponents are close — searching near your suspect hex",
+            "When you sense the race is on, pull the trigger"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Counter-Deduction",
+          "bullets": [
+            "Watch what opponents search and who they ask",
+            "If a player shifts targets, they may have cracked the first opponent's clue",
+            "Meta-level awareness helps you gauge the race and time your attempt"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Advanced Mode: Negation Clues",
+          "bullets": [
+            "Negation clues define wider valid sets — harder to spot patterns",
+            "Flip your thinking: look at what cubes have in common, not discs",
+            "Cubes cluster on the negated features — that's the giveaway",
+            "Expect longer games in advanced mode"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Forest",
+          "definition": "One of the five terrain types. Represented by dark green hexes with tree icons. Forest hexes are common across most map tiles.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Desert",
+          "definition": "One of the five terrain types. Represented by sandy yellow hexes. Desert hexes tend to appear in clusters on the map tiles.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Water",
+          "definition": "One of the five terrain types. Represented by blue hexes. Water hexes often appear along tile edges and in connected groups.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Swamp",
+          "definition": "One of the five terrain types. Represented by murky green-brown hexes. Swamp hexes are typically less common than forest or desert.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Mountain",
+          "definition": "One of the five terrain types. Represented by gray hexes with rocky peak icons. Mountain hexes tend to be the least common terrain type.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Standing Stone",
+          "definition": "One of two structure types placed on the map during setup. Standing stones are tall, narrow stone markers. They come in three colors: blue, green, and white. Many clues reference proximity to standing stones or to a specific color of structure.",
+          "category": "Structures"
+        },
+        {
+          "term": "Abandoned Shack",
+          "definition": "One of two structure types placed on the map during setup. Abandoned shacks are small building tokens. They come in three colors: blue, green, and white. Clues may reference proximity to shacks or to a specific color of structure.",
+          "category": "Structures"
+        },
+        {
+          "term": "Structure Colors",
+          "definition": "Both standing stones and abandoned shacks come in three colors: blue, green, and white. Some clues reference proximity to a specific color regardless of structure type — for example, 'within one space of a blue structure' includes both blue standing stones and blue abandoned shacks.",
+          "category": "Structures"
+        },
+        {
+          "term": "Bear Territory",
+          "definition": "One of two animal territory types printed on the map tiles. Bear territory is marked by colored borders around groups of hexes. Some clues reference whether the Cryptid is within bear territory.",
+          "category": "Animal Territories"
+        },
+        {
+          "term": "Cougar Territory",
+          "definition": "One of two animal territory types printed on the map tiles. Cougar territory is marked by colored borders around groups of hexes. Some clues reference whether the Cryptid is within cougar territory.",
+          "category": "Animal Territories"
+        },
+        {
+          "term": "Terrain Clue",
+          "definition": "A clue type that specifies the Cryptid is on one of two terrain types. For example, 'the Cryptid is on forest or desert.' The hex must be one of the two named terrains. In advanced mode, terrain clues may use negation: 'the Cryptid is NOT on mountain or water.'",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Structure Proximity Clue",
+          "definition": "A clue type that specifies the Cryptid is within a certain distance of a structure type. For example, 'within two spaces of a standing stone.' This includes any standing stone on the map regardless of color. Distance is measured in hex steps.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Color Proximity Clue",
+          "definition": "A clue type that specifies the Cryptid is within a certain distance of a specific color of structure. For example, 'within one space of a green structure.' This includes both green standing stones and green abandoned shacks.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Territory Clue",
+          "definition": "A clue type that specifies the Cryptid is within a specific animal's territory. For example, 'the Cryptid is within bear territory.' The hex must be inside the marked bear territory borders on the map.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Negation Clue",
+          "definition": "An advanced-mode clue type that uses 'not' to invert a normal clue. For example, 'the Cryptid is NOT on desert or swamp' means the Cryptid is on forest, water, or mountain. Negation clues define a wider set of valid hexes and are harder for opponents to deduce.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Cube (Negative Marker)",
+          "definition": "A small wooden cube in the player's color. Placed on hexes that do NOT match the player's clue. Cubes are placed in response to searches, during failed attempts, and as forced follow-ups. A cube on a hex means the Cryptid definitely does not live there according to that player's clue.",
+          "category": "Markers"
+        },
+        {
+          "term": "Disc (Positive Marker)",
+          "definition": "A flat wooden disc in the player's color. Placed on hexes that DO match the player's clue. Discs are placed in response to searches and during attempts. A disc confirms the hex is valid according to that player's clue. A hex with discs from all players is the Cryptid's location.",
+          "category": "Markers"
+        },
+        {
+          "term": "Search Action",
+          "definition": "One of the two actions available on your turn. Point to any hex and ask one other player whether it matches their clue. They respond honestly with a disc (yes) or cube (no). If they place a cube, you must place a forced cube of your own.",
+          "category": "Actions"
+        },
+        {
+          "term": "Attempt Action",
+          "definition": "One of the two actions available on your turn. Declare a hex as the Cryptid's location. All other players respond clockwise with disc or cube. If all place discs, you win. If any player places a cube, the attempt fails and you must place a forced cube.",
+          "category": "Actions"
+        },
+        {
+          "term": "Forced Cube",
+          "definition": "A mandatory cube placement that occurs in two situations: when your Search gets a cube response, and when your Attempt fails. You must place one of your cubes on any hex that does NOT match your clue. This is a penalty that reveals information about your clue.",
+          "category": "Actions"
+        },
+        {
+          "term": "Setup Card",
+          "definition": "A card from the setup deck that determines the entire game configuration: which map tile sides to use, how to arrange them, where to place structures, and which clues to assign to each player. Each card creates a unique puzzle with exactly one solution.",
+          "category": "Components"
+        },
+        {
+          "term": "Clue Book",
+          "definition": "A spiral-bound book containing all secret clues organized by setup card number and player count. Each player looks up their assigned clue from the book during setup. The clue book should not be shared or left open during play.",
+          "category": "Components"
+        },
+        {
+          "term": "Map Tiles",
+          "definition": "Six double-sided hex tiles that form the modular game board. Each side of each tile has a different arrangement of terrain types and animal territories. The setup card dictates which side and orientation to use for each tile.",
+          "category": "Components"
+        },
+        {
+          "term": "Hex Adjacency",
+          "definition": "Each hex on the map has exactly six neighbors. Distance is measured by counting the minimum number of hex-to-hex steps between two hexes. The hex a feature is on counts as distance zero. 'Within one space' includes the hex and its six neighbors. 'Within two spaces' extends one ring further.",
+          "category": "Concepts"
+        },
+        {
+          "term": "Normal Mode",
+          "definition": "The standard game mode where all clues are positive statements. Clues take forms like 'on forest or desert' or 'within two spaces of a standing stone.' Recommended for first-time players and casual groups.",
+          "category": "Concepts"
+        },
+        {
+          "term": "Advanced Mode",
+          "definition": "A harder game mode indicated on certain setup cards. In advanced mode, some clues use negation — for example, 'NOT on desert or swamp.' Negation clues define wider valid sets and are harder to deduce, making the puzzle more challenging for all players.",
+          "category": "Concepts"
+        },
+        {
+          "term": "The Solution Hex",
+          "definition": "The one and only hex on the map that satisfies every player's clue simultaneously. This is where the Cryptid lives. Finding this hex and proving it through a successful attempt is the goal of the game.",
+          "category": "Concepts"
+        }
+      ]
+    }
+  }
+}

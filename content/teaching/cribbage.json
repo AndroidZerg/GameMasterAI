@@ -1,0 +1,1031 @@
+{
+  "game_id": "cribbage",
+  "title": "Cribbage",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gather Your Equipment",
+          "text": "Let's get Cribbage set up. You need two things: a standard 52-card deck and a cribbage board. The cribbage board is the long wooden or plastic board with rows of tiny holes and pegs. Each player uses two pegs of the same color to track their score. The board has 121 holes per player — first to peg all the way to 121 wins the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Understand the Board",
+          "text": "Take a look at the cribbage board. You will see two or four rows of holes running the length of the board, depending on the model. Each row has 60 holes going up and 60 holes coming back, plus a final game hole at the end for 121 total. You use two pegs so you can always see your previous score and your current score. The front peg shows your current total, and the back peg shows where you were. When you score, you leapfrog the back peg ahead of the front peg.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Cut for First Deal",
+          "text": "Shuffle the deck and set it face-down on the table. Each player cuts the deck by lifting a portion and revealing the bottom card. The player who reveals the lowest card becomes the first dealer. If there is a tie, cut again. Aces are low in Cribbage, so an Ace beats everything for the cut. Being the dealer is an advantage because you get the crib, so this cut matters.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal the Cards",
+          "text": "The dealer shuffles the deck thoroughly and deals cards one at a time, alternating between players. In a two-player game, each player receives six cards. In a three-player game, each player gets five cards and one card goes face-down to start the crib. In a four-player game, each player gets five cards. For this tutorial, we will focus on the standard two-player game with six cards each.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Discard to the Crib",
+          "text": "Now each player looks at their six cards and chooses two to discard face-down into the crib. The crib is a special extra hand that belongs to the dealer. It will be scored at the end of the round, giving the dealer a bonus scoring opportunity. Choose your discards carefully — you want to keep a strong hand for yourself while not giving the dealer's crib easy points. We will cover discard strategy later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Cut for the Starter Card",
+          "text": "After everyone has discarded, the non-dealer cuts the remaining deck by lifting a portion off the top. The dealer then flips up the top card of the bottom half. This revealed card is called the starter card or the cut card. It sits face-up on top of the deck for the rest of the hand. Every player will use this starter card as a fifth card when scoring their hands later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Check for His Heels",
+          "text": "Right after flipping the starter card, check if it is a Jack. If the starter card is a Jack, the dealer immediately pegs two points. This is called His Heels or Nibs. The dealer moves their back peg two holes ahead of their front peg right now, before any cards are played. It is a small bonus for getting lucky with the cut.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Play",
+          "text": "Setup is complete. Each player should now have four cards in hand, four cards are in the crib face-down, and one starter card is face-up on the deck. The non-dealer will play the first card. The round has two phases: first the Play, also called Pegging, where you alternate playing cards to score small points, and then the Show, where you score your full hands. Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gather Your Equipment",
+          "bullets": [
+            "Standard 52-card deck + cribbage board with pegs",
+            "Each player uses 2 pegs of one color to track score",
+            "First to 121 points wins"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Understand the Board",
+          "bullets": [
+            "Board has 121 holes per player (60 up, 60 back, 1 game hole)",
+            "Two pegs per player — leapfrog the back peg ahead when scoring",
+            "Front peg = current score, back peg = previous score"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Cut for First Deal",
+          "bullets": [
+            "Each player cuts the deck and reveals bottom card",
+            "Lowest card deals first (Aces are low)",
+            "Dealer gets the crib — an advantage"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal the Cards",
+          "bullets": [
+            "2-player: deal 6 cards each",
+            "3-player: deal 5 each, 1 card to crib",
+            "4-player: deal 5 cards each"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Discard to the Crib",
+          "bullets": [
+            "Each player discards 2 cards face-down to the crib",
+            "Crib belongs to the dealer — scored as a bonus hand at end of round",
+            "Choose discards carefully to avoid giving opponent easy crib points"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Cut for the Starter Card",
+          "bullets": [
+            "Non-dealer cuts the remaining deck",
+            "Dealer reveals top card of bottom half — this is the starter",
+            "Starter acts as a shared 5th card for all hands during scoring"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Check for His Heels",
+          "bullets": [
+            "If starter card is a Jack, dealer pegs 2 points immediately",
+            "Called His Heels or Nibs",
+            "Peg before any cards are played"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ready to Play",
+          "bullets": [
+            "Each player has 4 cards in hand, 4 cards in the crib, 1 starter face-up",
+            "Two phases: the Play (Pegging) then the Show (hand scoring)",
+            "Non-dealer plays first card"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Card Values for the Play",
+          "text": "Before we start playing cards, you need to know what each card is worth during the Play phase. Aces count as one. Number cards two through ten count as their face value. Jacks, Queens, and Kings all count as ten. So a King and a 5 together make fifteen. These values only matter during the Play phase for the running count — during the Show phase, face values are used for scoring combinations differently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Play Phase Begins",
+          "text": "The non-dealer starts by playing one card face-up in front of them and announcing its value. For example, playing a 7 and saying 'seven.' The dealer then plays a card and announces the running total. If the dealer plays a 5, they say 'twelve.' You keep alternating, adding each card's value to the running count. The count can never exceed 31.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Pegging Scores During the Play",
+          "text": "As you play cards, certain combinations earn points that you peg immediately on the board. Here are the key scoring plays. Hitting exactly 15 scores 2 points. Playing a card that matches the rank of the previous card is a pair, worth 2 points. Three of the same rank in a row is a pair royal, worth 6 points. Four of the same rank is a double pair royal, worth 12 points. Playing cards that form a consecutive run of three or more scores 1 point per card in the run — the cards do not have to be played in order, they just need to form a sequence with the most recently played cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Reaching 31 and the Go Rule",
+          "text": "The running count cannot exceed 31. If you cannot play a card without going over 31, you say 'Go.' Your opponent then plays any cards they can without exceeding 31 and pegs 1 point for the Go. If they reach exactly 31, they peg 2 points instead of 1. After a Go, the count resets to zero and the player who said Go leads the next card. Play continues until all eight cards from both hands have been played. The last person to play a card in the final count also pegs 1 point, or 2 if they hit exactly 31.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Show Phase — Scoring Your Hand",
+          "text": "After all cards are played in the Pegging phase, it is time for the Show. This is where the big points are. Each player picks up their four played cards and scores them together with the starter card, making five cards total. The non-dealer always scores first. This order matters because if someone reaches 121 during the Show, the game ends immediately — so scoring first is an advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Scoring 15s",
+          "text": "Look at your five cards and find every combination of cards that adds up to exactly 15. Each combination scores 2 points. For example, if you have a 5, 10, Jack, Queen, and King, the 5 combines with each of the four face cards for four separate fifteens, scoring 8 points. You can use any number of cards in a combination — two cards, three cards, even all five. Count every unique grouping that totals 15.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Scoring Pairs",
+          "text": "Every pair of cards with the same rank scores 2 points. If you have three cards of the same rank, that is three different pairs, worth 6 points. Four cards of the same rank gives you six pairs, worth 12 points. Remember, it is the rank that matters, not the value — a Jack and a Queen are not a pair even though they both count as ten.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Scoring Runs",
+          "text": "A run is three or more cards in consecutive rank order. For example, 3-4-5 is a run of three, scoring 3 points. A run of 4-5-6-7 scores 4 points. The cards do not need to be in any particular suit. If you have a double run — say two 4s, a 5, and a 6 — that counts as two separate runs of three, scoring 6 points. A double run of four, like 3-4-4-5-6, gives two runs of four for 8 points. Runs can combine with pairs in powerful ways.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Scoring Flush",
+          "text": "If all four cards in your hand are the same suit, that is a flush worth 4 points. If the starter card also matches that suit, the flush is worth 5 points. Important: in the crib, a flush only counts if all four crib cards and the starter are the same suit — you must have all five matching for a crib flush, worth 5 points. A four-card flush does not count in the crib.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Scoring Nobs",
+          "text": "If you have a Jack in your hand that matches the suit of the starter card, you score 1 point. This is called Nobs or His Nobs. For example, if the starter is the Queen of Hearts and you have the Jack of Hearts in your hand, peg 1 point. This also applies to the crib — if a Jack in the crib matches the starter's suit, the dealer pegs 1 point for Nobs.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Scoring the Crib",
+          "text": "After the non-dealer scores their hand and then the dealer scores their hand, the dealer flips over the four crib cards and scores them using the same rules — 15s, pairs, runs, flush, and Nobs. The starter card counts as the fifth card for the crib too. The crib is why being the dealer is so powerful — you essentially get to score two hands every round. The deal alternates each round, so both players get this advantage equally over time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Scoring Order Matters",
+          "text": "The scoring order is critical in Cribbage. First the non-dealer scores their hand, then the dealer scores their hand, then the dealer scores the crib. If anyone reaches 121 points at any time during this process, the game ends immediately. This means the non-dealer has a scoring advantage — they get to count first. A player who is behind can sometimes win by counting first when both players are close to 121.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "text": "The first player to reach exactly 121 points or more wins instantly. It does not matter if it happens during Pegging, during the Show, or while scoring the crib. The moment someone's front peg hits or passes hole 121, the game is over. If the winning player reaches 121 while their opponent has not yet passed hole 91, that is called a skunk and counts as two wins in match play. If the opponent has not passed hole 61, that is a double skunk and counts as three wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Starting a New Hand",
+          "text": "If nobody has reached 121 after scoring, the deal passes to the other player. The new dealer shuffles all cards back together, deals six cards each, and the process starts over — discard to crib, cut for starter, play, then show. The game typically takes five to eight hands to complete. Remember that the deal alternating means the crib advantage shifts back and forth, keeping the game balanced.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Card Values for the Play",
+          "bullets": [
+            "Aces = 1, number cards = face value, face cards (J/Q/K) = 10",
+            "Values used for running count during the Play phase",
+            "Maximum running count is 31"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Play Phase Begins",
+          "bullets": [
+            "Non-dealer plays first card, announces its value",
+            "Alternate playing cards, announcing running total",
+            "Count can never exceed 31"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Pegging Scores During the Play",
+          "bullets": [
+            "15 = 2 points, Pair = 2 points, Pair Royal (three) = 6 points",
+            "Double Pair Royal (four) = 12 points",
+            "Run of 3+ = 1 point per card (cards need not be played in order)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Reaching 31 and the Go Rule",
+          "bullets": [
+            "Cannot exceed 31 — say 'Go' if you can't play",
+            "Opponent plays remaining legal cards, pegs 1 for Go (2 if hitting 31)",
+            "Count resets to 0, last card played always earns 1 point (or 2 for 31)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Show Phase — Scoring Your Hand",
+          "bullets": [
+            "Pick up your 4 played cards, combine with starter = 5 cards",
+            "Non-dealer scores first (scoring order matters!)",
+            "Reaching 121 during the Show ends the game immediately"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Scoring 15s",
+          "bullets": [
+            "Every combination of cards totaling 15 = 2 points",
+            "Can use 2, 3, 4, or 5 cards in a combination",
+            "Count every unique grouping — a hand can have many 15s"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Scoring Pairs",
+          "bullets": [
+            "Pair (2 same rank) = 2 pts, three of a kind = 6 pts, four of a kind = 12 pts",
+            "Rank must match — J and Q are NOT a pair despite both being 10",
+            "Each unique pairing counts separately"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Scoring Runs",
+          "bullets": [
+            "3+ consecutive ranks = 1 point per card (e.g., 3-4-5 = 3 pts)",
+            "Suit does not matter for runs",
+            "Double runs: e.g., 4-4-5-6 = two runs of 3 = 6 pts"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Scoring Flush",
+          "bullets": [
+            "4 hand cards same suit = 4 pts; all 5 including starter = 5 pts",
+            "Crib flush: all 5 cards must match (4-card crib flush does not count)",
+            "Flush is the only score where suit matters"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Scoring Nobs",
+          "bullets": [
+            "Jack in hand matching starter's suit = 1 point",
+            "Called Nobs or His Nobs",
+            "Also applies in the crib"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Scoring the Crib",
+          "bullets": [
+            "Dealer scores the 4 crib cards + starter using same rules",
+            "Crib is why dealer has an advantage — two hands per round",
+            "Deal alternates each round to keep it balanced"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Scoring Order Matters",
+          "bullets": [
+            "Order: non-dealer hand → dealer hand → dealer crib",
+            "Game ends instantly when someone reaches 121",
+            "Non-dealer scores first — a significant positional advantage"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "bullets": [
+            "First to 121 wins immediately (during Pegging, Show, or Crib)",
+            "Skunk: opponent below 91 = counts as 2 wins",
+            "Double skunk: opponent below 61 = counts as 3 wins"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Starting a New Hand",
+          "bullets": [
+            "Deal passes to the other player",
+            "Reshuffle, deal 6 each, discard, cut, play, show",
+            "Game typically takes 5-8 hands to complete"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "text": "Welcome to your first hand of Cribbage! In this practice tutorial, we will walk through a complete hand between two players — you as the non-dealer and an opponent as the dealer. We will cover dealing, discarding to the crib, the Play phase with pegging, and the Show phase with hand scoring. Follow along with real cards if you have them, or just read through to build your understanding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Your Starting Hand",
+          "text": "You have been dealt six cards: 4 of Hearts, 5 of Spades, 5 of Clubs, 6 of Diamonds, Queen of Hearts, and King of Spades. You need to discard two cards to the crib. Remember, the crib belongs to your opponent this hand because they are the dealer. So you want to avoid giving them anything that scores easily.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Choosing Your Discards",
+          "text": "Look at your hand. The 4-5-5-6 combination is powerful — the two 5s pair for 2 points, the 4-5-6 makes two runs of three for 6 points, and there are multiple ways to make 15. That core is worth keeping. The Queen and King should go to the crib. While they total 20, they do not combine easily to make 15 without a 5, and you definitely do not want to give a 5 to your opponent's crib. Discard the Queen and King.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Mistake — Giving Away a 5",
+          "text": "Imagine instead you had discarded the 5 of Clubs and the Queen to the crib. That 5 in the crib is dangerous. Fives combine with any face card or 10 to make 15 — and there are sixteen of those cards in the deck. You would be handing your opponent easy points. Never throw a 5 into your opponent's crib unless you absolutely have to. Keep both 5s in your hand where they score for you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Starter Card",
+          "text": "You cut the deck and the dealer reveals the starter card: the 3 of Diamonds. Not a Jack, so no His Heels points for the dealer. But that 3 is useful for your hand — it extends your 4-5-6 sequence. With 3-4-5-5-6, you now have even more runs and 15s to score during the Show. Let's play some cards first though.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Play Begins — Your Lead",
+          "text": "You are the non-dealer, so you play the first card. You have 4, 5, 5, and 6 in hand. A good opening lead is a low card. Leading with the 4 is smart — the count is now 4. A low lead makes it harder for your opponent to reach 15 with one card. If you led with a 5, your opponent could play any face card to hit 15 and peg 2 points immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake — Leading with a 5",
+          "text": "Let's see why leading with a 5 would be bad. You play the 5 of Spades, making the count 5. Your opponent gleefully plays a King — count jumps to 15 — and pegs 2 points. You just handed them free points. The lesson: never lead with a 5 if you can avoid it. Cards that bring the count to 5, 10, or 21 are dangerous leads because they let your opponent easily hit 15 or 31.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Opponent Responds",
+          "text": "Back to the correct play. You led with the 4, count is 4. Your opponent plays a 7, making the count 11. No scoring combinations triggered. Now it is your turn again. You could play a 4 to make 15 if you had one, but your lowest remaining card that does the trick is... actually, you can play your 4? No, you already played it. You have 5, 5, and 6. Playing a 4 would make 15, but you do not have another 4. Let's play the 6 — count goes to 17.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Pegging in Action",
+          "text": "The count is 17. Your opponent plays an 8, making the count 25. No scores yet. Now you play a 5 — count is 30. Your opponent cannot play without exceeding 31, so they say 'Go.' You have one card left — your other 5 — but 30 plus 5 is 35, which exceeds 31. So you also cannot play. You peg 1 point for the Go since you played the last card in this count. The count resets to 0.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Finishing the Play",
+          "text": "The count is back to 0. Your opponent leads their remaining cards, and you play your last 5. The exact sequence depends on what they have left, but the important thing is that whoever plays the very last card of the hand pegs 1 point for Last Card, or 2 if the count hits exactly 31. All eight cards have been played, so the Play phase is over. Time for the Show.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Show — Scoring Your Hand",
+          "text": "Pick up your four cards: 4, 5, 5, 6. Add the starter card: 3. Your five scoring cards are 3-4-5-5-6. Let's count every scoring combination. First, the 15s: 4+5+6 = 15 (that works twice, once with each 5) for 4 points. 5+4+3+3? No, only one 3. How about 5+10? No face cards. So we have two 15s worth 4 points total. Actually, let's recount: the 5 of Spades + 4 + 6 = 15, the 5 of Clubs + 4 + 6 = 15. That is 4 points in 15s.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "The Mistake — Missing Scoring Combinations",
+          "text": "Wait — did we miss anything? New players often undercount their 15s. Look again: is there a way to make 15 with the 3? Yes! 3 + 6 + 6? No, only one 6. What about 3 + 5 + 7? No 7. Actually in this hand, 4 + 5 + 6 are the only 15 combinations, each counted with each 5. But the lesson is critical: always double-check every subset of your cards. In more complex hands with face cards and multiple ways to reach 15, beginners routinely miss two or three combinations and leave points on the board. Count methodically — 2-card combos first, then 3-card, then 4-card, then all 5.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Counting Pairs and Runs",
+          "text": "Next, pairs. You have two 5s — that is one pair for 2 points. Now runs: 3-4-5-6 is a run of four. But you have two 5s, so you actually have two runs of four: 3-4-5(Spades)-6 and 3-4-5(Clubs)-6. That is 8 points from runs. No flush since your cards are in mixed suits. No Nobs since you have no Jack. Grand total for your hand: 4 points from 15s, plus 2 from the pair, plus 8 from runs equals 14 points. That is an excellent hand!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Dealer Scores Hand and Crib",
+          "text": "After you score your 14 points, the dealer scores their four-card hand plus the starter in the same way. Then the dealer flips the crib and scores those four cards plus the starter. Remember the Queen and King you discarded? Combined with whatever your opponent discarded and the 3 starter, the crib might not score much. Good thing you kept those 5s in your hand instead of donating them to the crib.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Pegging Your Points",
+          "text": "As you count your points in the Show, peg them on the board immediately. You scored 14 points in your hand, so leapfrog your back peg 14 holes ahead of your front peg. Add any pegging points you earned during the Play phase too. The dealer does the same for their hand and then the crib. Remember, the non-dealer scores first — if both players are close to 121, this order can decide the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations — you have just played through a complete hand of Cribbage! You learned how to discard wisely to the crib, why leading with a 5 is dangerous, how pegging works with the running count and Go rule, and how to methodically score your hand during the Show. The deal now passes to you for the next hand, giving you the crib advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Key Takeaways",
+          "text": "Three lessons to remember from this practice hand. First, never throw a 5 into your opponent's crib — it pairs with too many cards to make 15. Second, lead with low cards during the Play to avoid giving your opponent easy 15s. Third, count your hand carefully during the Show — check every combination of cards for 15s, pairs, and runs. Beginners leave points on the board more than any other mistake.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Deal",
+          "text": "Before you jump into a full game, here are three things that can help.\n\nFirst — check out General Tips for strategy on discarding, pegging, and hand management.\n\nSecond — reference the Appendix for a quick guide to all scoring combinations and terminology.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "bullets": [
+            "Scripted practice hand with you as non-dealer and an opponent as dealer",
+            "Covers dealing, discarding, the Play (Pegging), and the Show (scoring)",
+            "Follow along with real cards or read through"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Starting Hand",
+          "bullets": [
+            "Dealt 6 cards: 4H, 5S, 5C, 6D, QH, KS",
+            "Must discard 2 to opponent's crib",
+            "Goal: keep strong hand, avoid giving crib easy points"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Choosing Your Discards",
+          "bullets": [
+            "Keep 4-5-5-6 core (pair, runs, multiple 15s)",
+            "Discard Queen and King to the crib",
+            "Q+K total 20 — hard to make 15 without a 5"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Mistake — Giving Away a 5",
+          "bullets": [
+            "Never throw a 5 into opponent's crib",
+            "Fives combine with any face card or 10 to make 15",
+            "16 cards in the deck worth 10 — too many easy combos"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Starter Card",
+          "bullets": [
+            "Starter revealed: 3 of Diamonds (not a Jack, no His Heels)",
+            "The 3 extends 4-5-6 into 3-4-5-6 runs",
+            "Starter adds scoring potential to your already strong hand"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Play Begins — Your Lead",
+          "bullets": [
+            "Non-dealer leads first — play the 4 (low card lead)",
+            "Low leads make it hard for opponent to hit 15",
+            "Avoid leading with cards that let opponent peg easily"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Mistake — Leading with a 5",
+          "bullets": [
+            "Leading a 5 lets opponent play any 10-value card for 15 (2 pts)",
+            "Avoid leads that bring count to 5, 10, or 21",
+            "Always consider what your opponent can score off your play"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Opponent Responds",
+          "bullets": [
+            "Opponent plays 7, count is 11",
+            "No scoring combinations triggered",
+            "You play the 6, count goes to 17"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Pegging in Action",
+          "bullets": [
+            "Play continues: opponent plays 8 (count 25), you play 5 (count 30)",
+            "Neither player can reach 31 — Go is called",
+            "Last card in the count pegs 1 point; count resets to 0"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Finishing the Play",
+          "bullets": [
+            "Remaining cards played in new count starting from 0",
+            "Last card of the entire hand earns 1 point (or 2 for hitting 31)",
+            "All 8 cards played — Play phase complete"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Show — Scoring Your Hand",
+          "bullets": [
+            "Your 5 scoring cards: 3-4-5-5-6 (hand + starter)",
+            "Count 15s: 4+5+6=15 twice (each 5) = 4 points",
+            "Count methodically — check every combination"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Mistake — Missing Scoring Combinations",
+          "bullets": [
+            "Beginners routinely undercount 15s and miss points",
+            "Always check 2-card, 3-card, 4-card, and 5-card combos",
+            "Leaving points on the board is the most common beginner error"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Counting Pairs and Runs",
+          "bullets": [
+            "Pair of 5s = 2 pts; two runs of 4 (3-4-5-6 each 5) = 8 pts",
+            "No flush (mixed suits), no Nobs (no Jack)",
+            "Total: 4 (15s) + 2 (pair) + 8 (runs) = 14 points"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Dealer Scores Hand and Crib",
+          "bullets": [
+            "Dealer scores their hand + starter, then flips and scores crib + starter",
+            "Your Q+K discard unlikely to help crib much with 3 starter",
+            "Smart discarding kept points in your hand, not opponent's crib"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Pegging Your Points",
+          "bullets": [
+            "Leapfrog back peg ahead by points scored in Show",
+            "Add pegging points from Play phase too",
+            "Non-dealer scores first — order can decide close games"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Completed a full hand of Cribbage from deal to scoring",
+            "Learned smart discarding, safe leading, and methodical counting",
+            "Deal passes to you next — now you get the crib"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Key Takeaways",
+          "bullets": [
+            "Never throw a 5 to opponent's crib — too many 15 combos",
+            "Lead with low cards to avoid giving opponent easy pegging",
+            "Count hands methodically — check every subset for 15s, pairs, runs"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Deal",
+          "bullets": [
+            "Check out General Tips → discard strategy and pegging tactics",
+            "Reference the Appendix → all scoring combos and terminology",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Discard Strategy for Your Hand",
+          "text": "The most important decision in Cribbage happens before a single card is played — choosing which two cards to discard to the crib. When you are the dealer, you can afford to be generous to the crib because it is yours. Toss cards that work well together, like a 5 and a face card, or two cards close in rank that might form a run. When you are the non-dealer, be stingy. Avoid throwing 5s, pairs, or cards that total 15. Low cards like Aces and 2s or wide-apart cards like a King and an Ace are safer discards to an opponent's crib."
+        },
+        {
+          "step": 2,
+          "title": "Protect Your Core Hand",
+          "text": "When deciding what to discard, identify the strongest scoring core in your six cards and protect it. A pair of 5s with a face card is gold — keep it. A run of three or four consecutive cards is powerful. Three cards that all make 15 together are keepers. Once you have identified the best four-card combination, the other two go to the crib. Do not break up a strong core just to avoid giving the crib one slightly good card. Your hand is guaranteed points. The crib is variable and might score zero."
+        },
+        {
+          "step": 3,
+          "title": "Pegging Strategy — Leading",
+          "text": "When you lead the first card in the Play phase, low cards are generally safest. Leading a 4 or lower makes it very difficult for your opponent to hit 15 with a single card. Avoid leading 5s — your opponent can play any face card to score 15. Be cautious with face cards as leads too, because if the count hits 10, your opponent might pair you or play a 5 to hit 15. The ideal lead is a card you hold a pair of — if your opponent pairs your lead, you can play the third one for a pair royal worth 6 points."
+        },
+        {
+          "step": 4,
+          "title": "Pegging Strategy — Responding",
+          "text": "When your opponent leads, your first instinct should be to check if you can make 15 for 2 points. If not, look for a pair. If the count is low and you play a card that brings it to 5 or 10 or 21, be aware that you are setting your opponent up for a 15 or 31. When the count gets above 21, play your lowest remaining cards so you are more likely to force your opponent to say Go while you can still play. In the late Play, having low cards is an advantage because you can keep playing while your opponent is stuck."
+        },
+        {
+          "step": 5,
+          "title": "Common Counting Mistakes",
+          "text": "The most common mistake in Cribbage is miscounting your hand during the Show. Here is a systematic approach. Start with 15s — check every two-card combination first, then three-card, then four-card, then all five. Next count pairs. Then check for runs. Look for flushes. Finally check for Nobs. Say each score out loud as you count: 'fifteen two, fifteen four' and so on. If you are unsure, lay your cards out and physically group the combinations. Every point matters in Cribbage — games are often decided by two or three points."
+        },
+        {
+          "step": 6,
+          "title": "Playing as Dealer vs Non-Dealer",
+          "text": "Your strategy should shift depending on whether you are dealing. As the non-dealer, you score your hand first in the Show. This means you want to maximize your hand's value and peg aggressively during the Play — every point counts because you might reach 121 before the dealer even gets to count. As the dealer, you have the crib safety net. You can afford a slightly weaker hand if it means a strong crib. Play the Play phase more defensively, avoiding risky plays that could give the non-dealer extra pegging points."
+        },
+        {
+          "step": 7,
+          "title": "The Power of 5s and Face Cards",
+          "text": "Fives are the most valuable cards in Cribbage. A single 5 combines with any of the sixteen 10-value cards in the deck to make 15. A pair of 5s instantly gives you 15 twice plus the pair — that is 6 points before runs or anything else. Face cards are also valuable because they combine with 5s for 15. The 5-5-J hand with a face card starter is one of the highest-scoring combinations in the game. Whenever you see 5s in your hand, build around them."
+        },
+        {
+          "step": 8,
+          "title": "Board Position Awareness",
+          "text": "Cribbage is not just about counting — it is also a race on the board. Keep track of where both pegs are. If you are ahead, play conservatively during the Play phase to protect your lead. If you are behind, play aggressively — go for 15s, pairs, and runs during pegging even if it means taking risks. In the late game when both players are near 121, the non-dealer has an advantage because they count first in the Show. If you are the dealer trailing near the end, you need to peg hard during the Play because the non-dealer might win before you even get to count."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Discard Strategy for Your Hand",
+          "bullets": [
+            "As dealer: toss good combos to YOUR crib (5+face, close ranks)",
+            "As non-dealer: be stingy — avoid giving 5s, pairs, or 15-combos",
+            "Safe non-dealer discards: Aces, 2s, or wide-apart cards (K+A)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Protect Your Core Hand",
+          "bullets": [
+            "Identify strongest 4-card scoring core, discard the other two",
+            "Don't break a strong core to protect the crib",
+            "Your hand is guaranteed points — crib is variable"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Pegging Strategy — Leading",
+          "bullets": [
+            "Lead with 4 or lower — hard for opponent to hit 15",
+            "Never lead with a 5 — any face card makes 15",
+            "Ideal lead: card you hold a pair of (bait the pair royal trap)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Pegging Strategy — Responding",
+          "bullets": [
+            "Check for 15 first, then pair, then safe plays",
+            "Avoid bringing count to 5, 10, or 21 (sets up opponent's 15 or 31)",
+            "Save low cards for late in the count — forces opponent to say Go"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Common Counting Mistakes",
+          "bullets": [
+            "Count systematically: 15s → pairs → runs → flush → Nobs",
+            "Check 2-card, 3-card, 4-card, then 5-card combos for 15s",
+            "Say scores aloud — games often decided by 2-3 points"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Playing as Dealer vs Non-Dealer",
+          "bullets": [
+            "Non-dealer: maximize hand, peg aggressively (you score first)",
+            "Dealer: slightly weaker hand OK if crib is strong",
+            "Dealer plays Play phase defensively; non-dealer pushes for pegging"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Power of 5s and Face Cards",
+          "bullets": [
+            "5 combines with 16 ten-value cards for 15 — most valuable card",
+            "Pair of 5s = 6 guaranteed points (two 15s + pair)",
+            "Build your hand around 5s whenever possible"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Board Position Awareness",
+          "bullets": [
+            "Ahead: play conservatively, protect your lead",
+            "Behind: peg aggressively, take risks for pairs and 15s",
+            "Late game: non-dealer counts first — dealer must peg hard if trailing"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Optimal Discard Theory",
+          "text": "Advanced crib strategy goes beyond 'don't throw a 5.' When discarding to your own crib, the best tosses are 5-5 (guaranteed 15 pair), 5-J, 5-Q, 5-K (guaranteed 15), and close pairs or connectors like 6-7 or 7-8. When discarding to your opponent's crib, the mathematically worst cards to give are A-K and 2-3 — they rarely combine. 9-K and 10-K are also relatively safe. Memorize a few safe discard pairs and you will protect yourself automatically."
+        },
+        {
+          "step": 2,
+          "title": "Expected Hand Values",
+          "text": "Expert players calculate expected hand value based on the cut card. Before discarding, consider all 46 possible starter cards and which discard choice gives the highest average hand score. For example, keeping 5-5-J-Q versus 5-5-J-K might seem identical, but the Queen keeps more 15 combinations open with certain starters. You do not need to calculate exact probabilities at the table — just ask yourself which keep gives you the best chance of improvement with a random starter."
+        },
+        {
+          "step": 3,
+          "title": "Pegging Tactics — The 11 Trap",
+          "text": "One of the sneakiest pegging tactics is the 11 trap. If your opponent leads a face card (count 10), play an Ace to make the count 11. This is a strong defensive play because your opponent cannot make 15 or 31 easily. Meanwhile, if they play a 4 to make 15, you can potentially play another card to reach 31. The 11 count is awkward for your opponent. Similarly, playing to make the count 22 is strong — it is very hard for your opponent to reach 31 from 22 without low cards."
+        },
+        {
+          "step": 4,
+          "title": "Pegging Tactics — The Pair Trap",
+          "text": "If you hold a pair, consider leading one of them. If your opponent pairs you for 2 points, you play the third for a pair royal and score 6 points — netting 4 points on the exchange. This only works if you are willing to risk getting paired. An advanced version: hold three of a kind. Lead one, let them pair you for 2, play the third for a pair royal at 6, and if they somehow have the fourth, well, that is extremely rare. The pair trap is especially effective early in the count when your opponent is likely to pair thinking it is safe."
+        },
+        {
+          "step": 5,
+          "title": "Defensive Pegging",
+          "text": "When you are ahead on the board, your goal during the Play phase shifts from scoring to preventing your opponent from scoring. Play cards that keep the count in awkward zones — 11, 22, 27 are all counts that make it hard for your opponent to score. Avoid playing cards that bring the count to exactly 5, 10, 15, 21, or 26, as these set up easy 15s or 31s. When in doubt, play your highest card early to get it out of the way, then use your low cards to control the late count and potentially force a Go."
+        },
+        {
+          "step": 6,
+          "title": "Offensive Pegging",
+          "text": "When you are behind and need to catch up, peg aggressively. Lead with cards that invite responses you can score from. Pair your opponent whenever possible. If the count is near 15 or 31, try to be the one who hits it. Play connectors that set up runs — if you play a 7 and your opponent plays an 8, you can slam down a 6 or 9 to complete a run and score 3. Aggressive pegging is risky because your opponent might score too, but when you are behind, the trade-off is worth it."
+        },
+        {
+          "step": 7,
+          "title": "Board Position Strategy",
+          "text": "Experienced players divide the board into zones. Holes 1-60 is the first street, 61-90 is second street, 91-120 is third street, and 121 is the game hole. At the end of each deal, you should ideally be at about the same position as your street target. First deal as non-dealer, aim for hole 10-12. First deal as dealer, aim for 15-18. Falling behind by more than 10-15 holes puts you in skunk danger. Knowing your board position tells you whether to play offensively or defensively throughout the hand."
+        },
+        {
+          "step": 8,
+          "title": "The Endgame Push",
+          "text": "When both players are past hole 100, the game enters the endgame. Every pegging point matters. As non-dealer in the final hand, you want to maximize your hand score because you count first. As dealer, you may need to peg three or four points during the Play to reach 121 before the non-dealer counts. In the endgame, some players intentionally break up strong hands to get better pegging cards — keeping close connectors and pairs for play rather than holding the highest-scoring hand. This is the ultimate risk-reward calculation in Cribbage.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Optimal Discard Theory",
+          "bullets": [
+            "Best tosses to YOUR crib: 5-5, 5-face, close connectors (6-7, 7-8)",
+            "Safest tosses to OPPONENT's crib: A-K, 2-3, 9-K, 10-K",
+            "Memorize safe discard pairs for automatic protection"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Expected Hand Values",
+          "bullets": [
+            "Consider which 4-card keep improves most with a random starter",
+            "46 possible starter cards affect your hand's scoring potential",
+            "Ask: which keep gives the best average improvement?"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Pegging Tactics — The 11 Trap",
+          "bullets": [
+            "Opponent leads face card (10)? Play Ace to make 11 — awkward count",
+            "Count of 22 is similarly strong — hard to reach 31",
+            "Control the count to avoid 5, 10, 15, 21, 26"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Pegging Tactics — The Pair Trap",
+          "bullets": [
+            "Lead one of a pair — if opponent pairs you, play third for pair royal (6 pts)",
+            "Net +4 points on the exchange",
+            "Most effective early in the count when opponent is likely to pair"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Defensive Pegging",
+          "bullets": [
+            "When ahead: keep count at awkward numbers (11, 22, 27)",
+            "Avoid counts of 5, 10, 15, 21, 26 (easy 15s or 31s for opponent)",
+            "Play high cards early, save low cards to control late count"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Offensive Pegging",
+          "bullets": [
+            "When behind: pair aggressively, aim for 15s and 31s",
+            "Play connectors to set up runs (play 7, opponent plays 8, you play 6 or 9)",
+            "Aggressive pegging is risky but necessary when trailing"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Board Position Strategy",
+          "bullets": [
+            "Board zones: 1st street (1-60), 2nd street (61-90), 3rd street (91-120)",
+            "Target positions: non-dealer deal 1 aim for hole 10-12, dealer aim for 15-18",
+            "Falling 10-15+ holes behind = skunk danger"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Endgame Push",
+          "bullets": [
+            "Past hole 100: every pegging point matters",
+            "Non-dealer: maximize hand (you count first in the Show)",
+            "Dealer may break up strong hand for better pegging cards to reach 121 first"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Card Values (Play Phase)",
+          "definition": "During the Play (Pegging) phase, Aces count as 1, number cards 2-10 count as face value, and Jacks, Queens, and Kings all count as 10. The running count cannot exceed 31.",
+          "category": "Card Values"
+        },
+        {
+          "term": "Fifteen (Pegging)",
+          "definition": "During the Play phase, if the running count reaches exactly 15, the player who played the last card scores 2 points.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Pair (Pegging)",
+          "definition": "During the Play phase, playing a card of the same rank as the previous card scores 2 points. The cards must be played consecutively — another card in between breaks the pair.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Pair Royal (Pegging)",
+          "definition": "During the Play phase, three consecutive cards of the same rank scores 6 points (equivalent to three pairs).",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Double Pair Royal (Pegging)",
+          "definition": "During the Play phase, four consecutive cards of the same rank scores 12 points (equivalent to six pairs). Extremely rare.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Run (Pegging)",
+          "definition": "During the Play phase, if the last three or more cards played form a consecutive sequence regardless of order, the player who completed the run scores 1 point per card. For example, playing 5-3-4 scores a run of 3 for 3 points.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Thirty-One",
+          "definition": "During the Play phase, if the running count reaches exactly 31, the player who played the last card scores 2 points. The count then resets to zero.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Go",
+          "definition": "During the Play phase, if a player cannot play any card without exceeding 31, they say 'Go.' The opponent continues playing cards if possible. The last player to play a card before the count resets scores 1 point for the Go.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Last Card",
+          "definition": "The player who plays the very last card in a count sequence scores 1 point (or 2 if the count is exactly 31). This is essentially a Go point awarded to the final player.",
+          "category": "Pegging Scores"
+        },
+        {
+          "term": "Fifteens (Hand Scoring)",
+          "definition": "During the Show, every unique combination of cards in your hand plus the starter that totals exactly 15 scores 2 points. You can use any number of cards (2, 3, 4, or 5) in each combination. Count all possible groupings.",
+          "category": "Hand Scoring"
+        },
+        {
+          "term": "Pairs (Hand Scoring)",
+          "definition": "During the Show, each pair of cards with the same rank scores 2 points. Three of a kind contains three pairs (6 points). Four of a kind contains six pairs (12 points).",
+          "category": "Hand Scoring"
+        },
+        {
+          "term": "Runs (Hand Scoring)",
+          "definition": "During the Show, three or more cards in consecutive rank order score 1 point per card. Duplicate cards create multiple runs — for example, 3-4-4-5 contains two runs of three (3-4-5 twice) for 6 points.",
+          "category": "Hand Scoring"
+        },
+        {
+          "term": "Flush",
+          "definition": "During the Show, if all four cards in your hand are the same suit, score 4 points. If the starter also matches, score 5 points. In the crib, all five cards must match for a flush (4-card crib flush does not count).",
+          "category": "Hand Scoring"
+        },
+        {
+          "term": "Nobs (His Nobs)",
+          "definition": "During the Show, if you hold a Jack that matches the suit of the starter card, score 1 point. Also applies in the crib. Not to be confused with His Heels (Jack as starter).",
+          "category": "Hand Scoring"
+        },
+        {
+          "term": "His Heels (Nibs)",
+          "definition": "If the starter card (cut card) is a Jack, the dealer immediately pegs 2 points before the Play phase begins. Also called Nibs. Not to be confused with Nobs (Jack in hand matching starter suit).",
+          "category": "Starter Card"
+        },
+        {
+          "term": "Starter Card (Cut Card)",
+          "definition": "The card revealed after discarding to the crib. The non-dealer cuts the deck and the dealer flips the top card of the bottom portion. This card is shared by all hands and the crib as a fifth card during the Show.",
+          "category": "Starter Card"
+        },
+        {
+          "term": "The Crib",
+          "definition": "A special extra hand belonging to the dealer, formed from the cards discarded by each player. Scored after both hands in the Show using the same rules (15s, pairs, runs, flush, Nobs). The crib uses the starter as its fifth card. A four-card flush does not count in the crib.",
+          "category": "Crib"
+        },
+        {
+          "term": "The Play (Pegging)",
+          "definition": "The first phase of each hand where players alternate playing cards face-up, maintaining a running count up to 31. Points are scored for hitting 15, making pairs, completing runs, reaching 31, and Go/last card. Non-dealer leads first.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "The Show",
+          "definition": "The second phase where players score their hands. Each player counts their four hand cards plus the starter card for 15s, pairs, runs, flush, and Nobs. Scoring order: non-dealer first, then dealer hand, then dealer crib.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Skunk",
+          "definition": "When the winner reaches 121 while the opponent has not passed hole 91 (has not entered third street). In match play, a skunk counts as two wins. Some groups play with a skunk line marked on the board.",
+          "category": "Board & Scoring"
+        },
+        {
+          "term": "Double Skunk",
+          "definition": "When the winner reaches 121 while the opponent has not passed hole 61. In match play, a double skunk counts as three wins (or four in some house rules). Indicates a very one-sided game.",
+          "category": "Board & Scoring"
+        },
+        {
+          "term": "Pegging (Board)",
+          "definition": "The act of moving your peg forward on the cribbage board to record points. Use two pegs per player — leapfrog the rear peg ahead of the front peg each time you score. The front peg shows your current total.",
+          "category": "Board & Scoring"
+        },
+        {
+          "term": "Streets",
+          "definition": "Informal divisions of the cribbage board used for position tracking. First street: holes 1-60. Second street: holes 61-90. Third street: holes 91-120. Game hole: 121. Players aim to reach certain streets by certain deals.",
+          "category": "Board & Scoring"
+        },
+        {
+          "term": "Muggins",
+          "definition": "An optional rule where if a player miscounts their hand and pegs fewer points than they earned, the opponent can call 'Muggins' and peg the missed points. Encourages careful counting. Agree on this rule before playing.",
+          "category": "Board & Scoring"
+        },
+        {
+          "term": "Highest Possible Hand",
+          "definition": "The maximum hand score is 29 points: three 5s and the Jack of the same suit as the starter (which is the fourth 5). This gives eight 15s (16 pts), six pairs (12 pts), and Nobs (1 pt) = 29. This is sometimes called a 'perfect hand.'",
+          "category": "Board & Scoring"
+        }
+      ]
+    }
+  }
+}

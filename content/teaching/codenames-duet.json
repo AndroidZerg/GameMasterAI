@@ -1,0 +1,775 @@
+{
+  "game_id": "codenames-duet",
+  "title": "Codenames: Duet",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Lay Out the Word Grid",
+          "text": "Let's get Codenames: Duet set up. First, shuffle the stack of word cards and deal out twenty-five of them in a five-by-five grid face up between both players. These words are the codenames for agents, bystanders, and assassins hiding in the field. Make sure both players can read all the words easily.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Draw a Key Card",
+          "text": "Now grab the key card holder and draw one random key card from the deck. Place it upright in the stand between both players so each person sees a different side. Do not peek at your partner's side. Each side shows a grid of green, beige, and black squares that tells you which words on the table are agents, bystanders, and assassins from your perspective.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Out Timer Tokens",
+          "text": "Find the nine timer tokens and place them in a shared pile between both players. These tokens represent how many turns we have to find all fifteen agents. We lose one token each time we contact a bystander or choose to stop guessing early. When all nine tokens are gone, each player gets one final turn before the game ends.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Who Goes First",
+          "text": "Decide who will give the first clue. It does not matter who starts since we will alternate roles each turn. The clue-giver looks at their side of the key card to see which words are green agents on their side. The guesser waits for the clue. We are in this together, so let's get started!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Lay Out the Word Grid",
+          "bullets": [
+            "Shuffle word cards, deal 25 face-up in a 5x5 grid",
+            "Both players should be able to read all words"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Draw a Key Card",
+          "bullets": [
+            "Draw 1 random key card, place in stand between players",
+            "Each player sees a different side — do not peek at partner's side",
+            "Green = agents, beige = bystanders, black = assassins"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Out Timer Tokens",
+          "bullets": [
+            "Place 9 timer tokens in a shared pile",
+            "Lose 1 token on bystander contact or voluntary stop",
+            "When all tokens gone → each player gets 1 final turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Choose Who Goes First",
+          "bullets": [
+            "Pick who gives the first clue — players alternate each turn",
+            "Clue-giver studies their side of the key card",
+            "Guesser waits for the clue"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How the Key Card Works",
+          "text": "Each side of the key card shows a five-by-five grid with colored squares. Green squares are your agents. Beige squares are innocent bystanders. Black squares are assassins. Here is the important part: your side and your partner's side are different. You each see nine green agents, three black assassins, and thirteen beige bystanders, but the positions differ. Three of the green agents overlap between both sides, meaning fifteen total unique agents need to be found to win.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Giving a Clue",
+          "text": "When it is your turn to give a clue, you say exactly one word followed by one number. The word is a hint that relates to one or more of the green agent words on your side of the key card. The number tells your partner how many words on the grid relate to your clue. For example, if the words OCEAN and WHALE are both green on your side, you might say 'water, two.' Your clue word cannot be any word currently visible on the grid, and it cannot be a form or abbreviation of a visible word.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Guessing Words",
+          "text": "After hearing the clue, the guesser touches a word card on the grid. The clue-giver then checks their key card and reveals what that word is. If the word is green on the clue-giver's side, great! We found an agent. Cover it with a green agent card and keep guessing. You may guess up to the clue number plus one additional guess, which lets you catch up on words from previous clues.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Bystanders and Stopping",
+          "text": "If the guesser touches a word that is beige on the clue-giver's side, it is an innocent bystander. Cover it with a bystander card, remove one timer token from the pile, and the turn ends immediately. The guesser can also choose to stop guessing voluntarily at any point after making at least one guess. Stopping also costs one timer token. Stopping is sometimes the smart play when you are unsure about remaining guesses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Assassins Mean Instant Loss",
+          "text": "If the guesser touches a word that is black on the clue-giver's side, it is an assassin. The game ends immediately and we lose. This is the biggest danger in the game. Remember that each side of the key card has different assassins, so a word that looks safe to the guesser might be an assassin from the clue-giver's perspective. Be very careful with broad clues that could lead your partner toward a word you cannot see is dangerous on their side.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Alternating Roles",
+          "text": "After the guesser's turn ends, whether from finding a bystander, choosing to stop, or successfully guessing all clued words, the players switch roles. The guesser becomes the new clue-giver and vice versa. The new clue-giver looks at their side of the key card and gives a clue for their green agents. We keep alternating until we win, lose, or run out of time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Timer Tokens and Sudden Death",
+          "text": "We start with nine timer tokens. Every time we contact a bystander or voluntarily stop guessing, we lose one token. When all nine tokens are gone, we enter sudden death. Each player gets exactly one more turn as clue-giver, and their partner must guess correctly on every attempt with no mistakes allowed. If we still have not found all fifteen agents after those two final turns, we lose.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "text": "We win by finding all fifteen unique agents before hitting an assassin or running out of time. Some agents appear as green on both sides of the key card, so when your partner finds one of those, it counts for both of you. When all fifteen agent cards have been covered, we win together! The fewer timer tokens we spent, the better we played. For an extra challenge, try the mission campaign on the back of the rulebook.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How the Key Card Works",
+          "bullets": [
+            "Each side: 9 green agents, 3 black assassins, 13 beige bystanders",
+            "Sides differ — 3 agents overlap between sides",
+            "15 total unique agents to find (9 + 9 - 3)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Giving a Clue",
+          "bullets": [
+            "Say 1 word + 1 number",
+            "Word relates to green agents on your side of the key card",
+            "Number = how many grid words relate to your clue",
+            "Clue word cannot match or abbreviate any visible grid word"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Guessing Words",
+          "bullets": [
+            "Guesser touches a word card on the grid",
+            "Green agent → cover it, keep guessing",
+            "Max guesses = clue number + 1 (extra guess for catching up)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Bystanders and Stopping",
+          "bullets": [
+            "Beige bystander → cover it, lose 1 timer token, turn ends",
+            "Voluntary stop (after 1+ guesses) → lose 1 timer token, turn ends",
+            "Sometimes stopping is the smart play"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Assassins Mean Instant Loss",
+          "bullets": [
+            "Black assassin → game over, instant loss",
+            "Each side has different assassins — beware!",
+            "Broad clues risk leading partner toward hidden assassins"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Alternating Roles",
+          "bullets": [
+            "After each turn, players swap clue-giver and guesser roles",
+            "New clue-giver checks their own side of the key card",
+            "Keep alternating until win, loss, or time runs out"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Timer Tokens and Sudden Death",
+          "bullets": [
+            "Start with 9 timer tokens",
+            "Lose 1 on bystander contact or voluntary stop",
+            "All tokens gone → sudden death: 1 final turn each, no mistakes allowed"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "bullets": [
+            "Win: find all 15 agents before assassin or time runs out",
+            "Overlapping agents count for both sides when found",
+            "Fewer tokens spent = better performance",
+            "Campaign mode available for extra challenge"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Game",
+          "text": "Welcome to your first game of Codenames: Duet! In this practice tutorial, we will walk through a scripted game between two players, Alex and Sam. They will make some great plays and a few mistakes so we can learn from both. We are all in this together, so let's see how teamwork and careful clue-giving lead to victory.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Grid and Key Card",
+          "text": "Alex and Sam have dealt twenty-five word cards in a five-by-five grid. The words include things like MOON, TORCH, CAT, SHIP, IRON, FOREST, WAVE, PIANO, ROCKET, and many others. They have placed a key card in the stand between them. Each player sees a different pattern of green agents, beige bystanders, and black assassins on their side.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Alex's First Clue",
+          "text": "Alex goes first as clue-giver. Looking at their side, Alex sees that MOON and ROCKET are both green agents. Alex says 'space, two.' Sam thinks for a moment and touches ROCKET. Alex checks the key card and confirms it is green. Sam then touches MOON. Also green! Two agents found on the first turn with no timer tokens lost. A strong start for the team.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Sam's First Clue",
+          "text": "Now Sam becomes the clue-giver. Sam sees that CAT and FOREST are green on their side. Sam says 'wildlife, two.' Alex touches FOREST and it is green. Then Alex considers CAT, but also notices the word WAVE on the grid. Alex is not sure if 'wildlife' could mean WAVE somehow, so Alex decides to play it safe and stops guessing. They lose one timer token, but Sam confirms that CAT was indeed the right word. Sometimes caution costs a token but keeps us alive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Lesson: Stopping Has a Cost",
+          "text": "Alex's decision to stop was understandable, but let's think about it. We started with nine timer tokens and just lost one to a voluntary stop. We have eight tokens left and still need to find twelve agents. That means we need to average about two agents per clue to finish in time. Every token we spend on a stop is one fewer turn we have. Being cautious is good, but if we stop too often, we will run out of time before finding everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Alex's Second Clue: The Mistake",
+          "text": "Alex sees that SHIP and IRON are green on their side. Alex gives the clue 'metal, two,' thinking of IRON and SHIP as in an iron ship. Sam touches IRON, which is green. Then Sam thinks about 'metal' and touches TORCH, thinking of a metal torch. But TORCH is a black assassin on Alex's side! The team loses instantly. Game over.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Watch Out for Assassins",
+          "text": "What went wrong? Alex forgot to check whether 'metal' could lead Sam toward any assassin words. TORCH has a strong metal connection, and it was an assassin on Alex's side. Before giving any clue, the clue-giver must scan all twenty-five words and ask: could my partner reasonably connect this clue to an assassin word? If the answer is yes, pick a different clue, even if it only connects to one agent instead of two. One safe agent is always better than risking an assassin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Starting Over: A Fresh Game",
+          "text": "Let's rewind and imagine Alex and Sam start a new game with fresh words and a new key card. This time they are more careful. Alex opens with a clue that connects two agents with no assassin risk. Sam finds both words. Sam then gives a clue for three agents. Alex finds two of them but is unsure about the third, so Alex stops. One timer token spent, but no assassin risk.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "The Wild Guessing Mistake",
+          "text": "A few turns later, Sam gives the clue 'bright, one' for a single agent word. Alex finds it correctly but has the extra plus-one guess available. Instead of stopping, Alex decides to take a wild guess at a word from a previous turn. Alex touches a random word hoping to get lucky, but it is a bystander. That costs a timer token on top of the one they would have spent by stopping. Two tokens lost on one turn when stopping would have cost only one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Don't Guess Wildly",
+          "text": "Using the extra plus-one guess is great when you have a strong idea from a previous clue. But guessing randomly wastes timer tokens just as fast as stopping does, and it also risks hitting an assassin. Only use the bonus guess if you have a genuine connection to a previous clue. Wild guessing turns a controlled situation into a dangerous one for no benefit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Running Out of Time",
+          "text": "As the game continues, Alex and Sam notice they have only two timer tokens left with seven agents still to find. They have been giving safe one-word clues, and the slow pace has caught up to them. They need to start connecting two or three agents per clue to have any chance of finishing. Sam takes a deep breath and gives a more ambitious clue linking three words together.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Average Two or More per Clue",
+          "text": "This is the core math of Codenames: Duet. With nine timer tokens and fifteen agents to find, we need to average at least two agents per clue over the whole game. If we keep giving safe one-word clues, we will run out of tokens before finding everyone. The best strategy is to aim for two-word clues consistently and go for three-word clues when the connections are strong. Save the risky one-word clues for words that are truly impossible to pair with anything else.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Winning Push",
+          "text": "Sam's ambitious three-word clue pays off. Alex finds all three agents. Then Alex gives a two-word clue and Sam nails both. They are down to the final two agents with one timer token left. Sam gives one last clue connecting both remaining words. Alex touches the first word and it is green. Alex touches the second word and it is green. All fifteen agents found! They win with one token to spare.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Before You Begin",
+          "text": "Congratulations on completing the practice tutorial! You have seen the three most common mistakes: giving clues that accidentally point toward assassins, guessing wildly instead of stopping, and playing too cautiously with one-word clues until time runs out. Check out General Tips for more strategy advice and the Appendix for quick reference on rules and terms. And remember, you can always tap the Q&A tab to ask your personal GM Guide any question during your game. Good luck, partners!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Game",
+          "bullets": [
+            "Scripted tutorial with 2 example players (Alex and Sam)",
+            "Demonstrates great plays and common mistakes",
+            "Cooperative game — we are in this together"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Grid and Key Card",
+          "bullets": [
+            "25 word cards in a 5x5 grid",
+            "Key card in stand — each player sees different side",
+            "Green = agents, beige = bystanders, black = assassins"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Alex's First Clue",
+          "bullets": [
+            "Clue: 'space, 2' → ROCKET and MOON both green",
+            "Sam guesses both correctly — 2 agents found, no tokens lost",
+            "Strong opening with a clear, safe connection"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Sam's First Clue",
+          "bullets": [
+            "Clue: 'wildlife, 2' → FOREST found, but Alex stops before guessing CAT",
+            "Voluntary stop costs 1 timer token",
+            "Caution is safe but has a time cost"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Lesson: Stopping Has a Cost",
+          "bullets": [
+            "9 tokens, 15 agents → need ~2 agents per clue",
+            "Every voluntary stop = 1 fewer turn available",
+            "Balance caution vs. pace — don't stop too often"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Alex's Second Clue: The Mistake",
+          "bullets": [
+            "Clue: 'metal, 2' → IRON found, but Sam guesses TORCH (assassin)",
+            "Instant loss — game over",
+            "Alex failed to check if clue could lead to assassin words"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Watch Out for Assassins",
+          "bullets": [
+            "Before giving a clue, scan ALL 25 words for assassin risk",
+            "Ask: could my partner connect this clue to an assassin?",
+            "1 safe agent > 2 risky agents — never gamble with assassins"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Starting Over: A Fresh Game",
+          "bullets": [
+            "New game, new words, more careful play",
+            "Alex opens with a safe 2-word clue — both found",
+            "Sam gives a 3-word clue — Alex finds 2, stops safely"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "The Wild Guessing Mistake",
+          "bullets": [
+            "Alex uses the +1 bonus guess on a random word",
+            "Hits a bystander → loses a timer token needlessly",
+            "Wild guessing wastes tokens AND risks assassins"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Don't Guess Wildly",
+          "bullets": [
+            "Only use +1 bonus guess with a genuine connection to a past clue",
+            "Random guessing = same token cost as stopping + assassin risk",
+            "Controlled play beats reckless guessing"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Running Out of Time",
+          "bullets": [
+            "2 tokens left, 7 agents still to find",
+            "Too many safe 1-word clues caused the time crunch",
+            "Need to give ambitious 2-3 word clues to catch up"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Average Two or More per Clue",
+          "bullets": [
+            "9 tokens, 15 agents → must average 2+ agents per clue",
+            "Aim for 2-word clues consistently, 3-word when connections are strong",
+            "Save 1-word clues for truly unpaired words only"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Winning Push",
+          "bullets": [
+            "Sam's 3-word clue → Alex finds all 3",
+            "Alex's 2-word clue → Sam finds both",
+            "Final clue connects last 2 agents → win with 1 token to spare"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Before You Begin",
+          "bullets": [
+            "3 key mistakes: assassin-risky clues, wild guessing, too-cautious pacing",
+            "Check General Tips → strategy advice for clue-giving",
+            "Reference Appendix → quick rules and terms",
+            "Ask your GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Always Scan for Assassins First",
+          "text": "Before you even think about which agents to connect, scan the entire grid for your three assassin words. Memorize them. Now every time you come up with a clue, check it against those three words. Could your partner reasonably connect your clue to any of them? If there is even a small chance, pick a different clue. One safe agent per turn is infinitely better than risking an instant loss. This assassin check should become an automatic habit on every single turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Aim for Two-Word Clues",
+          "text": "The math of Codenames: Duet demands efficiency. With nine timer tokens and fifteen agents to find, giving one-word clues all game guarantees running out of time. Aim to connect at least two agents with every clue. Look for categories, themes, or associations that link multiple green words. Two-word clues are the sweet spot of safety and efficiency. Save three-word clues for when the connections are crystal clear.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Use Your Partner's Clues",
+          "text": "When you are the guesser, remember that your bonus plus-one guess exists for a reason. If your partner said 'ocean, two' last turn and you only found one word, keep that clue in mind. On a future turn, you might use your extra guess to revisit that old clue. Building a mental library of your partner's past clues is one of the strongest skills in Duet. Write them down if you need to.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Think About Your Partner's Perspective",
+          "text": "Here is something many new players forget: the assassins on your side and your partner's side are different. When you give a clue, you are protecting your partner from your assassins. But when you are guessing, you need to remember that your partner has already screened their clue against their assassins. Trust their clue, but also be aware that a word safe on their side might be dangerous on yours when it is your turn to give clues later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Manage Your Timer Tokens",
+          "text": "Think of timer tokens as a shared health bar. Every bystander contact and every voluntary stop costs one token. Early in the game, spending a token to stop is acceptable because you have plenty of cushion. But once you are down to three or four tokens, every single one matters. Start tracking how many agents remain versus how many tokens you have. If the ratio gets tight, it is time to take calculated risks with bigger clues.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Start with the Hardest Words",
+          "text": "Some words are easy to connect with others, and some are stubborn loners that do not seem to fit any category. Give clues for the hard words first, while you still have flexibility. If you save the difficult words for the end, you will be forced to give one-word clues when you have no tokens left. Pair a hard word with an easy word early in the game so the easy word acts as a gimme for your partner.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Communicate Without Talking",
+          "text": "You cannot discuss strategy or give hints outside of your clue word and number. But you can communicate through your clue choices. If you give a clue for only one word, your partner knows that word was probably hard to pair. If you give a clue for three, your partner knows the connections are strong. Your number itself carries meta-information. Also pay attention to how long your partner hesitates before guessing. Their confidence level tells you a lot about how clear your clue was.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Know When to Be Bold",
+          "text": "Codenames: Duet rewards controlled aggression. If you play it too safe with one-word clues, you will run out of time. If you play too recklessly, you will hit an assassin. The sweet spot is giving two-word clues with strong connections while carefully avoiding assassins. As the game progresses and tokens dwindle, shift toward bolder three-word clues. The last few turns should be your most ambitious because you have nothing to lose by trying.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Always Scan for Assassins First",
+          "bullets": [
+            "Memorize your 3 assassin words before giving any clue",
+            "Check every clue against assassins — could partner connect it?",
+            "1 safe agent > 2 risky agents, always"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Aim for Two-Word Clues",
+          "bullets": [
+            "9 tokens, 15 agents → 1-word clues all game = guaranteed loss",
+            "2-word clues = sweet spot of safety and efficiency",
+            "Save 3-word clues for crystal-clear connections"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Use Your Partner's Clues",
+          "bullets": [
+            "+1 bonus guess lets you revisit old clues from previous turns",
+            "Build a mental library of partner's past clues",
+            "Write down clues if needed — memory is a tool"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Think About Your Partner's Perspective",
+          "bullets": [
+            "Assassins differ per side — your safe word may be their assassin",
+            "As clue-giver, you protect partner from YOUR assassins",
+            "As guesser, trust that partner already screened their clue"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Manage Your Timer Tokens",
+          "bullets": [
+            "Timer tokens = shared health bar",
+            "Early game: spending a token to stop is acceptable",
+            "Down to 3-4 tokens: every one matters, take bigger risks",
+            "Track agents remaining vs. tokens remaining"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Start with the Hardest Words",
+          "bullets": [
+            "Give clues for stubborn, hard-to-pair words first",
+            "Pair a hard word with an easy word for a safe 2-word clue",
+            "Saving hard words for the end forces 1-word clues when tokens are low"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Communicate Without Talking",
+          "bullets": [
+            "No strategy discussion allowed — clue word and number only",
+            "Clue number carries meta-info: 1 = hard word, 3 = strong connections",
+            "Watch partner's hesitation level for feedback on clue clarity"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Know When to Be Bold",
+          "bullets": [
+            "Too safe = run out of time; too reckless = hit assassin",
+            "Sweet spot: 2-word clues with strong connections, assassin-checked",
+            "Late game: shift to bolder 3-word clues — nothing to lose"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Assassin Map",
+          "text": "Advanced players build a mental map of dangerous words at the start of every turn. You know your three assassins, but you also need to think about which bystander words could be confused with your agents. Before giving a clue, mentally group all twenty-five words by how they relate to your clue. Green targets, neutral words, and danger words. If any danger word has even a loose connection to your clue, reconsider. The best clue-givers eliminate ambiguity before it can happen.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Cross-Side Awareness",
+          "text": "Remember that three agents overlap between both sides of the key card. When your partner identifies a green agent on their side, check whether it is also green on your side. If it is, you have one fewer word to worry about. If it is not green on your side, it might be a bystander or even an assassin on your side. Tracking which words have been identified and by which side helps you plan your clues more efficiently and avoid redundant guesses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Clue Layering",
+          "text": "Clue layering means giving a clue for two words this turn while planting a seed for a future turn. For example, if SHIP, ANCHOR, and COMPASS are all green, you might say 'sailing, two' for SHIP and ANCHOR this turn. Your partner might not touch COMPASS because it was not the most obvious connection. But next turn, when you need to clue COMPASS again, your partner already has the context of 'sailing' from before. Layer your clues so they build on each other across turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Token Economy",
+          "text": "Think of the game in terms of tempo. A two-word clue where your partner finds both words is positive tempo because you spent zero tokens and found two agents. A one-word clue with a voluntary stop is negative tempo because you found one agent but lost a token. The ideal pace is finding about two agents per turn while losing zero tokens. Track your tempo throughout the game. If you fall behind, you need a big three-word clue to catch up.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reading Your Partner's Guesses",
+          "text": "Pay close attention to your partner's guessing patterns. When they hesitate, it means the connection is weak. When they guess instantly, the connection was obvious. Use this feedback to calibrate future clues. If your partner tends to think literally, use concrete clues. If they think abstractly, you can use more creative associations. Over multiple games, you will develop a shared language with your partner that makes you much more efficient.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Elimination Strategy",
+          "text": "As the game progresses and words get covered, the remaining grid becomes smaller. Use elimination to your advantage. If only eight words remain and you know three are your agents, your partner has a much better chance of guessing correctly even with a loose clue. Late-game clues can afford to be less precise because there are fewer wrong answers on the board. Factor the shrinking grid into your risk calculations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Handling Orphan Words",
+          "text": "An orphan word is an agent that does not connect to any other agent through any clue you can think of. Every game has at least one. The best strategy is to pair the orphan with an easy word using a creative or abstract clue early in the game when you have tokens to spare. If you wait until the end, you will be forced to give a one-word clue when tokens are scarce. Another option is to give a one-word clue for the orphan and hope your partner uses a bonus guess on it from a future turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Campaign Mode Strategy",
+          "text": "Codenames: Duet includes a campaign mode with missions around the world. Each mission changes the number of timer tokens and the allowed number of bystander mistakes. In harder missions with fewer tokens, every clue must connect two or more agents. There is no room for one-word clues or wasted guesses. Practice the standard game until you can consistently win with two or three tokens to spare, then move to the campaign for a real challenge.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Assassin Map",
+          "bullets": [
+            "Mentally group all 25 words: green targets, neutrals, danger words",
+            "If any danger word loosely connects to your clue, reconsider",
+            "Best clue-givers eliminate ambiguity before it happens"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Cross-Side Awareness",
+          "bullets": [
+            "3 agents overlap between sides — track which are shared",
+            "Partner's found agent may or may not be green on your side",
+            "Tracking both sides avoids redundant guesses"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Clue Layering",
+          "bullets": [
+            "Give a 2-word clue that plants a seed for a future turn",
+            "Partner builds context from prior clues across turns",
+            "Layer clues to create cumulative understanding"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tempo and Token Economy",
+          "bullets": [
+            "2 agents found + 0 tokens lost = positive tempo",
+            "1 agent found + 1 token lost = negative tempo",
+            "Track tempo throughout — if behind, need a big clue to catch up"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading Your Partner's Guesses",
+          "bullets": [
+            "Hesitation = weak connection; instant guess = obvious clue",
+            "Calibrate clue style: literal vs. abstract based on partner",
+            "Over multiple games, develop a shared clue-giving language"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Elimination Strategy",
+          "bullets": [
+            "Fewer remaining words = higher odds per guess",
+            "Late-game clues can be less precise — fewer wrong answers",
+            "Factor shrinking grid into risk calculations"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Handling Orphan Words",
+          "bullets": [
+            "Orphan = agent that won't pair with any other agent",
+            "Pair orphan with an easy word using a creative clue early",
+            "Don't wait until end — 1-word clues with no tokens = trouble"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Campaign Mode Strategy",
+          "bullets": [
+            "Campaign missions change token count and mistake allowance",
+            "Harder missions demand 2+ agents per clue, no wasted guesses",
+            "Practice standard game → win with 2-3 tokens to spare → then campaign"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Key Card",
+          "definition": "A double-sided card placed in a stand between both players. Each side shows a 5x5 grid indicating which words are agents (green), bystanders (beige), and assassins (black). The two sides show different patterns, with only 3 agents overlapping between sides.",
+          "category": "Components"
+        },
+        {
+          "term": "Agents (Green)",
+          "definition": "The words we are trying to find. Each side of the key card shows 9 green agents, but only 3 overlap between sides, making 15 unique agents total. When a green word is guessed correctly, cover it with a green agent card.",
+          "category": "Components"
+        },
+        {
+          "term": "Assassins (Black)",
+          "definition": "Three words on each side of the key card marked in black. Guessing an assassin word ends the game in an instant loss. Each side has different assassins, so a word safe for one player may be deadly for the other.",
+          "category": "Components"
+        },
+        {
+          "term": "Bystanders (Beige)",
+          "definition": "Innocent bystanders are words that are neither agents nor assassins on the clue-giver's side. Guessing a bystander ends the turn and costs one timer token. Thirteen words are bystanders on each side of the key card.",
+          "category": "Components"
+        },
+        {
+          "term": "Timer Tokens",
+          "definition": "Nine tokens placed in a shared pile at game start. One token is removed whenever a bystander is contacted or a player voluntarily stops guessing. When all tokens are gone, the game enters sudden death with one final turn per player.",
+          "category": "Components"
+        },
+        {
+          "term": "Clue Rules",
+          "definition": "A clue consists of exactly one word and one number. The word hints at agent words on the grid. The number indicates how many grid words relate to the clue. The clue word cannot match, abbreviate, or be a form of any visible word on the grid. You cannot use proper nouns that are on the grid, spell out letters, or use hyphenated compound words as a single clue.",
+          "category": "Rules"
+        },
+        {
+          "term": "Overlapping Agents",
+          "definition": "Three of the nine agents on each side appear as green on both sides of the key card. These shared agents mean both players benefit when either one finds them. The total unique agent count is 15 (9 + 9 - 3). Overlapping agents are often easier to clue because both players know they are important.",
+          "category": "Rules"
+        },
+        {
+          "term": "Sudden Death",
+          "definition": "When all nine timer tokens have been removed, the game enters sudden death. Each player gets exactly one more turn as clue-giver. During sudden death, any incorrect guess (bystander or assassin) ends the game in a loss. There is no margin for error.",
+          "category": "Rules"
+        },
+        {
+          "term": "Bonus Guess",
+          "definition": "The guesser may make up to the clue number plus one guesses per turn. The extra guess allows catching up on words from previous turns' clues. The guesser must make at least one guess per turn but can stop at any point after that (costing a timer token).",
+          "category": "Rules"
+        },
+        {
+          "term": "Campaign Mode",
+          "definition": "An optional mode included in the rulebook where players complete missions across a world map. Each mission changes the starting number of timer tokens and allowed mistakes, increasing difficulty. Players track progress across multiple games for a connected experience.",
+          "category": "Game Modes"
+        },
+        {
+          "term": "Voluntary Stop",
+          "definition": "After making at least one guess, the guesser may choose to stop guessing and end their turn. This costs one timer token but avoids the risk of hitting a bystander or assassin. Strategic stopping preserves safety but reduces efficiency.",
+          "category": "Rules"
+        },
+        {
+          "term": "Word Grid",
+          "definition": "Twenty-five word cards arranged in a 5x5 grid face-up between both players. These are the codenames that players give clues about and guess from. Words remain visible until covered by agent or bystander cards when identified.",
+          "category": "Components"
+        }
+      ]
+    }
+  }
+}

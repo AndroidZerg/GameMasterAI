@@ -1,0 +1,935 @@
+{
+  "game_id": "downforce",
+  "title": "Downforce",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose a Race Track",
+          "text": "Welcome to Downforce! Let's get this high-stakes race set up. First, grab the double-sided race track board. One side has a tighter, more winding course with narrow straits. The other side has a wider, more open layout with fewer bottlenecks. For your first game, either side works great. Place it in the center of the table where everyone can see the full track.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Race Cars",
+          "text": "Now find the six race car pawns. Each car is a different color. Line them all up on the starting spaces at the beginning of the track. Every car starts the race regardless of how many players you have. Even in a two-player game, all six cars will zoom around the track. Don't worry about who owns which car yet. That gets decided during the auction.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Speed Cards",
+          "text": "Find the deck of forty-four speed cards. These are the cards you will play each turn to move the cars around the track. Notice that each card shows movement values for multiple cars, not just one. Give the entire deck a good shuffle and set it face down in the center of the table. We will deal from this deck during the auction and during gameplay.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Set Out Car Power Cards",
+          "text": "Find the six car power cards. Each one matches a car color and describes a unique special ability for that car. Place them face up near the track so everyone can read them. These powers go to whoever wins each car in the auction. They give the car owner a special advantage during the race, like extra movement or the ability to ignore certain restrictions.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Betting Sheets",
+          "text": "Give each player a betting sheet. This is where you will secretly record your bets on which car you think will win the race. The sheet has three rows, one for each betting checkpoint during the race. Earlier bets pay out more than later bets, so you want to make smart predictions as early as you can. Keep your betting sheet hidden from other players.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Starting Money",
+          "text": "Give each player a starting supply of money tokens. This is the currency you will use to bid during the car auction. At the end of the game, every dollar counts because your final score is based on your net profit. Money you spend in the auction is gone, so spend wisely. Place your money where you can easily count it.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Deal Auction Cards",
+          "text": "Now deal six speed cards face up from the deck, one for each car. Each card is paired with the car whose color appears at the top. These cards serve double duty. They are both the item being auctioned and the bidding currency. During the auction, you will bid by playing speed cards from your hand. The cards you bid with go to the winning bidder as part of their racing hand.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Deal Starting Hands",
+          "text": "Deal speed cards from the deck to each player to form their starting hand. The exact number depends on your player count. Keep your hand hidden from other players. These cards are your fuel for the entire race. You will play one card per turn to move the cars around the track, and you will also use some of these cards to bid in the auction. Take a moment to look at your hand and note which car colors appear most often. That can help you decide which cars to bid on. Ready? Let's auction some race cars!",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose a Race Track",
+          "bullets": [
+            "Place double-sided race track board in center of table",
+            "Either side works for first game — one tighter, one more open"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Race Cars",
+          "bullets": [
+            "Line up all 6 colored race car pawns on starting spaces",
+            "All 6 cars race regardless of player count"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Speed Cards",
+          "bullets": [
+            "Shuffle all 44 speed cards into a face-down deck",
+            "Each card shows movement values for multiple cars"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Set Out Car Power Cards",
+          "bullets": [
+            "Place 6 car power cards face up near the track",
+            "Each matches a car color with a unique ability",
+            "Powers go to whoever wins each car in the auction"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Betting Sheets",
+          "bullets": [
+            "1 betting sheet per player, kept hidden",
+            "3 rows for 3 betting checkpoints during the race",
+            "Earlier bets pay more than later bets"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Starting Money",
+          "bullets": [
+            "Give each player starting money tokens",
+            "Money spent in auction reduces final profit",
+            "Net profit = final score"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Deal Auction Cards",
+          "bullets": [
+            "Deal 6 speed cards face up, 1 per car color",
+            "These pair with the car being auctioned",
+            "Winning bidder gets the card for their racing hand"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Deal Starting Hands",
+          "bullets": [
+            "Deal speed cards to each player (count varies by player count)",
+            "Keep hand hidden — these are your racing fuel",
+            "Note which car colors appear most in your hand"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Downforce is played in two phases. First comes the auction, where everyone bids on car ownership. Then comes the race itself, where you play speed cards to move all the cars around the track while placing bets on who will win. The goal is not to cross the finish line first. The goal is to make the most money. You earn money from owning cars that finish well and from correctly predicting race outcomes. You lose money from what you spent in the auction. Highest net profit wins.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Auction Phase",
+          "text": "We auction off all six cars one at a time. For each car, players take turns bidding. To bid, you play a speed card from your hand face up. Your bid amount is the number shown next to the car color being auctioned on the card you played. You can pass instead of bidding, but once you pass, you are out for that car. The highest bidder wins the car, takes the matching car power card, and keeps the speed card they bid with in their hand. All other players who bid take their cards back. The winning bid amount is recorded as a cost that reduces your final score.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Owning Multiple Cars",
+          "text": "You can own more than one car. In a two or three player game, each player will typically own two cars. In larger games, some players might own just one. You do not have to win any auction, but owning at least one car is important because car ownership payouts are a major source of income. If nobody bids on a car, it still races but has no owner and no car power active.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Playing a Speed Card",
+          "text": "After the auction, the race begins. On your turn, you play one speed card from your hand face up. Here is the crucial thing about Downforce. Each speed card shows movement values for several different cars, not just one. When you play a card, you must move all the cars listed on that card, in order from top to bottom. You move each car the exact number of spaces shown, even if that car belongs to an opponent. You are not just racing your own car. You are pushing everyone's cars forward.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Movement Rules",
+          "text": "Cars move forward along the track one space at a time. A car cannot move through a space occupied by another car. If a car's path is blocked, it stops and any remaining movement from that card is lost. This is called losing movement to blocking. Cars also cannot move backward. When the track narrows to a single lane, blocking becomes a powerful tactic because one car can completely halt another. Plan your card plays to push your cars through narrow sections while your opponents are stuck behind traffic.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Car Powers",
+          "text": "If you won a car in the auction, you also got its matching car power card. Each car has a unique ability that only you, the owner, can use during the race. Some powers let a car move extra spaces. Some let a car slip past blocked spaces. Others give advantages at specific points on the track. Read your car power card carefully because these abilities can change the outcome of tight races. Remember, only the car's owner activates its power, and it only applies to that specific car.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Betting Checkpoints",
+          "text": "There are three betting checkpoints marked along the race track. When the first car crosses a checkpoint line, the race pauses momentarily. All players must now secretly choose one car they think will ultimately win the race by writing it on their betting sheet. You circle the color of the car you are betting on in the current checkpoint row. The first checkpoint pays the most money for a correct bet. The second checkpoint pays less. The third checkpoint pays the least. You can bet on the same car multiple times or different cars each time.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Betting Strategy",
+          "text": "Betting is a huge part of your final score, sometimes even more important than car ownership. You can bet on any car, even one you do not own. This means you might bet on an opponent's car if it looks like the likely winner. After placing your bet, you have an incentive to help that car win, even if it is not yours. Conversely, you want to slow down cars you did not bet on. This creates wonderful tension because everyone at the table has secret motivations about which cars they want to see succeed.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Cars Crossing the Finish Line",
+          "text": "When a car crosses the finish line, it is out of the race and its finishing position is recorded. First place, second place, and so on. The car is removed from the track. Remaining cars keep racing. The race continues until all six cars have crossed the finish line or until all players have played their last speed card, whichever comes first. Any cars that do not cross the finish line earn no payout for their owner.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Final Scoring",
+          "text": "Once the race is over, it is time to count your profits. First, check the payout chart for each car you own. Cars that finished first pay the most. Cars that finished last pay very little. Cars that never crossed the finish line pay nothing. Second, check your betting sheet. For each correct bet where you picked the actual winner, you earn a bonus based on which checkpoint you made the bet at. First checkpoint correct bets pay the most. Third, subtract whatever you spent in the auction. Add it all up. Your total is your net profit. The player with the highest net profit wins. If there is a tie, the player who spent less in the auction wins.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Two phases: Auction → Race",
+            "Goal = highest net profit, NOT crossing finish line first",
+            "Profit = car payouts + correct bets - auction spending"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Auction Phase",
+          "bullets": [
+            "Auction all 6 cars one at a time",
+            "Bid by playing a speed card — bid = value shown for that car's color",
+            "Pass = out for that car; highest bidder wins car + power card",
+            "Winning bid amount is deducted from final score"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Owning Multiple Cars",
+          "bullets": [
+            "Players can own multiple cars (common in 2-3 player games)",
+            "No owner = car still races, but no power active and no payout",
+            "Owning at least 1 car is important for income"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Playing a Speed Card",
+          "bullets": [
+            "Play 1 speed card per turn, face up",
+            "Card shows movement for MULTIPLE cars — move ALL listed cars",
+            "Move cars in order from top to bottom on the card",
+            "You move opponents' cars too"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Movement Rules",
+          "bullets": [
+            "Cars move forward, 1 space at a time",
+            "Cannot pass through occupied spaces — excess movement lost",
+            "No backward movement",
+            "Narrow track sections = powerful blocking opportunities"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Car Powers",
+          "bullets": [
+            "Each car has a unique power — only owner can use it",
+            "Powers vary: extra movement, bypass blocking, track bonuses",
+            "Only applies to the specific car, not all your cars"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Betting Checkpoints",
+          "bullets": [
+            "3 checkpoints on the track — triggered when first car crosses line",
+            "All players secretly bet on which car will win the race",
+            "Checkpoint 1 pays most → Checkpoint 2 less → Checkpoint 3 least",
+            "Can bet same car multiple times or different cars each time"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Betting Strategy",
+          "bullets": [
+            "Can bet on ANY car, even opponents' cars",
+            "Correct bets can outscore car ownership payouts",
+            "Creates hidden incentives — you want your bet to win",
+            "Secret motivations drive card play decisions"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Cars Crossing the Finish Line",
+          "bullets": [
+            "Finishing position recorded (1st, 2nd, 3rd, etc.)",
+            "Car removed from track; remaining cars continue",
+            "Race ends when all cars finish or all cards played",
+            "Cars that never finish = no payout for owner"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Final Scoring",
+          "bullets": [
+            "Car ownership payout (based on finishing position)",
+            "+ Correct bet payouts (earlier checkpoint = more money)",
+            "- Auction spending",
+            "= Net profit; highest profit wins; tiebreak = less spent in auction"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Track",
+          "text": "Welcome to your first race of Downforce! In this practice tutorial, we will walk through a scripted game with four example players. You will see the auction, the race, betting, and some common beginner mistakes along the way. Even if you have a different number of players at your table, follow along to learn the flow of the game. Let's head to the starting line.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Auction Begins",
+          "text": "The six race cars are lined up on the track and the auction is about to start. The first car up for bidding is the red car. Player one looks at their hand and finds a card showing a six next to red. That is a solid bid. Player two has a card showing a four next to red and decides to bid that. Player three passes. Player four plays a card showing a five next to red. Player one is still the highest bidder at six and wins the red car.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "The Overpaying Mistake",
+          "text": "Player one won the red car for six dollars. That feels good, but let's check the math. If the red car finishes first, it pays out about nine dollars. That means Player one can only profit three dollars from ownership after subtracting the auction cost. If red finishes second, the payout might be six dollars, meaning zero profit. Player one overpaid and squeezed their profit margin dangerously thin. A winning bid of three or four would have been much safer.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Budget Your Bids",
+          "text": "Here is the key lesson. Every dollar you spend in the auction comes straight out of your final score. Before bidding, check the payout chart and ask yourself how much profit remains after your bid. If the payout for first place is nine and you bid seven, you can only make two dollars even in the best case. Bid conservatively and let other players overpay. Sometimes the best move is letting a car go and focusing on bets instead.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Finishing the Auction",
+          "text": "The auction continues through all six cars. Player two picks up the blue car for three dollars. Smart bid with plenty of profit margin. Player three wins both the green and yellow cars for two dollars each. Player four gets the black car for four dollars. The white car gets no bids, so it races without an owner. Everyone has their car power cards and their remaining speed cards. Time to race!",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "First Turn: Playing a Speed Card",
+          "text": "Player one plays their first speed card. It shows red moves four, blue moves two, and green moves one. Here is what trips up beginners: Player one must move all three of those cars, not just red. Even though blue belongs to Player two and green belongs to Player three, Player one still moves them forward. Player one moves red four spaces, then blue two spaces, then green one space, in that order from top to bottom on the card.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "The 'Only My Car' Mistake",
+          "text": "Player four is new and plays a speed card. It shows black moves three, red moves three, and yellow moves two. Player four only moves the black car and tries to skip red and yellow because those belong to other players. That is not how it works. You must move every car listed on the card you play, in order, whether you like it or not. Player four goes back and moves red and yellow as required.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: You Move All Listed Cars",
+          "text": "This is the most important rule in Downforce. When you play a speed card, you move every car shown on that card. You cannot skip any of them. This means every card is a trade-off. You want cards that move your cars a lot and opponents' cars a little, but sometimes you have to play a card that helps your rivals. Choosing which card to play and when is the core strategy of the entire game.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Blocking in Action",
+          "text": "A few turns in, the track narrows to a single lane. The green car is sitting in the narrow section. Player one plays a card moving red five spaces, but red cannot pass through green's occupied space. Red moves up behind green and stops. Those extra three movement points are simply lost. Player three is grinning because their green car just blocked the race leader without doing anything.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Use Blocking to Your Advantage",
+          "text": "Narrow sections of the track are where races are won and lost. If your car is ahead in a single-lane section, every car behind you is stuck. Look at the track layout before you play cards. Try to get your car into narrow sections ahead of opponents. And when you are behind, try to play cards that move the blocking car out of the way before moving your car through.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "First Betting Checkpoint",
+          "text": "The blue car crosses the first checkpoint line. The race pauses. Every player must now secretly circle one car color on their betting sheet in the first checkpoint row. The first checkpoint pays the most for a correct bet. Player two bets on blue, their own car, since it is in the lead. Player three bets on green, which is in second place. Player one and Player four both bet on blue, the current leader, even though they do not own it.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "The Late Betting Mistake",
+          "text": "Player four decides to wait and see how things develop before committing to a bet. The problem is, you must bet at every checkpoint. There is no skipping. But even if you could wait, the first checkpoint bet pays the most money for a correct prediction. Players who are confident early and bet correctly at checkpoint one make far more than players who only get it right at checkpoint three. Waiting does not help you. Being right early does.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Bet Early and Confidently",
+          "text": "The payout structure rewards confidence and early reads. A correct first checkpoint bet might pay twice as much as a correct third checkpoint bet. Pay attention to which players hold cards with high values for certain car colors. If a player owns a car and has lots of cards that move it, that car is likely to do well. Use the information available to you and make your strongest prediction at the first checkpoint.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Card Counting Matters",
+          "text": "Player three has been paying attention. Every card played is face up on the table, so Player three has been tracking which high-value cards for each car have already been played. They notice that most of the big red cards are already gone. That means red is unlikely to get much more movement for the rest of the race. Player three shifts their second checkpoint bet away from red. Meanwhile, Player one has not been tracking anything and bets on red again.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Track What Has Been Played",
+          "text": "Every speed card played goes face up. This is public information. Pay attention to which high-value movement cards have already been played for each car color. If the big cards for a car are gone, that car's best movement is behind it. If the big cards have not appeared yet, that car still has acceleration left. This information should guide both your card play decisions and your betting.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "The Final Stretch",
+          "text": "The third checkpoint passes and final bets are locked in. Cars are jockeying for position on the last stretch of track. Player two plays a card that gives blue a big push toward the finish. Blue crosses the finish line first! Green finishes second, black third. Red comes in fourth despite leading earlier. Yellow and white trail in at fifth and sixth. Every car has crossed the finish line.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Scoring the Race",
+          "text": "Time to count profits. Player one owns red, which finished fourth. The payout is small, and after subtracting that big six-dollar auction bid, Player one barely breaks even on ownership. Player two owns blue, which finished first. After subtracting the three-dollar bid, Player two has a healthy profit. Player two also bet on blue at checkpoint one and got it right, adding a big betting bonus. Player three's green car finished second with low auction costs, plus they tracked cards well and nailed two out of three bets.",
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "text": "Congratulations! You have just raced through your first game of Downforce. You saw how the auction sets up the race, how speed cards move all listed cars, how blocking works in narrow sections, and how betting and card tracking can make or break your final score. Remember: bid conservatively, move all cars on your card, bet early, watch for blocking opportunities, and track what has been played. You are ready to race for real!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Track",
+          "bullets": [
+            "Scripted tutorial with 4 example players",
+            "Covers auction, racing, betting, and common mistakes",
+            "Follow along regardless of your player count"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Auction Begins",
+          "bullets": [
+            "First car auctioned — players bid by playing speed cards",
+            "Bid value = number shown for that car's color on the card",
+            "Highest bidder wins the car and its power card"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Overpaying Mistake",
+          "bullets": [
+            "Player 1 bids 6 for a car with a 9-dollar first-place payout",
+            "Maximum profit of only 3 — zero if car finishes 2nd",
+            "High bids squeeze profit margins dangerously thin"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Budget Your Bids",
+          "bullets": [
+            "Every auction dollar comes out of your final score",
+            "Check payout chart before bidding — calculate worst-case profit",
+            "Bid conservatively; letting a car go is sometimes the best play"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Finishing the Auction",
+          "bullets": [
+            "All 6 cars auctioned — some players own multiple cars",
+            "Unowned cars still race but have no power and no payout",
+            "Players keep remaining speed cards for the race"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "First Turn: Playing a Speed Card",
+          "bullets": [
+            "Play 1 speed card face up — move ALL cars listed on it",
+            "Move cars in top-to-bottom order as shown on card",
+            "You move opponents' cars too"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The 'Only My Car' Mistake",
+          "bullets": [
+            "Player 4 tries to skip moving opponents' cars — not allowed",
+            "Must move every car listed on the card, in order",
+            "Most common beginner mistake in Downforce"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: You Move All Listed Cars",
+          "bullets": [
+            "Every card is a trade-off — helps your cars AND opponents'",
+            "Choose cards that give your cars big moves, opponents small moves",
+            "Core strategy = timing which cards to play when"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Blocking in Action",
+          "bullets": [
+            "Narrow track = single lane; car in front blocks all behind",
+            "Excess movement lost when blocked — cannot pass through",
+            "Blocking car gains advantage without doing anything"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Use Blocking to Your Advantage",
+          "bullets": [
+            "Get your car into narrow sections ahead of opponents",
+            "If stuck behind, play cards that move the blocker first",
+            "Track layout awareness = key to race positioning"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "First Betting Checkpoint",
+          "bullets": [
+            "First car crosses checkpoint → all players bet secretly",
+            "Circle 1 car color on betting sheet for that checkpoint row",
+            "First checkpoint pays the most for correct bets"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Late Betting Mistake",
+          "bullets": [
+            "Waiting for more info means smaller payouts",
+            "Checkpoint 1 bet pays ~2x more than Checkpoint 3",
+            "Must bet at every checkpoint — no skipping"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Bet Early and Confidently",
+          "bullets": [
+            "Early correct bets are worth much more money",
+            "Watch who owns which car and what cards they hold",
+            "Make your strongest prediction at Checkpoint 1"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Card Counting Matters",
+          "bullets": [
+            "All played speed cards are face up — public information",
+            "Track which high-value cards for each color have been played",
+            "If big cards are gone, that car's acceleration is spent"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Track What Has Been Played",
+          "bullets": [
+            "Watch the discard pile for each car's remaining speed potential",
+            "Big cards still unplayed = that car has fuel left",
+            "Guides both card play decisions and betting choices"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Final Stretch",
+          "bullets": [
+            "Third checkpoint passed, final bets locked in",
+            "Cars jockey for position → blue finishes 1st, green 2nd",
+            "Race ends when all cars cross finish line"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Scoring the Race",
+          "bullets": [
+            "Car payout (by finishing position) + correct bet bonuses - auction cost",
+            "Player 1 overpaid in auction → barely breaks even",
+            "Player 2 bid low, bet correctly at Checkpoint 1 → big profit"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "bullets": [
+            "Bid conservatively, move all listed cars, bet early",
+            "Watch for blocking, track played cards",
+            "Check General Tips and Appendix for deeper strategy"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Auction Discipline",
+          "text": "The auction is where most beginners lose the game before the race even starts. Every dollar you bid is subtracted from your final score, so overbidding erases your profit margin. Before placing a bid, check the payout chart. If first place pays nine dollars and you bid seven, your maximum profit from that car is only two dollars. That is terrible. Aim to win cars for about a third to half of the first-place payout. Let other players get into bidding wars while you pick up bargains. Remember, betting can earn you just as much money as car ownership, so you do not need to win every auction.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Read Your Hand Before Bidding",
+          "text": "Before the auction starts, look through your speed cards carefully. Count how many cards feature high movement values for each car color. If your hand is loaded with big numbers for the green car, that car will move a lot when you play those cards. That makes the green car a great one to own because you directly control its acceleration. Conversely, do not bid heavily on a car color that barely appears in your hand. You will be relying on other players to move it, and they have no reason to help you.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Card Play Timing",
+          "text": "Timing matters more than raw speed in Downforce. Do not play your biggest cards for your car right at the start. If your car jumps out to an early lead, other players will notice and refuse to bet on it, or worse, they will strategically block it. Instead, play moderate cards early and save your big movement cards for the mid to late race when positions matter most. The ideal play is to surge past opponents right before a betting checkpoint so other players have already committed their bets elsewhere.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Blocking Awareness",
+          "text": "Study the track layout before the race begins. Identify where the track narrows to one or two lanes. These are the chokepoints where blocking is most effective. If your car reaches a narrow section first, every car behind it loses movement trying to squeeze through. Position your car to enter these sections ahead of the pack. When you are stuck behind a blocker, look for cards that move the blocking car out of the way before moving yours. Order of movement on the card matters because cars resolve top to bottom.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Bet on Information, Not Hope",
+          "text": "Your bets should be based on what you can observe, not wishful thinking. Look at board position: which car is leading? Look at your hand: do you have cards that can keep that leader in front? Look at the discard pile: have the big cards for a trailing car already been played? If all the high-value cards for a car are gone, that car is unlikely to surge ahead. Bet on the car with the best combination of current position and remaining fuel in the deck.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Help Your Bets Win",
+          "text": "Once you have placed a bet, you have a financial interest in that car winning, even if you do not own it. This is one of the most interesting dynamics in Downforce. If you bet on blue and you have a card that moves blue five spaces but also moves your own red car three spaces, you might want to play it specifically because it helps your bet even though it does not help your car the most. Think of your bets as secondary investments and play cards that protect those investments."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Auction Discipline",
+          "bullets": [
+            "Every auction dollar is subtracted from your final score",
+            "Aim for bids at 1/3 to 1/2 of first-place payout",
+            "Let others overbid — pick up bargain cars",
+            "Betting income can match or exceed ownership income"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Read Your Hand Before Bidding",
+          "bullets": [
+            "Count high-movement cards for each car color in your hand",
+            "Bid on cars you can directly accelerate with your cards",
+            "Don't bid on colors barely represented in your hand",
+            "Your hand composition should drive your auction strategy"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Card Play Timing",
+          "bullets": [
+            "Don't play biggest cards first — save for mid/late race",
+            "Early leads attract blocking and unfavorable bets",
+            "Ideal surge: right before a checkpoint, after opponents commit bets",
+            "Moderate early, strong late = best card sequencing"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Blocking Awareness",
+          "bullets": [
+            "Study track layout — find 1-2 lane chokepoints before racing",
+            "Car in front of narrow section = all cars behind lose movement",
+            "Use card movement order (top to bottom) to move blockers first",
+            "Position your car to enter narrow sections ahead of the pack"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Bet on Information, Not Hope",
+          "bullets": [
+            "Check board position, your hand, and played cards before betting",
+            "If big cards for a car are gone, that car's best movement is over",
+            "Bet on cars with best position + most remaining fuel in deck",
+            "Information-based bets beat wishful thinking every time"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Help Your Bets Win",
+          "bullets": [
+            "After betting, you're financially invested in that car winning",
+            "Play cards that advance your bet car, even if you don't own it",
+            "Bets create hidden alliances — you want your picks to succeed",
+            "Think of bets as secondary investments worth protecting"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Auction Value Theory",
+          "text": "Advanced Downforce players treat the auction as an investment calculation, not a competition. The fundamental question is: what is a car worth in expected value? A car's value depends on its power card strength, the track layout favoring or hurting it, and how many high-movement cards for that color exist in the deck. A car on a track full of narrow sections benefits enormously from a bypass power. A car with great cards but a weak power might be overvalued by beginners. Calculate the expected payout based on realistic finishing position, then bid well under that number to guarantee profit.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Reading and Card Counting",
+          "text": "Every played card is public information. Advanced players track not just which cards have been played but what this reveals about opponents' remaining hands. If Player two has been playing cards with low values for green but high values for blue, their hand likely still contains high green cards they are saving. This tells you green has acceleration left. Similarly, if a player burns through all their cards for a certain color early, that color will stall later. Use this information to time your bets and your blocking plays for maximum impact.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Multi-Car Ownership Strategy",
+          "text": "When you own two cars, your card play becomes much more flexible. You want to draft cars whose colors appear together on many speed cards so that a single card play advances both of your cars. During the race, you can use one of your cars as a blocker for the other. Position your weaker car in a narrow section to hold up opponents while your stronger car races ahead. Some advanced players deliberately let one of their cars finish poorly if it means securing first place for the other.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Checkpoint Manipulation",
+          "text": "The order in which cars cross checkpoints triggers betting. Advanced players manipulate which car triggers the checkpoint to influence betting psychology. If your car is close to a checkpoint but an opponent's car is closer, you might play a card that pushes the opponent's car across the checkpoint first. This forces everyone to bet now, before you make your big move. Then on subsequent turns, you surge your car ahead, catching opponents who already committed bets on a different car. Controlling checkpoint timing is subtle but devastatingly effective.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "The Unowned Car Gambit",
+          "text": "Cars that nobody bought in the auction still race. An advanced tactic is to deliberately pass on a car in the auction and instead bet heavily on it. If you have strong cards for that color in your hand, you can propel the unowned car to victory without paying any auction cost. Your profit is pure betting income with zero deduction. The risk is that you cannot use a car power and other players may not play cards that move that color. But in the right circumstances, the unowned car gambit can yield the highest net profit at the table.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Defensive Card Play",
+          "text": "Not every card play should be about advancing your car. Sometimes the best play is a card that moves your car zero spaces but moves a dangerous opponent into a blocking position behind another car. Or a card that gives a trailing car just enough movement to block the leader in a narrow section. Think of your card plays as chess moves: sometimes a quiet positional play is worth more than a flashy acceleration. Advanced players choose cards based on the track state, not just on which card gives their car the most movement.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Auction Value Theory",
+          "bullets": [
+            "Calculate expected payout based on realistic finish position",
+            "Factor in car power strength + track layout compatibility",
+            "Bid well under expected value to guarantee profit margin",
+            "Treat auction as investment math, not a bidding war"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Reading and Card Counting",
+          "bullets": [
+            "Track all played cards — they're public information",
+            "Infer opponents' remaining hands from play patterns",
+            "Low plays for a color early = high cards saved for later",
+            "Use card-count intel to time bets and blocking plays"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Multi-Car Ownership Strategy",
+          "bullets": [
+            "Draft cars whose colors appear together on many speed cards",
+            "Use weaker car as deliberate blocker for opponents",
+            "Sacrifice one car's position to secure 1st place for the other",
+            "Two cars = more flexible card play options"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Checkpoint Manipulation",
+          "bullets": [
+            "Control which car triggers the checkpoint to influence bets",
+            "Push opponent's car across checkpoint first → force early bets",
+            "Surge your car after opponents commit to different picks",
+            "Checkpoint timing control = subtle but devastating edge"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "The Unowned Car Gambit",
+          "bullets": [
+            "Pass on auction, bet heavily on unowned car instead",
+            "Use your speed cards to propel it — pure betting profit, $0 auction cost",
+            "Risk: no car power, reliant on your own cards for movement",
+            "Highest net-profit potential in the right circumstances"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Defensive Card Play",
+          "bullets": [
+            "Sometimes best play moves your car 0 but blocks opponents",
+            "Move trailing cars into narrow sections to block leaders",
+            "Think positionally like chess — quiet moves beat flashy plays",
+            "Choose cards based on track state, not just your car's speed"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Speed Card",
+          "definition": "The main gameplay card. Each speed card shows movement values for multiple car colors. You play one per turn and must move all listed cars in order from top to bottom. Also used as bidding currency during the auction phase.",
+          "category": "Cards"
+        },
+        {
+          "term": "Car Power Card",
+          "definition": "A card matching a specific car color that describes that car's unique special ability. Awarded to the player who wins the car in the auction. Only the car's owner can activate the power during the race.",
+          "category": "Cards"
+        },
+        {
+          "term": "Betting Sheet",
+          "definition": "A personal sheet where each player secretly records their bets at each of the three checkpoints. Players circle the color of the car they predict will win the race. Kept hidden from other players until final scoring.",
+          "category": "Components"
+        },
+        {
+          "term": "Race Track Board",
+          "definition": "A double-sided board showing the race course. Each side has a different track layout with varying widths, curves, and chokepoints. All six cars race from start to finish on the chosen side.",
+          "category": "Components"
+        },
+        {
+          "term": "Race Car Pawn",
+          "definition": "One of six colored plastic or wooden car pieces placed on the track. All six cars race regardless of player count. Cars move forward along the track based on speed card values.",
+          "category": "Components"
+        },
+        {
+          "term": "Money Tokens",
+          "definition": "Currency used for bidding in the auction. Money spent in the auction is subtracted from your final score. Remaining money is not directly scored — only net profit from car payouts and bets matters.",
+          "category": "Components"
+        },
+        {
+          "term": "Auction",
+          "definition": "The first phase of the game where all six cars are bid on one at a time. Players bid by playing speed cards from their hand. The highest bidder wins the car, its power card, and keeps the bid card. The winning bid amount is deducted from the winner's final score.",
+          "category": "Phases",
+          "related_items": ["Speed Card", "Car Power Card"]
+        },
+        {
+          "term": "Race Phase",
+          "definition": "The second phase of the game. Players take turns playing one speed card each to move cars around the track. The race continues until all cars cross the finish line or all cards are played.",
+          "category": "Phases",
+          "related_items": ["Speed Card", "Blocking", "Betting Checkpoint"]
+        },
+        {
+          "term": "Blocking",
+          "definition": "When a car cannot move through a space occupied by another car. The blocked car stops immediately and any remaining movement from the current speed card is lost. Most impactful in narrow single-lane track sections.",
+          "category": "Movement",
+          "related_items": ["Narrow Section", "Excess Movement"]
+        },
+        {
+          "term": "Excess Movement",
+          "definition": "Movement points that are lost when a car is blocked and cannot continue forward. If a car has four movement remaining but is blocked after two spaces, the extra two points are simply discarded. There is no way to save or redirect them.",
+          "category": "Movement"
+        },
+        {
+          "term": "Narrow Section",
+          "definition": "A portion of the track where lanes reduce to one or two wide. Cars in front effectively block all cars behind them because there is no room to pass. Key strategic locations on both track sides.",
+          "category": "Movement",
+          "related_items": ["Blocking"]
+        },
+        {
+          "term": "Movement Order",
+          "definition": "When resolving a speed card, cars are moved in the order they appear on the card from top to bottom. This order matters because earlier-moving cars can create or remove blocks for later-moving cars on the same card.",
+          "category": "Movement"
+        },
+        {
+          "term": "Betting Checkpoint",
+          "definition": "One of three lines marked on the race track. When the first car crosses a checkpoint, all players must secretly bet on which car they think will win the race. The three checkpoints offer decreasing payouts for correct bets.",
+          "category": "Betting",
+          "related_items": ["Betting Sheet", "Correct Bet Payout"]
+        },
+        {
+          "term": "Correct Bet Payout",
+          "definition": "The money earned for correctly predicting the race winner at a betting checkpoint. First checkpoint pays the most, second pays less, third pays the least. Correct bets at multiple checkpoints stack for maximum profit.",
+          "category": "Betting"
+        },
+        {
+          "term": "Checkpoint Trigger",
+          "definition": "A betting checkpoint is triggered when the first car crosses its line. It does not matter which car triggers it. Once triggered, all players must immediately and secretly record their bet for that checkpoint.",
+          "category": "Betting"
+        },
+        {
+          "term": "Car Ownership",
+          "definition": "The result of winning a car in the auction. The owner receives the car's power card and earns a payout based on the car's finishing position. A player can own multiple cars. Unowned cars race but generate no payout.",
+          "category": "Scoring",
+          "related_items": ["Auction", "Finishing Position Payout"]
+        },
+        {
+          "term": "Finishing Position Payout",
+          "definition": "The money earned by a car's owner based on where the car finishes the race. First place pays the most, with decreasing payouts for each subsequent position. Cars that never cross the finish line pay nothing.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Net Profit",
+          "definition": "Your final score in Downforce. Calculated as car ownership payouts plus correct bet payouts minus money spent in the auction. The player with the highest net profit wins. Tiebreaker goes to the player who spent less in the auction.",
+          "category": "Scoring",
+          "related_items": ["Finishing Position Payout", "Correct Bet Payout", "Auction"]
+        },
+        {
+          "term": "Payout Chart",
+          "definition": "A reference chart showing how much money each finishing position pays to the car's owner. Typically displayed on the board or in the rulebook. Essential for calculating whether an auction bid leaves enough profit margin.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Unowned Car",
+          "definition": "A car that received no bids during the auction. It still races and can be moved by speed cards, but it has no active car power and generates no ownership payout. Players can still bet on it to win.",
+          "category": "Terminology",
+          "related_items": ["Car Ownership", "Auction"]
+        },
+        {
+          "term": "Starting Spaces",
+          "definition": "The designated positions at the beginning of the race track where all six cars are placed during setup. Cars are arranged in a specific order or randomly, depending on the variant being played.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Finish Line",
+          "definition": "The marked line at the end of the race track. When a car crosses it, its finishing position is recorded and the car is removed from the track. The race ends when all cars have crossed or all cards are played.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Face-Up Play",
+          "definition": "All speed cards are played face up and remain visible to all players. This makes card counting and hand reading possible. Tracking which cards have been played is a key advanced skill.",
+          "category": "Terminology",
+          "related_items": ["Speed Card"]
+        },
+        {
+          "term": "Bidding Currency",
+          "definition": "Speed cards serve double duty as both race fuel and auction currency. The bid value for a car is the movement number shown for that car's color on the card you play. Higher movement values let you make bigger bids but also mean losing a powerful racing card.",
+          "category": "Terminology",
+          "related_items": ["Auction", "Speed Card"]
+        }
+      ]
+    }
+  }
+}

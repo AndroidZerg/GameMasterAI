@@ -1,0 +1,810 @@
+{
+  "game_id": "connect-four",
+  "title": "Connect Four",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unpack the Grid",
+          "text": "Let's get Connect Four set up. First, find the vertical grid board. It has seven columns and six rows, making forty-two slots total. Stand the grid upright on a flat surface between both players so you are facing each other across the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Check the Sliding Bar",
+          "text": "At the bottom of the grid, there is a sliding bar or latch that holds all the discs in place during the game. Make sure it is pushed in and locked so that discs will not fall through the bottom. If you are restarting a game, slide it open to dump out all the old discs, then lock it closed again.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Sort the Discs",
+          "text": "Now let's sort the discs by color. There are twenty-one red discs and twenty-one yellow discs. Give one complete set of twenty-one discs to each player. It does not matter who gets which color, just pick your favorite.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Decide Who Goes First",
+          "text": "Let's decide who goes first. You can flip a coin, play rock-paper-scissors, or just let the younger player start. Going first is actually a meaningful advantage in Connect Four, so you may want to alternate who starts across multiple games. The first player drops their disc, then players take turns back and forth.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unpack the Grid",
+          "bullets": [
+            "Stand the vertical grid upright between both players",
+            "Grid is 7 columns wide and 6 rows tall (42 slots)"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Check the Sliding Bar",
+          "bullets": [
+            "Ensure bottom sliding bar is locked closed",
+            "To reset: slide bar open, dump discs, re-lock"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Sort the Discs",
+          "bullets": [
+            "21 red discs + 21 yellow discs",
+            "Each player takes one full color set"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Decide Who Goes First",
+          "bullets": [
+            "Flip a coin, rock-paper-scissors, or youngest goes first",
+            "First player has a real advantage — alternate across games",
+            "Players alternate turns after the first drop"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "How a Turn Works",
+          "text": "Let's learn how to play. On your turn, pick up one disc of your color and drop it into any of the seven column slots at the top of the grid. Gravity pulls the disc down to the lowest available position in that column. That is your entire turn. You cannot move a disc once it has been dropped, and you cannot skip your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Goal: Four in a Row",
+          "text": "The goal is simple. Be the first player to connect four of your discs in a row. The four discs can be connected horizontally across a row, vertically up a column, or diagonally at an angle. As long as four of your color touch in a straight line, you win.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Horizontal Connections",
+          "text": "Let's look at horizontal wins first. These happen when four of your discs sit side by side across the same row. For example, if you have discs in columns two, three, four, and five all on the bottom row, that is a horizontal four in a row and you win immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Vertical Connections",
+          "text": "Vertical wins happen when four of your discs stack on top of each other in the same column. Since discs always fall to the lowest slot, building vertically is straightforward. However, your opponent can usually see a vertical stack coming and will try to block you before you reach four.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Diagonal Connections",
+          "text": "Diagonal wins are the sneakiest. Four of your discs can line up on a rising diagonal from lower-left to upper-right, or on a falling diagonal from upper-left to lower-right. Diagonals are harder for your opponent to spot because the discs are spread across different columns and different rows. Many games are won with a surprise diagonal connection.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Full Columns",
+          "text": "A column can only hold six discs. Once all six slots in a column are filled, no one can drop into that column anymore. You must choose a different column that still has space. If you are planning to drop into a specific column, keep an eye on how many slots are left.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Draw Condition",
+          "text": "If all forty-two slots are filled and neither player has connected four in a row, the game ends in a draw. Draws are uncommon but can happen when both players play very defensively. If you reach a draw, simply open the sliding bar, dump out all the discs, and start a new game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "text": "The instant a player drops a disc that completes a line of four, the game is over and that player wins. It does not matter if there are empty slots remaining on the board. Point out your four-in-a-row connection to your opponent, celebrate your victory, and reset for the next game. There is no scoring in Connect Four. You either win, lose, or draw.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "How a Turn Works",
+          "bullets": [
+            "Drop 1 disc of your color into any non-full column",
+            "Gravity pulls it to the lowest open slot",
+            "Cannot move placed discs, cannot skip turns"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Goal: Four in a Row",
+          "bullets": [
+            "First to connect 4 discs in a straight line wins",
+            "Valid directions: horizontal, vertical, or diagonal"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Horizontal Connections",
+          "bullets": [
+            "4 discs side by side in the same row",
+            "Example: columns 2-3-4-5 on the bottom row"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Vertical Connections",
+          "bullets": [
+            "4 discs stacked in the same column",
+            "Easy to build but easy for opponent to spot and block"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Diagonal Connections",
+          "bullets": [
+            "4 discs on a rising or falling diagonal line",
+            "Hardest for opponents to spot — many surprise wins"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Full Columns",
+          "bullets": [
+            "Each column holds max 6 discs",
+            "Once full, must choose a different column"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Draw Condition",
+          "bullets": [
+            "All 42 slots filled with no 4-in-a-row = draw",
+            "Uncommon — usually happens with very defensive play",
+            "Reset board and play again"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "bullets": [
+            "Instant win when 4th disc completes a line",
+            "Game ends immediately — remaining slots don't matter",
+            "No points — binary win/lose/draw outcome"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "text": "Welcome to your first game of Connect Four! In this practice tutorial, we will walk through a scripted game between two players, Red and Yellow. Red goes first. We will see good moves, bad moves, and the key moments that decide who wins. Follow along on your own board if you have one handy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Red's Opening Move",
+          "text": "Red drops their first disc into the center column, column four. This is the strongest opening move in Connect Four because the center column connects to the most possible four-in-a-row lines. From the center, you can build horizontally in both directions and diagonally in all four diagonal paths.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Yellow's First Mistake: Edge Column",
+          "text": "Yellow drops their first disc into column one, the far-left edge. This is a common beginner mistake. Edge columns are the weakest spots on the board because they limit your connection paths. From column one, you can only build to the right. You have cut off half your options before the game has even started.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Play Near the Center",
+          "text": "Let's learn from Yellow's mistake. The center columns, especially columns three, four, and five, offer the most connection opportunities. Discs placed here can extend in multiple directions. Early in the game, fight for control of the center. Edge columns should be used for blocking or late-game plays, not opening moves.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Building the Game",
+          "text": "Let's fast-forward a few turns. Red has been playing near the center, building connections in columns three, four, and five. Yellow has placed a few discs but has been stacking them vertically in column two, hoping to build a tower of four. Red notices the vertical stack and drops a disc on top of Yellow's column to block it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Yellow's Second Mistake: Only Building Vertically",
+          "text": "Yellow's vertical strategy was too predictable. Stacking discs in a single column is the easiest pattern for your opponent to read and block. All they need to do is place one disc on top of your stack before you reach four. Yellow needed three in a row and one more slot, but Red saw it coming from a mile away.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Diversify Your Threats",
+          "text": "Let's learn from this. Never rely on a single direction for your four-in-a-row. The strongest play is to build connections in multiple directions at once. Try to set up discs that contribute to both a horizontal and a diagonal line simultaneously. When your opponent blocks one path, you still have the other.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Red Sets a Trap",
+          "text": "Now Red starts getting clever. Red drops a disc into column five, creating two discs in a row on the bottom with a gap on either side. This is a setup move. If Yellow ignores it, Red can extend to three in a row on the next turn. Red is also quietly building a diagonal running from lower-left to upper-right through columns three, four, and five.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Yellow's Third Mistake: Tunnel Vision",
+          "text": "Yellow is focused on building their own horizontal line across columns five, six, and seven. They completely miss that Red now has three discs on a diagonal. Yellow drops into column six to extend their own line instead of blocking Red's diagonal threat. This is tunnel vision, and it is about to cost Yellow the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Always Scan the Whole Board",
+          "text": "Let's learn from Yellow's mistake. Before every move, scan the entire board for your opponent's threats. Check all three directions: horizontal, vertical, and both diagonals. It only takes a second. If your opponent has three in a row with an open slot to complete four, you must block that slot immediately. Your own plans can wait one turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Red Completes the Diagonal",
+          "text": "Red drops their disc into column six, row three. That completes a diagonal line of four running from column three on the bottom row up to column six on row four. Red wins! Yellow never saw it coming because they were too focused on their own horizontal build. The diagonal slipped right past them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Post-Game Review",
+          "text": "Let's review what happened. Yellow made three classic mistakes. First, they opened on the edge column instead of fighting for the center. Second, they tried to build vertically in one column, which was easy to block. Third, they had tunnel vision on their own threats and missed Red's developing diagonal. Red won by controlling the center and building in multiple directions at once.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Congratulations",
+          "text": "Congratulations, you have seen a complete game of Connect Four play out! You now know the three biggest beginner mistakes and how to avoid them. Play near the center, build in multiple directions, and always check your opponent's threats before making your move. You are ready to start winning.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Before You Play",
+          "text": "Before you dive into your first real game, here are three things that can help.\n\nFirst, check out General Tips for more strategy basics and common patterns to recognize.\n\nSecond, reference the Appendix for a quick guide to board terminology and key concepts.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "bullets": [
+            "Scripted game between Red (first player) and Yellow",
+            "Demonstrates good moves, mistakes, and key decisions",
+            "Follow along on your own board if available"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Red's Opening Move",
+          "bullets": [
+            "Red opens in column 4 (center) — strongest opening",
+            "Center connects to the most 4-in-a-row lines",
+            "Can build horizontally both ways and diagonally in 4 paths"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Yellow's First Mistake: Edge Column",
+          "bullets": [
+            "Yellow opens in column 1 (far-left edge)",
+            "Edge columns limit connection paths — can only build one direction",
+            "Cuts off half the possible connections"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Lesson: Play Near the Center",
+          "bullets": [
+            "Columns 3, 4, 5 offer the most connection opportunities",
+            "Fight for center control early in the game",
+            "Save edge columns for blocking or late-game plays"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Building the Game",
+          "bullets": [
+            "Red builds connections near center (columns 3-4-5)",
+            "Yellow stacks vertically in column 2",
+            "Red blocks Yellow's vertical stack by capping it"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Yellow's Second Mistake: Only Building Vertically",
+          "bullets": [
+            "Vertical stacks are easiest pattern to read and block",
+            "Opponent just places 1 disc on top to shut it down",
+            "Too predictable — never rely on a single direction"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Diversify Your Threats",
+          "bullets": [
+            "Build connections in multiple directions simultaneously",
+            "Set up discs that contribute to both horizontal and diagonal lines",
+            "When opponent blocks one path, the other remains open"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Red Sets a Trap",
+          "bullets": [
+            "Red builds 2 in a row with gaps on either side",
+            "Simultaneously building a diagonal through columns 3-4-5",
+            "Setup move forces Yellow to choose which threat to address"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Yellow's Third Mistake: Tunnel Vision",
+          "bullets": [
+            "Yellow focuses on own horizontal line, ignores Red's diagonal",
+            "Red has 3 on a diagonal — one move from winning",
+            "Tunnel vision = missing opponent's threats"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Always Scan the Whole Board",
+          "bullets": [
+            "Before every move, check opponent's threats in all 3 directions",
+            "If opponent has 3-in-a-row with an open slot → block immediately",
+            "Your own plans can wait one turn; losing cannot"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Red Completes the Diagonal",
+          "bullets": [
+            "Red drops into column 6, completing a 4-disc diagonal",
+            "Yellow missed it — too focused on own horizontal build",
+            "Diagonals are the sneakiest winning path"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Post-Game Review",
+          "bullets": [
+            "Mistake 1: opening on edge column instead of center",
+            "Mistake 2: predictable vertical-only building",
+            "Mistake 3: tunnel vision — missed opponent's diagonal",
+            "Red won by controlling center and building multi-directionally"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen a complete game with 3 common mistakes and fixes",
+            "Play center, diversify threats, scan the whole board",
+            "Ready to start winning on your own"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Before You Play",
+          "bullets": [
+            "Check out General Tips → strategy basics and patterns",
+            "Reference the Appendix → board terminology and key concepts",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Control the Center",
+          "text": "The single most important concept in Connect Four is center control. Column four, the middle column, is part of more possible four-in-a-row combinations than any other column. Columns three and five are the next best. Always try to place your early discs in these center columns. If your opponent takes the center, play adjacent to it so you can still build through the middle of the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Think Offense and Defense Every Turn",
+          "text": "Every single turn, ask yourself two questions before you drop your disc. First: can I extend or set up my own four-in-a-row? Second: does my opponent have a threat I need to block right now? If your opponent has three in a row with an open fourth slot, you must block it, no exceptions. If there is no immediate threat, then build your own connections. Balancing offense and defense is the key to consistent play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Build Horizontally with Gaps",
+          "text": "One of the best offensive patterns is building horizontally with a gap in the middle. For example, place discs in columns two and four with column three empty. Later, when column three fills up from below, your disc there completes the connection. This technique is harder for your opponent to block because the gap might be several rows above the current playable level.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Watch the Diagonals",
+          "text": "Diagonals are the most commonly missed threat in Connect Four. Because diagonal connections span different columns and rows, they are harder to track visually than horizontal or vertical lines. Make a habit of scanning for diagonals every turn, both your own and your opponent's. A quick mental check of the four diagonal directions from each recently played disc can save you from a surprise loss.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Avoid the Edge Trap",
+          "text": "New players often waste early turns on edge columns one and seven. These columns connect to the fewest four-in-a-row lines and give your opponent free center control. Think of it this way: a disc in the center can be part of lines going left, right, or both diagonals. A disc on the edge can only go in one horizontal direction and one diagonal direction. Save edge columns for blocking moves or endgame situations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up Double Threats",
+          "text": "The ultimate winning move in Connect Four is creating a double threat, also called a fork. This means you have two different ways to complete four in a row, and your opponent can only block one of them on their turn. The simplest fork is getting three in a row with both ends open. Your opponent blocks one end, and you win by playing the other. Always look for ways to create two threats at once.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Count Ahead Before You Drop",
+          "text": "Before you make a move, think about what happens next. If you drop a disc in a column, what move does that enable for your opponent? Will your disc create a platform that lets your opponent reach a winning position? Counting even just one or two moves ahead can prevent you from accidentally setting up your opponent's victory. If your move creates a useful platform for your opponent, consider a different column.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Play Multiple Games",
+          "text": "Connect Four rewards pattern recognition more than anything else. The more games you play, the faster you will spot threats and opportunities. After each game, take a moment to review what happened. Where did the winning connection form? Could it have been blocked? What was the key mistake? Alternate who goes first so both players get experience with the first-move advantage. Over time, you will start seeing the board several moves ahead automatically.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Control the Center",
+          "bullets": [
+            "Column 4 (center) connects to the most 4-in-a-row combinations",
+            "Columns 3 and 5 are the next best",
+            "If opponent takes center, play adjacent to contest it"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Think Offense and Defense Every Turn",
+          "bullets": [
+            "Every turn: check for opponent threats first, then build your own",
+            "Opponent has 3-in-a-row with open slot → block immediately",
+            "No threat → extend your own connections"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Build Horizontally with Gaps",
+          "bullets": [
+            "Place discs with a gap between them (e.g., columns 2 and 4)",
+            "When the gap fills from below, your disc completes the line",
+            "Harder to block because the gap may be rows above playable level"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Watch the Diagonals",
+          "bullets": [
+            "Diagonals are the most commonly missed threat",
+            "Scan all 4 diagonal directions from recently played discs each turn",
+            "Both your diagonals and opponent's — surprise wins come from diagonals"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Avoid the Edge Trap",
+          "bullets": [
+            "Columns 1 and 7 connect to the fewest 4-in-a-row lines",
+            "Edge = 1 horizontal direction + 1 diagonal; center = both + both",
+            "Save edges for blocking or endgame, not opening moves"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up Double Threats",
+          "bullets": [
+            "Fork = 2 ways to complete 4-in-a-row, opponent can only block 1",
+            "Simplest fork: 3 in a row with both ends open",
+            "Always look for moves that create 2 threats simultaneously"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Count Ahead Before You Drop",
+          "bullets": [
+            "Think 1-2 moves ahead before each drop",
+            "Does your disc create a platform for opponent's winning move?",
+            "If your move helps opponent, consider a different column"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Play Multiple Games",
+          "bullets": [
+            "Pattern recognition improves with experience",
+            "Review each game — where did the winning connection form?",
+            "Alternate who goes first to practice both sides"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Solved Game Advantage",
+          "text": "Here is a fascinating fact about Connect Four. It is a solved game, meaning mathematicians have proven that the first player can always win with perfect play by starting in the center column. In practice, perfect play is nearly impossible to memorize, but knowing this shapes your strategy. If you go first, always take the center. If you go second, your goal is to force your opponent into mistakes because their natural advantage only holds if they play flawlessly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Creating Forks",
+          "text": "A fork is the most powerful tactical pattern in Connect Four. It means you have two separate threats to complete four in a row, and your opponent can only block one on their turn. The classic fork setup involves building two overlapping three-in-a-row patterns that share a common disc. When your opponent blocks one line, you complete the other. Practice building forks by setting up discs that contribute to multiple potential connections at once.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Odd and Even Row Strategy",
+          "text": "This is one of the deepest concepts in Connect Four. Rows are numbered one through six from the bottom. The first player benefits from having threats on odd rows, specifically rows one, three, and five. The second player benefits from even rows, which are rows two, four, and six. Why? Because of turn order. If both players fill a column evenly, the first player's discs land on odd rows and the second player's land on even rows. Try to position your winning threats on the row parity that matches your turn order.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Controlling Column Heights",
+          "text": "Advanced players pay close attention to how tall each column is getting. Every disc you add to a column changes which rows are accessible for future plays. Sometimes the best move is not the one that extends your own connection, but the one that forces a specific column height, denying your opponent access to a critical row. Think of column height management like controlling territory on the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Zugzwang Trap",
+          "text": "Zugzwang is a situation where any move your opponent makes is bad for them. In Connect Four, you can create this by setting up a position where dropping into any available column either gives you a winning connection or sets up your fork on the next turn. The key is to have multiple dormant threats across the board. Your opponent runs out of safe columns and is forced to play into your trap. Setting up zugzwang requires thinking three or four moves ahead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Threat Stacking",
+          "text": "Threat stacking means placing threats at different heights in the same column or adjacent columns. Imagine you have a winning horizontal slot at row three and another winning diagonal slot at row five, both in the same column. Your opponent blocks the lower threat, but in doing so, they bring the column closer to your upper threat. Each block helps you get closer to a different win. This forces your opponent into an unwinnable sequence of blocks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reading Your Opponent",
+          "text": "Pay attention to where your opponent is building their connections. If they keep playing in one area of the board, they are either building toward a specific four-in-a-row or baiting you to overcommit to blocking. Strong players will sometimes make a seemingly pointless move to lure your attention away from their real threat. Watch the whole board, not just the column where the last disc was dropped. Experienced opponents will disguise their threats.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Mastering the Endgame",
+          "text": "As the board fills up, the game shifts dramatically. Fewer columns are available, and every move is more impactful. In the endgame, count exactly which columns have open slots and who will be forced to play where. The player who controls the last few available moves often wins. If you can set up your threats so that the natural filling of the board triggers your four-in-a-row, you have essentially won before the final disc is even dropped.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Solved Game Advantage",
+          "bullets": [
+            "Connect Four is mathematically solved — first player wins with perfect play from center",
+            "If going first: always take column 4",
+            "If going second: force opponent into mistakes"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Creating Forks",
+          "bullets": [
+            "Fork = 2 threats at once, opponent can only block 1",
+            "Build overlapping 3-in-a-row patterns sharing a common disc",
+            "Practice setting up discs that contribute to multiple connections"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Odd and Even Row Strategy",
+          "bullets": [
+            "Rows numbered 1-6 from bottom",
+            "First player benefits from threats on odd rows (1, 3, 5)",
+            "Second player benefits from threats on even rows (2, 4, 6)",
+            "Position winning threats on the row parity matching your turn order"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Controlling Column Heights",
+          "bullets": [
+            "Each disc changes which rows are accessible for future plays",
+            "Sometimes best move denies opponent access to a critical row",
+            "Manage column heights like territory control"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "The Zugzwang Trap",
+          "bullets": [
+            "Zugzwang = any move opponent makes is bad for them",
+            "Set up multiple dormant threats across the board",
+            "Opponent runs out of safe columns → forced into your trap",
+            "Requires thinking 3-4 moves ahead"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Threat Stacking",
+          "bullets": [
+            "Place threats at different heights in the same or adjacent columns",
+            "Opponent blocks lower threat → brings column closer to upper threat",
+            "Forces unwinnable sequence of blocks"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Reading Your Opponent",
+          "bullets": [
+            "Watch where opponent concentrates their plays",
+            "Strong players may bait you to overcommit to one area",
+            "Watch the whole board, not just the last disc dropped"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Mastering the Endgame",
+          "bullets": [
+            "Fewer columns = every move more impactful",
+            "Count exactly which columns have open slots and who plays where",
+            "Set up threats so natural board-filling triggers your 4-in-a-row"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Grid Dimensions",
+          "definition": "The standard Connect Four board is seven columns wide and six rows tall, creating forty-two total slots. Columns are numbered one through seven from left to right, and rows are numbered one through six from bottom to top.",
+          "category": "Board"
+        },
+        {
+          "term": "Disc Colors",
+          "definition": "The game includes twenty-one red discs and twenty-one yellow discs, for a total of forty-two. Each player uses one color throughout the game. The colors have no gameplay difference.",
+          "category": "Components"
+        },
+        {
+          "term": "Horizontal Connection",
+          "definition": "Four discs of the same color in a straight line across a single row. The four discs must occupy consecutive columns within the same row.",
+          "category": "Connection Types"
+        },
+        {
+          "term": "Vertical Connection",
+          "definition": "Four discs of the same color stacked in a single column occupying consecutive rows. The easiest connection type to spot and block.",
+          "category": "Connection Types"
+        },
+        {
+          "term": "Diagonal Connection",
+          "definition": "Four discs of the same color in a straight line at a forty-five-degree angle. Can go from lower-left to upper-right (rising diagonal) or lower-right to upper-left (falling diagonal). The hardest connection type for opponents to detect.",
+          "category": "Connection Types"
+        },
+        {
+          "term": "Gravity",
+          "definition": "When a disc is dropped into a column, it falls to the lowest unoccupied slot in that column. Players cannot choose which row their disc lands on — it is always determined by gravity. This mechanic is central to strategic play because you must build support beneath any desired position.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Draw",
+          "definition": "If all forty-two slots are filled and neither player has completed four in a row, the game ends in a draw. Also called a tie. Draws are uncommon in casual play but can occur when both players play very defensively.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Column",
+          "definition": "One of the seven vertical slots in the grid, numbered one through seven from left to right. Each column can hold a maximum of six discs. Players choose a column on each turn, and gravity determines the row. A full column cannot accept any more discs.",
+          "category": "Board"
+        },
+        {
+          "term": "Row",
+          "definition": "One of the six horizontal levels in the grid, numbered one through six from bottom to top. Row one is the bottom row where the first disc in each column lands. Rows cannot be directly chosen — disc placement in a row is determined by the column's current fill level.",
+          "category": "Board"
+        },
+        {
+          "term": "Fork (Double Threat)",
+          "definition": "A position where a player has two different ways to complete four in a row on their next move. Since the opponent can only block one threat per turn, a fork guarantees a win. The most common fork is three in a row with both ends open. Also called a double threat.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Center Control",
+          "definition": "The strategy of prioritizing disc placement in the center columns, especially column four. The center column participates in the most possible four-in-a-row combinations. Controlling the center gives a player more offensive options and defensive flexibility.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Threat",
+          "definition": "A position where a player has three discs in a line with an open fourth slot that would complete four in a row. A threat must be addressed by the opponent on their next turn, or the threatening player wins. Threats can be horizontal, vertical, or diagonal.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Solved Game",
+          "definition": "Connect Four has been mathematically solved. With perfect play, the first player always wins by starting in the center column. This was proven by Victor Allis in 1988 and independently by James Allen in 1990. In practice, perfect play requires memorizing thousands of positions.",
+          "category": "Trivia"
+        },
+        {
+          "term": "Sliding Bar",
+          "definition": "The mechanism at the bottom of the grid that holds discs in place during play. Opening or sliding the bar releases all discs for quick board reset between games.",
+          "category": "Components"
+        },
+        {
+          "term": "Odd-Even Strategy",
+          "definition": "An advanced concept based on row parity. The first player benefits from threats on odd-numbered rows (one, three, five) and the second player benefits from threats on even-numbered rows (two, four, six). This is because turn order determines which rows each player's discs naturally land on when columns fill evenly.",
+          "category": "Strategy"
+        }
+      ]
+    }
+  }
+}

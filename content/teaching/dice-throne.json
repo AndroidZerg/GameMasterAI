@@ -1,0 +1,1019 @@
+{
+  "game_id": "dice-throne",
+  "title": "Dice Throne",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose Your Heroes",
+          "text": "Welcome to Dice Throne! The first thing everyone does is pick a hero. Each hero comes in its own box or tray with a unique hero board, five custom dice, a deck of cards, a health dial, and a Combat Point tracker. Spread out the available heroes and let everyone look at the hero boards. Each hero plays completely differently — some are aggressive attackers, some are tricky status effect users, and some are defensive tanks. Pick whoever looks fun to you. For your first game, don't overthink it. Every hero is viable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Set Up Your Hero Board",
+          "text": "Once everyone has chosen a hero, place your hero board in front of you. This is your command center for the whole game. It shows all of your hero's unique abilities, the dice combinations needed to activate them, and the upgrade slots where you can power them up later. Take a moment to read through your abilities so you know what your dice combos can do.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Collect Your Dice",
+          "text": "Each hero comes with five custom dice that match their theme. These are not standard dice — each face has symbols specific to your hero. Take your five dice and keep them in front of you. You will roll all five at the start of your offensive phase each turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Prepare Your Card Deck",
+          "text": "Find your hero's deck of cards. These cards are unique to your hero and include upgrade cards, action cards, and roll modifier cards. Give your deck a good shuffle and place it face down near your hero board. This is your draw pile. You will draw from this throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Set Health and Combat Points",
+          "text": "Each player sets their health dial to their hero's starting health, which is typically 50 HP. Then set your Combat Point tracker to 1 CP. You will gain 1 CP at the start of each of your turns during the Upkeep phase. Combat Points are the currency you spend on upgrades and card effects.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Draw Your Starting Hand",
+          "text": "Each player draws four cards from the top of their deck. Look at your cards but keep them hidden from other players. Your hand is private information. You will have a hand limit based on your hero, usually around six cards. If you ever need to draw and your deck is empty, shuffle your discard pile to form a new deck.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "text": "Everyone rolls one of their dice. The highest result goes first. If there is a tie, those players roll again. Play proceeds clockwise from the first player. In a two-player game, you simply alternate turns back and forth.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Battle",
+          "text": "Setup is complete! Each player should have their hero board, five dice, a shuffled deck, four cards in hand, health set to the starting value, and 1 CP on their tracker. There is no shared board — each player just needs their own hero area. Now let's learn how a turn works.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose Your Heroes",
+          "bullets": [
+            "Each player picks a unique hero — all play differently",
+            "Each hero comes with its own board, dice, cards, and trackers",
+            "Don't overthink it for your first game — every hero is viable"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Set Up Your Hero Board",
+          "bullets": [
+            "Place hero board in front of you — your command center",
+            "Shows all abilities, dice combos, and upgrade slots",
+            "Read through your abilities to learn what your dice can do"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Collect Your Dice",
+          "bullets": [
+            "Each hero has 5 custom dice with unique symbols",
+            "These are not standard dice — faces are hero-specific",
+            "Keep all 5 dice in front of you"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Prepare Your Card Deck",
+          "bullets": [
+            "Shuffle your hero's unique card deck",
+            "Place face down near your hero board as a draw pile",
+            "Contains upgrades, action cards, and roll modifiers"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Health and Combat Points",
+          "bullets": [
+            "Set health dial to starting HP (typically 50)",
+            "Set Combat Point (CP) tracker to 1",
+            "CP is your currency for upgrades and card effects"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Draw Your Starting Hand",
+          "bullets": [
+            "Draw 4 cards from your deck",
+            "Hand is private — keep cards hidden from opponents",
+            "If deck runs out, shuffle discard pile to form new deck"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "bullets": [
+            "Each player rolls one die — highest goes first",
+            "Ties reroll until broken",
+            "Play proceeds clockwise"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ready to Battle",
+          "bullets": [
+            "Each player: hero board, 5 dice, shuffled deck, 4 cards, health set, 1 CP",
+            "No shared board — each player has their own hero area",
+            "Setup complete — time to learn the turn structure"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "text": "Each turn in Dice Throne follows a structured sequence of phases. The active player goes through all phases in order, then play passes to the next player clockwise. The phases are: Upkeep, Income, Main Phase (part 1), Offensive Roll Phase, Targeting and Attack Resolution, Defensive Roll Phase, Main Phase (part 2), and Discard. Don't worry — it flows naturally once you see it in action. Let's walk through each phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Upkeep Phase",
+          "text": "At the start of your turn, you gain 1 Combat Point. Add it to your CP tracker. Then resolve any status effects on you in order — things like Poison damage, Burn damage, or clearing expired effects. Some status effects deal damage to you, some limit what you can do. Check your hero board or any status tokens on you and resolve them all. Finally, if any of your abilities have per-turn cooldowns, reset those now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Income Phase",
+          "text": "After Upkeep, you draw one card from your deck. That is your free draw for the turn. If your deck is empty, shuffle your discard pile to create a new draw deck and then draw. Simple as that. Some hero abilities or card effects may let you draw additional cards at various points, but the Income phase always gives you exactly one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Main Phase (Part 1)",
+          "text": "Now you enter your Main Phase. This is your chance to play cards and spend CP before you roll your dice. You can play upgrade cards by paying their CP cost and placing them in the matching slot on your hero board. Upgrades permanently enhance your abilities — they might add damage, inflict status effects, or provide bonus effects when that ability activates. You can also sell any card from your hand for 1 CP by discarding it. This is an important resource management tool. You can play as many cards and sell as many cards as you can afford. When you are done, move to the Offensive Roll Phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Offensive Roll Phase",
+          "text": "Now it is time to roll! Pick up all five of your dice and roll them. This is Yahtzee-style rolling — you get up to two re-rolls. After your initial roll, look at what you have. You can keep any dice you like and re-roll the rest. Then look again and re-roll a second time if you want. After your second re-roll, your roll is final. You are trying to match the dice combinations on your hero board to activate your abilities. The combinations include things like Three of a Kind, Four of a Kind, Five of a Kind, Small Straight, and Large Straight. During the roll phase you can also play Roll Modifier cards to change dice faces, which can help you hit the combo you need.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Dice Combinations",
+          "text": "Your hero board shows what each dice combination does. Generally, higher combinations do more damage. A Three of a Kind might deal 4 damage, while a Four of a Kind of the same type could deal 7, and a Five of a Kind might deal 10. Small Straights and Large Straights activate different abilities entirely. Each hero has unique abilities tied to these combos, so the damage numbers and special effects vary from hero to hero. Some combos inflict status effects, some heal you, and some do wild things unique to your character. You must choose one combo to activate — you cannot activate multiple abilities from the same roll.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Targeting and Attack Resolution",
+          "text": "After finalizing your roll, choose which ability you want to activate and pick a target. In a two-player game, there is only one target. In multiplayer, you choose one opponent to attack. Announce what ability you are using, how much damage it deals, and any status effects it inflicts. But the defender gets a chance to respond before the attack fully resolves.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Defensive Roll Phase",
+          "text": "The targeted player now gets to defend! Some heroes have a defensive ability on their hero board that activates when they roll certain combinations on defense. The defender rolls all five of their dice with the same Yahtzee-style rules — initial roll plus up to two re-rolls. If the defender matches a defensive combo on their hero board, they can reduce or negate the incoming damage. The defender can also play cards during this phase to help their defense. If the defender does not match a defensive combo, the full attack damage and effects apply.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Main Phase (Part 2)",
+          "text": "After combat resolves, the active player gets a second Main Phase. This works exactly like the first one — you can play upgrades, use abilities, and sell cards for CP. This is useful because you might have gained CP or drawn cards during combat. Use this phase to play any remaining upgrades or sell cards you don't need before ending your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Discard Phase",
+          "text": "Finally, check your hand size. If you have more cards than your hand limit, discard down to the limit. Discarded cards go face up to your personal discard pile. Then your turn is over and play passes to the next player clockwise.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Status Effects",
+          "text": "Status effects are a core part of Dice Throne combat. The main ones are Poison, which deals 1 damage per token during Upkeep. Burn, which deals damage and then is removed. Blind, which forces you to roll fewer dice. Freeze, which prevents you from using re-rolls. And Shield, which absorbs incoming damage before it hits your health. Each hero applies and uses these differently. Status tokens stack, so two Poison tokens deal 2 damage per turn. Track them carefully — forgetting status effects is one of the most common mistakes in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "text": "The game ends immediately when a player's health reaches zero. That player is eliminated. In a two-player game, the surviving player wins. In multiplayer games, eliminated players are out and the last hero standing wins. Some groups play free-for-all where you can attack anyone, while others prefer structured formats. Either way, reduce your opponents to zero HP and you claim victory.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Structured turn sequence: Upkeep → Income → Main Phase → Offensive Roll → Targeting → Defensive Roll → Main Phase 2 → Discard",
+            "Active player completes all phases, then play passes clockwise",
+            "Flows naturally once you see it in action"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Upkeep Phase",
+          "bullets": [
+            "Gain 1 Combat Point (CP)",
+            "Resolve all status effects on you (Poison damage, Burn, etc.)",
+            "Reset any per-turn ability cooldowns"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Income Phase",
+          "bullets": [
+            "Draw 1 card from your deck",
+            "If deck is empty, shuffle discard pile into a new deck",
+            "Exactly 1 free draw per turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Main Phase (Part 1)",
+          "bullets": [
+            "Play upgrade cards by paying CP cost — place in hero board slots",
+            "Upgrades permanently enhance your abilities",
+            "Sell any card from hand for 1 CP",
+            "Play/sell as many cards as you can afford"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Offensive Roll Phase",
+          "bullets": [
+            "Roll all 5 dice — Yahtzee-style with up to 2 re-rolls",
+            "Keep any dice between re-rolls, re-roll the rest",
+            "Match dice combos on hero board to activate abilities",
+            "Play Roll Modifier cards to change dice faces during this phase"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Dice Combinations",
+          "bullets": [
+            "Combos: 3 of a Kind, 4 of a Kind, 5 of a Kind, Small Straight, Large Straight",
+            "Higher combos generally deal more damage",
+            "Each hero has unique abilities and effects for each combo",
+            "Choose one combo to activate per roll — not multiple"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Targeting and Attack Resolution",
+          "bullets": [
+            "Choose which ability to activate and pick one opponent as target",
+            "Announce ability, damage, and any status effects",
+            "Defender gets a chance to respond before full resolution"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Defensive Roll Phase",
+          "bullets": [
+            "Defender rolls all 5 dice — same Yahtzee-style, up to 2 re-rolls",
+            "Match defensive combo on hero board to reduce/negate damage",
+            "Defender may also play cards to boost defense",
+            "No defensive combo = full attack damage applies"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Main Phase (Part 2)",
+          "bullets": [
+            "Second Main Phase after combat — same rules as Part 1",
+            "Play upgrades, sell cards for CP",
+            "Good time to use CP gained during combat"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Discard Phase",
+          "bullets": [
+            "Check hand size against hand limit",
+            "Discard excess cards to your personal discard pile",
+            "Turn ends — play passes clockwise"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Status Effects",
+          "bullets": [
+            "Poison: 1 damage per token during Upkeep (stacks)",
+            "Burn: deals damage then removed; Blind: roll fewer dice",
+            "Freeze: no re-rolls; Shield: absorbs damage before HP",
+            "Track tokens carefully — forgetting status effects is a common mistake"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "bullets": [
+            "Player at 0 HP is eliminated",
+            "Two-player: survivor wins; Multiplayer: last hero standing wins",
+            "Game ends immediately when a player hits 0 HP"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Arena",
+          "text": "Welcome to your first match of Dice Throne! In this practice tutorial, we will walk through a scripted game between two players to show you how everything works. Player 1 and Player 2 have each picked a hero, set up their boards, drawn four cards, and are ready to fight. Follow along with the actions even if your heroes are different — the flow is the same for everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Player 1's Upkeep and Income",
+          "text": "Player 1 starts their first turn. During Upkeep, they gain 1 CP, bringing their total to 2 CP. There are no status effects to resolve on the first turn, so Upkeep is quick. Then in the Income phase, Player 1 draws one card from their deck, bringing their hand to five cards. Nice and simple.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player 1's Main Phase: Playing an Upgrade",
+          "text": "Player 1 looks at their hand and spots an upgrade card that costs 1 CP. This upgrade enhances their Three of a Kind ability, adding 2 extra damage whenever it activates. That is a great early investment — Three of a Kind is the easiest combo to land, so this upgrade will pay off frequently. Player 1 spends 1 CP and places the upgrade in the matching slot on their hero board. Now they have 1 CP remaining.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player 1's Offensive Roll",
+          "text": "Time to roll! Player 1 picks up all five dice and rolls them. The results show three matching symbols and two different ones. That is a Three of a Kind already on the first roll! Player 1 could stop here and use it, but they decide to re-roll the two non-matching dice hoping for Four or Five of a Kind. The re-roll gives them one more match and one dud. Now they have Four of a Kind with one re-roll remaining.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Greedy Re-Roll: A Common Mistake",
+          "text": "Player 1 gets greedy. They already have a solid Four of a Kind, but they want the Five of a Kind for maximum damage. They re-roll the last die — and it comes up wrong. Still Four of a Kind, but they burned their last re-roll for nothing. In this case it worked out fine because they kept the four, but the lesson is important: do not chase Five of a Kind when you already have guaranteed damage with Four of a Kind. That last re-roll could have been saved for a Roll Modifier card play instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Why Chasing Five of a Kind Is Risky",
+          "text": "Here is the math. With one die remaining, you have roughly a 1-in-6 chance of hitting that fifth match. Meanwhile, your Four of a Kind already deals serious damage. The risk-reward is almost never worth it. Experienced players lock in their Four of a Kind and save their re-rolls for future turns where Roll Modifier cards might stretch them further. Only chase Five of a Kind if the extra damage would literally win you the game on this attack.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Attack Resolution",
+          "text": "Player 1 activates their Four of a Kind ability and targets Player 2. The ability deals 7 damage. Player 1 announces the attack. Now Player 2 gets to defend.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Player 2's Defensive Roll",
+          "text": "Player 2 picks up their five dice and rolls for defense. They are looking for their hero's defensive combo — usually a specific pair or set that activates a damage reduction ability. Player 2 rolls and gets close but not quite. They use one re-roll and miss again. The second re-roll finally lands the defensive combo, reducing the incoming damage by 3. Player 2 takes 4 damage instead of 7, dropping from 50 to 46 HP. Nice defense!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player 1's Turn Ends",
+          "text": "Player 1 enters their second Main Phase. They have 1 CP left but decide to save it for next turn. They check their hand size — five cards, under the limit. No discards needed. Player 1's turn is over.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Player 2's Turn: The Hoarding Mistake",
+          "text": "Player 2 starts their turn. Upkeep gives them 1 CP for a total of 2 CP. They draw a card in the Income phase, bringing their hand to five. Player 2 looks at their hand and sees two upgrade cards they could play, but decides to save their CP for later, wanting to stockpile points for a big expensive upgrade. This is a common beginner mistake — hoarding cards instead of playing upgrades early. Those upgrades could have been powering up abilities for multiple turns already.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Why Early Upgrades Matter",
+          "text": "Think of upgrades like compound interest. An upgrade you play on turn 1 enhances every roll you make for the rest of the game. An upgrade you play on turn 8 only helps for the remaining turns. Cheap upgrades that boost your most common combos — Three of a Kind, Small Straight — should be played as early as possible. Don't hoard them waiting for the perfect moment. The perfect moment is now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Player 2's Roll and Attack",
+          "text": "Player 2 rolls their five dice and lands a Small Straight on the second re-roll. Their Small Straight ability deals 5 damage and inflicts 2 Poison tokens on the target. Player 2 targets Player 1. Player 1 attempts a defensive roll but fails to match their defensive combo. Player 1 takes 5 damage, dropping to 45 HP, and now has 2 Poison tokens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "The Poison Problem",
+          "text": "Those 2 Poison tokens are going to hurt. During Player 1's next Upkeep, they will take 2 damage from Poison before they even roll their dice. And the turn after that, another 2 damage. Poison stacks and persists until removed by an ability or card effect. This is why status effects are so powerful in Dice Throne — they deal damage every turn without costing the attacker any additional resources.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Forgetting Status Effects: A Critical Mistake",
+          "text": "A few turns later, Player 1 starts their turn and immediately reaches for their dice to roll. Wait! They forgot their Upkeep phase. Those Poison tokens should have dealt damage first. This is the most common mistake in Dice Throne — players get excited to roll and skip straight past Upkeep. Always announce your Upkeep phase out loud: 'Upkeep — I gain 1 CP and take 2 Poison damage.' Make it a habit from game one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Tracking Status Effects Properly",
+          "text": "To avoid the Upkeep mistake, keep status effect tokens right on top of your health dial where you cannot miss them. When you gain a status effect, immediately place the token. When Upkeep starts, the tokens are staring you in the face. Some groups also use a turn order reminder card that lists all phases in order. Whatever method works for your group, just make sure Poison and Burn damage get resolved before anything else happens on your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Using Roll Modifiers",
+          "text": "On Player 1's next offensive roll, they get three matching symbols and a near-miss on a fourth die. Instead of burning a re-roll, Player 1 plays a Roll Modifier card from their hand. This card changes one die face to any symbol of their choice. Boom — Four of a Kind without using a re-roll. Roll Modifier cards are incredibly powerful because they give you guaranteed results instead of random chance. Use them to lock in combos, especially when you are one die away from a big ability.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Selling Cards for CP",
+          "text": "During the second Main Phase, Player 2 realizes they have cards in hand that don't fit their current game plan. Instead of holding onto them, Player 2 sells two cards for 1 CP each, gaining 2 CP. Now they have enough to play that upgrade they have been eyeing. Don't be afraid to sell cards. Your deck will cycle, and you will draw them again if you need them. Converting dead cards into CP keeps your economy flowing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "text": "Congratulations — you have walked through the core flow of a Dice Throne match! You have seen the full turn structure, watched attacks and defenses resolve, learned why early upgrades matter, understood the danger of status effects, and discovered the power of Roll Modifier cards. The three biggest beginner mistakes to avoid: chasing Five of a Kind when a safer combo is locked in, hoarding cards instead of playing upgrades early, and forgetting to track status effects during Upkeep. Now get in the arena and fight!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Arena",
+          "bullets": [
+            "Scripted two-player practice game to demonstrate turn flow",
+            "Follow along regardless of which heroes you chose",
+            "Covers the full turn structure with common mistakes"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player 1's Upkeep and Income",
+          "bullets": [
+            "Upkeep: gain 1 CP (now at 2 CP), no status effects on turn 1",
+            "Income: draw 1 card (hand goes from 4 to 5)",
+            "First turn Upkeep is always quick and clean"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1's Main Phase: Playing an Upgrade",
+          "bullets": [
+            "Spends 1 CP to play an upgrade card on Three of a Kind ability",
+            "Upgrade adds 2 extra damage whenever that ability activates",
+            "Three of a Kind is the easiest combo — great early upgrade target"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 1's Offensive Roll",
+          "bullets": [
+            "Rolls all 5 dice — gets Three of a Kind immediately",
+            "Re-rolls 2 non-matching dice, upgrades to Four of a Kind",
+            "One re-roll remaining"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Greedy Re-Roll: A Common Mistake",
+          "bullets": [
+            "Player 1 chases Five of a Kind with final re-roll — misses",
+            "Still has Four of a Kind, but wasted the re-roll",
+            "Don't chase Five of a Kind when you already have guaranteed damage"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Why Chasing Five of a Kind Is Risky",
+          "bullets": [
+            "Roughly 1-in-6 chance per die to match",
+            "Four of a Kind already deals serious damage",
+            "Save re-rolls for Roll Modifier card opportunities",
+            "Only chase Five of a Kind if it would literally win the game"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Attack Resolution",
+          "bullets": [
+            "Player 1 activates Four of a Kind — 7 damage to Player 2",
+            "Announces ability, damage, and effects",
+            "Defender gets to respond"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 2's Defensive Roll",
+          "bullets": [
+            "Defender rolls 5 dice, up to 2 re-rolls for defensive combo",
+            "Lands defensive combo on second re-roll — reduces damage by 3",
+            "Takes 4 damage instead of 7 (50 → 46 HP)"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 1's Turn Ends",
+          "bullets": [
+            "Second Main Phase: saves 1 CP for next turn",
+            "Hand size under limit — no discards needed",
+            "Turn passes to Player 2"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 2's Turn: The Hoarding Mistake",
+          "bullets": [
+            "Player 2 has 2 upgrade cards but saves CP instead of playing them",
+            "Wants to stockpile for a big expensive upgrade later",
+            "Common beginner mistake — sitting on upgrades wastes value"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Why Early Upgrades Matter",
+          "bullets": [
+            "Upgrades work like compound interest — earlier = more total value",
+            "An upgrade on turn 1 powers every roll for the rest of the game",
+            "Cheap upgrades to common combos should be played immediately"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 2's Roll and Attack",
+          "bullets": [
+            "Lands Small Straight — 5 damage + 2 Poison tokens",
+            "Player 1 fails defensive roll, takes full damage (50 → 45 HP)",
+            "Player 1 now has 2 Poison tokens to track"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "The Poison Problem",
+          "bullets": [
+            "2 Poison tokens = 2 damage every Upkeep phase",
+            "Poison stacks and persists until removed",
+            "Status effects deal damage without costing the attacker resources"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Forgetting Status Effects: A Critical Mistake",
+          "bullets": [
+            "Player 1 skips straight to rolling — forgot Upkeep!",
+            "Poison damage must be resolved before anything else",
+            "Always announce Upkeep out loud: 'I gain 1 CP and take X Poison damage'"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Tracking Status Effects Properly",
+          "bullets": [
+            "Place status tokens on top of health dial so you can't miss them",
+            "Resolve all status effects before moving to Income phase",
+            "Use a turn order reminder card if your group keeps forgetting"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Using Roll Modifiers",
+          "bullets": [
+            "Roll Modifier card changes one die face to any symbol",
+            "Guaranteed result vs. random re-roll chance",
+            "Use them when one die away from a big combo"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Selling Cards for CP",
+          "bullets": [
+            "Sell unwanted cards for 1 CP each — keeps economy flowing",
+            "Deck cycles, so you may redraw cards later",
+            "Converting dead cards to CP funds critical upgrades"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen the full turn structure, attacks, and defenses",
+            "Three key mistakes to avoid: chasing Five of a Kind, hoarding upgrades, forgetting status effects",
+            "Get in the arena and fight!"
+          ]
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we talk strategy, here are the biggest beginner mistakes. First, chasing Five of a Kind when you already have Three or Four of a Kind locked in — the odds are bad and you are wasting re-rolls. Second, hoarding cards instead of playing cheap upgrades early. Third, forgetting status effects during Upkeep, which means you are not taking Poison damage when you should be. Fourth, ignoring your opponent's hero abilities — if you don't know what they can do, you can't play around it. Keep these in mind and you will avoid the worst beginner traps."
+        },
+        {
+          "step": 2,
+          "title": "Upgrade Early and Often",
+          "text": "Upgrades are the backbone of Dice Throne strategy. Every upgrade you play makes your abilities stronger for the rest of the game. A 1 CP upgrade played on turn 1 that adds 2 damage to your Three of a Kind will generate far more total damage over a 10-turn game than a 3 CP upgrade played on turn 8. Prioritize cheap upgrades to your most frequently activated abilities first. Three of a Kind and Small Straight are the combos you will hit most often, so upgrade those early. Save expensive upgrades for mid-game when you have built up CP reserves."
+        },
+        {
+          "step": 3,
+          "title": "Manage Your Combat Points",
+          "text": "CP is your most important resource after health. You gain 1 CP per turn during Upkeep, plus you can sell cards for 1 CP each. Spend CP wisely — early-game CP should go toward cheap upgrades. Mid-game CP funds action cards and bigger upgrades. Late-game CP should be reserved for defensive cards and clutch plays. Don't let CP pile up without purpose, but don't spend it all on flashy plays when you need a safety net. A good rule of thumb is to keep at least 1 CP in reserve for unexpected situations."
+        },
+        {
+          "step": 4,
+          "title": "Know When to Stop Rolling",
+          "text": "The biggest temptation in Dice Throne is always one more re-roll. But every re-roll is a gamble. If you have a Three of a Kind, that is guaranteed damage. Chasing Four of a Kind means re-rolling two dice with no guarantee. Know your breakpoints: if you have three matching and need two more, the odds are against you. If you have four matching and need one more, it is still only about a 16% chance per die. Lock in your damage when it is safe, and save re-rolls for situations where a Roll Modifier card can guarantee the result."
+        },
+        {
+          "step": 5,
+          "title": "Use Roll Modifiers Wisely",
+          "text": "Roll Modifier cards are some of the best cards in the game because they remove randomness. Instead of hoping for a good re-roll, you simply change a die face to what you need. The key is timing. Don't burn a Roll Modifier to upgrade from Three of a Kind to Four of a Kind unless the extra damage is significant. Do use Roll Modifiers when you are one die away from a game-winning combo, or when you need a specific ability that inflicts a critical status effect. Also, you can use Roll Modifiers during your defensive roll, which many new players forget."
+        },
+        {
+          "step": 6,
+          "title": "Learn Your Hero's Strengths",
+          "text": "Every hero in Dice Throne plays differently, and the best strategy depends entirely on who you are playing. Some heroes want to stack status effects like Poison and Burn, slowly draining opponents over many turns. Others want to hit hard with raw damage every turn. Some heroes have powerful defensive abilities that make them hard to kill. Before the game starts, read through all your abilities and upgrades. Identify your hero's win condition: are you a rushdown attacker who wants to end the game fast, or a control player who grinds opponents down with status effects? Play to your hero's strengths."
+        },
+        {
+          "step": 7,
+          "title": "Track Everything",
+          "text": "Dice Throne has a lot of moving parts — health, CP, status effects, upgrade slots, hand size. The players who win consistently are the ones who track everything carefully. Always keep your health dial accurate. Always count status effect damage during Upkeep. Always know how much CP you have before entering your Main Phase. And always pay attention to your opponent's board state. How much health do they have? What status effects are on them? What upgrades have they played? Information wins games."
+        },
+        {
+          "step": 8,
+          "title": "Multiplayer Strategy",
+          "text": "In games with three or more players, threat assessment becomes crucial. Don't always attack the player sitting next to you — attack whoever is the biggest threat. If one player has upgraded heavily and is dominating, gang up on them. If a player is low on health, consider whether finishing them off helps you or just helps another opponent. Be aware of kingmaking — don't spend your last resources eliminating a player if it leaves you defenseless against the real threat. In multiplayer, sometimes the best attack is no attack at all, letting other players weaken each other while you build your board."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't chase Five of a Kind when you have a safe combo locked in",
+            "Don't hoard cards — play cheap upgrades early",
+            "Don't forget status effects during Upkeep (Poison, Burn, etc.)",
+            "Don't ignore your opponent's hero abilities"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Upgrade Early and Often",
+          "bullets": [
+            "Upgrades power up every future activation of that ability",
+            "Cheap upgrades on Turn 1 generate the most total value",
+            "Prioritize Three of a Kind and Small Straight upgrades first",
+            "Save expensive upgrades for mid-game when CP reserves grow"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Manage Your Combat Points",
+          "bullets": [
+            "Gain 1 CP per turn + sell cards for 1 CP each",
+            "Early CP → cheap upgrades; Mid CP → action cards; Late CP → defense",
+            "Keep at least 1 CP in reserve for unexpected situations",
+            "Don't let CP pile up unused, but don't go fully broke"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Know When to Stop Rolling",
+          "bullets": [
+            "Three of a Kind = guaranteed damage, don't get greedy",
+            "Four of a Kind → Five of a Kind is only ~16% per die",
+            "Lock in safe damage rather than gambling for marginal upgrades",
+            "Save re-rolls for combos where Roll Modifiers guarantee results"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Use Roll Modifiers Wisely",
+          "bullets": [
+            "Roll Modifiers remove randomness — guaranteed die face changes",
+            "Best used when one die away from a critical combo",
+            "Don't waste on trivial upgrades (3-of-a-Kind to 4 unless it matters)",
+            "Can be used on defensive rolls too — many players forget this"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Learn Your Hero's Strengths",
+          "bullets": [
+            "Every hero has a unique playstyle — rushdown, control, tank, etc.",
+            "Read all abilities and upgrades before the game starts",
+            "Identify your win condition: fast damage or slow status grind?",
+            "Play to your hero's strengths, don't force a generic strategy"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Track Everything",
+          "bullets": [
+            "Keep health dial, CP, and status tokens accurate at all times",
+            "Always resolve status effects during Upkeep before rolling",
+            "Watch your opponent's board: health, CP, upgrades, status effects",
+            "Information wins games — know the full game state"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Multiplayer Strategy",
+          "bullets": [
+            "Attack the biggest threat, not just the nearest player",
+            "Gang up on dominant players to keep the game balanced",
+            "Beware kingmaking — don't weaken yourself to eliminate a non-threat",
+            "Sometimes letting others fight while you build your board is best"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Upgrade Prioritization",
+          "text": "Not all upgrades are equal, and the order you play them matters enormously. The highest-priority upgrades are cheap ones that enhance your most common combos. Three of a Kind is the easiest combo to land on any given roll, so upgrades to that ability should be your first purchase. Small Straight upgrades come next. Save upgrades to Five of a Kind and Large Straight for later — you will hit those combos less often, so the upgrades have less cumulative impact. Also prioritize upgrades that add status effects over pure damage — a Poison token that ticks for 5 turns deals far more than 2 extra burst damage."
+        },
+        {
+          "step": 2,
+          "title": "Status Effect Stacking",
+          "text": "Status effects are Dice Throne's most underrated weapon. A single Poison token deals 1 damage per turn, which adds up to 5, 8, or even 10 damage over the course of a game. Two Poison tokens double that. Smart players focus on stacking status effects rather than chasing big single hits. Abilities that inflict Burn, Poison, or Blind create compounding pressure that opponents must spend resources to remove. Build your upgrades around abilities that apply multiple status tokens, and your opponents will melt without you ever landing a Five of a Kind."
+        },
+        {
+          "step": 3,
+          "title": "Card Economy Mastery",
+          "text": "Your card deck is a finite resource, and managing it well is the difference between good and great Dice Throne play. Draw one card per turn from Income, sell unwanted cards for 1 CP each, and cycle through your deck to find your best upgrades and Roll Modifiers. The key insight is that selling cards is almost always correct. A mediocre card sitting in your hand is worth less than the 1 CP it sells for if that CP lets you play an upgrade. Aggressive selling early accelerates your upgrade timeline. Once you have played your key upgrades, shift to holding more cards for action plays and defensive options."
+        },
+        {
+          "step": 4,
+          "title": "Offensive Roll Optimization",
+          "text": "Advanced players think about their roll phase in terms of expected value, not hoping for the best. Before rolling, know which combos you want to hit and what your fallback options are. If your first roll gives you a pair plus a partial straight, decide immediately: do you go for Three of a Kind or finish the Straight? The answer depends on your upgrades — if your Three of a Kind is fully upgraded, lock in the pair and re-roll the rest. If your Straight ability is stronger, keep the straight components. Pre-plan your re-roll strategy before the dice hit the table."
+        },
+        {
+          "step": 5,
+          "title": "Defensive Play",
+          "text": "Defense is just as important as offense in Dice Throne, and many players neglect it. Your defensive roll can reduce or completely negate incoming damage, which is often worth more than dealing extra damage on your turn. Keep defensive action cards in hand rather than selling them all for CP. Learn which opponents have high-burst abilities and save your shields and defensive cards for those attacks. In multiplayer, being difficult to kill is often better than being the strongest attacker, because aggressive players draw attention and get focused down."
+        },
+        {
+          "step": 6,
+          "title": "Tempo and Pressure",
+          "text": "Tempo in Dice Throne means applying consistent pressure every turn so your opponent is always reacting to you rather than executing their own game plan. An upgraded Three of a Kind dealing 6 damage plus Poison every turn puts enormous pressure on an opponent. They have to spend resources on healing and status removal instead of playing their own upgrades. If you can combine reliable damage output with status effects, you force opponents into a reactive spiral they cannot escape. This is how aggressive heroes win — not with one big hit, but with relentless incremental pressure."
+        },
+        {
+          "step": 7,
+          "title": "Hero Matchup Awareness",
+          "text": "Understanding matchups is what separates intermediate from advanced play. Against aggressive heroes, prioritize defense and healing — outlast their burst phase and grind them down. Against control heroes who stack status effects, focus on burst damage to end the game before their effects snowball. Against defensive tanks, invest in status effects that bypass their damage reduction. Know your opponent's hero board almost as well as your own. What are their strongest combos? What upgrades have they played? What status effects should you avoid giving them opportunities to inflict? This knowledge shapes every decision you make."
+        },
+        {
+          "step": 8,
+          "title": "Late-Game Decisions",
+          "text": "When health totals get low, every decision becomes critical. Late-game Dice Throne is about risk management. Should you go for a big combo to try to end the game, or play it safe with guaranteed damage? The answer depends on your health versus your opponent's health. If you are ahead, play conservatively — lock in Three of a Kind damage and grind them down. If you are behind, you may need to gamble on bigger combos or spend your remaining CP on action cards for a last-ditch push. Always keep track of maximum possible damage from both sides. Know if your opponent can kill you next turn, and play accordingly."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Upgrade Prioritization",
+          "bullets": [
+            "Upgrade Three of a Kind first — easiest combo, most activations",
+            "Small Straight upgrades second; Five of a Kind/Large Straight last",
+            "Status effect upgrades (Poison, Burn) often beat pure damage upgrades",
+            "Cheap upgrades early have highest cumulative impact"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Status Effect Stacking",
+          "bullets": [
+            "1 Poison token = 5-10 damage over a game (better than burst)",
+            "Stack multiple tokens for compounding pressure",
+            "Opponents must spend resources to remove status effects",
+            "Build upgrades around abilities that apply multiple status tokens"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Card Economy Mastery",
+          "bullets": [
+            "Sell mediocre cards aggressively — 1 CP funds upgrades faster",
+            "Early game: sell to accelerate upgrade timeline",
+            "Mid/late game: hold action cards and defensive options",
+            "Deck cycles — sold cards may return when you shuffle discard pile"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Offensive Roll Optimization",
+          "bullets": [
+            "Know which combos to target before rolling",
+            "Decision: pair vs. partial straight depends on which ability is upgraded",
+            "Pre-plan re-roll strategy based on your upgrade state",
+            "Expected value thinking beats hopeful gambling"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Defensive Play",
+          "bullets": [
+            "Defense can negate more damage than offense deals",
+            "Keep defensive action cards — don't sell them all for CP",
+            "Save shields for opponents' high-burst abilities",
+            "In multiplayer, being hard to kill is often better than being aggressive"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Tempo and Pressure",
+          "bullets": [
+            "Apply consistent damage every turn to keep opponents reactive",
+            "Upgraded Three of a Kind + status effects = relentless pressure",
+            "Force opponents to spend resources on healing instead of upgrades",
+            "Win through incremental pressure, not one big hit"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Hero Matchup Awareness",
+          "bullets": [
+            "vs. Aggressive: prioritize defense, outlast their burst",
+            "vs. Control: burst them down before status effects snowball",
+            "vs. Tanks: use status effects to bypass damage reduction",
+            "Know your opponent's hero board and upgrades as well as your own"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Late-Game Decisions",
+          "bullets": [
+            "Ahead on HP: play safe, lock in guaranteed damage",
+            "Behind on HP: gamble on bigger combos or action card plays",
+            "Track maximum possible damage from both sides each turn",
+            "Always know if your opponent can kill you next turn"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Upkeep Phase",
+          "definition": "The first phase of each turn. Gain 1 CP, resolve all status effects (Poison damage, Burn damage, remove expired effects), and reset per-turn ability cooldowns.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Income Phase",
+          "definition": "The second phase of each turn. Draw exactly 1 card from your deck. If your deck is empty, shuffle your discard pile to form a new deck and then draw.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Main Phase",
+          "definition": "Occurs twice per turn — before and after combat. During a Main Phase, you may play upgrade cards (pay CP, place in hero board slots), play action cards, and sell cards from your hand for 1 CP each. You can do as many of these as you can afford.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Offensive Roll Phase",
+          "definition": "Roll all 5 of your hero dice. You get up to 2 re-rolls, keeping any dice you want between rolls. You may play Roll Modifier cards during this phase to change die faces. After rolling, choose one dice combo to activate.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Defensive Roll Phase",
+          "definition": "When targeted by an attack, the defender rolls all 5 of their dice with up to 2 re-rolls. If the defender matches a defensive combo on their hero board, they can reduce or negate incoming damage. Defender may also play cards during this phase.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Discard Phase",
+          "definition": "The final phase of each turn. If your hand exceeds your hand limit, discard down to the limit. Discarded cards go to your personal face-up discard pile.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Three of a Kind",
+          "definition": "A dice combo where 3 of your 5 dice show the same symbol. The most common combo to land and usually the baseline attack ability for each hero. Upgrade this first for maximum value.",
+          "category": "Dice Combos"
+        },
+        {
+          "term": "Four of a Kind",
+          "definition": "A dice combo where 4 of your 5 dice show the same symbol. Deals significantly more damage than Three of a Kind. A strong result that you should usually lock in rather than chasing Five of a Kind.",
+          "category": "Dice Combos"
+        },
+        {
+          "term": "Five of a Kind",
+          "definition": "A dice combo where all 5 dice show the same symbol. The hardest combo to land but deals massive damage or triggers powerful special effects. Only chase it if you have 4 already locked in and the extra damage is critical.",
+          "category": "Dice Combos"
+        },
+        {
+          "term": "Small Straight",
+          "definition": "A dice combo consisting of 4 consecutive values (e.g., 1-2-3-4 or 2-3-4-5). Activates a unique ability on your hero board, often dealing moderate damage with a useful secondary effect like inflicting a status effect.",
+          "category": "Dice Combos"
+        },
+        {
+          "term": "Large Straight",
+          "definition": "A dice combo consisting of 5 consecutive values (e.g., 1-2-3-4-5). A powerful combo that activates strong abilities. Difficult to land but often deals high damage or triggers game-changing effects.",
+          "category": "Dice Combos"
+        },
+        {
+          "term": "Combat Points (CP)",
+          "definition": "The currency of Dice Throne. Gain 1 CP during Upkeep each turn. Spend CP to play upgrade cards and activate card effects. Sell any card from your hand for 1 CP. Manage CP carefully — it funds your entire upgrade and card economy.",
+          "category": "Resources"
+        },
+        {
+          "term": "Upgrade Cards",
+          "definition": "Cards placed in designated slots on your hero board that permanently enhance your abilities. Each upgrade slot corresponds to a specific ability. Upgrades may add damage, inflict status effects, or provide bonus effects. Pay the CP cost and place in the matching slot during a Main Phase.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Roll Modifier Cards",
+          "definition": "Cards played during the roll phase (offensive or defensive) that change one or more die faces to specific symbols. They remove randomness and can guarantee a dice combo. One of the most powerful card types in the game.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Action Cards",
+          "definition": "Cards played during Main Phase or in response to specific game events. Action cards can deal direct damage, heal you, remove status effects, or disrupt your opponent. They typically cost CP to play.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Poison",
+          "definition": "A status effect that deals 1 damage per Poison token during the afflicted player's Upkeep phase. Poison tokens stack and persist until removed by an ability or card effect. Extremely powerful over multiple turns.",
+          "category": "Status Effects"
+        },
+        {
+          "term": "Burn",
+          "definition": "A status effect that deals damage to the afflicted player and is then removed. Burn is a one-time burst of status damage, unlike Poison which persists. Some heroes specialize in stacking Burn for large bursts.",
+          "category": "Status Effects"
+        },
+        {
+          "term": "Blind",
+          "definition": "A status effect that forces the afflicted player to roll fewer dice on their next offensive roll. Being Blinded reduces your chance of landing strong combos. Removed after resolving the affected roll.",
+          "category": "Status Effects"
+        },
+        {
+          "term": "Freeze",
+          "definition": "A status effect that prevents the afflicted player from using re-rolls during their next offensive roll phase. Your initial roll is final. Extremely punishing as it eliminates the Yahtzee-style re-roll mechanic entirely.",
+          "category": "Status Effects"
+        },
+        {
+          "term": "Shield",
+          "definition": "A positive status effect that absorbs incoming damage before it reduces your health. Each Shield token absorbs 1 point of damage and is then removed. Can be stacked for greater protection.",
+          "category": "Status Effects"
+        },
+        {
+          "term": "Hero Board",
+          "definition": "Your personal board showing all of your hero's unique abilities, the dice combinations needed to activate them, damage values, and upgrade slots. The hero board is the center of your gameplay — everything revolves around it.",
+          "category": "Components"
+        },
+        {
+          "term": "Health Dial",
+          "definition": "A rotating dial used to track your current health points. Most heroes start at 50 HP. When health reaches 0, you are eliminated. Keep it accurate and visible to all players.",
+          "category": "Components"
+        },
+        {
+          "term": "Re-rolls",
+          "definition": "During both offensive and defensive roll phases, you get up to 2 re-rolls. You may keep any number of dice and re-roll the rest. You can also keep all dice and skip remaining re-rolls. Roll Modifier cards can substitute for or supplement re-rolls.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Defensive Abilities",
+          "definition": "Abilities on the hero board that activate when you roll specific defensive combos during the Defensive Roll Phase. These typically reduce incoming damage by a set amount or negate the attack entirely. Each hero has different defensive triggers.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Upgrade Slots",
+          "definition": "Designated spaces on the hero board where upgrade cards are placed. Each slot corresponds to a specific ability and can only hold the matching upgrade card. Once placed, upgrades are permanent for the rest of the game.",
+          "category": "Components"
+        }
+      ]
+    }
+  }
+}
