@@ -21,6 +21,17 @@ def init_device_session_tables():
     """Create device session, notes, Q&A history, and CRM analytics tables."""
     db = get_analytics_db()
 
+    # Migration: if old schema exists (station_id instead of venue_id), drop and recreate.
+    # No real data loss — these tables are brand new and have no production data yet.
+    try:
+        db.execute("SELECT venue_id FROM device_sessions LIMIT 1")
+    except Exception:
+        logger.info("Old device_sessions schema detected (missing venue_id) — dropping and recreating")
+        db.execute("DROP TABLE IF EXISTS device_sessions")
+        db.execute("DROP TABLE IF EXISTS device_notes")
+        db.execute("DROP TABLE IF EXISTS device_qa_history")
+        db.execute("DROP TABLE IF EXISTS crm_qa_analytics")
+
     db.execute("""
         CREATE TABLE IF NOT EXISTS device_sessions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,15 +48,6 @@ def init_device_session_tables():
     db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_device ON device_sessions(device_id)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue ON device_sessions(venue_id)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue_table ON device_sessions(venue_id, table_number)")
-    # Migration: if old schema had station_id, add venue_id + table_number columns
-    try:
-        db.execute("ALTER TABLE device_sessions ADD COLUMN venue_id TEXT")
-    except Exception:
-        pass
-    try:
-        db.execute("ALTER TABLE device_sessions ADD COLUMN table_number INTEGER")
-    except Exception:
-        pass
 
     db.execute("""
         CREATE TABLE IF NOT EXISTS device_notes (
@@ -75,15 +77,6 @@ def init_device_session_tables():
     db.execute("CREATE INDEX IF NOT EXISTS idx_qa_device ON device_qa_history(device_id)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_qa_game ON device_qa_history(game_id)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_qa_venue ON device_qa_history(venue_id)")
-    # Migration: if old schema had station_id, add venue_id + table_number columns
-    try:
-        db.execute("ALTER TABLE device_qa_history ADD COLUMN venue_id TEXT")
-    except Exception:
-        pass
-    try:
-        db.execute("ALTER TABLE device_qa_history ADD COLUMN table_number INTEGER")
-    except Exception:
-        pass
 
     db.execute("""
         CREATE TABLE IF NOT EXISTS crm_qa_analytics (
@@ -102,11 +95,6 @@ def init_device_session_tables():
     db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_game ON crm_qa_analytics(game_id)")
     db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_crm_qa_hash ON crm_qa_analytics(question_hash)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_venue ON crm_qa_analytics(venue_id)")
-    # Migration: add venue_id column if old schema lacked it
-    try:
-        db.execute("ALTER TABLE crm_qa_analytics ADD COLUMN venue_id TEXT")
-    except Exception:
-        pass
 
     db.commit()
     logger.info("Device session tables initialized")
