@@ -1,0 +1,927 @@
+{
+  "game_id": "catan-seafarers",
+  "title": "Catan: Seafarers",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose a Scenario",
+          "text": "Let's get Catan: Seafarers set up. First, grab the scenario booklet and pick a scenario for your group. Each scenario has a different map layout, different rules, and a different victory point target. For your first game, we recommend the Heading for New Shores scenario. It is straightforward and teaches the core seafaring mechanics without extra complexity.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Build the Frame",
+          "text": "Now let's build the board frame. You will use the six sea frame pieces from the Seafarers box along with frame pieces from base Catan. Follow the diagram in your chosen scenario to snap them together. The frame is larger than base Catan because we need room for the ocean and multiple islands.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Place the Terrain and Sea Hexes",
+          "text": "Fill in the board according to your scenario's diagram. Place terrain hexes like forest, pasture, hills, mountains, and fields in the positions shown. Fill the remaining spaces with sea hexes. Some scenarios also include gold field hexes, which have a shiny gold design. Place those where the diagram indicates.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Place Number Tokens",
+          "text": "Now place the number tokens on each terrain hex following the scenario instructions. Each terrain hex gets one number token. Sea hexes do not get numbers. Remember, six and eight are the most frequently rolled numbers, so hexes with those tokens will produce resources often. Gold field hexes get number tokens too.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Place the Pirate Ship",
+          "text": "Find the black pirate ship piece. Place it on any sea hex on the board. The pirate works like the robber but on the ocean. We will explain exactly how it works during the rules section. For now, just set it on a sea hex that is not adjacent to anyone's starting positions.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Resource Bank and Development Cards",
+          "text": "Set up the bank just like base Catan. Sort all five resource card types into separate piles: lumber, wool, ore, grain, and brick. Shuffle the development card deck and place it face down nearby. Make sure everyone can reach the bank.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Distribute Player Pieces",
+          "text": "Each player takes all pieces in their chosen color. This includes five settlements, four cities, fifteen roads, and fifteen ships. The ships are the new boat-shaped pieces from the Seafarers box. Keep your ships and roads separate so you do not mix them up. Also grab your two building cost reference cards.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Place Starting Settlements and Roads or Ships",
+          "text": "Follow the scenario instructions for initial placement. Most scenarios have you place two settlements and two roads or ships using the standard Catan placement rules. Some scenarios let you place a ship instead of a road for your coastal settlement. Your second settlement earns you one resource card from each adjacent terrain hex, just like base Catan. Once everyone is placed, we are ready to learn the new rules.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose a Scenario",
+          "bullets": [
+            "Pick a scenario from the booklet (Heading for New Shores recommended for first game)",
+            "Each scenario has a unique map, rules, and VP target"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Build the Frame",
+          "bullets": [
+            "Use 6 Seafarers frame pieces + base Catan frame pieces",
+            "Follow scenario diagram — frame is larger than base game"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place the Terrain and Sea Hexes",
+          "bullets": [
+            "Place terrain hexes (forest, pasture, hills, mountains, fields) per diagram",
+            "Fill remaining spaces with sea hexes",
+            "Gold field hexes go in marked positions"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place Number Tokens",
+          "bullets": [
+            "Place number tokens on terrain hexes per scenario instructions",
+            "Sea hexes get no numbers",
+            "6 and 8 = most frequently rolled"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place the Pirate Ship",
+          "bullets": [
+            "Place black pirate ship on any sea hex",
+            "Avoid placing adjacent to starting positions"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Resource Bank and Development Cards",
+          "bullets": [
+            "Sort 5 resource types into separate piles",
+            "Shuffle dev cards face-down nearby"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Distribute Player Pieces",
+          "bullets": [
+            "Each player: 5 settlements, 4 cities, 15 roads, 15 ships",
+            "Ships = new boat-shaped pieces from Seafarers box",
+            "Take 2 building cost reference cards"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Place Starting Settlements and Roads or Ships",
+          "bullets": [
+            "Follow scenario instructions for initial placement",
+            "Typically 2 settlements + 2 roads/ships",
+            "2nd settlement → collect 1 resource per adjacent terrain hex"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "What Seafarers Adds",
+          "text": "If you already know base Catan, great news: Seafarers adds just a few new mechanics on top of what you already know. The core turn structure is the same. You still roll dice, collect resources, trade, and build. The big additions are ships, the pirate, gold fields, and sailing to new islands. Let's walk through each one.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Building Ships",
+          "text": "Ships are your ticket across the ocean. A ship costs one wool and one lumber. To place a ship, it must connect to your existing network at a coastal intersection, which is a corner where a land hex meets a sea hex. Ships are placed on the edges between two sea hexes, or between a sea hex and a land hex. Think of them as ocean roads.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Shipping Routes",
+          "text": "A shipping route is a connected sequence of your ships. Routes can be open or closed. An open route has at least one free end that is not connected to a settlement or city. A closed route has both ends connected to your settlements or cities. This distinction matters because you can only move ships from open routes.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Moving Ships",
+          "text": "Here is something roads cannot do. Once per turn, you may move one ship. The ship must be at the open end of a shipping route, meaning it is the last ship in an unfinished chain. You cannot move a ship that was just built this turn. Pick up the ship and place it in any new legal position connected to your network. This lets you redirect your expansion without spending resources.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Connecting Ships and Roads",
+          "text": "Ships and roads connect at coastal intersections where you have a settlement or city. You cannot connect a ship directly to a road without a building in between. So if you want your shipping route to link up with your road network, you need a settlement or city at the junction point. This combined network of roads and ships counts toward Longest Road.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Longest Road with Ships",
+          "text": "In Seafarers, Longest Road includes both roads and ships. Your longest continuous path can snake along roads on land, pass through a coastal settlement, continue as ships across the sea, and connect to roads on another island. The path must be unbroken and cannot double back on itself. Two victory points go to the player with the longest combined path of at least five segments.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "The Pirate",
+          "text": "When you roll a seven, you now have a choice: move the robber or move the pirate. The robber works exactly like base Catan. The pirate is placed on any sea hex. Once placed, no one can build or move ships on edges adjacent to that sea hex. You also steal one random resource card from any opponent who has a ship adjacent to the pirate's hex.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Gold Fields",
+          "text": "Gold field hexes are a powerful new terrain type. When a gold field's number is rolled, each player with a settlement adjacent to it chooses any one resource from the bank. If you have a city adjacent, you choose any two resources. They do not have to be the same type. Gold fields reduce your dependence on trading because you can pick exactly what you need.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Settling New Islands",
+          "text": "To build a settlement on a new island, you need a shipping route that reaches a valid intersection on that island. The normal distance rule still applies: your new settlement must be at least two intersections away from any existing settlement or city, including opponents'. Some scenarios award bonus victory points for being the first to settle on a new island.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Turn Structure Recap",
+          "text": "Let's recap the full turn. First, roll the dice. Everyone with settlements or cities adjacent to the rolled number collects resources, including gold field choices. If you roll a seven, discard down to seven cards if needed, then move the robber or pirate. Second, trade with other players or use harbor trades. Third, build roads, ships, settlements, cities, or buy development cards. You may also move one open-end ship. Play development cards at any point during your turn.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Scoring and Winning",
+          "text": "Victory points come from settlements worth one point each, cities worth two, Longest Road worth two, Largest Army worth two, victory point development cards worth one each, and any scenario-specific bonuses. The victory point target varies by scenario, usually twelve to fourteen points instead of the base game's ten. The first player to reach the target during their turn wins.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "What Seafarers Adds",
+          "bullets": [
+            "Same core Catan turn structure with new mechanics layered on",
+            "New: ships, pirate, gold fields, island exploration"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Building Ships",
+          "bullets": [
+            "Cost: 1 wool + 1 lumber",
+            "Must connect to your network at a coastal intersection",
+            "Placed on edges between sea hexes or sea/land borders"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Shipping Routes",
+          "bullets": [
+            "Shipping route = connected sequence of your ships",
+            "Open route: at least 1 free end (not connected to a building)",
+            "Closed route: both ends connected to your settlements/cities"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Moving Ships",
+          "bullets": [
+            "1 ship move per turn, must be at open end of a route",
+            "Cannot move a ship built this turn",
+            "Relocate to any legal position connected to your network"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Connecting Ships and Roads",
+          "bullets": [
+            "Ships + roads connect only at coastal settlements/cities",
+            "No direct ship-to-road connection without a building",
+            "Combined network counts toward Longest Road"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Longest Road with Ships",
+          "bullets": [
+            "Longest continuous path of roads + ships combined",
+            "Path through coastal settlements → ships → roads on new islands",
+            "Min 5 segments for 2 VP award"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Pirate",
+          "bullets": [
+            "Roll 7 → choose: move robber OR move pirate",
+            "Pirate placed on sea hex → blocks ship building/moving on adjacent edges",
+            "Steal 1 resource from opponent with adjacent ship"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Gold Fields",
+          "bullets": [
+            "When gold field number rolled → adjacent settlement picks any 1 resource",
+            "Adjacent city → pick any 2 resources (can be different types)",
+            "Reduces trade dependence"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Settling New Islands",
+          "bullets": [
+            "Extend shipping route to a valid intersection on a new island",
+            "Distance rule still applies (2+ intersections from any building)",
+            "Some scenarios award bonus VP for island discovery"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Turn Structure Recap",
+          "bullets": [
+            "Roll dice → collect resources (incl. gold) → 7 = robber or pirate",
+            "Trade → build roads/ships/settlements/cities/dev cards",
+            "Optionally move 1 open-end ship per turn",
+            "Play dev cards at any point during turn"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Scoring and Winning",
+          "bullets": [
+            "VP: settlements (1), cities (2), Longest Road (2), Largest Army (2), VP cards (1 each)",
+            "Scenario bonuses (island discovery, etc.)",
+            "VP target varies by scenario (typically 12-14)",
+            "First to reach target on their turn wins"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the High Seas",
+          "text": "Welcome to your first game of Catan: Seafarers! In this practice tutorial, we will walk through the opening turns of a four-player game. We will follow four example players as they explore the ocean, build ships, and settle new islands. Follow along even if you have fewer players at your table.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Starting Position",
+          "text": "Everyone has placed their two starting settlements and initial roads or ships. Let's look at the board. There is a main island where most players started, and one or two smaller islands across the sea. Those distant islands have valuable terrain hexes waiting to be claimed. The goal is to sail out and settle them before your opponents do.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player 1: Building the First Ship",
+          "text": "Player 1 has a coastal settlement with access to pasture and forest. That means wool and lumber, which is exactly what ships cost. Player 1 spends one wool and one lumber to build a ship, placing it on the sea edge adjacent to their coastal settlement. The voyage has begun.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Why Starting Ships Early Matters",
+          "text": "Getting ships out early is critical in Seafarers. The best island spots go to whoever arrives first. If you wait too long to start sailing, opponents will claim the gold fields and high-value hexes on distant islands. Think of your first few ships as an investment in future resources.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player 2: The Inland Mistake",
+          "text": "Player 2 has both starting settlements on inland intersections with no coastal access. They want to build ships, but they cannot. Ships must connect to your network at a coastal intersection. Player 2 has to spend several turns building roads toward the coast before they can start sailing. Meanwhile, everyone else is already heading for the islands.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Start Coastal",
+          "text": "When placing your starting settlements, always put at least one on the coast. Seafarers is about exploring the ocean, and you cannot do that without coastal access. An inland-only start means wasting precious early turns building roads to the shore instead of ships toward new islands.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Player 3: Forgetting Wool and Lumber",
+          "text": "Player 3 placed settlements on ore, grain, and brick hexes. Great for cities and roads in base Catan, but ships cost wool and lumber. Player 3 has no reliable source of either. They will need to trade for every single ship they build, which is slow and expensive. Two-for-one harbor trades or begging opponents for wool is not a winning strategy.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Prioritize Ship Resources",
+          "text": "Wool and lumber are the lifeblood of Seafarers. You need them constantly for ships, just like you need brick and lumber for roads in base Catan. When placing settlements, make sure you have access to at least one good pasture hex and one good forest hex. Without them, you will fall behind in the race to new islands.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Player 1: Extending the Shipping Route",
+          "text": "Player 1 rolls well and collects more wool and lumber. They build a second ship, extending their route further across the sea toward a small island with a gold field. Their shipping route is now two ships long and still open, meaning they can move the end ship later if they need to change direction.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Player 4: Rolling a Seven",
+          "text": "Player 4 rolls a seven. In base Catan, you would move the robber. But in Seafarers, you have a choice: move the robber or move the pirate. Player 4 completely forgets about the pirate option and moves the robber to a desert hex by habit. They missed a chance to block Player 1's shipping route with the pirate.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Remember the Pirate",
+          "text": "When you roll a seven, always consider the pirate. Placing the pirate on a sea hex blocks all ship building and movement on adjacent edges. If an opponent is racing toward a valuable island, the pirate can stop them cold. It also lets you steal a resource from anyone with a ship next to that hex. Do not default to the robber out of habit.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Player 1: Settling a New Island",
+          "text": "Player 1 has built three ships in a row reaching a new island. They now build a settlement at an intersection on that island, following the distance rule. This settlement is adjacent to a gold field and a forest. Player 1 now produces resources on two different islands and may earn bonus victory points for the discovery depending on the scenario.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Player 3: Building a Disconnected Ship",
+          "text": "Player 3 finally traded for some wool and tries to place a ship. But they put it on an edge that does not connect to any of their settlements, cities, or existing ships. This is illegal. Ships must always connect to your existing network at a coastal intersection. Player 3 has to take the ship back and find a legal placement.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Ships Must Connect",
+          "text": "Every ship you build must connect to your existing network. You cannot drop a ship in the middle of the ocean and hope to link it up later. Plan your shipping routes carefully. Start from a coastal settlement and extend outward one ship at a time, always maintaining a continuous connection back to your network.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Player 2: Using Ship Movement",
+          "text": "Player 2 finally reached the coast and built a few ships heading south. But they realize the better island is to the north. Instead of building new ships, Player 2 picks up the last ship on their open route and moves it to a new legal position heading north. This saves one wool and one lumber. Smart play.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "You have just practiced the core mechanics of Catan: Seafarers. You have seen how to build ships, extend shipping routes, settle new islands, use the pirate, and move ships strategically. Remember: start coastal, prioritize wool and lumber, sail early, and do not forget the pirate option when you roll a seven. You are ready to explore the seas on your own.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Set Sail",
+          "text": "Before you start a full game, here are three things that can help.\n\nFirst, check out General Tips for strategic advice on island hopping and resource management.\n\nSecond, reference the Appendix for a quick guide to ship rules and new terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the High Seas",
+          "bullets": [
+            "Scripted tutorial with 4 example players",
+            "Covers opening turns of a Seafarers game",
+            "Follow along even with fewer players"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Starting Position",
+          "bullets": [
+            "Main island with starting settlements + distant islands to explore",
+            "Distant islands have valuable hexes (gold fields, high-number terrain)",
+            "Race to settle new islands before opponents"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1: Building the First Ship",
+          "bullets": [
+            "Ship cost: 1 wool + 1 lumber",
+            "Place on sea edge adjacent to coastal settlement",
+            "Coastal settlement + wool/lumber access = ready to sail"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Why Starting Ships Early Matters",
+          "bullets": [
+            "Best island spots go to whoever arrives first",
+            "Waiting too long = opponents claim gold fields and prime hexes",
+            "Early ships = investment in future resource production"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 2: The Inland Mistake",
+          "bullets": [
+            "Both settlements inland — no coastal access for ships",
+            "Must build roads to coast first, wasting early turns",
+            "Falls behind in island race"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Start Coastal",
+          "bullets": [
+            "Always place at least 1 starting settlement on the coast",
+            "Inland-only start = wasted turns building roads to shore",
+            "Coastal access is essential for ship building"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player 3: Forgetting Wool and Lumber",
+          "bullets": [
+            "Settlements on ore/grain/brick — no wool or lumber production",
+            "Ships cost wool + lumber; must trade for every ship",
+            "Slow, expensive, and dependent on opponents"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Prioritize Ship Resources",
+          "bullets": [
+            "Wool + lumber = critical for ships (like brick + lumber for roads)",
+            "Ensure access to at least 1 good pasture + 1 good forest hex",
+            "Without ship resources → fall behind in island race"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 1: Extending the Shipping Route",
+          "bullets": [
+            "Build additional ships to extend route toward island",
+            "Open route = can move end ship later to redirect",
+            "Keep building toward high-value targets"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 4: Rolling a Seven",
+          "bullets": [
+            "Roll 7 → can move robber OR pirate",
+            "Player 4 moves robber by habit, forgetting the pirate option",
+            "Missed chance to block opponent's shipping route"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Remember the Pirate",
+          "bullets": [
+            "Pirate on sea hex → blocks ship building/moving on adjacent edges",
+            "Can steal from opponent with adjacent ship",
+            "Don't default to robber — consider pirate to disrupt shipping"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 1: Settling a New Island",
+          "bullets": [
+            "3 ships → reach new island → build settlement",
+            "Distance rule still applies (2+ intersections from any building)",
+            "Scenario may award bonus VP for island discovery"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player 3: Building a Disconnected Ship",
+          "bullets": [
+            "Tried to place ship not connected to network — illegal",
+            "Ships must always connect to existing network",
+            "Had to take ship back and find legal placement"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Ships Must Connect",
+          "bullets": [
+            "Every ship must connect to your network at a coastal intersection",
+            "No dropping ships in the open ocean",
+            "Plan routes: start from coastal settlement, extend outward"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Player 2: Using Ship Movement",
+          "bullets": [
+            "Move last ship on open route to redirect expansion",
+            "Saves 1 wool + 1 lumber vs building a new ship",
+            "Can only move ships at the open end, not mid-route"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced: building ships, extending routes, settling islands, pirate, ship movement",
+            "Key lessons: start coastal, prioritize wool/lumber, sail early, use the pirate",
+            "Ready to play a full game"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Set Sail",
+          "bullets": [
+            "Check out General Tips → strategic advice on island hopping",
+            "Reference the Appendix → quick guide to ship rules and terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we talk strategy, here are the biggest mistakes new Seafarers players make. First, placing both starting settlements inland with no coastal access. Second, ignoring wool and lumber production and then struggling to build ships. Third, forgetting the pirate option when rolling a seven. Fourth, building long shipping routes to nowhere without a settlement plan at the end. Keep these in mind and you will avoid the most common traps.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Resource Priority",
+          "text": "In base Catan, brick and lumber are king for early expansion. In Seafarers, wool and lumber take center stage because ships cost one of each. You still need brick for roads on land, ore and grain for cities, and everything else for development cards. But if you cannot build ships, you cannot reach new islands, and falling behind on exploration usually means falling behind on the scoreboard. Make sure your starting placements give you reliable access to pasture and forest.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Sail Early and Sail with Purpose",
+          "text": "Do not sit on the main island building cities while opponents claim distant islands. Start building ships in the first few turns. But sail with a destination in mind. Look at the board and identify which island has the best combination of terrain hexes, number tokens, and harbor access. Build your route toward that specific target. Random exploration wastes resources.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Gold Fields Are Incredibly Valuable",
+          "text": "Gold fields let you choose any resource you want when their number is rolled. This is enormously powerful because it eliminates the need to trade for missing resources. If you see a gold field with a six or eight token, prioritize settling adjacent to it. A city on a gold field with a strong number can single-handedly fuel your entire strategy.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Use Ship Movement Strategically",
+          "text": "Many new players forget they can move one ship per turn from the open end of a route. This is a free redirect. If you started sailing in one direction but a better opportunity appeared elsewhere, pick up your end ship and reposition it. You save one wool and one lumber every time you move instead of building new. Just remember you cannot move a ship you built this turn, and you cannot move ships from closed routes.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Pirate Is Your Friend",
+          "text": "When you roll a seven, always evaluate the pirate option before defaulting to the robber. The pirate is devastating against opponents with active shipping routes because it blocks all ship building and movement on adjacent edges. If someone is one ship away from reaching a gold field island, drop the pirate right in their path. You also get to steal a resource from them. Think of the pirate as targeted disruption for the sea lanes.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Plan Your Longest Road Path",
+          "text": "In Seafarers, Longest Road counts roads and ships together. This means your path can cross the ocean. A common winning play is to build a road network on the main island, connect through a coastal settlement to a shipping route, cross the sea, and continue with roads on the far island. This creates a very long combined path that is hard for opponents to beat. Just remember that roads and ships only connect through settlements or cities.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Balance Expansion and Development",
+          "text": "It is tempting to spend the entire game building ships and settling new islands. But do not forget about cities, development cards, and Largest Army. Cities double your resource production on existing hexes. Development cards provide knights for the robber and pirate defense, plus hidden victory points. The winning strategy usually combines island expansion with strong city upgrades on your best hexes. Aim for a mix rather than going all-in on one approach.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't start both settlements inland — need coastal access for ships",
+            "Don't neglect wool + lumber — you need them constantly for ships",
+            "Don't forget the pirate option when rolling 7",
+            "Don't build shipping routes with no settlement plan at the end"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Resource Priority",
+          "bullets": [
+            "Wool + lumber = critical for ships (replaces brick + lumber priority from base)",
+            "Still need ore + grain for cities, all 5 types for dev cards",
+            "Ensure starting placements access pasture + forest"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Sail Early and Sail with Purpose",
+          "bullets": [
+            "Start building ships in the first few turns",
+            "Identify target island before building route (terrain + numbers + harbors)",
+            "Random exploration wastes resources"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Gold Fields Are Incredibly Valuable",
+          "bullets": [
+            "Gold = choose any 1 resource (2 for city) when number rolled",
+            "Eliminates trading dependence for missing resources",
+            "Prioritize gold with 6 or 8 number tokens"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Use Ship Movement Strategically",
+          "bullets": [
+            "Move 1 open-end ship per turn for free redirect",
+            "Saves 1 wool + 1 lumber vs building new ship",
+            "Cannot move ships built this turn or from closed routes"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Pirate Is Your Friend",
+          "bullets": [
+            "Pirate blocks ship building + movement on adjacent edges",
+            "Drop pirate in opponent's path to delay their island settlement",
+            "Steal 1 resource from opponent with adjacent ship"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Plan Your Longest Road Path",
+          "bullets": [
+            "Longest Road = roads + ships combined",
+            "Path can cross ocean: road → coastal settlement → ships → road on far island",
+            "Roads and ships connect only through settlements/cities"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Balance Expansion and Development",
+          "bullets": [
+            "Don't spend entire game on ships — cities double resource production",
+            "Dev cards = knights + hidden VP",
+            "Winning strategy = island expansion + city upgrades on best hexes"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Island Rush Strategy",
+          "text": "The island rush focuses on settling as many islands as possible before opponents. Prioritize wool and lumber production from your starting placements. Build ships every turn for the first three or four turns. Your goal is to reach the closest valuable island and drop a settlement before anyone else gets there. In scenarios that award bonus victory points for island discovery, this strategy can net you three or four extra points that other players cannot contest.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Executing the Island Rush",
+          "text": "Start with one coastal settlement on high-number pasture and forest hexes. Build ships immediately. Do not waste turns on roads unless they are necessary to reach the coast. Once you settle a new island, pivot to upgrading that settlement to a city if the terrain justifies it. The risk is falling behind on development cards and Largest Army, so supplement with knight cards when you can.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "The Gold Field Monopoly",
+          "text": "Gold fields are the strongest hexes on the board because they let you choose any resource. The gold field monopoly strategy aims to settle adjacent to as many gold fields as possible, ideally with cities. A city on a gold field with a six or eight effectively gives you two of any resource you want every time that number comes up. With two gold field cities, you rarely need to trade and can build anything on demand.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Longest Road through the Sea",
+          "text": "Building Longest Road in Seafarers is different from base Catan. Your path can cross the ocean, which makes it much harder for opponents to predict and cut off. The strategy is to build a continuous chain of roads on one island, through a coastal settlement, across ships, and then more roads on another island. This creates a path of ten or more segments that is very difficult to beat. Close your shipping routes to protect against opponents who might try to block you with the pirate.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Pirate Denial Strategy",
+          "text": "The pirate is an underused weapon. Advanced players recognize that placing the pirate strategically can shut down an opponent's expansion for multiple turns. Drop the pirate on a sea hex that blocks the critical last edge an opponent needs to reach a new island. They cannot build or move ships on adjacent edges until someone else moves the pirate. Combine this with knight development cards so you can move the pirate off your own routes when opponents target you.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Ship Flexibility and Redirection",
+          "text": "Expert players treat open shipping routes as fluid and adaptive. Instead of committing to one direction, they keep routes open and move the end ship each turn to probe different directions. This lets you react to what opponents do without spending extra resources. Once you find the best destination, commit by building a settlement to close the route. The key insight is that an open route is both a strength for flexibility and a weakness because opponents can pirate the endpoint.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Harbor Control",
+          "text": "Harbors are even more important in Seafarers than in base Catan. With ships, you can reach harbors that are isolated on distant islands, far from the competition. A two-for-one harbor matching your highest-production resource is worth sailing for. For example, if you produce lots of wool from multiple pasture hexes, a two-for-one wool harbor turns every two wool into any resource you want. Plan your shipping routes to pass through or end at valuable harbor intersections.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Balancing Ships and Cities",
+          "text": "The biggest strategic tension in Seafarers is when to stop building ships and start building cities. Ships cost wool and lumber, while cities cost ore and grain. If you spend too long on ships, opponents with early cities will outproduce you. If you rush cities, you miss island opportunities. The sweet spot is to settle one or two new islands by mid-game, then shift to upgrading your best settlements to cities. A city on a gold field is often the tipping point that funds your endgame push to the victory point target.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Island Rush Strategy",
+          "bullets": [
+            "Prioritize wool + lumber production from starting placements",
+            "Build ships every turn for the first 3-4 turns",
+            "Settle closest valuable island ASAP",
+            "Scenario discovery bonuses = 3-4 uncontested VP"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Executing the Island Rush",
+          "bullets": [
+            "Start coastal on high-number pasture + forest hexes",
+            "Build ships immediately — skip unnecessary roads",
+            "Pivot to city upgrade on new island if terrain justifies",
+            "Supplement with knight cards to avoid falling behind on Largest Army"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Gold Field Monopoly",
+          "bullets": [
+            "Settle adjacent to as many gold fields as possible",
+            "City on gold field with 6/8 = 2 of any resource per roll",
+            "Two gold cities = rarely need to trade",
+            "Gold flexibility funds any build strategy"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Longest Road through the Sea",
+          "bullets": [
+            "Path: roads → coastal settlement → ships → roads on new island",
+            "Ocean crossing makes path harder for opponents to predict/cut",
+            "Target 10+ segments for hard-to-beat Longest Road",
+            "Close shipping routes to protect against pirate disruption"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pirate Denial Strategy",
+          "bullets": [
+            "Place pirate to block critical last edge opponent needs",
+            "Blocks all ship building + movement on adjacent edges",
+            "Combine with knight dev cards for pirate defense on your own routes",
+            "Underused weapon — can shut down opponent for multiple turns"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Ship Flexibility and Redirection",
+          "bullets": [
+            "Keep routes open to move end ship each turn and probe directions",
+            "React to opponents without spending extra resources",
+            "Commit by building settlement to close route when ready",
+            "Open routes = flexible but vulnerable to pirate"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Harbor Control",
+          "bullets": [
+            "Ships let you reach isolated harbors on distant islands",
+            "2:1 harbor matching your best resource = very powerful",
+            "Plan shipping routes through/to valuable harbor intersections",
+            "Harbors even more important than in base Catan"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Balancing Ships and Cities",
+          "bullets": [
+            "Ships (wool/lumber) vs cities (ore/grain) — competing resource needs",
+            "Settle 1-2 new islands by mid-game, then pivot to cities",
+            "City on gold field = tipping point for endgame resource engine",
+            "Balance expansion with city upgrades on best hexes"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Ship",
+          "definition": "A boat-shaped piece placed on sea edges to create shipping routes. Costs one wool and one lumber to build. Must connect to your network at a coastal intersection.",
+          "category": "components"
+        },
+        {
+          "term": "Pirate Ship",
+          "definition": "A black ship piece placed on a sea hex. Blocks all ship building and movement on adjacent edges. Moved when a seven is rolled, as an alternative to the robber.",
+          "category": "components"
+        },
+        {
+          "term": "Sea Hex",
+          "definition": "Blue ocean tiles that fill the board between islands. Ships are placed on the edges of sea hexes. Sea hexes do not produce resources and do not receive number tokens.",
+          "category": "components"
+        },
+        {
+          "term": "Gold Field",
+          "definition": "A special terrain hex that lets adjacent players choose any one resource from the bank when its number is rolled. Cities adjacent to gold fields choose two resources.",
+          "category": "new-mechanics"
+        },
+        {
+          "term": "Shipping Route",
+          "definition": "A connected sequence of ships belonging to one player. Can be open (at least one free end) or closed (both ends connected to settlements or cities).",
+          "category": "ship-rules"
+        },
+        {
+          "term": "Open Route",
+          "definition": "A shipping route with at least one end not connected to a settlement or city. The last ship on an open route can be moved once per turn.",
+          "category": "ship-rules"
+        },
+        {
+          "term": "Closed Route",
+          "definition": "A shipping route with both ends connected to settlements or cities. Ships on a closed route cannot be moved. Closing a route protects it from being rearranged.",
+          "category": "ship-rules"
+        },
+        {
+          "term": "Ship Movement",
+          "definition": "Once per turn, a player may move one ship from the open end of a shipping route to any new legal position connected to their network. Cannot move a ship built this turn.",
+          "category": "ship-rules"
+        },
+        {
+          "term": "Coastal Intersection",
+          "definition": "A corner point where a land hex meets a sea hex. Ships and roads connect at coastal intersections only through settlements or cities built there.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Distance Rule",
+          "definition": "A settlement must be at least two intersections away from any other settlement or city on the board, including opponents'. Applies on new islands the same as on the main island.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Longest Road (Seafarers)",
+          "definition": "Counts both roads and ships as a continuous path. Roads and ships connect through coastal settlements or cities. Minimum five segments for the two victory point award.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Pirate (Action)",
+          "definition": "When a seven is rolled, the active player may move the pirate instead of the robber. The pirate goes on any sea hex, blocking adjacent ship building and movement, and the player steals one resource from an opponent with an adjacent ship.",
+          "category": "new-mechanics"
+        },
+        {
+          "term": "Robber vs Pirate Choice",
+          "definition": "On rolling a seven, the active player chooses to move either the robber (onto a land hex, blocking production, stealing from adjacent settlement owner) or the pirate (onto a sea hex, blocking ships, stealing from adjacent ship owner). You must move one of the two.",
+          "category": "new-mechanics"
+        },
+        {
+          "term": "Island Discovery",
+          "definition": "In certain scenarios, players earn bonus victory points for being the first to build a settlement on a previously unsettled island. The bonus is typically one or two points per island.",
+          "category": "scoring"
+        },
+        {
+          "term": "Scenario",
+          "definition": "A predefined map layout with specific terrain placement, number tokens, special rules, and a victory point target. The Seafarers rulebook contains multiple scenarios of increasing complexity.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Victory Point Target",
+          "definition": "The number of victory points needed to win, which varies by scenario. Typically twelve to fourteen points in Seafarers, compared to ten in base Catan.",
+          "category": "scoring"
+        },
+        {
+          "term": "Heading for New Shores",
+          "definition": "The recommended introductory scenario for Seafarers. Features a main island and several smaller islands to settle, with straightforward rules and a standard victory point target.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Fog Island",
+          "definition": "A scenario mechanic where some hexes are placed face-down. When a player builds a settlement or ship adjacent to a fog hex, it is revealed and a number token is placed on it.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Building Cost (Ship)",
+          "definition": "One wool and one lumber. Ships are placed on sea edges and function as ocean roads. Compare to road cost of one brick and one lumber.",
+          "category": "components"
+        },
+        {
+          "term": "Harbor (Seafarers)",
+          "definition": "Ports located at coastal intersections that allow favorable trade ratios. In Seafarers, ships let players reach harbors on distant islands that may be inaccessible by road.",
+          "category": "new-mechanics"
+        }
+      ]
+    }
+  }
+}

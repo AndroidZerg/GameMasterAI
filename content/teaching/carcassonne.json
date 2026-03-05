@@ -1,0 +1,959 @@
+{
+  "game_id": "carcassonne",
+  "title": "Carcassonne",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Find the Start Tile",
+          "text": "Let's get Carcassonne set up. First, look through the land tiles and find the one with a dark back. This is the start tile, and it looks different from all the other tiles. Place it face up in the center of the table.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Shuffle the Land Tiles",
+          "text": "Now take all the remaining land tiles with regular backs and give them a good shuffle face down. Split them into several face-down stacks and spread the stacks around the table so everyone can reach them easily. You should have around seventy-two tiles in these stacks.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Set Out the Scoreboard",
+          "text": "Place the scoreboard next to the play area where everyone can see it. The scoreboard goes from zero to fifty, and if your score passes fifty you will lay your scoring meeple on its side to show you have lapped the track. Make sure there is room beside the board for it to stay visible all game.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Colors and Take Meeples",
+          "text": "Each player picks a color. There are five colors available: yellow, red, green, blue, and black. Take seven regular meeples of your color and place them in front of you as your personal supply. These are the followers you will place on the map throughout the game.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Place Your Scoring Marker",
+          "text": "Your eighth meeple in your color goes on space zero of the scoreboard. This meeple will track your score throughout the game. Return any meeples and abbots for unused colors back to the box.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Set Aside Abbots and River Tiles",
+          "text": "For your first game, put the five abbot pieces back in the box. Also set aside the twelve river tiles, which have the same dark backs as the start tile. We will learn with just the base rules today. Once everyone is comfortable, you can add those in later.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Leave Room to Grow",
+          "text": "Make sure you have plenty of open table space in every direction around the start tile. The map in Carcassonne grows outward as tiles are placed, and it can get surprisingly large. A good rule of thumb is to leave at least two feet of clearance on each side of the start tile.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Choose the First Player",
+          "text": "Pick someone to go first. The rulebook suggests the youngest player, but any method works. Play will proceed clockwise from the first player. Each turn follows the same three steps: place a tile, optionally place a meeple, then score any completed features. Ready to learn the rules? Let's go.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Find the Start Tile",
+          "bullets": [
+            "Locate the dark-backed start tile",
+            "Place it face up in the center of the table"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Shuffle the Land Tiles",
+          "bullets": [
+            "Shuffle all remaining regular-backed tiles face down",
+            "Split into several face-down stacks within reach of all players",
+            "~72 tiles in stacks"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Out the Scoreboard",
+          "bullets": [
+            "Place scoreboard beside the play area",
+            "Track goes 0-50; lay meeple on side after passing 50"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Choose Colors and Take Meeples",
+          "bullets": [
+            "Each player picks a color (yellow, red, green, blue, black)",
+            "Take 7 regular meeples of your color as personal supply"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place Your Scoring Marker",
+          "bullets": [
+            "Place 8th meeple of your color on space 0 of scoreboard",
+            "Return unused color meeples and abbots to box"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Aside Abbots and River Tiles",
+          "bullets": [
+            "Return 5 abbots to box for introductory game",
+            "Set aside 12 river tiles (dark backs) for now",
+            "Add supplementary rules after learning the base game"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Leave Room to Grow",
+          "bullets": [
+            "Leave ~2 ft of open space in every direction from start tile",
+            "Map grows outward unpredictably as tiles are placed"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Choose the First Player",
+          "bullets": [
+            "Pick a starting player (youngest suggested)",
+            "Play proceeds clockwise",
+            "Each turn: place tile → optional meeple → score completions"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Three-Step Turn",
+          "text": "Every turn in Carcassonne follows the same three steps. First, you draw one land tile from any stack and place it face up so it continues the landscape. Second, you may place one meeple from your supply onto the tile you just placed. Third, you score any features that were completed by your tile placement. Then it is the next player's turn clockwise.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Placing a Tile",
+          "text": "When you draw a tile, you must place it so that all its edges match the edges of the tiles already on the table. Roads must connect to roads, city walls must connect to city walls, and fields must connect to fields. In the rare case that a tile cannot legally fit anywhere, return it to the box and draw a new one.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Placing a Meeple",
+          "text": "After placing your tile, you may take one meeple from your supply and place it on that tile. You can place it on a road segment, a city segment, a monastery, or a field. However, you may not place a meeple into a feature that is already connected to another meeple. This is the occupancy rule, and it is the most important placement restriction in the game.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Meeple Roles",
+          "text": "Your meeple takes on a different role depending on where you place it. On a road it becomes a highwayman. In a city it becomes a knight. On a monastery it becomes a monk. Lying down in a field it becomes a farmer. The role determines how that meeple scores, and farmers work differently from the others because they stay on the board until the end of the game.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Scoring Roads",
+          "text": "A road is completed when both of its ends are closed by a village, a city entrance, a monastery, or when the road loops back into itself. When a road is completed, the player with a highwayman on it scores one point per tile in that road. After scoring, the highwayman returns to its owner's supply and can be used again on a future turn.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Scoring Cities",
+          "text": "A city is completed when it is fully enclosed by walls with no gaps. Each tile in a completed city is worth two points, and each coat of arms shield on those tiles is worth an additional two points. After scoring, all knights in that city return to their owners' supplies. Cities are the highest-value features in the game when completed.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Scoring Monasteries",
+          "text": "A monastery is completed when all eight spaces surrounding it are filled with tiles. A completed monastery scores nine points: one for the monastery tile itself plus one for each of the eight surrounding tiles. After scoring, the monk returns to its owner's supply.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "The Occupancy Rule and Merging",
+          "text": "You cannot place a meeple directly into a connected feature that already has a meeple in it. However, you can place a meeple on a separate, unconnected segment of the same feature type on your tile. If a later tile placement connects two previously separate features, both meeples end up in the same feature. This is called merging, and it is a key tactic in Carcassonne.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Majority Scoring",
+          "text": "When a feature with multiple meeples is scored, the player who has the most meeples in that feature scores all the points. If two or more players are tied for the most meeples, all tied players score the full points. Players with fewer meeples than the leader score nothing. This majority rule applies to every feature type.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Farmers and Fields",
+          "text": "Farmers are placed lying down in fields and they never come back during the game. They are only scored at the very end. Each farmer scores three points for every completed city that borders their field. Fields are separated by roads and city walls. We recommend playing a few games without farmers first, then adding them once everyone is comfortable with the basics.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Game End",
+          "text": "The game ends immediately after the turn in which the last tile is placed. Then you perform final scoring for all meeples still on the map. Incomplete roads score one point per tile. Incomplete cities score one point per tile plus one point per coat of arms. Incomplete monasteries score one point for the monastery tile plus one for each adjacent tile. Farmers score three points per adjacent completed city.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Determining the Winner",
+          "text": "After final scoring, add up everyone's total. The player with the most points wins. If there is a tie, the tied players share the victory. Remember that completed cities are worth double what incomplete cities are, so finishing your features before the tiles run out is always valuable.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Three-Step Turn",
+          "bullets": [
+            "Step 1: Draw 1 tile → place it to continue the landscape",
+            "Step 2: Optionally place 1 meeple from supply on that tile",
+            "Step 3: Score any features completed by the placement"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placing a Tile",
+          "bullets": [
+            "All edges must match: road→road, city→city, field→field",
+            "Rare unplaceable tile → return to box, draw new one"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placing a Meeple",
+          "bullets": [
+            "Place 1 meeple from supply onto the just-placed tile",
+            "Occupancy rule: cannot place into a connected feature that already has any meeple",
+            "Placement is always optional"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Meeple Roles",
+          "bullets": [
+            "Road = highwayman, City = knight, Monastery = monk, Field = farmer",
+            "Role determines scoring method",
+            "Farmers stay on board until final scoring"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Scoring Roads",
+          "bullets": [
+            "Complete when both ends closed (village, city, monastery, or loop)",
+            "1 point per tile in the road",
+            "Highwayman returns to supply after scoring"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Scoring Cities",
+          "bullets": [
+            "Complete when fully enclosed by walls, no gaps",
+            "2 points per tile + 2 points per coat of arms",
+            "Knights return to supply after scoring"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Scoring Monasteries",
+          "bullets": [
+            "Complete when all 8 surrounding spaces filled",
+            "1 point per surrounding tile + 1 for monastery = max 9",
+            "Monk returns to supply after scoring"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Occupancy Rule and Merging",
+          "bullets": [
+            "Cannot place meeple into a connected feature with an existing meeple",
+            "Can place into a separate unconnected segment on the same tile",
+            "Later tile may merge features → multiple meeples in one feature"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Majority Scoring",
+          "bullets": [
+            "Most meeples in a feature → scores full points",
+            "Tied for most → all tied players score full points",
+            "Fewer than majority → scores 0"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Farmers and Fields",
+          "bullets": [
+            "Placed lying down in fields, never return during game",
+            "Final scoring only: 3 points per adjacent completed city",
+            "Fields bounded by roads and city walls",
+            "Recommend adding after learning base game"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Game End",
+          "bullets": [
+            "Last tile placed → game ends immediately",
+            "Incomplete road: 1 pt/tile",
+            "Incomplete city: 1 pt/tile + 1 pt/coat of arms (half value)",
+            "Incomplete monastery: 1 + adjacent tiles",
+            "Farmers: 3 pts per adjacent completed city"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Determining the Winner",
+          "bullets": [
+            "Highest total points wins",
+            "Tie → shared victory",
+            "Completed cities = double the value of incomplete cities"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Carcassonne",
+          "text": "Welcome to your first game of Carcassonne! In this practice tutorial, we will walk through a scripted opening with two example players, Red and Blue. We will show you how turns flow, how features score, and point out common mistakes so you can avoid them. Follow along even if you have more or fewer players at your table.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Red's First Turn: Place a Road Tile",
+          "text": "The start tile is already on the table showing a road, a city segment, and fields. Red draws a tile with a straight road and places it so the road continues from the start tile, matching road edge to road edge. Red places a meeple on the road as a highwayman. The road is not complete yet, so no scoring happens this turn.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Blue's First Turn: Start a City",
+          "text": "Blue draws a tile with a city segment and places it so the city walls connect to the start tile's existing city edge. Blue places a meeple inside the city as a knight. The city is still open, so no scoring happens. Blue now has six meeples left in supply.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Red Completes a Short Road",
+          "text": "Red draws a tile with a village that caps the end of a road and places it to close off their highwayman's road. Both ends are now capped, so the road is complete. Red scores one point per tile, which is three points, and gets their highwayman back. Completing short features early is a strong habit because it recycles your meeple for future turns.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Blue Expands the City",
+          "text": "Blue draws a city tile with a coat of arms shield and places it to grow their city, connecting the walls properly. Blue does not place another meeple because their knight is already in this city. The city still has open edges, so no scoring yet.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Red's Mistake: Locking Up Meeples",
+          "text": "Over the next few turns, Red commits meeples to three different unfinished features: a new city, a monastery, and another road. Red now has only four meeples left in supply. Then Red draws a perfect tile that could block Blue's city, but Red has no meeples to spare for a blocking move. This is meeple lock-up, and it costs Red the ability to react to the board.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Keep Meeples in Reserve",
+          "text": "Always try to keep at least two meeples in your supply. If you commit all seven to the board, you will be forced to place tiles without gaining any benefit from them. Short features that score quickly and return meeples are far more valuable than ambitious projects that lock up your supply for many turns.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Blue Completes the City",
+          "text": "Blue draws the perfect tile to close their city walls. The city is now fully enclosed with no gaps. Blue's city spans four tiles and includes two coats of arms, scoring four tiles times two points plus two shields times two points for a total of twelve points. Blue's knight returns to supply. That is a huge score from a single well-managed feature.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Red's Mistake: Helping the Opponent",
+          "text": "Red draws a tile that could complete one of Blue's open road segments. Red places it there because it is the best legal fit for the tile edges. By closing Blue's road, Red just handed Blue four free points and gave Blue a meeple back while Red got nothing. Before completing someone else's feature, always check if there is another legal placement that benefits you instead.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Blue Attempts a Merge",
+          "text": "Blue notices Red has a knight in an unfinished city. Blue places a tile that starts a new, separate city segment right next to Red's city and puts a knight in this new segment. This is legal because the two city sections are not yet connected. Blue is setting up a merge to share or steal Red's city.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "The Merge Succeeds",
+          "text": "A few turns later, Blue draws a tile that connects both city sections into one large city. Now Red has one knight and Blue has one knight in the same city. They are tied for majority, so when this city is completed, both players will score the full points. If Blue had placed two knights before the merge, Blue would have had majority and Red would score zero.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch for Merge Threats",
+          "text": "Never assume your feature is safe just because no one can place directly into it. Opponents can start a separate feature nearby and merge it into yours later. If you see someone building suspiciously close to your feature, consider whether they are setting up a merge. You can defend by closing your feature quickly or by adding your own meeple through a counter-merge.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Red's Mistake: The Uncloseable City",
+          "text": "Red has been growing a city for many turns, adding tile after tile. The city now spans six tiles but still has two open edges pointing in awkward directions. Red realizes the specific tile shapes needed to close those gaps may not even exist in the remaining stacks. Red has built a city that may never be completed, and it will score half points at game end.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Plan Your Closure Path",
+          "text": "When building a city, always think about how you will close it. A city with one open edge is easy to finish, but a city with two or three open edges becomes exponentially harder. Keep your cities compact and aim to reduce open edges with every tile you add. An unclosed city at game end scores only one point per tile instead of two.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Final Scoring Preview",
+          "text": "The last tile has been placed and the game is over. Red still has a knight stuck in that large unfinished city, scoring only one point per tile instead of two. Red also has an incomplete monastery with only five surrounding tiles, scoring six points instead of the potential nine. Meanwhile, Blue completed most features during the game and has fewer stranded meeples.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations on completing your first practice game of Carcassonne! You have seen how turns flow, how features score, and how merging works. You have also learned four key lessons: keep meeples in reserve, avoid accidentally helping opponents, watch for merge threats, and always plan your closure path. You are ready to play a full game.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Build",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and common mistakes to avoid.\n\nSecond, reference the Appendix for a quick guide to feature types, scoring values, and key terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Carcassonne",
+          "bullets": [
+            "Scripted tutorial with 2 example players (Red and Blue)",
+            "Follow along regardless of your actual player count",
+            "Covers turns, scoring, merging, and common mistakes"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Red's First Turn: Place a Road Tile",
+          "bullets": [
+            "Start tile already on table: road, city segment, fields",
+            "Draw tile → place matching road edge to start tile",
+            "Place meeple as highwayman on the road"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Blue's First Turn: Start a City",
+          "bullets": [
+            "Draw city tile → connect to start tile's city edge",
+            "Place meeple as knight in the city",
+            "City still open → no scoring yet"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Red Completes a Short Road",
+          "bullets": [
+            "Draw tile that caps the road → both ends closed",
+            "Score 1 pt/tile = 3 points, highwayman returns to supply",
+            "Short features score fast and recycle meeples"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Blue Expands the City",
+          "bullets": [
+            "Draw city tile with coat of arms → expand Blue's city",
+            "No new meeple needed (knight already inside)",
+            "City still has open edges → no scoring"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Red's Mistake: Locking Up Meeples",
+          "bullets": [
+            "Red commits 3 meeples to unfinished features over several turns",
+            "Only 4 meeples left in supply",
+            "Draws a perfect blocking tile but has no meeple to spare"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Keep Meeples in Reserve",
+          "bullets": [
+            "Always keep 2+ meeples in supply",
+            "Short score-and-return features > long commitments",
+            "Trapped meeples cost you options, not just the meeple itself"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Blue Completes the City",
+          "bullets": [
+            "Blue draws the closing tile → city fully enclosed",
+            "4 tiles x 2 pts + 2 shields x 2 pts = 12 points",
+            "Knight returns to supply"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Red's Mistake: Helping the Opponent",
+          "bullets": [
+            "Red places a tile that completes Blue's road",
+            "Blue scores 4 free points + gets meeple back, Red gains nothing",
+            "Always check for alternative placements before closing opponent features"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Blue Attempts a Merge",
+          "bullets": [
+            "Blue starts a separate city segment near Red's city",
+            "Blue places a knight in the new segment (legal — not connected)",
+            "Setting up to merge into Red's city for majority"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Merge Succeeds",
+          "bullets": [
+            "A later tile connects both city sections",
+            "Red 1 knight + Blue 1 knight = tied → both score full points",
+            "2 knights vs 1 → majority player scores, minority scores 0"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch for Merge Threats",
+          "bullets": [
+            "Opponents can start separate features nearby and merge later",
+            "Watch for suspicious placements near your features",
+            "Defend: close quickly or counter-merge with your own meeple"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Red's Mistake: The Uncloseable City",
+          "bullets": [
+            "Red's city spans 6 tiles with 2 awkward open edges",
+            "Required tile shapes may not exist in remaining stacks",
+            "City may never be completed → half-value scoring"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Plan Your Closure Path",
+          "bullets": [
+            "1 open edge = easy, 2-3 open edges = exponentially harder",
+            "Keep cities compact, reduce open edges with each tile",
+            "Incomplete city at game end = half points (1 pt/tile instead of 2)"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Final Scoring Preview",
+          "bullets": [
+            "Red's unfinished city: 1 pt/tile + 1 pt/shield (half value)",
+            "Red's incomplete monastery: 6 of potential 9 points",
+            "Blue completed features during play → fewer stranded meeples"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced full turn flow, feature scoring, and merging",
+            "4 lessons: reserve meeples, don't help opponents, watch merges, plan closures",
+            "Ready to play a full game of Carcassonne"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Build",
+          "bullets": [
+            "Check out General Tips → strategy basics for beginners",
+            "Reference the Appendix → quick-reference for features and scoring",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we talk strategy, here are the biggest traps new players fall into. First, committing too many meeples to long unfinished features, leaving yourself with no followers to place. Second, growing cities without thinking about how to close them, which converts full-value tiles into half-value ones at game end. Third, accidentally completing an opponent's feature and handing them free points plus a meeple return. Keep these in mind and you will sidestep the most common beginner pitfalls.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Meeple Management",
+          "text": "Your seven meeples are your most precious resource in Carcassonne. Every meeple on the board is one you cannot use on a future turn. A good rule of thumb is to keep at least two meeples in reserve at all times. Prioritize short features that score quickly and return your meeple, like two-tile roads or small closeable cities. Think of each meeple as an investment: the faster it returns, the more times you can reinvest it.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Score and Recycle",
+          "text": "The strongest early-game habit is to score and recycle. Place a meeple on a feature you can complete in one or two turns, score the points, get the meeple back, and do it again. A player who completes five small roads of three tiles each scores fifteen points and always has meeples available. A player who builds one massive road worth fifteen points ties on score but spends the whole game with a locked meeple.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "City Strategy",
+          "text": "Cities are the highest-scoring features when completed, especially those with coats of arms. Aim to keep your cities compact with as few open edges as possible. Every time you add a tile to a city, count the open edges. If you are increasing the number of open edges rather than reducing them, you are making the city harder to close. A four-tile city with one open edge is much better than a six-tile city with three open edges.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Monastery Timing",
+          "text": "Monasteries can score up to nine points, which is excellent for a single meeple investment. The key is placement timing. Place a monastery tile where several surrounding spaces are already filled or are likely to fill soon from natural map growth. A monastery with five neighbors already filled only needs three more tiles to complete. A monastery on the edge of the map with open space in every direction may never finish.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Tile Placement for Yourself and Against Others",
+          "text": "Every tile you place should serve at least one of two purposes: advance your own features or make your opponents' features harder to complete. If you can do both with the same tile, even better. When you draw a tile that does not help any of your features, look at the board and see if you can place it to block an opponent's city closure or create an awkward gap that is hard to fill.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Reading the Tile Supply",
+          "text": "As the game progresses, pay attention to what tiles have already been placed. If you see that most of the city-cap tiles are already on the board, finishing a city with multiple open edges becomes much less likely. Similarly, if many road-ending tiles remain in the stacks, your road is safer. You do not need to memorize every tile, but a general sense of what is left helps you judge which projects are worth investing in.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Merge Awareness",
+          "text": "Always be aware of merge opportunities, both offensive and defensive. If an opponent has a big city, you can start a small city nearby, place your own knight, and then try to merge the two. If you achieve equal or greater meeple count, you share or steal the points. On the flip side, watch for opponents doing this to you. The best defense is to close your features quickly before anyone has time to set up a merge.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't lock all meeples in long unfinished features",
+            "Don't grow cities without a closure plan (half-value at game end)",
+            "Don't accidentally close opponents' features (free points + meeple return)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Meeple Management",
+          "bullets": [
+            "Keep 2+ meeples in reserve at all times",
+            "Prioritize short features that return meeples quickly",
+            "Each meeple = investment; faster return = more reinvestment"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Score and Recycle",
+          "bullets": [
+            "Place meeple → complete in 1-2 turns → score → repeat",
+            "5 small roads (3 tiles each) = 15 pts + meeples always available",
+            "1 massive road (15 tiles) = 15 pts + meeple locked all game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "City Strategy",
+          "bullets": [
+            "Keep cities compact with few open edges",
+            "Each tile added should reduce open edges, not increase them",
+            "Coat of arms cities are high-value — worth contesting"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Monastery Timing",
+          "bullets": [
+            "Place monasteries where neighbors already exist or will fill naturally",
+            "5 neighbors filled = only 3 more tiles to complete (9 pts)",
+            "Edge-of-map monasteries with open space = risky investment"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Tile Placement for Yourself and Against Others",
+          "bullets": [
+            "Every tile: advance your features OR hinder opponents (ideally both)",
+            "No helpful placement? → look for blocking opportunities",
+            "Create awkward gaps opponents cannot easily fill"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading the Tile Supply",
+          "bullets": [
+            "Track which tile types have been placed vs. what might remain",
+            "Many city-caps placed → open cities harder to close",
+            "General awareness > memorization — judge project risk"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Merge Awareness",
+          "bullets": [
+            "Offensive: start a small city near opponent's big city → merge for shared/stolen points",
+            "Defensive: close features quickly before merges can be set up",
+            "Equal meeples = both score full; majority = winner takes all"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Score-and-Recycle Engine",
+          "text": "The most consistent strategy in Carcassonne is relentless recycling. Focus on completing two-tile and three-tile features every few turns. A two-tile city with a coat of arms scores six points and gets your meeple back in one or two turns. String five of these together across a game and you have thirty points from cities alone, plus your meeples were always available for other opportunities. This approach beats one massive city that might never close.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "City Takeover Strategy",
+          "text": "When an opponent invests heavily in a large city, consider staging a takeover. Place a tile that creates a separate city segment near their city and put your knight in it. On future turns, look for tiles that can merge the two segments into one. If you achieve two knights to their one, you score all the points and they score nothing. Even tying at one to one means you share their hard-earned points, which is a net win for you since you invested less into the city.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Defensive City Building",
+          "text": "To protect your cities from takeovers, keep them compact and close them quickly. The longer a city stays open, the more turns opponents have to position a merge. When possible, build cities that expand inward rather than outward, reducing the number of edges where a merge tile could connect. If you see an opponent starting a segment near your city, prioritize closing your city before they can complete the merge.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Blocking and Denial",
+          "text": "Advanced players think about denial on every tile placement. If an opponent needs a specific tile shape to close a city, place your tiles to create an adjacent configuration that makes that shape impossible or extremely unlikely to fit. You can also poison a feature by placing tiles that force it to grow in awkward directions. The goal is not just to block one tile, but to create a situation where multiple future tiles cannot complete the feature.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Farmer Placement Timing",
+          "text": "Farmers are a permanent investment. Once placed, that meeple never comes back. The best time to place a farmer is when you are confident the field will border multiple completed cities by game end. A single farmer scoring three points per adjacent city can easily earn nine to fifteen points in a well-positioned field. Place farmers in the mid-game when the map structure is clear enough to judge field boundaries, not in the opening when everything is uncertain.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Field Wars and Majority",
+          "text": "In experienced groups, field control often decides the game. A large central field touching five or six completed cities can be worth fifteen to eighteen points. When two players contest the same field, the majority rule applies: most farmers win. You can merge into an opponent's field the same way you merge into a city. Watch for field boundaries carefully. Roads and city walls define where one field ends and another begins. A single road tile can split what looks like one big field into two separate ones.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Tile Counting",
+          "text": "In the final third of the game, start paying close attention to the tile stacks. Count how many tiles are left and assess which of your features can realistically be completed. If there are only ten tiles left and your city needs a specific shape to close, the odds are against you. Shift your strategy to maximizing final scoring value from incomplete features and placing farmers for end-game field points. Also consider which opponent features you can sabotage with your remaining placements.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Tempo and Timing",
+          "text": "Carcassonne rewards players who match their ambitions to the game clock. In the early game, build small and recycle fast. In the mid-game, commit to one or two medium-sized projects and place your farmers. In the late game, stop starting new features and focus on closing what you have. The most common advanced mistake is starting ambitious features too late. A five-tile city started with fifteen tiles remaining has a good chance of finishing. The same city started with five tiles left is almost certainly wasted points.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Score-and-Recycle Engine",
+          "bullets": [
+            "Focus on 2-3 tile features that close quickly",
+            "2-tile city + coat of arms = 6 pts, meeple back in 1-2 turns",
+            "5 small cities across a game > 1 massive unfinished city",
+            "Meeples always available for new opportunities"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "City Takeover Strategy",
+          "bullets": [
+            "Start a separate city segment near opponent's city → place knight",
+            "Merge the segments later with a connecting tile",
+            "2 knights vs 1 = you score all, they score 0",
+            "Tied 1:1 = both score full pts (net win if you invested less)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Defensive City Building",
+          "bullets": [
+            "Keep cities compact, close quickly before merges happen",
+            "Build inward (reducing edges) rather than outward",
+            "Prioritize closing if you spot an opponent setting up a merge"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Blocking and Denial",
+          "bullets": [
+            "Place tiles to make opponents' needed shapes impossible to fit",
+            "Poison features by forcing awkward growth directions",
+            "Goal: create situations where multiple tiles can't complete the feature"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Farmer Placement Timing",
+          "bullets": [
+            "Farmers = permanent (never return to supply)",
+            "Place mid-game when field boundaries are clear",
+            "1 farmer × 5 adjacent completed cities = 15 pts",
+            "Don't place early when map structure is uncertain"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Field Wars and Majority",
+          "bullets": [
+            "Field control often decides the game in experienced groups",
+            "Large central field touching 5-6 cities = 15-18 pts",
+            "Majority rule: most farmers in a field win",
+            "Roads and city walls define field boundaries — watch splits"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Tile Counting",
+          "bullets": [
+            "Count remaining tiles in final third of game",
+            "Assess which features can realistically close",
+            "Shift to maximizing incomplete feature value + farmer placement",
+            "Consider sabotaging opponent features with remaining placements"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Tempo and Timing",
+          "bullets": [
+            "Early game: build small, recycle fast",
+            "Mid-game: commit to 1-2 medium projects, place farmers",
+            "Late game: stop starting new features, close what you have",
+            "5-tile city with 15 tiles left = good odds; with 5 tiles left = wasted"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Land Tile",
+          "definition": "The square cardboard tiles that make up the game board. Each tile shows some combination of roads, cities, monasteries, and fields. Players draw and place one tile per turn to expand the shared landscape.",
+          "category": "components"
+        },
+        {
+          "term": "Meeple",
+          "definition": "A small wooden follower piece in a player's color. Each player has seven meeples in their supply plus one on the scoreboard. Meeples are placed on tiles to claim features and score points.",
+          "category": "components"
+        },
+        {
+          "term": "Scoreboard",
+          "definition": "The numbered track from zero to fifty used to record each player's score during the game. When a player's score passes fifty, they lay their scoring meeple on its side to indicate fifty-plus points.",
+          "category": "components"
+        },
+        {
+          "term": "Start Tile",
+          "definition": "The dark-backed tile placed face up in the center of the table at the beginning of the game. It shows a road, a city segment, and fields, serving as the seed for the entire landscape.",
+          "category": "components"
+        },
+        {
+          "term": "Coat of Arms",
+          "definition": "A shield icon printed on some city tiles. Each coat of arms adds two bonus points to a completed city or one bonus point to an incomplete city at final scoring. Cities with coats of arms are high-value targets.",
+          "category": "components"
+        },
+        {
+          "term": "Road",
+          "definition": "A feature depicted as a brown path running across tiles. A road is completed when both ends are closed by a village, city entrance, monastery, or when it loops back onto itself. Meeples placed on roads are called highwaymen.",
+          "category": "feature-types"
+        },
+        {
+          "term": "City",
+          "definition": "A feature depicted with walls and colored interiors on tiles. A city is completed when it is fully enclosed by walls with no gaps. Cities score two points per tile plus two per coat of arms when completed, or half that when incomplete at game end.",
+          "category": "feature-types"
+        },
+        {
+          "term": "Monastery",
+          "definition": "A feature depicted as a building in the center of a tile. A monastery is completed when all eight surrounding spaces are filled with tiles. It scores one point per surrounding tile plus one for itself, up to a maximum of nine points.",
+          "category": "feature-types"
+        },
+        {
+          "term": "Field",
+          "definition": "The green grassy areas on tiles that are not roads, cities, or monasteries. Fields are bounded by roads and city walls. Farmers placed in fields score three points per adjacent completed city at final scoring only.",
+          "category": "feature-types"
+        },
+        {
+          "term": "Highwayman",
+          "definition": "A meeple placed standing on a road segment. The highwayman scores points when the road is completed or at final scoring if it remains incomplete. The highwayman returns to its owner's supply after a road is scored during the game.",
+          "category": "meeple-roles"
+        },
+        {
+          "term": "Knight",
+          "definition": "A meeple placed standing inside a city segment. The knight scores points when the city is completed or at final scoring. Knights are central to majority contests when multiple players' city segments merge into one city.",
+          "category": "meeple-roles"
+        },
+        {
+          "term": "Monk",
+          "definition": "A meeple placed on a monastery tile. The monk scores based on how many of the eight surrounding spaces are filled. A monk returns to supply when the monastery is completed or remains for final scoring if incomplete.",
+          "category": "meeple-roles"
+        },
+        {
+          "term": "Farmer",
+          "definition": "A meeple placed lying down in a field. Farmers are permanent and never return to supply during the game. At final scoring, each farmer scores three points for every completed city adjacent to their field.",
+          "category": "meeple-roles"
+        },
+        {
+          "term": "Completed Road Scoring",
+          "definition": "A completed road scores one point per tile in the road. Both ends must be closed by a village, city, monastery, or the road must loop. The highwayman returns to supply after scoring.",
+          "category": "scoring"
+        },
+        {
+          "term": "Completed City Scoring",
+          "definition": "A completed city scores two points per tile plus two points per coat of arms. All knights return to supply after scoring. This is the highest-value per-tile scoring in the game.",
+          "category": "scoring"
+        },
+        {
+          "term": "Completed Monastery Scoring",
+          "definition": "A completed monastery scores nine points: one per surrounding tile plus one for the monastery itself. The monk returns to supply after scoring.",
+          "category": "scoring"
+        },
+        {
+          "term": "Incomplete Feature Scoring",
+          "definition": "At game end, incomplete roads score one point per tile. Incomplete cities score one point per tile plus one per coat of arms, which is half the completed rate. Incomplete monasteries score one point for the monastery tile plus one per adjacent surrounding tile.",
+          "category": "scoring"
+        },
+        {
+          "term": "Field Scoring",
+          "definition": "At final scoring only, each farmer scores three points for every completed city adjacent to their field. Fields are defined by road and city-wall boundaries. Majority rules apply when multiple players have farmers in the same field.",
+          "category": "scoring"
+        },
+        {
+          "term": "Occupancy Rule",
+          "definition": "A player may not place a meeple into a feature that is already connected to another meeple, regardless of which player owns it. This rule forces players to use merging as the only way to get multiple meeples into the same feature.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Feature Merging",
+          "definition": "When a tile placement connects two previously separate features into one, all meeples in both features are now in the same feature. This is the only way to get multiple meeples into a single feature, since direct placement is blocked by the occupancy rule.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Majority Rule",
+          "definition": "When a feature containing meeples from multiple players is scored, the player with the most meeples scores the full points. Tied players all score full points. Players with fewer meeples than the leader score zero.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Tile Matching",
+          "definition": "Every tile placed must have all its edges match the adjacent tiles already on the map. Roads connect to roads, city walls connect to city walls, and fields connect to fields. In the rare case no legal placement exists, the tile is discarded and a new one is drawn.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Abbot",
+          "definition": "A special meeple included in the base game box, set aside for introductory games. The abbot can be placed on monasteries or gardens and has a unique ability to be voluntarily retrieved on a future turn before the feature is completed. Added after learning base rules.",
+          "category": "special-rules"
+        },
+        {
+          "term": "River Variant",
+          "definition": "A set of twelve river tiles with dark backs, included in the base game box. When used, the river tiles are placed first to create a winding river through the center of the map before normal tile drawing begins. This creates a more varied starting landscape.",
+          "category": "special-rules"
+        }
+      ]
+    }
+  }
+}

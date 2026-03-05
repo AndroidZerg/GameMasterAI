@@ -1,0 +1,1000 @@
+{
+  "game_id": "backgammon",
+  "title": "Backgammon",
+  "complexity": "gateway",
+  "player_count": {
+    "min": 2,
+    "max": 2
+  },
+  "categories": ["abstract-strategy", "dice", "race", "classic"],
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Meet the Board",
+          "text": "Welcome to Backgammon, one of the oldest board games in the world. Let's take a look at the board. You will see 24 long, narrow triangles called points, alternating in two colors. The points are arranged in four groups of six, forming four quadrants. A raised bar runs down the center of the board, dividing it into two halves.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Understand the Quadrants",
+          "text": "Let's name the four quadrants. Each player has a home board and an outer board. Your home board is the quadrant where you will bear off your checkers at the end of the game, containing points one through six. Your outer board is the quadrant next to it, containing points seven through twelve. Your opponent's home and outer boards mirror yours on the other side of the bar.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Get Your Checkers",
+          "text": "Each player takes 15 checkers in their color. One player takes all the light checkers and the other takes all the dark checkers. You will also need a pair of standard six-sided dice for each player. Set the dice aside for now while we place the checkers.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Place Your Checkers — The 24-Point",
+          "text": "Let's set up the starting position. Place two of your checkers on your 24-point. That is the point farthest from your home board, deep in your opponent's home board. These two checkers have the longest journey ahead of them.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Place Your Checkers — The 13-Point",
+          "text": "Now place five of your checkers on your 13-point. This point sits in your opponent's outer board, just past the halfway mark. These five checkers form your largest group at the start and serve as a strong anchor on your opponent's side of the board.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Place Your Checkers — The 8-Point",
+          "text": "Place three of your checkers on your 8-point. This point is in your own outer board, just two points away from your home board. These three checkers are close to home and will be among the first you bring in for bearing off.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Place Your Checkers — The 6-Point",
+          "text": "Finally, place five checkers on your 6-point. This is the first point of your home board. You now have all 15 checkers on the board in the classic starting arrangement: two on the 24-point, five on the 13-point, three on the 8-point, and five on the 6-point. Your opponent mirrors this setup exactly from their perspective.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Set Up the Doubling Cube",
+          "text": "Find the doubling cube. It is a large die with the numbers 2, 4, 8, 16, 32, and 64 on its faces. Place it in the center of the bar with the 64 face up, indicating that no one has doubled yet. We will explain how it works later, but for now just set it in the middle where both players can reach it.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Determine Who Goes First",
+          "text": "Each player rolls one die. The player who rolls the higher number goes first, using the two numbers just rolled as their opening move. If both players roll the same number, roll again until someone wins. Let's learn how to move.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Meet the Board",
+          "bullets": [
+            "24 triangular points in alternating colors",
+            "4 quadrants of 6 points each, divided by a center bar"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Understand the Quadrants",
+          "bullets": [
+            "Home board = points 1-6 (where you bear off)",
+            "Outer board = points 7-12",
+            "Opponent's boards mirror yours across the bar"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Get Your Checkers",
+          "bullets": [
+            "15 checkers per player (light vs dark)",
+            "1 pair of dice per player"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Place Your Checkers — The 24-Point",
+          "bullets": [
+            "2 checkers on the 24-point (opponent's home board)"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Place Your Checkers — The 13-Point",
+          "bullets": [
+            "5 checkers on the 13-point (opponent's outer board)"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Place Your Checkers — The 8-Point",
+          "bullets": [
+            "3 checkers on the 8-point (your outer board)"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Place Your Checkers — The 6-Point",
+          "bullets": [
+            "5 checkers on the 6-point (your home board)",
+            "Total: 2 + 5 + 3 + 5 = 15 checkers",
+            "Opponent mirrors the same layout"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Set Up the Doubling Cube",
+          "bullets": [
+            "Large die showing 2, 4, 8, 16, 32, 64",
+            "Place centered on the bar with 64 face up"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Determine Who Goes First",
+          "bullets": [
+            "Each player rolls 1 die → higher roll goes first",
+            "First move uses both numbers rolled",
+            "Tie → re-roll"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Direction of Movement",
+          "text": "Let's talk about how checkers move. Both players move their checkers in opposite directions around the board. You move from higher-numbered points toward lower-numbered points, ultimately into your home board. Your opponent does the same from their perspective, so your checkers travel in a horseshoe pattern past each other.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Rolling and Moving",
+          "text": "On your turn, roll both dice. Each die is a separate move. If you roll a three and a five, you must move one checker exactly three points and one checker exactly five points. You may move the same checker twice, first three then five, or move two different checkers. The key is that each die produces one distinct move of exactly that many points.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Doubles",
+          "text": "When you roll doubles, you get four moves instead of two. For example, if you roll double fours, you have four separate moves of four points each. You may split these across up to four different checkers or use them all on one checker. Doubles are powerful turns that can swing the game.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Where You Can Land",
+          "text": "A checker may land on any point that is open. A point is open if it has no checkers on it, has your own checkers on it, or has exactly one of your opponent's checkers on it. You cannot land on a point that has two or more of your opponent's checkers. There is no limit to how many of your own checkers can stack on a single point.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hitting a Blot",
+          "text": "A single checker sitting alone on a point is called a blot. If you land on your opponent's blot, you hit it. The hit checker is removed from the point and placed on the bar in the center of the board. This is one of the most important tactical moves in backgammon, because the hit checker must start its journey over from the very beginning.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Re-entering from the Bar",
+          "text": "If you have any checkers on the bar, you must re-enter them before making any other moves. To re-enter, roll your dice and place the checker on the corresponding point in your opponent's home board. A roll of three means you enter on the opponent's three-point. The point must be open, just like any normal move. If neither die lets you enter, your entire turn is lost.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Using Both Dice",
+          "text": "You must use both dice if it is legally possible. If you can only play one die, you must play the higher value. If neither die can be used, your turn is skipped. You cannot voluntarily forfeit a legal move even if playing it puts you in a worse position.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Building a Prime",
+          "text": "When you stack two or more checkers on a point, that point is closed to your opponent. If you close six consecutive points in a row, you have built a prime. An opponent's checker behind a prime is completely trapped and cannot pass, because no single die roll goes higher than six. Building primes is one of the most powerful strategies in the game.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Bearing Off",
+          "text": "Once all 15 of your checkers are in your home board, you begin bearing off. To bear off, roll your dice and remove a checker from the point matching each die. If you roll a four, you may remove a checker from your four-point. If no checker is on the matching point, you must move a checker from a higher point instead. If no checkers are on higher points, you may remove a checker from the highest occupied point.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Getting Hit While Bearing Off",
+          "text": "If one of your checkers gets hit while you are bearing off, you must bring it back into play and move it all the way around the board into your home board again before you can continue bearing off. This is devastating, which is why protecting your blots during bearing off is critical.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "The Doubling Cube",
+          "text": "Before rolling on your turn, you may propose to double the stakes by offering the doubling cube. Your opponent must either accept the double or forfeit the game at the current stake. If they accept, they take the cube and place it on their side with the next higher number showing. Only the player holding the cube may propose the next double.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "text": "The first player to bear off all 15 checkers wins. A normal win is worth one point, multiplied by the doubling cube value. If the loser has not borne off any checkers, it is a gammon worth two times the stake. If the loser still has a checker on the bar or in the winner's home board, it is a backgammon worth three times the stake.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Direction of Movement",
+          "bullets": [
+            "Move from high-numbered points → low-numbered points",
+            "Players move in opposite directions (horseshoe pattern)"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Rolling and Moving",
+          "bullets": [
+            "Roll 2 dice → each die = 1 separate move",
+            "Can move same checker twice or 2 different checkers",
+            "Each move must be exactly the number shown on the die"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Doubles",
+          "bullets": [
+            "Doubles = 4 moves instead of 2",
+            "E.g., double 4s → four moves of 4 points each",
+            "Can split across up to 4 checkers"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Where You Can Land",
+          "bullets": [
+            "Open point: empty, your own checkers, or exactly 1 opponent checker",
+            "Cannot land on 2+ opponent checkers",
+            "No limit on your own checkers per point"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hitting a Blot",
+          "bullets": [
+            "Blot = single checker alone on a point",
+            "Land on opponent's blot → hit it to the bar",
+            "Hit checker must re-enter from opponent's home board"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Re-entering from the Bar",
+          "bullets": [
+            "Must re-enter all bar checkers before any other moves",
+            "Enter on opponent's home board (1-6) matching die roll",
+            "Entry point must be open — if neither die works, turn is lost"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Using Both Dice",
+          "bullets": [
+            "Must use both dice if legally possible",
+            "If only 1 can be used → must play the higher value",
+            "Neither usable → turn skipped"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Building a Prime",
+          "bullets": [
+            "2+ checkers on a point → closed to opponent",
+            "6 consecutive closed points = a prime",
+            "Opponent's checker behind a prime is trapped (max die = 6)"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Bearing Off",
+          "bullets": [
+            "All 15 checkers must be in home board first",
+            "Roll die → remove checker from matching point",
+            "No checker on point → move from higher point",
+            "No higher checkers → remove from highest occupied"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Getting Hit While Bearing Off",
+          "bullets": [
+            "Hit during bearing off → checker goes to bar",
+            "Must re-enter and travel all the way home before continuing",
+            "Protect your blots during bearing off"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "The Doubling Cube",
+          "bullets": [
+            "Propose double before rolling → opponent accepts or forfeits",
+            "Accepted → opponent takes cube, shows next higher value",
+            "Only cube holder can propose next double"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "bullets": [
+            "First to bear off all 15 checkers wins",
+            "Normal win = 1× stake, Gammon = 2× (no checkers borne off)",
+            "Backgammon = 3× (checker on bar or in winner's home board)"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome — Your First Game",
+          "text": "Let's play through the opening of a two-player backgammon game together. We will walk through several turns, and along the way you will see three common mistakes that new players make. Each mistake will become a lesson you can carry into every game from here on. The board is set up with the standard starting position: two checkers on the 24-point, five on the 13-point, three on the 8-point, and five on the 6-point.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Determine First Player",
+          "text": "Both players roll one die. Player one rolls a four and Player two rolls a two, so Player one goes first using a four and a two as their opening roll. Let's see what Player one does with it.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One: A Solid Opening",
+          "text": "Player one uses the four to move a checker from the 24-point to the 20-point, and uses the two to move a checker from the 13-point to the 11-point. Both checkers land on open points. This is a reasonable opening, spreading out to claim territory early.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two: Leaving a Blot in Danger",
+          "text": "Player two rolls a six and a one. They move one checker from the 24-point to the 18-point with the six, and another checker from the 13-point to the 12-point with the one. The checker on the 18-point is now sitting alone. That single checker on an exposed point is called a blot, and it is dangerously within range of Player one's checkers.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player One: Hitting the Blot",
+          "text": "Player one rolls a five and a two. They spot the blot on the 18-point and use the two to move a checker from the 20-point to the 18-point, hitting Player two's blot and sending it to the bar. Player two's checker is removed from the board and placed on the bar. Player one uses the five for another move. This is a devastating setback for Player two.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Protect Your Checkers — Avoid Leaving Blots",
+          "text": "A blot is any single checker left alone on a point, and it is vulnerable to being hit. Getting sent to the bar means your checker must re-enter from your opponent's home board and travel the entire length of the board again. Whenever possible, move checkers in pairs or land them on points you already occupy. If you must leave a blot, try to leave it far from your opponent's checkers where it is harder to hit.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Player Two: Re-entering from the Bar",
+          "text": "Player two has a checker on the bar and must re-enter it before doing anything else. They roll a three and a five. The three-point in Player one's home board is open, so Player two enters the checker there. Now they can use the five for a normal move. Being sent to the bar cost Player two significant progress.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Player Two: Using Only One Die",
+          "text": "A few turns later, Player two rolls a six and a four. They see a good move with the six and move one checker forward. But they look at the four and decide none of the options are appealing, so they try to skip it and end their turn. This is not allowed. You must use both dice if it is legally possible.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Player One: Corrects the Mistake",
+          "text": "Player one stops the game and points out the error. Let's look at the board together. There are two possible moves for the four, both landing on open points. Player two has to pick one of them. They choose the less risky option that does not leave a blot.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: You Must Use Both Dice",
+          "text": "Both dice must be played if there are legal moves available for each. If you can only use one of the two dice, you must use the one with the higher value. If neither die can be played, your entire turn is skipped. You cannot voluntarily give up a legal move, even if you would prefer not to make it. Always scan the board carefully for every legal option before declaring your turn over.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Building Toward Bearing Off",
+          "text": "Let's fast-forward several turns. Both players have been racing their checkers around the board. Player one has gathered most of their checkers in the home board. Player two has 14 checkers in the home board, but one checker remains on the 8-point in the outer board. Player two is eager to start bearing off.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Player Two: Trying to Bear Off Too Early",
+          "text": "Player two rolls a five and a three. They reach for a checker on the five-point to bear it off. But wait. Player two still has one checker on the 8-point, outside the home board. You cannot bear off any checkers until all 15 are inside your home board. Player two must use this roll to bring that straggler home instead.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: All Fifteen Checkers Must Be Home First",
+          "text": "Bearing off only begins once every single one of your 15 checkers is in your home board. Even one checker outside the home board means you cannot remove any pieces from the board. Plan ahead and bring all your checkers home before you start thinking about bearing off. If a checker gets hit and sent to the bar during bearing off, you must stop and bring it all the way back home before resuming.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Player Two Gets Home and Bears Off",
+          "text": "Player two uses the five to move the checker from the 8-point to the 3-point, bringing it into the home board. Now all 15 checkers are home. On the next turn, Player two rolls a six and a two, bearing off a checker from the 6-point and one from the 2-point. The race to the finish is on.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "The Race to the End",
+          "text": "Both players now bear off checkers each turn, removing them from the board with matching die rolls. Player one, who built a strong position early by hitting blots and stacking points, finishes first. Player two still has three checkers left when Player one removes their final piece. Player one wins a normal game, worth one point.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations. You have played through the opening, middle game, and endgame of backgammon. You saw three critical lessons: protect your checkers from being hit, always use both dice when possible, and get all 15 checkers home before bearing off. You are ready to play a full game on your own.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Begin",
+          "text": "Before you start a full game, here are two things that can help.\n\nFirst, check out General Tips for advice on opening moves, safe play, and when to take risks.\n\nSecond, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Good luck.",
+          "cta": true,
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome — Your First Game",
+          "bullets": [
+            "Scripted 2-player tutorial covering opening, midgame, endgame",
+            "3 common mistakes → 3 lessons",
+            "Standard starting position: 2/24, 5/13, 3/8, 5/6"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Determine First Player",
+          "bullets": [
+            "Each player rolls 1 die — higher roll goes first",
+            "Player 1 rolls 4, Player 2 rolls 2 → Player 1 starts with 4-2"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One: A Solid Opening",
+          "bullets": [
+            "4: 24-point → 20-point, 2: 13-point → 11-point",
+            "Both land on open points — reasonable spread"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Two: Leaving a Blot in Danger",
+          "bullets": [
+            "6-1 roll: moves to 18-point and 12-point",
+            "Checker on 18-point is a lone blot — exposed to being hit"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player One: Hitting the Blot",
+          "bullets": [
+            "5-2 roll: uses 2 to hit blot on 18-point → sent to bar",
+            "Devastating setback — Player 2 must re-enter from scratch"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Protect Your Checkers — Avoid Leaving Blots",
+          "bullets": [
+            "Blot = single checker alone, vulnerable to being hit",
+            "Hit → bar → must re-enter and travel entire board again",
+            "Move in pairs or land on already-occupied points when possible"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player Two: Re-entering from the Bar",
+          "bullets": [
+            "Rolls 3-5 → enters on opponent's 3-point (open)",
+            "Uses remaining 5 for a normal move",
+            "Bar re-entry is costly — lost turns and positioning"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player Two: Using Only One Die",
+          "bullets": [
+            "Rolls 6-4 → uses the 6 but tries to skip the 4",
+            "Not allowed — you must use both dice if legal moves exist"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player One: Corrects the Mistake",
+          "bullets": [
+            "Two legal moves exist for the 4",
+            "Player 2 must choose one — picks the safer option"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: You Must Use Both Dice",
+          "bullets": [
+            "Both dice must be played if legal moves exist",
+            "Only 1 playable → must use the higher value",
+            "Neither playable → entire turn skipped"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Building Toward Bearing Off",
+          "bullets": [
+            "Fast-forward — both players racing checkers home",
+            "Player 2 has 14 in home board, 1 still on 8-point"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player Two: Trying to Bear Off Too Early",
+          "bullets": [
+            "Rolls 5-3, tries to bear off from 5-point",
+            "Illegal — 1 checker still outside home board on 8-point",
+            "Must use roll to bring straggler home instead"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: All Fifteen Checkers Must Be Home First",
+          "bullets": [
+            "Cannot bear off until all 15 checkers are in home board",
+            "Even 1 checker outside = no bearing off allowed",
+            "If hit during bearing off → must bring checker all the way back"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player Two Gets Home and Bears Off",
+          "bullets": [
+            "Uses 5 to move 8-point → 3-point, all 15 now home",
+            "Next turn: rolls 6-2, bears off from 6-point and 2-point"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Race to the End",
+          "bullets": [
+            "Both players bear off — Player 1 finishes first",
+            "Player 2 has 3 checkers remaining → normal win (1 point)"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "3 lessons: protect blots, use both dice, all 15 home before bearing off",
+            "Covered opening, middle game, and endgame",
+            "Ready for a full game"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Begin",
+          "bullets": [
+            "Check out General Tips → opening moves, safe play, risk management",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Prioritize Making Points",
+          "text": "The safest checker is one that is not alone. Every time you can stack two or more checkers on the same point, that point becomes closed to your opponent. Try to make points in your home board as early as possible, especially the five-point and the four-point. A strong home board makes it harder for your opponent to re-enter from the bar, and it gives you safe landing spots for your own checkers.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Learn the Opening Moves",
+          "text": "Backgammon has well-known best plays for every opening roll. For example, a roll of three-one should be used to make your five-point, and six-one should make your bar point. Learning even a few standard openings gives you a significant advantage over players who move randomly. You do not need to memorize them all at once, but knowing the most common ones will immediately improve your game.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Minimize Blots in Dangerous Zones",
+          "text": "When you must leave a blot, think about where it is and how easily your opponent can hit it. A blot six points or fewer from an opponent's checker is in direct hitting range from a single die. A blot seven to twelve points away can be hit with a combination of two dice. If you have to leave a blot, try to leave it far from enemy checkers or in a position where getting hit is less damaging.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Use the Bar Wisely When You Hit",
+          "text": "Hitting your opponent's blots is not always the right move. Before hitting, consider whether it will leave your own checker exposed. A hit that leaves you with a blot on a point surrounded by your opponent's checkers can backfire badly. The best hits send your opponent backward while keeping your own checkers safe.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Keep an Anchor in Your Opponent's Board",
+          "text": "An anchor is a point in your opponent's home board where you have two or more checkers. Anchors serve two purposes. They give you a safe landing spot when re-entering from the bar, and they threaten your opponent's checkers as they try to come home. The 20-point and 21-point are particularly strong anchor positions early in the game.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Do Not Pile Everything on One Point",
+          "text": "New players often stack five or six checkers on a single point for safety, but this is wasteful. Those extra checkers are doing nothing productive. You only need two on a point to close it. Spread your checkers across multiple points to control more of the board. The ideal position has two to three checkers on each of several consecutive points, forming a wall your opponent cannot pass.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Know When to Run vs. When to Build",
+          "text": "Backgammon is a balance between racing your checkers home and building strong defensive positions. If you are ahead in the race, focus on getting home quickly and avoid unnecessary contact. If you are behind, slow down and look for chances to hit your opponent. A trailing player benefits from keeping the game messy, while a leading player benefits from a clean sprint to the finish.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Common Beginner Mistakes to Avoid",
+          "text": "Watch out for these patterns. First, moving your back checkers too aggressively without support, leaving blots everywhere. Second, ignoring the doubling cube and never using it, which means you miss chances to capitalize on strong positions. Third, bearing off slowly by moving checkers within the home board instead of removing them. Always bear off when you can rather than shuffling checkers around. Fix these three habits and you will see immediate improvement.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Prioritize Making Points",
+          "bullets": [
+            "2+ checkers on a point = closed to opponent",
+            "Focus on home board: 5-point and 4-point are key",
+            "Strong home board blocks bar re-entry"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Learn the Opening Moves",
+          "bullets": [
+            "Standard best plays exist for every opening roll",
+            "3-1 → make the 5-point, 6-1 → make the bar point",
+            "Learning a few openings gives a big edge"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Minimize Blots in Dangerous Zones",
+          "bullets": [
+            "Within 6 points of enemy = direct hit range (single die)",
+            "7-12 points away = combo hit range (two dice)",
+            "Leave blots far from opponents when unavoidable"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Use the Bar Wisely When You Hit",
+          "bullets": [
+            "Hitting isn't always correct — check if it leaves you exposed",
+            "Best hits: send opponent back while keeping your checkers safe"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Keep an Anchor in Your Opponent's Board",
+          "bullets": [
+            "Anchor = 2+ checkers on a point in opponent's home board",
+            "Provides safe re-entry from the bar",
+            "Threatens opponent's checkers coming home — 20/21-point ideal"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Do Not Pile Everything on One Point",
+          "bullets": [
+            "Only need 2 checkers to close a point",
+            "Extra checkers on one point are unproductive",
+            "Spread across multiple points → control more of the board"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Know When to Run vs. When to Build",
+          "bullets": [
+            "Ahead in race → sprint home, avoid contact",
+            "Behind in race → slow down, seek hits to catch up",
+            "Balance racing and positioning based on game state"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Common Beginner Mistakes to Avoid",
+          "bullets": [
+            "Moving back checkers aggressively without support → blots",
+            "Ignoring the doubling cube → missed value",
+            "Shuffling checkers in home board instead of bearing off"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Doubling Cube — When to Double",
+          "text": "The doubling cube is the most skill-intensive part of backgammon. You should offer a double when you estimate your winning chances are around 70 percent or higher. If you are too conservative, you miss value. If you are too aggressive, your opponent will accept and you are stuck at higher stakes with less edge than you thought. The classic rule of thumb is to double when you have a clear advantage but your opponent still has enough chances that they should accept.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Doubling Cube — When to Accept",
+          "text": "Your opponent offers a double. Should you take it? The math says you should accept if you have at least a 25 percent chance of winning. If you drop, you lose one point for certain. If you take and lose, you lose two. But if you take and win, you gain two. With 25 percent winning chances, taking and dropping have the same expected outcome. Anything above 25 percent, take the cube.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Building a Prime",
+          "text": "A prime is six consecutive closed points, an impenetrable wall. No die roll can jump over six consecutive points. Building a prime while your opponent has checkers trapped behind it is one of the strongest positions in backgammon. Start by making adjacent points in your outer board and home board, then extend the wall. Even a partial prime of four or five consecutive points severely restricts your opponent's movement.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "The Back Game",
+          "text": "When you fall far behind in the race, a back game can be your path to victory. Hold two or more anchors deep in your opponent's home board and wait for them to leave blots as they bear off. The key is timing — you need enough checkers still in play that when you hit a blot, you can contain your opponent behind your own home board. A back game is risky but can produce dramatic comebacks when executed well.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Pip Count and Racing Decisions",
+          "text": "The pip count is the total number of points all your checkers must travel to bear off. Tracking your pip count relative to your opponent's tells you who is ahead in the race. If you are ahead by 10 percent or more, consider breaking contact and running. If you are behind, keep the position complex and look for hitting chances. Many strong players count pips periodically throughout the game to guide their strategy.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Duplication and Diversification",
+          "text": "When leaving blots, use duplication — arrange your vulnerable checkers so your opponent needs the same specific numbers to hit both. If your opponent needs fives to hit one blot and fives to hit another, they can only capitalize on one per turn. On offense, diversify — spread your threats so different numbers hit different targets. This maximizes your chances of hitting something useful regardless of what you roll.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Bearing Off Efficiently",
+          "text": "During bearing off, avoid gaps in your home board. A gap on the three-point means every three you roll is wasted moving a checker down instead of removing one. Before you start bearing off, try to spread your checkers evenly across all six home board points. During bearing off, always remove a checker when possible rather than moving one within the home board. Each checker removed is permanent progress that cannot be taken back.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Gammon and Backgammon Awareness",
+          "text": "Always be aware of gammon and backgammon threats, both yours and your opponent's. If you are in a commanding position, consider whether you can win a gammon by preventing your opponent from bearing off any checkers. Conversely, if you are losing badly, prioritize bearing off at least one checker to avoid being gammoned. In cube games, gammon awareness directly affects doubling decisions, since a gammon doubles the stakes again on top of the cube value.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Doubling Cube — When to Double",
+          "bullets": [
+            "Double at ~70% win probability",
+            "Too conservative → miss value, too aggressive → bad stakes",
+            "Double when you have a clear edge but opponent should still take"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Doubling Cube — When to Accept",
+          "bullets": [
+            "Accept if win probability ≥ 25%",
+            "Drop = lose 1 point, take and lose = lose 2, take and win = gain 2",
+            "25% is the breakeven threshold"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Building a Prime",
+          "bullets": [
+            "6 consecutive closed points = impassable wall",
+            "Even 4-5 consecutive points severely restrict opponent",
+            "Build outward from home board through outer board"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "The Back Game",
+          "bullets": [
+            "Hold 2+ anchors deep in opponent's home board",
+            "Wait for blots during opponent's bearing off",
+            "Requires good timing — enough checkers to contain after hitting"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Pip Count and Racing Decisions",
+          "bullets": [
+            "Pip count = total points all your checkers must travel",
+            "Ahead by 10%+ → break contact and run",
+            "Behind → keep position complex, seek hitting chances"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Duplication and Diversification",
+          "bullets": [
+            "Duplication: make opponent need same numbers for multiple threats",
+            "Diversification: spread your threats across different numbers",
+            "Defense = duplicate, Offense = diversify"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Bearing Off Efficiently",
+          "bullets": [
+            "Avoid gaps — rolled numbers with no checker waste the move",
+            "Spread evenly across home board before starting",
+            "Always remove a checker rather than moving within home board"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Gammon and Backgammon Awareness",
+          "bullets": [
+            "Winning: push for gammon by preventing any opponent bear-off",
+            "Losing: bear off at least 1 checker to avoid gammon",
+            "Gammon threat affects doubling cube decisions"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Point",
+          "definition": "One of the 24 narrow triangles on the backgammon board. Points are numbered 1-24 from each player's perspective, with the 1-point in the player's home board and the 24-point in the opponent's home board.",
+          "category": "Board Layout"
+        },
+        {
+          "term": "Home Board",
+          "definition": "The quadrant containing points 1 through 6. A player must move all 15 checkers into their home board before bearing off. Also called the inner board.",
+          "category": "Board Layout"
+        },
+        {
+          "term": "Outer Board",
+          "definition": "The quadrant containing points 7 through 12. Sits between the home board and the bar. Also called the outer table.",
+          "category": "Board Layout"
+        },
+        {
+          "term": "Bar",
+          "definition": "The raised ridge running down the center of the board, dividing it into two halves. Hit checkers are placed on the bar and must re-enter from the opponent's home board.",
+          "category": "Board Layout"
+        },
+        {
+          "term": "Pip",
+          "definition": "A unit of movement. Moving a checker from the 8-point to the 5-point costs 3 pips. The pip count is the total distance all of a player's checkers must travel to bear off completely.",
+          "category": "Movement"
+        },
+        {
+          "term": "Closed Point",
+          "definition": "A point with two or more of the same player's checkers. The opponent cannot land on a closed point. Consecutive closed points form a blockade.",
+          "category": "Movement"
+        },
+        {
+          "term": "Prime",
+          "definition": "Six consecutive closed points. No single die roll can exceed 6, so an opponent's checker behind a prime is completely trapped until the prime is broken.",
+          "category": "Movement"
+        },
+        {
+          "term": "Anchor",
+          "definition": "A point in the opponent's home board occupied by two or more of your checkers. Provides a safe re-entry point from the bar and threatens the opponent's returning checkers.",
+          "category": "Movement"
+        },
+        {
+          "term": "Blot",
+          "definition": "A single checker sitting alone on a point. Blots are vulnerable to being hit by the opponent. Leaving blots in high-traffic areas is risky.",
+          "category": "Hitting & Bar"
+        },
+        {
+          "term": "Hit",
+          "definition": "Landing on a point occupied by a single opponent checker (a blot). The hit checker is placed on the bar and must re-enter before its owner can make any other moves.",
+          "category": "Hitting & Bar"
+        },
+        {
+          "term": "Re-enter",
+          "definition": "Moving a checker from the bar onto the opponent's home board. The player rolls their dice and places the checker on the point matching one die value (1-6), provided that point is open. If no point is open, the turn is forfeited.",
+          "category": "Hitting & Bar"
+        },
+        {
+          "term": "Bearing Off",
+          "definition": "Removing checkers from the board entirely. Requires all 15 checkers to be in the home board first. Roll a die matching a point number to remove a checker from that point. If no checker occupies the rolled point, move from a higher point or remove from the highest occupied point.",
+          "category": "Bearing Off"
+        },
+        {
+          "term": "Exact Roll",
+          "definition": "A die roll that matches a point with a checker on it during bearing off. For example, rolling a 4 when you have a checker on the 4-point lets you bear that checker off directly.",
+          "category": "Bearing Off"
+        },
+        {
+          "term": "Wasted Pips",
+          "definition": "Die values that cannot be fully used during bearing off due to gaps in the home board. For example, rolling a 5 when your highest checker is on the 3-point. In this case, the checker on the 3-point is removed.",
+          "category": "Bearing Off"
+        },
+        {
+          "term": "Doubling Cube",
+          "definition": "A large die marked 2, 4, 8, 16, 32, 64 used to raise the stakes. A player may propose a double before rolling. The opponent either accepts (takes the cube) or forfeits at the current stake. Only the player holding the cube may propose the next double.",
+          "category": "Doubling Cube"
+        },
+        {
+          "term": "Take",
+          "definition": "Accepting a double. The player takes the doubling cube and places it on their side showing the new stake value. They now own the cube and are the only one who may propose the next double.",
+          "category": "Doubling Cube"
+        },
+        {
+          "term": "Drop",
+          "definition": "Declining a double. The player forfeits the game immediately and loses the current stake value (before the proposed double). Also called passing or refusing the cube.",
+          "category": "Doubling Cube"
+        },
+        {
+          "term": "Gammon",
+          "definition": "A win where the losing player has not borne off any checkers. Worth 2 times the current stake (doubled by the cube value if in play). A significant penalty for falling too far behind.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Backgammon",
+          "definition": "A win where the losing player has not borne off any checkers AND still has a checker on the bar or in the winner's home board. Worth 3 times the current stake. The most punishing outcome possible.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Match Play",
+          "definition": "A series of games played to a target score (e.g., first to 7 points). Points from individual games (including gammon/backgammon multipliers and cube values) accumulate across the match.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Crawford Rule",
+          "definition": "In match play, when one player is exactly 1 point from winning, the doubling cube cannot be used for that one game. After the Crawford game, the cube may be used again. A standard rule in tournament play.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Checker",
+          "definition": "One of the 15 round playing pieces each player uses. Checkers are moved around the board according to dice rolls and ultimately borne off to win. Also called men, stones, or pieces.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Builder",
+          "definition": "A checker positioned to help make a new point on a future turn. Builders are often placed where they can reach multiple target points with common dice rolls.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Slot",
+          "definition": "Deliberately placing a single checker (blot) on a point you want to make, hoping to cover it with a second checker on a later turn. Risky but aggressive — the blot can be hit before it is covered.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Running Game",
+          "definition": "A strategy focused on racing checkers home as fast as possible while avoiding contact with the opponent. Preferred when ahead in pip count.",
+          "category": "Terminology"
+        }
+      ]
+    }
+  }
+}

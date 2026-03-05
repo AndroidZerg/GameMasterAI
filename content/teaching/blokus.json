@@ -1,0 +1,894 @@
+{
+  "game_id": "blokus",
+  "title": "Blokus",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Meet the Board",
+          "text": "Let's get Blokus set up. The game comes with a large square board that is a twenty-by-twenty grid of individual squares. That is four hundred squares total. Place the board in the center of the table so everyone can reach it comfortably.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Your Colors",
+          "text": "Blokus is designed for four players. Each player picks one of the four colors: blue, yellow, red, or green. Every color has its own complete set of twenty-one unique plastic pieces. Let's sort out who is playing which color now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Examine Your Pieces",
+          "text": "Let's take a moment to look at your twenty-one pieces. They range from a single square all the way up to five squares joined together. You have one monomino, one domino, two triominoes, five tetrominoes, and twelve pentominoes. That is eighty-nine squares of your color total.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Know Your Corner",
+          "text": "Each player has an assigned starting corner on the board. Look at the four corners of the grid. Your first piece must cover your assigned corner square. Blue starts in one corner, then the other colors follow clockwise around the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Lay Out Your Pieces",
+          "text": "Spread all twenty-one of your pieces in front of you so you can see them all at once. Being able to scan your full inventory at a glance will help you make better choices during the game. You do not want to forget about a piece hiding under the pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Turn Order",
+          "text": "Blue always goes first, followed by yellow, red, and green in clockwise order. Decide who plays which color however you like. Once everyone has their pieces spread out and knows their corner, you are ready to learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Meet the Board",
+          "bullets": [
+            "20x20 grid board (400 squares total)",
+            "Place in center of table where all players can reach"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Choose Your Colors",
+          "bullets": [
+            "4 players, 4 colors: blue, yellow, red, green",
+            "Each player gets 1 complete set of 21 pieces"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Examine Your Pieces",
+          "bullets": [
+            "21 unique pieces per player: 1 monomino, 1 domino, 2 triominoes, 5 tetrominoes, 12 pentominoes",
+            "89 squares total per color (pieces range from 1-5 squares)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Know Your Corner",
+          "bullets": [
+            "Each player has an assigned starting corner",
+            "First piece MUST cover your corner square"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Lay Out Your Pieces",
+          "bullets": [
+            "Spread all 21 pieces in front of you",
+            "Full visibility helps you plan ahead"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Turn Order",
+          "bullets": [
+            "Blue → Yellow → Red → Green (clockwise)",
+            "Decide color assignments however you like"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "text": "The goal of Blokus is to place as many of your pieces on the board as possible. Every square you cannot place costs you one point. The player with the highest score at the end wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Your First Piece",
+          "text": "On your very first turn, you must place a piece that covers your assigned corner square on the board. Any piece will do, but it must sit on that corner. This is the only time placement works differently from the rest of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Corner-to-Corner Rule",
+          "text": "After your first piece, every new piece you place must touch at least one of your already-placed pieces at a corner. That means diagonally. Your new piece must share at least one corner point with a piece of your own color already on the board. This is the most important rule in Blokus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "No Edge Sharing",
+          "text": "Here is the twist that makes Blokus unique. Your pieces may never share an edge with another piece of your own color. Diagonal touching is required, but flat side-by-side touching with your own color is forbidden. Think of it this way: your pieces connect at corners but never along sides.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Opponents Are Different",
+          "text": "The no-edge-sharing rule only applies to your own color. Your pieces can freely share edges with pieces of other colors. You can place right next to an opponent's piece, flat side to flat side, with no penalty. Only your own color's edges must never touch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Rotating and Flipping",
+          "text": "You can rotate any piece to any orientation before placing it. You can also flip pieces over to create a mirror image. Try all possible orientations to find the best fit. Once a piece is placed on the board, it cannot be moved or removed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Passing and Elimination",
+          "text": "If you have no legal placement available on your turn, you must pass. Once you pass, you are out for the rest of the game. The game continues until all four players have either placed all their pieces or passed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Scoring",
+          "text": "When the game ends, count the squares on your unplaced pieces. You lose one point for each unplaced square. If you manage to place all twenty-one pieces, you earn a fifteen-point bonus instead. If your very last piece placed was the monomino, you earn a twenty-point bonus instead of fifteen.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Tiebreaker",
+          "text": "If two or more players are tied on points, the player who placed the most pieces wins. If still tied, those players share the victory. Let's move on to the practice tutorial so you can see all of this in action.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "bullets": [
+            "Place as many of your pieces on the board as possible",
+            "-1 point per unplaced square"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your First Piece",
+          "bullets": [
+            "Must cover your assigned corner square",
+            "Any piece is valid as long as it sits on the corner"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Corner-to-Corner Rule",
+          "bullets": [
+            "Every new piece must touch your own color at a corner (diagonally)",
+            "At least 1 diagonal contact point required"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "No Edge Sharing",
+          "bullets": [
+            "Your pieces must NEVER share an edge with your own color",
+            "Diagonal = required, edge = forbidden"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Opponents Are Different",
+          "bullets": [
+            "No-edge-sharing applies only to your own color",
+            "Can freely share edges with opponent pieces"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Rotating and Flipping",
+          "bullets": [
+            "Rotate and flip pieces freely before placing",
+            "Once placed, pieces cannot be moved"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Passing and Elimination",
+          "bullets": [
+            "No legal placement → must pass → eliminated",
+            "Game ends when all players have placed or passed"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Scoring",
+          "bullets": [
+            "-1 per unplaced square",
+            "+15 bonus if all 21 pieces placed",
+            "+20 bonus if monomino was the last piece placed"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Tiebreaker",
+          "bullets": [
+            "Tied → most pieces placed wins",
+            "Still tied → shared victory"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "text": "Welcome to your first game of Blokus! In this practice tutorial, we will walk through the opening turns of a four-player game. We will follow Blue, Yellow, Red, and Green as they place their first several pieces, make some mistakes, and learn from them. Follow along with your own board if you have it handy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Blue's Opening Move",
+          "text": "Blue goes first and must cover the corner square. Let's have Blue play the large L-shaped pentomino, placing one end right on the corner. This is a great opening because the pentomino covers five squares and creates multiple diagonal contact points reaching toward the center of the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Yellow, Red, and Green Open",
+          "text": "Yellow, Red, and Green each place a pentomino on their respective corners. Let's say Yellow plays the T-pentomino, Red plays the Z-pentomino, and Green plays the long straight I-pentomino pointed toward the center. All four players now have one piece on the board, each reaching inward from a corner.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Blue Expands Toward the Center",
+          "text": "Blue picks another large pentomino, the U-shape, and connects it diagonally off the first piece, pushing further toward the middle of the board. The corners of the U-shape create three new diagonal contact points for future placements. Blue is staking a claim to a big swath of territory.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Yellow's Mistake: Playing Small Too Early",
+          "text": "Yellow looks at the board and decides to play the domino, the little two-square piece, connecting it diagonally off the T-pentomino. It fits neatly and feels safe. But Yellow just used one of the smallest pieces in the game on turn two, when there was plenty of open space for something much bigger.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Play Big Pieces First",
+          "text": "Large pentominoes are hardest to place later when the board gets crowded. Small pieces like the monomino and domino can always squeeze into tight gaps near the end. By playing the domino now, Yellow wasted an early turn covering only two squares instead of five. Save your small pieces for the endgame when options are limited.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Red Expands in Two Directions",
+          "text": "Red plays the plus-shaped pentomino diagonally off the Z-piece, reaching toward both the center and along one edge of the board. This is smart because the plus shape creates four diagonal corners pointing in different directions. Red now has expansion options going multiple ways.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Green's Mistake: One-Way Corridor",
+          "text": "Green plays the straight I-tetromino extending in the same direction as the opening I-pentomino. Both pieces now form a narrow line pointed straight at the center. Green has nine squares on the board in a long corridor, but all the diagonal contact points face the same two directions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Expand in Multiple Directions",
+          "text": "When all your pieces line up in a row, you only have contact points going forward and backward along that line. If an opponent blocks the end of your corridor, you are stuck with no way to branch out. Instead, play pieces that branch sideways to create diagonal corners pointing in many directions. More directions means more options when opponents start blocking you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Blue Continues the Push",
+          "text": "Blue plays the W-pentomino diagonally off the U-piece, zigzagging further toward the center. Blue now has fifteen squares on the board after three turns, all pentominoes, with diagonal corners fanning out in a wide arc. Blue is in an excellent position with many expansion routes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Yellow Tries to Recover",
+          "text": "Yellow realizes the domino was a wasted turn and plays the X-pentomino diagonally off it, reaching toward the center. The X-shape creates four diagonal corners, which is great. But Yellow is now one large piece behind Blue and Red because of the early domino play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Red's Mistake: Blocking Yourself",
+          "text": "Red plays the S-tetromino, connecting diagonally off the plus piece. But Red did not check carefully. The way the S-tetromino sits, its edge runs along one of Red's own diagonal corners from the plus piece, sealing off that corner. Red just eliminated one of their own expansion points. That corner is now useless because a future piece would have to share an edge with Red's own color to reach it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Protect Your Corners",
+          "text": "Every diagonal corner on your placed pieces is a precious expansion point. Before placing a new piece, check that it does not seal off any of your existing corners by running an edge along them. Losing a corner means losing a direction you can grow. Always verify that your new piece creates more corners than it eliminates.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "The Board Takes Shape",
+          "text": "Let's step back and look at the board. Blue has three pentominoes fanning out from the corner with many expansion routes. Yellow has one pentomino and one domino, trailing in coverage. Red has two pentominoes and a tetromino but accidentally blocked a corner. Green has a long narrow corridor vulnerable to being cut off. The first few turns have already set the trajectory of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Preview",
+          "text": "As the game continues, the board fills up and open territory shrinks. Players who played big pieces early and expanded in multiple directions will have room to keep placing. Players who used small pieces early or built narrow corridors will run out of legal placements sooner. The last few turns become a puzzle of fitting small, oddly-shaped pieces into the remaining gaps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations! You have walked through the opening of a four-player Blokus game and seen three critical mistakes: playing small pieces too early, expanding in only one direction, and accidentally blocking your own diagonal corners. Avoiding these three errors will immediately make you a stronger player.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Begin",
+          "text": "Before you start a full game, here are two things that can help.\n\nFirst, check out General Tips for strategy advice on territory control and piece selection.\n\nSecond, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "bullets": [
+            "Scripted 4-player opening turns",
+            "Demonstrates placement rules and common mistakes",
+            "Follow along with your own board"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Blue's Opening Move",
+          "bullets": [
+            "Blue places L-pentomino on corner square",
+            "Covers 5 squares with multiple diagonal contact points",
+            "Large opening piece reaches toward center"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Yellow, Red, and Green Open",
+          "bullets": [
+            "All players place pentominoes on their assigned corners",
+            "Each piece points inward toward the center",
+            "4 pieces on board, 1 per corner"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Blue Expands Toward the Center",
+          "bullets": [
+            "U-pentomino connected diagonally off first piece",
+            "Creates 3 new diagonal corners for future turns",
+            "Stakes claim to large territory"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Yellow's Mistake: Playing Small Too Early",
+          "bullets": [
+            "Yellow plays domino (2 squares) on turn 2",
+            "Plenty of open space for a much larger piece",
+            "Wasted opportunity to cover more ground"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Play Big Pieces First",
+          "bullets": [
+            "Pentominoes are hardest to fit when board gets crowded",
+            "Small pieces (monomino, domino) fit into tight endgame gaps",
+            "Early turns → play big; late turns → play small"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Red Expands in Two Directions",
+          "bullets": [
+            "Plus-shaped pentomino creates 4 diagonal corners",
+            "Reaches toward center AND along board edge",
+            "Multiple expansion directions = strong position"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Green's Mistake: One-Way Corridor",
+          "bullets": [
+            "Green lines up I-pentomino and I-tetromino in same direction",
+            "9 squares in a narrow corridor with limited branching",
+            "Diagonal corners all face the same 2 directions"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Expand in Multiple Directions",
+          "bullets": [
+            "Narrow corridors get blocked easily by opponents",
+            "Branch sideways to create corners pointing many directions",
+            "More directions = more options when blocked"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Blue Continues the Push",
+          "bullets": [
+            "W-pentomino zigzags further toward center",
+            "15 squares after 3 turns — all pentominoes",
+            "Wide arc of diagonal corners for expansion"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Yellow Tries to Recover",
+          "bullets": [
+            "X-pentomino creates 4 diagonal corners",
+            "Good recovery, but still 1 large piece behind Blue/Red",
+            "Early domino play cost Yellow momentum"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Red's Mistake: Blocking Yourself",
+          "bullets": [
+            "S-tetromino edge runs along Red's own diagonal corner",
+            "That corner is now sealed off — no future piece can use it",
+            "Red eliminated an expansion point accidentally"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Protect Your Corners",
+          "bullets": [
+            "Every diagonal corner is a precious expansion point",
+            "Check new pieces don't seal off existing corners",
+            "New piece should create more corners than it eliminates"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "The Board Takes Shape",
+          "bullets": [
+            "Blue: strong, fanned out with many routes",
+            "Yellow: trailing from early domino play",
+            "Red: good coverage but lost a corner",
+            "Green: narrow corridor, vulnerable to being cut off"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Preview",
+          "bullets": [
+            "Board fills up → territory shrinks",
+            "Big-piece-first players keep placing longer",
+            "Last turns = puzzle of fitting small pieces into gaps"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "3 key mistakes: small pieces early, narrow corridor, self-blocking",
+            "Avoiding these errors makes you immediately stronger",
+            "Ready to play a full game"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Begin",
+          "bullets": [
+            "Check out General Tips → territory control and piece selection",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Play Your Biggest Pieces First",
+          "text": "This is the single most important habit in Blokus. Your twelve pentominoes are the hardest pieces to fit on a crowded board. Play them in the opening and middle game when there is plenty of space. Save the monomino, domino, and triominoes for the endgame when you are squeezing into tight gaps. A pentomino placed early covers five squares effortlessly; the same piece later might not fit at all.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Race to the Center",
+          "text": "Everyone starts in a corner, so the center of the board is the most contested real estate. The player who reaches the center first has the best options for branching in all directions. Angle your early pieces inward on a diagonal toward the middle. Do not spend opening turns creeping along the edge of the board. The center is where territory battles are won.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Maximize Your Diagonal Corners",
+          "text": "Every diagonal corner on your placed pieces is an expansion point. Pieces with more protruding corners give you more future options. The X-pentomino, for example, creates four diagonal corners. The straight I-pentomino only creates two. When choosing between pieces, favor shapes that generate the most new corners pointing in useful directions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Expand in Multiple Directions",
+          "text": "If all your pieces extend in the same direction, a single opponent placement can block your entire advance. Instead, branch out so your diagonal corners point in at least three or four different directions. When one path gets blocked, you can pivot to another. Players who spread wide survive longer than players who tunnel deep.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Block Without Being Obvious",
+          "text": "You can place your pieces right next to an opponent's pieces since edge-sharing between different colors is legal. Use this to seal off an opponent's diagonal corners by running your piece's edge along their expansion point. The opponent can no longer use that corner because there is no room. Do this subtly while also advancing your own position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Protect Your Own Corners",
+          "text": "Before placing any piece, double-check that it does not seal off one of your own diagonal expansion points. Your new piece's edge must not run along an existing corner of your own color. Losing a corner means losing a direction you can grow. Every piece should create more new corners than it eliminates.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the Endgame from Midgame",
+          "text": "Around the halfway point, start scanning your remaining pieces and the open spaces on the board. Ask yourself which pieces you can still fit and which are becoming impossible to place. If a large pentomino is getting harder to fit, play it now before the window closes. The best players begin thinking about their final five or six placements while the board still has room.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Monomino Is Gold",
+          "text": "The single-square monomino is the easiest piece to place because it fits in any one-square diagonal gap. If you can place all twenty-one pieces with the monomino last, you earn the maximum twenty-point bonus. Always save the monomino for your absolute final turn. It is the most valuable piece in your set precisely because it is the smallest.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Play Your Biggest Pieces First",
+          "bullets": [
+            "Pentominoes are hardest to fit on a crowded board",
+            "Play them early when space is plentiful",
+            "Save monomino, domino, triominoes for endgame gaps"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Race to the Center",
+          "bullets": [
+            "Center = most contested, most valuable territory",
+            "Angle early pieces diagonally inward",
+            "Don't creep along edges — push toward the middle"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Maximize Your Diagonal Corners",
+          "bullets": [
+            "More corners = more future expansion options",
+            "X-pentomino creates 4 corners; I-pentomino only 2",
+            "Favor shapes with protruding corners"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Expand in Multiple Directions",
+          "bullets": [
+            "Branch out in 3-4 directions minimum",
+            "1 blocked path won't stop you if you have alternatives",
+            "Spread wide > tunnel deep"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Block Without Being Obvious",
+          "bullets": [
+            "Place your edge along opponent's diagonal corners to seal them off",
+            "Edge-sharing between different colors is legal",
+            "Block opponents while advancing your own position"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Protect Your Own Corners",
+          "bullets": [
+            "Don't seal off your own diagonal expansion points",
+            "New piece should create more corners than it eliminates",
+            "Check before placing — lost corners don't come back"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Watch the Endgame from Midgame",
+          "bullets": [
+            "Scan remaining pieces vs. open spaces at midgame",
+            "Play hard-to-fit pentominoes before windows close",
+            "Plan your final 5-6 placements in advance"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Monomino Is Gold",
+          "bullets": [
+            "Easiest piece to place — fits any 1-square diagonal gap",
+            "Save it for your absolute last turn",
+            "All 21 placed + monomino last = +20 bonus"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Opening Theory: The Diagonal Rush",
+          "text": "The strongest opening strategy is to play pentominoes that stretch diagonally toward the center of the board as quickly as possible. Each piece should connect at the farthest diagonal corner of the previous one, creating a diagonal chain. Three pentominoes placed this way can reach past the center line by turn three, giving you first claim to the most valuable territory.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Territory Denial",
+          "text": "Advanced Blokus is not just about expanding your own territory. It is about cutting off opponents. When you place a piece next to an opponent's color, your edge seals off their diagonal corner. Experienced players target the opponent who is expanding fastest, placing pieces strategically to wall them off. One well-placed blocking piece can eliminate three or four of an opponent's expansion routes at once.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Piece Shape Selection",
+          "text": "Not all pentominoes are equal. Pieces with many protruding corners like the X, plus, and W shapes give you maximum expansion. Long thin pieces like the I-pentomino give you reach but fewer branching options. Save thin pieces for when you need to bridge a gap or reach a distant area. Use branchy pieces when you want to establish a foothold with many future options.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Squeeze Play",
+          "text": "When two opponents are expanding toward each other, look for opportunities to slip your pieces into the gap between them. Your pieces can share edges with both of their colors while neither of them can share edges with each other. This lets you claim territory that neither opponent can easily contest, effectively turning their conflict into your advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Endgame Piece Sequencing",
+          "text": "The final five or six turns are a puzzle. Count your remaining pieces and identify which ones can still fit on the board. Place the most constrained pieces first, the ones with only one or two legal positions left. Save flexible pieces and the monomino for last. The optimal sequence often means playing a slightly suboptimal piece now to keep a slot open for a harder-to-fit piece next turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table",
+          "text": "Watch what opponents are doing as carefully as you watch your own position. Track which players have placed their small pieces early because they will struggle in the endgame. Notice which directions each opponent is expanding and position yourself to block the leader. The player in the lead should be everyone else's target. If you are in the lead, play defensively and protect your corners.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Perfect Game",
+          "text": "Placing all twenty-one pieces is extremely difficult against experienced opponents. It requires disciplined big-piece-first play, expansion in multiple directions, and careful endgame sequencing. The twenty-point monomino-last bonus is the ultimate goal. To achieve it, you need to plan your final three or four turns as a single sequence, ensuring each placement leaves room for the next. Treat the last five pieces like a jigsaw puzzle where the order matters as much as the fit.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Opening Theory: The Diagonal Rush",
+          "bullets": [
+            "Chain pentominoes diagonally toward center",
+            "3 pentominoes can pass center line by turn 3",
+            "First to center claims the most valuable territory"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Territory Denial",
+          "bullets": [
+            "Place edges along opponent's diagonal corners to seal them",
+            "Target the fastest-expanding opponent",
+            "1 blocking piece can eliminate 3-4 expansion routes"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Piece Shape Selection",
+          "bullets": [
+            "Branchy pieces (X, +, W) = max expansion options",
+            "Thin pieces (I) = reach but fewer branches",
+            "Use thin pieces to bridge gaps; branchy pieces for footholds"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Squeeze Play",
+          "bullets": [
+            "Slip pieces into gaps between 2 opponents",
+            "Your pieces can edge-share with both opponents' colors",
+            "Claim territory neither opponent can contest"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Endgame Piece Sequencing",
+          "bullets": [
+            "Place most constrained pieces first (fewest legal positions)",
+            "Save flexible pieces + monomino for last",
+            "Sometimes suboptimal now → keeps slot open for harder piece next turn"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table",
+          "bullets": [
+            "Track who played small pieces early — they'll struggle late",
+            "Block the leader; everyone targets 1st place",
+            "If you're leading, play defensively and protect corners"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Perfect Game",
+          "bullets": [
+            "All 21 pieces placed = +15; monomino last = +20",
+            "Requires big-first play, multi-direction expansion, sequencing",
+            "Plan last 3-4 turns as a single sequence",
+            "Treat final pieces like a jigsaw puzzle"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Monomino",
+          "definition": "The smallest piece, consisting of a single square. One per player. Easiest piece to place in tight spaces. Placing it as your very last piece earns the maximum +20 bonus.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Domino",
+          "definition": "A piece made of two squares joined along one edge. One per player. Small enough to fit most gaps but should be saved for late-game play.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Triomino",
+          "definition": "A piece made of three squares. Two unique shapes per player: the straight bar and the L-shape. Save these for the endgame alongside the monomino and domino.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Tetromino",
+          "definition": "A piece made of four squares. Five unique shapes per player, including the T, S, Z, L, and square. Mid-size pieces useful in the middle and late game.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Pentomino",
+          "definition": "A piece made of five squares. Twelve unique shapes per player, including the X, plus, W, U, T, F, and others. The largest pieces and the hardest to place on a crowded board. Play these first.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Piece Set",
+          "definition": "Each player's complete inventory: 1 monomino + 1 domino + 2 triominoes + 5 tetrominoes + 12 pentominoes = 21 pieces covering 89 squares total.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Starting Corner",
+          "definition": "Each player has one assigned corner square on the 20x20 grid. Your very first piece must cover this corner square. Blue, yellow, red, and green each have a designated corner.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Corner-to-Corner Rule",
+          "definition": "After your first piece, every new piece must diagonally touch at least one piece of your own color at a corner point. This is the fundamental connection rule in Blokus.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "No Edge Sharing",
+          "definition": "Your pieces may never share a flat edge with another piece of your own color. Diagonal corner contact is required, but side-by-side contact with your own color is forbidden. This rule does not apply between different player colors.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Rotation and Flipping",
+          "definition": "Pieces can be rotated to any orientation and flipped to create mirror images before placement. Once placed on the board, a piece cannot be moved or removed.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Legal Placement",
+          "definition": "A valid placement must: (a) touch your own color at a diagonal corner, (b) not share an edge with your own color, (c) fit entirely within the 20x20 grid, and (d) not overlap any existing pieces. Exception: first piece must cover your starting corner.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Base Score",
+          "definition": "Each unplaced square costs -1 point. A player who places all pieces scores 0 before bonuses. Fewer leftover squares = better score.",
+          "category": "Scoring"
+        },
+        {
+          "term": "All-Pieces Bonus",
+          "definition": "+15 points awarded if a player places all 21 pieces on the board, regardless of which piece was placed last.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Monomino-Last Bonus",
+          "definition": "+20 points (replaces the +15) if a player places all 21 pieces AND the monomino was the very last piece placed. The highest possible individual score.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Tiebreaker",
+          "definition": "If players are tied on total points, the player who placed the most pieces wins. If still tied after that, those players share the victory.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Two-Player Variant",
+          "definition": "Each player controls two colors, alternating turns between them. One player might play blue and red while the other plays yellow and green. Each color is scored separately, and the player combines both scores.",
+          "category": "Variants"
+        },
+        {
+          "term": "Three-Player Variant",
+          "definition": "Three players each take one color. The fourth color is played communally: players take turns placing a piece for the fourth color in addition to their own. The communal color is not scored.",
+          "category": "Variants"
+        },
+        {
+          "term": "Blokus Duo / Travel",
+          "definition": "A two-player version played on a smaller 14x14 board with only two colors. Each player starts from a marked starting point near the center rather than a corner. Same placement rules apply.",
+          "category": "Variants"
+        },
+        {
+          "term": "Diagonal Corner",
+          "definition": "The point where two squares meet at their corners diagonally. In Blokus, your pieces must connect through diagonal corners. Each new piece must touch at least one of your existing diagonal corners.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Expansion Point",
+          "definition": "Any diagonal corner of your placed pieces where a new piece could legally connect. More expansion points means more placement options. Advanced players count and protect their expansion points.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Territory",
+          "definition": "The area of the board accessible to a player through their expansion points. Players compete for territory, especially in the center. Territory can be cut off by opponents placing pieces that block diagonal corners.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Passing / Elimination",
+          "definition": "When a player has no legal placement on their turn, they must pass and are eliminated from the game. Remaining players continue until all have passed or placed all pieces.",
+          "category": "Terminology"
+        },
+        {
+          "term": "Blocking",
+          "definition": "Placing a piece so that its edge runs along an opponent's diagonal corner, preventing them from using that expansion point. A key offensive tactic in Blokus.",
+          "category": "Terminology"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1049 @@
+{
+  "game_id": "catan",
+  "title": "Catan",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Build the Island Frame",
+          "text": "Let's get Catan set up. First, find the six blue sea frame pieces. Each piece has a number on the back. Match the numbers together so piece one connects to piece one, piece two to piece two, and so on. Snap them together on the table to form a large hexagonal border. This is the ocean surrounding your island.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Terrain Hexes",
+          "text": "Now grab the nineteen terrain hexes. These are the colorful tiles that make up the island. For your first game, use the beginner layout shown in the rulebook. Place each hex inside the frame according to the diagram. You will see four forests, four pastures, four fields, three hills, three mountains, and one desert.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Add the Number Tokens",
+          "text": "Find the eighteen round number tokens. For the beginner layout, place them on the terrain hexes as shown in the rulebook diagram. Each token has a number and small dots underneath. More dots means that number gets rolled more often. The desert hex does not get a number token.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Robber",
+          "text": "Find the dark game piece that looks like a tall pawn. This is the robber. Place it on the desert hex to start the game. The robber will move around the board later when someone rolls a seven. For now, it just sits on the desert doing nothing.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Sort the Resource Cards",
+          "text": "Separate the ninety-five resource cards into five face-up stacks by type. You will have brick, grain, lumber, ore, and wool. Place these stacks near the board where everyone can reach them. This is the bank. Players will draw from these stacks throughout the game.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Development Deck",
+          "text": "Find the twenty-five development cards. These have a shield pattern on the back. Shuffle them face down and place the deck next to the resource stacks. Also place the two special cards, Longest Road and Largest Army, face up beside the board where everyone can see them.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Choose Colors and Take Pieces",
+          "text": "Each player picks a color and takes all the pieces in that color. That means five settlements, four cities, and fifteen roads. Each player also takes one Building Costs reference card that matches their color. Keep your pieces in front of you where you can reach them easily.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Place Starting Settlements and Roads",
+          "text": "For the beginner game, place your two starting settlements and two starting roads on the positions shown in the rulebook. Each settlement goes on an intersection where hex corners meet, and each road goes on an edge between two hexes. For your second settlement marked with a star, take one resource card from the bank for each terrain hex touching that settlement. Keep your resource cards hidden from other players.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Determine First Player",
+          "text": "The oldest player goes first. Play continues clockwise from there. Grab the two dice and you are ready to begin. Each turn you will roll, collect resources, optionally trade, and optionally build. Let's learn the rules.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Build the Island Frame",
+          "bullets": [
+            "Connect 6 sea frame pieces by matching numbers (1-1, 2-2, etc.)",
+            "Forms hexagonal ocean border for the island"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Terrain Hexes",
+          "bullets": [
+            "Place 19 terrain hexes inside the frame",
+            "Beginner game: use rulebook layout",
+            "4 Forest, 4 Pasture, 4 Fields, 3 Hills, 3 Mountains, 1 Desert"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Add the Number Tokens",
+          "bullets": [
+            "Place 18 number tokens on terrain hexes per diagram",
+            "More dots under number = rolled more often (6 and 8 are most common)",
+            "Desert gets no number token"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Robber",
+          "bullets": [
+            "Place robber pawn on the desert hex",
+            "Robber moves when a 7 is rolled"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Sort the Resource Cards",
+          "bullets": [
+            "Sort 95 resource cards into 5 face-up bank stacks",
+            "Types: Brick, Grain, Lumber, Ore, Wool"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Development Deck",
+          "bullets": [
+            "Shuffle 25 development cards face-down",
+            "Place Longest Road and Largest Army cards face-up beside board"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Choose Colors and Take Pieces",
+          "bullets": [
+            "Each player takes 5 settlements, 4 cities, 15 roads in their color",
+            "Each player takes 1 Building Costs reference card"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Place Starting Settlements and Roads",
+          "bullets": [
+            "Beginner: use preset positions from rulebook",
+            "Place 2 settlements on intersections + 2 roads on edges",
+            "Starred settlement → take 1 resource per adjacent terrain hex",
+            "Keep resource cards hidden"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Determine First Player",
+          "bullets": [
+            "Oldest player goes first",
+            "Play proceeds clockwise",
+            "Grab 2 dice — ready to play"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "text": "The goal of Catan is to be the first player to reach ten victory points on your turn. You earn points by building settlements worth one point each, upgrading them to cities worth two points each, and earning special cards like Longest Road and Largest Army. The game ends immediately when someone hits ten points during their own turn.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "text": "Every turn follows the same four steps. First, you roll both dice. Second, everyone collects resources based on the number rolled. Third, you may trade resources with other players or with the bank. Fourth, you may build roads, settlements, cities, or buy development cards. Then you pass the dice clockwise.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Rolling and Producing Resources",
+          "text": "Roll both dice and add them together. Every terrain hex with a matching number token produces resources for players who have a settlement or city touching that hex. A settlement earns one resource card of that terrain's type. A city earns two resource cards. Everyone collects at the same time, not just the player who rolled.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "The Five Resource Types",
+          "text": "There are five resources in Catan, and each one comes from a specific terrain. Forests produce lumber. Pastures produce wool. Fields produce grain. Hills produce brick. Mountains produce ore. The desert produces nothing. You will need different combinations of these resources to build things.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Rolling a Seven and the Robber",
+          "text": "When a seven is rolled, no one collects resources. Instead, three things happen in order. First, any player holding more than seven resource cards must discard half of them, rounded down. Second, the player who rolled moves the robber to any other terrain hex. Third, that player steals one random resource card from any opponent who has a settlement or city touching the robber's new hex.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "How the Robber Blocks Production",
+          "text": "As long as the robber sits on a terrain hex, that hex does not produce resources for anyone. Even if the matching number is rolled, nothing happens on that hex. The robber stays put until someone rolls another seven or plays a Knight development card to move it somewhere else.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Trading Resources",
+          "text": "After rolling, you may trade with other players. You can offer any combination of resources and negotiate freely. Only the active player can initiate and complete trades. Other players cannot trade among themselves. If no one wants to trade with you, you can always trade with the bank at a rate of four identical resources for any one resource you want.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Harbors and Better Trade Rates",
+          "text": "If you build a settlement or city on a harbor intersection, you get a better trade rate with the bank. A generic harbor lets you trade three of any one resource for one of anything. A specific harbor, like a two-for-one brick harbor, lets you trade two of that specific resource for one of anything. Harbors can be incredibly powerful if your production is heavy in one resource.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Building Roads",
+          "text": "A road costs one brick and one lumber. Place it on any open edge on the board that connects to one of your existing roads, settlements, or cities. Roads let you expand across the island toward new settlement spots. You have a maximum of fifteen roads.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Building Settlements",
+          "text": "A settlement costs one brick, one lumber, one wool, and one grain. You must place it on an intersection that connects to one of your roads. Here is the critical rule: the Distance Rule says your settlement must be at least two intersections away from any other settlement or city, including your own. This means every adjacent intersection must be empty.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Upgrading to Cities",
+          "text": "A city costs three ore and two grain. To build one, you replace one of your existing settlements with a city piece. Cities are worth two victory points instead of one, and they produce two resource cards instead of one whenever their hex number is rolled. You can have a maximum of four cities.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Buying Development Cards",
+          "text": "A development card costs one ore, one wool, and one grain. Draw the top card from the development deck and keep it hidden. There are three types: Knight cards let you move the robber. Progress cards give you special one-time effects like free roads or free resources. Victory Point cards are worth one point each and stay hidden until you reveal them to win.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Longest Road and Largest Army",
+          "text": "Two special bonus cards are worth two victory points each. Longest Road goes to the first player who builds a continuous road of at least five segments. Largest Army goes to the first player who plays at least three Knight cards. These cards can change hands if another player surpasses you. Losing one of these cards is a four-point swing, so keep an eye on the competition.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Winning the Game",
+          "text": "You win by reaching ten or more victory points during your own turn. Add up your settlements, cities, any special cards you hold, and any revealed Victory Point development cards. The moment you hit ten on your turn, announce it and the game is over. If you reach ten points during someone else's turn, you must wait until your own turn to claim victory.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Goal of the Game",
+          "bullets": [
+            "First to 10 VP on your turn wins immediately",
+            "VP sources: settlements (1), cities (2), Longest Road (2), Largest Army (2), VP dev cards (1 each)"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Overview",
+          "bullets": [
+            "Roll → Produce → Trade → Build → Pass dice",
+            "All 4 phases happen every turn in order"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Rolling and Producing Resources",
+          "bullets": [
+            "Roll 2 dice, add together",
+            "Settlement on matching hex → 1 resource card",
+            "City on matching hex → 2 resource cards",
+            "All players collect simultaneously"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "The Five Resource Types",
+          "bullets": [
+            "Forest → Lumber, Pasture → Wool, Fields → Grain",
+            "Hills → Brick, Mountains → Ore, Desert → nothing"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Rolling a Seven and the Robber",
+          "bullets": [
+            "No production on a 7",
+            "Players with 8+ cards discard half (round down)",
+            "Active player moves robber → steals 1 random card from adjacent opponent"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "How the Robber Blocks Production",
+          "bullets": [
+            "Hex with robber produces nothing until robber moves",
+            "Robber moves on a 7 or via Knight card"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Trading Resources",
+          "bullets": [
+            "Only active player can trade",
+            "Negotiate freely with any/all opponents",
+            "Bank trade: 4 identical → 1 of any type"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Harbors and Better Trade Rates",
+          "bullets": [
+            "Generic harbor: 3:1 any resource",
+            "Specific harbor: 2:1 for the pictured resource",
+            "Must have settlement/city on the harbor intersection"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Building Roads",
+          "bullets": [
+            "Cost: 1 Brick + 1 Lumber",
+            "Must connect to your existing road/settlement/city",
+            "Max 15 roads per player"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Building Settlements",
+          "bullets": [
+            "Cost: 1 Brick + 1 Lumber + 1 Wool + 1 Grain",
+            "Must connect to your road network",
+            "Distance Rule: all 3 adjacent intersections must be empty"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Upgrading to Cities",
+          "bullets": [
+            "Cost: 3 Ore + 2 Grain",
+            "Replace an existing settlement → 2 VP, produces 2 cards",
+            "Max 4 cities per player"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Buying Development Cards",
+          "bullets": [
+            "Cost: 1 Ore + 1 Wool + 1 Grain",
+            "Knight → move robber; Progress → one-time effect; VP → hidden 1 VP",
+            "Cannot play a card the same turn you buy it"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Longest Road and Largest Army",
+          "bullets": [
+            "Longest Road: 5+ continuous road segments → 2 VP",
+            "Largest Army: 3+ played Knights → 2 VP",
+            "Both can transfer if surpassed — 4-point swing"
+          ],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Winning the Game",
+          "bullets": [
+            "Reach 10+ VP during your own turn → instant win",
+            "If you hit 10 on someone else's turn, wait for yours",
+            "Reveal hidden VP dev cards when claiming victory"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Catan",
+          "text": "Welcome to your first game of Catan. In this practice tutorial, we will walk through several turns with three example players to show you how the game flows. We will cover rolling for resources, trading, building, and common mistakes new players make. Follow along even if your player count is different.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Board Is Set",
+          "text": "We are using the beginner layout. Each player has placed their two starting settlements and two roads. Player one has settlements touching a six and an eight, which are the most commonly rolled numbers. Player two is on a five, a nine, and a ten. Player three has a mix of mid-range numbers. Everyone has collected starting resources from their starred settlement.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Rolls and Collects",
+          "text": "Player one rolls the dice and gets an eight. Everyone checks the board for hexes with the number eight token. Player one has a settlement touching an eight, so they take one resource card of that type from the bank. Player three also has a settlement on an eight, so they collect too. Remember, all players collect on every roll, not just the person who rolled.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player One Builds a Road",
+          "text": "Player one has a brick and a lumber in hand. That is exactly the cost of one road. They place a road extending from one of their settlements toward an empty intersection where they plan to build a future settlement. Always build roads with a destination in mind.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two Rolls and Trades",
+          "text": "Player two rolls a five and collects wool from a pasture hex. They now have three wool but no brick or lumber. Player two asks the table if anyone wants to trade wool for brick. Player three agrees to swap one wool for one brick. Only the active player can make trades, so deals happen on Player two's turn.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Mistake: Hoarding Too Many Cards",
+          "text": "Player three has been saving up resources for several turns. They now hold nine cards, hoping to buy a city next turn. Player one rolls a seven. Since Player three has more than seven cards, they must immediately discard half, rounded down. That means discarding four cards. Player three just lost almost half their hand to the robber.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Spend Before You Lose It",
+          "text": "The takeaway is simple. Do not hoard resources. If you are holding eight or more cards, a seven can wipe out half your hand. Spend your resources as soon as you can put them to good use. Build a road, buy a development card, or make a trade. Anything is better than losing cards to the robber discard.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Resolving the Robber",
+          "text": "After discards are handled, Player one moves the robber off the desert and onto a mountain hex that Player two relies on for ore. Now that hex will not produce ore for anyone until the robber is moved again. Player one also steals one random card from Player two's hand. The robber is a powerful weapon.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Mistake: Building Roads to Nowhere",
+          "text": "Player two wants to expand quickly, so they build two roads in a row heading toward a nice-looking intersection. But when they check the Distance Rule, they realize the intersection they were aiming for is only one space away from Player three's settlement. They cannot build a settlement there. Those two roads are wasted.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Check the Distance Rule First",
+          "text": "Before you build any road, look at your destination intersection and make sure all three adjacent intersections are empty. If any neighboring spot has a settlement or city belonging to any player, you cannot build there. Plan your road path before you spend your resources. One wasted road can set you back several turns.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Mistake: Trading with the Leader",
+          "text": "Player one is at seven points and needs ore to build a city for the win. They offer Player three a generous trade: two lumber for one ore. Player three thinks it sounds like a great deal and accepts. Player one immediately upgrades a settlement to a city and reaches nine points. One more point and they win.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch the Scoreboard",
+          "text": "Always check how many points each player has before you agree to a trade. A trade that seems fair on resources can be terrible strategically if it helps the leader get closer to winning. When someone is at seven or eight points, think twice before giving them anything. It is often better to take a worse deal from a player who is behind.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Mistake: Ignoring Development Cards",
+          "text": "Player three has been focusing entirely on building settlements and roads. They have not bought a single development card all game. Meanwhile, Player two has quietly played three Knights to claim the Largest Army card, earning two free victory points. Player three had the ore, wool, and grain to buy development cards but never considered it.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Development Cards Win Games",
+          "text": "Development cards are one of the most efficient paths to victory. Knights let you control the robber and work toward the two-point Largest Army bonus. Victory Point cards are hidden points your opponents cannot see coming. Progress cards can give you free roads or free resources. Do not ignore the development deck.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Player Two Plays Smart",
+          "text": "Player two has been building steadily. They have three settlements, the Largest Army card from their Knights, and a hidden Victory Point development card. That is three plus two plus one, giving them six visible points and one secret point. They build a road toward a harbor to improve their trading efficiency for the late game.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "The Power of Harbors",
+          "text": "Player two reaches a two-for-one grain harbor. They produce a lot of grain from their fields settlements but struggle to get ore. Now they can trade just two grain for any one resource they need through the harbor. This is far better than the default four-for-one bank rate. Harbors are especially powerful when your production is lopsided toward one resource.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations, you have walked through the core flow of Catan. You have seen how rolling produces resources for everyone, how to trade and build, and how the robber punishes card hoarders. You also learned four common mistakes: hoarding too many cards, building roads without checking the Distance Rule, trading with the leader, and ignoring development cards. You are ready to play a full game.",
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Before You Settle",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics and resource priorities.\n\nSecond, reference the Appendix for a quick guide to building costs, development cards, and key terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Catan",
+          "bullets": [
+            "Scripted tutorial with 3 example players",
+            "Covers rolling, trading, building, and common mistakes",
+            "Follow along regardless of your player count"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Board Is Set",
+          "bullets": [
+            "Beginner layout with preset starting positions",
+            "Each player has 2 settlements + 2 roads placed",
+            "Starting resources collected from starred settlement"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Rolls and Collects",
+          "bullets": [
+            "Roll dice → add together → check matching hexes",
+            "All players with settlements/cities on that number collect",
+            "Settlement = 1 card, City = 2 cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player One Builds a Road",
+          "bullets": [
+            "Road costs 1 Brick + 1 Lumber",
+            "Must connect to existing road/settlement/city",
+            "Always build roads toward a planned settlement spot"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Two Rolls and Trades",
+          "bullets": [
+            "Only active player can initiate trades",
+            "Negotiate freely — any resource combination allowed",
+            "Bank trade fallback: 4 identical → 1 of any type"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Mistake: Hoarding Too Many Cards",
+          "bullets": [
+            "Player 3 holds 9 cards → 7 is rolled",
+            "Must discard half (rounded down) = 4 cards lost",
+            "Nearly half their hand gone in one roll"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Spend Before You Lose It",
+          "bullets": [
+            "8+ cards = vulnerable to 7 discard",
+            "Spend resources as soon as productive use exists",
+            "Build, buy dev cards, or trade down below 8"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Resolving the Robber",
+          "bullets": [
+            "Move robber to any other hex → blocks production there",
+            "Steal 1 random card from adjacent opponent",
+            "Robber stays until next 7 or Knight card"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Mistake: Building Roads to Nowhere",
+          "bullets": [
+            "Player 2 builds toward intersection blocked by Distance Rule",
+            "Adjacent settlement makes that spot illegal",
+            "Two roads wasted with no valid destination"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Check the Distance Rule First",
+          "bullets": [
+            "All 3 adjacent intersections must be empty to build settlement",
+            "Check destination BEFORE building roads toward it",
+            "One wasted road = several turns of lost tempo"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Mistake: Trading with the Leader",
+          "bullets": [
+            "Player 1 at 7 VP offers a generous trade for ore",
+            "Player 3 accepts — Player 1 builds a city toward the win",
+            "A fair trade on paper can be a game-losing mistake"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch the Scoreboard",
+          "bullets": [
+            "Check VP count before accepting any trade",
+            "At 7-8 VP, players are 1-2 builds from winning",
+            "Better to take a worse deal from a trailing player"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Mistake: Ignoring Development Cards",
+          "bullets": [
+            "Player 3 never buys dev cards → misses Largest Army",
+            "Player 2 plays 3 Knights → claims 2 free VP",
+            "Hidden VP cards and Progress effects also missed"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Development Cards Win Games",
+          "bullets": [
+            "Knights → robber control + Largest Army (2 VP)",
+            "VP cards → hidden points opponents can't anticipate",
+            "Progress cards → free roads, free resources",
+            "Don't neglect the development deck"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Player Two Plays Smart",
+          "bullets": [
+            "3 settlements + Largest Army + hidden VP card = 7 points",
+            "Balanced approach: settlements, Knights, and harbor expansion",
+            "Smart late-game positioning toward efficient trading"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Power of Harbors",
+          "bullets": [
+            "2:1 harbor for your heavy resource = huge trade advantage",
+            "Far better than default 4:1 bank rate",
+            "Especially powerful with lopsided production"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "You've practiced rolling, trading, building, and the robber",
+            "4 mistakes covered: hoarding, dead-end roads, helping leader, ignoring dev cards",
+            "Ready to play a full game on your own"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Before You Settle",
+          "bullets": [
+            "Check out General Tips → strategy basics and resource priorities",
+            "Reference the Appendix → building costs, dev cards, key terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we talk strategy, here are the most common mistakes new Catan players make. First, hoarding eight or more resource cards and losing half to a seven. Second, building roads toward intersections that violate the Distance Rule. Third, making trades that help the leading player win. Fourth, ignoring development cards entirely and missing out on Largest Army and hidden victory points. Keep these in mind and you will avoid the biggest beginner traps.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Starting Settlement Placement",
+          "text": "Your starting settlement placement is the most important decision in the entire game. Prioritize intersections that touch hexes with six or eight tokens, because those numbers are rolled most often. Try to cover at least four different resource types across your two settlements. If you cannot get all five resources, make sure you have access to brick and lumber for early roads and settlements. A settlement on a great number with a resource you cannot use is worse than a decent number with a resource you desperately need.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Resource Priority in the Early Game",
+          "text": "In the early game, brick and lumber are king. You need them for roads and settlements, which are how you expand across the board and claim new territory. Ore and grain become critical later when you start building cities and buying development cards. Wool is the most flexible resource because it appears in both settlement and development card costs. Make sure your starting settlements give you early access to brick and lumber, or you will watch other players expand while you sit stuck.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Manage Your Hand Size",
+          "text": "The seven-card robber rule is one of the most punishing mechanics in Catan. Every time a seven is rolled, anyone with eight or more cards loses half. On average, a seven comes up once every six rolls. That means if you are sitting on a fat hand of resources, you are gambling. Spend your cards as soon as you have a productive use for them. If you cannot build anything useful, trade down or buy a development card to keep your hand lean.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Trading Smart",
+          "text": "Trading is one of the most powerful tools in Catan, but it requires discipline. Never trade with the player who is closest to winning unless you absolutely have to. Always count their visible victory points before agreeing to any deal. When you are offering trades, try to get what you need without revealing your exact plans. And remember, you can always trade with the bank at four-for-one, or better rates if you control a harbor.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Value of Development Cards",
+          "text": "New players often overlook the development deck, but it contains some of the most efficient victory points in the game. Three Knights earn you the Largest Army card for two free points. Each hidden Victory Point card is one point your opponents cannot see or counter. Progress cards like Road Building give you two free roads, saving you resources. Buying one or two development cards per game is almost always worth it.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Expand or Upgrade",
+          "text": "At some point in the game, you face a critical choice: do you keep building new settlements, or start upgrading to cities? Settlements let you touch new hexes and diversify your resource income. Cities double the production of hexes you already control. The answer depends on your board position. If your settlements are on high-value numbers like six and eight, upgrade early to double that production. If your numbers are weaker, expand to new hexes with better numbers instead.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Watch the Endgame",
+          "text": "Catan games are often decided in the last two or three turns. Pay attention to every player's visible point count. Remember that hidden Victory Point development cards can surprise you. If someone is at eight visible points, they could be at nine or ten with hidden cards. When you are close to winning, avoid telegraphing your plans. Build your winning move in one turn if possible so opponents cannot block you with the robber or refuse trades.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't hold 8+ cards — a 7 discards half your hand",
+            "Don't build roads without checking Distance Rule at destination",
+            "Don't trade with the leader — check VP count first",
+            "Don't ignore development cards — Knights and VP cards are efficient"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Starting Settlement Placement",
+          "bullets": [
+            "Prioritize 6/8 number tokens (most frequently rolled)",
+            "Cover 4+ different resource types across both settlements",
+            "Brick + Lumber access early is critical for expansion",
+            "Good number + needed resource > great number + useless resource"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Resource Priority in the Early Game",
+          "bullets": [
+            "Early: Brick + Lumber for roads and settlements",
+            "Mid/late: Ore + Grain for cities and dev cards",
+            "Wool is flexible — used in settlements and dev cards",
+            "No Brick/Lumber start = stuck while others expand"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Manage Your Hand Size",
+          "bullets": [
+            "7 is rolled ~once every 6 rolls on average",
+            "8+ cards → lose half (rounded down) on every 7",
+            "Spend cards ASAP: build, trade, or buy dev cards",
+            "Sitting on resources = gambling against probability"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Trading Smart",
+          "bullets": [
+            "Never trade with the leader unless necessary",
+            "Count their VP before every deal",
+            "Don't reveal your plans — keep offers vague",
+            "Bank/harbor trades when no player deals work"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Value of Development Cards",
+          "bullets": [
+            "3 Knights → Largest Army = 2 VP bonus",
+            "Hidden VP cards = points opponents can't counter",
+            "Road Building progress card = 2 free roads",
+            "1-2 dev cards per game is almost always worth it"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Expand or Upgrade",
+          "bullets": [
+            "Settlements: new hexes, diversified income",
+            "Cities: double production on existing strong hexes",
+            "6/8 hexes → upgrade early to double output",
+            "Weak numbers → expand to better hexes instead"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Watch the Endgame",
+          "bullets": [
+            "Track all players' visible VP every turn",
+            "Hidden VP cards can add 1-2 surprise points",
+            "At 8 visible VP, opponent may already be at 9-10",
+            "Build your winning move in one turn to prevent blocks"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Number Probability and Hex Valuation",
+          "text": "Understanding dice probability is the foundation of advanced Catan play. With two dice, a six or eight is rolled five times out of thirty-six rolls. A five or nine comes up four times. A four or ten hits three times. A three or eleven appears twice, and a two or twelve shows up only once. The dots printed under each number token tell you this at a glance. When placing settlements, add up the dots on all adjacent hexes to compare total production value.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Ore-Grain Engine",
+          "text": "One of the strongest strategies in Catan is the ore-grain engine. If your starting settlements give you strong ore and grain production, you can rapidly build cities and buy development cards. Cities on your ore and grain hexes double their output, creating a compounding effect. Three ore and two grain builds a city. One ore, one wool, and one grain buys a development card. This path often leads to Largest Army plus two or three hidden Victory Point cards.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "The Brick-Lumber Rush",
+          "text": "The opposite approach is the brick-lumber rush. If your early production is heavy in brick and lumber, lean into road and settlement expansion. Build roads aggressively toward the best unclaimed intersections. Every new settlement increases your resource diversity and gives you another production hex. This strategy also naturally pursues Longest Road. Five continuous road segments earn you two bonus points, and extending beyond five makes it harder for anyone to steal the card from you.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Harbor Strategy",
+          "text": "Harbors are underrated by most new players but are a cornerstone of advanced play. If your production is heavily skewed toward one resource, building a settlement on the matching two-for-one harbor turns that surplus into anything you need. For example, if you have two settlements on strong grain hexes, a two-for-one grain harbor lets you convert every two grain into any resource. This effectively makes you self-sufficient and less dependent on player trades, which becomes critical in the late game when opponents refuse to deal with you.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Robber Strategy and Knight Timing",
+          "text": "The robber is not just a nuisance. It is a strategic weapon. When you control the robber through Knight cards, place it on the highest-value hex of the leading player. Blocking their six or eight hex can slow their engine significantly. Save your Knight cards for moments when the robber is on your own hexes or when you need to deny a critical resource to a competitor. Playing three Knights also earns Largest Army. If you are pursuing this, try to play your third Knight on a turn where you can also build, making it harder for opponents to react.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table and Threat Assessment",
+          "text": "Advanced Catan is as much about reading opponents as it is about building your own engine. Track every player's visible points, their likely hidden Victory Point cards, and their resource production. If someone has eight visible points and has bought three development cards, assume they have at least one hidden victory point card. Adjust your robber placement and trade decisions accordingly. The player in last place is your best trading partner. The player in first place should get nothing from you.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Blocking and Denial",
+          "text": "Sometimes the best move in Catan is not building for yourself but preventing your opponent from building. If you see an opponent aiming for a specific intersection, racing to build a settlement there first can deny them a critical expansion point. The Distance Rule means your settlement blocks their settlement from all adjacent intersections too. Similarly, building a road that cuts off an opponent's road path can strand their expansion plan. Just make sure your blocking move still advances your own position.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Closing Out the Win",
+          "text": "The hardest part of Catan is converting eight or nine points into ten. At this stage, every opponent will refuse to trade with you and will target you with the robber. Plan your endgame two or three turns in advance. Accumulate the exact resources you need in one turn cycle. If you have hidden Victory Point cards, do not reveal them until you can also build or play a card to reach ten on the same turn. The element of surprise wins more games of Catan than any other single factor.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Number Probability and Hex Valuation",
+          "bullets": [
+            "6/8 = 5/36 chance each (most common after 7)",
+            "5/9 = 4/36, 4/10 = 3/36, 3/11 = 2/36, 2/12 = 1/36",
+            "Dots under number token = relative frequency",
+            "Sum dots on adjacent hexes to compare intersection value"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Ore-Grain Engine",
+          "bullets": [
+            "Strong Ore + Grain → cities + dev cards",
+            "Cities on Ore/Grain hexes → double output, compounding",
+            "City = 3 Ore + 2 Grain; Dev card = 1 Ore + 1 Wool + 1 Grain",
+            "Path to Largest Army + hidden VP cards"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Brick-Lumber Rush",
+          "bullets": [
+            "Heavy Brick/Lumber → fast road + settlement expansion",
+            "New settlements = more hex coverage and resource diversity",
+            "Naturally pursues Longest Road (5+ segments = 2 VP)",
+            "Extend past 5 to make it harder to steal"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Harbor Strategy",
+          "bullets": [
+            "2:1 harbor for your surplus resource = self-sufficiency",
+            "Less dependent on player trades in late game",
+            "Worth spending early roads to reach a matching harbor",
+            "Generic 3:1 harbor also strong if production is mixed"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Robber Strategy and Knight Timing",
+          "bullets": [
+            "Place robber on leader's 6/8 hex for maximum impact",
+            "Save Knights for when robber is on your hex or to deny leader",
+            "3 Knights → Largest Army (2 VP)",
+            "Play 3rd Knight + build on same turn to prevent reaction"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table and Threat Assessment",
+          "bullets": [
+            "Track visible VP + likely hidden VP cards for each player",
+            "8 VP + 3 dev card purchases → assume 9-10 real VP",
+            "Trade with last-place player, starve first-place player",
+            "Adjust robber and trades based on threat level"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Blocking and Denial",
+          "bullets": [
+            "Race to claim intersections opponents are targeting",
+            "Your settlement blocks all 3 adjacent intersections via Distance Rule",
+            "Cut off road paths to strand opponent's expansion",
+            "Only block if it also advances your own position"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Closing Out the Win",
+          "bullets": [
+            "At 8-9 VP: opponents refuse trades and target you with robber",
+            "Plan endgame 2-3 turns ahead",
+            "Accumulate exact resources in one turn cycle",
+            "Hidden VP cards + build on same turn = surprise win"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Settlement",
+          "definition": "A player building placed on an intersection. Costs 1 Brick, 1 Lumber, 1 Wool, and 1 Grain to build. Worth 1 victory point and produces 1 resource card when an adjacent hex's number is rolled. Each player has a maximum of 5 settlements.",
+          "category": "buildings"
+        },
+        {
+          "term": "City",
+          "definition": "An upgraded settlement placed by replacing an existing settlement. Costs 3 Ore and 2 Grain. Worth 2 victory points and produces 2 resource cards when an adjacent hex's number is rolled. Each player has a maximum of 4 cities.",
+          "category": "buildings"
+        },
+        {
+          "term": "Road",
+          "definition": "A player piece placed on an edge between two intersections. Costs 1 Brick and 1 Lumber. Must connect to an existing road, settlement, or city belonging to you. Each player has a maximum of 15 roads. Roads enable expansion toward new settlement locations.",
+          "category": "buildings"
+        },
+        {
+          "term": "Brick",
+          "definition": "A resource produced by Hill hexes. Used to build roads (with Lumber) and settlements. One of the two critical early-game resources for expansion.",
+          "category": "resources"
+        },
+        {
+          "term": "Lumber",
+          "definition": "A resource produced by Forest hexes. Used to build roads (with Brick) and settlements. Paired with Brick as the primary expansion resource.",
+          "category": "resources"
+        },
+        {
+          "term": "Wool",
+          "definition": "A resource produced by Pasture hexes. Used to build settlements and buy development cards. The most versatile resource, appearing in two different build costs.",
+          "category": "resources"
+        },
+        {
+          "term": "Grain",
+          "definition": "A resource produced by Fields hexes. Used to build settlements, upgrade to cities, and buy development cards. Critical in the mid-to-late game for cities and development cards.",
+          "category": "resources"
+        },
+        {
+          "term": "Ore",
+          "definition": "A resource produced by Mountain hexes. Used to upgrade settlements to cities and buy development cards. Ore becomes the most valuable resource once expansion slows and the city-building phase begins.",
+          "category": "resources"
+        },
+        {
+          "term": "Distance Rule",
+          "definition": "A placement restriction requiring that every new settlement be at least two intersections away from any existing settlement or city on the board, regardless of which player owns it. All three adjacent intersections must be empty.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Robber",
+          "definition": "A game piece that blocks resource production on the hex it occupies. Activated when a 7 is rolled or a Knight card is played. The player who moves the robber steals one random resource card from an opponent with a settlement or city adjacent to the new hex.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Seven Roll Discard",
+          "definition": "When a 7 is rolled, every player holding more than 7 resource cards must discard half their hand, rounded down. This is resolved before the active player moves the robber.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Domestic Trade",
+          "definition": "A trade between the active player and any other player. Only the player whose turn it is may initiate and complete trades. Non-active players cannot trade with each other. Any combination of resources can be offered.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Bank Trade",
+          "definition": "Trading 4 identical resource cards to the bank in exchange for 1 resource card of any type. This is always available regardless of other players' willingness to trade. Harbors can improve this rate.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Generic Harbor",
+          "definition": "A harbor that allows a player to trade any 3 identical resources to the bank for 1 resource of any type. Requires a settlement or city built on the harbor intersection.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Specific Harbor",
+          "definition": "A harbor that allows a player to trade 2 of the pictured resource type to the bank for 1 resource of any type. Requires a settlement or city built on the harbor intersection. Much more efficient than bank or generic harbor trades.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Knight Card",
+          "definition": "The most common development card (14 in the deck). When played, the player moves the robber to any hex and steals one random resource from an adjacent opponent. Played Knights are kept face-up. Three or more Knights can earn the Largest Army card.",
+          "category": "development-cards"
+        },
+        {
+          "term": "Victory Point Card",
+          "definition": "A development card worth 1 hidden victory point (5 in the deck). Kept secret until the holder reveals it to prove they have reached 10 or more victory points on their turn. Cannot be stolen or traded.",
+          "category": "development-cards"
+        },
+        {
+          "term": "Progress Card",
+          "definition": "A development card with a one-time special effect (6 in the deck). Types include Road Building (place 2 free roads), Year of Plenty (take any 2 resources from the bank), and Monopoly (name a resource and all opponents must give you all cards of that type). Discarded after use.",
+          "category": "development-cards"
+        },
+        {
+          "term": "Longest Road",
+          "definition": "A special card worth 2 victory points awarded to the first player who builds a continuous road of at least 5 segments. The road must be unbroken and can include forks, but only the longest continuous path counts. If another player builds a strictly longer continuous road, the card transfers immediately.",
+          "category": "scoring"
+        },
+        {
+          "term": "Largest Army",
+          "definition": "A special card worth 2 victory points awarded to the first player who has played at least 3 Knight development cards. If another player plays more Knights, the card transfers immediately. Losing this card creates a 4-point swing.",
+          "category": "scoring"
+        },
+        {
+          "term": "Development Card Timing",
+          "definition": "A player may play at most 1 development card per turn, and it cannot be a card purchased on that same turn. Victory Point cards are the exception and are only revealed when claiming victory. Knights may be played before or after rolling.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Supply Shortage",
+          "definition": "If a dice roll would produce a resource but the bank does not have enough cards of that type to pay all eligible players, no one receives that resource for that roll. Other resources from the same roll are still distributed normally.",
+          "category": "special-rules"
+        },
+        {
+          "term": "Number Token Dots",
+          "definition": "The small dots printed beneath each number on a number token indicate the relative probability of that number being rolled. More dots means more frequent production. Six and eight have 5 dots each, while two and twelve have only 1 dot each.",
+          "category": "components"
+        },
+        {
+          "term": "Building Costs Card",
+          "definition": "A reference card given to each player showing the resource costs for all buildable items: Road (1 Brick + 1 Lumber), Settlement (1 Brick + 1 Lumber + 1 Wool + 1 Grain), City (3 Ore + 2 Grain), and Development Card (1 Ore + 1 Wool + 1 Grain).",
+          "category": "components"
+        }
+      ]
+    }
+  }
+}

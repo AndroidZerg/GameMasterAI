@@ -1,0 +1,902 @@
+{
+  "game_id": "cant-stop",
+  "title": "Can't Stop",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Lay Out the Board",
+          "text": "Let's get Can't Stop set up. Unfold the game board and place it in the center of the table where everyone can reach. You will see eleven columns numbered two through twelve. Each column has a different number of spaces, with column seven being the tallest and columns two and twelve being the shortest.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Understand the Column Heights",
+          "text": "Take a moment to look at the columns. The heights reflect how likely each sum is when rolling two dice. Column seven has thirteen spaces because seven is the most common roll. Columns two and twelve have only three spaces because those sums are the rarest. The middle columns are taller, and the edge columns are shorter.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Choose Player Colors",
+          "text": "Each player picks a color and takes all eleven cones of that color. These are your player markers. You will place them on the board during the game to lock in your progress. Keep them in a pile in front of you for now.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Set Out the Runner Markers",
+          "text": "Find the three white runner cones. These are shared by everyone and used only by the active player on their turn. Place them near the board where everyone can reach them. Runners are temporary markers that track your progress during a single turn before you decide to stop.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Gather the Dice",
+          "text": "Place all four standard six-sided dice near the board. The active player will roll all four dice on each roll of their turn. You do not need special dice for this game, just four regular ones.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Pick the First Player",
+          "text": "The youngest player goes first, or choose randomly. Play will proceed clockwise around the table. The first player picks up all four dice and the three white runners. That is all there is to setup. Let's learn how to play!",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Lay Out the Board",
+          "bullets": [
+            "Place board centrally — 11 columns numbered 2–12",
+            "Column heights vary: 7 is tallest (13 spaces), 2 and 12 are shortest (3 spaces)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Understand the Column Heights",
+          "bullets": [
+            "Heights reflect two-dice probability",
+            "Middle columns (5–9) = taller, edge columns (2–4, 10–12) = shorter",
+            "Column 7 = 13 spaces, column 2 and 12 = 3 spaces each"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Choose Player Colors",
+          "bullets": [
+            "Each player takes 11 cones of one color",
+            "These mark locked-in progress on the board",
+            "Keep cones in front of you until needed"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Out the Runner Markers",
+          "bullets": [
+            "3 white runner cones — shared by all players",
+            "Only the active player uses runners on their turn",
+            "Place near the board within everyone's reach"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Gather the Dice",
+          "bullets": [
+            "4 standard six-sided dice, placed near the board",
+            "Active player rolls all 4 each roll"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Pick the First Player",
+          "bullets": [
+            "Youngest player goes first, or choose randomly",
+            "Play proceeds clockwise",
+            "First player takes 4 dice + 3 white runners"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Goal of the Game",
+          "text": "The goal of Can't Stop is simple. Be the first player to claim three columns on the board. You claim a column by advancing all the way to the top of it. There is no point scoring. It is purely a race, and the first player to lock in three claimed columns wins immediately.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Rolling the Dice",
+          "text": "On your turn, you roll all four dice. After rolling, you must divide them into two pairs. Each pair gives you a sum. For example, if you roll a two, three, five, and six, you could pair them as two plus three equals five and five plus six equals eleven, or two plus five equals seven and three plus six equals nine, or two plus six equals eight and three plus five equals eight.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Three Ways to Pair",
+          "text": "With four dice, there are always exactly three ways to form two pairs. You must choose one of these three pairings. You then try to use both sums from your chosen pairing. If both sums are usable, you must use both. If only one is usable, you use that one and ignore the other.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Placing and Advancing Runners",
+          "text": "For each usable sum, you either place a new white runner at the bottom of that column or advance an existing runner one space up. If you already have a colored cone in that column from a previous turn, you place the runner one space above your cone instead of at the bottom. You can only have runners in three different columns at a time.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "The Three-Runner Limit",
+          "text": "This is the core tension of the game. You only have three white runners. Once all three are committed to columns, any sum that does not match one of those three columns is wasted. The more runners you commit, the harder it becomes to use your rolls. Choose carefully where you place that third runner.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Stop or Continue",
+          "text": "After each roll, you have a choice. You can stop and lock in your progress, or you can roll again and try to climb higher. If you stop, you replace each runner with one of your colored cones at the runner's current position. Those colored cones stay on the board permanently and mark where you will resume on future turns.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Busting",
+          "text": "If you roll and none of the three possible pairings produce a sum that matches a column with a runner or a column where you can place a new runner, you bust. When you bust, you remove all three runners from the board and lose all progress from this entire turn. Your colored cones from previous turns stay safe.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Claiming a Column",
+          "text": "When a runner reaches the top space of a column and you choose to stop, you claim that column. Place one of your colored cones at the top to show ownership. Remove all other players' cones from that column because their progress is wiped out. No player may enter or advance in a claimed column for the rest of the game.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Columns Getting Claimed",
+          "text": "As columns get claimed during the game, those sums become unusable for everyone. This means busting becomes more likely for all players as the game progresses. If a pairing produces a sum for a claimed column, that sum is simply wasted. Keep an eye on which columns are still open.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "text": "The first player to claim their third column wins immediately. The game ends right then and there. Remember, you must choose to stop to lock in a claim. If you reach the top of a column but keep rolling and later bust, you do not claim it. There are no ties in Can't Stop.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Goal of the Game",
+          "bullets": [
+            "First player to claim 3 columns wins immediately",
+            "No point scoring — pure race to 3 claims"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Rolling the Dice",
+          "bullets": [
+            "Roll all 4 dice → divide into 2 pairs → each pair = a sum",
+            "Example: 2, 3, 5, 6 → (2+3=5, 5+6=11) or (2+5=7, 3+6=9) or (2+6=8, 3+5=8)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Three Ways to Pair",
+          "bullets": [
+            "Always exactly 3 pairings possible with 4 dice",
+            "Choose 1 pairing → use both sums if possible",
+            "If only 1 sum usable, use it; if neither usable from any pairing → bust"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Placing and Advancing Runners",
+          "bullets": [
+            "Usable sum → place new runner at column bottom or advance existing runner 1 space",
+            "If you have a colored cone in that column, runner starts 1 above it",
+            "Max 3 runners on the board at once"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Three-Runner Limit",
+          "bullets": [
+            "Only 3 white runners per turn",
+            "Once all 3 committed, sums not matching those columns are wasted",
+            "More committed runners = higher bust risk"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Stop or Continue",
+          "bullets": [
+            "Stop → replace runners with your colored cones (progress locked)",
+            "Continue → roll again, risk busting",
+            "Colored cones persist between turns"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Busting",
+          "bullets": [
+            "Bust = no legal pairing matches any runner column or open column",
+            "Remove all 3 runners → lose ALL progress this turn",
+            "Previously placed colored cones are safe"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Claiming a Column",
+          "bullets": [
+            "Runner reaches top + you stop → claim column",
+            "Place your cone at top, remove all opponents' cones from that column",
+            "Column is closed for the rest of the game"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Columns Getting Claimed",
+          "bullets": [
+            "Claimed columns make those sums unusable for everyone",
+            "Bust probability increases as more columns close",
+            "Track which columns are still open"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "bullets": [
+            "Claim 3rd column → instant win, game ends",
+            "Must stop to lock in claim — busting after reaching top = no claim",
+            "No ties possible"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "text": "Welcome to your first game of Can't Stop! We will walk through a few turns with three example players so you can see how the push-your-luck decisions work. Follow along even if you have a different number of players at your table. Ready? Let's roll.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Player One's First Roll",
+          "text": "Player one picks up all four dice and rolls a three, four, five, and six. The three possible pairings are three plus four equals seven and five plus six equals eleven, or three plus five equals eight and four plus six equals ten, or three plus six equals nine and four plus five equals nine. Player one chooses seven and eight, placing runners at the bottom of columns seven and eight.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Keeps Rolling",
+          "text": "Player one rolls again and gets two, three, four, and five. They pair to make seven and nine, advancing the runner in column seven one space and placing a third runner in column nine. All three runners are now committed. Player one has runners in columns seven, eight, and nine. These are high-probability columns, so the odds of busting are still low.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player One Stops",
+          "text": "Player one rolls once more and advances the runner in column eight. They have made solid progress in three good columns. Rather than risk it, Player one decides to stop. They replace each runner with a colored cone. Smart play. Locking in progress across three middle columns is a strong opening.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two's Turn",
+          "text": "Player two rolls and pairs to get six and twelve. They place runners in columns six and twelve. On the next roll, they pair to get seven and twelve again, placing a third runner in column seven and advancing the runner in column twelve. Column twelve only has three spaces, and Player two is already one-third of the way there.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Player Two's Mistake: Chasing Column Twelve",
+          "text": "Player two gets excited about column twelve and keeps rolling, hoping to finish it in one turn. They roll four more times. Not a single roll produces a twelve because the odds of rolling a twelve are only one in thirty-six. Meanwhile, they advanced the other runners, but eventually they bust. All three runners come off the board and all progress this turn is lost.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Extreme Columns Are Traps",
+          "text": "Columns two and twelve look tempting because they are short, only three spaces. But the probability of rolling those sums is extremely low. You will bust many more times than you succeed trying to rush them. Treat extreme columns as bonuses you pick up along the way, not as primary targets.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Player Three's First Turn",
+          "text": "Player three rolls and pairs to make six and eight. Good columns. They roll again and advance both runners. On the third roll, they pair to make six and ten, advancing column six and placing the third runner in column ten. Player three stops here, locking in progress in columns six, eight, and ten.",
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Player One's Second Turn",
+          "text": "Player one picks up the dice and runners again. They already have colored cones partway up columns seven, eight, and nine from last turn. They roll and pair to make seven and nine. The runners start one space above the existing cones. Two more rolls advance the runners further. Player one stops again. Their cones are now climbing steadily in all three columns.",
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Player Two's Mistake: Too Many Committed Runners",
+          "text": "Player two rolls and places runners in columns five, seven, and eleven on successive rolls. All three runners are committed now, but columns five and eleven do not come up very often together. The next two rolls produce sums of six, eight, nine, and ten. None of those match columns five, seven, or eleven. Player two busts again.",
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Choose Compatible Columns",
+          "text": "When placing your third runner, think about whether all three columns can appear together in future rolls. Adjacent columns like six, seven, and eight share many dice combinations. Spreading to five, seven, and eleven means fewer rolls will match, and busting becomes far more likely once all three runners are locked in.",
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Player Three's Mistake: Not Watching Opponents",
+          "text": "Player three has been quietly building progress in column eight. But Player one is also climbing column eight and is further ahead. Player three keeps investing turns into column eight without noticing that Player one is about to claim it. When Player one reaches the top and claims column eight, all of Player three's cones in that column are removed.",
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Watch the Board",
+          "text": "Always check where your opponents are before committing to a column. If someone is far ahead of you in a column, it may be smarter to abandon it and invest elsewhere. Losing a race means all your progress in that column is wiped out. The board tells you everything you need to know, so look before you roll.",
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Player One's Big Decision",
+          "text": "Player one has claimed column eight and has cones near the top of columns seven and nine. On this turn, they advance the column seven runner to within two spaces of the top. They could stop and lock in the progress, or they could push for the claim. Player one rolls again and advances one more space. One space from the top. They roll once more and hit seven. Column seven is claimed! Player one stops immediately.",
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Player Two's Mistake: Pushing After Big Progress",
+          "text": "Player two has finally made great progress. They have advanced five spaces in column six during this turn. That is nearly halfway up the column in a single turn. But instead of stopping to lock it in, Player two gets greedy and rolls again. They bust. Five spaces of progress vanish instantly. If they had stopped, those five spaces would be locked in permanently.",
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Lock In Big Gains",
+          "text": "When you have made significant progress in a single turn, especially three or more spaces, seriously consider stopping. Every additional roll risks erasing everything you gained. The game rewards consistent small gains over risky all-or-nothing pushes. Stop, lock in, and come back for more next turn.",
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Roll",
+          "text": "You have seen how the push-your-luck decisions play out and watched players make the most common mistakes. Remember: do not chase extreme columns, choose columns that work well together, watch your opponents' progress, and lock in big gains. You are ready to play a full game on your own!",
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Keep Playing",
+          "text": "Before you start your first real game, here are three things that can help.\n\nFirst — check out General Tips for strategy advice on when to stop and when to push.\n\nSecond — reference the Appendix for a quick guide to probability, column lengths, and key terms.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "bullets": [
+            "Scripted tutorial with 3 example players",
+            "Covers push-your-luck decisions, common mistakes, and recoveries",
+            "Follow along even with a different player count"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player One's First Roll",
+          "bullets": [
+            "Rolls 3, 4, 5, 6 → 3 possible pairings",
+            "Chooses 7 and 8 → places runners in columns 7 and 8"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Keeps Rolling",
+          "bullets": [
+            "Second roll → advances column 7, places third runner in column 9",
+            "All 3 runners now in columns 7, 8, 9 — high-probability group"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player One Stops",
+          "bullets": [
+            "One more advance, then stops → replaces runners with colored cones",
+            "Progress locked in across 3 middle columns = strong opening"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Two's Turn",
+          "bullets": [
+            "Places runners in columns 6, 7, and 12",
+            "Column 12 has only 3 spaces — already 1/3 done"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Two's Mistake: Chasing Column 12",
+          "bullets": [
+            "Keeps rolling to finish column 12 in one turn",
+            "12 has only 1/36 probability — never appears again",
+            "Eventually busts → all progress lost"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Extreme Columns Are Traps",
+          "bullets": [
+            "Columns 2 and 12 are short but extremely unlikely to roll",
+            "Treat them as bonuses, not primary targets",
+            "You'll bust far more than you succeed chasing them"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player Three's First Turn",
+          "bullets": [
+            "Pairs to make 6 and 8 → advances both",
+            "Third runner in column 10 → stops and locks in",
+            "Solid first turn with 3 columns started"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player One's Second Turn",
+          "bullets": [
+            "Runners start above existing cones in columns 7, 8, 9",
+            "Advances further, then stops → steady climb",
+            "Building consistent progress across turns"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player Two's Mistake: Incompatible Columns",
+          "bullets": [
+            "Runners in columns 5, 7, 11 — poor combination",
+            "Next rolls produce 6, 8, 9, 10 — none match",
+            "Busts again due to incompatible runner placement"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Choose Compatible Columns",
+          "bullets": [
+            "Adjacent columns (6, 7, 8) share many dice combos",
+            "Spread columns (5, 7, 11) = fewer matching rolls",
+            "Think about future rolls before placing 3rd runner"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player Three's Mistake: Not Watching Opponents",
+          "bullets": [
+            "Investing in column 8 while Player 1 is far ahead",
+            "Player 1 claims column 8 → Player 3's cones removed",
+            "All progress in that column wasted"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Watch the Board",
+          "bullets": [
+            "Check opponents' positions before committing to a column",
+            "If someone is far ahead, consider abandoning that column",
+            "Losing a column race = all your progress wiped"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player One's Big Decision",
+          "bullets": [
+            "Near top of column 7 → pushes carefully → claims it",
+            "Now has 2 claimed columns (7 and 8)",
+            "Stops immediately after claiming"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Player Two's Mistake: Pushing After Big Progress",
+          "bullets": [
+            "Advanced 5 spaces in column 6 this turn",
+            "Gets greedy, rolls again → busts",
+            "5 spaces of progress vanish instantly"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Lesson: Lock In Big Gains",
+          "bullets": [
+            "3+ spaces of progress in a turn = strongly consider stopping",
+            "Every extra roll risks erasing the entire turn",
+            "Consistent small gains beat risky all-or-nothing pushes"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Roll",
+          "bullets": [
+            "Don't chase extreme columns (2, 12)",
+            "Choose compatible columns for your 3 runners",
+            "Watch opponents' progress, lock in big gains"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Keep Playing",
+          "bullets": [
+            "Check out General Tips → when to stop and when to push",
+            "Reference the Appendix → probability, column lengths, key terms",
+            "Ask your GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Before we talk strategy, here are the biggest mistakes new players make. First, pushing too hard after making significant progress in a turn. Second, chasing the extreme columns two and twelve as primary targets. Third, committing the third runner to a column that does not pair well with the other two. Fourth, ignoring what opponents are doing on the board. Keep these in mind and you will avoid the most common traps.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "When to Stop",
+          "text": "The most important skill in Can't Stop is knowing when to stop. If you have advanced three or more spaces in a single turn, strongly consider locking it in. If you are one space from claiming a column, the temptation to push is enormous, but one bust erases everything. A good rule of thumb is to stop whenever the pain of losing your progress would outweigh the benefit of gaining one more space.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "When to Push",
+          "text": "Sometimes pushing is the right call. If you have only advanced one or two spaces, you do not have much to lose. If your three runners are in adjacent middle columns like six, seven, and eight, your bust probability is still low. If an opponent is about to claim a column you need, you may have to take the risk. Push when the cost of busting is low or the cost of not pushing is high.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Column Selection Strategy",
+          "text": "Choose columns that work together. Adjacent middle columns like five, six, and seven overlap in many dice combinations, which means more of your rolls will be useful. Avoid mixing an extreme column with two middle columns as your three runners because the extreme column will rarely come up and you will waste rolls. If you want an edge column, pair it with two reliable middle columns so you still have good odds overall.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Reading the Board",
+          "text": "The board tells you everything. Check where opponents have progress before your turn. If two players are racing the same column, one of them will lose all their investment when the other claims it. Do not enter a race you are behind in unless you can catch up quickly. Also watch for columns nobody else is pursuing. Uncontested columns are free real estate.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Third Runner Trap",
+          "text": "Placing your third runner is the most consequential decision in any turn. Before your third runner is down, any sum can potentially start a new column. After the third runner is placed, you are locked into those three columns for the rest of the turn. Be deliberate about it. If your first two runners are in seven and eight, putting the third in six or nine keeps your bust odds low. Putting it in two or twelve skyrockets your risk.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Pacing Your Game",
+          "text": "Can't Stop rewards patience. The players who win consistently are not the ones making dramatic single-turn climbs. They are the ones making steady two or three space advances, locking in progress, and coming back next turn. Think of each turn as adding a few bricks to a wall rather than trying to build the whole wall at once.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Late Game Adjustments",
+          "text": "As the game progresses and columns get claimed, the landscape changes. Fewer open columns means more sums are wasted, which means everyone busts more often. When you have two columns claimed and need just one more, you can afford to be aggressive in one specific column because you only need to finish it. Conversely, if an opponent is one column away from winning, you may need to push harder than usual to block or outpace them.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't push too hard after 3+ spaces of progress",
+            "Don't chase columns 2 and 12 as primary targets",
+            "Don't commit 3rd runner to an incompatible column",
+            "Don't ignore opponents' positions on the board"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "When to Stop",
+          "bullets": [
+            "3+ spaces advanced this turn → strongly consider stopping",
+            "1 space from claiming → tempting but risky, weigh the stakes",
+            "Rule of thumb: stop when bust pain > one-more-space benefit"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "When to Push",
+          "bullets": [
+            "Only 1–2 spaces of progress → little to lose",
+            "Runners in adjacent middle columns → low bust odds",
+            "Opponent about to claim a column you need → push to compete"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Column Selection Strategy",
+          "bullets": [
+            "Adjacent middle columns (5, 6, 7 or 6, 7, 8) share many dice combos",
+            "Avoid mixing extreme + middle columns as your 3 runners",
+            "Edge column OK if paired with 2 reliable middle columns"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Board",
+          "bullets": [
+            "Check opponents' progress before each turn",
+            "Don't enter a race you're behind in unless you can catch up fast",
+            "Uncontested columns = free real estate"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Third Runner Trap",
+          "bullets": [
+            "Before 3rd runner: any sum can open a new column",
+            "After 3rd runner: locked into 3 columns for the turn",
+            "Put 3rd runner in adjacent column (e.g., 6 or 9 if already in 7, 8)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Pacing Your Game",
+          "bullets": [
+            "Consistent 2–3 space gains beat dramatic single-turn climbs",
+            "Lock in progress every turn → steady compounding",
+            "Think bricks, not walls — build incrementally"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Late Game Adjustments",
+          "bullets": [
+            "Fewer open columns → more wasted sums → more busts for everyone",
+            "Need 1 more column → can afford to push aggressively in it",
+            "Opponent near 3rd claim → push harder to block or outpace"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Middle Column Strategy",
+          "text": "The safest path to victory is claiming three adjacent middle columns, such as six, seven, and eight. These sums appear in the most dice combinations, so when all three runners are committed, you will still match on most rolls. The downside is that these columns are long, especially column seven with thirteen spaces. This strategy requires patience, but the consistency means you will rarely bust and will grind your way to the top.",
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Spread Strategy",
+          "text": "Instead of three adjacent columns, some players target one middle column and two shorter columns further out, such as five, seven, and ten. The middle column keeps your bust odds manageable while the shorter columns can be claimed faster. The risk is that when all three runners are committed, the spread columns share fewer dice combinations. Use this strategy when your opponents are already dominating the middle.",
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Opportunistic Column Picking",
+          "text": "You do not have to commit to three columns from the start. Experienced players adapt turn by turn based on what the dice give them. Start your turn open-minded. Place runners where the dice naturally lead you, and only commit to your three columns when you have to. This flexibility means you waste fewer rolls in the early part of each turn.",
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Blocking and Racing",
+          "text": "When an opponent is close to claiming a column, you face a choice. You can race them for it, trying to claim it first and wiping out their progress. Or you can abandon that column and focus elsewhere. Racing is only worth it if you are close behind. If they are three spaces ahead, your time is better spent on uncontested columns. Sometimes the threat of racing is enough to make an opponent stop early and play conservatively.",
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Understanding Bust Probability",
+          "text": "Your bust probability depends entirely on which columns your three runners occupy. With runners in columns six, seven, and eight, you bust on about seven percent of rolls. With runners in columns two, seven, and twelve, you bust on roughly thirty-five percent of rolls. Before placing your third runner, mentally estimate how many of the thirty-six possible dice outcomes produce at least one of your three sums. The higher the coverage, the safer you are.",
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Two-Runner Advantage",
+          "text": "One of the most underappreciated tactics is deliberately keeping only two runners on the board for as long as possible. With only two runners committed, any sum that does not match those columns can start a new one with your third runner. This gives you enormous flexibility and makes busting nearly impossible. Push aggressively while you have two runners, and only place the third when you get a sum that fits your plan.",
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Endgame Aggression",
+          "text": "When you have two columns claimed, the math changes dramatically. You only need to finish one more column, so you can commit all three runners to a single target column and its neighbors. Even if you bust a few times, the progress you lock in between busts will eventually get you there. Your opponents face the pressure of needing to claim columns before you finish. This is when controlled aggression pays off.",
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Reading Your Opponents",
+          "text": "Pay attention to how your opponents play, not just where their cones are. If someone always pushes too hard, they will bust often and you can afford to be patient. If someone plays very conservatively, they will make slow but steady progress. Adjust your strategy accordingly. Against aggressive players, play steady and let them self-destruct. Against cautious players, apply pressure by racing their columns.",
+          "image": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Middle Column Strategy",
+          "bullets": [
+            "Target 3 adjacent middle columns (e.g., 6, 7, 8)",
+            "Most dice combos match → rarely bust",
+            "Columns are long but consistency wins the grind",
+            "Best when opponents aren't contesting the same columns"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Spread Strategy",
+          "bullets": [
+            "1 middle column + 2 shorter outer columns (e.g., 5, 7, 10)",
+            "Shorter columns claim faster → quicker path to 3 claims",
+            "Higher bust risk when all 3 runners committed",
+            "Use when opponents dominate the middle"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Opportunistic Column Picking",
+          "bullets": [
+            "Don't pre-commit to 3 columns — let dice guide you",
+            "Place runners where rolls naturally lead",
+            "Commit to final 3 only when forced",
+            "Wastes fewer rolls in early part of each turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Blocking and Racing",
+          "bullets": [
+            "Race only if close behind opponent — otherwise abandon",
+            "Winning a race wipes opponent's entire column progress",
+            "Threat of racing can force opponents to play conservatively",
+            "Uncontested columns are often better investments"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Understanding Bust Probability",
+          "bullets": [
+            "Columns 6, 7, 8 → ~7% bust rate",
+            "Columns 2, 7, 12 → ~35% bust rate",
+            "36 possible dice outcomes — count how many hit your 3 columns",
+            "Higher coverage = safer to push"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Two-Runner Advantage",
+          "bullets": [
+            "Keep only 2 runners as long as possible",
+            "3rd runner slot = open flexibility, any new sum starts a column",
+            "Busting nearly impossible with only 2 committed runners",
+            "Push aggressively, place 3rd only when it fits your plan"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Aggression",
+          "bullets": [
+            "2 columns claimed → only need 1 more → push hard",
+            "Commit all 3 runners to target column + neighbors",
+            "Busting is OK — locked progress between busts adds up",
+            "Opponents feel pressure to claim before you finish"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Reading Your Opponents",
+          "bullets": [
+            "Aggressive players bust often → be patient, let them self-destruct",
+            "Cautious players progress slowly → pressure them by racing their columns",
+            "Adjust your stop/push threshold based on opponent tendencies",
+            "The board + opponent behavior = full information game"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Column",
+          "definition": "One of the eleven vertical tracks on the board, numbered two through twelve. Each column represents a possible sum of two dice. Players advance up columns by rolling matching sums and claim a column by reaching the top.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Runner",
+          "definition": "One of three white neutral cones used by the active player during their turn. Runners mark temporary progress that is only locked in when the player chooses to stop. If the player busts, all runners are removed.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Player Marker",
+          "definition": "A colored cone belonging to a specific player. When a player stops, their runners are replaced with player markers to lock in progress. Player markers persist between turns and show where a player resumes climbing.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Claiming a Column",
+          "definition": "Reaching the top space of a column and choosing to stop. The claiming player places a cone at the top, all other players' markers are removed from that column, and no one may enter it again. First to claim three columns wins.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Busting",
+          "definition": "Occurs when a player rolls and no possible pairing of the four dice produces a sum matching any column with a runner or any open column where a new runner could be placed. All three runners are removed and all progress from that turn is lost.",
+          "category": "core-concepts"
+        },
+        {
+          "term": "Roll",
+          "definition": "Picking up all four dice and rolling them. After each roll, the active player divides the dice into two pairs, attempts to use the resulting sums, and then decides whether to stop or continue rolling.",
+          "category": "actions"
+        },
+        {
+          "term": "Pair the Dice",
+          "definition": "Dividing four dice into two groups of two. There are always exactly three possible pairings. The player must choose one pairing and use both sums if possible, one sum if only one is usable, or bust if no pairing produces a usable sum.",
+          "category": "actions"
+        },
+        {
+          "term": "Stop",
+          "definition": "Choosing to end your turn voluntarily after resolving a roll. All runners are replaced with your colored player markers at their current positions. Progress is now locked in permanently.",
+          "category": "actions"
+        },
+        {
+          "term": "Continue",
+          "definition": "Choosing to roll again after resolving a roll. Keeps all runners on the board in their current positions. Risks busting on the next roll and losing all progress from the entire turn.",
+          "category": "actions"
+        },
+        {
+          "term": "Sum of Seven",
+          "definition": "The most probable sum when rolling two dice. There are six combinations out of thirty-six that produce seven. Column seven has thirteen spaces to compensate, making it the longest column on the board.",
+          "category": "probability"
+        },
+        {
+          "term": "Sum of Two or Twelve",
+          "definition": "The least probable sums when rolling two dice. Only one combination out of thirty-six produces each. Columns two and twelve have only three spaces each, making them the shortest columns.",
+          "category": "probability"
+        },
+        {
+          "term": "Middle Columns",
+          "definition": "Columns five through nine. These sums appear most frequently in dice rolls. Middle columns are longer but safer to pursue because runners in these columns match a larger share of possible outcomes.",
+          "category": "probability"
+        },
+        {
+          "term": "Edge Columns",
+          "definition": "Columns two through four and ten through twelve. These sums are less frequent. Edge columns are shorter but riskier because matching rolls are rare, especially for columns two and twelve.",
+          "category": "probability"
+        },
+        {
+          "term": "Bust Probability",
+          "definition": "The chance of rolling four dice and having no legal pairing match any of your three committed runner columns. Depends entirely on which columns the runners occupy. Ranges from about seven percent for adjacent middle columns to over thirty-five percent for extreme spread columns.",
+          "category": "probability"
+        },
+        {
+          "term": "Three Columns Win",
+          "definition": "The victory condition. The first player to claim three columns wins immediately. There is no additional scoring. The game ends the instant the third column is claimed and the player chooses to stop.",
+          "category": "scoring"
+        },
+        {
+          "term": "Column Claim",
+          "definition": "Permanently capturing a column by reaching its top space and stopping. The column is closed for all players. Opponents lose any markers they had in that column.",
+          "category": "scoring"
+        },
+        {
+          "term": "No Ties",
+          "definition": "Only one player can claim any given column, and the game ends immediately when someone claims their third. There is no tie-breaking mechanism because ties cannot occur.",
+          "category": "scoring"
+        },
+        {
+          "term": "Game Board",
+          "definition": "The central board displaying eleven columns numbered two through twelve. Column heights mirror two-dice probability distribution: column seven is tallest at thirteen spaces, columns two and twelve are shortest at three spaces.",
+          "category": "components"
+        },
+        {
+          "term": "Four Dice",
+          "definition": "Standard six-sided dice shared by all players. The active player rolls all four on each roll of their turn, then divides them into two pairs to produce two sums.",
+          "category": "components"
+        },
+        {
+          "term": "Runner Cones",
+          "definition": "Three white neutral cones shared among all players. Only the active player uses them on their turn. Runners track temporary progress within a single turn and are removed on bust or replaced with player markers on stop.",
+          "category": "components"
+        },
+        {
+          "term": "Player Cones",
+          "definition": "Eleven colored cones per player used to mark locked-in progress and claimed columns. Each player has enough cones to have one in every column simultaneously. Colors vary by edition.",
+          "category": "components"
+        },
+        {
+          "term": "Column Lengths",
+          "definition": "The number of spaces in each column: column 2 has three, column 3 has five, column 4 has seven, column 5 has nine, column 6 has eleven, column 7 has thirteen, column 8 has eleven, column 9 has nine, column 10 has seven, column 11 has five, column 12 has three.",
+          "category": "components"
+        }
+      ]
+    }
+  }
+}
