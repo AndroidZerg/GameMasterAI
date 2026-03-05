@@ -1,0 +1,836 @@
+{
+  "game_id": "space-base",
+  "title": "Space Base",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Central Market Board",
+          "text": "Let's get Space Base set up! First, place the central market board in the middle of the table where everyone can reach it. This board holds all the ship cards available for purchase during the game."
+        },
+        {
+          "step": 2,
+          "title": "Sort and Shuffle Ship Cards",
+          "text": "Separate all the ship cards into three decks: Level one, Level two, and Level three. You can tell them apart by the number on the back. Shuffle each deck separately and then deal cards face up into the matching market rows on the board. Fill every slot."
+        },
+        {
+          "step": 3,
+          "title": "Place Colony Cards",
+          "text": "Find the Colony cards and place them in their designated area on the market board. These are the big expensive endgame cards that cost a lot of credits but deliver massive victory points. You will want these later in the game."
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Token Supply",
+          "text": "Place all the charge tokens, income tokens, and victory point tokens in a general supply near the board. Everyone will be taking from this supply throughout the game. Make sure it is easy to reach."
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Player Boards",
+          "text": "Each player takes a player board. This is your personal command center with twelve numbered sectors, one through twelve. Each sector will hold ship cards that activate when their number is rolled."
+        },
+        {
+          "step": 6,
+          "title": "Place Starting Ship Cards",
+          "text": "Each player receives their twelve starting ship cards and places one face up in each sector, matching the number on the card to the sector number. These are your active cards. They will be replaced as you buy better ships throughout the game."
+        },
+        {
+          "step": 7,
+          "title": "Set Starting Resources",
+          "text": "Set your income tracker to zero and your victory point tracker to zero. Then take five credits from the supply. If you are not the first player, you get one extra credit for each seat after first. So the second player starts with six credits, the third with seven, and so on."
+        },
+        {
+          "step": 8,
+          "title": "Choose First Player and Begin",
+          "text": "Choose a first player randomly. The game plays clockwise. The first player rolls the dice to begin. Remember, everyone benefits from every roll in Space Base, so pay attention even when it is not your turn."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Central Market Board",
+          "bullets": [
+            "Central board in middle of table",
+            "Holds all ship cards for purchase"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Sort and Shuffle Ship Cards",
+          "bullets": [
+            "3 decks: Level 1, Level 2, Level 3",
+            "Shuffle each separately → fill market rows face-up"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place Colony Cards",
+          "bullets": [
+            "High-cost endgame cards in designated area",
+            "Massive VP payoff for late-game purchases"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Token Supply",
+          "bullets": [
+            "Charge, income, and VP tokens in shared supply",
+            "Keep accessible to all players"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Player Boards",
+          "bullets": [
+            "1 player board each with sectors 1-12",
+            "Each sector holds ship cards"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Place Starting Ship Cards",
+          "bullets": [
+            "12 starting ships → 1 per sector, matching numbers",
+            "All start face-up (active position)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Set Starting Resources",
+          "bullets": [
+            "Income: 0, VP: 0, Credits: 5",
+            "Non-first players: +1 credit per seat after 1st"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Choose First Player and Begin",
+          "bullets": [
+            "Random first player, play clockwise",
+            "Everyone benefits from every roll — stay alert"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Space Base is a dice-activation engine-building game. On your turn, you roll two dice and activate sectors on your board. The twist is that on other players' turns, their dice rolls can also trigger your deployed cards. The first player to reach forty victory points wins."
+        },
+        {
+          "step": 2,
+          "title": "Roll the Dice",
+          "text": "On your turn, roll both dice. You have two choices for how to use them. You can add both dice together and activate that single sector. For example, a three and a four activates sector seven. Or you can split them and activate each die's sector separately, activating both sector three and sector four."
+        },
+        {
+          "step": 3,
+          "title": "Active vs Deployed Cards",
+          "text": "This is the key concept in Space Base. Active cards sit face up on top of your sectors and reward you on your own turn. Deployed cards are tucked face down underneath and reward you on other players' turns. When you buy a new card, the old one flips to deployed position."
+        },
+        {
+          "step": 4,
+          "title": "Activate Your Sectors",
+          "text": "After rolling, activate the matching sectors. If it is your turn, you get the rewards from your active cards. Rewards include credits for buying ships, income for permanent credit boosts, victory points, or special abilities. Resolve everything before moving on."
+        },
+        {
+          "step": 5,
+          "title": "Collect Income",
+          "text": "After activating sectors, collect credits equal to your current income level. Income is a permanent boost that grows as you buy cards with income rewards. Early income investment pays off throughout the entire game."
+        },
+        {
+          "step": 6,
+          "title": "Buy a Ship Card",
+          "text": "You may purchase one ship card from the market using your credits. Each card has a sector number and a cost. Place the new card face up in its matching sector. The old card in that sector gets flipped face down and tucked underneath as a deployed card. Deployed cards now trigger when opponents roll that number."
+        },
+        {
+          "step": 7,
+          "title": "Other Players' Turns",
+          "text": "Here is what makes Space Base unique. When another player rolls dice, all other players also activate their deployed cards for those numbers. You choose combined or split just like on your own turn. In a five-player game, your deployed cards trigger four times per round. This is why deploying strong cards is so powerful."
+        },
+        {
+          "step": 8,
+          "title": "Combined vs Split Dice",
+          "text": "You always choose whether to use dice combined or split, both on your own turn and on opponents' turns. Sectors one through six can be activated by splitting. Sectors seven through twelve can only be activated by combining because a single die cannot roll higher than six. Sector one requires a split with one die showing one."
+        },
+        {
+          "step": 9,
+          "title": "Card Rewards Explained",
+          "text": "Ship cards give different types of rewards. An arrow up icon means credits, gained immediately. An arrow right icon means income, a permanent boost to your credit collection each turn. A star icon means victory points. Some cards have special abilities like drawing extra cards, stealing resources, or charge effects."
+        },
+        {
+          "step": 10,
+          "title": "Charge Abilities",
+          "text": "Some cards have charge abilities. When activated, place a charge token on the card. On a future turn, you can spend the charge for a powerful one-time effect. Charges let you time your big plays for maximum impact."
+        },
+        {
+          "step": 11,
+          "title": "Colony Cards",
+          "text": "Colony cards are the endgame powerhouses. They cost a huge amount of credits but deliver massive victory points and powerful ongoing effects. If you can build enough credit income early, rushing Colony cards can end the game before opponents are ready."
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "text": "The game ends immediately when a player reaches forty victory points. That player wins. Victory points are tracked throughout the game with no final scoring. If multiple players would reach forty on the same roll from deployed cards, the active player who rolled the dice wins the tie."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Dice-activation engine builder",
+            "Your rolls help you; opponents' rolls trigger your deployed cards",
+            "First to 40 VP wins"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Roll the Dice",
+          "bullets": [
+            "Roll 2 dice → combine (single sector) or split (2 sectors)",
+            "Example: 3+4 = sector 7 OR sector 3 + sector 4"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Active vs Deployed Cards",
+          "bullets": [
+            "Active (face-up, top) → rewards on YOUR turn",
+            "Deployed (face-down, tucked) → rewards on OPPONENTS' turns",
+            "Buying a new card deploys the old one"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Activate Your Sectors",
+          "bullets": [
+            "Match dice → sector → gain rewards",
+            "Rewards: credits, income, VP, special abilities"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Collect Income",
+          "bullets": [
+            "Gain credits = current income level",
+            "Income is permanent, grows with card purchases"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Buy a Ship Card",
+          "bullets": [
+            "Buy 1 card from market with credits",
+            "New card → active (face-up) in sector",
+            "Old card → deployed (face-down, tucked underneath)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Other Players' Turns",
+          "bullets": [
+            "All players activate deployed cards on every roll",
+            "5-player game = deployed cards trigger 4× per round",
+            "Strong deployed cards = passive income machine"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Combined vs Split Dice",
+          "bullets": [
+            "Always your choice: combine or split",
+            "Sectors 1-6: split (single die); Sectors 7-12: combine only",
+            "Applies on your turn AND opponents' turns"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Card Rewards Explained",
+          "bullets": [
+            "Arrow up = credits (immediate)",
+            "Arrow right = income (permanent boost)",
+            "Star = VP; Special = draw, steal, charge"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Charge Abilities",
+          "bullets": [
+            "Activation → place charge token on card",
+            "Spend charge later for powerful one-time effect",
+            "Time your charges for maximum impact"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Colony Cards",
+          "bullets": [
+            "High cost, massive VP + powerful effects",
+            "Endgame power plays",
+            "Colony rush can end game before opponents are ready"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Winning the Game",
+          "bullets": [
+            "Immediate win at 40 VP",
+            "No final scoring — all points earned during play",
+            "Tie on same roll → active player wins"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your Space Base",
+          "text": "Welcome to your first game of Space Base! We will walk through a practice round with three players. Every player starts with the same twelve basic ship cards, five credits, and zero income. Let's see how the dice activate your fleet."
+        },
+        {
+          "step": 2,
+          "title": "Player One Rolls",
+          "text": "Player one rolls both dice and gets a three and a four. They have two choices: combine for sector seven, or split for sectors three and four. Player one checks their active cards. The starting cards in sectors three and four each give one credit. Sector seven's starting card also gives one credit. Splitting gives two credits total, so Player one splits."
+        },
+        {
+          "step": 3,
+          "title": "Other Players Benefit Too",
+          "text": "While Player one activated their active cards, Players two and three also check their deployed cards for sectors three and four. Since nobody has bought any ships yet, all deployed slots are empty. No rewards for others this time. But soon, those deployed slots will be full of valuable cards."
+        },
+        {
+          "step": 4,
+          "title": "Player One Buys a Ship",
+          "text": "Player one collects income, which is zero to start. With two credits from the roll plus five starting credits, Player one has seven credits. They buy a Level one ship for sector six that gives two credits when activated. The new card goes face up in sector six. The old starting card flips face down underneath as a deployed card."
+        },
+        {
+          "step": 5,
+          "title": "Why Sector Six Was Smart",
+          "text": "Sector six is one of the most commonly rolled numbers because there are many dice combinations that add up to six. Upgrading high-probability sectors first means your new cards activate more often. Sectors six, seven, and eight are statistically the sweet spot."
+        },
+        {
+          "step": 6,
+          "title": "Player Two's Turn",
+          "text": "Player two rolls a two and a five. They decide to combine for sector seven and activate their starting sector seven card for one credit. After collecting zero income and adding starting credits, Player two buys an income card for sector seven. Now Player two will earn one credit at the end of every turn from income alone."
+        },
+        {
+          "step": 7,
+          "title": "Player Three's Mistake: Ignoring Income",
+          "text": "Player three rolls well and has enough credits to buy a ship. They grab a flashy Level two card that gives three victory points when activated. Sounds great, but Player three has zero income. They spent all their credits on a VP card instead of building their economy first. Next turn, they will have almost nothing to spend."
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Build Income Before Chasing VP",
+          "text": "Victory points do not help you buy better cards. Credits and income do. In the early game, focus on cards that generate credits and income. Once your economy is running, you will have enough credits every turn to buy VP cards and Colony cards consistently. Building income first means spending more total over the game."
+        },
+        {
+          "step": 9,
+          "title": "Round Two: Deployed Cards Activate",
+          "text": "On Player one's second turn, they roll a six and a one. Player one splits for sectors six and one. Their upgraded sector six card gives two credits. Meanwhile, Player two checks their deployed cards. Player two's old sector seven card is deployed, but nobody rolled a seven. No luck this round, but it will trigger eventually."
+        },
+        {
+          "step": 10,
+          "title": "Player Three's Mistake: Always Combining",
+          "text": "Player three rolls a three and a four. They automatically combine for sector seven every time without considering the split option. Sectors three and four each have decent starting cards. Splitting would have given two activations instead of one. Player three is leaving value on the table by defaulting to combine."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Always Evaluate Split vs Combine",
+          "text": "Every time dice are rolled, whether on your turn or someone else's, evaluate both options. Sometimes combining gives a better single reward. Sometimes splitting gives two smaller rewards that add up to more. Check both your active and deployed cards for each option before deciding. This applies on opponents' turns too."
+        },
+        {
+          "step": 12,
+          "title": "Player One's Mistake: Forgetting Deployed Cards on Others' Turns",
+          "text": "During Player two's turn, Player two rolls a six. Player one has a deployed card in sector six from their earlier purchase but completely forgets to check it. They miss out on free credits. In Space Base, you must stay alert during every single roll, not just your own."
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Pay Attention to Every Roll",
+          "text": "This is the most commonly forgotten rule in Space Base. Every time anyone rolls dice, all other players activate their deployed cards for those numbers. Set a table rule: announce your roll loudly so everyone can check their boards. Missing deployed activations is like throwing away free money."
+        },
+        {
+          "step": 14,
+          "title": "The Engine Takes Shape",
+          "text": "A few more rounds in. Player two's income strategy is paying off. They earn three credits per turn from income alone, which funds consistent purchases. Player one has strong active cards generating credits on their own rolls. Player three is catching up after pivoting to income cards."
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations! You have seen the core loop of Space Base: roll, activate, collect income, buy, and deploy. You learned to build income first, always evaluate split versus combine, and pay attention to every single roll at the table."
+        },
+        {
+          "step": 16,
+          "title": "Before You Launch",
+          "text": "Before you play a full game, here are three things to help.\n\nFirst, check out General Tips for sector priority strategy and economy building.\n\nSecond, reference the Appendix for a quick guide to card types and abilities.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your Space Base",
+          "bullets": [
+            "Practice round with 3 players",
+            "All start: 12 basic ships, 5 credits, 0 income"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player One Rolls",
+          "bullets": [
+            "Rolls 3+4 → splits for sectors 3 and 4 (2 credits)",
+            "Splitting gave more total value than combining for sector 7"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Other Players Benefit Too",
+          "bullets": [
+            "Others check deployed cards for rolled numbers",
+            "No deployed cards yet — this changes fast"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player One Buys a Ship",
+          "bullets": [
+            "7 credits → buys Level 1 ship for sector 6",
+            "New card active (face-up); old card deployed (face-down)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Why Sector Six Was Smart",
+          "bullets": [
+            "Sectors 6, 7, 8 are most commonly rolled",
+            "Upgrade high-probability sectors first"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Two's Turn",
+          "bullets": [
+            "Rolls 2+5 → combines for sector 7",
+            "Buys income card → earns 1 credit/turn permanently"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player Three's Mistake: Ignoring Income",
+          "bullets": [
+            "Buys flashy VP card instead of economy card",
+            "Zero income → nearly broke next turn"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Build Income Before Chasing VP",
+          "bullets": [
+            "VP doesn't help buy better cards — credits and income do",
+            "Build economy first → fund VP purchases later",
+            "More total spending over the game"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Round Two: Deployed Cards Activate",
+          "bullets": [
+            "Player 1 activates upgraded sector 6 card",
+            "Deployed cards trigger when matching numbers are rolled"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player Three's Mistake: Always Combining",
+          "bullets": [
+            "Defaults to combine without checking split value",
+            "Splitting often gives 2 activations > 1 activation"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Always Evaluate Split vs Combine",
+          "bullets": [
+            "Check both options on every roll (yours and opponents')",
+            "Sometimes 2 small rewards > 1 big reward",
+            "Applies to active AND deployed cards"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player One's Mistake: Forgetting Deployed Cards",
+          "bullets": [
+            "Forgot to check deployed card on opponent's roll",
+            "Missed free credits from sector 6"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Pay Attention to Every Roll",
+          "bullets": [
+            "All players activate deployed cards on EVERY roll",
+            "Announce rolls loudly so everyone checks boards",
+            "Missing activations = throwing away free money"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "The Engine Takes Shape",
+          "bullets": [
+            "Income strategy paying off for Player 2",
+            "Consistent purchases → stronger board each round"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Core loop: roll → activate → income → buy → deploy",
+            "3 lessons: income first, evaluate split/combine, watch every roll"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Launch",
+          "bullets": [
+            "Check out General Tips → sector priority and economy building",
+            "Reference the Appendix → card types and abilities",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Prioritize Income Early",
+          "text": "The single most impactful thing you can do in your first few turns is boost your income. Every point of income gives you one extra credit every turn for the rest of the game. A player with three income by turn four will have spent significantly more credits total than a player who chased victory points early. Build your economy before chasing the finish line."
+        },
+        {
+          "step": 2,
+          "title": "Focus on High-Probability Sectors",
+          "text": "Sectors six, seven, and eight are rolled most often because more dice combinations produce those numbers. Upgrade these sectors first for maximum return. A powerful card in sector seven triggers far more often than one in sector two or twelve. Let probability guide your purchases."
+        },
+        {
+          "step": 3,
+          "title": "Deployed Cards Are Your Engine",
+          "text": "In a four or five player game, deployed cards trigger on every opponent's turn. That is three or four free activations per round. A strong deployed card in sector seven might fire three or four times before your next turn. Prioritize buying cards for high-probability sectors so the old cards deploy in valuable positions."
+        },
+        {
+          "step": 4,
+          "title": "Always Evaluate Split vs Combine",
+          "text": "Every roll, on your turn or others', check both the combined and split options. Sometimes two small rewards from splitting add up to more than one combined reward. Sometimes the combined sector has a powerful card that dwarfs both splits. Make this evaluation a habit."
+        },
+        {
+          "step": 5,
+          "title": "Watch the VP Race",
+          "text": "Keep an eye on all players' victory point totals. If someone is approaching forty, consider whether your deployed cards might accidentally give them the winning points on your roll. You cannot control the dice, but you can sometimes choose combined versus split to avoid activating an opponent's strongest deployed sector."
+        },
+        {
+          "step": 6,
+          "title": "Buy Level Two and Three Cards",
+          "text": "Starting ship cards give modest rewards. Level one upgrades are better. But Level two and three cards are dramatically more powerful. Save up for these when you can afford them. A single Level three card can generate more value than three Level one cards combined."
+        },
+        {
+          "step": 7,
+          "title": "Pay Attention to Every Roll",
+          "text": "The most common mistake in Space Base is forgetting to activate deployed cards on opponents' turns. Set a table rule: the active player announces their roll clearly, and everyone checks their boards before play continues. Missing deployed activations is the easiest way to fall behind."
+        },
+        {
+          "step": 8,
+          "title": "Colony Card Timing",
+          "text": "Colony cards are endgame finishers. They cost a lot but deliver huge victory point chunks. The right time to buy a Colony card is when you have enough income and credits to afford it without gutting your economy. If you can generate fifteen or more credits per turn, consider a Colony rush to end the game before opponents catch up."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Prioritize Income Early",
+          "bullets": [
+            "Each income point = 1 extra credit every turn forever",
+            "Build economy first, chase VP later",
+            "3 income by turn 4 = massive credit advantage"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Focus on High-Probability Sectors",
+          "bullets": [
+            "Sectors 6, 7, 8 rolled most often",
+            "Upgrade these first for maximum return",
+            "Probability guides purchases"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Deployed Cards Are Your Engine",
+          "bullets": [
+            "4-5 player: deployed cards fire 3-4× per round",
+            "Strong deployed card in sector 7 = passive income machine",
+            "Buy for high-probability sectors → deploy old cards there"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Always Evaluate Split vs Combine",
+          "bullets": [
+            "Check both options on every roll",
+            "2 small rewards can beat 1 big reward",
+            "Make this a habit on your turn and opponents'"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Watch the VP Race",
+          "bullets": [
+            "Track all players' VP totals",
+            "Your rolls activate opponents' deployed cards too",
+            "Choose split/combine to avoid feeding opponents"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Buy Level Two and Three Cards",
+          "bullets": [
+            "Level 2-3 cards are dramatically stronger",
+            "One Level 3 > three Level 1 cards",
+            "Save up for big upgrades"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Pay Attention to Every Roll",
+          "bullets": [
+            "Check deployed cards on EVERY roll",
+            "Active player announces roll clearly",
+            "Missing activations = falling behind"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Colony Card Timing",
+          "bullets": [
+            "Colonies: huge VP but huge cost",
+            "Buy when income can absorb the spend",
+            "15+ credits/turn → consider colony rush"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Deployed Card Engine at High Player Counts",
+          "text": "In games with four or five players, deployed cards trigger far more often. This changes the entire strategy. Prioritize buying cards specifically to deploy strong cards into high-probability sectors. A deployed card in sector seven that gives two victory points fires three or four times per round. That is six to eight passive victory points every round cycle."
+        },
+        {
+          "step": 2,
+          "title": "Credit vs VP Balance",
+          "text": "The game has three phases. Early game, focus entirely on credits and income to build spending power. Mid game, start buying cards that generate victory points alongside credits. Late game, pivot to pure victory point generation and Colony cards. The transition points depend on your income level. Switch to VP when your income alone can fund meaningful purchases each turn."
+        },
+        {
+          "step": 3,
+          "title": "Colony Rush Strategy",
+          "text": "If you can generate enough credits quickly, Colony cards offer massive victory point chunks that can end the game fast. The Colony rush strategy involves maxing income in the first five or six turns, then buying one Colony card per turn. Each Colony delivers eight to twelve victory points. Two or three Colony purchases can reach forty before opponents realize what happened."
+        },
+        {
+          "step": 4,
+          "title": "Spread vs Focus",
+          "text": "Spreading upgrades across many sectors gives consistency. You will activate something valuable on almost every roll. Focusing upgrades on a few key sectors creates big swing turns when those numbers hit but is less reliable. In higher player counts, spread is generally better because deployed cards benefit from consistent activations. In lower counts, focus can create explosive turns."
+        },
+        {
+          "step": 5,
+          "title": "Charge Ability Timing",
+          "text": "Charge abilities store up value for a perfectly timed burst. The best time to spend charges is when you can combine their effect with other rewards on the same turn. For example, spend a charge that gives extra credits right before buying a Colony card. Stack charges to create a single devastating turn."
+        },
+        {
+          "step": 6,
+          "title": "Reading the Market",
+          "text": "Before buying, scan all three market levels. Sometimes a Level two card is a better investment than a Level one card even if it costs more, because its deployed value or active reward is dramatically higher. Also watch what your opponents are buying. If someone is loading sector seven, consider upgrading your sector seven deployed card to compete."
+        },
+        {
+          "step": 7,
+          "title": "Sector One Strategy",
+          "text": "Sector one is unique because it only activates on a split when one die shows a one. This makes it low probability, but ones are rolled on at least one die about thirty percent of the time. Placing a strong card in sector one can be surprisingly valuable, especially deployed, because opponents often split when they roll a one."
+        },
+        {
+          "step": 8,
+          "title": "Endgame Acceleration",
+          "text": "When you are within striking distance of forty victory points, look for ways to accelerate. Buy VP-heavy cards, spend stored charges, and pick splits or combines that maximize VP on every roll. Also consider that your deployed cards activate on opponents' turns. If you are at thirty-five, opponents' rolls might push you over forty before your next turn."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Deployed Card Engine at High Player Counts",
+          "bullets": [
+            "4-5 players: deployed cards trigger 3-4× per round",
+            "Deployed VP card in sector 7 = 6-8 passive VP per cycle",
+            "Buy specifically to deploy strong cards"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Credit vs VP Balance",
+          "bullets": [
+            "Early: credits + income; Mid: VP + credits; Late: pure VP + colonies",
+            "Switch to VP when income funds purchases alone"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Colony Rush Strategy",
+          "bullets": [
+            "Max income in 5-6 turns → buy 1 colony/turn",
+            "Each colony = 8-12 VP",
+            "2-3 colonies can hit 40 before opponents react"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Spread vs Focus",
+          "bullets": [
+            "Spread: consistent activations, better at high player count",
+            "Focus: explosive swing turns, better at low player count",
+            "Match strategy to player count"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Charge Ability Timing",
+          "bullets": [
+            "Store charges for perfectly timed bursts",
+            "Spend before big purchases or VP pushes",
+            "Stack multiple charges for devastating turns"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading the Market",
+          "bullets": [
+            "Scan all 3 levels before buying",
+            "Level 2 can be better value than Level 1",
+            "Watch opponents' purchases to anticipate competition"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Sector One Strategy",
+          "bullets": [
+            "Only activates on split with a 1",
+            "Ones appear ~30% of rolls — surprisingly frequent",
+            "Strong deployed card here catches free activations"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Acceleration",
+          "bullets": [
+            "Near 40 VP: maximize VP on every roll and purchase",
+            "Spend stored charges for burst VP",
+            "Opponents' rolls may push you over 40 via deployed cards"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Player Board",
+          "definition": "Your personal command center with twelve numbered sectors (1-12). Each sector holds active and deployed ship cards that activate when matching numbers are rolled.",
+          "category": "Components"
+        },
+        {
+          "term": "Sector",
+          "definition": "A numbered slot (1-12) on your player board. Each sector holds one active card on top and potentially one or more deployed cards underneath.",
+          "category": "Components"
+        },
+        {
+          "term": "Active Card",
+          "definition": "A face-up ship card on top of a sector. Provides rewards when its sector is activated on your own turn. Gets replaced and deployed when you buy a new card for that sector.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Deployed Card",
+          "definition": "A face-down card tucked under a sector. Provides rewards when its sector is activated on other players' turns. Created by buying a new card that replaces the old active card.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Level 1 Ship",
+          "definition": "The cheapest market cards. Modest rewards but affordable early. Good for initial upgrades of starting ships.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Level 2 Ship",
+          "definition": "Mid-tier market cards. Significantly stronger than Level 1. Worth saving for when affordable.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Level 3 Ship",
+          "definition": "The most powerful market cards. Expensive but deliver dramatically better rewards. Can be game-changing in the right sector.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Colony Card",
+          "definition": "Endgame powerhouse cards with massive costs and massive VP rewards. Purchasing Colony cards can accelerate the path to 40 VP.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Credits",
+          "definition": "The currency used to buy ship and Colony cards from the market. Earned from card activations and income collection. Shown by an upward arrow icon.",
+          "category": "Resources"
+        },
+        {
+          "term": "Income",
+          "definition": "A permanent boost to credits collected each turn. Increases when you buy cards with income rewards. Shown by a rightward arrow icon. Income compounds throughout the game.",
+          "category": "Resources"
+        },
+        {
+          "term": "Victory Points",
+          "definition": "Tracked throughout the game. First player to 40 wins immediately. Earned from card activations and Colony purchases. Shown by a star icon.",
+          "category": "Resources"
+        },
+        {
+          "term": "Charge Token",
+          "definition": "Placed on a card when its charge ability activates. Can be spent later for a powerful one-time effect. Timing charge spending is a key strategic decision.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Combined Dice",
+          "definition": "Adding both dice together to activate a single sector (e.g., 3+4 = sector 7). The only way to activate sectors 7-12.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Split Dice",
+          "definition": "Activating each die's sector separately (e.g., 3 and 4 activate sectors 3 and 4). Can only activate sectors 1-6.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Central Market",
+          "definition": "The shared board with face-up ship cards available for purchase. Contains Level 1, Level 2, Level 3, and Colony card rows. Refilled from decks when cards are bought.",
+          "category": "Components"
+        },
+        {
+          "term": "Starting Ship Card",
+          "definition": "The twelve basic cards each player begins with, one per sector. These have modest rewards and are replaced as you buy better ships.",
+          "category": "Card Types"
+        },
+        {
+          "term": "High-Probability Sector",
+          "definition": "Sectors 6, 7, and 8, which are activated most often due to dice probability distribution. Upgrading these first maximizes card activation frequency.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Passive Activation",
+          "definition": "When deployed cards trigger on opponents' turns. In higher player counts, passive activations can generate more total value than active turns.",
+          "category": "Mechanics"
+        }
+      ]
+    }
+  }
+}

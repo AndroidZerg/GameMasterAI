@@ -1,0 +1,807 @@
+{
+  "game_id": "sequence",
+  "title": "Sequence",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unfold the Game Board",
+          "text": "Let's get Sequence set up. First, unfold the game board and place it in the center of the table where everyone can reach it. The board shows a ten by ten grid of playing card images. You will notice four free spaces in the corners, marked with special icons. These corners count as part of every player's sequences."
+        },
+        {
+          "step": 2,
+          "title": "Understand the Board Layout",
+          "text": "Take a moment to look at the board. Every playing card except Jacks appears exactly twice on the grid. That means when you play a card, you will always have two possible positions to choose from. The corners are free spaces that work for everyone, so sequences running through a corner only need four of your own chips instead of five."
+        },
+        {
+          "step": 3,
+          "title": "Form Teams",
+          "text": "Now let's sort out teams. If you have two players, each plays individually. With three players, everyone plays solo. With four players, form two teams of two and sit across from your teammate. With six players, you can do two teams of three or three teams of two, with teammates alternating seats around the table. Larger groups follow the same pattern, dividing as evenly as possible."
+        },
+        {
+          "step": 4,
+          "title": "Distribute Chips",
+          "text": "Each player or team takes all chips of one color. For two teams, use blue and green. For three teams, add red. Make sure everyone has a good supply of chips. You will be placing these on the board throughout the game to claim spaces and build your sequences."
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Deal Cards",
+          "text": "Take both standard decks of playing cards and shuffle them together into one big draw pile. The number of cards each player receives depends on your player count. Two players get seven cards each. Three or four players get six each. Six players get five each. Eight or more players get four each. Deal the cards face down and keep your hand hidden."
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "text": "To decide who goes first, each player cuts the deck. The player who reveals the lowest card goes first, with aces counting as low. Play then proceeds clockwise around the table. Remember, teammates may not communicate about their cards or strategy during the game."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unfold the Game Board",
+          "bullets": [
+            "Place 10x10 card grid board in center of table",
+            "4 corner free spaces count for all players",
+            "Board starts empty — no chips placed yet"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Understand the Board Layout",
+          "bullets": [
+            "Every non-Jack card appears exactly twice on the board",
+            "Each card played → choose 1 of 2 matching positions",
+            "Corner free spaces → sequences through corners need only 4 chips"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Form Teams",
+          "bullets": [
+            "2P: individual, 3P: individual, 4P: 2 teams of 2",
+            "6P: 2 teams of 3 or 3 teams of 2",
+            "Teammates sit across from each other, alternating seats"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Distribute Chips",
+          "bullets": [
+            "Each player/team gets all chips of 1 color",
+            "2 teams: blue + green; 3 teams: add red",
+            "50 chips per color available"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Deal Cards",
+          "bullets": [
+            "Shuffle both decks together (104 cards total)",
+            "2P: 7 cards, 3-4P: 6 cards, 6P: 5 cards, 8+P: 4 cards",
+            "Keep hand hidden from all other players"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "bullets": [
+            "Each player cuts deck → lowest card goes first (Aces low)",
+            "Play proceeds clockwise",
+            "No table talk — teammates cannot share card info"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "text": "On your turn you do three things in order. First, play one card from your hand face up onto the discard pile. Second, place one of your chips on a matching board space. Third, draw one card from the draw pile to refill your hand. The order matters. If you accidentally draw before placing your chip, you lose your turn."
+        },
+        {
+          "step": 2,
+          "title": "Placing a Chip",
+          "text": "When you play a card, find one of the two matching spaces on the board and place your chip there. Since every card appears twice, you get to choose which position is more strategic. If both spaces are already covered by any color chip, the card is considered dead and follows special rules we will cover in a moment."
+        },
+        {
+          "step": 3,
+          "title": "Two-Eyed Jacks: Wild Cards",
+          "text": "Jacks are special action cards and do not appear on the board. A two-eyed Jack, which is the Jack where both eyes are visible, is a wild card. When you play one, you can place your chip on any open space on the entire board. These are incredibly powerful for completing sequences, so save them for critical moments."
+        },
+        {
+          "step": 4,
+          "title": "One-Eyed Jacks: Removal Cards",
+          "text": "A one-eyed Jack, where only one eye is visible, lets you remove one of your opponent's chips from the board. Place the Jack on the discard pile and take the opponent's chip off any space you choose. However, you cannot remove a chip that is part of a completed and declared sequence. Those chips are locked in permanently."
+        },
+        {
+          "step": 5,
+          "title": "Dead Cards",
+          "text": "If you hold a card and both of its board positions are already occupied by chips of any color, that card is dead. On your turn, you may place the dead card on the discard pile, announce that it is dead, and draw a new card. This counts as your turn, so you do not place a chip. Check your hand for dead cards regularly and trade them in promptly."
+        },
+        {
+          "step": 6,
+          "title": "What Is a Sequence",
+          "text": "A sequence is five chips in a row of your color, running horizontally, vertically, or diagonally. The four corner free spaces count as a chip for every player, so any sequence running through a corner effectively needs only four of your own chips. When you complete a sequence, announce it to the table. Those chips are now locked and cannot be removed."
+        },
+        {
+          "step": 7,
+          "title": "Overlapping Sequences",
+          "text": "A single chip can be part of two different sequences. For example, you might complete a horizontal sequence and later form a vertical sequence that shares one chip with the first. Both count. However, two sequences that share four out of five chips do not count as two distinct sequences. You need genuinely separate lines with minimal overlap."
+        },
+        {
+          "step": 8,
+          "title": "Team Communication Rules",
+          "text": "In team games, communication about strategy is strictly forbidden. You may not tell your teammates which cards you hold, which spaces you are targeting, or what they should play. You may not signal, hint, or use code words. The only information you can share is what everyone can already see on the board. Violating this rule can result in a penalty."
+        },
+        {
+          "step": 9,
+          "title": "Deck Recycling",
+          "text": "If the draw pile runs out, shuffle the discard pile to create a new draw pile. This keeps the game going until someone completes the required number of sequences."
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "text": "The win condition depends on the number of teams. With two players or two teams, the first to complete two sequences wins. With three players or three teams, the first to complete one sequence wins. The game ends immediately when someone completes the winning sequence. There are no points to count and no tiebreakers needed."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Play 1 card → place 1 chip → draw 1 card (in that order)",
+            "Drawing before placing = lose your turn",
+            "Keep hand hidden at all times"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placing a Chip",
+          "bullets": [
+            "Find 1 of 2 matching board spaces → place your chip",
+            "Choose the more strategic position",
+            "If both positions occupied → card is dead"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Two-Eyed Jacks: Wild Cards",
+          "bullets": [
+            "Both eyes visible → wild card",
+            "Place chip on any open space on the board",
+            "Save for critical sequence completions"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "One-Eyed Jacks: Removal Cards",
+          "bullets": [
+            "One eye visible → remove 1 opponent chip",
+            "Cannot remove chips in completed sequences",
+            "Powerful defensive tool"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Dead Cards",
+          "bullets": [
+            "Both board positions occupied → card is dead",
+            "Discard dead card + announce + draw replacement = your turn",
+            "Check for dead cards regularly — don't hold them"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "What Is a Sequence",
+          "bullets": [
+            "5 chips in a row: horizontal, vertical, or diagonal",
+            "Corner free spaces count for all players (need only 4 own chips)",
+            "Completed sequences → announce, chips locked permanently"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Overlapping Sequences",
+          "bullets": [
+            "1 chip can serve in 2 different sequences",
+            "Both count as separate sequences",
+            "Cannot share 4+ chips between 2 sequences"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Team Communication Rules",
+          "bullets": [
+            "No table talk about cards, targets, or strategy",
+            "No signaling, hinting, or code words",
+            "Only public board info is shareable"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Deck Recycling",
+          "bullets": [
+            "Draw pile empty → shuffle discard pile into new draw pile",
+            "Game continues uninterrupted"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "bullets": [
+            "2 players/teams: first to 2 sequences wins",
+            "3 players/teams: first to 1 sequence wins",
+            "Game ends immediately — no points, no tiebreakers"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "text": "Welcome to your first game of Sequence! We will walk through a scripted practice round with four players forming two teams. Team Blue has Player 1 and Player 3 sitting across from each other. Team Green has Player 2 and Player 4 sitting across from each other. Each player has been dealt six cards. Let's play!"
+        },
+        {
+          "step": 2,
+          "title": "Player 1's Opening Move",
+          "text": "Player 1 looks at their hand and plays a seven of hearts. They find one of the two seven-of-hearts spaces on the board and place a blue chip there. This space is near a corner, which is smart because sequences through corners need only four chips. Player 1 draws a card to refill their hand to six."
+        },
+        {
+          "step": 3,
+          "title": "Why Corners Matter",
+          "text": "Playing near a corner free space is one of the strongest opening moves. That corner already counts as a chip for everyone, so any sequence running through it needs just four more chips instead of five. Player 1 is already one step ahead by positioning near a corner."
+        },
+        {
+          "step": 4,
+          "title": "Player 2's Turn",
+          "text": "Player 2 from Team Green plays a ten of clubs. They choose a space in the center of the board. Central positions are flexible because they offer more potential directions for sequences: horizontal, vertical, and two diagonals. Player 2 places a green chip and draws a card."
+        },
+        {
+          "step": 5,
+          "title": "Player 3's Turn",
+          "text": "Player 3 is on Team Blue with Player 1, but they cannot discuss strategy. Player 3 plays a nine of hearts, and luckily one of its board positions is adjacent to Player 1's chip. Without coordinating, the teammates are building in the same area. Player 3 places a blue chip and draws."
+        },
+        {
+          "step": 6,
+          "title": "Player 4's Mistake: Ignoring the Threat",
+          "text": "Player 4 looks at the board and sees Team Blue already has two chips near a corner. Instead of playing defensively, Player 4 plays a card on the far side of the board, nowhere near the blue chips. Player 4 is building their own sequence but completely ignoring the growing threat from Team Blue."
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Balance Offense and Defense",
+          "text": "In Sequence, you must balance building your own sequences with blocking your opponents. When your opponent has two or three chips in a row, you need to consider placing a chip to break their line. Ignoring an opponent's progress until they reach four in a row is often too late. Watch the whole board, not just your own plans."
+        },
+        {
+          "step": 8,
+          "title": "Player 1 Extends the Line",
+          "text": "Player 1 plays another card and places a third blue chip near the corner. Team Blue now has three chips approaching a corner free space. That means they only need one more chip to complete a sequence of five. Team Green should be worried."
+        },
+        {
+          "step": 9,
+          "title": "Player 2 Blocks",
+          "text": "Player 2 recognizes the danger and plays a card whose matching board position sits right in the path of Team Blue's sequence. They place a green chip, blocking the line. Good defensive play. Team Blue will need to find an alternative route or use a One-Eyed Jack to remove the blocker."
+        },
+        {
+          "step": 10,
+          "title": "Player 4's Mistake: Wasting a Two-Eyed Jack",
+          "text": "Player 4 has a two-eyed Jack in their hand. Excited by the wild card, they play it immediately to claim a random open space that does not connect to any of Team Green's other chips. A two-eyed Jack can go anywhere on the board, and Player 4 just used this incredibly powerful card on a throwaway move."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Save Your Jacks",
+          "text": "Two-eyed Jacks are the most powerful cards in Sequence. They should almost always be saved for the moment you need to complete a sequence. Using a wild card on an uncontested position when you have plenty of playable cards is a waste. Hold your Jacks until you need the finishing move or a critical block that no other card can achieve."
+        },
+        {
+          "step": 12,
+          "title": "Player 4's Mistake: Holding Dead Cards",
+          "text": "A few turns later, Player 4 notices they have been holding a card for several turns and both of its board positions were taken a while ago. That card has been dead, and Player 4 did not check. Every turn they held that dead card, they had one fewer useful option in their hand."
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Check for Dead Cards",
+          "text": "Get in the habit of scanning your hand against the board at the start of each turn. If both positions for a card are occupied, that card is dead and you should trade it in immediately. Holding dead cards reduces your options and wastes turns. The sooner you trade them, the sooner you draw something useful."
+        },
+        {
+          "step": 14,
+          "title": "Building Multiple Threats",
+          "text": "Player 1 shifts strategy after being blocked. Instead of trying to extend one line, they start placing chips that contribute to two different potential sequences. Now Team Green has to choose which line to block. Creating multiple threats simultaneously is the key to winning Sequence."
+        },
+        {
+          "step": 15,
+          "title": "A Sequence Completed",
+          "text": "After several more turns, Player 3 plays the card that completes Team Blue's first sequence. Five blue chips in a diagonal row! Player 3 announces the sequence, and those chips are now locked in place permanently. Team Blue needs one more sequence to win, while Team Green still has zero."
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations, you have walked through your first practice game of Sequence! You saw how Team Blue used corner positioning and multiple threats to build sequences, while Player 4 learned three important lessons. Always balance offense with defense, save your Jacks for critical moments, and check for dead cards regularly."
+        },
+        {
+          "step": 17,
+          "title": "Ready to Play",
+          "text": "Before you start a full game, here are three things that can help.\n\nFirst, check out General Tips for board positioning strategies and common mistakes.\n\nSecond, reference the Appendix for a quick guide to card types, board layout, and team rules.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Game",
+          "bullets": [
+            "Scripted practice with 4 players, 2 teams (Blue and Green)",
+            "Teammates sit across from each other, no communication allowed",
+            "Each player dealt 6 cards"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Player 1's Opening Move",
+          "bullets": [
+            "Plays 7 of Hearts near a corner free space",
+            "Places blue chip on matching board position",
+            "Draws a card to refill hand"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Why Corners Matter",
+          "bullets": [
+            "Corner = free chip for everyone",
+            "Sequences through corners need only 4 of your own chips",
+            "Strong opening positioning near corners"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 2's Turn",
+          "bullets": [
+            "Plays card in center of board for flexibility",
+            "Central positions offer more directional options",
+            "Places green chip and draws"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 3's Turn",
+          "bullets": [
+            "Player 3 (Team Blue) plays adjacent to Player 1's chip",
+            "Teammates building in same area without communicating",
+            "Good board reading replaces table talk"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 4's Mistake: Ignoring the Threat",
+          "bullets": [
+            "Team Blue has 2 chips near corner — growing threat",
+            "Player 4 plays on far side of board instead of blocking",
+            "Ignoring opponent progress = dangerous"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Balance Offense and Defense",
+          "bullets": [
+            "Must block opponents at 2-3 in a row",
+            "Waiting until 4 in a row is often too late",
+            "Watch the whole board, not just your own plans"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 1 Extends the Line",
+          "bullets": [
+            "Team Blue reaches 3 chips near corner",
+            "Only 1 more needed for sequence of 5",
+            "Immediate defensive response needed from Team Green"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 2 Blocks",
+          "bullets": [
+            "Player 2 places green chip directly in Blue's path",
+            "Good defensive play — disrupts opponent's line",
+            "Team Blue needs alternative route or One-Eyed Jack"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 4's Mistake: Wasting a Two-Eyed Jack",
+          "bullets": [
+            "Player 4 uses wild card on random unconnected space",
+            "Two-Eyed Jack wasted on throwaway position",
+            "Most powerful card in the game used for nothing"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Save Your Jacks",
+          "bullets": [
+            "Two-Eyed Jacks = save for finishing moves",
+            "Don't waste wild cards when you have playable cards",
+            "Hold for critical completion or impossible-to-reach blocks"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 4's Mistake: Holding Dead Cards",
+          "bullets": [
+            "Both positions taken → card is dead for multiple turns",
+            "Player 4 didn't check — held useless card",
+            "Fewer options in hand = weaker plays"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Check for Dead Cards",
+          "bullets": [
+            "Scan hand against board at start of each turn",
+            "Trade dead cards immediately for fresh draws",
+            "Holding dead cards wastes turns and reduces options"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Building Multiple Threats",
+          "bullets": [
+            "Player 1 builds chips contributing to 2 potential sequences",
+            "Forces opponents to choose which line to block",
+            "Multiple threats = key to winning Sequence"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "A Sequence Completed",
+          "bullets": [
+            "Player 3 completes 5-in-a-row diagonal → Team Blue's first sequence",
+            "Announce sequence → chips permanently locked",
+            "Team Blue needs 1 more; Team Green needs 2"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Saw corner positioning and multiple threats in action",
+            "Player 4 learned: balance offense/defense, save Jacks, check dead cards",
+            "Ready for a full game"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Ready to Play",
+          "bullets": [
+            "Check out General Tips → board positioning and common mistakes",
+            "Reference the Appendix → card types, board layout, team rules",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Board Positioning",
+          "text": "The most important skill in Sequence is board positioning. Corners are the strongest positions because sequences through them need only four chips. The center of the board offers the most directional flexibility, with potential sequences running in all four directions. The edges of the board are weakest because they limit your sequence to fewer directions. Prioritize corners first, center second, and avoid building exclusively along edges."
+        },
+        {
+          "step": 2,
+          "title": "Creating Double Threats",
+          "text": "The most effective offensive strategy is creating double threats, where a single chip placement contributes to two or more potential sequences. When your opponent can only block one threat per turn, you are guaranteed to advance at least one line. Look for intersections where horizontal, vertical, and diagonal lines cross. Placing chips at these crossroads maximizes your options."
+        },
+        {
+          "step": 3,
+          "title": "When to Block",
+          "text": "Knowing when to switch from offense to defense is critical. A good rule of thumb: block your opponent when they reach three in a row. At two in a row, they are building but not yet dangerous. At four in a row, blocking might be too late because they could use a two-eyed Jack to finish. Three in a row is the sweet spot for defensive intervention. Use your One-Eyed Jacks here to remove key chips."
+        },
+        {
+          "step": 4,
+          "title": "Jack Management",
+          "text": "Jacks are your most powerful cards, and managing them well can win the game. Hold your two-eyed Jacks until you need to complete a sequence in a spot you cannot reach with a regular card. Hold your one-eyed Jacks until an opponent reaches three or four in a row and you need to disrupt them. Playing Jacks early on uncontested spaces is one of the biggest mistakes new players make."
+        },
+        {
+          "step": 5,
+          "title": "Reading the Board in Team Games",
+          "text": "In team games, you cannot talk to your teammate, but you can read their plays. If your teammate places a chip in a particular area, they are probably building a sequence there. Support their plays by placing your chips in the same area when possible. Good team play in Sequence is about recognizing patterns in your partner's moves and complementing them without verbal communication."
+        },
+        {
+          "step": 6,
+          "title": "Diagonal Awareness",
+          "text": "New players tend to focus on horizontal and vertical lines because they are easier to spot visually. Diagonal sequences are equally valid and often less defended because opponents overlook them. Actively scan for diagonal opportunities, both for your own plays and to catch opponents building diagonal lines. Some of the best sequences come from diagonals that slip under the radar."
+        },
+        {
+          "step": 7,
+          "title": "Card Counting Basics",
+          "text": "Since the game uses two standard decks, there are four copies of every non-Jack card and eight total Jacks in the game. Keeping track of which cards have been played helps you assess which board positions are still reachable. If three copies of a card have been played, the fourth is the last one that can place a chip there. If all four are gone, those positions are permanently off-limits. This awareness helps you plan sequences and identify dead cards."
+        },
+        {
+          "step": 8,
+          "title": "Choosing Between Duplicate Positions",
+          "text": "Every card has two positions on the board. When deciding which to use, consider three factors. First, which position better advances your own sequence? Second, which position better blocks an opponent? Third, which position has more future potential for your remaining hand? Sometimes the best play is not the one that directly advances your sequence, but the one that simultaneously blocks an opponent while keeping your options open."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Board Positioning",
+          "bullets": [
+            "Corners are strongest — sequences need only 4 chips through corners",
+            "Center offers most directional flexibility (4 directions)",
+            "Edges are weakest — limited sequence directions"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Creating Double Threats",
+          "bullets": [
+            "Place chips that contribute to 2+ potential sequences",
+            "Opponents can only block 1 per turn → guaranteed progress",
+            "Target intersections of horizontal, vertical, and diagonal lines"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "When to Block",
+          "bullets": [
+            "2 in a row → building, not yet dangerous",
+            "3 in a row → block now (sweet spot for defense)",
+            "4 in a row → may be too late (Two-Eyed Jack finishes it)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Jack Management",
+          "bullets": [
+            "Two-Eyed Jacks: save for sequence completion or critical positioning",
+            "One-Eyed Jacks: save for disrupting opponents at 3-4 in a row",
+            "Never waste Jacks early on uncontested spaces"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Board in Team Games",
+          "bullets": [
+            "Watch teammate's chip placements — they signal intent",
+            "Support their builds by placing in same area",
+            "Good team play = pattern recognition without words"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Diagonal Awareness",
+          "bullets": [
+            "Diagonals equally valid but often overlooked",
+            "Scan for diagonal threats from opponents",
+            "Some best sequences slip through via undefended diagonals"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Card Counting Basics",
+          "bullets": [
+            "4 copies of each non-Jack card in the double deck",
+            "Track played cards to know which positions are still reachable",
+            "All 4 copies played → those positions permanently off-limits"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Choosing Between Duplicate Positions",
+          "bullets": [
+            "Consider: advance your sequence, block opponent, or future potential",
+            "Sometimes blocking is better than extending",
+            "Dual-purpose plays (advance + block) are highest value"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Corner Control Strategy",
+          "text": "The strongest opening strategy in Sequence revolves around corner control. Each corner free space is a universal chip, meaning any sequence through it needs only four of your own chips. Prioritize building two or three different potential sequences that all run through the same corner. Even if your opponent blocks one path, the other paths remain viable. This creates a web of threats that is very hard to defend."
+        },
+        {
+          "step": 2,
+          "title": "The Fork Technique",
+          "text": "A fork is when you create a position where you have two different ways to complete a sequence on your next turn, and your opponent can only block one. Set up forks by building two sequences that share one critical chip. When both sequences reach four in a row simultaneously, your opponent faces an impossible choice. This is the highest-level offensive play in Sequence."
+        },
+        {
+          "step": 3,
+          "title": "Defensive Jack Timing",
+          "text": "One-eyed Jacks are most effective when used on a chip that is part of multiple opponent sequences. Removing a chip that serves as an intersection point can disrupt two or three enemy lines at once. Before using a One-Eyed Jack, scan the board for chips that are doing the most work for your opponent. The best removal is one that sets back multiple plans simultaneously."
+        },
+        {
+          "step": 4,
+          "title": "Board Quadrant Analysis",
+          "text": "Divide the board mentally into four quadrants. Assess which quadrant your opponent is strongest in and avoid building there. Instead, establish dominance in a different quadrant where they have few chips. This territorial approach prevents constant head-to-head blocking and lets you build sequences more efficiently in uncontested space."
+        },
+        {
+          "step": 5,
+          "title": "Card Counting for Sequence Viability",
+          "text": "As cards are played, some board positions become unreachable because all four copies of that card are gone. Track this to assess whether your planned sequence is still viable. If a key position in your sequence can no longer be filled by a regular card, you will need a two-eyed Jack. If you do not have one, pivot to an alternative sequence path before wasting more turns."
+        },
+        {
+          "step": 6,
+          "title": "Second Sequence Planning",
+          "text": "With two-team games requiring two sequences to win, start planning your second sequence before completing the first. The ideal setup is two sequences that share exactly one chip. This is efficient and hard for opponents to predict. Building your second sequence in a different quadrant from the first forces your opponent to defend the entire board rather than concentrating their blocking."
+        },
+        {
+          "step": 7,
+          "title": "Team Play Pattern Recognition",
+          "text": "In team games, pay close attention to where your teammate places their chips in the early game. If they play near a corner, support that area. If they seem to be building a diagonal, contribute to it. The best team players develop an intuitive sense of their partner's intentions purely from board observation. Think about what sequence your partner might be building and make plays that complement it."
+        },
+        {
+          "step": 8,
+          "title": "Endgame Decision Making",
+          "text": "In the endgame, you often face a critical choice between completing your own sequence and blocking your opponent's imminent completion. If both teams are at one completed sequence and both have four-in-a-row lines, the decision depends on turn order. If you play before the opponent who can complete, go for offense. If they play before you, use your turn to block. Always count the turns and know when the critical moment arrives."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Corner Control Strategy",
+          "bullets": [
+            "Build multiple sequences through the same corner free space",
+            "Corner sequences need only 4 own chips — built-in advantage",
+            "Web of threats through one corner is hard to defend"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Fork Technique",
+          "bullets": [
+            "Create 2 sequences that can be completed on next turn",
+            "Opponent can only block 1 → guaranteed completion",
+            "Share 1 critical chip between 2 four-in-a-row lines"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Defensive Jack Timing",
+          "bullets": [
+            "Remove opponent chips at intersection points of multiple sequences",
+            "1 removal can disrupt 2-3 enemy lines",
+            "Scan for multi-purpose chips before using One-Eyed Jack"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Board Quadrant Analysis",
+          "bullets": [
+            "Mentally divide board into 4 quadrants",
+            "Dominate uncontested quadrants, avoid opponent strongholds",
+            "Territorial approach reduces head-to-head blocking"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Card Counting for Sequence Viability",
+          "bullets": [
+            "Track all 4 copies of each card played",
+            "If key position unreachable → need Two-Eyed Jack or pivot",
+            "Don't invest in sequences with dead positions"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Second Sequence Planning",
+          "bullets": [
+            "Plan second sequence before finishing first",
+            "Ideal: 2 sequences sharing exactly 1 chip",
+            "Build in different quadrant → force full-board defense"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Team Play Pattern Recognition",
+          "bullets": [
+            "Read teammate's early chip placements for intent",
+            "Support their builds without verbal communication",
+            "Best teams develop intuitive partner reads from board state"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Decision Making",
+          "bullets": [
+            "Both teams at 1 sequence + 4-in-a-row: turn order decides offense/defense",
+            "Play before opponent → go for completion",
+            "Play after opponent → block first, complete next turn"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Sequence",
+          "definition": "Five chips in a row of the same color, running horizontally, vertically, or diagonally. Corner free spaces count as chips for all players.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Free Space",
+          "definition": "The four corner spaces on the board. They count as a chip for every player and team. Sequences through corners need only four of your own chips.",
+          "category": "Board"
+        },
+        {
+          "term": "Two-Eyed Jack",
+          "definition": "A Jack card where both eyes are visible. Acts as a wild card. Play it to place your chip on any open space on the board.",
+          "category": "Cards"
+        },
+        {
+          "term": "One-Eyed Jack",
+          "definition": "A Jack card where only one eye is visible. Play it to remove one opponent's chip from any board space. Cannot remove chips from completed sequences.",
+          "category": "Cards"
+        },
+        {
+          "term": "Dead Card",
+          "definition": "A card in your hand whose both matching board positions are already occupied by chips. May be discarded on your turn to draw a replacement, but you forfeit placing a chip.",
+          "category": "Cards"
+        },
+        {
+          "term": "Chip",
+          "definition": "A colored marker (blue, green, or red) placed on the board to claim spaces. Once part of a completed sequence, a chip is permanently locked.",
+          "category": "Components"
+        },
+        {
+          "term": "Draw Pile",
+          "definition": "The face-down stack of remaining cards after dealing. Draw one card at the end of each turn. If exhausted, shuffle the discard pile to form a new draw pile.",
+          "category": "Components"
+        },
+        {
+          "term": "Discard Pile",
+          "definition": "Where played cards go face up. Used to track which cards have been played and recycled into a new draw pile when needed.",
+          "category": "Components"
+        },
+        {
+          "term": "Locked Chip",
+          "definition": "A chip that is part of a completed and announced sequence. Locked chips cannot be removed by One-Eyed Jacks or any other means.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Table Talk",
+          "definition": "Any verbal or non-verbal communication about cards or strategy between teammates. Strictly forbidden in Sequence team games. Only public board information may be discussed.",
+          "category": "Rules"
+        },
+        {
+          "term": "Duplicate Positions",
+          "definition": "Every non-Jack card appears exactly twice on the board. When playing a card, choose which of the two matching positions to place your chip on.",
+          "category": "Board"
+        },
+        {
+          "term": "Fork",
+          "definition": "A board position where you have two different ways to complete a sequence on your next turn, and the opponent can only block one.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Overlapping Sequences",
+          "definition": "Two sequences that share one chip between them. Both count as separate sequences. Two sequences sharing four or more chips do not count as two distinct sequences.",
+          "category": "Core Concepts"
+        },
+        {
+          "term": "Team Seating",
+          "definition": "In team games, teammates sit across from each other (2 teams of 2) or alternate seats around the table (larger teams). Proper seating ensures fair turn distribution.",
+          "category": "Setup"
+        },
+        {
+          "term": "Hand Size",
+          "definition": "Number of cards dealt varies by player count: 2P = 7 cards, 3-4P = 6 cards, 6P = 5 cards, 8-12P = 4 cards. Always draw to maintain hand size after each turn.",
+          "category": "Setup"
+        },
+        {
+          "term": "Win Condition",
+          "definition": "Two players or two teams: first to complete 2 sequences wins. Three players or three teams: first to complete 1 sequence wins. Game ends immediately upon completion.",
+          "category": "Rules"
+        }
+      ]
+    }
+  }
+}

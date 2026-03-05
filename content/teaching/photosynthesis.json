@@ -1,0 +1,1006 @@
+{
+  "game_id": "photosynthesis",
+  "title": "Photosynthesis",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "text": "Let's set up Photosynthesis. Place the main game board in the center of the table. The board has a hex grid with spaces arranged in concentric rings. The center has the richest soil, and the outer edge has the least valuable soil."
+        },
+        {
+          "step": 2,
+          "title": "Build the Scoring Token Stacks",
+          "text": "Sort the scoring tokens into four stacks based on their leaf symbols: one-leaf, two-leaf, three-leaf, and four-leaf. Within each stack, place the highest values on top and lowest on the bottom. These tokens represent the points you earn when you collect a fully grown tree."
+        },
+        {
+          "step": 3,
+          "title": "Place the Sun Segment",
+          "text": "Find the sun segment piece. Place it on the printed sun symbol on the edge of the board. The sun will rotate clockwise around the board during the game, changing which direction shadows fall each round."
+        },
+        {
+          "step": 4,
+          "title": "Set Up Revolution Counters",
+          "text": "Place the first, second, and third revolution counters on the edge of the board in order. Each time the sun completes a full trip around the board, you remove one counter. The game lasts three full revolutions, which is eighteen rounds total."
+        },
+        {
+          "step": 5,
+          "title": "Player Count Adjustments",
+          "text": "If you are playing with two players, remove the three darkest green four-leaf scoring tokens from the game. Put them back in the box. When a two-player game requires collecting from the center four-leaf space, take from the three-leaf stack instead."
+        },
+        {
+          "step": 6,
+          "title": "Hand Out Player Boards",
+          "text": "Give each player one player board, one light point tracker, and all the tree and seed pieces of one color. Each player gets six seeds, eight small trees, four medium trees, and two large trees. That is twenty pieces total per player."
+        },
+        {
+          "step": 7,
+          "title": "Set Up Your Player Board",
+          "text": "On your player board, place pieces into the storage slots. Put four seeds, four small trees, three medium trees, and two large trees onto the printed storage spaces. Set your light point tracker to zero."
+        },
+        {
+          "step": 8,
+          "title": "Your Available Area",
+          "text": "The remaining pieces go into your available area beside your player board. You should have two seeds, four small trees, and one medium tree available. These are the pieces you can plant and grow immediately without buying first. Think of the player board as your nursery and the available area as pieces ready to deploy."
+        },
+        {
+          "step": 9,
+          "title": "Place Starting Trees",
+          "text": "Now each player places two small trees on the board. This happens in two passes around the table. First, starting with the youngest player and going clockwise, each player places one small tree on any empty external edge space. Then go around again so everyone has two small trees on the board."
+        },
+        {
+          "step": 10,
+          "title": "Final Setup and First Player",
+          "text": "Give the first player token to the youngest player. One important rule for round one: do not move the sun during the first photosynthesis phase. The sun stays on its starting position for the first round. From round two onward, the first player moves the sun clockwise at the start of each round. Setup is complete. Let's grow some trees."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "bullets": [
+            "Place hex-grid board in center of table",
+            "Concentric rings: center = richest soil, edge = least valuable"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Build the Scoring Token Stacks",
+          "bullets": [
+            "Sort tokens into 4 stacks by leaf type (1-leaf through 4-leaf)",
+            "Highest values on top, lowest on bottom",
+            "Tokens earned by collecting fully grown trees"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place the Sun Segment",
+          "bullets": [
+            "Place on printed sun symbol at board edge",
+            "Sun rotates clockwise each round, changing shadow direction"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up Revolution Counters",
+          "bullets": [
+            "Place 1st, 2nd, 3rd counters on board edge",
+            "Remove 1 counter per full sun revolution",
+            "Game = 3 revolutions = 18 rounds"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Count Adjustments",
+          "bullets": [
+            "2 players: remove 3 darkest 4-leaf tokens",
+            "2 players: 4-leaf center collection → use 3-leaf stack instead"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Hand Out Player Boards",
+          "bullets": [
+            "Each player: 1 player board, 1 light tracker",
+            "Pieces: 6 seeds, 8 small trees, 4 medium, 2 large (20 total)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Set Up Your Player Board",
+          "bullets": [
+            "Storage: 4 seeds, 4 small, 3 medium, 2 large on printed slots",
+            "Light tracker → 0"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Your Available Area",
+          "bullets": [
+            "Available: 2 seeds, 4 small trees, 1 medium tree",
+            "Available pieces can be planted/grown without buying first",
+            "Player board storage = nursery; available = ready to deploy"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Place Starting Trees",
+          "bullets": [
+            "2 passes around the table (youngest first, clockwise)",
+            "Each pass: place 1 small tree on an empty external edge space",
+            "All players end with 2 small trees on the board"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Final Setup and First Player",
+          "bullets": [
+            "Youngest player gets first-player token",
+            "Round 1: do NOT move the sun (stays on starting position)",
+            "Round 2+: first player moves sun clockwise at start of round"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Round Structure Overview",
+          "text": "Each round has two phases. First is the Photosynthesis Phase, where the sun casts light and you collect light points from your trees. Second is the Life Cycle Phase, where you spend light to take actions like planting seeds, growing trees, and collecting points. After everyone has acted, pass the first player token clockwise."
+        },
+        {
+          "step": 2,
+          "title": "Photosynthesis Phase: Sun Movement",
+          "text": "At the start of each round, the first player moves the sun segment one position clockwise around the board. This changes the direction of sunlight and shadows. Remember, in round one you skip this step and keep the sun on its starting position."
+        },
+        {
+          "step": 3,
+          "title": "Photosynthesis Phase: Collecting Light",
+          "text": "After the sun moves, every tree that is not shadowed collects light points. Small trees generate one light, medium trees generate two, and large trees generate three. Seeds generate zero light. Your light point tracker can hold a maximum of twenty light, and any excess is lost."
+        },
+        {
+          "step": 4,
+          "title": "How Shadows Work",
+          "text": "Shadows fall in the direction opposite the sun. Each tree casts a shadow based on its size: small trees shadow one space, medium trees shadow two spaces, and large trees shadow three spaces. A tree is only shadowed if the shadow-casting tree is the same size or larger. If a small tree is behind a large tree, it gets shadowed. But if a large tree is behind a small tree, the large tree is not shadowed because it is taller."
+        },
+        {
+          "step": 5,
+          "title": "Life Cycle Phase: Overview",
+          "text": "During the Life Cycle Phase, players take turns clockwise starting with the first player. On your turn, you can spend as much light as you want on as many actions as you want. You can buy pieces, plant seeds, grow trees, and collect large trees. The critical rule is that you can only activate each board space once per turn."
+        },
+        {
+          "step": 6,
+          "title": "Action: Buying Pieces",
+          "text": "To use pieces from your player board storage, you must first buy them by paying light to move them to your available area. Each piece has a printed cost on your player board. Buy from the bottom of each column first, working upward to more expensive pieces. Buying does not count as activating a board space."
+        },
+        {
+          "step": 7,
+          "title": "Action: Plant a Seed",
+          "text": "To plant a seed, spend one light point. Take a seed from your available area and place it on an empty space within range of one of your existing trees. Small trees can plant one space away, medium trees can plant up to two spaces away, and large trees up to three spaces away. Both the origin tree's space and the destination space count as activated."
+        },
+        {
+          "step": 8,
+          "title": "Action: Grow a Tree",
+          "text": "To grow a piece, you upgrade it one stage. Seeds become small trees for one light. Small trees become medium trees for two light. Medium trees become large trees for three light. The new piece must come from your available area. The replaced piece returns to the topmost open storage slot on your player board. If no slot is open, the replaced piece is removed from the game permanently."
+        },
+        {
+          "step": 9,
+          "title": "Action: Collect a Large Tree",
+          "text": "This is how you score points. Spend four light to remove one of your large trees from the board. Return it to your player board storage. Then take the top scoring token from the stack matching the soil zone where the tree stood. Center spaces give four-leaf tokens, the next ring gives three-leaf tokens, and so on. Collected tree spaces can be planted into again later."
+        },
+        {
+          "step": 10,
+          "title": "The One Action Per Space Rule",
+          "text": "This is the most important tactical rule in Photosynthesis. You can only perform one action on each board space per turn. You cannot plant a seed and then grow it on the same turn. You cannot grow a tree and then plant from it on the same turn. You cannot collect a tree and plant on that space on the same turn. Buying from your player board is the exception because it does not involve board spaces."
+        },
+        {
+          "step": 11,
+          "title": "Light Economy",
+          "text": "Light points carry over from round to round, which is a huge deal. If you earn twelve light this round and only spend eight, you keep four for next round. But remember the twenty-point cap. If you are near twenty, spend before you earn more or you will waste light. Managing your light economy is one of the biggest skill differentiators in this game."
+        },
+        {
+          "step": 12,
+          "title": "Sun Revolutions and Game Length",
+          "text": "The sun has six positions around the board. After it visits all six positions, one revolution is complete. Remove the top revolution counter. The game ends after three full revolutions, meaning eighteen total rounds. As revolution counters disappear, you will feel the urgency to start collecting trees before the high-value tokens run out."
+        },
+        {
+          "step": 13,
+          "title": "Piece Cycling",
+          "text": "Pieces cycle between three locations: player board storage, available area, and the game board. When you grow or collect a tree, the replaced piece returns to storage. When you buy, pieces move from storage to available. When you plant or grow, pieces move from available to the board. If storage is full when a piece returns, that piece is permanently removed from the game."
+        },
+        {
+          "step": 14,
+          "title": "Game End and Scoring",
+          "text": "After the eighteenth round, the game ends. Add up all the points printed on your collected scoring tokens. Then count your remaining light points. For every three unused light points, score one additional point. Remainders of one or two give nothing. The player with the most points wins. If there is a tie, the player with the most seeds and trees still on the board wins."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Round Structure Overview",
+          "bullets": [
+            "Phase 1: Photosynthesis — sun moves, collect light from unshadowed trees",
+            "Phase 2: Life Cycle — spend light on actions (clockwise from 1st player)",
+            "Pass first-player token clockwise at end of round"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Photosynthesis Phase: Sun Movement",
+          "bullets": [
+            "First player moves sun 1 position clockwise",
+            "Changes shadow direction",
+            "Round 1 exception: skip sun movement"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Photosynthesis Phase: Collecting Light",
+          "bullets": [
+            "Unshadowed trees: Small = 1, Medium = 2, Large = 3 light",
+            "Seeds = 0 light",
+            "Light cap = 20; excess is lost"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "How Shadows Work",
+          "bullets": [
+            "Shadows fall opposite the sun direction",
+            "Small = 1 space, Medium = 2 spaces, Large = 3 spaces shadow",
+            "Only shadowed by trees of equal or greater size",
+            "Taller trees ignore shadows from shorter ones"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Life Cycle Phase: Overview",
+          "bullets": [
+            "Spend any amount of light on multiple actions",
+            "Can buy, plant, grow, and collect in any order",
+            "CRITICAL: only 1 action per board space per turn"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Action: Buying Pieces",
+          "bullets": [
+            "Pay light to move pieces from storage → available area",
+            "Buy bottom-to-top in each column",
+            "Buying does NOT count as activating a board space"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Action: Plant a Seed",
+          "bullets": [
+            "Cost: 1 light per seed",
+            "Source: available area, placed within range of your tree",
+            "Range: Small = 1, Medium = 2, Large = 3 spaces",
+            "Both origin and destination spaces are activated"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Action: Grow a Tree",
+          "bullets": [
+            "Seed → Small (1 light), Small → Medium (2), Medium → Large (3)",
+            "New piece from available area, replaced piece → storage",
+            "No storage slot open → piece removed from game permanently"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Action: Collect a Large Tree",
+          "bullets": [
+            "Cost: 4 light to remove large tree from board",
+            "Tree returns to storage, take top token from matching soil stack",
+            "Center = 4-leaf, next ring = 3-leaf, etc.",
+            "Collected space can be replanted later"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The One Action Per Space Rule",
+          "bullets": [
+            "1 action per board space per turn (most important tactical rule)",
+            "Can't plant then grow same seed in one turn",
+            "Can't grow then plant from same tree in one turn",
+            "Buying is exempt — doesn't use board spaces"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Light Economy",
+          "bullets": [
+            "Light carries over round to round",
+            "Cap = 20 — spend before overcapping to avoid waste",
+            "Light management = key skill differentiator"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Sun Revolutions and Game Length",
+          "bullets": [
+            "Sun has 6 positions → 1 revolution = 6 rounds",
+            "3 revolutions = 18 rounds total",
+            "Revolution counter removed after each full revolution"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Piece Cycling",
+          "bullets": [
+            "3 locations: storage → available → board",
+            "Replaced/collected pieces return to storage",
+            "Full storage → piece permanently removed from game"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Game End and Scoring",
+          "bullets": [
+            "Game ends after round 18 (3rd revolution complete)",
+            "Score = scoring tokens + 1 pt per 3 unused light",
+            "Tie-break: most seeds + trees on board"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Forest",
+          "text": "Welcome to your first round of Photosynthesis! We will walk through a scripted first round with three example players. Each player has two small trees on the outer edge of the board and their starting available pieces ready. The sun is in its starting position. Let's grow some trees."
+        },
+        {
+          "step": 2,
+          "title": "Round 1: Skip Sun Movement",
+          "text": "Remember, in round one we do not move the sun. It stays on its starting symbol. This means the shadow direction is already set. Look at the board and figure out which trees are casting shadows and which are in the clear."
+        },
+        {
+          "step": 3,
+          "title": "Collecting Light",
+          "text": "All players collect light simultaneously. Each unshadowed small tree generates one light point. If both of your small trees are unshadowed, you start with two light. Move your light tracker up accordingly. If one of your trees is behind an opponent's tree of equal or larger size, that tree is shadowed and generates nothing."
+        },
+        {
+          "step": 4,
+          "title": "Player 1's Turn: Grow a Small Tree",
+          "text": "Player 1 has two light and one medium tree in their available area. They spend two light to grow one of their small trees into a medium tree. The small tree is returned to their player board storage, and the medium tree from their available area takes its place on the board. Now Player 1 has a medium tree that will generate two light next round."
+        },
+        {
+          "step": 5,
+          "title": "Why Growing Early Is Smart",
+          "text": "Growing trees early is a great investment. A medium tree produces two light per round instead of one, and it can plant seeds two spaces away instead of one. It also casts a two-space shadow, which can block opponents. Early growth pays compounding dividends throughout the game."
+        },
+        {
+          "step": 6,
+          "title": "Player 2's Turn: Plant a Seed",
+          "text": "Player 2 spends one light to plant a seed from their available area. They place the seed one space away from one of their small trees, choosing a space closer to the center of the board. Seeds do not generate light yet, but once grown into a tree, a center-positioned tree will be worth more points when collected."
+        },
+        {
+          "step": 7,
+          "title": "Player 3's Turn: The Mistake",
+          "text": "Player 3 wants to plant a seed and then immediately grow it into a small tree on the same turn. They plant a seed for one light, then try to spend one more light to grow it. But this is illegal. You cannot perform two actions on the same board space in one turn. Player 3 has to take back the growth action."
+        },
+        {
+          "step": 8,
+          "title": "Lesson: One Action Per Space Per Turn",
+          "text": "The one-action-per-space rule is the most common mistake in Photosynthesis. You cannot plant and grow on the same space in one turn. You cannot grow a tree and then plant from it in the same turn. Plan your actions across different spaces. If you plant a seed today, you will need to wait until next turn to grow it."
+        },
+        {
+          "step": 9,
+          "title": "Player 3 Recovers",
+          "text": "Player 3 corrects their plan. Instead, they plant a seed on one space and then spend their remaining light to grow a different small tree on a different space. Both actions are on separate board spaces, so both are perfectly legal. Good recovery."
+        },
+        {
+          "step": 10,
+          "title": "Player 1's Second Mistake: Ignoring Shadows",
+          "text": "On the next round, the sun moves one position clockwise. Player 1 is excited about their medium tree, but they did not plan for the new sun angle. Their medium tree is now directly behind Player 2's medium tree and gets completely shadowed. Zero light from their best tree this round."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Plan for Sun Rotation",
+          "text": "The sun moves every single round, and shadow directions change dramatically. Before you plant or grow, think about where the sun will be in the next two or three rounds. A tree that generates great light now might be shadowed from the very next angle. Place trees where they will stay productive through multiple sun positions."
+        },
+        {
+          "step": 12,
+          "title": "Player 2 Buys a Piece",
+          "text": "Player 2 has been earning good light and wants to expand. They spend light to buy a medium tree from their player board storage, moving it to the available area. Next turn, they can grow a small tree into this medium tree. Buying pieces ahead of time ensures you have what you need when opportunities arise."
+        },
+        {
+          "step": 13,
+          "title": "Player 3's Mistake: Wasting Light",
+          "text": "Player 3 has accumulated fifteen light points and is close to the twenty-point cap. Instead of spending light on actions, they pass their turn, thinking they will spend it all next round. The next photosynthesis phase pushes them to twenty-two light, but the cap is twenty. Two light points are permanently lost."
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Spend Before You Cap",
+          "text": "Always keep an eye on your light tracker. If you are approaching twenty and know you will earn a lot next round, spend some light now even if the timing is not perfect. Wasted light is wasted points. A slightly inefficient action is better than losing light to the cap."
+        },
+        {
+          "step": 15,
+          "title": "Growing Toward the Center",
+          "text": "As play continues, all three players start pushing trees toward the center of the board. Center spaces earn four-leaf scoring tokens, which have the highest point values. But center trees are also more likely to be shadowed by opponents' trees. The race for prime real estate is heating up."
+        },
+        {
+          "step": 16,
+          "title": "First Collection",
+          "text": "Later in the game, Player 2 has grown a large tree on a three-leaf space. They spend four light to collect it, removing the large tree from the board and taking the top three-leaf scoring token. The tree goes back to their player board storage. That space is now empty and available for planting again."
+        },
+        {
+          "step": 17,
+          "title": "The Scoring Token Race",
+          "text": "Here is the tension: scoring tokens are stacked with the highest values on top. The first player to collect from a stack gets the best token. Waiting too long to collect means lower-value tokens for you. But collecting too early means giving up a tree that could generate light for several more rounds. Timing your collections is a key strategic decision."
+        },
+        {
+          "step": 18,
+          "title": "End of Practice",
+          "text": "Play continues for all eighteen rounds, with the sun rotating and shadows shifting every round. Each round, you will collect light, spend it on actions, and watch your forest evolve. The rhythm of grow, plant, and collect becomes natural with practice."
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "text": "Congratulations! You have walked through the core mechanics of Photosynthesis. You learned to collect light, grow trees, plant seeds, and collect scoring tokens. You watched players learn from three key mistakes: breaking the one-action-per-space rule, ignoring shadow rotation, and wasting light to the cap."
+        },
+        {
+          "step": 20,
+          "title": "Before You Grow",
+          "text": "Before you play a full game, here are three things that can help.\n\nFirst, check out General Tips for shadow planning and collection timing strategy.\n\nSecond, reference the Appendix for a quick guide to light costs, shadow ranges, and scoring tokens.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Forest",
+          "bullets": [
+            "Scripted tutorial with 3 players",
+            "Each player starts with 2 small trees on outer edge",
+            "Covers first round and key mechanics"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Round 1: Skip Sun Movement",
+          "bullets": [
+            "Sun stays on starting position in round 1",
+            "Shadow direction is fixed this round",
+            "Check which trees are shadowed vs. clear"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Collecting Light",
+          "bullets": [
+            "All players collect simultaneously",
+            "Each unshadowed small tree = 1 light",
+            "Shadowed trees = 0 light; move tracker accordingly"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 1's Turn: Grow a Small Tree",
+          "bullets": [
+            "Spends 2 light → small tree becomes medium",
+            "Small tree returns to storage, medium from available takes its spot",
+            "Medium tree = 2 light/round instead of 1"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Why Growing Early Is Smart",
+          "bullets": [
+            "Bigger trees = more light, longer seed range, bigger shadows",
+            "Early growth → compounding light income over many rounds",
+            "Medium tree at round 2 earns far more than medium at round 10"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 2's Turn: Plant a Seed",
+          "bullets": [
+            "1 light → plant seed 1 space from a small tree",
+            "Chooses space closer to center for higher scoring potential",
+            "Seeds don't generate light but position for future points"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player 3's Turn: The Mistake",
+          "bullets": [
+            "Tries to plant a seed AND grow it in the same turn",
+            "ILLEGAL: can't act twice on the same board space per turn",
+            "Must take back the growth action"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: One Action Per Space Per Turn",
+          "bullets": [
+            "Most common mistake in Photosynthesis",
+            "Can't plant then grow same space, or grow then plant from same space",
+            "Plan actions across DIFFERENT spaces each turn"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 3 Recovers",
+          "bullets": [
+            "Plants seed on one space, grows a different tree on a different space",
+            "Both actions on separate spaces = both legal",
+            "Split actions across spaces to maximize each turn"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player 1's Second Mistake: Ignoring Shadows",
+          "bullets": [
+            "Sun moves → Player 1's medium tree is now shadowed",
+            "Didn't plan for new sun angle; 0 light from best tree",
+            "Shadow direction changes every single round"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Plan for Sun Rotation",
+          "bullets": [
+            "Think 2-3 sun positions ahead before planting/growing",
+            "Great light now might mean shadowed next round",
+            "Place trees to stay productive across multiple angles"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player 2 Buys a Piece",
+          "bullets": [
+            "Spends light to move medium tree from storage → available",
+            "Buying ahead ensures pieces are ready when needed",
+            "Buy before you need — don't get caught without available pieces"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player 3's Mistake: Wasting Light",
+          "bullets": [
+            "At 15 light, passes turn instead of spending",
+            "Next round earns push to 22, but cap = 20 → 2 light lost",
+            "Wasted light = wasted points"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Spend Before You Cap",
+          "bullets": [
+            "Light cap = 20; excess is permanently lost",
+            "If near cap, spend now even if timing isn't perfect",
+            "Slightly inefficient action > losing light to cap"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Growing Toward the Center",
+          "bullets": [
+            "Center spaces = 4-leaf tokens (highest value)",
+            "Center trees more vulnerable to opponent shadows",
+            "Race for prime real estate intensifies mid-game"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "First Collection",
+          "bullets": [
+            "4 light → remove large tree from board → take top scoring token",
+            "Tree returns to storage; space opens for replanting",
+            "Collect from valuable soil zones when possible"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "The Scoring Token Race",
+          "bullets": [
+            "Top tokens have highest values — first collector gets best points",
+            "Waiting too long → lower-value tokens remain",
+            "But collecting too early sacrifices light income from that tree"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "End of Practice",
+          "bullets": [
+            "Game runs 18 rounds with sun rotating each round",
+            "Rhythm: collect light → spend on actions → repeat",
+            "Forest evolves as trees grow, get collected, and new seeds sprout"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced light collection, growing, planting, and collecting",
+            "Key mistakes: 1-action-per-space rule, shadow planning, light cap",
+            "You're ready for a full game"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Before You Grow",
+          "bullets": [
+            "Check out General Tips → shadow planning and collection timing",
+            "Reference the Appendix → light costs, shadow ranges, scoring tokens",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Plan for Multiple Sun Angles",
+          "text": "The sun visits six positions around the board, and shadows shift every single round. Before you plant or grow a tree, think about how it will perform from at least three different sun angles. A tree that earns great light from one angle but gets shadowed from the next two is a poor investment. The best placements stay productive through most sun positions."
+        },
+        {
+          "step": 2,
+          "title": "Grow Before You Spread",
+          "text": "New players often want to plant seeds everywhere right away. Resist that urge. A medium or large tree earns more light per round than multiple small trees, and bigger trees can plant seeds further away. Grow your existing trees first to increase your light income, then use that extra income to expand aggressively later."
+        },
+        {
+          "step": 3,
+          "title": "Race for High-Value Tokens",
+          "text": "Scoring tokens are stacked with the highest values on top. The first player to collect from each stack gets the best reward. If you see opponents growing large trees near center spaces, consider rushing your own collection before those top tokens disappear. Even a three-leaf token is worth much less once the top two tokens have been taken."
+        },
+        {
+          "step": 4,
+          "title": "Manage Your Light Cap",
+          "text": "The twenty-light cap is a real constraint. If you are earning eight or ten light per round and not spending enough, you will waste light to the cap. Treat excess light like perishable inventory. Spend it on buying pieces, planting seeds, or growing trees even if the timing is not ideal. Wasted light is the most common source of lost points in Photosynthesis."
+        },
+        {
+          "step": 5,
+          "title": "Use Shadows Offensively",
+          "text": "Your trees cast shadows on opponents' trees too. When deciding where to plant or grow, consider whether your tree will shadow a high-value opponent tree. A well-placed large tree can deny an opponent three or more light per round. Shadow denial is a legitimate and powerful strategy, especially in three and four player games where board space is tight."
+        },
+        {
+          "step": 6,
+          "title": "Pipeline Your Pieces",
+          "text": "Always think one step ahead in the piece cycle. If you want to grow a small tree next turn, make sure you have a medium tree in your available area now. If you plan to collect a large tree, remember that it returns to storage and you will need to buy it again before replanting. Keep your pipeline flowing so you never waste a turn with nothing to deploy."
+        },
+        {
+          "step": 7,
+          "title": "Balance Production and Collection",
+          "text": "Large trees generate three light per round but are also worth scoring tokens when collected. The key tension is deciding when to harvest. A large tree in the center earning three light per round for five more rounds is fifteen light, which translates into other growth and collections. But if the four-leaf token on top is worth twenty points and might get snatched by an opponent, collecting now could be the right call."
+        },
+        {
+          "step": 8,
+          "title": "The Tie-Breaker Matters",
+          "text": "If the game ends in a tie, the player with the most seeds and trees on the board wins. This means over-harvesting can backfire. In a close game, keeping a few extra pieces on the board gives you tie-break insurance. Do not strip the board bare unless you are confident you have a clear points lead."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Plan for Multiple Sun Angles",
+          "bullets": [
+            "Sun visits 6 positions — plan for at least 3 angles ahead",
+            "Trees shadowed from most angles are poor investments",
+            "Best placements stay productive through multiple sun positions"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Grow Before You Spread",
+          "bullets": [
+            "1 medium tree > 2 small trees for light income",
+            "Bigger trees = more light, longer planting range, bigger shadows",
+            "Grow first, expand second"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Race for High-Value Tokens",
+          "bullets": [
+            "Top tokens = highest value; first to collect wins the race",
+            "Watch opponents' large trees near center spaces",
+            "Don't wait too long — lower tokens are worth much less"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Manage Your Light Cap",
+          "bullets": [
+            "Cap = 20 light; excess permanently lost",
+            "Spend light even if timing isn't perfect to avoid waste",
+            "Wasted light = most common source of lost points"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Use Shadows Offensively",
+          "bullets": [
+            "Your trees shadow opponents' trees too",
+            "Large tree can deny 3+ light/round to an opponent",
+            "Shadow denial is powerful in 3-4 player games"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Pipeline Your Pieces",
+          "bullets": [
+            "Plan 1 step ahead in the piece cycle: storage → available → board",
+            "Buy pieces before you need them, not after",
+            "Never waste a turn with nothing deployable in available area"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Balance Production and Collection",
+          "bullets": [
+            "Large tree = 3 light/round vs. scoring token points",
+            "Early collection = best tokens; late production = more light",
+            "Compare remaining rounds of light vs. token value at risk"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Tie-Breaker Matters",
+          "bullets": [
+            "Tie-break = most seeds + trees on board",
+            "Over-harvesting risks losing tie-break",
+            "Keep a few pieces on board unless you have a clear lead"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Sun Lane Mapping",
+          "text": "Advanced players map out sun lanes before the game starts. For each board space, they consider how many of the six sun positions provide unblocked light. Spaces that receive light from four or five angles are premium real estate. Spaces that are easily blocked from three or more angles are risky investments. Do this mental mapping during setup and it will inform every planting decision."
+        },
+        {
+          "step": 2,
+          "title": "Shadow Denial Strategy",
+          "text": "Intentionally placing trees to shadow opponents is a powerful advanced tactic. A large tree can block light to three spaces in a line. If you place a large tree on the sun lane of an opponent's productive tree, you can deny them three light per round from that angle. Over several rounds, this denial can cost an opponent ten to fifteen light points, effectively removing two to three actions from their game."
+        },
+        {
+          "step": 3,
+          "title": "The Growth Pipeline",
+          "text": "The most efficient players run a continuous pipeline: plant a seed in round one, grow it to small in round two, medium in round three, large in round four, and collect in round five. This five-round cycle maximizes throughput. While one tree is being collected, the next one should already be at the medium or large stage. Stagger your pipeline so you always have trees at different growth stages."
+        },
+        {
+          "step": 4,
+          "title": "Token Timing",
+          "text": "The difference between the top and bottom tokens in a stack can be six to eight points. Collecting one round earlier to grab the top token is almost always worth more than one extra round of light income. Track what your opponents are growing and where. If someone has a large tree on a three-leaf space and is likely to collect next turn, race them for it. First-mover advantage on token stacks is one of the biggest scoring swings in the game."
+        },
+        {
+          "step": 5,
+          "title": "Center Rush vs. Edge Farming",
+          "text": "Center spaces give the highest-value tokens but are hardest to reach and most vulnerable to shadows. Edge spaces are safe from many shadow angles but give low-value tokens. The optimal approach depends on your opponents. In a crowded center, farm the edges and collect more frequently. In a spread-out game, push for center tokens aggressively. Adapt to the board state rather than committing to one approach."
+        },
+        {
+          "step": 6,
+          "title": "Piece Scarcity Awareness",
+          "text": "You have limited pieces, and once your storage fills up, replaced pieces are removed from the game permanently. This creates a real constraint in the late game. If you lose two small trees to overflow, you have fewer deployment options later. Plan your growing and collecting to keep storage slots open. Sometimes it is better to buy a piece to clear a slot even if you do not need it immediately."
+        },
+        {
+          "step": 7,
+          "title": "Endgame Light Conversion",
+          "text": "Unused light converts at three light per one point. This means in the last two or three rounds, you should evaluate whether spending light on actions earns more points than saving it for the conversion bonus. If you have no profitable actions left but will earn six more light, that is two bonus points for free. Factor light conversion into your final round planning."
+        },
+        {
+          "step": 8,
+          "title": "Opponent Tracking",
+          "text": "Watch your opponents' player boards. If someone has already collected three large trees and has no large trees in storage or available, they cannot collect again until they buy one. This information tells you how much pressure they can apply to the token race. Similarly, track opponents' light totals. If an opponent is at nineteen light and about to earn eight, they are about to waste seven light points, which is a significant advantage for you."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Sun Lane Mapping",
+          "bullets": [
+            "Map how many of 6 sun positions give unblocked light per space",
+            "4-5 angle spaces = premium; 2-3 angle spaces = risky",
+            "Do this during setup to inform all planting decisions"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Shadow Denial Strategy",
+          "bullets": [
+            "Place large trees on opponents' sun lanes intentionally",
+            "3-space shadow can deny 3+ light per round per angle",
+            "10-15 denied light over several rounds = 2-3 lost actions"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Growth Pipeline",
+          "bullets": [
+            "5-round cycle: seed → small → medium → large → collect",
+            "Stagger trees at different growth stages",
+            "Always have next tree ready as current one gets collected"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Token Timing",
+          "bullets": [
+            "Top vs. bottom token difference = 6-8 points",
+            "Collecting 1 round early usually > 1 extra round of light",
+            "Track opponents' large trees to race for top tokens"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Center Rush vs. Edge Farming",
+          "bullets": [
+            "Center = high tokens but shadow-vulnerable; edge = safe but low value",
+            "Crowded center → farm edges; spread-out game → push center",
+            "Adapt to board state, don't commit to one approach"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Piece Scarcity Awareness",
+          "bullets": [
+            "Limited pieces; storage overflow = permanent piece loss",
+            "Plan growing/collecting to keep storage slots open",
+            "Sometimes buy pieces just to clear storage slots"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Light Conversion",
+          "bullets": [
+            "3 unused light = 1 bonus point",
+            "Last 2-3 rounds: evaluate actions vs. light conversion value",
+            "Free points if no profitable actions remain"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Opponent Tracking",
+          "bullets": [
+            "Watch opponents' player boards — pieces in storage/available",
+            "No large trees available = can't collect until they buy one",
+            "Track light totals to spot opponents wasting to cap"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Light Point",
+          "definition": "The currency of Photosynthesis. Earned during the Photosynthesis Phase from unshadowed trees. Spent during the Life Cycle Phase on actions. Carries over between rounds. Maximum of 20 can be stored.",
+          "category": "Resources"
+        },
+        {
+          "term": "Small Tree",
+          "definition": "The smallest tree size. Generates 1 light point when unshadowed. Casts a 1-space shadow. Can plant seeds 1 space away. Costs 1 light to grow from a seed.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Medium Tree",
+          "definition": "The middle tree size. Generates 2 light points when unshadowed. Casts a 2-space shadow. Can plant seeds up to 2 spaces away. Costs 2 light to grow from a small tree.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Large Tree",
+          "definition": "The largest tree size. Generates 3 light points when unshadowed. Casts a 3-space shadow. Can plant seeds up to 3 spaces away. Costs 3 light to grow from a medium tree. Costs 4 light to collect for a scoring token.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Seed",
+          "definition": "The smallest piece. Generates 0 light points. Does not cast any shadow. Must be grown into a small tree before it becomes useful. Costs 1 light to plant from an existing tree.",
+          "category": "Pieces"
+        },
+        {
+          "term": "Shadow",
+          "definition": "Cast by trees in the direction opposite the sun. A tree shadows spaces equal to its size (small=1, medium=2, large=3). Only trees of equal or smaller size are affected by shadows. Shadowed trees generate 0 light.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Sun Segment",
+          "definition": "The piece that shows the current sun position. Moves one position clockwise at the start of each round (except round 1). Has 6 total positions around the board. One full trip = 1 revolution.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Revolution",
+          "definition": "One complete trip of the sun around all 6 board positions. The game lasts 3 revolutions (18 rounds). A revolution counter is removed after each complete revolution.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Photosynthesis Phase",
+          "definition": "The first phase of each round. The sun moves one position, then all players simultaneously collect light points from their unshadowed trees.",
+          "category": "Phases"
+        },
+        {
+          "term": "Life Cycle Phase",
+          "definition": "The second phase of each round. Players take turns clockwise, spending light points on actions: buying, planting, growing, and collecting.",
+          "category": "Phases"
+        },
+        {
+          "term": "Buying",
+          "definition": "Spending light to move a piece from your player board storage to your available area. Must buy bottom-to-top in each column. Does not count as activating a board space.",
+          "category": "Actions"
+        },
+        {
+          "term": "Planting",
+          "definition": "Spending 1 light to place a seed from your available area onto an empty board space within range of one of your trees. Both the origin tree's space and the seed's destination count as activated.",
+          "category": "Actions"
+        },
+        {
+          "term": "Growing",
+          "definition": "Upgrading a piece one stage: seed to small (1 light), small to medium (2 light), medium to large (3 light). New piece comes from available area; replaced piece returns to storage.",
+          "category": "Actions"
+        },
+        {
+          "term": "Collecting",
+          "definition": "Spending 4 light to remove a large tree from the board. The tree returns to storage and you take the top scoring token from the matching soil stack. The board space becomes empty and can be replanted.",
+          "category": "Actions"
+        },
+        {
+          "term": "One Action Per Space",
+          "definition": "The critical rule that you can only perform one action on each board space during your turn. Buying is exempt because it does not involve board spaces. This prevents planting and growing the same piece in one turn.",
+          "category": "Rules"
+        },
+        {
+          "term": "Scoring Token",
+          "definition": "Point tokens earned by collecting large trees. Organized in stacks by soil zone (1-leaf to 4-leaf). Highest values are on top of each stack. Closer to center = higher value tokens.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Soil Zone",
+          "definition": "The concentric rings on the board. Center spaces are 4-leaf (highest value tokens), the next ring is 3-leaf, then 2-leaf, and the outer edge is 1-leaf (lowest value).",
+          "category": "Board"
+        },
+        {
+          "term": "Player Board",
+          "definition": "Your personal board showing storage slots for seeds and trees, plus a light point tracker. Pieces on the board must be bought (moved to available area) before they can be planted or used to grow.",
+          "category": "Components"
+        },
+        {
+          "term": "Available Area",
+          "definition": "The space beside your player board where pieces ready for immediate deployment sit. Starting pieces begin here. Additional pieces must be bought from storage to enter the available area.",
+          "category": "Components"
+        },
+        {
+          "term": "Storage Overflow",
+          "definition": "When a replaced or collected piece returns to your player board but no matching storage slot is open, the piece is permanently removed from the game. Managing storage slots prevents piece loss.",
+          "category": "Rules"
+        },
+        {
+          "term": "External Edge Space",
+          "definition": "The outermost ring of hex spaces on the board. Starting trees must be placed on these spaces. They are 1-leaf soil zones, giving the lowest-value scoring tokens but are safest from shadows.",
+          "category": "Board"
+        },
+        {
+          "term": "First Player Token",
+          "definition": "Given to the youngest player at game start. Passed clockwise at the end of each round. The first player moves the sun and acts first during the Life Cycle Phase.",
+          "category": "Components"
+        },
+        {
+          "term": "Light Cap",
+          "definition": "The maximum of 20 light points that can be stored. Any light earned beyond 20 is permanently lost. Players should spend light before approaching the cap to avoid waste.",
+          "category": "Rules"
+        },
+        {
+          "term": "Light Bonus",
+          "definition": "At game end, each full set of 3 unused light points scores 1 additional victory point. Remainders of 1 or 2 light score nothing.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Advanced Variant",
+          "definition": "Optional rules that add a 4th Sun Revolution Counter for a longer game, or forbid planting and growing pieces that are currently shadowed for a more strategic experience.",
+          "category": "Variants"
+        }
+      ]
+    }
+  }
+}

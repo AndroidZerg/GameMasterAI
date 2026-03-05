@@ -1,0 +1,886 @@
+{
+  "game_id": "risk",
+  "title": "Risk",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "text": "Let's get Risk set up! Unfold the game board and place it in the center of the table. The board shows a world map divided into forty-two territories grouped into six continents. Make sure everyone can reach the board comfortably, because you will be reaching across it a lot during the game."
+        },
+        {
+          "step": 2,
+          "title": "Choose Your Army Color",
+          "text": "Each player picks one color of army pieces. There are six colors available. Each set includes three types of pieces: Infantry, which are the small single soldiers worth one army each. Cavalry, which are the horse-mounted pieces worth five armies each. And Artillery, which are the cannon pieces worth ten armies each. You can trade pieces up or down during the game to make counting easier."
+        },
+        {
+          "step": 3,
+          "title": "Count Your Starting Armies",
+          "text": "The number of starting armies depends on how many players are in the game. With two players, each person gets forty armies. With three players, thirty-five each. With four players, thirty each. With five players, twenty-five each. And with six players, twenty each. Count out your starting armies and set them in front of you."
+        },
+        {
+          "step": 4,
+          "title": "Deal Territory Cards",
+          "text": "Now let's distribute the territories. Take the forty-two territory cards from the deck, remove the two wild cards, and shuffle them. Deal them out evenly to all players. Some players may get one extra card depending on the player count. Each player looks at their cards and places one Infantry piece on each territory shown on their dealt cards."
+        },
+        {
+          "step": 5,
+          "title": "Place Remaining Armies",
+          "text": "After the initial placement, you will have armies left over. Players take turns placing one additional army at a time on any territory they already own. Keep going around the table until everyone has placed all their remaining armies. Stack them up wherever you think you will need strength. This is your first strategic decision of the game."
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Risk Deck",
+          "text": "Collect all the territory cards back from the players. Add the two wild cards back into the deck. Shuffle everything together and place the deck face down near the board. This is the Risk card draw pile. You will earn cards by conquering territories during the game. Set the dice nearby as well: three red dice for the attacker and two white dice for the defender."
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "text": "Each player rolls one die. The highest roll goes first, and play proceeds clockwise from there. If there is a tie, those players reroll. The first player begins with all three phases of a normal turn: Reinforce, Attack, and Fortify. You are ready to begin the conquest!"
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "bullets": [
+            "Place world map board centrally",
+            "42 territories grouped into 6 continents",
+            "Ensure all players can reach the board"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Choose Your Army Color",
+          "bullets": [
+            "Each player takes 1 color set",
+            "Infantry = 1, Cavalry = 5, Artillery = 10 armies",
+            "Trade pieces up/down anytime for easy counting"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Count Your Starting Armies",
+          "bullets": [
+            "2p: 40 | 3p: 35 | 4p: 30 | 5p: 25 | 6p: 20",
+            "Count out starting armies and set aside"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal Territory Cards",
+          "bullets": [
+            "Remove 2 wild cards, shuffle 42 territory cards",
+            "Deal evenly to all players",
+            "Place 1 Infantry on each territory you received"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place Remaining Armies",
+          "bullets": [
+            "Take turns placing 1 army at a time on owned territories",
+            "Continue until all starting armies are placed",
+            "Stack armies where you want defensive strength"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Risk Deck",
+          "bullets": [
+            "Collect territory cards back from players",
+            "Add 2 wild cards, shuffle, place face-down as draw pile",
+            "Set out 3 red attack dice + 2 white defense dice"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "bullets": [
+            "Each player rolls 1 die — highest goes first",
+            "Reroll ties",
+            "Play proceeds clockwise"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Let's learn how Risk works. The goal is global domination: control all forty-two territories on the board. Each turn, you reinforce your armies, attack neighboring territories, and fortify your positions. The last player standing wins. Games can be long, so settle in for a strategic marathon."
+        },
+        {
+          "step": 2,
+          "title": "Turn Phase One: Reinforce",
+          "text": "Every turn starts with reinforcements. You receive new armies based on three sources. First, count how many territories you control and divide by three, rounding down, with a minimum of three armies. Second, if you control an entire continent, you get its bonus. Third, you can trade in sets of Risk cards for bonus armies."
+        },
+        {
+          "step": 3,
+          "title": "Continent Bonuses",
+          "text": "Controlling an entire continent gives you bonus armies every turn. Asia gives seven, which is the most but also the hardest to defend. North America and Europe each give five. Africa gives three. South America and Australia each give two. Australia is the easiest to hold because it only has one entry point, making it a popular early target."
+        },
+        {
+          "step": 4,
+          "title": "Trading Risk Cards",
+          "text": "Risk cards show territory names and one of three symbols: Infantry, Cavalry, or Artillery. You can trade in a set of three matching symbols, or one of each symbol, for bonus armies. Wild cards substitute for any symbol. The trade-in values escalate: the first set is worth four armies, then six, eight, ten, twelve, fifteen, and then five more for each additional set. If a traded card matches a territory you own, place two extra armies there."
+        },
+        {
+          "step": 5,
+          "title": "Mandatory Card Trade",
+          "text": "If you are holding five or more Risk cards at the start of your turn, you must trade in a set before doing anything else. You can never hold more than five cards without trading. This prevents hoarding and keeps the escalation moving."
+        },
+        {
+          "step": 6,
+          "title": "Place Your Reinforcements",
+          "text": "After calculating your total reinforcements from territories, continents, and card trades, place all your new armies on any territories you own. You can distribute them however you like. Stack them on your front lines for an offensive push, or spread them along borders for defense. Once placed, you move to the Attack phase."
+        },
+        {
+          "step": 7,
+          "title": "Turn Phase Two: Attack",
+          "text": "Attacking is optional, but it is how you grow your empire. To attack, choose one of your territories with at least two armies and pick an adjacent enemy territory. You must always leave at least one army behind in the attacking territory. Attacks can happen across the dotted line connections on the board, not just along shared borders."
+        },
+        {
+          "step": 8,
+          "title": "Rolling the Dice",
+          "text": "The attacker rolls up to three red dice, but must have at least one more army than dice rolled in the attacking territory. The defender rolls up to two white dice, needing at least as many armies as dice rolled. Compare the highest attacker die to the highest defender die. If attacker is higher, defender loses one army. If tied or defender is higher, attacker loses one army. Then compare the second highest pair the same way."
+        },
+        {
+          "step": 9,
+          "title": "Conquering a Territory",
+          "text": "Keep rolling until the attacker decides to stop or the defender runs out of armies. If the defender loses all armies in the territory, the attacker conquers it and must move in at least as many armies as dice rolled on the final attack. You can move more if you want, but remember you must always leave at least one army in your original territory."
+        },
+        {
+          "step": 10,
+          "title": "Earning Risk Cards",
+          "text": "If you conquered at least one territory during your turn, you draw one Risk card from the deck at the end of your turn. You only get one card per turn, no matter how many territories you conquered. This is a strong incentive to attack at least once each turn, even if you only take one small territory."
+        },
+        {
+          "step": 11,
+          "title": "Turn Phase Three: Fortify",
+          "text": "The last phase of your turn is Fortify. You may move any number of armies from one territory you own to one other connected territory you own. The territories must be connected through a chain of your own territories. You can only make one fortify move per turn, and it is optional. Then your turn ends and the next player begins."
+        },
+        {
+          "step": 12,
+          "title": "Eliminating Players",
+          "text": "When you eliminate a player by taking their last territory, you immediately receive all of their Risk cards. If this gives you six or more cards, you must trade in sets immediately, even during combat. This can trigger massive army surges that swing the game dramatically."
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "text": "The standard game ends when one player controls all forty-two territories. In the mission variant, each player draws a secret mission card at the start and wins by completing their specific objective. You can also play a timed variant where the player controlling the most territories when time expires wins."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Goal: control all 42 territories",
+            "Each turn: Reinforce → Attack → Fortify",
+            "Last player standing wins"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn Phase One: Reinforce",
+          "bullets": [
+            "Territories owned / 3 (min 3) + continent bonuses + card trade-ins",
+            "Place all new armies on any owned territories"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Continent Bonuses",
+          "bullets": [
+            "Asia: 7 | N. America: 5 | Europe: 5",
+            "Africa: 3 | S. America: 2 | Australia: 2",
+            "Australia easiest to hold (1 entry point)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Trading Risk Cards",
+          "bullets": [
+            "3 matching symbols or 1 of each → trade for bonus armies",
+            "Wild cards substitute for any symbol",
+            "Escalating values: 4, 6, 8, 10, 12, 15, +5 each after",
+            "Traded card matching owned territory → +2 armies there"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Mandatory Card Trade",
+          "bullets": [
+            "Must trade if holding 5+ cards at start of turn",
+            "Cannot hold more than 5 without trading"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Place Your Reinforcements",
+          "bullets": [
+            "Deploy all new armies on any owned territories",
+            "Distribute freely — front lines for attack, borders for defense"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Turn Phase Two: Attack",
+          "bullets": [
+            "Optional — choose owned territory with 2+ armies",
+            "Attack adjacent enemy territory",
+            "Must leave at least 1 army in attacking territory"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Rolling the Dice",
+          "bullets": [
+            "Attacker: up to 3 red dice (need armies > dice count)",
+            "Defender: up to 2 white dice (need armies >= dice count)",
+            "Compare highest vs highest, then 2nd vs 2nd",
+            "Ties go to defender"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Conquering a Territory",
+          "bullets": [
+            "Keep rolling until attacker stops or defender eliminated",
+            "Conquer → move in at least as many armies as final dice rolled",
+            "Must always leave 1+ army in origin territory"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Earning Risk Cards",
+          "bullets": [
+            "Conquer 1+ territory this turn → draw 1 Risk card",
+            "Only 1 card per turn regardless of conquests",
+            "Strong incentive to attack at least once each turn"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Turn Phase Three: Fortify",
+          "bullets": [
+            "Move any number of armies from 1 territory to 1 connected territory",
+            "Connection must be through your own territories",
+            "1 fortify move per turn, optional"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Eliminating Players",
+          "bullets": [
+            "Take all eliminated player's Risk cards",
+            "6+ cards → must trade in immediately",
+            "Can trigger massive army surges mid-combat"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "bullets": [
+            "Standard: control all 42 territories",
+            "Mission variant: complete secret mission card",
+            "Timed: most territories when timer expires"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Risk",
+          "text": "Welcome to your first turn of Risk! In this practice tutorial, we will walk through a scripted turn for one player to demonstrate all three phases: Reinforce, Attack, and Fortify. We will also see some common mistakes. Let's imagine you are playing in a four-player game and you control Australia plus a few scattered territories."
+        },
+        {
+          "step": 2,
+          "title": "Your Starting Position",
+          "text": "You control all four territories of Australia, giving you the continent bonus. You also control three territories in Southeast Asia: Siam, India, and China. That is seven territories total, plus the Australia continent bonus of two armies."
+        },
+        {
+          "step": 3,
+          "title": "Reinforce: Count Your Armies",
+          "text": "Let's calculate your reinforcements. You own seven territories, divided by three rounds down to two. But the minimum is three, so you get three armies from territory count. Add two for the Australia continent bonus. That gives you five new armies to place."
+        },
+        {
+          "step": 4,
+          "title": "Reinforce: Place Your Armies",
+          "text": "Now decide where to put your five new armies. You want to push into Asia, so let's stack four armies on Siam, which borders Southeast Asian territories you want to conquer. Place one on India to shore up that border. Smart reinforcement means concentrating strength where you plan to attack."
+        },
+        {
+          "step": 5,
+          "title": "Attack: Choose Your Target",
+          "text": "Time to attack! You have a big stack in Siam. The neighboring territory Indonesia is held by an opponent with just two armies. This looks like a good target. Declare your attack: Siam attacks Indonesia."
+        },
+        {
+          "step": 6,
+          "title": "Attack: Roll the Dice",
+          "text": "You have plenty of armies in Siam, so roll all three red dice. The defender rolls two white dice. Compare the highest dice: your five beats their four, so the defender loses one army. Compare the second highest: your three ties their three, and ties go to the defender, so you lose one army. Each side lost one army in this round of combat."
+        },
+        {
+          "step": 7,
+          "title": "Attack: Continue or Stop",
+          "text": "The defender has one army left in Indonesia. You can keep attacking. Roll again. This time your highest die beats theirs. The defender's last army is removed. Indonesia is conquered! Move at least three armies into Indonesia, since you rolled three dice on the final attack. You can move more if you want."
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Spreading Too Thin",
+          "text": "Excited by your conquest, you decide to attack again from Indonesia into the next territory with just two armies. You win, but now you have only one army in Indonesia and one in the new territory. Your opponent on their next turn easily takes both back with a concentrated force."
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Concentrate Your Forces",
+          "text": "The biggest beginner mistake in Risk is spreading your armies too thin. Conquering lots of territories with one army each makes you vulnerable everywhere. It is usually better to take one or two territories and stack them with enough armies to hold them. Think of your army as a fist, not an open hand."
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Forgetting to Earn a Card",
+          "text": "On some turns, you might decide not to attack at all because your position looks safe. But skipping your attack means you do not earn a Risk card this turn. Those cards are critical for the escalating trade-in bonuses later in the game. Missing just a few cards can put you way behind in the army race."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Always Take One Territory",
+          "text": "Even if you do not want a big offensive push, always try to conquer at least one territory each turn to earn your Risk card. Find a weak neighbor with just one army and take it with minimal risk. That one card per turn adds up over the course of the game."
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: Ignoring the Fortify Phase",
+          "text": "After attacking, many beginners forget about the Fortify phase entirely. They leave their armies wherever combat left them, even if that means a strong stack is sitting uselessly in the interior while a border territory is exposed with just one army."
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Always Fortify",
+          "text": "The Fortify phase is free repositioning. After your attacks are done, move armies from safe interior territories to your front lines. You can only make one move, but it can be any number of armies through a connected chain of your territories. Always use this phase to strengthen your borders."
+        },
+        {
+          "step": 14,
+          "title": "Fortify: Reposition",
+          "text": "Let's fortify. You have eight armies sitting in Western Australia, deep in your safe continent interior. Move six of them up to Siam to prepare for next turn's push into Asia. Leave two in Western Australia just in case. Now your border is strong and your interior is not wasting armies."
+        },
+        {
+          "step": 15,
+          "title": "Draw Your Risk Card",
+          "text": "You conquered at least one territory this turn, so draw one Risk card from the deck. Take a peek at it but keep it hidden. You now hold one card. Once you collect a matching set of three, you can trade them in for bonus armies. The earlier you start collecting, the better positioned you will be for the mid-game army surges."
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations, you have completed your first full turn of Risk! You reinforced your positions, attacked and conquered a territory, earned a Risk card, and fortified your borders. Remember the three lessons: concentrate your forces instead of spreading thin, always conquer at least one territory for a card, and always use the Fortify phase."
+        },
+        {
+          "step": 17,
+          "title": "Ready for War",
+          "text": "Before you embark on world domination, check out General Tips for strategy basics on continent control and diplomacy. Reference the Appendix for a quick guide to combat odds and card values. And remember, you can ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Good luck, commander!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Risk",
+          "bullets": [
+            "Scripted tutorial walking through 1 complete turn",
+            "Covers Reinforce → Attack → Fortify phases",
+            "4-player game scenario: you control Australia + nearby territories"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Starting Position",
+          "bullets": [
+            "Control all 4 Australian territories (continent bonus)",
+            "Also hold Siam, India, China in Asia",
+            "7 total territories"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Reinforce: Count Your Armies",
+          "bullets": [
+            "7 territories / 3 = 2 → minimum 3 armies",
+            "Australia bonus: +2 armies",
+            "Total reinforcements: 5 armies"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Reinforce: Place Your Armies",
+          "bullets": [
+            "4 armies on Siam (attack staging)",
+            "1 army on India (border defense)",
+            "Concentrate where you plan to push"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Attack: Choose Your Target",
+          "bullets": [
+            "Siam has a big stack — look for weak neighbors",
+            "Indonesia: only 2 enemy armies",
+            "Declare attack: Siam → Indonesia"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Attack: Roll the Dice",
+          "bullets": [
+            "Attacker rolls 3 red dice, defender rolls 2 white",
+            "Compare highest pair → loser removes 1 army",
+            "Compare 2nd pair → ties go to defender"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Attack: Continue or Stop",
+          "bullets": [
+            "Keep rolling until defender eliminated or you stop",
+            "Conquer → move in at least as many armies as final dice count",
+            "Can move additional armies if desired"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Mistake: Spreading Too Thin",
+          "bullets": [
+            "Kept attacking with minimal armies after conquest",
+            "Left only 1 army in each new territory",
+            "Opponent easily recaptured both territories next turn"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Concentrate Your Forces",
+          "bullets": [
+            "Biggest beginner mistake: 1 army in many territories",
+            "Better to take 1-2 territories and stack them",
+            "Think fist, not open hand"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Mistake: Forgetting to Earn a Card",
+          "bullets": [
+            "Skipping attack = no Risk card this turn",
+            "Cards fuel escalating trade-in bonuses",
+            "Missing cards puts you behind in the army race"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Always Take One Territory",
+          "bullets": [
+            "Always conquer at least 1 territory to earn a card",
+            "Find weak neighbors with 1 army for easy pickings",
+            "1 card/turn adds up significantly over the game"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Mistake: Ignoring the Fortify Phase",
+          "bullets": [
+            "Beginners forget to reposition after combat",
+            "Strong stacks stuck in interior while borders are exposed",
+            "Free repositioning wasted"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Always Fortify",
+          "bullets": [
+            "Fortify = free army repositioning each turn",
+            "Move interior armies to front lines",
+            "1 move per turn, any number of armies through connected territories"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Fortify: Reposition",
+          "bullets": [
+            "Move 6 armies from Western Australia to Siam",
+            "Prepares for next turn's Asia push",
+            "Leave 2 in Australia as minimal defense"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Draw Your Risk Card",
+          "bullets": [
+            "Conquered 1+ territory → draw 1 Risk card",
+            "Keep hidden — collect matching sets for trade-ins",
+            "Start collecting early for mid-game army surges"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Completed a full turn: Reinforce, Attack, Fortify, Card",
+            "3 lessons: concentrate forces, always earn a card, always fortify"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Ready for War",
+          "bullets": [
+            "Check out General Tips → continent control and diplomacy",
+            "Reference the Appendix → combat odds and card values",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Secure a Continent Early",
+          "text": "The most important early-game goal is to secure a full continent for the bonus armies. Australia is the easiest to hold because it has only one entry point through Siam. South America is the next best with two entry points. Africa has three. Controlling a continent gives you a reliable stream of bonus armies every turn, which compounds over time."
+        },
+        {
+          "step": 2,
+          "title": "Defend Your Chokepoints",
+          "text": "Every continent has a few border territories that connect to other continents. These are your chokepoints. Stack extra armies on them to discourage attacks. For Australia, the chokepoint is Siam. For South America, it is Central America and Brazil. For North America, it is Alaska, Greenland, and Central America. Losing a chokepoint means losing your continent bonus."
+        },
+        {
+          "step": 3,
+          "title": "Always Earn Your Card",
+          "text": "We cannot stress this enough: conquer at least one territory every turn to draw a Risk card. Cards are the game's escalation mechanic. Late-game trade-ins can give you fifteen, twenty, or more armies at once. A player who misses several card draws early on will be severely outgunned in the mid-game when opponents start trading in sets."
+        },
+        {
+          "step": 4,
+          "title": "Do Not Overextend",
+          "text": "The temptation to conquer everything in sight is strong, but overextension is how empires fall. Every territory you take needs armies to defend it. If you stretch across half the map with one army per territory, a single concentrated attack from an opponent can roll through all of them. Take what you can hold, and fortify before pushing further."
+        },
+        {
+          "step": 5,
+          "title": "Diplomacy Is Temporary",
+          "text": "In a multiplayer game, temporary alliances are essential but dangerous. Agreeing to leave each other alone while you both build up can be mutually beneficial. But remember, there is only one winner in Risk. Eventually, every alliance breaks. Use diplomacy to avoid fighting on two fronts, but never fully trust anyone. The best time to betray an ally is when they least expect it."
+        },
+        {
+          "step": 6,
+          "title": "Target Weak Players Strategically",
+          "text": "Eliminating a player gives you all their Risk cards, which can trigger an enormous army surge. This makes weak players valuable targets. But be careful about weakening yourself to eliminate someone while a stronger opponent watches and waits. Time your eliminations for when the card payout is worth the army cost."
+        },
+        {
+          "step": 7,
+          "title": "Understand Combat Odds",
+          "text": "Risk combat favors the attacker when rolling three dice against two. Statistically, the attacker wins about two out of every three individual matchups. But the defender has the advantage in ties, which means defending with two dice is more efficient per army than attacking with fewer than three. Always attack with three dice when possible, and stack enough armies that you can sustain a prolonged assault."
+        },
+        {
+          "step": 8,
+          "title": "Watch the Card Escalation",
+          "text": "Pay attention to how many Risk cards each opponent holds. When someone has four or five cards, they are one turn away from a massive trade-in. If you can eliminate that player before they trade, you inherit their cards and get the surge instead. Card timing is often more important than territory control in the mid-to-late game."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Secure a Continent Early",
+          "bullets": [
+            "Australia (1 entry) → S. America (2 entries) → Africa (3 entries)",
+            "Continent bonus = reliable army stream each turn",
+            "Bonus compounds over time — secure one ASAP"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Defend Your Chokepoints",
+          "bullets": [
+            "Stack extra armies on continent border territories",
+            "Australia: Siam | S. America: Central America + Brazil",
+            "Losing a chokepoint = losing continent bonus"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Always Earn Your Card",
+          "bullets": [
+            "Conquer 1+ territory every turn for a Risk card",
+            "Late-game trade-ins worth 15-20+ armies",
+            "Missing cards = outgunned in the mid-game"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Do Not Overextend",
+          "bullets": [
+            "Every territory needs armies to defend",
+            "1 army per territory = vulnerable everywhere",
+            "Take what you can hold, fortify before pushing further"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Diplomacy Is Temporary",
+          "bullets": [
+            "Temporary alliances avoid fighting on 2 fronts",
+            "Only 1 winner — every alliance eventually breaks",
+            "Use diplomacy strategically, never trust fully"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Target Weak Players Strategically",
+          "bullets": [
+            "Eliminating a player → inherit all their Risk cards",
+            "Can trigger massive army surges",
+            "Time eliminations for maximum card payout"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Understand Combat Odds",
+          "bullets": [
+            "3 dice vs 2: attacker wins ~2/3 of matchups",
+            "Ties go to defender — defending is more efficient per army",
+            "Always attack with 3 dice when possible"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Watch the Card Escalation",
+          "bullets": [
+            "Track opponent card counts — 4-5 cards = imminent surge",
+            "Eliminate card-heavy players to inherit their cards",
+            "Card timing often more important than territory control"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Australia Turtle",
+          "text": "The most reliable opening strategy is to secure Australia first. It has only one entry point through Siam, making it incredibly easy to defend. Stack a large force on Siam and collect your two bonus armies every turn while opponents fight each other. The downside is that two bonus armies is the smallest continent reward, so you need to expand eventually."
+        },
+        {
+          "step": 2,
+          "title": "Expanding from Australia",
+          "text": "Once Australia is locked down, push into Asia through Siam. Your immediate targets should be Southeast Asian territories that connect to India and the Middle East. Do not try to hold all of Asia immediately. Instead, use Asian territories as a buffer zone and look toward Africa or South America as your second continent. The key is controlled expansion, not a blind rush across the map."
+        },
+        {
+          "step": 3,
+          "title": "The South America Gambit",
+          "text": "South America is the second-easiest continent to hold with only two entry points: Central America and Brazil. Securing it early gives you two bonus armies with manageable defense costs. From South America, you can push into Central America to threaten North America or hold Brazil as a gateway to Africa. This is a strong alternative to the Australia opening."
+        },
+        {
+          "step": 4,
+          "title": "The Card Accumulation Strategy",
+          "text": "Instead of fighting for continents, some players focus on accumulating Risk cards as fast as possible. Take exactly one easy territory per turn to earn a card, avoid big fights, and build up your hand. When you finally trade in a set late in the game, the escalated value gives you a massive army that can sweep across the board in one explosive turn."
+        },
+        {
+          "step": 5,
+          "title": "The Elimination Snowball",
+          "text": "One of the most powerful moves in Risk is eliminating a player and inheriting their cards. If the eliminated player had three or four cards and you already had two, you might be forced to trade in immediately, gaining a huge army boost. Then you use those armies to attack another weakened player, potentially triggering another trade-in. This snowball effect can win the game in a single explosive turn."
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table",
+          "text": "Advanced Risk play is as much about politics as it is about armies. Watch who is fighting whom and position yourself to benefit. If two opponents are locked in a war on one side of the board, they are weakening each other for you. Never attack the strongest player when two weaker ones are available. Let the strong player become everyone's target while you quietly build your position."
+        },
+        {
+          "step": 7,
+          "title": "Fortification Chains",
+          "text": "Your fortify move can transfer armies through an entire connected chain of territories, not just to an adjacent one. This means if you control a path from deep in your territory all the way to a front line, you can slide a huge force from the interior to the border in one move. Plan your territory connections to create efficient fortification highways."
+        },
+        {
+          "step": 8,
+          "title": "Endgame Execution",
+          "text": "In the late game, Risk becomes a race to eliminate opponents and trade cards. The player who times their big move correctly usually wins. Watch for a player who is about to be eliminated and position yourself to deliver the killing blow. Inherit their cards, trade in for a massive army, and use that momentum to sweep the board before opponents can react."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Australia Turtle",
+          "bullets": [
+            "1 entry point (Siam) → easiest to defend",
+            "Stack forces on Siam, collect 2 bonus/turn",
+            "Downside: smallest bonus — must expand eventually"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Expanding from Australia",
+          "bullets": [
+            "Push through Siam into Southeast Asia",
+            "Use Asian territories as buffer zone",
+            "Target Africa or S. America as 2nd continent"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The South America Gambit",
+          "bullets": [
+            "2 entry points: Central America + Brazil",
+            "+2 bonus armies with manageable defense",
+            "Gateway to N. America or Africa expansion"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Card Accumulation Strategy",
+          "bullets": [
+            "Take exactly 1 easy territory/turn for cards",
+            "Avoid big fights — build hand quietly",
+            "Late-game trade-in = massive army for explosive sweep"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Elimination Snowball",
+          "bullets": [
+            "Eliminate player → inherit cards → forced trade-in → huge army",
+            "Use surge to attack next weak player → more cards",
+            "Can win the game in a single explosive chain of eliminations"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Reading the Table",
+          "bullets": [
+            "Let two opponents weaken each other through war",
+            "Never attack the strongest when weaker targets exist",
+            "Position yourself to benefit from others' conflicts"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Fortification Chains",
+          "bullets": [
+            "Fortify moves through entire connected chain, not just adjacent",
+            "Plan territory connections as fortification highways",
+            "Slide large forces from interior to border in 1 move"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Endgame Execution",
+          "bullets": [
+            "Late game = race to eliminate + trade cards",
+            "Position to deliver killing blow on weakest player",
+            "Inherit cards → trade → sweep before opponents react"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Infantry",
+          "definition": "The smallest army piece, worth one army. Used for initial territory claims and fine-grained army placement.",
+          "category": "Components"
+        },
+        {
+          "term": "Cavalry",
+          "definition": "A medium army piece shaped like a horse and rider, worth five Infantry. Used to reduce clutter on the board when you have large forces.",
+          "category": "Components"
+        },
+        {
+          "term": "Artillery",
+          "definition": "The largest army piece shaped like a cannon, worth ten Infantry. Used for very large army stacks.",
+          "category": "Components"
+        },
+        {
+          "term": "Territory",
+          "definition": "One of forty-two named regions on the board. Each territory must always have at least one army on it. Territories are connected by borders or dotted lines showing adjacency.",
+          "category": "Board"
+        },
+        {
+          "term": "Continent",
+          "definition": "A group of territories that provides bonus armies when fully controlled. The six continents are Asia, North America, Europe, Africa, South America, and Australia.",
+          "category": "Board"
+        },
+        {
+          "term": "Adjacency",
+          "definition": "Two territories are adjacent if they share a border or are connected by a dotted line on the board. You can only attack or move between adjacent territories. Some connections cross oceans.",
+          "category": "Board"
+        },
+        {
+          "term": "Reinforce Phase",
+          "definition": "The first phase of each turn. Calculate new armies from territories owned divided by three (minimum three), continent bonuses, and card trade-ins. Place all new armies on owned territories.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Attack Phase",
+          "definition": "The second phase of each turn. Optional. Declare attacks from territories with two or more armies against adjacent enemy territories. Roll dice to resolve combat. Can attack multiple times.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Fortify Phase",
+          "definition": "The third and final phase of each turn. Optional. Move any number of armies from one owned territory to another connected owned territory. Only one move allowed per turn.",
+          "category": "Turn Phases"
+        },
+        {
+          "term": "Risk Card",
+          "definition": "Cards showing a territory name and a unit symbol (Infantry, Cavalry, or Artillery). Earned by conquering at least one territory per turn. Traded in sets for escalating army bonuses.",
+          "category": "Cards"
+        },
+        {
+          "term": "Wild Card",
+          "definition": "Two special Risk cards that can substitute for any unit symbol when forming a trade-in set. Very flexible and valuable.",
+          "category": "Cards"
+        },
+        {
+          "term": "Card Trade-In",
+          "definition": "Trade three Risk cards with matching symbols or one of each for bonus armies. Values escalate: 4, 6, 8, 10, 12, 15, then plus five each. If a traded card matches an owned territory, place two extra armies there.",
+          "category": "Cards"
+        },
+        {
+          "term": "Attacker Dice",
+          "definition": "Three red dice used by the attacking player. The attacker can roll up to three dice but must have at least one more army in the territory than dice rolled.",
+          "category": "Combat"
+        },
+        {
+          "term": "Defender Dice",
+          "definition": "Two white dice used by the defending player. The defender can roll up to two dice and must have at least as many armies as dice rolled.",
+          "category": "Combat"
+        },
+        {
+          "term": "Ties Go to Defender",
+          "definition": "When comparing matched dice pairs, if the attacker and defender roll the same number, the defender wins that comparison. The attacker must roll strictly higher to win.",
+          "category": "Combat"
+        },
+        {
+          "term": "Conquest",
+          "definition": "When the defender loses all armies in a territory, the attacker must move in at least as many armies as dice rolled on the final attack. The conquered territory changes ownership.",
+          "category": "Combat"
+        },
+        {
+          "term": "Elimination",
+          "definition": "A player is eliminated when they lose their last territory. The conquering player inherits all of the eliminated player's Risk cards. If this brings the total to six or more, sets must be traded immediately.",
+          "category": "Combat"
+        },
+        {
+          "term": "Chokepoint",
+          "definition": "A territory on the border of a continent that connects to another continent. Defending chokepoints is critical for maintaining continent bonuses. Fewer chokepoints make a continent easier to hold.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Turtling",
+          "definition": "A strategy of holding a defensible position like Australia and building up strength before expanding. Effective early but risky if opponents grow faster.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Blitz",
+          "definition": "A variant combat rule where the attacker and defender roll repeatedly until one side wins or the attacker retreats. Speeds up large battles significantly.",
+          "category": "Variants"
+        },
+        {
+          "term": "Mission Variant",
+          "definition": "Each player draws a secret mission card at the start. The first player to complete their mission wins, replacing the total domination victory condition.",
+          "category": "Variants"
+        }
+      ]
+    }
+  }
+}

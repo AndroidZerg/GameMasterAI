@@ -1,0 +1,997 @@
+{
+  "game_id": "sagrada",
+  "title": "Sagrada",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Round Track",
+          "text": "Let's set up Sagrada. First, find the Round Track and place it near the center of the table. This double-sided piece has a Round Track on one side for tracking the ten rounds of play, and a Score Track on the back for final scoring. Start with the Round Track side face up."
+        },
+        {
+          "step": 2,
+          "title": "Reveal Tool Cards",
+          "text": "Shuffle all twelve Tool Cards and reveal three of them face up near the Round Track. These three tools will be available to all players throughout the game. Each tool lets you bend the normal placement rules in a specific way, but they cost Favor Tokens to use. Set the remaining tool cards aside."
+        },
+        {
+          "step": 3,
+          "title": "Reveal Public Objectives",
+          "text": "Shuffle all ten Public Objective Cards and reveal three face up near the tools. These three objectives are the shared scoring goals that all players will try to fulfill. Public objectives reward patterns like sets of different colors, specific value combinations, or complete rows and columns. Set the remaining objective cards aside."
+        },
+        {
+          "step": 4,
+          "title": "Fill the Dice Bag",
+          "text": "Find all ninety dice, eighteen each in five colors: red, yellow, green, blue, and purple. Place every single die into the cloth dice bag and give it a good mix. These dice represent the glass pieces you will be placing in your stained glass window throughout the game."
+        },
+        {
+          "step": 5,
+          "title": "Deal Private Objectives",
+          "text": "Shuffle the five Private Objective Cards and deal one face down to each player. Look at your card but keep it secret. Your private objective tells you which color of dice scores bonus points for you at the end of the game. You will score the sum of all pip values on dice of your private color in your finished window."
+        },
+        {
+          "step": 6,
+          "title": "Deal Window Pattern Cards",
+          "text": "Deal two random Window Pattern Cards to each player. Each card has a different pattern on each side, giving you four options to choose from. The patterns show colored spaces, numbered spaces, and blank white spaces. Colored spaces require a die of that exact color. Numbered spaces require a die of that exact value."
+        },
+        {
+          "step": 7,
+          "title": "Give Out Window Frames",
+          "text": "Give each player one Window Frame Player Board. This is the frame that holds your chosen window pattern. The frame has a groove at the bottom where you slide your chosen pattern card into place. Each player's window is a four-by-five grid of spaces where dice will be placed."
+        },
+        {
+          "step": 8,
+          "title": "Choose Your Window Pattern",
+          "text": "Now each player chooses one of their four pattern options. Look at the difficulty number in the bottom corner of each pattern, ranging from three to six. Higher difficulty gives you more Favor Tokens but also has more restrictions. Consider your private objective color when choosing. A pattern with many spaces matching your private color can score well."
+        },
+        {
+          "step": 9,
+          "title": "Collect Favor Tokens",
+          "text": "After choosing your pattern, take Favor Tokens from the supply equal to your pattern's difficulty number. A difficulty three pattern gives you three tokens, a difficulty six pattern gives you six. Favor Tokens are your currency for using Tool Cards. Each unspent token is also worth one VP at the end of the game, so spend them wisely."
+        },
+        {
+          "step": 10,
+          "title": "Place Score Markers",
+          "text": "Each player takes a Score Marker in their color and places it near the Round Track. You will use these on the Score Track side during final scoring."
+        },
+        {
+          "step": 11,
+          "title": "Choose the Starting Player",
+          "text": "Randomly choose who goes first. The rulebook suggests the most recent cathedral visitor. Give the dice bag to the starting player. The bag passes clockwise each round, and whoever holds the bag is that round's start player. You are ready to begin. Let's learn the rules."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Round Track",
+          "bullets": [
+            "Round Track side up in center of table",
+            "Score Track on reverse for endgame scoring"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Reveal Tool Cards",
+          "bullets": [
+            "Shuffle 12 Tool Cards → reveal 3 face up",
+            "Available to all players, cost Favor Tokens to use"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Reveal Public Objectives",
+          "bullets": [
+            "Shuffle 10 Public Objective Cards → reveal 3 face up",
+            "Shared scoring goals: color sets, value combos, row/column completion"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Fill the Dice Bag",
+          "bullets": [
+            "90 dice total: 18 each in red, yellow, green, blue, purple",
+            "All dice into cloth bag, mix well"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Deal Private Objectives",
+          "bullets": [
+            "1 Private Objective per player, face down, keep secret",
+            "Scores sum of pip values for dice of your private color"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Deal Window Pattern Cards",
+          "bullets": [
+            "2 cards per player (4 patterns: front/back of each)",
+            "Colored spaces = require that color, numbered spaces = require that value"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Give Out Window Frames",
+          "bullets": [
+            "1 Window Frame per player",
+            "Slide chosen pattern into bottom groove",
+            "Grid = 4 rows × 5 columns"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Choose Your Window Pattern",
+          "bullets": [
+            "Pick 1 of 4 options, difficulty 3-6",
+            "Higher difficulty = more Favor Tokens but more restrictions",
+            "Consider private objective color when choosing"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Collect Favor Tokens",
+          "bullets": [
+            "Take Favor Tokens = pattern difficulty number",
+            "Currency for Tool Cards + 1 VP each if unspent"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Place Score Markers",
+          "bullets": [
+            "1 Score Marker per player near Round Track"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Choose the Starting Player",
+          "bullets": [
+            "Random start player holds dice bag",
+            "Bag passes clockwise each round"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Sagrada is played over exactly ten rounds. Each round, dice are drawn from the bag, rolled, and placed into a shared Draft Pool. Players take turns drafting one die at a time and placing it into their window grid. The goal is to fill your stained glass window while scoring as many points as possible from public objectives, your private objective, and leftover Favor Tokens."
+        },
+        {
+          "step": 2,
+          "title": "The Draft Pool",
+          "text": "At the start of each round, the start player draws dice from the bag and rolls them. The number of dice depends on player count: five dice for two players, seven for three, nine for four. The formula is two dice per player plus one extra. These rolled dice form the Draft Pool for the round, and everyone will be drafting from this shared pool."
+        },
+        {
+          "step": 3,
+          "title": "The Snake Draft",
+          "text": "Turns follow a snake draft pattern each round. First, each player takes one turn in clockwise order. Then the order reverses, and each player takes a second turn in counterclockwise order. This means the last player in clockwise order gets two consecutive turns. The snake draft helps balance the advantage of going first versus going last."
+        },
+        {
+          "step": 4,
+          "title": "Your Turn: Two Actions",
+          "text": "On your turn, you may take up to two actions in any order. First, you may draft one die from the Pool and place it in your window. Second, you may use one Tool Card by spending Favor Tokens. You can do both, just one, or neither. You never have to draft a die if no legal placement exists or if you choose to pass."
+        },
+        {
+          "step": 5,
+          "title": "Die Placement: First Die",
+          "text": "Your very first die of the game must be placed on an edge or corner space of your window grid. You cannot start in the middle. This means your first placement options are limited to the sixteen spaces along the border of your four-by-five grid."
+        },
+        {
+          "step": 6,
+          "title": "Die Placement: Adjacency Rule",
+          "text": "After your first die, every subsequent die must be placed adjacent to an existing die in your window. Adjacent means touching orthogonally or diagonally, so each die has up to eight possible neighbor positions. You cannot place a die in an isolated spot with no neighbors."
+        },
+        {
+          "step": 7,
+          "title": "Die Placement: Restriction Matching",
+          "text": "Your window pattern has three types of spaces. Colored spaces require a die of that exact color. Numbered spaces require a die of that exact value. White spaces accept any die as long as all other rules are followed. Always check the pattern restriction before placing."
+        },
+        {
+          "step": 8,
+          "title": "Die Placement: Orthogonal Conflicts",
+          "text": "This is the trickiest rule. No two orthogonally adjacent dice may share the same color. No two orthogonally adjacent dice may share the same value. Diagonal neighbors can match freely. This means every die you place must differ from its up, down, left, and right neighbors in both color and value. This constraint gets increasingly difficult as your window fills up."
+        },
+        {
+          "step": 9,
+          "title": "Using Tool Cards",
+          "text": "Tool Cards let you bend the normal rules. Each tool has a specific effect, like moving a die you already placed, changing a die's value, or ignoring a placement restriction for one placement. To use a tool, spend Favor Tokens and place them on the Tool Card. The first player to use a particular tool pays one token. Every use after that costs two tokens."
+        },
+        {
+          "step": 10,
+          "title": "End of Round Cleanup",
+          "text": "After all players have taken both turns, any dice remaining in the Draft Pool are placed on the current round space of the Round Track. These leftover dice accumulate on the track throughout the game. Then pass the dice bag clockwise. The player who receives the bag is the start player for the next round."
+        },
+        {
+          "step": 11,
+          "title": "Public Objective Scoring",
+          "text": "At game end, each of the three Public Objective Cards scores for all players. Public objectives reward patterns in your window. Some reward complete rows or columns with no repeated colors or values. Some reward sets of dice meeting specific criteria. You can score each public objective multiple times if you meet the condition multiple times."
+        },
+        {
+          "step": 12,
+          "title": "Private Objective Scoring",
+          "text": "Your Private Objective scores the sum of pip values on all dice of your secret color in your window. If your private color is green and you have four green dice showing values two, three, five, and six, your private objective scores sixteen points. This makes your private color extremely valuable to draft."
+        },
+        {
+          "step": 13,
+          "title": "Favor Token Scoring and Penalties",
+          "text": "Each unspent Favor Token is worth one VP at game end. Every empty space in your window costs you one VP. Filling your window completely avoids penalties and maximizes scoring opportunities. Balance spending tokens on tools versus keeping them for their point value."
+        },
+        {
+          "step": 14,
+          "title": "Final Scoring and Winning",
+          "text": "Flip the Round Track to its Score Track side. Add up VP from three Public Objectives, your Private Objective, and unspent Favor Tokens. Subtract one VP per empty space. The highest total wins. Tiebreakers go to most Private Objective points, then most remaining Favor Tokens, then reverse player order in the final round."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "10 rounds of dice drafting and window building",
+            "Draft dice from shared pool → place in your grid",
+            "Score from public objectives + private objective + unspent tokens - empty spaces"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Draft Pool",
+          "bullets": [
+            "Start player draws and rolls dice: 2 per player + 1",
+            "2P = 5 dice, 3P = 7 dice, 4P = 9 dice"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Snake Draft",
+          "bullets": [
+            "Clockwise: each player takes 1 turn",
+            "Counterclockwise: each player takes 2nd turn",
+            "Last clockwise player gets 2 consecutive turns"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Your Turn: Two Actions",
+          "bullets": [
+            "Action A: Draft 1 die → place in window",
+            "Action B: Use 1 Tool Card (spend Favor Tokens)",
+            "May do both, one, or neither in any order"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Die Placement: First Die",
+          "bullets": [
+            "First die MUST go on edge/corner space",
+            "16 possible starting positions on the 4×5 grid"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Die Placement: Adjacency Rule",
+          "bullets": [
+            "Every die after first must touch an existing die",
+            "Adjacent = orthogonal OR diagonal (up to 8 neighbors)",
+            "No isolated placements"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Die Placement: Restriction Matching",
+          "bullets": [
+            "Colored space = requires exact color match",
+            "Numbered space = requires exact value match",
+            "White space = any die if other rules obeyed"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Die Placement: Orthogonal Conflicts",
+          "bullets": [
+            "No same color orthogonally adjacent",
+            "No same value orthogonally adjacent",
+            "Diagonal neighbors CAN match",
+            "Gets harder as window fills"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Using Tool Cards",
+          "bullets": [
+            "Each tool bends a specific rule",
+            "First use of that tool: 1 Favor Token",
+            "Later uses: 2 Favor Tokens",
+            "Max 1 tool per turn"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "End of Round Cleanup",
+          "bullets": [
+            "Leftover Draft Pool dice → placed on Round Track space",
+            "Pass dice bag clockwise → new start player"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Public Objective Scoring",
+          "bullets": [
+            "3 shared objectives scored by all players",
+            "Reward patterns: color sets, value combos, row/column completion",
+            "Can score each multiple times if condition met multiple times"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Private Objective Scoring",
+          "bullets": [
+            "Sum pip values of all dice matching your secret color",
+            "Example: 4 green dice (2+3+5+6) = 16 points"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Favor Token Scoring and Penalties",
+          "bullets": [
+            "Each unspent Favor Token = +1 VP",
+            "Each empty space = -1 VP",
+            "Balance: spend tokens on tools vs keep for VP"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Final Scoring and Winning",
+          "bullets": [
+            "Total = Public Objectives + Private Objective + Favor Tokens - Empty Spaces",
+            "Tiebreak: most private objective points → most tokens → reverse final round order"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Cathedral",
+          "text": "Welcome to your first round of Sagrada! In this practice tutorial, we will walk through a scripted first round with three players. Each player has a different window pattern and private objective. We will practice drafting dice, placing them legally, and see some common mistakes. Let's build some stained glass."
+        },
+        {
+          "step": 2,
+          "title": "The Starting Setup",
+          "text": "Player one has a difficulty four pattern with mostly color restrictions. Player two chose a difficulty five pattern with many number restrictions. Player three picked a difficulty three pattern that is mostly open white spaces. Each player has received Favor Tokens matching their difficulty. The three public objectives reward sets of different colors in a row, pairs of specific values, and complete columns."
+        },
+        {
+          "step": 3,
+          "title": "Rolling the Draft Pool",
+          "text": "With three players, we draw seven dice from the bag. The start player reaches in, pulls out seven random dice, and rolls them all. We get a red three, blue five, green two, yellow four, purple one, green six, and blue three. These seven dice form our Draft Pool for the round. Let's start drafting."
+        },
+        {
+          "step": 4,
+          "title": "Player One: First Placement",
+          "text": "Player one looks at their window pattern. They find a blue restriction space on the top-left corner. The blue five from the pool fits perfectly. They draft the blue five and place it on that corner space. Since this is their first die, it must go on an edge or corner, and this corner space has a blue restriction. The color matches. A clean, legal placement."
+        },
+        {
+          "step": 5,
+          "title": "Player Two: First Placement",
+          "text": "Player two has a number four restriction on the right edge. The yellow four is a perfect match. They draft it and place it on that edge space. Player two also noted that yellow is their private objective color, so this die will score four points toward their private objective at game end. Smart drafting considers both placement needs and private scoring."
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Ignoring Edge Rule",
+          "text": "Player three looks at the green two and wants to place it in the center of their window on a number two restriction space. But wait. This is their first die, and it must go on an edge or corner. The center is illegal for a first placement. Player three has to reconsider and find an edge or corner space that works."
+        },
+        {
+          "step": 7,
+          "title": "Lesson: First Die Must Be on the Border",
+          "text": "Your very first die of the entire game must go on one of the sixteen edge or corner spaces of your grid. This is easy to forget because the center often has tempting restriction matches. Plan your first placement carefully. Ideally, start on an edge that lets you build toward the center over the next few rounds."
+        },
+        {
+          "step": 8,
+          "title": "Player Three Corrects and Places",
+          "text": "Player three finds the green two can go on a bottom-left corner space that has no restriction, which is a white space. It is on the edge, so the first die rule is satisfied. The green two is placed legally. Now the snake draft reverses direction."
+        },
+        {
+          "step": 9,
+          "title": "Second Turn: Snake Draft Reversal",
+          "text": "Now the order reverses. Player three gets their second turn first, then Player two, then Player one. Player three drafts the purple one and places it adjacent to their green two. The colors differ and the values differ, so the orthogonal conflict rule is satisfied."
+        },
+        {
+          "step": 10,
+          "title": "Player Two's Mistake: Orthogonal Color Conflict",
+          "text": "Player two wants to draft the blue three and place it directly to the left of their yellow four. But they already have plans for a yellow die next round in the space above the blue three's target spot. They place the blue three. Then on a future turn, when they try to place a blue die directly above this blue three, they realize blue cannot be orthogonally adjacent to blue. They have blocked themselves."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Think Two Moves Ahead",
+          "text": "The orthogonal conflict rule means every placement affects future options. Before placing a die, look at the empty spaces around it. What colors and values might you need there later? If you place a blue three next to a space that requires blue, you have created a conflict. Always scan the nearby restrictions and plan at least two placements ahead."
+        },
+        {
+          "step": 12,
+          "title": "Player One Drafts Strategically",
+          "text": "Player one drafts the green six. Their private objective is green, so this die scores six points toward their private objective. They place it on a white space adjacent to their blue five. Blue and green differ in color, five and six differ in value. Perfectly legal. Player one is building their window while maximizing private objective scoring."
+        },
+        {
+          "step": 13,
+          "title": "Leftover Dice Go to the Round Track",
+          "text": "After all players have taken both turns, one die remains in the Draft Pool. The red three goes onto the round one space of the Round Track. These leftover dice accumulate throughout the game. The dice bag passes clockwise, and the new holder becomes start player for round two."
+        },
+        {
+          "step": 14,
+          "title": "Player Two's Mistake: Wasting Favor Tokens",
+          "text": "In round two, Player two spends two Favor Tokens on a Tool Card to slightly adjust a die value from three to four. The benefit is marginal because they could have found a legal placement without the tool. Two tokens spent for very little gain. Those tokens would have been worth two VP at game end, which is a high price for a minor convenience."
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Spend Tokens Only for High-Impact Tools",
+          "text": "Favor Tokens are both a tool currency and victory points. Every token spent is a point lost. Only use tools when they solve a real problem: fixing a placement that would otherwise create a dead space, enabling a high-value die placement, or preventing an empty space penalty. Do not use tools for marginal improvements that you could work around with different drafting."
+        },
+        {
+          "step": 16,
+          "title": "How the Game Develops",
+          "text": "As rounds progress, your window fills up and the orthogonal conflict rule becomes increasingly challenging. By round seven or eight, you may find that only certain dice from the Draft Pool can legally fit in your remaining spaces. This is why early placement planning matters so much. The players who think ahead have more options in the late game."
+        },
+        {
+          "step": 17,
+          "title": "Continue Playing",
+          "text": "Play continues for all ten rounds. Each round adds more dice to your window and more leftover dice to the Round Track. Keep your Public Objectives and Private Objective in mind with every draft decision. The player who balances all scoring sources while minimizing empty spaces will come out on top."
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "text": "Congratulations on completing your first practice round of Sagrada! You have learned the draft and placement rules, seen the snake draft in action, and encountered three common mistakes. Remember: first die goes on the edge, check orthogonal neighbors before placing, and spend Favor Tokens only when the impact is worth the point you are giving up."
+        },
+        {
+          "step": 19,
+          "title": "Before You Build",
+          "text": "Before you start a full game, here are three things that can help.\n\nFirst, check out General Tips for strategy basics on drafting and window planning.\n\nSecond, reference the Appendix for a quick guide to placement rules and tool effects.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun building!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Cathedral",
+          "bullets": [
+            "Scripted tutorial with 3 players, different patterns and objectives",
+            "Covers first round drafting, placement, and common mistakes"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Starting Setup",
+          "bullets": [
+            "Player 1: difficulty 4 (color-heavy), Player 2: difficulty 5 (number-heavy), Player 3: difficulty 3 (mostly open)",
+            "3 public objectives + 1 private each"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Rolling the Draft Pool",
+          "bullets": [
+            "3 players = 7 dice drawn and rolled",
+            "Dice form shared Draft Pool for the round"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player One: First Placement",
+          "bullets": [
+            "Drafts blue 5 → places on blue corner space",
+            "First die on edge/corner, color restriction matched"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Two: First Placement",
+          "bullets": [
+            "Drafts yellow 4 → places on number-4 edge space",
+            "Yellow = private objective color → scores 4 toward private"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Ignoring Edge Rule",
+          "bullets": [
+            "Tries to place first die in center → illegal",
+            "First die MUST go on edge/corner space"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: First Die Must Be on the Border",
+          "bullets": [
+            "16 legal edge/corner spaces for first placement",
+            "Start on edge that enables building toward center"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player Three Corrects and Places",
+          "bullets": [
+            "Green 2 placed on bottom-left corner white space",
+            "Edge rule satisfied, no restrictions violated"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Second Turn: Snake Draft Reversal",
+          "bullets": [
+            "Order reverses: Player 3 → Player 2 → Player 1",
+            "Player 3 places purple 1 adjacent to green 2 (legal)"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player Two's Mistake: Orthogonal Color Conflict",
+          "bullets": [
+            "Places blue die near space that will need blue later",
+            "Same color can't be orthogonally adjacent → blocked themselves"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Think Two Moves Ahead",
+          "bullets": [
+            "Every placement affects future options",
+            "Scan nearby restrictions before placing",
+            "Plan at least 2 placements ahead"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player One Drafts Strategically",
+          "bullets": [
+            "Green 6 drafted → 6 points toward private objective (green)",
+            "Placed on white space adjacent to blue 5 (all rules satisfied)"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Leftover Dice Go to the Round Track",
+          "bullets": [
+            "1 remaining die placed on round 1 space",
+            "Dice bag passes clockwise → new start player"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player Two's Mistake: Wasting Favor Tokens",
+          "bullets": [
+            "Spends 2 tokens for marginal tool use",
+            "Could have found legal placement without tool",
+            "2 tokens = 2 VP lost for minimal benefit"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Spend Tokens Only for High-Impact Tools",
+          "bullets": [
+            "Every token spent = 1 VP lost at game end",
+            "Only use tools for real problems: dead spaces, critical placements",
+            "Don't use tools for minor convenience"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "How the Game Develops",
+          "bullets": [
+            "Window fills → orthogonal conflicts get harder",
+            "Rounds 7-10: only certain dice may legally fit",
+            "Early planning = more late-game options"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Continue Playing",
+          "bullets": [
+            "10 rounds total, each adds dice to window and Round Track",
+            "Balance public + private objectives + minimize empty spaces"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced drafting, snake draft, and placement rules",
+            "3 mistakes: edge rule, orthogonal conflict, token waste",
+            "Key lessons: edge first, check neighbors, spend tokens wisely"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Before You Build",
+          "bullets": [
+            "Check out General Tips → drafting and window planning",
+            "Reference the Appendix → placement rules and tool effects",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest beginner traps in Sagrada. First, placing your first die in a corner that blocks future expansion. Start somewhere that keeps multiple paths open. Second, ignoring orthogonal conflicts until you get stuck in the late game. Always check the four cardinal neighbors before placing. Third, burning Favor Tokens on low-impact tool uses. Each token is worth a point, so the tool benefit must exceed one VP to be worthwhile."
+        },
+        {
+          "step": 2,
+          "title": "Window Pattern Selection",
+          "text": "When choosing your window pattern, consider three things. First, does the pattern have spaces that match your private objective color? More matching spaces mean more opportunities to score your private color. Second, how restrictive is the pattern? Patterns with many colored and numbered spaces are harder to fill but give more Favor Tokens. Third, does the pattern naturally support the public objectives? If a public objective rewards all different colors in a row, a pattern with color variety built in gives you a head start."
+        },
+        {
+          "step": 3,
+          "title": "Draft for Your Private Objective",
+          "text": "Your private objective is a massive scoring source. If your private color is blue, every blue die you place scores its full pip value. A blue six is worth six private points on its own. When choosing between two equally legal placements, always lean toward your private color. High-value dice of your private color are your most valuable drafts."
+        },
+        {
+          "step": 4,
+          "title": "Build From the Edges In",
+          "text": "Since your first die must go on the edge, plan your expansion route inward. The most flexible approach is to start from a corner and build in an L-shape, giving yourself multiple adjacency options for future dice. Avoid building in a straight line along one edge because that limits your next placements to a narrow path. Keep at least two or three open adjacency points at all times."
+        },
+        {
+          "step": 5,
+          "title": "Identify Hard Spaces Early",
+          "text": "Look at your window and identify the two or three hardest spaces to fill. These are spaces with tight restrictions surrounded by other restricted spaces. Plan your placement route to reach these hard spaces while you still have draft flexibility. If you leave the hardest spaces for the last few rounds, you may find that no available dice can legally fill them."
+        },
+        {
+          "step": 6,
+          "title": "Public Objective Awareness",
+          "text": "The three public objectives are shared by everyone, so they represent the highest-value scoring opportunities. Study them before your first draft. If one objective rewards all five different colors in a row, start thinking about which row you will dedicate to that pattern. Public objectives that can be scored multiple times are especially valuable because they reward concentrated effort."
+        },
+        {
+          "step": 7,
+          "title": "Tool Card Timing",
+          "text": "Tools become more valuable as your window fills up. In the early game, you usually have plenty of legal placements. In the late game, a tool that moves a die or changes a value can save you from an empty space penalty. Consider saving your Favor Tokens for rounds seven through ten when tools provide the biggest rescue value. The exception is a tool that fundamentally restructures your window early for a massive scoring advantage."
+        },
+        {
+          "step": 8,
+          "title": "Snake Draft Positioning",
+          "text": "The snake draft means your position in the turn order shifts every round. When you are first to draft, pick the die that best advances your private objective or fills a critical restriction. When you are last before the reversal, you get two consecutive picks, which lets you plan a mini-combo. Think about both your picks during the reversal window and draft the more contested die first."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't block expansion with your first placement",
+            "Don't ignore orthogonal conflicts until it's too late",
+            "Don't burn Favor Tokens on low-impact tool uses"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Window Pattern Selection",
+          "bullets": [
+            "Match spaces to private objective color",
+            "Higher difficulty = more tokens but harder to fill",
+            "Check if pattern naturally supports public objectives"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Draft for Your Private Objective",
+          "bullets": [
+            "Private color dice score full pip value",
+            "Blue 6 = 6 private points on its own",
+            "Always lean toward private color when equally legal"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Build From the Edges In",
+          "bullets": [
+            "Start corner → build L-shape for multiple adjacency options",
+            "Avoid straight-line edge builds (limits future paths)",
+            "Keep 2-3 open adjacency points at all times"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Identify Hard Spaces Early",
+          "bullets": [
+            "Find 2-3 tightest restriction spaces in your window",
+            "Plan route to reach them while draft is flexible",
+            "Leaving hard spaces for last = likely empty space penalties"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Public Objective Awareness",
+          "bullets": [
+            "Study all 3 public objectives before first draft",
+            "Plan which rows/columns to dedicate to each pattern",
+            "Multi-score objectives = highest value"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Tool Card Timing",
+          "bullets": [
+            "Early game: usually plenty of legal placements (save tokens)",
+            "Rounds 7-10: tools rescue from empty space penalties",
+            "Exception: early structural tool use for massive scoring advantage"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Snake Draft Positioning",
+          "bullets": [
+            "First pick: best private objective or critical restriction die",
+            "Last before reversal: 2 consecutive picks enable combos",
+            "Draft contested die first during reversal window"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Private Objective Maximization",
+          "text": "Your private objective can easily score twenty or more points if you prioritize it. Count the spaces in your window where your private color could legally go. Aim to place five or six dice of your private color with high pip values. A window with five blue dice averaging four pips each scores twenty points from the private objective alone. Draft aggressively for your color, especially high-value dice."
+        },
+        {
+          "step": 2,
+          "title": "Public Objective Stacking",
+          "text": "The strongest scoring comes from fulfilling public objectives multiple times. If the objective is 'all five different colors in a row,' completing it in two separate rows doubles the score. Plan your window layout to overlap multiple objectives. A row that scores for both a color variety objective and a value variety objective is twice as valuable as one that only hits a single objective."
+        },
+        {
+          "step": 3,
+          "title": "Constraint Mapping",
+          "text": "Before your first draft, map out your entire window mentally. Identify which spaces are tightly constrained by color or value requirements. Then identify which spaces are white and flexible. Your strategy should route through constrained spaces first when the Draft Pool offers matching dice, and use flexible spaces as buffers that can absorb whatever is left. Constrained spaces dictate your path through the grid."
+        },
+        {
+          "step": 4,
+          "title": "Denial Drafting",
+          "text": "In a competitive game, watch what your opponents need. If Player two desperately needs a yellow die to complete a row and there is only one yellow in the pool, drafting it denies them significant points. Denial is most valuable when the VP impact on your opponent exceeds the VP cost to you of taking a suboptimal die. This calculus becomes more important in two-player games where you directly compete for dice."
+        },
+        {
+          "step": 5,
+          "title": "Empty Space Avoidance",
+          "text": "Each empty space costs one VP, but more importantly, empty spaces often represent missed opportunities for public and private objective scoring. A single empty space might cost you one penalty VP plus five or more opportunity VP from an incomplete row or missing private color die. Preventing empty spaces should be a top priority from round six onward. Use tools specifically to avoid dead spaces."
+        },
+        {
+          "step": 6,
+          "title": "Tool Card Mastery",
+          "text": "Each Tool Card fundamentally changes how you play. A tool that lets you move a placed die opens up restructuring plays that would otherwise be impossible. A tool that ignores color restrictions for one placement lets you break through constraint bottlenecks. A tool that lets you flip a die to its opposite value turns a one into a six. Learn all twelve tools so you can instantly recognize when one creates a high-value play."
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Draft Pool Reading",
+          "text": "In rounds eight through ten, your remaining open spaces have very specific requirements. Before the dice are rolled, know exactly which colors and values can legally fill each space. When the Draft Pool is revealed, immediately identify which dice fit your needs and which are contested. Having a pre-planned priority list for each draft lets you make fast, optimal decisions under pressure."
+        },
+        {
+          "step": 8,
+          "title": "Scoring Optimization Math",
+          "text": "In the final scoring calculation, the most common trap is focusing on one source at the expense of others. A player who maxes out their private objective at twenty-five points but scores zero from public objectives and has four empty spaces might lose to a balanced player with fifteen private, twelve public, four tokens, and zero empty spaces. Total every source as you play and adjust your strategy to maximize the combined total, not just one component."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Private Objective Maximization",
+          "bullets": [
+            "Aim for 5-6 dice of private color with high pip values",
+            "5 dice × avg 4 pips = 20 private points",
+            "Draft aggressively for private color, especially 5s and 6s"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Public Objective Stacking",
+          "bullets": [
+            "Fulfill each public objective multiple times for double/triple scoring",
+            "Plan rows/columns that overlap 2+ objectives",
+            "Multi-objective rows = highest value placements"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Constraint Mapping",
+          "bullets": [
+            "Map constrained spaces vs flexible white spaces before first draft",
+            "Route through constrained spaces first when matching dice available",
+            "White spaces = buffers for whatever remains"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Denial Drafting",
+          "bullets": [
+            "Watch opponents' needs — deny key dice when impact is high",
+            "Denial value must exceed cost of suboptimal self-placement",
+            "Most impactful in 2-player games"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Empty Space Avoidance",
+          "bullets": [
+            "Empty space = -1 VP penalty + missed objective VP",
+            "1 empty space can cost 5+ total VP (penalty + opportunity)",
+            "Priority from round 6 onward — use tools to prevent dead spaces"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Tool Card Mastery",
+          "bullets": [
+            "Move die = restructuring, ignore color = break bottleneck",
+            "Flip die (1↔6, 2↔5, 3↔4) = value manipulation",
+            "Learn all 12 tools to recognize high-value plays instantly"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Late-Game Draft Pool Reading",
+          "bullets": [
+            "Rounds 8-10: know exact color/value needs per open space",
+            "Pre-plan priority list before dice are rolled",
+            "Fast optimal decisions under pressure"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Scoring Optimization Math",
+          "bullets": [
+            "Don't tunnel on 1 scoring source — maximize combined total",
+            "Balanced 15 private + 12 public + 4 tokens + 0 empty often beats",
+            "25 private + 0 public + 0 tokens + 4 empty",
+            "Track all sources as you play, adjust accordingly"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Window Pattern",
+          "definition": "A card slid into the bottom of your frame board showing a four-by-five grid of placement restrictions. Spaces can be colored (require matching die color), numbered (require matching die value), or white (accept any die).",
+          "category": "Components"
+        },
+        {
+          "term": "Window Frame",
+          "definition": "The player board that holds your window pattern card. Each player has one frame with a groove at the bottom for the pattern card. The frame displays your four-by-five placement grid.",
+          "category": "Components"
+        },
+        {
+          "term": "Dice Bag",
+          "definition": "The cloth bag containing all ninety dice. The start player draws dice from the bag each round. The bag passes clockwise after each round.",
+          "category": "Components"
+        },
+        {
+          "term": "Draft Pool",
+          "definition": "The set of dice drawn and rolled each round. Two per player plus one extra. All players draft from this shared pool during the round.",
+          "category": "Components"
+        },
+        {
+          "term": "Round Track",
+          "definition": "A track with ten spaces where leftover dice are placed at the end of each round. Flips to the Score Track for final scoring.",
+          "category": "Components"
+        },
+        {
+          "term": "Score Track",
+          "definition": "The reverse side of the Round Track used during final scoring to tally each player's VP total.",
+          "category": "Components"
+        },
+        {
+          "term": "Favor Tokens",
+          "definition": "Tokens received during setup equal to your window's difficulty number. Spent to use Tool Cards. Each unspent token is worth one VP at game end. Twenty-four total in the supply.",
+          "category": "Components"
+        },
+        {
+          "term": "Score Markers",
+          "definition": "Colored markers for tracking each player's final score on the Score Track. Flip markers if score exceeds fifty.",
+          "category": "Components"
+        },
+        {
+          "term": "Tool Cards",
+          "definition": "Twelve possible tools, three revealed each game. Each bends a specific placement or die-manipulation rule. First use costs one Favor Token, subsequent uses cost two.",
+          "category": "Cards"
+        },
+        {
+          "term": "Public Objective Cards",
+          "definition": "Ten possible objectives, three revealed each game. Shared scoring goals rewarding specific patterns in your window. Can be scored multiple times if conditions are met repeatedly.",
+          "category": "Cards"
+        },
+        {
+          "term": "Private Objective Cards",
+          "definition": "Five cards, one per color. Each player receives one secretly. Scores the sum of pip values on all dice of your private color in your finished window.",
+          "category": "Cards"
+        },
+        {
+          "term": "First Die Rule",
+          "definition": "Your very first die of the game must be placed on an edge or corner space of your window. Sixteen legal starting positions on the four-by-five grid.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Adjacency Rule",
+          "definition": "After your first die, every subsequent die must be placed touching an existing die orthogonally or diagonally. No isolated placements allowed.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Color Restriction",
+          "definition": "A colored space on your window pattern requires a die of that exact color. Five possible colors: red, yellow, green, blue, purple.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Value Restriction",
+          "definition": "A numbered space on your window pattern requires a die showing that exact pip value. Values range from one to six.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "White Space",
+          "definition": "An unrestricted space on your window pattern that accepts any die color and value, as long as orthogonal conflict rules are obeyed.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Orthogonal Color Conflict",
+          "definition": "No two dice that are directly adjacent up, down, left, or right may share the same color. Diagonal neighbors are exempt from this rule.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Orthogonal Value Conflict",
+          "definition": "No two dice that are directly adjacent up, down, left, or right may share the same pip value. Diagonal neighbors are exempt from this rule.",
+          "category": "Placement Rules"
+        },
+        {
+          "term": "Snake Draft",
+          "definition": "The turn order pattern each round. First pass goes clockwise, second pass reverses counterclockwise. The last player in clockwise order gets two consecutive picks.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Tool Card Cost",
+          "definition": "First use of a specific Tool Card costs one Favor Token. Every subsequent use of that same card costs two tokens. Tokens are placed on the card when spent.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Difficulty Rating",
+          "definition": "A number from three to six on each window pattern. Determines how many Favor Tokens you receive. Higher difficulty means more tokens but more restrictive spaces in the pattern.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Empty Space Penalty",
+          "definition": "At game end, each empty (unfilled) space in your window costs one VP. Filling your entire window avoids all penalties.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Private Objective Scoring",
+          "definition": "Sum the pip values of all dice matching your private color in your finished window. A major scoring source that can reach twenty or more points.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Public Objective Scoring",
+          "definition": "Score each of the three shared public objectives. Many can be scored multiple times. Row and column objectives only count fully completed rows or columns.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Favor Token VP",
+          "definition": "Each unspent Favor Token is worth one VP at game end. Balancing token spending on tools versus keeping them for VP is a key strategic tension.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Tiebreakers",
+          "definition": "If tied on total VP: first tiebreak is most Private Objective points. Second is most remaining Favor Tokens. Third is reverse player order in the final round.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Placement Correction",
+          "definition": "If your window is found to break placement rules, remove dice of your choice until the window is legal. Removed dice are out of play and resulting empty spaces count as penalties.",
+          "category": "Rules"
+        },
+        {
+          "term": "Constraint Mapping",
+          "definition": "A strategy technique where you mentally map which spaces are tightly constrained versus flexible before your first draft. Route through constrained spaces first to avoid dead ends.",
+          "category": "Strategy"
+        }
+      ]
+    }
+  }
+}

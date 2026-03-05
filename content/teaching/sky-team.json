@@ -1,0 +1,850 @@
+{
+  "game_id": "sky-team",
+  "title": "Sky Team",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose an Airport",
+          "text": "Let's get set up for landing! First, pick an airport card. If this is your first game, use Montreal, which is the beginner airport. Each airport has different challenges and modules, so you will unlock harder destinations as you play."
+        },
+        {
+          "step": 2,
+          "title": "Place the Cockpit Board",
+          "text": "Set the cockpit board between both players. This is your shared control panel where you will place dice throughout the game. The left side belongs to the Captain, and the right side belongs to the Co-pilot. Each slot on the board represents a different system on the airplane."
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Approach Track",
+          "text": "Place the approach board next to the cockpit. This track shows the altitude levels your plane must descend through. Put the airplane standee at the very top of the track. Your goal is to guide it safely to the bottom for a smooth landing."
+        },
+        {
+          "step": 4,
+          "title": "Place Traffic and Set Markers",
+          "text": "Let's get the sky busy. Place airplane tokens on the approach track wherever the airport card indicates. These are other planes in your flight path that you must clear before descending to their altitude. Then set the axis marker to the center position and the speed marker to the starting speed."
+        },
+        {
+          "step": 5,
+          "title": "Prepare Landing Gear and Flaps",
+          "text": "Place the three landing gear tokens and two flap tokens in their undeployed positions on the cockpit board. You will need to deploy all of these before landing. Missing even one means a crash on the runway."
+        },
+        {
+          "step": 6,
+          "title": "Assign Roles and Dice",
+          "text": "One player sits on the left and becomes the Captain, taking four orange dice. The other player sits on the right as the Co-pilot, taking four blue dice. You keep these roles for the entire game. Place any coffee tokens indicated by the airport card into the supply."
+        },
+        {
+          "step": 7,
+          "title": "Understand the Communication Rule",
+          "text": "Here is the most important rule in Sky Team. You cannot tell your partner what numbers are on your dice. You can discuss general strategy and priorities, but you cannot reveal, hint at, or discuss specific dice values. This restriction is the heart of the game."
+        },
+        {
+          "step": 8,
+          "title": "Ready for Takeoff",
+          "text": "Both players roll their four dice secretly behind a screen or cupped hands. Once both are ready, reveal all dice simultaneously. The Captain places first, then you alternate placing one die at a time. After all eight dice are placed, resolve the round. Let's learn how that works."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose an Airport",
+          "bullets": [
+            "Pick an airport card — Montreal for beginners",
+            "Each airport adds unique challenges and modules"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place the Cockpit Board",
+          "bullets": [
+            "Cockpit goes between both players",
+            "Left side = Captain; Right side = Co-pilot"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Approach Track",
+          "bullets": [
+            "Place approach board beside cockpit",
+            "Airplane standee starts at the top (highest altitude)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place Traffic and Set Markers",
+          "bullets": [
+            "Traffic planes on approach track per airport card",
+            "Axis marker → center; speed marker → starting position"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Prepare Landing Gear and Flaps",
+          "bullets": [
+            "3 landing gear tokens + 2 flap tokens → undeployed positions",
+            "All must be deployed before landing"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Assign Roles and Dice",
+          "bullets": [
+            "Captain (left) = 4 orange dice; Co-pilot (right) = 4 blue dice",
+            "Roles are permanent for the game",
+            "Place coffee tokens per airport card"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Understand the Communication Rule",
+          "bullets": [
+            "Cannot reveal, hint at, or discuss specific dice values",
+            "General strategy discussion is allowed",
+            "This restriction is the core challenge"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ready for Takeoff",
+          "bullets": [
+            "Both roll 4 dice secretly → reveal simultaneously",
+            "Captain places first → alternate 1 die at a time",
+            "All 8 placed → resolve round"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Round Structure Overview",
+          "text": "Let's walk through how each round works. Sky Team plays over several rounds, typically four to seven depending on the airport. Each round has the same rhythm: secretly roll, simultaneously reveal, alternate placing, then resolve. The plane descends after each round, so every decision gets more critical."
+        },
+        {
+          "step": 2,
+          "title": "Rolling and Revealing Dice",
+          "text": "At the start of each round, both players roll their four dice in secret. You can peek at your own dice but cannot share numbers with your partner. Once both players are ready, reveal all dice at the same time. Now you can see everything and must decide together where to place them, one at a time."
+        },
+        {
+          "step": 3,
+          "title": "Alternating Dice Placement",
+          "text": "Starting with the Captain, players take turns placing one die at a time into a cockpit slot. The Captain places an orange die, then the Co-pilot places a blue die, and so on. Each slot accepts only certain colors or has specific value requirements. You must place all eight dice before the round resolves."
+        },
+        {
+          "step": 4,
+          "title": "The Axis Slot",
+          "text": "Let's start with the most critical slot. Both players place one die on the axis. The Captain's die tilts the plane one direction, and the Co-pilot's die tilts it the other. The difference between the two values determines how much the plane tilts. If the axis marker goes too far in either direction, you crash instantly."
+        },
+        {
+          "step": 5,
+          "title": "Engine and Speed Control",
+          "text": "Place dice on the engine slots to control your descent speed. Higher values mean faster descent, which gets you to the ground quicker but gives you fewer rounds to prepare. Lower values mean a slower approach with more time. The speed determines how many spaces the plane moves down the approach track."
+        },
+        {
+          "step": 6,
+          "title": "Landing Gear and Flaps",
+          "text": "Deploy landing gear and flaps by placing dice that meet minimum value requirements. These must be deployed in order, first to third for gear and first to second for flaps. All three gear tokens and both flap tokens must be deployed before you reach the runway, or you crash."
+        },
+        {
+          "step": 7,
+          "title": "Radio and Traffic Clearance",
+          "text": "Traffic planes sit on the approach track at specific altitudes. If your plane descends to a space with uncleared traffic, you crash. Use the radio slot to clear traffic by placing a die whose value meets or exceeds the traffic plane's requirement. Plan ahead and clear traffic before you reach those altitudes."
+        },
+        {
+          "step": 8,
+          "title": "Brakes and Concentration",
+          "text": "The brake slot adds stopping power for your final approach. Place dice here to ensure you can slow down enough to land. The concentration slot lets you earn coffee tokens by placing a die. Coffee tokens are precious because they let you reroll one of your dice before placing it."
+        },
+        {
+          "step": 9,
+          "title": "End of Round Resolution",
+          "text": "After all eight dice are placed, resolve the round. Check the axis balance. Adjust the speed marker. Move the plane down the approach track by the current speed value. Check for traffic collisions. If any failure condition triggers, the game ends in a loss immediately."
+        },
+        {
+          "step": 10,
+          "title": "Coffee Tokens",
+          "text": "Let's talk about coffee, because it can save your game. Spend a coffee token to reroll one of your own dice before placing it. This can rescue you from an impossible situation. Coffee tokens are earned by placing dice on the concentration slot, but the supply is limited. Use them wisely."
+        },
+        {
+          "step": 11,
+          "title": "Landing Requirements",
+          "text": "To land safely, you must meet all of these conditions when your plane reaches the runway. All three landing gear tokens deployed. Both flap tokens deployed. Speed at or below the landing threshold. Axis balanced at or near center. No traffic planes remaining in the landing zone. Miss even one and you crash."
+        },
+        {
+          "step": 12,
+          "title": "Win and Loss Conditions",
+          "text": "You win by landing the plane safely at the end of the approach track with all requirements met. You lose if the axis tilts too far, you hit traffic, your speed is too high to stop, gear or flaps are not deployed, or you overshoot the runway. Sky Team is a cooperative win or loss with no point scoring."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Round Structure Overview",
+          "bullets": [
+            "4-7 rounds per game depending on airport",
+            "Each round: roll → reveal → place → resolve"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Rolling and Revealing Dice",
+          "bullets": [
+            "Both players roll 4 dice secretly",
+            "No sharing numbers with partner",
+            "Reveal all dice simultaneously"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Alternating Dice Placement",
+          "bullets": [
+            "Captain places first → alternate 1 die each",
+            "Slots have color and/or value requirements",
+            "All 8 dice must be placed before resolution"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Axis Slot",
+          "bullets": [
+            "Both players place 1 die on axis",
+            "Difference determines tilt direction and amount",
+            "Too much tilt in either direction = crash"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Engine and Speed Control",
+          "bullets": [
+            "Engine dice control descent speed",
+            "High speed = fewer rounds; low speed = more time",
+            "Speed = spaces moved down approach track"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Landing Gear and Flaps",
+          "bullets": [
+            "Deploy by meeting minimum die value requirements",
+            "Must deploy in order (1st → 2nd → 3rd)",
+            "All gear + flaps required before landing"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Radio and Traffic Clearance",
+          "bullets": [
+            "Traffic planes block approach track spaces",
+            "Radio die value must meet/exceed traffic requirement",
+            "Clear traffic before descending to those altitudes"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Brakes and Concentration",
+          "bullets": [
+            "Brakes = stopping power for final approach",
+            "Concentration = earn coffee tokens (reroll ability)"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "End of Round Resolution",
+          "bullets": [
+            "Check axis → adjust speed → descend → check traffic",
+            "Any failure condition = immediate loss"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Coffee Tokens",
+          "bullets": [
+            "Spend 1 coffee → reroll 1 of your dice before placing",
+            "Earned via concentration slot",
+            "Limited supply — use wisely"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Landing Requirements",
+          "bullets": [
+            "All 3 gear deployed, both flaps deployed",
+            "Speed ≤ landing threshold, axis balanced",
+            "No traffic in landing zone"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Win and Loss Conditions",
+          "bullets": [
+            "Win: safe landing with all requirements met",
+            "Lose: axis crash, traffic collision, overshoot, incomplete deployment",
+            "Binary cooperative outcome — no points"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome Aboard",
+          "text": "Welcome to your first flight in Sky Team! We will walk through a practice approach to Montreal, the beginner airport. One of you is the Captain with orange dice, and the other is the Co-pilot with blue dice. Let's get our plane safely on the ground."
+        },
+        {
+          "step": 2,
+          "title": "Round One: Roll and Reveal",
+          "text": "Let's start our approach. Both players roll their four dice secretly. Remember, no peeking at each other's dice and no sharing numbers. Take a moment to look at your own dice and think about which slots you can fill. When ready, reveal all dice at the same time."
+        },
+        {
+          "step": 3,
+          "title": "Prioritize the Axis",
+          "text": "The Captain goes first. Look at the axis slot. This is your top priority every round. If the axis gets too far off center, the plane crashes immediately. Captain, place a die on the axis that you think will balance well with whatever the Co-pilot can offer. Then Co-pilot, place your axis die trying to match closely."
+        },
+        {
+          "step": 4,
+          "title": "Axis Balance Check",
+          "text": "Let's say the Captain placed a four and the Co-pilot placed a three. The difference is one, which shifts the axis one tick to the Captain's side. That is fine for now. If the difference had been four or five, we would be in serious trouble. Keep the axis balanced every round."
+        },
+        {
+          "step": 5,
+          "title": "Place Remaining Dice",
+          "text": "Continue alternating die placement. The Captain might put a die on the engine to control speed, while the Co-pilot places one on the radio to clear an upcoming traffic plane. Keep alternating until all eight dice are placed. Think about what your partner might need before committing your dice."
+        },
+        {
+          "step": 6,
+          "title": "Round One Resolution",
+          "text": "All dice placed. Check the axis: stable. Adjust speed. Move the plane down the approach track by the speed value. Check for traffic collisions. All clear! Great first round. Pick up your dice and get ready for round two."
+        },
+        {
+          "step": 7,
+          "title": "The Co-pilot's Mistake: Ignoring Traffic",
+          "text": "Round two begins. After revealing dice, the Co-pilot sees a low die and places it on concentration to grab a coffee token. Sounds nice, but there is a traffic plane two spaces ahead on the approach. Nobody places a die on the radio this round. After resolution, the plane descends right into the traffic. Crash."
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Always Check the Approach",
+          "text": "Before placing any dice, always look at the approach track first. Count how many spaces you will descend this round based on speed, and check if any traffic planes are in the way. Clearing traffic is not optional. It must happen before you reach that altitude. Coffee is nice, but survival comes first."
+        },
+        {
+          "step": 9,
+          "title": "Restart: Round Two Take Two",
+          "text": "Let's rewind and try again. This time, the Co-pilot uses that die on the radio instead, clearing the traffic plane just in time. The plane descends safely past where the traffic was. Crisis averted. Always scan the approach before placing dice."
+        },
+        {
+          "step": 10,
+          "title": "The Captain's Mistake: Speed Too High",
+          "text": "Round three. The Captain places a high value on the engine, pushing the speed up. The plane races down the approach track. But now we are running out of track with gear and flaps not fully deployed. We needed more rounds to finish deploying, but the high speed burned through our remaining approach distance."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Control Your Speed",
+          "text": "Speed management is everything in Sky Team. Higher speed gets you down faster, but gives you fewer rounds to deploy gear, flaps, and clear traffic. For beginners, moderate or low speed is almost always better. Give yourself time to handle everything before worrying about getting down quickly."
+        },
+        {
+          "step": 12,
+          "title": "The Captain's Mistake: Breaking Communication Rules",
+          "text": "During round four, the Captain says, \"I have a six, so I will handle the landing gear.\" That is against the rules. You cannot reveal specific die values to your partner. The correct way is to say something like, \"I think I can handle landing gear this round.\" General intent, no specific numbers."
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Communicate Intent, Not Numbers",
+          "text": "The communication restriction is what makes Sky Team special. Say things like \"I can cover the radio\" or \"Focus on the axis this round.\" Never say \"I have a five\" or \"My highest die is a three.\" If you break this rule, you remove the core tension that makes the game exciting."
+        },
+        {
+          "step": 14,
+          "title": "Final Approach and Landing",
+          "text": "Let's jump ahead to the final round. All three landing gear tokens are deployed, both flaps are down, traffic is cleared, the axis is balanced, and speed is low enough to stop. The plane reaches the runway. All requirements met. Touchdown! You have landed safely."
+        },
+        {
+          "step": 15,
+          "title": "Congratulations, Pilots",
+          "text": "Congratulations, you have completed your first approach! You learned to prioritize the axis, clear traffic before it becomes a collision, manage your speed, and communicate without revealing numbers. Those are the four pillars of Sky Team."
+        },
+        {
+          "step": 16,
+          "title": "Before Your Next Flight",
+          "text": "Before you tackle a harder airport, here are three things to help.\n\nFirst, check out General Tips for communication strategies and priority management.\n\nSecond, reference the Appendix for a quick guide to all cockpit slots and modules.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome Aboard",
+          "bullets": [
+            "Practice approach to Montreal (beginner airport)",
+            "Captain = orange dice, Co-pilot = blue dice"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Round One: Roll and Reveal",
+          "bullets": [
+            "Both roll 4 dice secretly → reveal simultaneously",
+            "No sharing numbers — think about slots you can fill"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prioritize the Axis",
+          "bullets": [
+            "Axis is top priority every round",
+            "Captain places first, Co-pilot tries to match closely"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Axis Balance Check",
+          "bullets": [
+            "Example: 4 vs 3 = difference of 1 (safe)",
+            "Differences of 4-5 = danger zone"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place Remaining Dice",
+          "bullets": [
+            "Alternate placement: engine, radio, gear, flaps, brakes",
+            "Think about what your partner needs"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Round One Resolution",
+          "bullets": [
+            "Axis stable, speed set, plane descends, no collisions",
+            "Pick up dice → round two"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Co-pilot's Mistake: Ignoring Traffic",
+          "bullets": [
+            "Co-pilot places die on concentration instead of radio",
+            "Traffic plane uncleared → plane descends into it → crash"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Always Check the Approach",
+          "bullets": [
+            "Scan approach track before placing any dice",
+            "Count descent spaces and check for traffic",
+            "Clearing traffic is survival, not optional"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Restart: Round Two Take Two",
+          "bullets": [
+            "Co-pilot uses die on radio instead → traffic cleared",
+            "Plane descends safely past the cleared space"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Captain's Mistake: Speed Too High",
+          "bullets": [
+            "High engine value → speed too fast",
+            "Approach runs out before gear/flaps are deployed"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Control Your Speed",
+          "bullets": [
+            "High speed = fewer rounds to prepare",
+            "Moderate/low speed is safer for beginners",
+            "Give yourself time to deploy everything"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Captain's Mistake: Breaking Communication Rules",
+          "bullets": [
+            "Captain says \"I have a six\" → rule violation",
+            "Correct: \"I think I can handle landing gear this round\""
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Communicate Intent, Not Numbers",
+          "bullets": [
+            "Say: \"I can cover radio\" or \"Focus on axis\"",
+            "Never say: \"I have a 5\" or \"My highest is 3\"",
+            "Communication limit is the core of the game"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Final Approach and Landing",
+          "bullets": [
+            "All gear deployed, flaps down, traffic clear, axis balanced",
+            "Speed within threshold → safe landing → victory"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations, Pilots",
+          "bullets": [
+            "Four pillars: axis priority, traffic clearance, speed control, communication",
+            "All core mechanics demonstrated"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before Your Next Flight",
+          "bullets": [
+            "Check out General Tips → communication and priority strategies",
+            "Reference the Appendix → cockpit slots and modules",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Axis First, Always",
+          "text": "The single most common cause of losing in Sky Team is axis imbalance. Every single round, your first priority should be the axis slot. Before thinking about traffic, gear, flaps, or anything else, make sure both players can contribute to a balanced axis. Even one unbalanced round can push you to the crash zone."
+        },
+        {
+          "step": 2,
+          "title": "Communicate Priorities, Not Numbers",
+          "text": "Let's talk about how to communicate effectively within the rules. Before revealing dice, discuss which slots matter most this round. Say things like \"Traffic is urgent\" or \"We need gear deployed this round.\" After revealing, you can say \"I will handle the radio\" without mentioning values. Your partner will infer what they need to do."
+        },
+        {
+          "step": 3,
+          "title": "Read Your Partner's Placements",
+          "text": "Pay close attention to which slots your partner fills and what die values they use. If the Captain puts a low die on the engine, they are telling you they want slow speed. If the Co-pilot fills the radio, they are saying they have a high enough die to clear traffic. Every placement is a signal."
+        },
+        {
+          "step": 4,
+          "title": "Manage Speed Carefully",
+          "text": "Speed is the tempo of the game. Faster speed means fewer rounds to deploy gear, flaps, and clear traffic. Slower speed gives you more time but risks running out of approach track. For beginners, aim for moderate speed. As you get more experienced, you can push the speed higher when you are confident in your coordination."
+        },
+        {
+          "step": 5,
+          "title": "Deploy Gear and Flaps Gradually",
+          "text": "Do not wait until the last round to deploy everything. Spread your deployments across multiple rounds. Try to deploy one landing gear and one flap every other round. This way you are never in a panic trying to deploy three tokens in one round with limited dice."
+        },
+        {
+          "step": 6,
+          "title": "Coffee Token Strategy",
+          "text": "Coffee tokens are your safety net. Use them when you absolutely need a specific value and your current dice cannot deliver. Do not hoard them for a perfect moment that may never come. One well-timed reroll can prevent a crash. But also do not waste them on minor optimizations."
+        },
+        {
+          "step": 7,
+          "title": "Scan the Approach Every Round",
+          "text": "Before placing any dice, both players should look at the approach track together. Count how many spaces you will descend based on current speed. Check for traffic planes in that range. Identify which deployments are still needed. This five-second scan prevents the most common game-losing mistakes."
+        },
+        {
+          "step": 8,
+          "title": "Trust Your Partner",
+          "text": "Sky Team is a trust exercise. Sometimes you have to commit a die to a suboptimal slot because you trust your partner to cover a critical one. If you both try to handle everything solo, you will step on each other's toes and waste dice. Communicate intent, trust the other pilot, and fly as a team."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Axis First, Always",
+          "bullets": [
+            "Axis imbalance is the #1 cause of losing",
+            "Top priority every round before anything else",
+            "One bad round can push you to crash zone"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Communicate Priorities, Not Numbers",
+          "bullets": [
+            "Discuss which slots matter most before revealing",
+            "Say \"Traffic is urgent\" or \"We need gear this round\"",
+            "After reveal: \"I'll handle radio\" (no values)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Read Your Partner's Placements",
+          "bullets": [
+            "Low engine die = partner wants slow speed",
+            "Partner fills radio = they have a high enough die",
+            "Every placement is a signal — pay attention"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Manage Speed Carefully",
+          "bullets": [
+            "Fast = fewer rounds to prepare; slow = more time",
+            "Beginners: aim for moderate speed",
+            "Push speed higher as coordination improves"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Deploy Gear and Flaps Gradually",
+          "bullets": [
+            "Don't wait until the last round",
+            "Deploy 1 gear + 1 flap every other round",
+            "Avoids panic deployments with limited dice"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Coffee Token Strategy",
+          "bullets": [
+            "Use when you absolutely need a specific value",
+            "Don't hoard — one timely reroll prevents crashes",
+            "Don't waste on minor optimizations"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Scan the Approach Every Round",
+          "bullets": [
+            "Count descent spaces at current speed",
+            "Check for traffic in that range",
+            "5-second scan prevents most game-losing mistakes"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Trust Your Partner",
+          "bullets": [
+            "Sometimes commit to a suboptimal slot on trust",
+            "Both trying to handle everything = wasted dice",
+            "Communicate intent, trust the other pilot"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Dice Value Communication Through Placement",
+          "text": "Without saying numbers, you can communicate through your choices. If you place a one or two on the axis, your partner knows you have low dice. If you deploy a high-value gear token first, they know you had a high die to spare. Experienced teams develop an unspoken language through placement patterns."
+        },
+        {
+          "step": 2,
+          "title": "Placement Order Strategy",
+          "text": "The order you place dice matters as much as where you place them. Leading with the axis die signals your partner about your range. Placing on a contested slot early claims it before your partner has to decide. Experienced Captain players establish a consistent pattern so the Co-pilot can predict their moves."
+        },
+        {
+          "step": 3,
+          "title": "Speed as a Strategic Lever",
+          "text": "Advanced players manipulate speed intentionally. A fast descent in early rounds clears the safe part of the track quickly. Then slow down in later rounds when deployments and traffic get critical. This creates a buffer of extra rounds where you need them most. Think of speed as a resource, not a constant."
+        },
+        {
+          "step": 4,
+          "title": "Coffee Token Efficiency",
+          "text": "Advanced coffee strategy goes beyond emergency rerolls. Use coffee proactively to create value. Reroll a medium die into a high die for gear deployment. Reroll a die that is wasted on a low-impact slot into one that fills a critical need. The best time to spend coffee is early, when the benefit compounds over remaining rounds."
+        },
+        {
+          "step": 5,
+          "title": "Traffic Prioritization Framework",
+          "text": "Not all traffic planes need immediate attention. Calculate your descent path and identify which traffic is imminent and which is several rounds away. Clear imminent traffic first and save future traffic for later rounds when your dice might be better suited. Wasting a high die on distant traffic is inefficient."
+        },
+        {
+          "step": 6,
+          "title": "Module Mastery",
+          "text": "As you unlock harder airports, modules add complexity. Wind shifts the axis between rounds, requiring overcompensation. Ice blocks cockpit slots until cleared. Kerosene adds fuel management. Each module demands a specific adaptation. Study the module before starting and agree on a general plan with your partner."
+        },
+        {
+          "step": 7,
+          "title": "Axis Manipulation for Flexibility",
+          "text": "Advanced players intentionally let the axis drift slightly in safe directions to free up die values for other slots. If you know you can correct with a small difference next round, you can afford to use a suboptimal axis die now and put your best die on a critical slot like gear or radio."
+        },
+        {
+          "step": 8,
+          "title": "Building Partner Synergy",
+          "text": "The best Sky Team pairs develop a rhythm over multiple games. You learn which slots your partner prefers, how they signal priorities, and when they are likely to reroll. This synergy is the ultimate advanced strategy. Play multiple games with the same partner and develop your shared instincts."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Dice Value Communication Through Placement",
+          "bullets": [
+            "Low axis die = you have low dice overall",
+            "High gear deployment = you had a high die to spare",
+            "Placement patterns become unspoken language"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placement Order Strategy",
+          "bullets": [
+            "Lead with axis to signal your range",
+            "Claim contested slots early",
+            "Consistent patterns help partner predict"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Speed as a Strategic Lever",
+          "bullets": [
+            "Fast early (safe track) → slow late (critical rounds)",
+            "Creates extra rounds where you need them",
+            "Treat speed as a resource, not a constant"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Coffee Token Efficiency",
+          "bullets": [
+            "Use proactively, not just as emergency rerolls",
+            "Reroll medium → high for gear; low → useful for slots",
+            "Best spent early when benefit compounds"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Traffic Prioritization Framework",
+          "bullets": [
+            "Clear imminent traffic first; save distant for later",
+            "Calculate descent path to identify urgency",
+            "Don't waste high dice on distant traffic"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Module Mastery",
+          "bullets": [
+            "Wind = overcompensate axis; Ice = clear blocked slots",
+            "Kerosene = fuel management; Interns = extra slot type",
+            "Study module before starting, agree on plan"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Axis Manipulation for Flexibility",
+          "bullets": [
+            "Intentionally drift axis slightly to free die values",
+            "Correct next round with a small difference",
+            "Puts best dice on critical slots like gear or radio"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Building Partner Synergy",
+          "bullets": [
+            "Play multiple games with same partner",
+            "Learn each other's slot preferences and signals",
+            "Shared instincts = ultimate advanced strategy"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Captain",
+          "definition": "The player who sits on the left side and uses orange dice. The Captain always places the first die each round.",
+          "category": "Roles"
+        },
+        {
+          "term": "Co-pilot",
+          "definition": "The player who sits on the right side and uses blue dice. The Co-pilot places after the Captain in alternating order.",
+          "category": "Roles"
+        },
+        {
+          "term": "Cockpit Board",
+          "definition": "The central board with all dice placement slots. Both players share this board, placing dice on their respective sides.",
+          "category": "Components"
+        },
+        {
+          "term": "Approach Track",
+          "definition": "The board showing altitude levels the plane descends through. Traffic planes, the airplane standee, and landing zone are all on this track.",
+          "category": "Components"
+        },
+        {
+          "term": "Axis Slot",
+          "definition": "Both players place one die here each round. The difference between the two values determines how much the plane tilts. Extreme tilt causes a crash.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Engine Slot",
+          "definition": "Controls the plane's descent speed. Higher die values increase speed, moving the plane further down the approach track each round.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Landing Gear Slot",
+          "definition": "Deploy landing gear by placing dice meeting minimum value requirements. Three gear tokens must be deployed in order before landing.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Flaps Slot",
+          "definition": "Deploy flaps by placing dice meeting minimum value requirements. Two flap tokens must be deployed in order before landing.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Radio Slot",
+          "definition": "Clear traffic planes from the approach track. Die value must meet or exceed the traffic plane's clearance requirement.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Brake Slot",
+          "definition": "Adds braking power for the final approach. Ensures the plane can slow down enough to land safely.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Concentration Slot",
+          "definition": "Place a die here to earn coffee tokens, which allow rerolling dice in future rounds.",
+          "category": "Cockpit Slots"
+        },
+        {
+          "term": "Coffee Token",
+          "definition": "Spend before placing a die to reroll it. Earned through the concentration slot. Limited supply that varies by airport.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Axis Marker",
+          "definition": "Tracks the plane's left-right balance. Starts at center. Moves based on the difference between Captain and Co-pilot axis dice each round.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Speed Marker",
+          "definition": "Tracks the plane's current descent speed. Determines how many spaces the plane moves down the approach track each round.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Traffic Plane",
+          "definition": "Airplane tokens placed on the approach track at specific altitudes. Must be cleared with the radio before your plane reaches that space, or you crash.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Communication Restriction",
+          "definition": "Players cannot reveal, hint at, or discuss specific dice values. General strategy, priorities, and intent may be discussed freely.",
+          "category": "Rules"
+        },
+        {
+          "term": "Safe Landing",
+          "definition": "The win condition. All gear and flaps deployed, speed within threshold, axis balanced, approach clear of traffic, plane at runway.",
+          "category": "Conditions"
+        },
+        {
+          "term": "Crash",
+          "definition": "Any failure condition that ends the game in a loss. Includes axis extremes, traffic collision, overshoot, or incomplete deployments at runway.",
+          "category": "Conditions"
+        },
+        {
+          "term": "Airport Card",
+          "definition": "Defines the scenario: approach layout, traffic placement, starting conditions, modules used, and difficulty rating.",
+          "category": "Components"
+        },
+        {
+          "term": "Module",
+          "definition": "Optional mechanics added by harder airports. Include wind, ice, kerosene, and interns. Each adds a new layer of challenge.",
+          "category": "Components"
+        }
+      ]
+    }
+  }
+}

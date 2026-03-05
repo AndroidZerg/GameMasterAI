@@ -1,0 +1,886 @@
+{
+  "game_id": "resistance-avalon",
+  "title": "The Resistance: Avalon",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Check Your Player Count",
+          "text": "Let's get Avalon set up! First, count how many people are playing. You need at least five players and can go up to ten. The number of players determines how many Good and Evil characters are in the game, as well as the team sizes for each mission. Grab the round track card that matches your player count."
+        },
+        {
+          "step": 2,
+          "title": "Select Character Cards",
+          "text": "Now let's pick which characters to include. At minimum, you always need Merlin on the Good side and the Assassin on the Evil side. For your first game, we recommend just using those two special characters plus enough generic Loyal Servants and generic Minions of Mordred to fill out the teams. Once you are comfortable, you can add Percival, Morgana, Oberon, or Mordred for extra layers of deception."
+        },
+        {
+          "step": 3,
+          "title": "Determine Team Sizes",
+          "text": "Let's check the team composition for your player count. With five players, you will have three Good and two Evil. With six players, it is four Good and two Evil. With seven, four Good and three Evil. With eight, five Good and three Evil. With nine, six Good and three Evil. And with ten, six Good and four Evil. Shuffle the correct number of character cards together."
+        },
+        {
+          "step": 4,
+          "title": "Deal Characters and Review",
+          "text": "Shuffle those character cards and deal one face down to each player. Everyone picks up their card and looks at it secretly. Do not show anyone your role. Remember who you are: Good players want missions to succeed, and Evil players want missions to fail. Keep your character card face down in front of you for the rest of the game."
+        },
+        {
+          "step": 5,
+          "title": "Set Up the Table",
+          "text": "Place the round track in the center of the table. This shows five mission rounds with the team size for each mission at your player count. Set out five vote track markers in a row nearby. These track consecutive rejected team proposals. Give each player one Approve token and one Reject token for voting, plus one Success card and one Fail card for missions."
+        },
+        {
+          "step": 6,
+          "title": "Run the Night Phase",
+          "text": "Now for the dramatic part. One player reads the Night Phase script aloud. Everyone closes their eyes and extends a fist. Evil players open their eyes to identify each other. Then Evil closes eyes. Merlin opens eyes while Evil players extend their thumbs so Merlin can see who they are. Merlin closes eyes. If Percival is in play, Percival opens eyes while Merlin and Morgana both extend thumbs. Then everyone opens their eyes."
+        },
+        {
+          "step": 7,
+          "title": "Choose the First Leader",
+          "text": "Pick a random player to be the first Leader. Hand them the Leader token, which looks like a little crown. The Leader is the person who proposes a team for each mission. After each vote, whether the team is approved or rejected, the Leader token passes clockwise to the next player. Everyone is ready to play!"
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Check Your Player Count",
+          "bullets": [
+            "5-10 players required",
+            "Player count determines Good/Evil split and mission team sizes",
+            "Grab the matching round track card"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Select Character Cards",
+          "bullets": [
+            "Always include Merlin (Good) and Assassin (Evil)",
+            "Fill remaining slots with generic Loyal Servants and Minions",
+            "Optional: add Percival, Morgana, Oberon, Mordred for advanced play"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Determine Team Sizes",
+          "bullets": [
+            "5p: 3 Good / 2 Evil | 6p: 4/2 | 7p: 4/3",
+            "8p: 5/3 | 9p: 6/3 | 10p: 6/4",
+            "Mission sizes vary by player count — check round track"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Deal Characters and Review",
+          "bullets": [
+            "Shuffle selected character cards, deal 1 face-down to each player",
+            "View secretly — do not reveal to anyone",
+            "Keep card face-down in front of you"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Set Up the Table",
+          "bullets": [
+            "Place round track centrally showing 5 missions and team sizes",
+            "Set out 5 vote track markers for rejected-team tracking",
+            "Give each player: 1 Approve + 1 Reject token, 1 Success + 1 Fail card"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Run the Night Phase",
+          "bullets": [
+            "All close eyes, extend fists",
+            "Evil opens eyes → identify each other → close eyes",
+            "Merlin opens eyes → Evil extends thumbs → Merlin closes eyes",
+            "Optional: Percival opens eyes → Merlin + Morgana extend thumbs"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Choose the First Leader",
+          "bullets": [
+            "Randomly select first Leader, give them the crown token",
+            "Leader proposes teams for missions",
+            "Token passes clockwise after each vote"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Let's learn how Avalon works. The game is a battle between Good and Evil played over up to five missions. Good wins by completing three successful missions and surviving the Assassin's final guess. Evil wins by failing three missions, forcing five consecutive rejected teams, or correctly assassinating Merlin at the end. Everything revolves around trust, deduction, and deception."
+        },
+        {
+          "step": 2,
+          "title": "The Leader Proposes a Team",
+          "text": "Each mission starts with the current Leader proposing a team. The Leader looks at the round track to see how many players the current mission requires and selects exactly that many people. The Leader can include themselves on the team. There are no restrictions on who can be chosen, and the same players can go on consecutive missions."
+        },
+        {
+          "step": 3,
+          "title": "Open Discussion",
+          "text": "After the Leader announces their proposed team, everyone gets to discuss it openly. This is where the magic of Avalon happens. Players can argue for or against team members, make accusations, claim to be certain roles, or flat-out lie. There are no rules against deception during discussion. Take as much time as your group needs."
+        },
+        {
+          "step": 4,
+          "title": "The Team Vote",
+          "text": "Once discussion winds down, everyone votes simultaneously. Each player holds out their Approve or Reject token face down, then all reveal at the same time. If a majority votes Approve, the team is locked in and the mission proceeds. If the vote is a tie or majority Reject, the team is rejected. The Leader token passes clockwise and the next Leader proposes a new team."
+        },
+        {
+          "step": 5,
+          "title": "The Vote Track",
+          "text": "Every time a team is rejected, advance the vote track by one marker. If five consecutive teams are rejected, Evil wins the game immediately. This is a pressure mechanism that forces the table to eventually approve a team, even if it looks suspicious. The vote track resets back to zero whenever a mission is actually conducted, whether it succeeds or fails."
+        },
+        {
+          "step": 6,
+          "title": "Running the Mission",
+          "text": "When a team is approved, those players go on the mission. Each team member secretly selects either their Success card or their Fail card and places it face down. Collect all the cards, shuffle them so nobody knows who played what, then flip them over. If every card is a Success, the mission succeeds and Good scores a point. If even one Fail card appears, the mission fails and Evil scores a point."
+        },
+        {
+          "step": 7,
+          "title": "The Golden Rule of Quest Cards",
+          "text": "Here is the most important rule about quest cards. Good players must always play Success. They cannot play Fail under any circumstances. Evil players get to choose. They can play Success to build trust, or play Fail to sabotage the mission. This means a failed mission guarantees at least one Evil player was on the team, which is powerful information for the Good team."
+        },
+        {
+          "step": 8,
+          "title": "The Fourth Mission Exception",
+          "text": "With seven or more players, the fourth mission has a special rule. Instead of needing just one Fail card to fail, it requires two Fail cards. This means if Evil only gets one member onto the team, the mission still succeeds even if that person plays Fail. Evil needs to get two members on the fourth mission team to sabotage it."
+        },
+        {
+          "step": 9,
+          "title": "After the Mission",
+          "text": "After revealing the quest cards, record the result on the round track. Mark whether the mission succeeded or failed. Then pass the Leader token clockwise to the next player. That player becomes the new Leader and proposes a team for the next mission. Play continues until one side has won three missions."
+        },
+        {
+          "step": 10,
+          "title": "The Assassin's Final Gambit",
+          "text": "If Good wins three missions, the game does not end immediately. The Assassin gets one final chance to win for Evil. The Evil team huddles briefly to discuss, and then the Assassin names one player they believe is Merlin. If the Assassin correctly identifies Merlin, Evil wins despite losing three missions. If the Assassin guesses wrong, Good wins the game."
+        },
+        {
+          "step": 11,
+          "title": "Why Merlin Must Be Subtle",
+          "text": "This assassination mechanic creates the core tension of Avalon. Merlin knows who all the Evil players are from the Night Phase. But if Merlin is too obvious about sharing this information, the Assassin will figure out who Merlin is. Merlin must guide the Good team subtly, framing knowledge as logical deduction rather than certainty. Being too helpful can cost your team the game."
+        },
+        {
+          "step": 12,
+          "title": "How the Game Ends",
+          "text": "Let's recap all the ways the game can end. Evil wins if three missions fail, if five consecutive team proposals are rejected, or if the Assassin correctly identifies Merlin after Good wins three missions. Good wins only if three missions succeed and the Assassin guesses wrong about Merlin's identity. After the game ends, everyone reveals their character cards for the big reveal."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Good vs Evil over up to 5 missions",
+            "Good wins: 3 successful missions + survive Assassin's guess",
+            "Evil wins: 3 failed missions, 5 rejected teams, or assassinate Merlin"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Leader Proposes a Team",
+          "bullets": [
+            "Leader selects exactly the required number of players",
+            "May include self on the team",
+            "No restrictions — same players can go on consecutive missions"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Open Discussion",
+          "bullets": [
+            "Everyone discusses the proposed team openly",
+            "Players may argue, accuse, claim roles, or lie",
+            "No rules against deception — anything goes"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Team Vote",
+          "bullets": [
+            "All players reveal Approve/Reject simultaneously",
+            "Majority Approve → mission proceeds",
+            "Tie or majority Reject → team rejected, Leader passes clockwise"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Vote Track",
+          "bullets": [
+            "Each rejected team advances vote track by 1",
+            "5 consecutive rejections → Evil wins immediately",
+            "Track resets to 0 after any mission is conducted"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Running the Mission",
+          "bullets": [
+            "Team members secretly play Success or Fail face-down",
+            "Shuffle and reveal all cards",
+            "All Success → mission passes | Any Fail → mission fails"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Golden Rule of Quest Cards",
+          "bullets": [
+            "Good players MUST play Success — cannot sabotage",
+            "Evil players choose: Success (build trust) or Fail (sabotage)",
+            "Failed mission = guaranteed Evil member was on the team"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Fourth Mission Exception",
+          "bullets": [
+            "7+ players: 4th mission requires 2 Fail cards to fail",
+            "1 Fail card on 4th mission → mission still succeeds",
+            "Evil needs 2 members on the team to sabotage"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "After the Mission",
+          "bullets": [
+            "Record pass/fail on the round track",
+            "Pass Leader token clockwise to next player",
+            "New Leader proposes team for next mission"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "The Assassin's Final Gambit",
+          "bullets": [
+            "Triggers when Good wins 3 missions — game does NOT end yet",
+            "Evil team discusses, then Assassin names 1 player as Merlin",
+            "Correct guess → Evil wins | Wrong guess → Good wins"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Why Merlin Must Be Subtle",
+          "bullets": [
+            "Merlin knows all Evil players from Night Phase",
+            "Being too obvious makes Merlin easy to assassinate",
+            "Frame knowledge as deduction, not certainty"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "How the Game Ends",
+          "bullets": [
+            "Evil: 3 failed missions, 5 rejections, or assassinate Merlin",
+            "Good: 3 successful missions + Assassin guesses wrong",
+            "All players reveal character cards after game ends"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Avalon",
+          "text": "Welcome to your first game of Avalon! In this practice tutorial, we will walk through a scripted game with six players. We will follow the action as teams are proposed, votes are cast, and missions are run. One player will make some common beginner mistakes along the way so we can learn from them. Let's dive in."
+        },
+        {
+          "step": 2,
+          "title": "The Night Phase",
+          "text": "Everyone closes their eyes. The two Evil players, let's call them Player 3 and Player 5, open their eyes and see each other. They close their eyes. Now Merlin, who happens to be Player 1, opens their eyes while Players 3 and 5 extend their thumbs. Merlin sees exactly who is Evil. Everyone opens their eyes. The game begins with Player 2 as the first Leader."
+        },
+        {
+          "step": 3,
+          "title": "Mission One: Team Proposal",
+          "text": "Player 2 is the Leader. With six players, Mission one requires a team of two. Player 2 picks themselves and Player 6 for the team. The table discusses. Player 3 says it seems fine. Player 1, who is Merlin, knows both players are Good but stays quiet and just nods along."
+        },
+        {
+          "step": 4,
+          "title": "Mission One: The Vote",
+          "text": "Everyone reveals their vote tokens simultaneously. Five players vote Approve and one votes Reject. The team is approved with a clear majority. Player 2 and Player 6 head out on Mission one. The vote track stays at zero since the team was approved."
+        },
+        {
+          "step": 5,
+          "title": "Mission One: Success",
+          "text": "Both Player 2 and Player 6 are Good, so they both play Success cards. The cards are shuffled and revealed: two Success cards. Mission one succeeds. Good leads one to zero. The Leader token passes to Player 3."
+        },
+        {
+          "step": 6,
+          "title": "Mission Two: The Mistake - Bad Team Proposal",
+          "text": "Player 3 is now the Leader. Mission two needs three people. Player 3 is secretly Evil and proposes a team of themselves, Player 5, and Player 4. This team has two Evil players on it. Player 1, as Merlin, knows this is a terrible team but cannot say so directly."
+        },
+        {
+          "step": 7,
+          "title": "Merlin's Subtle Push",
+          "text": "Player 1 says something like 'I have a weird feeling about this team. Maybe we should include someone from the Mission one team since we know they played Success.' This is Merlin being subtle. Player 1 is not pointing fingers, just nudging the group toward logic. But the table votes Approve anyway, four to two."
+        },
+        {
+          "step": 8,
+          "title": "Mission Two: Failure",
+          "text": "Player 4 plays Success because they are Good. Player 3 decides to play Fail to sabotage. Player 5 also plays Fail. The cards are revealed: one Success and two Fails. Mission two fails. Evil ties it up one to one. Now the table knows at least one Evil player was on that team of three."
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Read the Fail Count",
+          "text": "Here is the key lesson. Two Fail cards appeared on a three-person team. That means two out of three team members are Evil. This is incredibly valuable information. The Good team should now be very suspicious of Players 3, 4, and 5. Always count the Fail cards and cross-reference with team size."
+        },
+        {
+          "step": 10,
+          "title": "Mission Three: Player 4 Makes a Mistake",
+          "text": "Player 4 is now Leader. Player 4 is Good and was on the failed mission, so they know they played Success. Player 4 should be suspicious of Players 3 and 5. But instead of analyzing this, Player 4 panics and proposes the exact same team as Mission one: Player 2 and Player 6 plus themselves. This is a missed opportunity."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Use Failed Mission Data",
+          "text": "Player 4's mistake was not using the information from Mission two. They were on that failed team and know they played Success, so either Player 3 or Player 5 or both are Evil. Instead of retreating to a safe team, Player 4 should advocate loudly for excluding Players 3 and 5. The biggest beginner mistake in Avalon is ignoring the data from failed missions."
+        },
+        {
+          "step": 12,
+          "title": "The Discussion Heats Up",
+          "text": "Player 5, who is Evil, jumps in and accuses Player 4 of being suspicious because they were on the failed mission too. This is a classic Evil tactic: deflect suspicion onto Good players. Player 1 quietly supports Player 4, saying the logic checks out. The table debates back and forth."
+        },
+        {
+          "step": 13,
+          "title": "Player 6's Mistake: Approving Everything",
+          "text": "Player 6 has been voting Approve on every single team proposal without thinking critically. They figure that since they are Good, they should just keep the game moving. But approving every team gives Evil easy opportunities to get on missions. Player 6 votes Approve on a new team that includes Player 5."
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Vote Strategically",
+          "text": "Voting Approve on everything is one of the most common beginner mistakes. Your vote is your most powerful tool as a Good player. If you suspect someone is Evil based on failed missions or voting patterns, reject teams that include them. Be mindful of the five-rejection limit, but do not rubber-stamp every proposal."
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Approaches",
+          "text": "After more discussion and missions, Good manages to win their third mission. The score is three to one in favor of Good. But the game is not over yet. Now comes the Assassin's chance. Player 3 is the Assassin. The Evil team huddles to figure out who Merlin is."
+        },
+        {
+          "step": 16,
+          "title": "The Assassination Attempt",
+          "text": "Player 3 thinks back through the game. Player 1 seemed to have good instincts about which teams were safe and which were dangerous. Player 1 was subtle, but consistently steered the group away from Evil players. Player 3 names Player 1 as Merlin. The cards are revealed. Player 1 is indeed Merlin. Evil wins despite losing three missions."
+        },
+        {
+          "step": 17,
+          "title": "Congratulations and Key Takeaways",
+          "text": "Congratulations on playing through your first game of Avalon! You saw three important lessons in action. First, always count the Fail cards and use that data to narrow down suspects. Second, do not approve every team blindly. And third, if you are Merlin, be careful about how much you reveal. The Assassin is always watching."
+        },
+        {
+          "step": 18,
+          "title": "Ready for More",
+          "text": "Before your next game, check out General Tips for deeper strategy and common patterns to watch for. Reference the Appendix for a quick guide to all the special characters and their abilities. And remember, you can always ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask a question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Avalon",
+          "bullets": [
+            "Scripted tutorial with 6 example players",
+            "Covers Night Phase, team proposals, missions, and assassination",
+            "One player makes common mistakes for learning"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Night Phase",
+          "bullets": [
+            "Evil players (3 and 5) see each other",
+            "Merlin (Player 1) sees Evil via thumb signals",
+            "Player 2 starts as first Leader"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Mission One: Team Proposal",
+          "bullets": [
+            "Leader (Player 2) proposes 2-person team: self + Player 6",
+            "Merlin knows both are Good but stays quiet",
+            "Table discusses the proposal"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Mission One: The Vote",
+          "bullets": [
+            "5 Approve, 1 Reject → team approved",
+            "Vote track stays at 0",
+            "Team proceeds to the mission"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Mission One: Success",
+          "bullets": [
+            "Both Good players play Success",
+            "2 Success cards revealed → mission succeeds",
+            "Good leads 1-0, Leader passes to Player 3"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Mission Two: The Mistake - Bad Team Proposal",
+          "bullets": [
+            "Evil Leader (Player 3) loads team with 2 Evil members",
+            "Team: Player 3 + Player 5 (both Evil) + Player 4 (Good)",
+            "Merlin cannot directly object without blowing cover"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Merlin's Subtle Push",
+          "bullets": [
+            "Merlin suggests including proven Mission 1 members",
+            "Frames concern as logic, not insider knowledge",
+            "Table approves the team anyway (4-2)"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Mission Two: Failure",
+          "bullets": [
+            "1 Success + 2 Fails → mission fails",
+            "Score tied 1-1",
+            "2 Fails on a 3-person team = strong Evil presence"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Read the Fail Count",
+          "bullets": [
+            "2 Fails on 3-person team → 2 of 3 are Evil",
+            "Cross-reference Fail count with team membership",
+            "This is the most reliable data in the game"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Mission Three: Player 4 Makes a Mistake",
+          "bullets": [
+            "Player 4 ignores Mission 2 data, retreats to safe team",
+            "Proposes same team as Mission 1 instead of using new info",
+            "Missed opportunity to isolate suspects"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Use Failed Mission Data",
+          "bullets": [
+            "Player 4 was on failed team and knows they played Success",
+            "Should advocate against Players 3 and 5",
+            "Biggest beginner trap: ignoring information from failures"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "The Discussion Heats Up",
+          "bullets": [
+            "Evil Player 5 deflects suspicion onto Player 4",
+            "Classic Evil tactic: accuse Good players who were on failed missions",
+            "Merlin quietly supports the logical analysis"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player 6's Mistake: Approving Everything",
+          "bullets": [
+            "Player 6 votes Approve on every team without analysis",
+            "Approving blindly gives Evil easy mission access",
+            "Approves a team including suspected Evil player"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Vote Strategically",
+          "bullets": [
+            "Your vote is your most powerful Good-team tool",
+            "Reject teams that include suspected Evil players",
+            "Balance caution with the 5-rejection limit"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Approaches",
+          "bullets": [
+            "Good wins 3rd mission → score 3-1",
+            "Game is NOT over yet — Assassin phase begins",
+            "Evil team huddles to identify Merlin"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Assassination Attempt",
+          "bullets": [
+            "Assassin reviews who had the best instincts all game",
+            "Player 1 was consistently right about Evil → identified as Merlin",
+            "Correct guess → Evil wins despite losing 3 missions"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations and Key Takeaways",
+          "bullets": [
+            "Count Fail cards and use that data to narrow suspects",
+            "Do not approve every team blindly",
+            "Merlin must be subtle — the Assassin is always watching"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Ready for More",
+          "bullets": [
+            "Check out General Tips → deeper strategy and patterns",
+            "Reference the Appendix → character abilities quick reference",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Track Voting Patterns",
+          "text": "The single most reliable source of information in Avalon is how people vote. Evil players tend to approve teams that include Evil members and reject teams of all Good players. After each vote, mentally note who approved and who rejected. Over several rounds, a pattern emerges. A player who consistently approves teams that end up failing is very likely Evil."
+        },
+        {
+          "step": 2,
+          "title": "Count the Fail Cards",
+          "text": "When a mission fails, do not just note that it failed. Count exactly how many Fail cards appeared. One Fail on a three-person team means one of three is Evil. Two Fails on a three-person team means two of three are Evil. This is hard data, not speculation. Cross-reference with other failed missions to narrow down the suspects."
+        },
+        {
+          "step": 3,
+          "title": "Playing Good Effectively",
+          "text": "As a Good player, your job is to gather information and build a trusted coalition. Propose teams that test untested players. Vote against teams that include people from failed missions. Share your reasoning openly so other Good players can follow your logic. The more you communicate, the harder it is for Evil to hide."
+        },
+        {
+          "step": 4,
+          "title": "Playing Evil Effectively",
+          "text": "As an Evil player, your goal is to create confusion and division among the Good team. Vote like a careful Good player would. Reject some teams that include your Evil partner to build trust. Accuse trusted Good players to fracture their coalition. And do not always play Fail on missions. Sometimes playing Success builds trust for a critical sabotage later."
+        },
+        {
+          "step": 5,
+          "title": "Playing Merlin",
+          "text": "Merlin is the hardest role in the game. You know everything, but saying too much gets you killed. The best approach is to frame your knowledge as analytical deduction. Say things like 'I noticed Player 3 approved every team that failed' instead of 'Player 3 is definitely Evil.' Let other Good players reach the right conclusion on their own with your gentle guidance."
+        },
+        {
+          "step": 6,
+          "title": "The Five-Rejection Pressure",
+          "text": "Keep track of how many consecutive teams have been rejected. When the counter reaches three or four, the table is under serious pressure to approve the next team even if it looks bad. Evil can exploit this by intentionally causing rejections early to force an unfavorable team through later. Good players should be aware of this tactic and approve reasonable teams before the counter gets dangerously high."
+        },
+        {
+          "step": 7,
+          "title": "Reading Body Language",
+          "text": "Avalon is as much about reading people as it is about logic. Watch for nervousness, overconfidence, and defensive reactions when someone is accused. Evil players often avoid eye contact during the Night Phase or speak too quickly when defending themselves. Good players tend to be more relaxed because they have nothing to hide. These tells are not foolproof, but they add another layer of information."
+        },
+        {
+          "step": 8,
+          "title": "Do Not Discuss Merlin Openly",
+          "text": "One of the biggest mistakes Good players make is openly speculating about who Merlin might be during the game. Comments like 'You seem to know a lot, are you Merlin?' are essentially helping the Assassin do their job. If you think someone is Merlin, keep it to yourself. Protect Merlin by not drawing attention to them, even inadvertently."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Track Voting Patterns",
+          "bullets": [
+            "Evil tends to approve teams containing Evil members",
+            "Note who approves/rejects after every vote",
+            "Consistent approval of failing teams = likely Evil"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Count the Fail Cards",
+          "bullets": [
+            "Count exact number of Fails per mission",
+            "1 Fail on 3-person team = 1 of 3 is Evil",
+            "Cross-reference with other failed missions to narrow suspects"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Playing Good Effectively",
+          "bullets": [
+            "Test untested players on mission teams",
+            "Vote against teams with suspected Evil members",
+            "Communicate reasoning openly to help other Good players"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Playing Evil Effectively",
+          "bullets": [
+            "Vote like a cautious Good player — reject some Evil-friendly teams",
+            "Accuse trusted Good players to create division",
+            "Play Success sometimes to build trust for a later sabotage"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Playing Merlin",
+          "bullets": [
+            "Frame knowledge as deduction, not certainty",
+            "Guide subtly — let others reach the right conclusion",
+            "Being too obvious → Assassin identifies you → Evil wins"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Five-Rejection Pressure",
+          "bullets": [
+            "Track consecutive rejections carefully",
+            "At 3-4 rejections, pressure mounts to approve the next team",
+            "Evil can exploit this to force bad teams through"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading Body Language",
+          "bullets": [
+            "Watch for nervousness, overconfidence, defensive reactions",
+            "Evil players often avoid eye contact or speak too quickly",
+            "Body language adds data but is not foolproof"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Do Not Discuss Merlin Openly",
+          "bullets": [
+            "Never speculate aloud about who Merlin is",
+            "Comments like 'Are you Merlin?' help the Assassin",
+            "Protect Merlin by not drawing attention to them"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Hammer Strategy",
+          "text": "In larger games, the fifth Leader before the auto-fail is called the Hammer. This player has enormous power because the table must approve their team or Evil wins automatically. If you are the Hammer and you are Good, propose your most trusted team. If you are Evil and you are the Hammer, this is your chance to force an Evil-loaded team through. Pay attention to seating order and count ahead to know who will be the Hammer."
+        },
+        {
+          "step": 2,
+          "title": "Vote Pattern Analysis",
+          "text": "Advanced players track not just who votes Approve or Reject, but the patterns across multiple rounds. Create a mental grid of players versus proposals. Evil players reveal themselves through inconsistencies. For example, a player who rejects a team of proven Good players but approves a team that later fails is signaling their allegiance. The more data points you collect, the clearer the picture becomes."
+        },
+        {
+          "step": 3,
+          "title": "Evil Fail Timing",
+          "text": "As Evil, choosing when to play Fail is your most critical decision. Failing early gives Good players data to work with. Failing late can catch them off guard. A common advanced tactic is to play Success on the first two missions to build bulletproof trust, then fail the critical third or fourth mission when Good thinks you are a safe pick."
+        },
+        {
+          "step": 4,
+          "title": "Merlin Cover Strategies",
+          "text": "Experienced Merlin players use several techniques to hide their identity. One approach is to deliberately accuse a known Good player early on, then back off. This makes you look analytical rather than omniscient. Another technique is to let other Good players take the lead in accusations while you provide supporting evidence. The goal is to look like a smart Good player, not like someone with insider knowledge."
+        },
+        {
+          "step": 5,
+          "title": "Using Optional Characters",
+          "text": "Once your group is comfortable with basic Merlin and Assassin play, adding Percival and Morgana transforms the game. Percival sees both Merlin and Morgana extend their thumbs during the Night Phase but does not know which is real. This creates a layer of cover for Merlin because the Assassin cannot simply target the player Percival is protecting. Morgana, meanwhile, can claim to be Merlin to misdirect the table."
+        },
+        {
+          "step": 6,
+          "title": "Oberon and Mordred",
+          "text": "Oberon is an Evil player who does not know the other Evil players and is not revealed to them during the Night Phase. This creates interesting dynamics because Evil cannot coordinate as easily. Mordred is hidden from Merlin during the Night Phase, meaning Merlin does not know about one Evil player. Adding both creates maximum uncertainty for every role at the table."
+        },
+        {
+          "step": 7,
+          "title": "Endgame Assassination Defense",
+          "text": "If you are on the Good team and you think you are about to win three missions, start thinking about the assassination phase. The best defense is to have multiple players act like they could be Merlin. If two or three Good players have been making insightful deductions throughout the game, the Assassin has a much harder choice. Coordinate this subtly. The more candidates the Assassin has to consider, the lower their odds of guessing correctly."
+        },
+        {
+          "step": 8,
+          "title": "Meta-Game Awareness",
+          "text": "After several games with the same group, meta-game awareness becomes important. People develop habits and tells across multiple sessions. Maybe one player always plays Fail on Mission two as Evil, or another always votes Reject on the first proposal as Good. Track these patterns and adjust your play accordingly. The best Avalon players are the ones who are hardest to read because they vary their behavior from game to game."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Hammer Strategy",
+          "bullets": [
+            "5th Leader before auto-fail = the Hammer (must-approve position)",
+            "Good Hammer → propose most trusted team",
+            "Evil Hammer → force Evil-loaded team through",
+            "Count ahead in seating to predict who will be Hammer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Vote Pattern Analysis",
+          "bullets": [
+            "Build a mental grid: players vs proposals vs votes",
+            "Inconsistencies reveal allegiance over time",
+            "Rejecting proven Good teams + approving failing teams = Evil signal"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Evil Fail Timing",
+          "bullets": [
+            "Failing early gives Good data — failing late catches them off guard",
+            "Play Success on missions 1-2 to build trust",
+            "Sabotage mission 3 or 4 when Good thinks you are safe"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Merlin Cover Strategies",
+          "bullets": [
+            "Accuse a known Good player early, then back off",
+            "Let others lead accusations; provide supporting evidence",
+            "Goal: look analytically smart, not omniscient"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Using Optional Characters",
+          "bullets": [
+            "Percival sees Merlin + Morgana but cannot distinguish them",
+            "Creates cover for Merlin against the Assassin",
+            "Morgana can claim to be Merlin to misdirect the table"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Oberon and Mordred",
+          "bullets": [
+            "Oberon: Evil but unknown to other Evil + does not know them",
+            "Mordred: hidden from Merlin during Night Phase",
+            "Both together = maximum uncertainty for every role"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Endgame Assassination Defense",
+          "bullets": [
+            "Have multiple Good players act like they could be Merlin",
+            "More Merlin candidates = lower Assassin odds",
+            "Coordinate subtly — spread the suspicion across 2-3 players"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Meta-Game Awareness",
+          "bullets": [
+            "Track player habits across multiple sessions",
+            "People develop tells: always failing mission 2, always rejecting first team",
+            "Best players vary behavior game to game to stay unpredictable"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Merlin",
+          "definition": "A Good-aligned character who sees all Evil players during the Night Phase. Merlin knows who the enemies are but must be subtle, because if Good wins three missions, the Assassin gets one chance to identify and kill Merlin to steal victory for Evil.",
+          "category": "Characters"
+        },
+        {
+          "term": "Assassin",
+          "definition": "An Evil-aligned character whose special ability triggers after Good wins three missions. The Assassin names one player as Merlin. A correct guess wins the game for Evil despite losing three missions.",
+          "category": "Characters"
+        },
+        {
+          "term": "Percival",
+          "definition": "A Good-aligned optional character who sees Merlin during the Night Phase. If Morgana is also in play, Percival sees both Merlin and Morgana extend thumbs but does not know which is the real Merlin. Percival protects Merlin by creating cover.",
+          "category": "Characters"
+        },
+        {
+          "term": "Morgana",
+          "definition": "An Evil-aligned optional character who appears as Merlin to Percival during the Night Phase. Morgana extends a thumb alongside Merlin, creating confusion about who the real Merlin is.",
+          "category": "Characters"
+        },
+        {
+          "term": "Oberon",
+          "definition": "An Evil-aligned optional character who does not reveal themselves to other Evil players during the Night Phase and does not see them. Oberon acts alone, making Evil coordination harder.",
+          "category": "Characters"
+        },
+        {
+          "term": "Mordred",
+          "definition": "An Evil-aligned optional character who is hidden from Merlin during the Night Phase. Merlin does not see Mordred extend a thumb, so Merlin does not know who Mordred is. This removes Merlin's perfect information.",
+          "category": "Characters"
+        },
+        {
+          "term": "Loyal Servant of Arthur",
+          "definition": "A generic Good-aligned character with no special abilities. Loyal Servants have no information from the Night Phase and must rely on logic, voting patterns, and mission results to identify Evil players.",
+          "category": "Characters"
+        },
+        {
+          "term": "Minion of Mordred",
+          "definition": "A generic Evil-aligned character who sees other Evil players during the Night Phase but has no special abilities beyond that. Minions coordinate with fellow Evil players to sabotage missions.",
+          "category": "Characters"
+        },
+        {
+          "term": "Leader",
+          "definition": "The player who proposes a team for the current mission. The Leader token passes clockwise after each vote, whether the team is approved or rejected. The Leader may include themselves on the proposed team.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Team Proposal",
+          "definition": "The act of the Leader selecting a specific number of players for a mission. The required team size is shown on the round track and varies by mission number and player count.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Approve/Reject Vote",
+          "definition": "A simultaneous vote by all players on the proposed team. Each player reveals their Approve or Reject token at the same time. Majority Approve means the team proceeds. Tie or majority Reject means the team is rejected and the Leader passes.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Success Card",
+          "definition": "A quest card played during a mission to support the mission. Good players must always play Success. Evil players may choose to play Success to build trust.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Fail Card",
+          "definition": "A quest card played during a mission to sabotage it. Only Evil players can play Fail cards. One Fail card is enough to fail most missions.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Vote Track",
+          "definition": "A series of five markers that tracks consecutive rejected team proposals. If all five fill up without a mission being conducted, Evil wins automatically. The track resets to zero after any mission is completed.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Night Phase",
+          "definition": "The opening ritual where all players close their eyes and specific characters reveal information. Evil players identify each other, Merlin sees Evil, and Percival sees Merlin and Morgana. This phase happens once at the start of the game.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Assassination",
+          "definition": "The final phase that triggers only when Good wins three missions. The Assassin, after consulting with the Evil team, names one player as Merlin. A correct identification wins the game for Evil.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Fourth Mission Exception",
+          "definition": "In games with seven or more players, the fourth mission requires two Fail cards to fail instead of one. This means Evil needs two members on the team to successfully sabotage the mission.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Lady of the Lake",
+          "definition": "An optional loyalty investigation mechanic. The player holding the Lady token may investigate one other player's loyalty card. The investigator may then report the result honestly or lie. The token passes to the investigated player afterward.",
+          "category": "Optional Rules"
+        },
+        {
+          "term": "The Hammer",
+          "definition": "An informal term for the fifth Leader in a sequence of rejected proposals. Since the fifth rejection causes an automatic Evil win, the table must approve the Hammer's team. This gives the Hammer position enormous power.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Trusted Core",
+          "definition": "A group of two or three players that Good believes are trustworthy based on successful missions and consistent voting. Building a trusted core is essential for Good to win.",
+          "category": "Strategy Terms"
+        }
+      ]
+    }
+  }
+}

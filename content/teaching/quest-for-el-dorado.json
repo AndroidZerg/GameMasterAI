@@ -1,0 +1,812 @@
+{
+  "game_id": "quest-for-el-dorado",
+  "title": "Quest for El Dorado",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose a Map Layout",
+          "text": "Let's set up Quest for El Dorado! First, pick a map scenario from the rulebook or create your own route. The game comes with modular hex tiles that you arrange to form the path from the start to El Dorado. For your first game, use the recommended beginner layout. Lay the tiles on the table in the pattern shown, making sure the start tile is on one end and the El Dorado tile is on the other."
+        },
+        {
+          "step": 2,
+          "title": "Place the Start and Finish Tiles",
+          "text": "Make sure the start tile is clearly visible — this is where all explorers will begin their journey. On the far end, place the El Dorado finish tile. The first explorer to reach this tile wins the game. Between start and finish, you should have a winding path of jungle, water, desert, and mountain hexes."
+        },
+        {
+          "step": 3,
+          "title": "Place Blockade Tokens",
+          "text": "Some hex spaces on the map have blockade symbols. Place blockade tokens on these spaces now. Blockades require explorers to discard specific cards to pass through them. Once any explorer clears a blockade, remove the token so everyone else can pass freely."
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Market Board",
+          "text": "Now let's set up the market. Place the market board near the map where everyone can reach it. The market has six slots for purchasable card stacks. Choose six different card types and place a stack of each on the market board. These are the cards players can buy during the game to improve their decks."
+        },
+        {
+          "step": 5,
+          "title": "Place Cave Tokens",
+          "text": "If your map layout includes cave spaces, place cave tokens on those hexes now. Landing on a cave gives your explorer a bonus ability. Set any remaining cave tokens aside — they will not be used this game."
+        },
+        {
+          "step": 6,
+          "title": "Give Each Player a Starting Deck",
+          "text": "Each player receives a starting deck of eight cards. These are basic cards with low-value jungle, water, and coin abilities. Everyone gets the same starting deck. Shuffle your eight cards and place them face down as your personal draw pile. Draw four cards as your opening hand."
+        },
+        {
+          "step": 7,
+          "title": "Place Explorer Pawns",
+          "text": "Each player picks a colored explorer pawn and places it on the start space. Everyone begins at the same starting position. You are ready to race! Let's learn how to play."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose a Map Layout",
+          "bullets": [
+            "Pick a scenario from rulebook or create custom route",
+            "Arrange modular hex tiles to form the path",
+            "Use beginner layout for first game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Place the Start and Finish Tiles",
+          "bullets": [
+            "Start tile on one end, El Dorado on the other",
+            "Path of jungle, water, desert, and mountain hexes between them"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place Blockade Tokens",
+          "bullets": [
+            "Place blockade tokens on marked hexes",
+            "Require specific cards to pass",
+            "Removed once any player clears them"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Market Board",
+          "bullets": [
+            "Place market board centrally with 6 card stacks",
+            "Choose 6 different card types for purchase",
+            "Players buy from market to improve their decks"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place Cave Tokens",
+          "bullets": [
+            "Place cave tokens on designated hex spaces",
+            "Caves grant bonus abilities when landed on"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Give Each Player a Starting Deck",
+          "bullets": [
+            "Each player gets identical 8-card starting deck",
+            "Shuffle → draw 4 cards as opening hand",
+            "Basic jungle, water, and coin cards"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Place Explorer Pawns",
+          "bullets": [
+            "Each player picks a color, places pawn on start space",
+            "All explorers begin at the same position",
+            "Ready to race!"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Quest for El Dorado combines deck-building with racing. You build your deck by buying more powerful cards from the market, then play cards to move your explorer through jungle, water, and desert terrain. This is a pure race — the first player to reach El Dorado wins immediately. There are no points to track, just position on the map."
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Structure",
+          "text": "On your turn, you do three things in order. First, you play cards from your hand to either move or buy. Second, you resolve all movement and purchases. Third, you discard your remaining hand and draw four new cards. If your draw pile runs out, shuffle your discard pile to form a new draw pile. Let's look at movement and buying in detail."
+        },
+        {
+          "step": 3,
+          "title": "Movement Basics",
+          "text": "To move your explorer into a hex, you must play a card that matches the terrain type with a value equal to or higher than the number printed on the hex. Jungle hexes require green cards, water hexes require blue cards. Each card you play moves you one hex, regardless of how much its value exceeds the requirement. So a value-three green card entering a value-one jungle hex still only moves you one space."
+        },
+        {
+          "step": 4,
+          "title": "Desert and Mountain Terrain",
+          "text": "Desert hexes work differently from jungle and water. To enter a desert hex, discard any card from your hand. Here is the twist — that card is removed from the game entirely, not just discarded. It goes back to the box. Mountains cannot be entered at all. You must find a way around them."
+        },
+        {
+          "step": 5,
+          "title": "Buying Cards from the Market",
+          "text": "Instead of using a card for movement, you can spend coin cards to buy new cards from the market. Each market stack has a fixed price shown on the cards. Pay by discarding coin cards from your hand with a total value meeting or exceeding the price. The purchased card goes to your discard pile and will be drawn in future turns. You can buy one card per turn."
+        },
+        {
+          "step": 6,
+          "title": "Blockade Rules",
+          "text": "Some hexes have blockade tokens that require specific cards to pass through. When you reach a blockade, you must discard the required cards to remove it. Once any player clears a blockade, the token is removed and all other players can pass through freely. Blockades create bottlenecks that reward being first."
+        },
+        {
+          "step": 7,
+          "title": "Explorer Collision Rules",
+          "text": "Two explorers cannot occupy the same hex at the same time. If another player is on the hex you want to enter, you must go around them or wait. This means position matters — getting ahead early can block opponents and force them to take longer routes."
+        },
+        {
+          "step": 8,
+          "title": "Discarding and Drawing",
+          "text": "At the end of your turn, discard all remaining cards in your hand, whether you played them or not. Then draw four new cards from your draw pile. If your draw pile runs out mid-draw, shuffle your discard pile to form a new draw pile and continue drawing. Your deck cycles through repeatedly during the game."
+        },
+        {
+          "step": 9,
+          "title": "Winning the Game",
+          "text": "The first explorer to reach the El Dorado tile wins immediately. There is no scoring, no tiebreaker, and no waiting for other players to finish their turns. It is a pure race. Speed is everything."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Deck-building + racing game",
+            "Buy cards → play cards → move explorer through terrain",
+            "First to El Dorado wins immediately — pure race, no points"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Structure",
+          "bullets": [
+            "Play cards from hand → move and/or buy",
+            "Discard remaining hand → draw 4 new cards",
+            "Reshuffle discard pile when draw pile empties"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Movement Basics",
+          "bullets": [
+            "Play a card matching terrain type (green=jungle, blue=water)",
+            "Card value must meet or exceed hex value",
+            "Each card = 1 hex of movement, regardless of excess value"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Desert and Mountain Terrain",
+          "bullets": [
+            "Desert: discard any card → removed from game permanently",
+            "Mountain: cannot be entered, must go around",
+            "Desert thins your deck (can be beneficial)"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Buying Cards from the Market",
+          "bullets": [
+            "Spend coin cards to buy from 6 market stacks",
+            "Pay ≥ card price, purchased card → discard pile",
+            "1 purchase per turn"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Blockade Rules",
+          "bullets": [
+            "Blockades require specific cards to pass",
+            "First player through removes the token",
+            "Creates bottlenecks — being first is rewarded"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Explorer Collision Rules",
+          "bullets": [
+            "Two explorers cannot share a hex",
+            "Must go around occupied hexes",
+            "Getting ahead can block opponents"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Discarding and Drawing",
+          "bullets": [
+            "Discard entire hand at end of turn (played or not)",
+            "Draw 4 new cards from draw pile",
+            "Shuffle discard into draw pile when empty"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Winning the Game",
+          "bullets": [
+            "First to reach El Dorado wins immediately",
+            "No scoring, no tiebreaker",
+            "Speed is everything"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Expedition",
+          "text": "Welcome to your first expedition to El Dorado! In this practice tutorial, we will walk through a scripted opening with three example players. Each player will take different approaches so you can see movement, buying, and common mistakes in action. Follow along even if you have a different player count. Let's explore!"
+        },
+        {
+          "step": 2,
+          "title": "Starting Position",
+          "text": "All three explorers are on the start space. Each player has shuffled their eight-card starting deck and drawn four cards. The market has six stacks of purchasable cards, ranging from cheap scouts to powerful adventurers. The path ahead starts with jungle hexes, then transitions to a mix of water and desert."
+        },
+        {
+          "step": 3,
+          "title": "Player One Moves Into the Jungle",
+          "text": "Player one looks at their hand and finds two green jungle cards and two coin cards. They play one green card with a value of one to move into the first jungle hex, which has a value of one. Perfect match. Then they play their second green card to move into the next jungle hex. Two hexes of progress on their first turn!"
+        },
+        {
+          "step": 4,
+          "title": "Why Movement First Is Smart",
+          "text": "Player one used both green cards for movement instead of saving them. In a race, forward progress early is critical. Every hex you advance now is one less hex you need to cover later. Holding cards for future turns often wastes tempo because your deck will cycle back around."
+        },
+        {
+          "step": 5,
+          "title": "Player Two Buys a Card",
+          "text": "Player two has a hand with one green card and three coin cards. They play the green card to move one hex forward. Then they spend two coin cards to buy a powerful machete card from the market. This card has a value of three — much stronger than their starting green cards. The machete goes to their discard pile and will show up in future hands."
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Over-Buying",
+          "text": "Player three looks at the market and sees an expensive explorer card that costs four coins. They spend all three of their coin cards, but that is only three coins total — not enough! They cannot buy the card. Worse, they wasted their entire turn because they did not move either. Player three discards everything and draws four new cards, having accomplished nothing."
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Buy What You Can Afford",
+          "text": "The lesson here is simple: check the math before you commit to buying. Look at the price on the market stack and count your available coin cards. If you cannot afford the card you want, either buy a cheaper card or use those coins for something else. A wasted turn in a race game is devastating — other explorers move forward while you stand still."
+        },
+        {
+          "step": 8,
+          "title": "Player One Hits Water Terrain",
+          "text": "Player one draws a new hand and finds themselves facing water hexes. They have one blue water card and can move one hex. But the next hex is also water and they have no more blue cards. They play their blue card for one move and then spend a coin to buy a cheap canoe card from the market. Good adaptation to the terrain ahead."
+        },
+        {
+          "step": 9,
+          "title": "Player Two Encounters a Blockade",
+          "text": "Player two reaches a blockade token. The blockade requires a green card with a value of two. Player two plays their starting green card, but it only has a value of one — not enough to clear the blockade. They are stuck for this turn. The blockade stays until someone plays a card that meets the requirement."
+        },
+        {
+          "step": 10,
+          "title": "Player Three's Mistake: Ignoring the Map",
+          "text": "Player three finally gets moving but buys another jungle card from the market. The problem is that the path ahead is mostly water terrain. That jungle card will sit useless in their deck for several turns. They did not look at the map before buying."
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Scout the Path Before Buying",
+          "text": "Before you buy any card from the market, look at the terrain ahead on the map. If the next section is mostly water, buy water cards. If jungle lies ahead, buy jungle cards. Buying cards that do not match upcoming terrain wastes money and clogs your deck. Always let the map guide your purchases."
+        },
+        {
+          "step": 12,
+          "title": "Player One Navigates a Desert",
+          "text": "Player one reaches a desert hex. To cross it, they discard a weak starting coin card. That card is removed from the game permanently. This actually helps — their deck is now seven cards instead of eight, which means they will draw their good cards more often. Player one just accidentally discovered deck thinning."
+        },
+        {
+          "step": 13,
+          "title": "Player Three's Mistake: Avoiding Desert",
+          "text": "Player three sees a desert shortcut but goes the long way around to avoid losing a card. The longer route adds three extra hexes to their journey. Meanwhile, Player one cut through the desert, lost one weak card, and saved two turns of movement."
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Desert Is Your Friend",
+          "text": "Deserts remove cards permanently, but that is often a good thing. Your starting deck has weak cards that you want to get rid of. Using desert hexes to thin out low-value cards makes your deck faster and more powerful. Do not fear the desert — embrace it as a shortcut and a deck upgrade in one move."
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations — you have just navigated the opening turns of Quest for El Dorado! You saw how to move through different terrain types, buy cards that match the path ahead, and use deserts strategically. You watched Player three learn from three mistakes: trying to buy cards they could not afford, ignoring the map when buying, and avoiding beneficial desert crossings."
+        },
+        {
+          "step": 16,
+          "title": "Before You Explore",
+          "text": "Before you start your own race to El Dorado, here are three things that can help.\n\nFirst — check out General Tips for strategy basics like deck thinning and route planning.\n\nSecond — reference the Appendix for a quick guide to terrain types and market cards.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Expedition",
+          "bullets": [
+            "Scripted tutorial with 3 example players",
+            "Covers movement, buying, and common mistakes",
+            "Follow along with any player count"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Starting Position",
+          "bullets": [
+            "All explorers on start space, 4-card opening hands",
+            "Market has 6 purchasable card stacks",
+            "Path starts with jungle, then water and desert"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Moves Into the Jungle",
+          "bullets": [
+            "Plays 2 green cards → moves 2 jungle hexes",
+            "Card value matches hex requirement",
+            "Two hexes of progress on turn 1"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Why Movement First Is Smart",
+          "bullets": [
+            "In a race, forward progress early is critical",
+            "Every hex advanced now = one less to cover later",
+            "Deck cycles back — cards will return"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Two Buys a Card",
+          "bullets": [
+            "Moves 1 hex with green card",
+            "Spends 2 coins to buy a value-3 machete card",
+            "Purchased card goes to discard pile for future draws"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Three's Mistake: Over-Buying",
+          "bullets": [
+            "Tries to buy a 4-coin card with only 3 coins",
+            "Cannot afford it, wastes entire turn",
+            "No movement, no purchase — wasted turn in a race"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Buy What You Can Afford",
+          "bullets": [
+            "Check the price vs. your available coins before committing",
+            "If you can't afford your target, buy cheaper or move instead",
+            "Wasted turns in a race game are devastating"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player One Hits Water Terrain",
+          "bullets": [
+            "Plays 1 blue card for 1 water hex",
+            "Buys a canoe card to prepare for more water ahead",
+            "Adapting purchases to upcoming terrain"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player Two Encounters a Blockade",
+          "bullets": [
+            "Blockade requires value-2 green card",
+            "Player 2's value-1 green card is too weak",
+            "Stuck until they draw a qualifying card"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Player Three's Mistake: Ignoring the Map",
+          "bullets": [
+            "Buys jungle cards when the path ahead is mostly water",
+            "Purchased cards will sit useless for several turns",
+            "Didn't scout the map before buying"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Scout the Path Before Buying",
+          "bullets": [
+            "Look at terrain ahead before buying from market",
+            "Buy cards matching upcoming terrain",
+            "Wrong-terrain cards clog your deck"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Player One Navigates a Desert",
+          "bullets": [
+            "Discards a weak coin card to cross desert hex",
+            "Card removed from game permanently",
+            "Deck is now smaller = draws good cards more often"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player Three's Mistake: Avoiding Desert",
+          "bullets": [
+            "Takes long route to avoid losing a card",
+            "Adds 3 extra hexes to their journey",
+            "Player 1 saved 2 turns by cutting through desert"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Desert Is Your Friend",
+          "bullets": [
+            "Desert removes weak starting cards from your deck",
+            "Smaller, stronger deck cycles faster",
+            "Desert = shortcut + deck upgrade in one move"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced movement, buying, and desert terrain",
+            "Watched Player 3 learn from three common mistakes",
+            "Don't over-buy, don't ignore the map, don't fear the desert"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Before You Explore",
+          "bullets": [
+            "Check out General Tips → deck thinning and route planning",
+            "Reference the Appendix → terrain types and market cards",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Thin Your Deck",
+          "text": "One of the most powerful strategies in El Dorado is deck thinning. Your starting deck has eight cards, most of which are weak. Every time you cross a desert hex, you permanently remove a card from the game. Target your weakest cards for removal. A six-card deck full of strong cards cycles much faster than an eight-card deck with dead weight. Deliberately route through deserts early to shed your starting cards."
+        },
+        {
+          "step": 2,
+          "title": "Do Not Overbuy",
+          "text": "A lean deck cycles faster and draws better hands. New players often buy too many cards, bloating their deck with purchases they do not need. Every card you buy goes into your discard pile and eventually dilutes your draws. Only buy cards you will actually use multiple times. If you are halfway to El Dorado, buying new cards may not pay off before the race ends."
+        },
+        {
+          "step": 3,
+          "title": "Match Terrain with Your Purchases",
+          "text": "Before buying from the market, look at the map ahead. If the next section is mostly water hexes, buy water cards. If jungle lies ahead, invest in jungle. Buying cards that do not match upcoming terrain wastes coins and clogs your deck. The map should dictate your shopping list, not the other way around."
+        },
+        {
+          "step": 4,
+          "title": "Plan Your Route",
+          "text": "Before the game even starts, scan the full map from start to finish. Identify the dominant terrain types along each possible path. Look for shortcuts through deserts, detours around mountains, and blockade bottlenecks. Sometimes the shortest path has the hardest terrain, while a slightly longer path matches your deck better. Route planning is half the game."
+        },
+        {
+          "step": 5,
+          "title": "Speed Over Power",
+          "text": "This is a race, not a point-scoring contest. A cheap card you can buy and use immediately is often better than an expensive card that takes two more turns to afford. Tempo matters enormously. Every turn you spend buying instead of moving is a turn your opponents use to pull ahead. Balance building your deck with actually moving forward."
+        },
+        {
+          "step": 6,
+          "title": "Use Blockades to Your Advantage",
+          "text": "Blockades create bottlenecks on the map. If you can clear a blockade first, you open the path for yourself while opponents are stuck behind it. But remember, once you clear it, everyone can pass freely. Sometimes it is worth rushing to a blockade just to clear it and maintain your lead."
+        },
+        {
+          "step": 7,
+          "title": "Block Your Opponents",
+          "text": "Two explorers cannot share the same hex. If you are ahead, consider which hexes you stop on — you might be able to force opponents to take a longer route around you. This is especially powerful at narrow points on the map where there is only one path forward."
+        },
+        {
+          "step": 8,
+          "title": "Watch the Other Racers",
+          "text": "Keep an eye on your opponents' positions and purchases. If someone is buying powerful water cards, they are probably planning a water-heavy route. If someone is close to a blockade, you might want to race them to clear it first. And if someone is way ahead, do not panic — focus on efficient play rather than desperate buying sprees."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Thin Your Deck",
+          "bullets": [
+            "Desert removes weak cards permanently — use it deliberately",
+            "Smaller deck = better card draws and faster cycling",
+            "Target your weakest starting cards for removal"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Do Not Overbuy",
+          "bullets": [
+            "Every purchased card dilutes your deck",
+            "Only buy cards you'll use multiple times",
+            "Late-game purchases may not pay off before race ends"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Match Terrain with Your Purchases",
+          "bullets": [
+            "Look at the map ahead before buying",
+            "Buy cards matching upcoming terrain types",
+            "Wrong-terrain cards clog your deck"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Plan Your Route",
+          "bullets": [
+            "Scan the full map before the game starts",
+            "Identify dominant terrain, shortcuts, and bottlenecks",
+            "Sometimes a longer path with easier terrain is faster"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Speed Over Power",
+          "bullets": [
+            "Cheap cards you use immediately beat expensive cards later",
+            "Every buying turn = opponents moving ahead",
+            "Balance deck-building with forward progress"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Use Blockades to Your Advantage",
+          "bullets": [
+            "Rush to clear blockades first to maintain your lead",
+            "Once cleared, all players pass freely",
+            "Blockades create strategic bottleneck opportunities"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Block Your Opponents",
+          "bullets": [
+            "Two explorers cannot share a hex",
+            "Stop on narrow chokepoints to force detours",
+            "Especially powerful at single-path sections"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Watch the Other Racers",
+          "bullets": [
+            "Track opponents' positions and purchases",
+            "Race to blockades when opponents approach",
+            "Don't panic if behind — focus on efficient play"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Lean Deck Strategy",
+          "text": "The most competitive El Dorado strategy revolves around keeping your deck as small as possible. Buy only one or two high-value cards and use deserts aggressively to remove starting cards. A five-card deck draws the same four to five cards almost every turn, giving you consistent powerful hands. This approach requires discipline — skip tempting market cards and focus on removal."
+        },
+        {
+          "step": 2,
+          "title": "The Power Buy Strategy",
+          "text": "The opposite approach is to invest heavily in a few expensive, high-value cards early. A single card with a value of four can cross a hex that would take two weaker cards. The risk is that buying takes time, and your deck bloats slightly. This strategy works best on maps with high-value terrain hexes where starting cards cannot cross in one play."
+        },
+        {
+          "step": 3,
+          "title": "Route Optimization",
+          "text": "Advanced players plan their entire route before buying a single card. Count the exact number of jungle hexes, water hexes, and desert hexes on your chosen path. Then build your deck to match those exact needs. If your route has seven water hexes and three jungle hexes, your deck should be water-heavy. Over-preparing for one terrain type while neglecting another wastes turns."
+        },
+        {
+          "step": 4,
+          "title": "Tempo vs. Economy",
+          "text": "Every turn presents a choice between tempo (moving forward) and economy (buying cards). Early in the game, a few economy turns pay dividends because purchased cards get drawn multiple times. Late in the game, tempo is everything — stop buying and sprint. The pivot point depends on your map position and deck state, but a good rule of thumb is to stop buying once you are past the halfway point."
+        },
+        {
+          "step": 5,
+          "title": "Market Denial",
+          "text": "Buying the last card from a market stack removes that option for everyone. If you notice an opponent building toward a specific card type, consider buying from that stack to deny them. This is especially effective when a stack has only one or two cards remaining. Even if the card is not ideal for your deck, preventing an opponent from completing their strategy can be worth the slight deck bloat."
+        },
+        {
+          "step": 6,
+          "title": "Positional Blocking",
+          "text": "Advanced players use the collision rule strategically. If there is a narrow section of the map with only one viable path, stopping your explorer on a key hex forces all opponents to take a longer detour. This is most effective at chokepoints near blockades or single-hex passages. Sacrificing one turn of movement to block opponents for two or three turns can be game-winning."
+        },
+        {
+          "step": 7,
+          "title": "Deck Cycle Awareness",
+          "text": "Know where you are in your deck cycle. If you just shuffled your discard pile into a new draw pile, you know which cards are coming. Plan your moves two or three turns ahead based on what cards you will draw. If your powerful cards are near the top after a shuffle, plan an aggressive push. If weak cards are coming, spend that turn buying or positioning."
+        },
+        {
+          "step": 8,
+          "title": "The Desert Sprint",
+          "text": "On some maps, a path heavy in desert hexes is the fastest route — if you are willing to sacrifice cards. Each desert crossing removes a card permanently, but it also moves you forward one hex. If you have six weak cards and three desert hexes, crossing all three deserts simultaneously thins your deck and covers three hexes. Think of deserts as free movement that upgrades your deck at the same time."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Lean Deck Strategy",
+          "bullets": [
+            "Keep deck as small as possible (5-6 cards)",
+            "Buy 1-2 high-value cards, use deserts to remove the rest",
+            "Consistent powerful hands every turn"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Power Buy Strategy",
+          "bullets": [
+            "Invest in expensive high-value cards early",
+            "One value-4 card beats two value-1 cards",
+            "Best on maps with high-value terrain hexes"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Route Optimization",
+          "bullets": [
+            "Count exact terrain hexes on your planned route",
+            "Build deck to match those exact needs",
+            "Over-preparing for one terrain wastes turns"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Tempo vs. Economy",
+          "bullets": [
+            "Early game: economy turns pay off (cards drawn multiple times)",
+            "Late game: tempo is everything — stop buying, sprint",
+            "Pivot point: stop buying past the halfway mark"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Market Denial",
+          "bullets": [
+            "Buy from stacks opponents need to deny them",
+            "Most effective when stacks have 1-2 cards remaining",
+            "Slight deck bloat can be worth disrupting opponents"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Positional Blocking",
+          "bullets": [
+            "Stop on chokepoint hexes to force opponent detours",
+            "Sacrifice 1 turn to block opponents for 2-3 turns",
+            "Most effective at narrow passages and near blockades"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Deck Cycle Awareness",
+          "bullets": [
+            "Track which cards are coming after a shuffle",
+            "Plan 2-3 turns ahead based on deck contents",
+            "Push aggressively when strong cards are coming"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Desert Sprint",
+          "bullets": [
+            "Desert path = free movement + deck thinning",
+            "Remove weak cards while advancing",
+            "3 desert hexes = 3 cards removed + 3 hexes covered"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Jungle Hex",
+          "definition": "Green terrain hex that requires a green jungle card with value equal to or exceeding the hex's printed number. The most common terrain type on most maps.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Water Hex",
+          "definition": "Blue terrain hex that requires a blue water card with value equal to or exceeding the hex's printed number.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Desert Hex",
+          "definition": "Yellow terrain hex crossed by discarding any card from your hand. The discarded card is permanently removed from the game, not just discarded. Useful for deck thinning.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Mountain Hex",
+          "definition": "Impassable terrain that cannot be entered. Explorers must find a path around mountains.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Village Hex",
+          "definition": "Special hex type found on some maps that may provide bonus abilities or alternate routes.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Start Space",
+          "definition": "The hex where all explorers begin the race. All players place their pawns here during setup.",
+          "category": "Map"
+        },
+        {
+          "term": "El Dorado",
+          "definition": "The finish tile. The first explorer to reach this space wins the game immediately. The entire race objective.",
+          "category": "Map"
+        },
+        {
+          "term": "Blockade Token",
+          "definition": "A token placed on certain hexes that requires specific cards to pass through. Once any player clears a blockade, the token is removed for all players.",
+          "category": "Map"
+        },
+        {
+          "term": "Cave Token",
+          "definition": "A token placed on certain hexes that grants a bonus ability when an explorer lands on it. Collected by the first explorer to reach the space.",
+          "category": "Map"
+        },
+        {
+          "term": "Starting Deck",
+          "definition": "The identical eight-card deck each player begins with. Contains basic jungle, water, and coin cards with low values. The foundation you improve through purchases and thinning.",
+          "category": "Cards"
+        },
+        {
+          "term": "Coin Card",
+          "definition": "A card type used to purchase new cards from the market. Coin cards cannot be used for movement. Starting decks include basic coin cards.",
+          "category": "Cards"
+        },
+        {
+          "term": "Market Board",
+          "definition": "The shared board displaying six stacks of purchasable cards. Players spend coin cards to buy from these stacks during their turns.",
+          "category": "Cards"
+        },
+        {
+          "term": "Deck Thinning",
+          "definition": "The strategy of permanently removing weak cards from your deck, typically via desert hexes. A thinner deck draws stronger hands more consistently.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Explorer Pawn",
+          "definition": "The colored piece representing your position on the map. Moves forward by playing matching terrain cards. Two pawns cannot occupy the same hex.",
+          "category": "Components"
+        },
+        {
+          "term": "Draw Pile",
+          "definition": "Your personal face-down deck of cards. Draw four cards from it at the end of each turn. When empty, shuffle your discard pile to form a new draw pile.",
+          "category": "Components"
+        },
+        {
+          "term": "Discard Pile",
+          "definition": "Where played and unplayed cards go at the end of your turn. Also where purchased cards are placed. Shuffled into draw pile when draw pile is empty.",
+          "category": "Components"
+        },
+        {
+          "term": "Hand Size",
+          "definition": "You always draw four cards at the end of your turn. There is no maximum hand size — you simply draw four each time.",
+          "category": "Rules"
+        },
+        {
+          "term": "Hex Value",
+          "definition": "The number printed on a terrain hex indicating the minimum card value required to enter it. Higher values require more powerful cards.",
+          "category": "Rules"
+        },
+        {
+          "term": "One Card Per Hex",
+          "definition": "Each terrain card played moves you exactly one hex, regardless of how much its value exceeds the hex requirement. A value-three card on a value-one hex still moves one space.",
+          "category": "Rules"
+        },
+        {
+          "term": "Collision Rule",
+          "definition": "Two explorers cannot occupy the same hex simultaneously. If a hex is occupied, you must find an alternate route around it.",
+          "category": "Rules"
+        }
+      ]
+    }
+  }
+}

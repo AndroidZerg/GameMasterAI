@@ -1,0 +1,894 @@
+{
+  "game_id": "splendor",
+  "title": "Splendor",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Sort the Development Cards",
+          "text": "Let's get Splendor set up! Find the 90 development cards and separate them into three piles by the dots on the back. Level one cards have one dot, level two have two dots, and level three have three dots. You should end up with 40 level one cards, 30 level two cards, and 20 level three cards."
+        },
+        {
+          "step": 2,
+          "title": "Shuffle and Stack the Decks",
+          "text": "Shuffle each of the three decks separately. Now stack them in a column in the middle of the table with level one on the bottom, level two in the middle, and level three on top. This creates the card market that everyone will buy from during the game."
+        },
+        {
+          "step": 3,
+          "title": "Reveal the Market",
+          "text": "Flip four cards face up from each deck and lay them in a row next to their deck. You should now have twelve face-up cards total. Four cheap level one cards on the bottom row, four mid-range level two cards in the middle, and four expensive level three cards on top. This is the market."
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Noble Tiles",
+          "text": "Find the ten noble tiles. Shuffle them face down and reveal a number equal to the player count plus one. So for two players, reveal three nobles. For three players, reveal four. For four players, reveal five. Put the rest back in the box without looking at them."
+        },
+        {
+          "step": 5,
+          "title": "Sort the Gem Tokens",
+          "text": "Now let's sort the tokens into six piles by color. You have emeralds which are green, diamonds which are white, sapphires which are blue, onyx which are black, and rubies which are red. The sixth pile is the gold joker tokens, which are yellow. Place all six piles where everyone can reach them."
+        },
+        {
+          "step": 6,
+          "title": "Adjust Tokens for Player Count",
+          "text": "Here is an important step that depends on how many people are playing. With four players, use all seven of each gem color. With three players, remove two of each gem color so five of each remain. With two players, remove three of each gem color so only four of each remain. Always keep all five gold tokens regardless of player count."
+        },
+        {
+          "step": 7,
+          "title": "Player Starting State",
+          "text": "Good news — players start with absolutely nothing. No tokens, no cards, no nobles. Just an empty space in front of you for your tableau. Leave room to organize the cards you buy by color so your bonuses are easy to read at a glance."
+        },
+        {
+          "step": 8,
+          "title": "Choose the First Player",
+          "text": "The youngest player goes first, and play proceeds clockwise from there. There is no pregame drafting or opening phase. The starting player simply takes their first turn. Let's learn what you can do on a turn."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Sort the Development Cards",
+          "bullets": [
+            "90 cards total: 40 Level 1, 30 Level 2, 20 Level 3",
+            "Separate by dots on card backs"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Shuffle and Stack the Decks",
+          "bullets": [
+            "Shuffle each level separately",
+            "Stack: Level 1 bottom, Level 2 middle, Level 3 top"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Reveal the Market",
+          "bullets": [
+            "Flip 4 face-up cards from each level (12 total)",
+            "Bottom row = Level 1, middle = Level 2, top = Level 3"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Noble Tiles",
+          "bullets": [
+            "Reveal players+1 nobles (2P→3, 3P→4, 4P→5)",
+            "Return unused nobles to box unseen"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Sort the Gem Tokens",
+          "bullets": [
+            "6 piles: emerald (green), diamond (white), sapphire (blue), onyx (black), ruby (red), gold (yellow)",
+            "Place centrally within reach"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Adjust Tokens for Player Count",
+          "bullets": [
+            "4P: all 7 per gem color",
+            "3P: 5 per gem color (remove 2 each)",
+            "2P: 4 per gem color (remove 3 each)",
+            "Gold: always keep all 5"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player Starting State",
+          "bullets": [
+            "No starting tokens, cards, or nobles",
+            "Leave space for tableau sorted by bonus color"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Choose the First Player",
+          "bullets": [
+            "Youngest player goes first, clockwise order",
+            "No pregame draft — first player takes a normal turn"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "In Splendor, you are a Renaissance merchant collecting gems to buy development cards. Those cards give you permanent gem bonuses that make future purchases cheaper. When you collect enough bonuses, nobles visit you automatically. The first player to reach 15 prestige points triggers the endgame."
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Structure",
+          "text": "On your turn, you do exactly one action. You pick from four options: take three different gem tokens, take two of the same gem token, reserve a card, or buy a card. After your action, check if you have more than ten tokens and return extras if needed. Then check if any noble visits you. That is it — one action per turn."
+        },
+        {
+          "step": 3,
+          "title": "Action: Take Three Different Gems",
+          "text": "You may take one gem token from three different color piles. For example, take one green, one blue, and one black. You cannot take two of any color with this action. The tokens go in front of you and are visible to everyone at all times."
+        },
+        {
+          "step": 4,
+          "title": "Action: Take Two Same-Color Gems",
+          "text": "You may take two tokens of the same color, but only if there are at least four tokens of that color in the supply before you take them. If a color has three or fewer tokens, you cannot double up on it. This rule prevents anyone from draining a color too quickly."
+        },
+        {
+          "step": 5,
+          "title": "Action: Reserve a Card",
+          "text": "You can reserve one development card from the face-up market or draw the top card of any level deck blindly. The reserved card goes into your hand, hidden from opponents if drawn blind. You also take one gold joker token if any are available. You can hold up to three reserved cards at a time, and the only way to get rid of them is to buy them."
+        },
+        {
+          "step": 6,
+          "title": "Action: Buy a Card",
+          "text": "Let's talk about buying. You can buy one face-up card from the market or one of your reserved cards. Pay the gem cost shown on the card by returning tokens to the supply. Here is the key — your permanent bonuses from previously purchased cards reduce the cost. If you own two blue bonus cards, a card costing three blue only requires one blue token. Gold tokens are wild and can substitute for any color."
+        },
+        {
+          "step": 7,
+          "title": "Permanent Bonuses Explained",
+          "text": "Every card you buy gives you a permanent bonus gem shown in the corner. This is the engine-building core of Splendor. Each bonus acts like a free token of that color for every future purchase. They stack, so three green bonuses mean you always have three free green toward any card cost. Bonuses are never spent or consumed."
+        },
+        {
+          "step": 8,
+          "title": "Gold Joker Tokens",
+          "text": "Gold tokens are special. You can only get them by reserving a card. Each gold token acts as a wild and can replace any single gem color when buying a card. After you spend gold tokens, they go back to the supply. Gold never counts as a permanent bonus and never helps meet noble requirements."
+        },
+        {
+          "step": 9,
+          "title": "Token Limit",
+          "text": "You can never have more than ten tokens at the end of your turn, including gold. If you go over ten after taking tokens, you must return tokens of your choice until you are back to ten. Plan your takes carefully so you do not waste tokens by being forced to return them."
+        },
+        {
+          "step": 10,
+          "title": "Noble Visits",
+          "text": "At the end of your turn, the game checks if you qualify for a noble. Nobles have requirements listed on their tiles, like four green bonuses and four blue bonuses. If your permanent bonuses meet or exceed a noble's requirements, you must take that noble tile. Each noble is worth three prestige points. If you qualify for more than one, choose exactly one."
+        },
+        {
+          "step": 11,
+          "title": "Market Refill",
+          "text": "Whenever a face-up card is purchased or reserved from the market, immediately replace it by flipping a new card from the same level deck. The market should always have four cards per level unless a deck runs out. If a deck is empty, that slot stays empty for the rest of the game."
+        },
+        {
+          "step": 12,
+          "title": "Endgame and Winning",
+          "text": "As soon as any player reaches 15 or more prestige points, finish the current round so that every player has taken the same number of turns. Then count final scores. Add up prestige from your development cards and three points per noble tile you collected. The player with the most prestige wins. If there is a tie, the player who bought fewer development cards wins."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Collect gems → buy cards → earn bonuses → attract nobles",
+            "First to 15 prestige triggers endgame"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Your Turn Structure",
+          "bullets": [
+            "1 action per turn (4 choices)",
+            "After action: check 10-token limit, then check noble visit"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Action: Take Three Different Gems",
+          "bullets": [
+            "Take 1 token each from 3 different colors",
+            "No duplicates allowed in this action"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Action: Take Two Same-Color Gems",
+          "bullets": [
+            "Take 2 tokens of 1 color",
+            "Only if 4+ of that color in supply before taking"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Action: Reserve a Card",
+          "bullets": [
+            "Take 1 card from market or blind from a deck → into hand",
+            "Gain 1 gold joker if available",
+            "Max 3 reserved cards — can only get rid by buying"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Action: Buy a Card",
+          "bullets": [
+            "Buy 1 market card or 1 reserved card",
+            "Pay gem cost minus permanent bonuses",
+            "Gold tokens = wild substitute for any color"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Permanent Bonuses Explained",
+          "bullets": [
+            "Each purchased card = permanent 1-color discount",
+            "Bonuses stack and are never consumed",
+            "Core engine: more bonuses → cheaper future buys"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Gold Joker Tokens",
+          "bullets": [
+            "Only gained by reserving a card",
+            "Wild: replace any 1 gem color when buying",
+            "Not a bonus — doesn't help with nobles"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Token Limit",
+          "bullets": [
+            "Max 10 tokens (including gold) at end of turn",
+            "Over 10 → return tokens of choice down to 10"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Noble Visits",
+          "bullets": [
+            "Auto-check at end of turn — mandatory if you qualify",
+            "Requirements: permanent bonuses only (not tokens)",
+            "Each noble = 3 prestige points, max 1 per turn"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Market Refill",
+          "bullets": [
+            "Replace taken/reserved cards immediately from same-level deck",
+            "Empty deck → slot stays empty"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Endgame and Winning",
+          "bullets": [
+            "15+ prestige → finish the round (equal turns)",
+            "Score: card prestige + nobles (3 each)",
+            "Tiebreak: fewer purchased cards wins"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Gem Market",
+          "text": "Welcome to your first game of Splendor! We will walk through a practice game with three players. Player 1, Player 2, and Player 3 each start with nothing — no tokens, no cards, no nobles. The market is full of shiny cards and there are four noble tiles waiting to be impressed. Let's go."
+        },
+        {
+          "step": 2,
+          "title": "The Starting Market",
+          "text": "Take a look at the twelve face-up cards. The bottom row of level one cards are cheap, usually costing two to four tokens. The middle row of level two cards cost more but give prestige points. The top row of level three cards are expensive but worth the most points. Also check the four noble tiles — notice what bonus colors they require."
+        },
+        {
+          "step": 3,
+          "title": "Player 1: Take Three Gems",
+          "text": "Player 1, let's start simple. Take three different gem tokens — one green, one blue, and one white. Look at the level one cards in the market. Find one that costs some combination of those colors. You are collecting tokens now so you can buy a card on a future turn."
+        },
+        {
+          "step": 4,
+          "title": "Player 2: Take Three Gems",
+          "text": "Player 2, same idea. Take three different tokens, but think ahead. Look at the noble tiles. If a noble needs four green and four white bonuses, start collecting green and white tokens so you can buy green and white bonus cards. Pick three tokens that align with your noble plan."
+        },
+        {
+          "step": 5,
+          "title": "Player 3: Take Three Gems",
+          "text": "Player 3 takes three tokens as well. Everyone has three tokens now and zero cards. The game starts slow, but it ramps up fast once people start buying cards. Those permanent bonuses make everything cheaper."
+        },
+        {
+          "step": 6,
+          "title": "Player 1: Buy a Level One Card",
+          "text": "Player 1, you now have six tokens total. Find a level one card you can afford and buy it. Pay the required tokens back to the supply. Place the card in front of you — this is the start of your tableau. Notice the bonus gem in the corner. That is now a permanent discount on every future purchase."
+        },
+        {
+          "step": 7,
+          "title": "Why Level One Cards Matter",
+          "text": "That level one card might be worth zero prestige points, and that is totally fine. The bonus it provides is the real value. Every bonus you collect makes future cards cheaper. Two or three early bonuses let you start buying mid-range cards for almost nothing. Think of level one cards as investments."
+        },
+        {
+          "step": 8,
+          "title": "Player 2: Buy a Card",
+          "text": "Player 2 buys a level one card as well. Smart move — they picked one that gives a green bonus, which aligns with the noble tile they are targeting. Already thinking two steps ahead. The market refills automatically as cards are taken."
+        },
+        {
+          "step": 9,
+          "title": "Player 3's Mistake: Hoarding Tokens",
+          "text": "Player 3 has been taking tokens every turn instead of buying cards. They now have nine tokens but zero bonuses. Meanwhile, Player 1 and Player 2 each have two bonus cards making their future purchases cheaper. Player 3's tokens will run into the ten-token limit soon, and they have no engine to show for it."
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Buy Early, Build Your Engine",
+          "text": "Do not hoard tokens. Buy level one cards as soon as you can afford them, even if they are worth zero points. Each bonus makes every future purchase cheaper. A player with three bonuses after four turns is in a much better position than a player with ten tokens and no cards."
+        },
+        {
+          "step": 11,
+          "title": "Player 3's Mistake: Rushing Level Three",
+          "text": "Player 3 finally buys a card — but they go straight for a level three card worth five points, spending almost all their tokens plus a gold. It looked impressive, but now they are broke with only one bonus. Player 1 has four bonuses and can buy level two cards for almost free. Player 3's shortcut actually put them behind."
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Build Bonuses Before Chasing Points",
+          "text": "Resist the urge to grab expensive point cards too early. Level three cards are tempting, but without bonuses they cost a fortune in tokens. Build your discount engine first with level one and two cards, then pivot to point cards when you can buy them cheaply. The most efficient path to 15 points goes through bonuses first."
+        },
+        {
+          "step": 13,
+          "title": "Player 1 Gets a Noble Visit",
+          "text": "Player 1 has been steadily buying cards and now has four green bonuses and three white bonuses. At the end of their turn, they qualify for a noble tile that requires four green and three white. The noble visits automatically — Player 1 takes the tile and gains three prestige points for free. No action spent!"
+        },
+        {
+          "step": 14,
+          "title": "Player 3's Mistake: Ignoring Nobles",
+          "text": "Player 3 has been buying random cards with no plan for nobles. They have one bonus in five different colors but do not qualify for any noble. Each noble is worth three free prestige points. Player 3 is leaving nine or more potential points on the table by not aligning their purchases with noble requirements."
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Plan for Nobles",
+          "text": "Always check the noble tiles during the game. Plan your purchases to build bonuses in the colors that match at least one noble. Nobles are worth three points each and cost no action to claim. Ignoring them means your opponents get free points that you do not."
+        },
+        {
+          "step": 16,
+          "title": "The Endgame Push",
+          "text": "Player 1 now has 12 prestige between cards and nobles. Player 2 has ten. Player 1 spots a level two card worth four points that they can buy for free thanks to their bonuses. They buy it, hit 16 prestige, and trigger the endgame. The round finishes so everyone gets equal turns."
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Well done! You have played through the core of Splendor. You saw how bonuses snowball into cheaper purchases, how nobles reward focused building, and how patience beats rushing. Remember the three lessons: buy early to build your engine, do not rush expensive cards, and always plan for nobles."
+        },
+        {
+          "step": 18,
+          "title": "What's Next",
+          "text": "Before your next game, check out General Tips for strategy advice on token management and card evaluation. The Appendix has a quick reference for all the rules and terms. And remember, you can ask your personal GM Guide any question during play. Just tap the Q&A tab. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Gem Market",
+          "bullets": [
+            "Practice game with 3 players, everyone starts empty",
+            "12 market cards + 4 noble tiles on display"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Starting Market",
+          "bullets": [
+            "Level 1 (cheap, low/no prestige), Level 2 (mid-cost), Level 3 (expensive, high prestige)",
+            "Check noble tile requirements — plan bonus colors"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player 1: Take Three Gems",
+          "bullets": [
+            "Take 1 green + 1 blue + 1 white",
+            "Target tokens that align with affordable Level 1 cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player 2: Take Three Gems",
+          "bullets": [
+            "Pick tokens aligned with a noble's required colors",
+            "Planning ahead from turn 1"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player 3: Take Three Gems",
+          "bullets": [
+            "All players start slow with token collection",
+            "Game ramps once bonuses start accumulating"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player 1: Buy a Level One Card",
+          "bullets": [
+            "Pay tokens → card goes to tableau",
+            "Bonus gem = permanent discount on future buys"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Why Level One Cards Matter",
+          "bullets": [
+            "Zero-point cards are investments, not waste",
+            "Bonuses make mid/high cards affordable",
+            "2-3 early bonuses = engine running"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player 2: Buy a Card",
+          "bullets": [
+            "Picks bonus color aligning with noble target",
+            "Market refills automatically"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Player 3's Mistake: Hoarding Tokens",
+          "bullets": [
+            "9 tokens, 0 bonuses — hitting token limit soon",
+            "Meanwhile P1 and P2 have 2+ bonuses each"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Buy Early, Build Your Engine",
+          "bullets": [
+            "Buy Level 1 cards ASAP, even at 0 prestige",
+            "Bonuses compound — each one makes future buys cheaper",
+            "3 bonuses after 4 turns >> 10 tokens and 0 cards"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player 3's Mistake: Rushing Level Three",
+          "bullets": [
+            "Spent all tokens on 1 expensive card → broke, only 1 bonus",
+            "P1 with 4 bonuses buying Level 2 for almost free"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Build Bonuses Before Chasing Points",
+          "bullets": [
+            "Level 3 cards are tempting but cost too much without bonuses",
+            "Build discount engine first → pivot to points later",
+            "Most efficient path: Level 1 → Level 2 → Level 3"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Player 1 Gets a Noble Visit",
+          "bullets": [
+            "4 green + 3 white bonuses → qualifies for noble",
+            "Noble visits automatically = 3 free prestige, no action spent"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Player 3's Mistake: Ignoring Nobles",
+          "bullets": [
+            "Random bonuses, no noble plan → missing 9+ free points",
+            "Each noble = 3 prestige for free"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Plan for Nobles",
+          "bullets": [
+            "Check noble tiles and align purchases to their colors",
+            "Nobles = free points, no action cost",
+            "Ignoring nobles gives opponents free advantage"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Endgame Push",
+          "bullets": [
+            "P1 buys a free Level 2 card → hits 16 prestige → triggers endgame",
+            "Round finishes for equal turns"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "Bonuses snowball, nobles reward focus, patience beats rushing",
+            "3 lessons: buy early, don't rush expensive cards, plan for nobles"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "What's Next",
+          "bullets": [
+            "General Tips → token management, card evaluation strategy",
+            "Appendix → quick reference for rules and terms",
+            "Ask your GM Guide anytime during play via Q&A tab"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest mistakes new Splendor players make. First, hoarding tokens without buying cards — you stall your engine and hit the ten-token limit. Second, rushing expensive level three cards without bonuses. Third, ignoring noble tiles and missing free prestige. Fourth, taking two same-color gems when there are fewer than four in the supply, which is actually illegal. Keep these in mind and you will avoid the most common traps."
+        },
+        {
+          "step": 2,
+          "title": "Buy Level One Cards Early",
+          "text": "Level one cards are cheap and most are worth zero prestige, but their bonuses are the foundation of your entire strategy. Buy them as soon as you can afford them. Two or three early bonuses let you buy level two cards for just one or two tokens instead of five or six. Think of every bonus as a permanent token that regenerates every turn."
+        },
+        {
+          "step": 3,
+          "title": "Plan Your Noble Path",
+          "text": "At the start of the game, look at the noble tiles and pick one or two to aim for. Check what bonus colors they require and bias your purchases toward those colors. Nobles are worth three prestige each and cost no action to claim. A player who collects two nobles effectively gains six free points, which is almost half the distance to fifteen."
+        },
+        {
+          "step": 4,
+          "title": "Token Management",
+          "text": "Be intentional about which tokens you take. Every token should have a purpose — a specific card you plan to buy within the next turn or two. Taking random tokens wastes turns. Also, stay aware of the ten-token limit. If you already have eight tokens, taking three more means you must return one. Plan your takes so nothing is wasted."
+        },
+        {
+          "step": 5,
+          "title": "When to Reserve",
+          "text": "Reserving a card is powerful in two situations. First, when a card is perfect for your strategy and you want to protect it from opponents. Second, when you need a gold token to complete a purchase next turn. Do not reserve cards you cannot buy anytime soon — you can only hold three, and they clog your hand if they sit there too long."
+        },
+        {
+          "step": 6,
+          "title": "Watch Your Opponents",
+          "text": "Splendor has limited interaction, but paying attention to your opponents matters. Track what bonuses they are building and which nobles they are targeting. If someone is one card away from a noble you both want, consider reserving a card they need or racing to buy it first. A well-timed block can swing three points in your favor."
+        },
+        {
+          "step": 7,
+          "title": "Know When to Pivot to Points",
+          "text": "There is a turning point in every Splendor game where you should stop buying zero-point cards and start buying high-point cards. This usually happens when you have five to seven bonuses and can afford level two and three cards cheaply. If you keep building bonuses past this point, your opponents will race ahead on prestige while you are over-engineering your engine."
+        },
+        {
+          "step": 8,
+          "title": "The Free Buy",
+          "text": "One of the most satisfying plays in Splendor is buying a card for zero tokens because your bonuses cover the entire cost. These free buys are incredibly efficient because you gain a card, a bonus, and possibly prestige without spending any tokens. Aim to build your bonuses toward cards that become free as quickly as possible."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Don't hoard tokens — buy cards to build bonuses",
+            "Don't rush Level 3 without bonuses",
+            "Don't ignore nobles — they're free prestige",
+            "Can't double-take if fewer than 4 of that color in supply"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Buy Level One Cards Early",
+          "bullets": [
+            "0-point Level 1 cards = engine foundation",
+            "2-3 early bonuses make Level 2 cards nearly free",
+            "Each bonus = permanent token that never gets spent"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Plan Your Noble Path",
+          "bullets": [
+            "Check noble requirements at game start",
+            "Bias purchases toward noble-matching colors",
+            "2 nobles = 6 free points (40% of 15 goal)"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Token Management",
+          "bullets": [
+            "Every token should target a specific purchase",
+            "Stay aware of 10-token limit — plan takes carefully",
+            "Avoid random tokens that don't convert to buys soon"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "When to Reserve",
+          "bullets": [
+            "Protect a key card from opponents",
+            "Gain gold to complete a purchase next turn",
+            "Don't reserve cards you can't buy soon — max 3 in hand"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Watch Your Opponents",
+          "bullets": [
+            "Track opponent bonuses and noble targets",
+            "Block by reserving cards they need",
+            "One well-timed block = 3-point swing"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Know When to Pivot to Points",
+          "bullets": [
+            "Pivot at 5-7 bonuses → start buying point cards",
+            "Over-building bonuses lets opponents race ahead on prestige",
+            "Engine is a means to points, not the goal itself"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Free Buy",
+          "bullets": [
+            "Bonuses covering full cost = card + bonus for 0 tokens",
+            "Aim to create free-buy chains",
+            "Most efficient play in the game"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Engine Speed vs Point Rush",
+          "text": "The fundamental strategic tension in Splendor is engine speed versus point rush. Engine-first players buy many level one cards, building five to seven bonuses before pivoting to points. Point-rush players grab a few key bonuses and jump to level two and three cards quickly. Engine-first is more consistent, but point-rush can win if the market offers the right cards. Read the market and adapt."
+        },
+        {
+          "step": 2,
+          "title": "Color Concentration",
+          "text": "One of the strongest strategies is concentrating bonuses in two or three colors rather than spreading across all five. If you stack four green and four white bonuses, you can buy almost any card with those colors for free. This also fast-tracks noble visits. Look at the available nobles and build deep in their required colors rather than going wide."
+        },
+        {
+          "step": 3,
+          "title": "Reserve as Denial",
+          "text": "Advanced players use reserves not just to protect their own cards, but to deny opponents critical purchases. If you see an opponent one card away from a noble visit, reserve that card even if you never plan to buy it. The gold token you gain is a nice bonus. This is especially effective in two-player games where every reserve directly impacts your single opponent."
+        },
+        {
+          "step": 4,
+          "title": "Token Efficiency Math",
+          "text": "Every turn matters in Splendor, and the best players think in terms of tokens per turn invested. Taking three tokens and buying a card next turn means two turns per card. But if you can take two tokens of one color and buy immediately next turn, that is still two turns. The difference is the first approach gives more flexibility. Calculate which path gets you to your next purchase fastest."
+        },
+        {
+          "step": 5,
+          "title": "Noble Racing",
+          "text": "When two or more players target the same noble, it becomes a race. The first player to hit the bonus threshold claims it, and the other player gets nothing for their investment. If you see a race developing, either commit hard and win it, or pivot to a different noble early. Halfway committing to a contested noble and losing is the worst outcome."
+        },
+        {
+          "step": 6,
+          "title": "Late-Game Card Selection",
+          "text": "In the endgame, card selection becomes critical. Look for level two and three cards where your bonuses cover most or all of the cost. A four-point card that costs you zero tokens is infinitely more efficient than a five-point card that costs six tokens. Also check if buying a specific card will trigger a noble visit — that doubles the value of your turn."
+        },
+        {
+          "step": 7,
+          "title": "The 15-Point Race",
+          "text": "When multiple players are near 15 points, counting exact turns to victory is essential. Map out your path: I need this card worth three points, then that noble for three more, and I hit fifteen. Count how many turns each path takes and choose the fastest. Also count your opponents' turns to fifteen. If they can win next turn, you need to block or find a faster line."
+        },
+        {
+          "step": 8,
+          "title": "Blind Reserve Gambit",
+          "text": "Drawing blind from the top of a deck is risky but can pay off. If the face-up market has nothing useful for you, blind-drawing gives you a hidden card plus a gold token. Level two blind draws are generally the best value — the cards are useful enough to buy later, and opponents cannot plan around what they cannot see. Use this sparingly but do not ignore it."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Engine Speed vs Point Rush",
+          "bullets": [
+            "Engine-first: 5-7 bonuses, then pivot (consistent)",
+            "Point-rush: few bonuses, jump to Level 2-3 (market-dependent)",
+            "Read the market and adapt your approach"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Color Concentration",
+          "bullets": [
+            "Stack 2-3 colors deep rather than spreading across 5",
+            "4+ bonuses in one color → free-buy territory",
+            "Aligns with noble requirements for fast visits"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Reserve as Denial",
+          "bullets": [
+            "Reserve opponent's key card to block noble visits",
+            "Gold token gained is a nice side benefit",
+            "Especially powerful in 2-player games"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Token Efficiency Math",
+          "bullets": [
+            "Think in turns-per-card invested",
+            "3 different tokens = flexibility, 2 same = speed",
+            "Calculate fastest path to each target card"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Noble Racing",
+          "bullets": [
+            "Same noble target = race — first to threshold wins",
+            "Commit fully or pivot early",
+            "Halfway commitment + losing = worst outcome"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Late-Game Card Selection",
+          "bullets": [
+            "Prioritize cards where bonuses cover most/all cost",
+            "4 pts for 0 tokens >> 5 pts for 6 tokens",
+            "Check if purchase triggers noble visit (double value turn)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The 15-Point Race",
+          "bullets": [
+            "Count exact turns to 15 for yourself and opponents",
+            "Map card + noble paths → choose fastest line",
+            "Block if opponent can win before you"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Blind Reserve Gambit",
+          "bullets": [
+            "Blind draw from deck = hidden card + gold token",
+            "Level 2 blind draws = best value on average",
+            "Use when face-up market has nothing useful"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Development Card",
+          "definition": "A card that can be purchased with gem tokens. Each card provides a permanent bonus gem and may award prestige points. Cards come in three levels of increasing cost and value.",
+          "category": "Components"
+        },
+        {
+          "term": "Level 1 Card",
+          "definition": "The cheapest tier of development cards. Typically cost two to four tokens and award zero to one prestige points. Valued primarily for their permanent bonuses.",
+          "category": "Components"
+        },
+        {
+          "term": "Level 2 Card",
+          "definition": "Mid-tier development cards costing around three to six tokens. Award one to three prestige points and provide a permanent bonus.",
+          "category": "Components"
+        },
+        {
+          "term": "Level 3 Card",
+          "definition": "The most expensive development cards, costing five or more tokens. Award three to five prestige points and provide a permanent bonus.",
+          "category": "Components"
+        },
+        {
+          "term": "Noble Tile",
+          "definition": "A tile worth three prestige points that visits a player automatically when they meet its bonus requirements. Only permanent bonuses count, not tokens. Nobles revealed equals player count plus one.",
+          "category": "Components"
+        },
+        {
+          "term": "Emerald Token",
+          "definition": "Green gem token. One of the five standard gem colors used to purchase development cards.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Diamond Token",
+          "definition": "White gem token. One of the five standard gem colors used to purchase development cards.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Sapphire Token",
+          "definition": "Blue gem token. One of the five standard gem colors used to purchase development cards.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Onyx Token",
+          "definition": "Black gem token. One of the five standard gem colors used to purchase development cards.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Ruby Token",
+          "definition": "Red gem token. One of the five standard gem colors used to purchase development cards.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Gold Joker Token",
+          "definition": "Yellow wild token gained only by reserving a card. Can substitute for any gem color when buying a card. Does not count as a permanent bonus and does not satisfy noble requirements.",
+          "category": "Tokens"
+        },
+        {
+          "term": "Permanent Bonus",
+          "definition": "A gem discount provided by each purchased development card. Shown in the card's corner. Stacks with other bonuses of the same color and is never consumed. Reduces token cost for future purchases.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Prestige Points",
+          "definition": "Victory points shown on development cards and noble tiles. First player to reach 15 triggers endgame. Highest total after equal turns wins.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Token Limit",
+          "definition": "Players cannot hold more than ten tokens including gold at the end of their turn. Excess must be returned to the supply.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Market",
+          "definition": "The twelve face-up development cards available for purchase or reservation. Four cards from each of the three levels, refilled immediately when one is taken.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Reserve",
+          "definition": "An action that takes a card from the market or blindly from a deck into your hand, plus one gold token if available. Maximum three reserved cards. Reserved cards can only be removed by purchasing them.",
+          "category": "Actions"
+        },
+        {
+          "term": "Take Three Different",
+          "definition": "An action that collects one gem token each from three different non-gold color piles. No duplicates allowed within this action.",
+          "category": "Actions"
+        },
+        {
+          "term": "Take Two Same Color",
+          "definition": "An action that collects two gem tokens of one color. Only legal if that color has four or more tokens in the supply before taking.",
+          "category": "Actions"
+        },
+        {
+          "term": "Purchase",
+          "definition": "An action that buys one face-up market card or one reserved card. Pay gem token cost minus permanent bonuses. Gold substitutes for any color. Spent tokens return to supply.",
+          "category": "Actions"
+        },
+        {
+          "term": "Free Buy",
+          "definition": "When your permanent bonuses fully cover a card's gem cost, you can buy it without spending any tokens. One of the most efficient plays in the game.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Noble Visit",
+          "definition": "Checked automatically at end of turn. If your permanent bonuses meet a noble's requirement, you must take that noble tile for three prestige points. If you qualify for multiple, choose one.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Tableau",
+          "definition": "Your personal area of purchased development cards and noble tiles. Organize cards by bonus color so discounts are easy to count. All information in your tableau is public.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Endgame Trigger",
+          "definition": "When any player reaches 15 or more prestige points, the current round is completed so all players take equal turns. The player with the highest prestige wins.",
+          "category": "Mechanics"
+        },
+        {
+          "term": "Tiebreaker",
+          "definition": "If two or more players tie on prestige at game end, the player who purchased fewer development cards wins.",
+          "category": "Mechanics"
+        }
+      ]
+    }
+  }
+}

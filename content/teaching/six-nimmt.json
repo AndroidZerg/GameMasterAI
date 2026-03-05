@@ -1,0 +1,653 @@
+{
+  "game_id": "six-nimmt",
+  "title": "6 Nimmt! / Take 5",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Shuffle the Deck",
+          "text": "Let's get 6 Nimmt set up. Find the deck of one hundred four numbered cards. These cards are numbered one through one hundred four, and each one shows a number of bull heads that represent penalty points. Give the whole deck a thorough shuffle."
+        },
+        {
+          "step": 2,
+          "title": "Deal Ten Cards Each",
+          "text": "Deal ten cards face down to each player. Everyone picks up their cards and looks at them privately. These ten cards are your hand for the entire round. You will play one card per turn until all ten are gone."
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Four Rows",
+          "text": "From the remaining deck, flip four cards face up and lay them in a column on the table. Each card starts its own row. These four rows will grow during the game as players add cards to them. Space them out so there is room for each row to hold up to five cards."
+        },
+        {
+          "step": 4,
+          "title": "Ready to Play",
+          "text": "Put the rest of the deck aside. You will not need it this round. Everyone should have ten cards in hand and there should be four face-up cards starting four rows on the table. That is it for setup. This game is fast. Let's learn the rules."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Shuffle the Deck",
+          "bullets": [
+            "104 cards numbered 1-104",
+            "Each card has 1-7 bull heads (penalty points)",
+            "Shuffle thoroughly"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Deal Ten Cards Each",
+          "bullets": [
+            "10 cards face-down to each player",
+            "Hand is private — hidden from others",
+            "Play 1 card per turn for 10 rounds"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Four Rows",
+          "bullets": [
+            "Flip 4 cards face up from deck → 1 per row",
+            "Space rows out for up to 5 cards each",
+            "Rows grow as players add cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Ready to Play",
+          "bullets": [
+            "Set aside remaining deck (not used this round)",
+            "10 cards in hand, 4 rows on table",
+            "Setup complete — fast game"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Simultaneous Card Selection",
+          "text": "Here is the core of 6 Nimmt: everyone plays at the same time. Each round, all players secretly choose one card from their hand and place it face down on the table. When everyone is ready, all cards are revealed simultaneously. No turns, no waiting. Everyone chooses together."
+        },
+        {
+          "step": 2,
+          "title": "Placement Order",
+          "text": "After all cards are revealed, they are placed onto the rows starting with the lowest number and going up. The lowest card gets placed first, then the next lowest, and so on until all revealed cards have been placed. This order matters because earlier placements change the state of the rows for later cards."
+        },
+        {
+          "step": 3,
+          "title": "The Placement Rule",
+          "text": "Each card must go onto the row whose last card is the closest number below the played card. For example, if the four rows end in twelve, thirty-seven, fifty-five, and eighty, and you play forty-two, your card goes on the thirty-seven row because thirty-seven is the highest number that is still lower than forty-two. You do not get to choose which row. The placement is always determined by the numbers."
+        },
+        {
+          "step": 4,
+          "title": "The Sixth Card Rule",
+          "text": "This is the big one. If your card would be the sixth card placed in a row, you do not add it. Instead, you take all five existing cards in that row as penalty points. Your card then becomes the new starting card of that row. Count up all the bull heads on the five cards you took. Those are your penalty points for the round. This is how you lose in 6 Nimmt."
+        },
+        {
+          "step": 5,
+          "title": "The Lowest Card Rule",
+          "text": "What if your card is lower than all four row-ending cards? Since it cannot go on any row following the normal placement rule, you must choose one row to take. Pick up all the cards in your chosen row as penalty points. Your card then starts a new row in that spot. Pick the row with the fewest bull heads to minimize your damage."
+        },
+        {
+          "step": 6,
+          "title": "Bull Head Values",
+          "text": "Not all cards are equally dangerous. Most cards have just one bull head. Cards ending in five, like five, fifteen, and twenty-five, have two bull heads. Cards ending in zero, like ten, twenty, and thirty, have three bull heads. Double numbers like eleven, twenty-two, and thirty-three have five bull heads. And card fifty-five is the worst of all with seven bull heads. Avoid taking rows loaded with these high-value cards."
+        },
+        {
+          "step": 7,
+          "title": "End of Round and Scoring",
+          "text": "After ten turns, all hands are empty and the round is over. Count the total bull heads on all the penalty cards you collected. If you are playing a single round, the player with the fewest bull heads wins. For a multi-round game, shuffle all cards, redeal, and play again. A player who reaches sixty-six total bull heads across all rounds is eliminated. The last player standing wins, or the player with the fewest total bull heads when someone hits sixty-six wins."
+        },
+        {
+          "step": 8,
+          "title": "Quick Round Summary",
+          "text": "Let's recap the flow. Everyone secretly picks a card. All cards reveal simultaneously. Place cards lowest to highest, each onto its matching row. If your card would be the sixth in a row, take that row as penalty. If your card is lower than all rows, choose a row to take. Repeat for ten rounds. Fewest bull heads wins."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Simultaneous Card Selection",
+          "bullets": [
+            "All players secretly choose 1 card from hand",
+            "Place face-down, reveal simultaneously",
+            "No turns — everyone chooses at once"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placement Order",
+          "bullets": [
+            "Revealed cards placed lowest number first → highest last",
+            "Earlier placements change rows for later cards",
+            "Order can cause chain reactions"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Placement Rule",
+          "bullets": [
+            "Card goes on row whose last card is closest lower number",
+            "Example: rows end 12/37/55/80, play 42 → goes on 37 row",
+            "Placement is automatic — no choice"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Sixth Card Rule",
+          "bullets": [
+            "6th card in a row → take all 5 existing cards as penalty",
+            "Your card becomes new start of that row",
+            "Count bull heads on taken cards = penalty points"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Lowest Card Rule",
+          "bullets": [
+            "Card lower than all 4 row-enders → choose 1 row to take",
+            "Take all cards from chosen row as penalty",
+            "Your card starts new row — pick row with fewest bulls"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Bull Head Values",
+          "bullets": [
+            "Most cards: 1 bull; ending in 5: 2 bulls; ending in 0: 3 bulls",
+            "Doubles (11, 22, 33...): 5 bulls; card 55: 7 bulls",
+            "Avoid rows loaded with high-value cards"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "End of Round and Scoring",
+          "bullets": [
+            "10 turns per round → count total bull heads collected",
+            "Single round: fewest bulls wins",
+            "Multi-round: 66 bulls = eliminated; last standing or fewest total wins"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Quick Round Summary",
+          "bullets": [
+            "Pick → reveal → place lowest first → 6th card takes row → repeat x10",
+            "Lower than all rows → choose a row to take",
+            "Fewest bull heads wins"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "text": "Welcome to your first round of 6 Nimmt! In this practice tutorial, we will walk through the first few turns of a four-player game. Each player has ten cards, and the four rows are started with cards fourteen, twenty-nine, fifty-one, and seventy-three. Follow along and watch for mistakes. Ready? Let's go."
+        },
+        {
+          "step": 2,
+          "title": "Turn One: Everyone Plays",
+          "text": "All four players secretly choose a card. Player 1 plays thirty-two. Player 2 plays fifty-eight. Player 3 plays seventy-seven. Player 4 plays forty-five. All cards flip face up at the same time. Now we place them in order from lowest to highest."
+        },
+        {
+          "step": 3,
+          "title": "Placing the Cards",
+          "text": "Thirty-two is the lowest, so it goes first. The rows end at fourteen, twenty-nine, fifty-one, and seventy-three. Twenty-nine is the closest lower number, so thirty-two goes on the twenty-nine row. Next is forty-five. Now the rows end at fourteen, thirty-two, fifty-one, and seventy-three. Thirty-two is the closest below, so forty-five joins the thirty-two row. Then fifty-eight goes on the fifty-one row. Finally seventy-seven goes on the seventy-three row. No one took any penalties."
+        },
+        {
+          "step": 4,
+          "title": "Turn Two: Building Rows",
+          "text": "The rows now end at fourteen, forty-five, fifty-eight, and seventy-seven. Player 1 plays sixty-three. Player 2 plays forty-eight. Player 3 plays eighty-two. Player 4 plays sixteen. Lowest first: sixteen goes on the fourteen row. Forty-eight goes on the forty-five row. Sixty-three goes on the fifty-eight row. Eighty-two goes on the seventy-seven row. Still no penalties, but some rows are getting longer."
+        },
+        {
+          "step": 5,
+          "title": "Turn Three: Player 4's Mistake",
+          "text": "Player 4 plays seven. After all cards are revealed and placed in order, Player 4's seven is the lowest. But seven is lower than all four row-ending cards. That means Player 4 must choose a row to take. Player 4 looks at the rows and picks the one with the fewest bull heads. Most cards have just one bull head each, but the row starting at fourteen has card fourteen, which is a one-bull card, and card sixteen, also one bull. Player 4 takes that row for two bull heads and places the seven as the new start."
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Low Cards Are Dangerous",
+          "text": "Playing a very low card is risky because it is likely to be lower than all four row-ending cards, forcing you to take a row. Hold your lowest cards for later in the round when rows have been picked up and restarted with low numbers. Early in the round when rows start high, a low card has nowhere safe to go."
+        },
+        {
+          "step": 7,
+          "title": "Turn Four: The Sixth Card",
+          "text": "The rows are getting crowded. One row has four cards: twenty-nine, thirty-two, forty-five, forty-eight, and the card just added makes five. Player 2 plays fifty, which lands on this row as the sixth card. Player 2 must take all five existing cards as penalty. That is five bull heads minimum, possibly more if any of those cards have extra bulls. Player 2's fifty becomes the new start of that row."
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Count the Row Length",
+          "text": "Always count how many cards are in each row before choosing what to play. If a row has four or five cards, any card that lands there could trigger the sixth card penalty. When a row is at five, the very next card placed there takes the hit. Plan your card choices to avoid being the one who fills that fifth slot or lands the sixth."
+        },
+        {
+          "step": 9,
+          "title": "Turn Five: Player 3's Mistake",
+          "text": "Player 3 has card fifty-five in their hand. They decide to play it now to get rid of it. But fifty-five lands on a row that is about to become the sixth card. Player 3 takes the row and earns the penalty. Worse, card fifty-five itself is worth seven bull heads. Even though Player 3 used fifty-five to start a new row, the damage from taking the existing row was brutal. Playing fifty-five early was a double mistake: they triggered a row take and now no longer have a mid-range card for later turns."
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Protect Yourself from Card Fifty-Five",
+          "text": "Card fifty-five is the most dangerous card in the game with seven bull heads. If it ends up in a row, whoever takes that row eats those seven penalty points. Try not to be the one who triggers a row take when fifty-five is sitting in it. Conversely, if you hold fifty-five, play it when you are confident it will safely slot into a row without triggering penalties."
+        },
+        {
+          "step": 11,
+          "title": "Late-Round Play",
+          "text": "As the round winds down, hand sizes shrink and choices become more constrained. With only two or three cards left, players have fewer options to dodge dangerous rows. This is when the game gets tense. The players who saved their safest cards for last are in the best position. The ones who burned their good cards early are sweating."
+        },
+        {
+          "step": 12,
+          "title": "Congratulations",
+          "text": "Congratulations, you have played through the key moments of a 6 Nimmt round! You have seen how simultaneous play creates surprises, how the sixth card rule punishes carelessness, and how low cards and card fifty-five can be dangerous. The game is simple to learn but the card choices create genuine tension every single turn."
+        },
+        {
+          "step": 13,
+          "title": "Before You Play",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst, check out General Tips for card selection strategy and common mistakes.\n\nSecond, reference the Appendix for the bull head value chart and key rules.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "bullets": [
+            "Scripted 4-player round with starter rows: 14, 29, 51, 73",
+            "Demonstrates placement, penalties, and mistakes",
+            "Follow along with any player count"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn One: Everyone Plays",
+          "bullets": [
+            "Players reveal: 32, 58, 77, 45",
+            "Place lowest to highest: 32 → 45 → 58 → 77",
+            "Each card slots onto its matching row"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Placing the Cards",
+          "bullets": [
+            "32 → 29 row; 45 → 32 row; 58 → 51 row; 77 → 73 row",
+            "Closest lower number determines placement",
+            "No penalties this turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Turn Two: Building Rows",
+          "bullets": [
+            "Rows grow longer as cards stack up",
+            "Watch row lengths — 4-5 cards = danger zone",
+            "Still no penalties, but pressure building"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Turn Three: Player 4's Mistake",
+          "bullets": [
+            "Plays 7 — lower than all row-enders",
+            "Must choose a row to take as penalty",
+            "Picks row with fewest bull heads (2 bulls)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Low Cards Are Dangerous",
+          "bullets": [
+            "Very low cards often land below all rows → forced row take",
+            "Hold low cards for later when rows reset with lower numbers",
+            "Early round + low card = nowhere safe to go"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Turn Four: The Sixth Card",
+          "bullets": [
+            "Player 2's card becomes 6th in a row → takes all 5 existing cards",
+            "Penalty: 5+ bull heads depending on card values",
+            "Player 2's card starts the row fresh"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Count the Row Length",
+          "bullets": [
+            "4-5 cards in a row = danger zone for next player",
+            "Plan card choices to avoid being the 6th card",
+            "Watch all 4 rows before selecting your card"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Turn Five: Player 3's Mistake",
+          "bullets": [
+            "Plays card 55 early → triggers row take",
+            "Card 55 = 7 bull heads (most dangerous card)",
+            "Lost a mid-range card AND took heavy penalty"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Protect Yourself from Card Fifty-Five",
+          "bullets": [
+            "55 = 7 bulls, most dangerous card in the game",
+            "Avoid triggering row takes when 55 is in a row",
+            "If you hold 55, play it when it slots safely"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Late-Round Play",
+          "bullets": [
+            "Fewer cards in hand = fewer dodge options",
+            "Players who saved safe cards for last are best positioned",
+            "Tension peaks in the final 2-3 turns"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Congratulations",
+          "bullets": [
+            "Covered simultaneous play, 6th card rule, low-card danger",
+            "Key mistakes: playing low cards early, ignoring row length, misplaying 55",
+            "Simple to learn, genuine tension every turn"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Before You Play",
+          "bullets": [
+            "Check out General Tips → card selection strategy",
+            "Reference the Appendix → bull head values, key rules",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Save Extremes for Later",
+          "text": "Your safest cards are the very high numbers and the very low numbers, but for different reasons. Very high cards are safe because they almost always slot onto a row without triggering the sixth card. Very low cards are dangerous early but become safer later when rows reset to low numbers after being taken. Play your middle-range cards in the first few turns and save your extremes for the end of the round when they are most useful."
+        },
+        {
+          "step": 2,
+          "title": "Count Row Lengths",
+          "text": "Before choosing your card each turn, count how many cards are in each row. A row with four cards is one away from the danger zone. A row with five is about to punish someone. If you can see that a row is at five cards and your card would land there, play something else. Row counting takes two seconds and prevents the most common source of penalties."
+        },
+        {
+          "step": 3,
+          "title": "Read the Gaps",
+          "text": "Look at the gaps between row-ending cards. If rows end at twenty, fifty-five, seventy, and ninety, there is a huge gap between twenty and fifty-five. Cards in the twenty-one to fifty-four range all funnel into the twenty row. If that row already has four cards, anyone holding a card in that range is in trouble. Recognizing these funnels helps you predict where collisions will happen."
+        },
+        {
+          "step": 4,
+          "title": "Sacrifice Smart",
+          "text": "Sometimes you know you are going to take a row. When your card is lower than all row-ending cards, you must choose which row to pick up. Always pick the row with the fewest total bull heads, not the fewest cards. A row of three cards with one bull head each is only three penalty points. A row of two cards where one is card fifty-five is nine penalty points. Count the bulls, not the cards."
+        },
+        {
+          "step": 5,
+          "title": "Watch the Bull Heads",
+          "text": "Not all penalties are equal. A row with five single-bull cards costs you five points. A row with card fifty-five and one other card costs you eight or more. Before each turn, scan the rows for high-bull cards. Cards ending in zero, cards ending in five, and double-digit cards are the most dangerous. Avoid playing into rows that contain these cards, especially when the row is close to five cards long."
+        },
+        {
+          "step": 6,
+          "title": "Adjust for Player Count",
+          "text": "The number of players changes the game dramatically. With two or three players, cards are more spread out and collisions are rare. With six or more players, multiple cards compete for the same row every turn, creating chaotic pile-ups. In large groups, play more conservatively and avoid the middle of the number range, which is where most collisions happen. In small groups, you can play more aggressively because there are fewer surprises."
+        },
+        {
+          "step": 7,
+          "title": "Embrace the Chaos",
+          "text": "6 Nimmt has a healthy dose of luck baked in. You cannot control what other players choose, and sometimes you will get hit no matter what card you play. Do not get frustrated when a perfectly reasonable play gets punished because three other people played similar numbers. The best you can do is make statistically smart choices and accept that chaos is part of the fun."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Save Extremes for Later",
+          "bullets": [
+            "Very high cards = safe for rows late in round",
+            "Very low cards = risky early but safe after row resets",
+            "Play mid-range cards first, save extremes for end"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Count Row Lengths",
+          "bullets": [
+            "4 cards = danger zone; 5 cards = someone gets hit next",
+            "Takes 2 seconds to count — prevents most common penalties",
+            "Avoid playing into rows at 5 cards"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Read the Gaps",
+          "bullets": [
+            "Large gaps between row-enders create funnels",
+            "Many cards in your hand may target the same row",
+            "Recognize funnels to predict collisions"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Sacrifice Smart",
+          "bullets": [
+            "When forced to take a row, pick fewest total bull heads",
+            "Count bulls, not cards — 2 cards with 55 > 3 cards with 1s",
+            "Minimize damage when you can't avoid penalty"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Watch the Bull Heads",
+          "bullets": [
+            "Dangerous cards: ending in 0 (3 bulls), ending in 5 (2 bulls), doubles (5 bulls)",
+            "Card 55 = 7 bulls — most dangerous in the game",
+            "Avoid rows containing high-bull cards near 5 cards"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Adjust for Player Count",
+          "bullets": [
+            "2-3 players: spread out, fewer collisions, play aggressively",
+            "6+ players: chaotic pile-ups, play conservatively",
+            "Mid-range numbers most collision-prone in large groups"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Embrace the Chaos",
+          "bullets": [
+            "Luck is part of the game — you can't control others' choices",
+            "Make statistically smart choices, accept some randomness",
+            "Fun comes from the tension, not perfect play"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gap Analysis",
+          "text": "Advanced players think about gaps between row-ending numbers before choosing a card. A large gap means many cards funnel into one row. If rows end at fifteen and sixty, every card from sixteen to fifty-nine targets the fifteen row. Play a card near the top of a gap to avoid being leapfrogged by other players' cards filling the row first. A card at fifty-eight is much safer than a card at twenty because it has less room for others to stack before it."
+        },
+        {
+          "step": 2,
+          "title": "Card Counting",
+          "text": "In games with fewer players, a significant portion of the one hundred four cards are not dealt. With four players, only forty cards are in play plus the four starter cards. The remaining sixty cards are unseen. In games with six or more players, most cards are in play. Track which numbers have been played to estimate what opponents might hold. If many low cards have already appeared, it is safer to play your lowest card because fewer opponents hold cards below yours."
+        },
+        {
+          "step": 3,
+          "title": "Row Manipulation",
+          "text": "Sometimes the best move is to intentionally play the fifth card in a row so someone else takes the hit as the sixth. If a row has four cards and you play a card that becomes the fifth, the next card to land there triggers the penalty for a different player. This is a defensive play that requires reading the gaps and predicting which opponents will target the same row."
+        },
+        {
+          "step": 4,
+          "title": "Forced-Take Timing",
+          "text": "If you hold a card that will definitely force you to take a row, the question is when. Taking a short row early in the round costs fewer bull heads and gives you more turns to recover. Taking a long row late in the round is devastating. Plan your forced takes for the earliest moment when the best row to take has the fewest bulls. Do not hold a problem card hoping it will somehow get better. It usually gets worse."
+        },
+        {
+          "step": 5,
+          "title": "Psychological Play",
+          "text": "Even though 6 Nimmt is simultaneous, there are patterns. Some players always play safe cards first. Others dump their dangerous cards immediately. After a few rounds, you can predict tendencies. If you know a player likes to play high cards early, the high rows will fill fast and you should avoid them. In multi-round games, these reads become increasingly valuable."
+        },
+        {
+          "step": 6,
+          "title": "Multi-Round Strategy",
+          "text": "In multi-round games, think about total bull heads across all rounds. A round where you take five bull heads is fine if everyone else takes eight. What matters is your cumulative total relative to the sixty-six elimination threshold. If you are at fifty total and others are at thirty, play ultra-conservatively to survive. If you are at ten and leading, you can absorb some penalties while taking risks for better positioning."
+        },
+        {
+          "step": 7,
+          "title": "The End-of-Round Squeeze",
+          "text": "The last two or three turns of a round are where games are won and lost. With only a few cards remaining, your options are limited. The players who planned ahead by saving safe high or low cards have flexibility. The ones stuck with mid-range cards in a crowded number space are in trouble. When you have three cards left, mentally simulate where each would land and pick the order that minimizes total expected penalties across all remaining turns."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gap Analysis",
+          "bullets": [
+            "Large gaps funnel many cards into one row",
+            "Play near top of gap (e.g., 58 not 20) to avoid pile-ups",
+            "Cards near gap bottom are vulnerable to being leapfrogged"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Card Counting",
+          "bullets": [
+            "4 players: 40 cards in play + 4 starters; 60 unseen",
+            "6+ players: most cards in play → more predictable",
+            "Track played numbers to estimate opponents' holdings"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Row Manipulation",
+          "bullets": [
+            "Play 5th card in a row so the 6th card hits someone else",
+            "Defensive move requiring gap reading + prediction",
+            "Turns a dangerous row into someone else's problem"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Forced-Take Timing",
+          "bullets": [
+            "If a card will force a row take, do it early when rows are short",
+            "Short row early < long row late",
+            "Don't hold problem cards hoping they improve — they get worse"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Psychological Play",
+          "bullets": [
+            "After a few rounds, predict opponents' tendencies",
+            "Some always play safe first; others dump dangerous cards",
+            "Use reads to avoid rows your opponents are targeting"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Multi-Round Strategy",
+          "bullets": [
+            "Track cumulative total vs. 66 elimination threshold",
+            "Leading → absorb risk; behind → play ultra-conservatively",
+            "Relative position matters more than single-round score"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The End-of-Round Squeeze",
+          "bullets": [
+            "Last 2-3 turns: limited options, high stakes",
+            "Players who saved safe cards have flexibility",
+            "Mentally simulate all remaining card placements before choosing"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Bull Heads",
+          "definition": "Penalty points shown on each card. Most cards have one bull head. Cards ending in 5 have two. Cards ending in 0 have three. Doubles (11, 22, 33, etc.) have five. Card 55 has seven, making it the most dangerous card in the game.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Sixth Card Rule",
+          "definition": "If your card would be the sixth added to a row, you take all five existing cards as penalty points. Your card then starts that row fresh.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Lowest Card Rule",
+          "definition": "If your card is lower than all four row-ending cards, you must choose one row to take entirely as penalty. Your card then starts a new row.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Placement Rule",
+          "definition": "Each played card goes on the row whose last card is the closest number below it. Placement is automatic and cannot be chosen by the player.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Simultaneous Selection",
+          "definition": "All players choose their card secretly and reveal at the same time. There is no turn order for selection. Cards are resolved lowest to highest after reveal.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Row",
+          "definition": "One of four card sequences on the table. Each row starts with one card and grows as cards are added. Maximum five cards before the sixth card rule triggers.",
+          "category": "Components"
+        },
+        {
+          "term": "Card Fifty-Five",
+          "definition": "The single most dangerous card in the game. Worth seven bull heads. Being a double (55) and ending in 5 gives it the maximum penalty value.",
+          "category": "Key Cards"
+        },
+        {
+          "term": "Double Numbers",
+          "definition": "Cards where both digits match: 11, 22, 33, 44, 55, 66, 77, 88, 99. Each worth five bull heads except 55 (seven). High-priority avoidance targets.",
+          "category": "Key Cards"
+        },
+        {
+          "term": "Elimination Variant",
+          "definition": "Multi-round variant where a player reaching 66 total bull heads is eliminated. Game continues until one player remains or a predetermined number of rounds is completed.",
+          "category": "Variants"
+        },
+        {
+          "term": "Resolution Order",
+          "definition": "After simultaneous reveal, cards are placed onto rows starting with the lowest number and ascending. This order matters because earlier placements change row states for later cards.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Gap",
+          "definition": "The numerical distance between two adjacent row-ending cards. Large gaps funnel many card numbers into one row, increasing collision risk. Advanced players read gaps to choose safer cards.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Funnel",
+          "definition": "When a large gap between row-ending numbers causes many cards to target the same row. Funnels create pile-ups and increase the chance of triggering the sixth card rule.",
+          "category": "Strategy"
+        },
+        {
+          "term": "Forced Take",
+          "definition": "When a player's card is lower than all row-ending cards, they must take one entire row as penalty. Choosing the row with the fewest bull heads minimizes damage.",
+          "category": "Strategy"
+        }
+      ]
+    }
+  }
+}

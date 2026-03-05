@@ -1,0 +1,737 @@
+{
+  "game_id": "scout",
+  "title": "Scout",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gather the Cards",
+          "text": "Let's get Scout set up. The game has forty-five double-ended cards. Each card has two different numbers, one on each end, ranging from one to ten. These are the only cards you need for the main game."
+        },
+        {
+          "step": 2,
+          "title": "Remove Cards for Player Count",
+          "text": "Depending on your player count, you may need to remove some cards. With three players, remove nine cards. With four players, remove one card. With five players, use all forty-five cards. Remove cards randomly without looking at them and set them aside."
+        },
+        {
+          "step": 3,
+          "title": "Shuffle and Deal",
+          "text": "Shuffle all the remaining cards thoroughly and deal them evenly to each player. Here is the critical rule: when you pick up your cards, do not rearrange their order. Hold them as a fan exactly as they were dealt. The order of cards in your hand is locked."
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Hand Orientation",
+          "text": "Now you get one important choice. You may flip your entire hand upside down once. This swaps which number faces up on every card. Look at both orientations carefully and pick the one that gives you better groups of adjacent matching or sequential numbers. Once you choose, your hand orientation is set for the round."
+        },
+        {
+          "step": 5,
+          "title": "Distribute Scout and Show Tokens",
+          "text": "Each player takes one Scout and Show token. This token lets you perform a special combined action once per round. Place it face up in front of you so everyone knows you still have it available."
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "text": "Choose a first player randomly. The first player will make the opening play. Play proceeds clockwise from there. Ready to start? Let's learn the rules."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gather the Cards",
+          "bullets": [
+            "45 double-ended cards, each with 2 different numbers (1-10)",
+            "Only component needed for the game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Remove Cards for Player Count",
+          "bullets": [
+            "3 players: remove 9 cards",
+            "4 players: remove 1 card",
+            "5 players: use all 45 cards"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Shuffle and Deal",
+          "bullets": [
+            "Shuffle and deal evenly",
+            "CRITICAL: do NOT rearrange card order in hand",
+            "Hold cards exactly as dealt"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Hand Orientation",
+          "bullets": [
+            "May flip entire hand upside down once",
+            "Swaps which number faces up on every card",
+            "Choose orientation with better adjacent groups"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Distribute Scout and Show Tokens",
+          "bullets": [
+            "1 Scout & Show token per player",
+            "Allows a special combined action once per round"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "bullets": [
+            "Choose randomly, play proceeds clockwise"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Scout is a climbing card game with a twist — you cannot rearrange the cards in your hand. On your turn, you either play cards to beat the current showing, or scout a card from the showing to improve your hand. The first player to empty their hand or the last player standing scores. The goal is to get rid of all your cards while earning points."
+        },
+        {
+          "step": 2,
+          "title": "The Three Actions",
+          "text": "On your turn, you must do exactly one of three things. First, you can Show, which means playing a group of adjacent cards from your hand that beats the current showing. Second, you can Scout, which means taking one card from the current showing and inserting it into your hand. Third, once per round, you can use your Scout and Show token to Scout first and then immediately Show."
+        },
+        {
+          "step": 3,
+          "title": "Showing Cards",
+          "text": "To Show, play a group of adjacent cards from your hand face up to the center. The cards must be adjacent in your hand since you cannot rearrange. Valid groups are a single card, a set of cards with the same number, or a consecutive run of numbers. Your group must beat the current showing."
+        },
+        {
+          "step": 4,
+          "title": "How to Beat a Showing",
+          "text": "Your cards beat the current showing in two ways. Either you play the same number of cards but with a higher value, or you play more cards. For sets, a higher number beats a lower number when the count is the same. For runs, a higher starting value wins. Any valid group with more cards automatically beats a smaller group, regardless of the individual values."
+        },
+        {
+          "step": 5,
+          "title": "Scouting a Card",
+          "text": "If you cannot or do not want to beat the current showing, you can Scout instead. Take one card from either end of the current showing. Choose which orientation, meaning which number faces up. Then insert it anywhere in your hand. This is the only way to improve your hand's card order. The player whose cards are being scouted from earns one point."
+        },
+        {
+          "step": 6,
+          "title": "Scout and Show Token",
+          "text": "Once per round, you can use your Scout and Show token to do both actions in one turn. First Scout a card from the showing, insert it into your hand, then immediately Show a group of cards. This is incredibly powerful because the scouted card might complete a set or extend a run. Flip your token to the used side after playing it."
+        },
+        {
+          "step": 7,
+          "title": "No Rearranging Rule",
+          "text": "This is the heart of Scout. You can never rearrange the order of cards in your hand. The only way to change your hand's layout is by inserting scouted cards into specific positions. This constraint means your initial hand and flip decision shape your entire strategy. Every scout is a chance to build better adjacent groups."
+        },
+        {
+          "step": 8,
+          "title": "Round End",
+          "text": "A round ends in one of two ways. Either a player empties their hand by showing their last cards, or all other players consecutively scout without anyone beating the current showing. When everyone scouts in succession, the player whose cards are currently showing wins the round."
+        },
+        {
+          "step": 9,
+          "title": "Scoring",
+          "text": "At the end of a round, score as follows. You earn one point for each card opponents scouted from your showings during the round. You lose one point for each card remaining in your hand. The player who went out or whose showing was never beaten earns bonus points. Add it all up for your round score."
+        },
+        {
+          "step": 10,
+          "title": "Game End",
+          "text": "Play a number of rounds equal to the number of players, so everyone gets to be the first player once. After all rounds, add up total scores. The player with the highest total wins. Ties are broken by most rounds won."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Climbing card game — cannot rearrange hand order",
+            "Play cards to beat the showing or scout a card",
+            "Empty your hand or be the last standing"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Three Actions",
+          "bullets": [
+            "Show: play adjacent cards that beat current showing",
+            "Scout: take 1 card from showing, insert into hand",
+            "Scout & Show: do both (once per round, uses token)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Showing Cards",
+          "bullets": [
+            "Cards must be adjacent in hand",
+            "Valid groups: single, set (same number), run (consecutive)",
+            "Must beat the current showing"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "How to Beat a Showing",
+          "bullets": [
+            "Same count + higher value, OR more cards",
+            "More cards always beats fewer cards",
+            "Sets: higher number wins; Runs: higher value wins"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Scouting a Card",
+          "bullets": [
+            "Take 1 card from either end of showing",
+            "Choose which number faces up (orientation)",
+            "Insert anywhere in hand — only way to improve hand order",
+            "Player whose cards are scouted earns 1 point"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Scout and Show Token",
+          "bullets": [
+            "Once per round: Scout first, then Show immediately",
+            "Scouted card can complete a set or extend a run",
+            "Flip token to used side after playing"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "No Rearranging Rule",
+          "bullets": [
+            "Never rearrange card order in hand",
+            "Only change: inserting scouted cards",
+            "Initial hand + flip decision shapes entire strategy"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Round End",
+          "bullets": [
+            "Player empties hand, OR",
+            "All other players scout consecutively (no one beats showing)"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Scoring",
+          "bullets": [
+            "+1 pt per card opponents scouted from your showings",
+            "-1 pt per card remaining in your hand",
+            "Going-out/unchallenged bonus for round winner"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Game End",
+          "bullets": [
+            "Play rounds equal to player count",
+            "Highest total score wins",
+            "Tiebreaker: most rounds won"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "text": "Welcome to your first round of Scout! We will walk through a practice round with four players. Each player has been dealt their cards and has chosen their hand orientation. Remember, no one can rearrange their cards. Let's see how the round plays out."
+        },
+        {
+          "step": 2,
+          "title": "The Hand Flip Decision",
+          "text": "Before the round starts, Player one looks at their hand from both orientations. One way shows scattered numbers with no useful groups. The other way shows a pair of eights right next to each other and a run of three, four, five nearby. Player one picks the second orientation. This is a crucial decision that affects the entire round."
+        },
+        {
+          "step": 3,
+          "title": "Player One Opens",
+          "text": "Player one starts the round by showing a pair of eights. Two adjacent eights from their hand go to the center. This is a solid opening. Sets are strong because they require the same count of higher-value cards to beat."
+        },
+        {
+          "step": 4,
+          "title": "Player Two Beats the Showing",
+          "text": "Player two has a pair of adjacent nines. They show both nines, beating the pair of eights with a pair of nines. The eights are discarded and the nines are now the showing. Player two is in a strong position, having reduced their hand by two cards."
+        },
+        {
+          "step": 5,
+          "title": "Player Three Scouts",
+          "text": "Player three does not have a pair or a group of three or more cards that can beat two nines. Instead of passing up the chance, Player three scouts. They take the nine from the left end of the showing and insert it between two of their cards to create a run of eight, nine, ten. Player two earns one point for the scouted card."
+        },
+        {
+          "step": 6,
+          "title": "Player Four's Mistake: Wasting the Token Early",
+          "text": "Player four uses their Scout and Show token on the very first opportunity. They scout the remaining nine and then show a single ten. A single ten barely beats a single nine, and now Player four has used their one special action in a low-stakes moment."
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Save Your Token",
+          "text": "The Scout and Show token is your most powerful tool. Using it to scout one card and play a single card is a waste. Save it for a pivotal moment, like when you can scout a card that completes a big run or set, then immediately show it to dominate the round. The best time is usually mid-round when you can create a large, hard-to-beat group."
+        },
+        {
+          "step": 8,
+          "title": "Player One's Mistake: Playing Small",
+          "text": "Player one has a run of three, four, five adjacent in their hand. But instead of playing the whole run, Player one shows just the three and four to beat Player four's single ten. They wanted to save the five for later. But playing only two cards means someone with a pair of fives or higher easily beats them."
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Play Big When You Can",
+          "text": "In Scout, playing more cards is almost always better than playing fewer. A run of three cards is much harder to beat than a pair. Every card you play is one fewer card in your hand, which reduces your end-of-round penalty. When you have a big group ready to go, play it. Do not hold back trying to save individual cards."
+        },
+        {
+          "step": 10,
+          "title": "Strategic Scouting",
+          "text": "Player three has been scouting strategically all round. Each time they scout, they carefully choose which end of the showing to take from and which orientation to use. They insert each scouted card into the perfect position in their hand, building up a massive run of six consecutive numbers. No one can beat a run of six."
+        },
+        {
+          "step": 11,
+          "title": "Player Two's Mistake: Not Going Out Fast Enough",
+          "text": "Player two has only three cards left and could play them as a group to go out. But instead of emptying their hand, Player two scouts to pick up a high card, hoping for a bigger showing later. Next turn, Player three shows their run of six. Nobody can beat it. Everyone scouts from the showing. Player three wins the round, and Player two is stuck with four cards in hand instead of zero."
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Go Out When You Can",
+          "text": "Remaining cards in your hand are negative points. If you can empty your hand by showing your last cards, do it. Do not get greedy trying to set up a perfect final play. Going out ends the round and avoids the penalty. Every card left in your hand at round end costs you one point."
+        },
+        {
+          "step": 13,
+          "title": "Round Scoring",
+          "text": "Let's tally the scores. Player three won the round and emptied their hand, so they have zero penalty cards plus all the points earned from opponents scouting their cards. Player two has four cards left, a four-point penalty. Player one and four have moderate hands left. The lesson is clear: reduce your hand as fast as possible."
+        },
+        {
+          "step": 14,
+          "title": "Congratulations",
+          "text": "Great practice round! You learned three key lessons. Save your Scout and Show token for a big play. Play large groups when you can instead of holding back. And go out the moment you can empty your hand. These habits will serve you well in every round of Scout."
+        },
+        {
+          "step": 15,
+          "title": "Next Steps",
+          "text": "Before your next game, here are three things that can help.\n\nFirst, check out General Tips for hand orientation strategy and scouting tactics.\n\nSecond, browse the Appendix for card group rankings and key terms.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Practice",
+          "bullets": [
+            "Practice round with 4 players",
+            "Cards dealt and orientations chosen"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Hand Flip Decision",
+          "bullets": [
+            "Check both orientations before choosing",
+            "Look for adjacent matching or sequential numbers",
+            "Crucial decision that shapes the entire round"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One Opens",
+          "bullets": [
+            "Shows pair of 8s — solid opening",
+            "Sets require same count of higher cards to beat"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Two Beats the Showing",
+          "bullets": [
+            "Pair of 9s beats pair of 8s",
+            "Player 2 reduces hand by 2 cards"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Three Scouts",
+          "bullets": [
+            "Takes 9 from showing end, inserts to build 8-9-10 run",
+            "Player 2 earns 1 point for scouted card"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Four's Mistake: Wasting the Token Early",
+          "bullets": [
+            "Used Scout & Show token to play a single 10",
+            "Low-stakes moment — token wasted"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Save Your Token",
+          "bullets": [
+            "Save for pivotal moment when scout completes a big group",
+            "Best mid-round when you can create a hard-to-beat showing",
+            "Single-card showing = waste of token"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Player One's Mistake: Playing Small",
+          "bullets": [
+            "Played only 2 of 3 available run cards",
+            "Pair is much easier to beat than a run of 3",
+            "Held back unnecessarily"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Play Big When You Can",
+          "bullets": [
+            "More cards = harder to beat",
+            "Every card played = 1 less penalty at round end",
+            "Don't hold back big groups"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Strategic Scouting",
+          "bullets": [
+            "Scout from the right end, choose orientation carefully",
+            "Insert in perfect position to build adjacent groups",
+            "Patient scouting can build unstoppable runs"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Player Two's Mistake: Not Going Out Fast Enough",
+          "bullets": [
+            "Could have emptied hand but scouted instead",
+            "Opponent showed unstoppable run, round ended",
+            "Stuck with 4 penalty cards instead of 0"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Go Out When You Can",
+          "bullets": [
+            "Cards in hand = negative points",
+            "If you can empty your hand, do it immediately",
+            "Don't get greedy for a bigger final showing"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Round Scoring",
+          "bullets": [
+            "Winner: 0 penalty cards + earned scout points",
+            "Others: penalty per card remaining in hand",
+            "Reduce hand ASAP"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Congratulations",
+          "bullets": [
+            "3 lessons: save token, play big, go out when possible",
+            "These habits improve every round"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Next Steps",
+          "bullets": [
+            "Check out General Tips → hand orientation and scouting",
+            "Browse the Appendix → card group rankings and terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Flip Decision Is Everything",
+          "text": "Before the round starts, take your time choosing which hand orientation to keep. Look for adjacent cards that form pairs, sets, or runs. Count how many playable groups you have in each orientation. The orientation with more large adjacent groups is almost always the better choice. This one decision shapes your entire round."
+        },
+        {
+          "step": 2,
+          "title": "Play More Cards, Not Higher Cards",
+          "text": "In Scout, a run of four low numbers beats a run of three high numbers every time. A set of three fives beats a set of two tens. Always prioritize playing more cards over playing higher-value cards. More cards means a harder-to-beat showing and faster hand reduction."
+        },
+        {
+          "step": 3,
+          "title": "Scout with Purpose",
+          "text": "When you scout, do not just grab the highest number available. Think about where the scouted card will go in your hand. Can it extend an existing run? Can it create a new pair? Scout cards that improve your adjacent groups, not just cards with high face values."
+        },
+        {
+          "step": 4,
+          "title": "Track Card Positions",
+          "text": "Since you cannot rearrange your hand, pay attention to where your strong cards are positioned. If your best cards are scattered across your hand with gaps between them, you need to scout cards to fill those gaps. Build toward large adjacent blocks that can be played all at once."
+        },
+        {
+          "step": 5,
+          "title": "When to Scout vs Show",
+          "text": "Scout when the current showing is too strong to beat and scouting improves your hand significantly. Show whenever you can, especially with large groups. If you can beat the showing with three or more cards, almost always do it. Reducing your hand is usually more valuable than improving it through scouting."
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Big Plays",
+          "text": "If you have a massive run of five or six cards, timing matters. Playing it when only one or two players remain in the rotation means fewer players to challenge your showing. If everyone scouts from your big play, you earn lots of points and likely win the round. Wait for the right moment, but do not wait too long."
+        },
+        {
+          "step": 7,
+          "title": "Token Timing",
+          "text": "Your Scout and Show token is most valuable mid to late round. Early in the round, you do not know the board state well enough to optimize it. Save it for when you can scout a card that completes a large set or run, then immediately play it for a dominating showing. The best Scout and Show plays swing the entire round."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Flip Decision Is Everything",
+          "bullets": [
+            "Take time choosing hand orientation",
+            "Count playable adjacent groups in each orientation",
+            "More large groups = better orientation"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Play More Cards, Not Higher Cards",
+          "bullets": [
+            "4 low cards beats 3 high cards",
+            "More cards = harder to beat + faster hand reduction",
+            "Prioritize count over value"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Scout with Purpose",
+          "bullets": [
+            "Don't just grab highest number",
+            "Think about where card goes in hand",
+            "Scout cards that extend runs or create pairs"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Track Card Positions",
+          "bullets": [
+            "Can't rearrange — know where strong cards sit",
+            "Scout to fill gaps between strong cards",
+            "Build toward large adjacent blocks"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "When to Scout vs Show",
+          "bullets": [
+            "Scout: showing too strong + scouting improves hand",
+            "Show: can beat with 3+ cards → almost always do it",
+            "Hand reduction usually > hand improvement"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Big Plays",
+          "bullets": [
+            "Play big when fewer players remain in rotation",
+            "If all scout from your play → earn lots of points",
+            "Wait for the right moment, but don't wait too long"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Token Timing",
+          "bullets": [
+            "Save token for mid to late round",
+            "Best: scout completes large group → immediately show it",
+            "Best Scout & Show plays swing the entire round"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Hand Architecture",
+          "text": "Advanced Scout players think of their hand as a construction project. Every scout is a building block placed in a specific position. Plan three or four scouts ahead. If you need a six to connect a run of four, five to seven, eight, nine, do not settle for a random high card that goes elsewhere. Wait for that six or scout it from the perfect showing."
+        },
+        {
+          "step": 2,
+          "title": "Counting for Control",
+          "text": "Each number one through ten appears on multiple cards across both ends. As cards are shown and scouted, track which numbers are disappearing from circulation. If all the nines have been played, no one can beat a set of eights with a higher set. This knowledge lets you determine when your formations are safe to play."
+        },
+        {
+          "step": 3,
+          "title": "Controlling the Flow",
+          "text": "When you make a large showing, you force every other player to either find something bigger or scout from you. If no one can beat your showing, you earn points from every scout and eventually win the round. Control the flow by making showings that are just big enough that most players cannot beat them, encouraging scouts instead of challenges."
+        },
+        {
+          "step": 4,
+          "title": "Reading Opponents",
+          "text": "Watch how opponents handle their cards. If a player keeps scouting, their hand likely lacks strong adjacent groups. If a player hesitates before scouting, they might be close to having a strong showing and are deciding between building and playing. Use this information to time your own big plays when opponents are weakest."
+        },
+        {
+          "step": 5,
+          "title": "The Sacrifice Scout",
+          "text": "Sometimes it is worth scouting even if it does not help your hand, just to deny a card to the next player. If the current showing has a card that would perfectly complete your opponent's hand, scout it yourself and put it in a dead spot in your hand. The one-point cost to the showing player is worth preventing an opponent's devastating play."
+        },
+        {
+          "step": 6,
+          "title": "Endgame Calculation",
+          "text": "In the late round, count cards. If you have four cards left and can show all four as a group, you go out and avoid all penalties. If you show three and leave one, that is negative one point but you cleared most of your hand. Calculate the point difference between going out completely versus making a strong showing that earns scout points from opponents. Sometimes showing three and keeping one is better than holding out for a clean exit."
+        },
+        {
+          "step": 7,
+          "title": "Multi-Round Strategy",
+          "text": "Scout is played over multiple rounds. If you are leading in total score, play conservatively and aim for consistent mid-round exits. If you are behind, take risks. Use your token aggressively, go for massive showings, and try to win rounds outright for the bonus points. Adjust your risk level based on your standing across the multi-round game."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Hand Architecture",
+          "bullets": [
+            "Plan 3-4 scouts ahead like a construction project",
+            "Scout for specific needed cards, not just high values",
+            "Each scout = building block placed in exact position"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Counting for Control",
+          "bullets": [
+            "Track which numbers have been played/scouted",
+            "If all 9s gone, set of 8s is unbeatable by a higher set",
+            "Card counting tells you when formations are safe"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Controlling the Flow",
+          "bullets": [
+            "Large showing forces opponents to scout or find something bigger",
+            "Play showing just big enough to encourage scouts",
+            "Scouts from your showing = points for you"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Reading Opponents",
+          "bullets": [
+            "Frequent scouting = weak adjacent groups",
+            "Hesitation before scouting = close to a strong play",
+            "Time big plays when opponents are weakest"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Sacrifice Scout",
+          "bullets": [
+            "Scout a card to deny it to the next player",
+            "Insert in dead spot in your hand — sacrifice for denial",
+            "Worth the 1-point cost to prevent opponent's big play"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Endgame Calculation",
+          "bullets": [
+            "Count remaining cards, calculate going-out vs partial show",
+            "Going out = 0 penalty but forfeit scout points",
+            "Sometimes showing 3 and keeping 1 is better than waiting"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Multi-Round Strategy",
+          "bullets": [
+            "Leading: play conservatively for consistent exits",
+            "Behind: take risks, use token aggressively, go for round wins",
+            "Adjust risk based on total score standing"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Double-Ended Card",
+          "definition": "Each card in Scout has two different numbers, one on each end. When holding the card, the number facing up is the active value. The other number is ignored unless the card is flipped by choosing the opposite hand orientation.",
+          "category": "Components"
+        },
+        {
+          "term": "Scout and Show Token",
+          "definition": "A one-use token per round that allows a player to Scout (take a card) and then immediately Show (play cards) in the same turn. Once used, flip it to the used side.",
+          "category": "Components"
+        },
+        {
+          "term": "Show",
+          "definition": "Playing a group of adjacent cards from your hand to the center that beats the current showing. Valid groups include singles, sets of the same number, and consecutive runs.",
+          "category": "Actions"
+        },
+        {
+          "term": "Scout",
+          "definition": "Taking one card from either end of the current showing, choosing its orientation, and inserting it anywhere in your hand. The showing player earns one point per scouted card.",
+          "category": "Actions"
+        },
+        {
+          "term": "Adjacent Cards",
+          "definition": "Cards that are next to each other in your hand. In Scout, you can only play cards that are adjacent. You cannot skip over cards in the middle of your hand.",
+          "category": "Rules"
+        },
+        {
+          "term": "Set",
+          "definition": "A group of two or more adjacent cards with the same number. Sets are one of the valid group types for showing. A higher-numbered set of the same size beats a lower-numbered set.",
+          "category": "Card Groups"
+        },
+        {
+          "term": "Run",
+          "definition": "A group of two or more adjacent cards with consecutive numbers. Runs are one of the valid group types for showing. A higher-valued run of the same size beats a lower-valued run.",
+          "category": "Card Groups"
+        },
+        {
+          "term": "Single",
+          "definition": "A single card played as a showing. The weakest type of showing since any pair, set, or run beats it. Higher numbers beat lower numbers among singles.",
+          "category": "Card Groups"
+        },
+        {
+          "term": "Showing",
+          "definition": "The current group of cards in the center of the table that players must beat or scout from. Updates whenever someone successfully shows a new group.",
+          "category": "Rules"
+        },
+        {
+          "term": "Hand Orientation",
+          "definition": "The one-time choice at the start of each round to flip your entire hand upside down. This changes which number is active on every card. Choose the orientation with better adjacent groups.",
+          "category": "Rules"
+        },
+        {
+          "term": "No Rearranging",
+          "definition": "The core constraint of Scout. Players can never change the order of cards in their hand. The only way to modify hand layout is by inserting scouted cards into specific positions.",
+          "category": "Rules"
+        },
+        {
+          "term": "Going Out",
+          "definition": "Emptying your hand by playing your last card or cards as a showing. Ends the round immediately. The player who goes out avoids all remaining-card penalties.",
+          "category": "Rules"
+        },
+        {
+          "term": "Round End Bonus",
+          "definition": "Extra points awarded to the player who wins the round, either by going out or by having their showing go unchallenged by all other players.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Remaining Card Penalty",
+          "definition": "At round end, each card remaining in a player's hand costs them one point. This penalty encourages aggressive play and fast hand emptying.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Scout Point",
+          "definition": "When an opponent scouts a card from your showing, you earn one point. Players who make large showings that get scouted from can accumulate significant scout points.",
+          "category": "Scoring"
+        }
+      ]
+    }
+  }
+}
