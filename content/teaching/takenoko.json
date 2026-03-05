@@ -1,0 +1,826 @@
+{
+  "game_id": "takenoko",
+  "title": "Takenoko",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Pond Tile",
+          "text": "Let's start building our bamboo garden! Take the special pond board tile and place it in the center of the table. This is the starting point for all of our garden plots. Everything in the game grows outward from this central pond.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Gardener and the Panda",
+          "text": "Now let's place both figures on the pond tile. The gardener grows bamboo wherever he goes, and the panda eats it. These two characters will move around the garden throughout the game, and their placement drives most of the action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Plot Tiles",
+          "text": "Let's sort and shuffle the twenty-eight plot tiles. There are eleven green, nine yellow, and seven pink tiles. Create a shuffled face-down draw pile. You will draw from this pile when you take the plot placement action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Organize the Supply",
+          "text": "Let's set up the supply area. Place the twenty irrigation channels in a pile. Sort the thirty-six bamboo sections by color: twelve green, twelve yellow, and twelve pink. Place the nine improvement chips nearby. Keep everything within easy reach.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Prepare Objective Decks",
+          "text": "Let's shuffle the three objective decks separately. There are fifteen plot objectives, sixteen panda objectives, and fifteen gardener objectives. Place each deck face down where everyone can reach them. These are the goals we will compete to complete.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Weather Die",
+          "text": "Place the weather die where everyone can see and reach it. Starting from the second turn onward, the first thing you do each turn is roll this die. It gives you a special bonus like an extra action, free bamboo growth, or the ability to move the panda.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player Setup",
+          "text": "Each player takes an individual board and two action tokens. Then each player draws one objective card from each of the three decks for a starting hand of three objectives. Keep your objectives secret from other players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Set the Emperor Card Aside",
+          "text": "Place the Emperor card near the play area. This card is worth two bonus points and goes to whichever player triggers the end of the game by completing the required number of objectives. It is a nice reward for being first to the finish line.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Determine First Player",
+          "text": "The player who most recently ate bamboo shoots goes first, or just choose randomly. Play will proceed clockwise. The first player does not roll the weather die on their very first turn. Starting from the second turn of the game, every player rolls the die.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Check Endgame Thresholds",
+          "text": "Before we begin, note the endgame trigger. With two players, you need nine completed objectives. With three players, eight objectives. With four players, seven objectives. The first player to hit that number gets the Emperor card and triggers the final round.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Pond Tile",
+          "bullets": ["Pond tile in center of table", "Starting point for entire garden"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Place the Gardener and the Panda",
+          "bullets": ["Both figures start on the pond tile", "Gardener grows bamboo, panda eats it"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Plot Tiles",
+          "bullets": ["28 tiles: 11 green, 9 yellow, 7 pink", "Shuffle → face-down draw pile"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Organize the Supply",
+          "bullets": ["20 irrigation channels, 36 bamboo (12 per color)", "9 improvement chips (3 types × 3)"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Prepare Objective Decks",
+          "bullets": ["3 decks: 15 plot, 16 panda, 15 gardener", "Shuffle each separately, face down"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Weather Die",
+          "bullets": ["Accessible to all players", "Roll at start of turn (skipped on very first turn)"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Player Setup",
+          "bullets": ["Each player: 1 individual board + 2 action tokens", "Draw 1 objective from each deck (3 total, secret)"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Set the Emperor Card Aside",
+          "bullets": ["Worth 2 bonus pts", "Awarded to player who triggers endgame"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Determine First Player",
+          "bullets": ["Most recent bamboo eater or random", "Clockwise; no weather die on very first turn"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Check Endgame Thresholds",
+          "bullets": ["2P → 9 objectives, 3P → 8, 4P → 7", "First to threshold → Emperor card + final round"],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Let's learn how Takenoko works. We are building a bamboo garden by placing plot tiles, growing bamboo with the gardener, and collecting bamboo with the panda. Each player has secret objective cards that score points for specific garden configurations, bamboo collections, or growth patterns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "text": "Each turn has three steps. First, roll the weather die and apply its effect. Second, take two different actions from the five available options. Third, check if you have completed any objectives and reveal them for points. You can complete objectives at any time during or after your actions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Weather Die Effects",
+          "text": "The weather die has six faces. Sun gives you a third action that can even duplicate another action. Rain lets you place one bamboo section on any irrigated plot. Wind lets you take the same action twice. Storm moves the panda to any plot to eat one bamboo. Clouds let you take an improvement chip. The question mark lets you choose any weather effect.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Action One: Place a Plot Tile",
+          "text": "Draw three plot tiles from the stack, choose one, and place it adjacent to any existing tile in the garden. Return the other two to the bottom of the stack. Tiles must connect edge to edge, not corner to corner. New tiles adjacent to the pond are automatically irrigated.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Action Two: Take an Irrigation Channel",
+          "text": "Take one irrigation channel from the supply and store it on your individual board. You may place it immediately between two plots, or save it for later. Plots become irrigated when connected to the pond by a chain of irrigation channels. Only irrigated plots can grow bamboo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Action Three: Move the Gardener",
+          "text": "Move the gardener in a straight line any number of hexes. When the gardener stops, he grows one bamboo section on his landing plot and on all adjacent plots of the same color, as long as they are irrigated. Bamboo stacks can grow up to a maximum of four sections tall.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Action Four: Move the Panda",
+          "text": "Move the panda in a straight line any number of hexes. When the panda stops, he eats one bamboo section from that plot. Place the eaten bamboo on your individual board. You use collected bamboo to complete panda objective cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Action Five: Draw an Objective Card",
+          "text": "Draw one objective card from any of the three decks. You can hold a maximum of five objectives in your hand at any time. If you already have five, you cannot take this action. Choose your deck carefully based on the current state of the garden.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Irrigation Rules",
+          "text": "Irrigation is critical because bamboo only grows on irrigated plots. Plots adjacent to the pond are automatically irrigated. All other plots need to be connected to the pond through a chain of irrigation channels laid between plot edges. Plan your irrigation network carefully.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Improvement Chips",
+          "text": "There are three types of improvements. The watershed makes a plot permanently irrigated without needing channels. The fertilizer makes bamboo grow two sections instead of one on that plot. The enclosure prevents the panda from eating bamboo on that plot. Improvements are placed when a new plot tile is added.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Objective Types",
+          "text": "Plot objectives require specific patterns of colored tiles adjacent to each other. Gardener objectives require growing bamboo to specific heights on specific colored plots. Panda objectives require collecting specific combinations of colored bamboo sections. Each type rewards different play styles.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Movement Rules",
+          "text": "Both the gardener and panda move in straight lines only, never diagonally. They can travel any distance in that straight line across connected hexes. This means their movement is limited by the layout of the garden. Plan tile placement to create useful movement corridors.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Completing Objectives",
+          "text": "You may reveal and score completed objectives at any point during or after your actions. Simply show the card to prove you have met its conditions. The points printed on the card are added to your final score. Completed objectives are placed face up in front of you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Endgame and Scoring",
+          "text": "When a player completes enough objectives to reach the threshold for their player count, they receive the Emperor card worth two bonus points. All other players get one final turn. Then everyone adds up the points on their completed objective cards plus the Emperor bonus. The highest total wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": ["Build bamboo garden with tiles, gardener, and panda", "Complete secret objectives for points"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "bullets": ["1. Roll weather die → 2. Take 2 different actions → 3. Complete objectives", "Cannot take same action twice (unless Wind weather)"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Weather Die Effects",
+          "bullets": ["Sun: +1 action (can duplicate)", "Rain: +1 bamboo on irrigated plot", "Wind: same action twice OK", "Storm: move panda anywhere, eat 1", "Clouds: take improvement chip", "?: choose any effect"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Action One: Place a Plot Tile",
+          "bullets": ["Draw 3 tiles → keep 1 → place adjacent to existing", "Return 2 to bottom; edge-to-edge only"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Action Two: Take an Irrigation Channel",
+          "bullets": ["Take 1 channel → store or place immediately", "Plots irrigated when connected to pond via channels"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Action Three: Move the Gardener",
+          "bullets": ["Straight line, any distance", "Grows 1 bamboo on landing + adjacent same-color irrigated plots", "Max 4 sections per stack"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Action Four: Move the Panda",
+          "bullets": ["Straight line, any distance", "Eats 1 bamboo from landing plot → to your board"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Action Five: Draw an Objective Card",
+          "bullets": ["Draw 1 from any of 3 decks", "Hand limit: 5 objectives max"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Irrigation Rules",
+          "bullets": ["Bamboo only grows on irrigated plots", "Adjacent to pond = auto-irrigated", "Others need channel chain to pond"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Improvement Chips",
+          "bullets": ["Watershed: permanent irrigation", "Fertilizer: grow 2 bamboo instead of 1", "Enclosure: panda can't eat here"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Objective Types",
+          "bullets": ["Plot: specific tile color patterns", "Gardener: bamboo height + color requirements", "Panda: collected bamboo color combinations"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Movement Rules",
+          "bullets": ["Gardener and panda: straight lines only (no diagonal)", "Any distance along connected hexes"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Completing Objectives",
+          "bullets": ["Reveal anytime during/after actions", "Show proof → add points → place face up"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Endgame and Scoring",
+          "bullets": ["Threshold reached → Emperor card (2 pts) → others get 1 turn", "Sum objective pts + Emperor bonus → highest wins", "Tiebreak: most panda objective pts"],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Bamboo Garden",
+          "text": "Welcome to your first game of Takenoko! We will walk through two practice turns with four players. The pond tile is in the center, the gardener and panda are both on it, and each player has drawn three starting objective cards. Let's grow some bamboo!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Player One's Weather Roll",
+          "text": "Player one is the first player, so they skip the weather die on the very first turn of the game. They look at their objectives and see they need a green plot adjacent to a yellow plot. Their first action will focus on building the garden.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Placing the First Plot",
+          "text": "Player one takes the place a plot tile action. They draw three tiles and get two green and one yellow. They choose the green tile and place it adjacent to the pond. Because it touches the pond, it is automatically irrigated. A bamboo section immediately grows on it!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player One's Second Action",
+          "text": "For their second action, player one draws an objective card from the panda deck. They now have four objective cards total. Their turn is done. Remember, you must choose two different actions unless the wind weather effect says otherwise.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two's Turn",
+          "text": "Player two rolls the weather die and gets Sun, which grants a third action. They place a yellow plot tile adjacent to both the pond and the green tile. Since it touches the pond, bamboo grows automatically. Then they take an irrigation channel and draw an objective card. Three actions total thanks to the Sun.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "A Beginner Mistake: Forgetting Irrigation",
+          "text": "Player three places a pink tile that only connects to the green tile, not the pond. They then try to move the gardener to grow bamboo there. But wait! The pink tile is not irrigated because it does not touch the pond and has no irrigation channels connecting it. No bamboo can grow here yet.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Plan Your Irrigation",
+          "text": "Always check whether a plot is irrigated before trying to grow bamboo on it. Tiles adjacent to the pond are automatically irrigated, but tiles further out need irrigation channels. Before placing tiles far from the pond, have a plan to irrigate them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Player Three Recovers",
+          "text": "Player three uses their second action to take an irrigation channel. They place it between the green tile and the pink tile, creating a connection back to the pond. Now the pink tile is irrigated and bamboo can grow there on a future turn. Good recovery!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Player Four Moves the Gardener",
+          "text": "Player four rolls Clouds and takes a fertilizer improvement chip. For their first action, they place a new green tile adjacent to the existing green tile and the pond. For their second action, they move the gardener to the new green tile. The gardener grows bamboo on both green tiles because they are the same color and both irrigated.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "A Beginner Mistake: Same Action Twice",
+          "text": "On round two, player one rolls Wind. Excited by the bonus, they decide to place two plot tiles as their first and second actions. But then they try to move the gardener as a third action. Wait! Wind lets you take the same action twice, but you still only get two actions total, not three. Only Sun gives a third action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Weather Effects Are Specific",
+          "text": "Each weather die face does something different. Sun gives you three actions. Wind allows the same action twice but not a third action. Rain gives free bamboo growth. Storm moves the panda. Clouds give an improvement. The question mark lets you pick. Learn the differences because confusing them leads to illegal plays.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Moving the Panda",
+          "text": "Player two moves the panda in a straight line to the green tile with two bamboo sections. The panda eats one section, leaving one behind. Player two places the eaten green bamboo on their individual board. They check their panda objective, which needs two green bamboo. One down, one to go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "A Beginner Mistake: Moving Diagonally",
+          "text": "Player three tries to move the gardener diagonally across the garden to reach a distant tile. But both the gardener and panda can only move in straight lines along hex edges. Diagonal movement is not allowed. Player three adjusts their plan and moves in a valid straight line instead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Straight Lines Only",
+          "text": "Both the gardener and the panda move in straight lines across hex edges. They can travel any distance in that straight line, but they cannot turn or move diagonally. This means the shape of your garden matters. Build corridors that let both figures reach the plots you need.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Completing an Objective",
+          "text": "Player one now has a green tile adjacent to a yellow tile, matching their plot objective card. They reveal the card to prove the pattern exists in the garden and score the points. The completed card goes face up in front of them. They are now at one out of seven objectives needed to trigger the endgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Garden Takes Shape",
+          "text": "After two full rounds, the garden already has six tiles around the pond with bamboo growing on several of them. Irrigation channels connect distant plots. Players are balancing between growing bamboo for gardener objectives, eating it for panda objectives, and arranging tiles for plot objectives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations on your first practice turns in Takenoko! You learned about irrigation requirements, weather die effects, straight-line movement, and the three types of objectives. The game is a balance of building, growing, and eating bamboo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Ready to Tend the Garden",
+          "text": "Before you start your real game, here are three things to remember.\n\nFirst, check out General Tips for balancing your objective types and using the weather die wisely.\n\nSecond, reference the Appendix for quick rules on irrigation, improvements, and movement.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Bamboo Garden",
+          "bullets": ["Practice turns with 4 players", "Pond tile in center, gardener + panda on it, 3 objectives each"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Player One's Weather Roll",
+          "bullets": ["First turn of game → skip weather die", "Objectives suggest building green + yellow plots"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Placing the First Plot",
+          "bullets": ["Draw 3 tiles → choose green → place adjacent to pond", "Auto-irrigated → bamboo grows immediately"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player One's Second Action",
+          "bullets": ["Draws panda objective card (now 4 total)", "2 different actions taken → turn complete"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two's Turn",
+          "bullets": ["Weather: Sun → 3 actions", "Places yellow tile + takes irrigation + draws objective"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "A Beginner Mistake: Forgetting Irrigation",
+          "bullets": ["Pink tile placed not touching pond", "No irrigation chain → bamboo cannot grow"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Plan Your Irrigation",
+          "bullets": ["Adjacent to pond = auto-irrigated", "Farther tiles need irrigation channel chains", "Always check before trying to grow bamboo"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Player Three Recovers",
+          "bullets": ["Takes irrigation channel → places between tiles", "Pink tile now connected to pond → irrigated"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Player Four Moves the Gardener",
+          "bullets": ["Weather: Clouds → takes fertilizer chip", "Gardener grows bamboo on landing + adjacent same-color plots"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "A Beginner Mistake: Same Action Twice",
+          "bullets": ["Wind = same action twice (still 2 total)", "NOT 3 actions — only Sun gives 3 actions"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Weather Effects Are Specific",
+          "bullets": ["Sun: 3 actions; Wind: same action ×2; Rain: +1 bamboo", "Storm: move panda; Clouds: improvement; ?: choose"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Moving the Panda",
+          "bullets": ["Panda moves to green tile → eats 1 bamboo", "Collected bamboo stored on individual board"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "A Beginner Mistake: Moving Diagonally",
+          "bullets": ["Gardener/panda: straight lines only, no diagonal", "Player adjusts to valid straight-line movement"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Straight Lines Only",
+          "bullets": ["Both figures move in straight lines along hex edges", "Any distance, but no turning or diagonal", "Garden shape matters — build useful corridors"],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Completing an Objective",
+          "bullets": ["Green adjacent to yellow → matches plot objective", "Reveal card → score points → place face up"],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "The Garden Takes Shape",
+          "bullets": ["6 tiles, bamboo growing, irrigation connecting", "Players balance grow/eat/arrange for 3 objective types"],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": ["Learned irrigation, weather die, movement, 3 objective types", "Game = balance of building, growing, eating bamboo"],
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Ready to Tend the Garden",
+          "bullets": ["Check out General Tips → balancing objectives and weather die use", "Reference the Appendix → irrigation, improvements, movement", "Ask your personal GM Guide → tap Q&A for instant answers during play"],
+          "cta": true,
+          "image": null
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Diversify Your Objectives",
+          "text": "Hold a mix of plot, panda, and gardener objectives so you can make progress on something no matter what the board looks like. If all your objectives need pink bamboo and no pink tiles are in play, you are stuck. A diverse hand gives you flexibility every turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Irrigate Early and Often",
+          "text": "Bamboo cannot grow on unirrigated plots, which means your gardener objectives stall without water. Grab irrigation channels in the first few turns to build a network outward from the pond. The watershed improvement is especially valuable for isolated plots.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Cluster Same Colors",
+          "text": "When the gardener moves, he grows bamboo on all adjacent same-color irrigated plots. By clustering green tiles together, for example, one gardener move can grow bamboo on two, three, or even four tiles at once. This is far more efficient than scattered placement.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Use the Weather Die Wisely",
+          "text": "The weather die is not just random luck. Plan your turn around the result. If you roll Sun, save your best action for the bonus third pick. If you roll Wind, double up on the action you need most. If you roll the question mark, pick the effect that best advances your current objectives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Watch the Panda",
+          "text": "The panda is a double-edged sword. Moving the panda gets you bamboo for panda objectives, but it also removes bamboo that you or opponents need for gardener objectives. Use the panda strategically: eat bamboo that benefits you while disrupting opponents' tall stacks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Manage Your Hand Size",
+          "text": "You can hold a maximum of five objective cards. Do not fill up to five too quickly because you lose the ability to draw new ones. Complete a few objectives first, then draw more. Keeping your hand around three to four gives you both options and room to draw.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Look for Overlapping Goals",
+          "text": "The best turns accomplish multiple things at once. If you need green bamboo for a panda objective and there is a tall green stack near a tile pattern you need, one panda move can eat bamboo for one goal while maintaining a pattern for another. Seek these overlaps constantly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Track Opponents' Progress",
+          "text": "Completed objectives are placed face up, so count how many each player has finished. If someone is close to the endgame threshold, you need to accelerate your own plans. Do not let an opponent trigger the end while you are sitting on uncompleted objectives worth lots of points.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Diversify Your Objectives",
+          "bullets": ["Mix of plot, panda, and gardener objectives", "Diverse hand = progress regardless of board state"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Irrigate Early and Often",
+          "bullets": ["Bamboo needs irrigation to grow", "Build channel network outward from pond early"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Cluster Same Colors",
+          "bullets": ["Gardener grows bamboo on all adjacent same-color plots", "Clusters = 1 move grows bamboo on multiple tiles"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Use the Weather Die Wisely",
+          "bullets": ["Plan turn around the die result", "Sun → save best for 3rd action; Wind → double best action"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Watch the Panda",
+          "bullets": ["Panda gets you bamboo but removes it from the garden", "Eat strategically — disrupt opponents' tall stacks"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Manage Your Hand Size",
+          "bullets": ["Max 5 objectives; don't fill up too fast", "Keep 3-4 in hand for flexibility + room to draw"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Look for Overlapping Goals",
+          "bullets": ["Best turns accomplish multiple objectives", "One action advancing 2 goals = efficiency"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Track Opponents' Progress",
+          "bullets": ["Count completed objectives (face up)", "Accelerate if opponent nears endgame threshold"],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Objective Valuation",
+          "text": "Not all objectives are worth the same effort. A two-point plot objective that takes one turn to complete is more efficient than a four-point gardener objective that takes three turns. Evaluate your objectives by points per turn invested, not just total points, and discard or ignore inefficient ones.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Improvement Chip Priority",
+          "text": "Improvements are limited and powerful. The enclosure protects bamboo stacks you need for gardener objectives. The fertilizer doubles growth, letting you build tall stacks in half the time. The watershed saves you irrigation actions. Prioritize the improvement that matches your current objective focus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Gardener Efficiency",
+          "text": "One gardener move can grow bamboo on up to four or five tiles if you have a large cluster of same-colored irrigated plots. Building these clusters early creates a bamboo engine that grows multiple stacks per action. Combine this with the fertilizer improvement for explosive growth turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Panda Denial",
+          "text": "If an opponent needs a four-high green bamboo stack for a gardener objective, send the panda there to eat it down. The storm weather effect is perfect for this because it lets you move the panda to any tile regardless of straight-line movement. Denial is a powerful tool in tight games.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Racing to End Game",
+          "text": "If you are ahead on completed objectives, rush to trigger the endgame. Draw easy-to-complete objectives and focus every action on finishing them. Opponents who have more total points in their hand but fewer completions will not get to score them. The Emperor card bonus also rewards speed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Slowing the Game Down",
+          "text": "If an opponent is close to the endgame threshold and you need more time, invest in high-value objectives rather than quick completions. Focus on plot placement and irrigation to build a garden state that supports your bigger objectives. Use the panda to disrupt opponents' gardener objectives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Color Scarcity Awareness",
+          "text": "There are only seven pink tiles compared to eleven green. Pink objectives can be harder to complete because fewer pink plots will be in play. If you draw multiple pink objectives, commit early to placing pink tiles. If the pink tiles run out, those objectives become nearly impossible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Weather Die Optimization",
+          "text": "The question mark face is the most powerful result because you choose any effect. Save your most complex multi-step plan for a question mark roll. If you need to grow bamboo and eat it on the same turn, choose Storm for a free panda move and use your two actions for gardener movement and something else.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Objective Valuation",
+          "bullets": ["Evaluate pts per turn invested, not just total pts", "Ignore inefficient objectives"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Improvement Chip Priority",
+          "bullets": ["Enclosure: protect stacks; Fertilizer: double growth", "Watershed: save irrigation actions", "Match improvement to current objective focus"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Gardener Efficiency",
+          "bullets": ["Large same-color clusters → 1 move grows 4-5 tiles", "Combine clusters + fertilizer for explosive growth"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Panda Denial",
+          "bullets": ["Eat opponents' tall stacks to block gardener objectives", "Storm weather = move panda to any tile"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Racing to End Game",
+          "bullets": ["Ahead? → rush easy objectives + trigger endgame", "Emperor card rewards speed (2 bonus pts)"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Slowing the Game Down",
+          "bullets": ["Behind? → invest in high-value objectives", "Use panda to disrupt opponents' gardener goals"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Color Scarcity Awareness",
+          "bullets": ["7 pink, 9 yellow, 11 green tiles in game", "Pink objectives harder — commit to placing pink early"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Weather Die Optimization",
+          "bullets": ["? face = choose any effect — plan complex turns around it", "Storm + 2 actions = grow and eat on same turn"],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Pond Tile", "definition": "The starting tile placed in the center of the table. All plots connect outward from it. Plots adjacent to the pond are automatically irrigated.", "category": "Components"},
+        {"term": "Plot Tile", "definition": "Hexagonal tiles in three colors (green, yellow, pink) that form the bamboo garden. Twenty-eight total: eleven green, nine yellow, seven pink.", "category": "Components"},
+        {"term": "Bamboo Section", "definition": "Stackable green, yellow, or pink pieces placed on irrigated plots. Maximum four sections per stack. Thirty-six total, twelve per color.", "category": "Components"},
+        {"term": "Gardener", "definition": "A figure that moves in straight lines. Grows one bamboo on its landing plot and all adjacent same-color irrigated plots.", "category": "Components"},
+        {"term": "Panda", "definition": "A figure that moves in straight lines. Eats one bamboo from its landing plot. Eaten bamboo goes to the player's individual board.", "category": "Components"},
+        {"term": "Individual Board", "definition": "Each player's personal board for storing collected bamboo sections, irrigation channels, and improvement chips.", "category": "Components"},
+        {"term": "Weather Die", "definition": "A six-sided die rolled at the start of each turn (except the very first turn). Faces: Sun, Rain, Wind, Storm, Clouds, Question Mark.", "category": "Components"},
+        {"term": "Emperor Card", "definition": "A bonus card worth two points awarded to the player who triggers the endgame by completing the required number of objectives.", "category": "Components"},
+        {"term": "Irrigation Channel", "definition": "A piece placed between two plot edges to create a water connection to the pond. Plots need irrigation to grow bamboo.", "category": "Components"},
+        {"term": "Irrigated", "definition": "A plot state that allows bamboo growth. Plots are irrigated if adjacent to the pond or connected to it via irrigation channels.", "category": "Mechanics"},
+        {"term": "Straight-Line Movement", "definition": "Both the gardener and panda move in a straight line along hex edges, any distance. No diagonal or curved movement allowed.", "category": "Mechanics"},
+        {"term": "Watershed", "definition": "An improvement chip that makes a plot permanently irrigated without needing irrigation channels.", "category": "Improvements"},
+        {"term": "Fertilizer", "definition": "An improvement chip that causes a plot to grow two bamboo sections instead of one whenever bamboo grows there.", "category": "Improvements"},
+        {"term": "Enclosure", "definition": "An improvement chip that prevents the panda from eating bamboo on that plot. Protects bamboo stacks for gardener objectives.", "category": "Improvements"},
+        {"term": "Plot Objective", "definition": "An objective card requiring specific patterns of colored plot tiles adjacent to each other in the garden.", "category": "Objective Types"},
+        {"term": "Panda Objective", "definition": "An objective card requiring specific combinations of colored bamboo sections collected by the panda.", "category": "Objective Types"},
+        {"term": "Gardener Objective", "definition": "An objective card requiring bamboo stacks to reach specific heights on specific colored plots, sometimes with improvements.", "category": "Objective Types"},
+        {"term": "Sun", "definition": "Weather die face granting a third action on your turn. The extra action can duplicate one already taken.", "category": "Weather Effects"},
+        {"term": "Rain", "definition": "Weather die face letting you place one bamboo section on any irrigated plot of your choice.", "category": "Weather Effects"},
+        {"term": "Wind", "definition": "Weather die face allowing you to take the same action twice this turn (still only two actions total).", "category": "Weather Effects"},
+        {"term": "Storm", "definition": "Weather die face letting you move the panda to any plot on the board. The panda eats one bamboo there.", "category": "Weather Effects"},
+        {"term": "Clouds", "definition": "Weather die face letting you take one improvement chip from the supply and store it on your board.", "category": "Weather Effects"},
+        {"term": "Question Mark", "definition": "Weather die face letting you choose any of the other five weather effects.", "category": "Weather Effects"},
+        {"term": "Endgame Trigger", "definition": "The game ends when a player reaches the objective threshold: nine for two players, eight for three, seven for four. That player gets the Emperor card.", "category": "Game Structure"},
+        {"term": "Action Token", "definition": "Two tokens per player used to mark which actions they have taken on their turn. Helps prevent accidentally taking the same action twice.", "category": "Components"},
+        {"term": "Tile Placement", "definition": "Plots must be placed edge-to-edge adjacent to at least one existing tile. Corner-to-corner placement is not allowed.", "category": "Rules"},
+        {"term": "Hand Limit", "definition": "Players may hold a maximum of five objective cards. If at five, the draw objective action cannot be taken.", "category": "Rules"},
+        {"term": "Bamboo Height Limit", "definition": "Bamboo stacks on any single plot cannot exceed four sections. Additional growth on a maxed plot is ignored.", "category": "Rules"},
+        {"term": "Auto-Irrigation", "definition": "Plots directly adjacent to the pond tile are automatically irrigated and do not need irrigation channels.", "category": "Mechanics"},
+        {"term": "Tiebreaker", "definition": "If players tie on total points, the player with the most points from panda objectives wins. If still tied, players share victory.", "category": "Scoring"}
+      ]
+    }
+  }
+}

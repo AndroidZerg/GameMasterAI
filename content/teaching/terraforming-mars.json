@@ -1,0 +1,854 @@
+{
+  "game_id": "terraforming-mars",
+  "title": "Terraforming Mars",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "text": "Let's place the main board in the center of the table. It shows the surface of Mars with hexagonal spaces, plus tracks for temperature, oxygen, terraform rating, and generations. The board also displays standard projects, milestones, and awards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Set Global Parameters",
+          "text": "Let's set the starting conditions. Place the oxygen marker at zero percent. Place the temperature marker at negative thirty degrees Celsius. Place all nine ocean tiles on the ocean reserve area. Set the generation marker to one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Supply",
+          "text": "Place resource cubes where everyone can reach them. Bronze cubes are worth one, silver are worth five, and gold are worth ten. Set aside the remaining greenery, city, and special tiles near the board. These will be placed on Mars as the game progresses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Shuffle the Project Deck",
+          "text": "Shuffle all two hundred and eight project cards into one large face-down deck. This deck is the heart of the game. You will draw from it every generation and decide which projects to buy. Place the deck where everyone can reach it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Deal Corporations",
+          "text": "Deal two corporation cards to each player. Each corporation gives you a unique starting ability, resources, and sometimes production. Look at both options carefully. Your corporation choice shapes your entire strategy for the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Deal Starting Projects",
+          "text": "Deal ten project cards to each player. These are your starting hand options. You may keep any number of them, but each card you keep costs three mega-credits. Cards you do not keep go to the discard pile. Choose wisely because overspending here slows your early game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Choose Corporation and Cards",
+          "text": "Simultaneously, each player chooses one corporation and decides which project cards to keep. Apply your corporation's starting resources, production adjustments, and any setup effects immediately. Place your player board and set your production tracks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Set Starting Terraform Rating",
+          "text": "Each player places a marker on the terraform rating track at twenty. Your terraform rating is both your score and your base income each generation. Every time you raise a global parameter, your terraform rating increases by one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Choose First Player",
+          "text": "Randomly choose the first player and give them the first-player marker. This marker rotates clockwise each generation. The first player takes their actions first during the action phase, which can be an advantage for claiming key board spaces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Review the Board",
+          "text": "Before we begin, let's review the board's key areas. The standard projects are always available to everyone. Five milestones can be claimed for eight mega-credits each. Three awards can be funded. Familiarize yourself with these because they are significant scoring opportunities.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "bullets": ["Mars surface hex map + parameter tracks", "Standard projects, milestones, awards visible"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Set Global Parameters",
+          "bullets": ["Oxygen → 0%, Temperature → −30°C", "9 oceans in reserve, generation marker → 1"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Supply",
+          "bullets": ["Resource cubes: bronze=1, silver=5, gold=10", "Greenery, city, special tiles near board"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Shuffle the Project Deck",
+          "bullets": ["208 project cards → shuffle → face-down deck", "Core of the game — drawn every generation"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Deal Corporations",
+          "bullets": ["2 corporation cards per player", "Each gives unique starting ability + resources"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Deal Starting Projects",
+          "bullets": ["10 project cards per player", "Keep any — each costs 3 M€ to keep"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Choose Corporation and Cards",
+          "bullets": ["Choose 1 corp + keep desired cards simultaneously", "Apply corp starting resources/production immediately"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Set Starting Terraform Rating",
+          "bullets": ["Start at TR 20 (score + base income)", "TR increases when raising global parameters"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Choose First Player",
+          "bullets": ["Random first player → marker rotates clockwise", "First player acts first each generation"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Review the Board",
+          "bullets": ["Standard projects always available", "5 milestones (8 M€ each), 3 awards to fund"],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Let's learn how Terraforming Mars works. We are corporations competing to terraform Mars by raising three global parameters: temperature, oxygen, and oceans. Along the way we play project cards to build an engine that generates resources, scores points, and advances the terraforming process.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Generation Structure",
+          "text": "The game is measured in generations. Each generation has four phases: Turn Order to confirm player sequence, Research to buy new project cards, Action to take turns performing actions, and Production to generate resources and income. After production, advance the generation marker.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Research Phase",
+          "text": "Each player draws four project cards and may keep any number at three mega-credits each. Cards you do not keep go to the discard pile. This is where you build your future strategy. Be disciplined about which cards you buy because overspending on research starves your other actions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Action Phase",
+          "text": "In player order, each player takes one or two actions per turn, then play passes to the next player. This continues around the table until all players have passed. You can take any combination of available actions on your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Play a Project Card",
+          "text": "The main action is playing a project card from your hand. Pay the card's cost in mega-credits, meet any requirements like minimum temperature or oxygen, and resolve its effects. Green cards have immediate effects. Blue cards provide ongoing effects or repeatable actions. Red event cards resolve once.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Steel and Titanium",
+          "text": "Steel can pay for building-tagged cards at two mega-credits per cube. Titanium can pay for space-tagged cards at three mega-credits per cube. No change is given for overpayment. These resources dramatically reduce the cost of the right cards, so building a steel or titanium engine is powerful.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Standard Projects",
+          "text": "Standard projects are always available to any player. You can sell patents for one mega-credit each, increase energy production, build greenery for twenty-three mega-credits, build a city for twenty-five mega-credits, place an ocean for eighteen mega-credits, or raise temperature for fourteen mega-credits.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Use a Blue Card Action",
+          "text": "Blue cards in your tableau may have a repeatable action you can use once per generation. Place a marker on the card to show it has been used this generation. These actions become more powerful over time as your engine grows. Mark usage carefully.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Convert Plants and Heat",
+          "text": "Spend eight plants to place one greenery tile, which raises oxygen and your terraform rating. Spend eight heat to raise temperature one step, also increasing your terraform rating. These conversions are your main tools for pushing global parameters forward.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Tile Placement",
+          "text": "Greenery tiles should be placed adjacent to your existing tiles when possible. City tiles cannot be placed next to other cities except via card exceptions. Ocean tiles can only go in reserved blue spaces. When placing any tile next to an ocean, gain two mega-credits per adjacent ocean.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Milestones and Awards",
+          "text": "Milestones cost eight mega-credits to claim and only three can be claimed per game. Awards cost eight, fourteen, or twenty mega-credits to fund, and only three can be funded. Milestones score five VP for the claimer. Awards score five VP for first place and two for second at game end.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Global Parameters and TR",
+          "text": "Whenever you raise temperature, oxygen, or place an ocean, your terraform rating increases by one. TR is both your score and your mega-credit income each generation. This dual function means every parameter raise is both an immediate income boost and endgame scoring.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Production Phase",
+          "text": "After all players pass, production occurs. Convert leftover energy to heat. Then gain resources based on your production tracks: mega-credits equal to your TR plus mega-credit production, plus steel, titanium, plants, energy, and heat according to their production levels.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Card Types",
+          "text": "Green cards provide immediate one-time effects when played, like gaining resources or production. Blue cards stay in play and provide ongoing effects or repeatable actions each generation. Red event cards resolve their effect once and are turned face down. All three types can have VP symbols for endgame scoring.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Game End Trigger",
+          "text": "The game ends when all three global parameters are maxed: oxygen at fourteen percent, temperature at positive eight degrees Celsius, and all nine oceans placed. Finish the current generation through the production phase, then proceed to final scoring.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring",
+          "text": "Add up five VP sources. Your final terraform rating is your base score. Add milestone and award points. Score one VP per greenery tile you own. Score one VP per adjacent greenery for each city you own, regardless of who owns the greenery. Finally, add up VP symbols on your played cards. Highest total wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": ["Corporations competing to terraform Mars", "Raise temperature, oxygen, oceans + play project cards"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Generation Structure",
+          "bullets": ["4 phases: Turn Order → Research → Action → Production", "Advance generation marker after production"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Research Phase",
+          "bullets": ["Draw 4 cards → keep any at 3 M€ each", "Discipline: don't overbuy"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Action Phase",
+          "bullets": ["Player order, 1-2 actions per turn", "Continue until all pass"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Play a Project Card",
+          "bullets": ["Pay cost, meet requirements, resolve effects", "Green = immediate, Blue = ongoing/action, Red = one-time event"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Steel and Titanium",
+          "bullets": ["Steel: 2 M€/cube for building tags", "Titanium: 3 M€/cube for space tags", "No change for overpayment"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Standard Projects",
+          "bullets": ["Always available: sell patents, power plant, greenery, city, ocean, temperature", "Fixed M€ costs"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Use a Blue Card Action",
+          "bullets": ["Once per generation per blue card", "Mark with cube when used"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Convert Plants and Heat",
+          "bullets": ["8 plants → 1 greenery (raises O₂ + TR)", "8 heat → +1 temperature step (+TR)"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Tile Placement",
+          "bullets": ["Greenery: adjacent to own tiles when possible", "City: not next to other cities (usually)", "Ocean: reserved spaces only; +2 M€ per adjacent ocean"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Milestones and Awards",
+          "bullets": ["Milestones: 8 M€, max 3 total, 5 VP each", "Awards: 8/14/20 M€, max 3 total, 5 VP 1st / 2 VP 2nd"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Global Parameters and TR",
+          "bullets": ["Raise temp/O₂/ocean → TR +1", "TR = score + M€ income each generation"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Production Phase",
+          "bullets": ["Energy → heat; gain all production resources", "M€ income = TR + M€ production"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Card Types",
+          "bullets": ["Green: immediate effects", "Blue: ongoing + repeatable action", "Red: one-time event, turned face down"],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Game End Trigger",
+          "bullets": ["O₂ 14%, temp +8°C, 9 oceans placed", "Finish current generation then score"],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring",
+          "bullets": ["TR + milestones + awards + greenery VP + city VP + card VP", "Highest total wins; tiebreak = most M€"],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Mars",
+          "text": "Welcome to your first game of Terraforming Mars! We will walk through the first two generations with four players. Each player has chosen a corporation, bought starting cards, and is at terraform rating twenty. The red planet awaits!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Generation One: Research Phase",
+          "text": "Each player draws four project cards. Player one sees a powerful space card costing twenty-five mega-credits and three cheap building cards. They keep two building cards at six mega-credits total and pass on the expensive ones. Spending discipline in research is critical in early generations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One's First Action",
+          "text": "Player one plays a green card that increases their steel production by one. It costs six mega-credits. Steel production means free steel cubes each generation, which reduce the cost of future building cards. Building production early is the foundation of a strong engine.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two Places an Ocean",
+          "text": "Player two uses the standard project to place an ocean tile for eighteen mega-credits. This raises their TR by one, giving them an extra mega-credit every future generation. They place the ocean adjacent to a high-bonus space, collecting two extra mega-credits from the placement bonus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "A Beginner Mistake: Overbuying Research Cards",
+          "text": "Player three bought all four research cards for twelve mega-credits. They now have lots of options but very little money to actually play anything. Their first generation is nearly paralyzed because they cannot afford to take meaningful actions. Three of those cards may not be playable for several generations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Buy Only What You Can Use Soon",
+          "text": "Each research card costs three mega-credits to keep. Only keep cards you can realistically play within the next one to two generations. Holding expensive cards for late-game is fine occasionally, but buying everything in sight starves your early engine and puts you behind on tempo.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player Four Claims a Milestone",
+          "text": "Player four's corporation gave them a strong starting position with three building tags already played. They claim the Builder milestone for eight mega-credits, locking in five VP. Only three milestones can be claimed in the entire game, so acting early secures this permanent advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Production Phase",
+          "text": "Everyone passes. Time for production. Each player gains mega-credits equal to their TR plus mega-credit production. Energy converts to heat. All production resources are collected. Player one gains their new steel production for the first time. The engine is starting to grow.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Generation Two: Research Phase",
+          "text": "Everyone draws four more cards. This time player one sees a card requiring eight percent oxygen, which is far off. They pass on it. Player two finds a plant production card that is affordable. Player three finally has mega-credits to be selective and keeps only one card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "A Beginner Mistake: Ignoring Tile Placement Strategy",
+          "text": "Player two places a greenery tile in a random open space far from anything. They miss the two mega-credit bonus for placing next to an ocean and do not place it adjacent to their own tiles. Every tile placement should consider adjacency bonuses and endgame city scoring geometry.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Place Tiles Strategically",
+          "text": "Always place greenery adjacent to your own tiles when possible. Place near oceans to collect two mega-credits per adjacent ocean. Plan your city and greenery positions together because cities score one VP per adjacent greenery at game end. Strategic placement can add ten or more VP over a game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Building the Engine",
+          "text": "Player one plays another production card, increasing their energy output. Energy converts to heat at production, and heat converts to temperature raises. This chain of production creates a self-fueling engine that accelerates in later generations. Early production investment pays off exponentially.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "A Beginner Mistake: Waiting Too Long on Milestones",
+          "text": "Player three has been eligible for a milestone since generation one but keeps delaying to save money. Now Player four funds a second milestone, leaving only one remaining. Player three realizes they might miss their window entirely. Milestones are first-come-first-served with a three-claim limit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Claim Milestones and Fund Awards Early",
+          "text": "Five VP from a milestone costs only eight mega-credits. That is one of the best VP-to-cost ratios in the game. When you qualify, claim immediately because only three can ever be claimed. Similarly, funding awards early costs less than waiting. These shared objectives are too valuable to delay.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "The State of Mars",
+          "text": "After two generations, one ocean is placed, oxygen has risen slightly from a greenery tile, and temperature is still at negative thirty. Mars has a long way to go. But each player's engine is growing. Production tracks are climbing, card combos are forming, and the terraforming process is accelerating.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Blue Card Actions",
+          "text": "Player four has a blue card with a repeatable action: spend one titanium to draw a card. They use it for the first time in generation two. This action can be used once every generation for the rest of the game. Blue card actions that scale over many generations are extremely powerful.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations on surviving your first two generations on Mars! You learned about research discipline, production engine building, strategic tile placement, and the urgency of milestones. These fundamentals will carry you through the full game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Ready to Terraform",
+          "text": "Before you start your real game, here are three things to remember.\n\nFirst, check out General Tips for corporation strategies and resource management advice.\n\nSecond, reference the Appendix for a complete glossary of card types, standard projects, and scoring sources.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Mars",
+          "bullets": ["Practice 2 generations, 4 players", "Corporations chosen, TR at 20"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Generation One: Research Phase",
+          "bullets": ["Draw 4, keep selectively at 3 M€ each", "Player 1 keeps 2 cheap building cards"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One's First Action",
+          "bullets": ["Green card: +1 steel production for 6 M€", "Early production = engine foundation"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two Places an Ocean",
+          "bullets": ["Standard project: ocean for 18 M€ → TR +1", "Placement bonus + ongoing income boost"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "A Beginner Mistake: Overbuying Research Cards",
+          "bullets": ["Player 3 keeps all 4 cards (12 M€)", "Can't afford to play anything → paralyzed"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Buy Only What You Can Use Soon",
+          "bullets": ["Keep cards playable in 1-2 generations", "Overbuying starves early engine"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Player Four Claims a Milestone",
+          "bullets": ["Builder milestone: 8 M€ → 5 VP locked in", "Only 3 milestones in entire game"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Production Phase",
+          "bullets": ["M€ = TR + M€ production; energy → heat", "All production collected; engine grows"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Generation Two: Research Phase",
+          "bullets": ["Draw 4 more; be selective", "Pass on cards with unmet requirements"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "A Beginner Mistake: Ignoring Tile Placement Strategy",
+          "bullets": ["Greenery placed randomly, no ocean adjacency", "Missed +2 M€ per adjacent ocean bonus"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Place Tiles Strategically",
+          "bullets": ["Greenery adjacent to own tiles", "Near oceans for +2 M€ per adjacent", "Plan city+greenery geometry for endgame VP"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Building the Engine",
+          "bullets": ["Energy → heat → temperature raises", "Early production investment pays off exponentially"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "A Beginner Mistake: Waiting Too Long on Milestones",
+          "bullets": ["Player 3 delayed claiming → slots filling up", "Only 3 milestones total, first-come-first-served"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Claim Milestones and Fund Awards Early",
+          "bullets": ["5 VP for 8 M€ = best VP ratio in game", "Claim when eligible; fund awards when cheap"],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "The State of Mars",
+          "bullets": ["1 ocean, slight O₂ rise, temp still −30°C", "Engines growing, combos forming"],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Blue Card Actions",
+          "bullets": ["Repeatable once/generation → grows over time", "Early blue cards = compound advantage"],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": ["Learned research discipline, engine building, tile placement", "Milestones are urgent — claim early"],
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Ready to Terraform",
+          "bullets": ["Check out General Tips → corporation strategies and resource management", "Reference the Appendix → card types, standard projects, scoring", "Ask your personal GM Guide → tap Q&A for instant answers during play"],
+          "cta": true,
+          "image": null
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Build Production Early",
+          "text": "The most important thing in the first few generations is growing your production engine. Every mega-credit of production you gain in generation two pays off eight or more times over the course of the game. Prioritize production cards over flashy VP cards in the early game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Be Disciplined with Research",
+          "text": "Only keep research cards you can play within one to two generations. Each card costs three mega-credits just to hold. Keeping four cards every generation means spending twelve mega-credits on potential that might never materialize. Two well-chosen cards are worth more than four you cannot afford to play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Use Steel and Titanium Efficiently",
+          "text": "Steel and titanium are free money for the right cards. Build steel production if your strategy involves building-tagged cards. Build titanium production if you focus on space tags. Matching your resource engine to your card strategy multiplies your purchasing power dramatically.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Claim Milestones Early",
+          "text": "Five VP for eight mega-credits is the best deal in the game. Identify which milestone you can reach first and commit to it early. Only three milestones can be claimed in the entire game, so waiting means risking someone else taking the last slot. Claim the moment you qualify.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Tile Geometry",
+          "text": "Cities score one VP per adjacent greenery at game end. Plan your city and greenery placements as a unit. Place cities where you can surround them with your own greenery. Place greenery near oceans for the two mega-credit adjacency bonus. Every tile placement is a long-term investment.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Raise Parameters for Income",
+          "text": "Every time you raise a global parameter, your terraform rating goes up by one. TR is your base mega-credit income each generation. Raising temperature or oxygen early means more income for the rest of the game. Do not wait to push parameters when the opportunity is efficient.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the End Game Approach",
+          "text": "As global parameters near their maximums, the game will end soon. Shift from engine building to VP collection. Play cards with VP symbols, place greenery around your cities, and fund awards you expect to win. The transition from engine to scoring is a critical inflection point.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Tag Synergies Matter",
+          "text": "Many cards give bonuses based on the number of tags you have played. A science tag card that draws extra cards per science tag gets stronger with every science card you play. Look for tag chains that reinforce each other and build toward a cohesive tableau strategy.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Build Production Early",
+          "bullets": ["Gen 2 production pays off 8+ times over", "Prioritize production over early VP cards"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Be Disciplined with Research",
+          "bullets": ["Keep only cards playable in 1-2 gens", "2 good cards > 4 unaffordable ones"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Use Steel and Titanium Efficiently",
+          "bullets": ["Match resource production to card tag strategy", "Steel for building, titanium for space"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Claim Milestones Early",
+          "bullets": ["5 VP for 8 M€ = best deal in game", "Only 3 total — claim when eligible"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Plan Your Tile Geometry",
+          "bullets": ["Cities score 1 VP per adjacent greenery", "Place near oceans for +2 M€ bonus"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Raise Parameters for Income",
+          "bullets": ["Each parameter raise → TR +1 → +1 M€/gen income", "Early raises compound over many generations"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the End Game Approach",
+          "bullets": ["Shift from engine building to VP collection", "Play VP cards, surround cities, fund awards"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Tag Synergies Matter",
+          "bullets": ["Many cards bonus per matching tag count", "Build cohesive tag chains for compound value"],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Corporation-Specific Openings",
+          "text": "Each corporation has an optimal opening. Thorgate should prioritize energy production to leverage their discount. Ecoline should rush plant production to place early greenery. Inventrix can play requirement-locked cards two steps early, opening unique lines. Study your corporation's advantage and exploit it from generation one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Engine Timing",
+          "text": "The game has a natural arc. Generations one through four are engine building. Generations five through eight are mixed engine and scoring. The final generations are pure scoring. If you are still building production in generation eight, you started too late. If you are scoring VP in generation two, you are giving up compound income.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Heat and Plant Conversion Math",
+          "text": "Eight heat raises temperature one step and gives one TR. Eight plants place a greenery, raising oxygen one step and giving one TR. In both cases, you trade eight resources for approximately one mega-credit per generation of income plus one endgame VP. Producing these resources cheaply via cards makes this conversion highly efficient.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Card Combo Identification",
+          "text": "The strongest strategies in Terraforming Mars come from card combos. A card that discounts space tags plus a card that gains resources per space tag plus a card that converts those resources to VP creates a self-reinforcing loop. Identify these loops during research and build toward them deliberately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Award Metagaming",
+          "text": "Awards score five VP for first and two for second in the funded categories. Fund awards where you are likely to win at game end, not just where you lead now. If you are building lots of greenery, fund the Gardener award. The key is funding early when it costs eight mega-credits instead of twenty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Pacing the Terraform",
+          "text": "Raising parameters faster ends the game sooner. If your engine is stronger than opponents', push parameters to end the game before they catch up. If you are behind, slow the terraforming by focusing on production and cards instead. Game length is partially under your control.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Board Position Control",
+          "text": "The best city spots on the board have high adjacency potential and placement bonuses. Claim premium spots early, especially the two-plant or two-steel spaces. Block opponents from ideal city-greenery clusters by placing your tiles strategically. Board position is as important as card play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Late Game VP Optimization",
+          "text": "In the final two to three generations, every action should maximize VP. Convert all plants to greenery. Place greenery adjacent to your cities. Play any remaining VP cards. Sell unneeded cards for mega-credits. The winner is often decided by who squeezes the most VP from their final turns.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Corporation-Specific Openings",
+          "bullets": ["Each corp has an optimal gen-1 strategy", "Exploit your unique advantage immediately"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Engine Timing",
+          "bullets": ["Gen 1-4: engine; Gen 5-8: mixed; Final: pure scoring", "Building production too late = falling behind"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Heat and Plant Conversion Math",
+          "bullets": ["8 resources → 1 TR (income + VP)", "Produce cheaply via cards for efficiency"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Card Combo Identification",
+          "bullets": ["Look for self-reinforcing card loops", "Tag discount + resource gain + VP conversion = engine"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Award Metagaming",
+          "bullets": ["Fund awards you'll win at game END, not just now", "Fund early (8 M€) not late (20 M€)"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Pacing the Terraform",
+          "bullets": ["Ahead? → push parameters to end game faster", "Behind? → slow terraform, build engine"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Board Position Control",
+          "bullets": ["Claim premium city spots with high adjacency", "Block opponents' ideal city-greenery clusters"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Late Game VP Optimization",
+          "bullets": ["Convert all plants → greenery near cities", "Every final action should maximize VP"],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Terraform Rating (TR)", "definition": "Your score and base mega-credit income. Starts at twenty. Increases by one each time you raise a global parameter. Final TR is your base endgame score.", "category": "Core Concepts"},
+        {"term": "Generation", "definition": "One round of play consisting of Turn Order, Research, Action, and Production phases. The game lasts until all global parameters are maxed.", "category": "Core Concepts"},
+        {"term": "Global Parameters", "definition": "Temperature, oxygen, and oceans. The game ends when all three reach their targets: plus eight degrees, fourteen percent oxygen, nine oceans.", "category": "Core Concepts"},
+        {"term": "Mega-Credits (M€)", "definition": "The primary currency. Used to buy cards, play projects, claim milestones, fund awards, and use standard projects. Income equals TR plus M€ production.", "category": "Resources"},
+        {"term": "Steel", "definition": "A resource worth two M€ when paying for building-tagged cards. Produced on the steel track. No change given for overpayment.", "category": "Resources"},
+        {"term": "Titanium", "definition": "A resource worth three M€ when paying for space-tagged cards. Produced on the titanium track. No change given for overpayment.", "category": "Resources"},
+        {"term": "Plants", "definition": "A resource used to place greenery tiles. Spend eight plants to place one greenery, which raises oxygen and TR.", "category": "Resources"},
+        {"term": "Energy", "definition": "A resource produced on the energy track. Unspent energy converts to heat during the production phase. Some cards require energy.", "category": "Resources"},
+        {"term": "Heat", "definition": "A resource that accumulates from energy conversion and heat production. Spend eight heat to raise temperature one step and gain one TR.", "category": "Resources"},
+        {"term": "Green Card", "definition": "A project card with immediate one-time effects like gaining resources, production, or tiles. The card stays in your tableau for tag counting and endgame VP.", "category": "Card Types"},
+        {"term": "Blue Card", "definition": "A project card that provides ongoing effects or a repeatable action usable once per generation. Place a marker when used each generation.", "category": "Card Types"},
+        {"term": "Red Event Card", "definition": "A project card with a one-time effect that resolves immediately and is then turned face down. Tags are not counted after the event resolves.", "category": "Card Types"},
+        {"term": "Corporation Card", "definition": "Your identity for the game. Provides starting resources, production, and unique abilities. Chosen at the start of the game from two options.", "category": "Card Types"},
+        {"term": "Tags", "definition": "Icons on cards representing categories like building, space, science, plant, animal, etc. Many cards give bonuses based on tag counts in your tableau.", "category": "Mechanics"},
+        {"term": "Requirements", "definition": "Conditions that must be met to play a card, such as minimum oxygen or temperature. Requirements are checked at play time only.", "category": "Mechanics"},
+        {"term": "Standard Project", "definition": "An action always available to any player for a fixed M€ cost. Includes selling patents, power plant, greenery, city, ocean, and temperature raise.", "category": "Actions"},
+        {"term": "Milestone", "definition": "A permanent five VP bonus claimed for eight M€. Only three can be claimed per game across all players. First-come-first-served.", "category": "Scoring"},
+        {"term": "Award", "definition": "A category scored at game end. Costs eight, fourteen, or twenty M€ to fund. First place scores five VP, second scores two. Only three can be funded per game.", "category": "Scoring"},
+        {"term": "Ocean Tile", "definition": "A neutral tile placed only in reserved blue spaces. Placing raises TR by one. Adjacent tiles gain two M€ placement bonus. Nine total.", "category": "Tiles"},
+        {"term": "Greenery Tile", "definition": "A player-owned tile that raises oxygen by one step and TR by one. Must be placed adjacent to own tiles when possible. Worth one VP at endgame.", "category": "Tiles"},
+        {"term": "City Tile", "definition": "A player-owned tile that scores one VP per adjacent greenery at game end, regardless of greenery owner. Cannot be placed next to other cities (usually).", "category": "Tiles"},
+        {"term": "Production Phase", "definition": "End-of-generation phase. Energy converts to heat. Gain M€ equal to TR plus M€ production. Gain steel, titanium, plants, energy, heat per production tracks.", "category": "Game Structure"},
+        {"term": "Research Phase", "definition": "Beginning-of-generation phase (after turn order). Draw four cards, keep any at three M€ each. Unkept cards are discarded.", "category": "Game Structure"},
+        {"term": "Action Phase", "definition": "Main phase where players take one to two actions per turn in player order until all pass. Includes playing cards, using blue cards, standard projects, conversions, milestones, awards.", "category": "Game Structure"},
+        {"term": "Oxygen Track", "definition": "Global parameter track from zero to fourteen percent. Raising oxygen via greenery or cards increases TR. Game ends when oxygen reaches fourteen percent.", "category": "Parameters"},
+        {"term": "Temperature Track", "definition": "Global parameter track from negative thirty to positive eight degrees Celsius. Raised by spending heat or playing cards. Includes bonus steps.", "category": "Parameters"},
+        {"term": "Player Board", "definition": "Personal board tracking production levels for all six resources: M€, steel, titanium, plants, energy, and heat.", "category": "Components"},
+        {"term": "First Player Marker", "definition": "Rotates clockwise each generation. The first player takes actions first during the action phase.", "category": "Components"},
+        {"term": "Placement Bonus", "definition": "Resources printed on map spaces that are collected when a tile is placed there. Also includes two M€ per adjacent ocean for any tile placement.", "category": "Mechanics"},
+        {"term": "Solo Mode", "definition": "One-player variant. Start at TR fourteen, no milestones or awards. Must complete all three global parameters by end of generation fourteen or lose.", "category": "Variants"},
+        {"term": "Corporate Era", "definition": "A variant where players start with no extra production. Adds complexity and lengthens the game. Standard game gives one of each production at start.", "category": "Variants"},
+        {"term": "VP Tiebreaker", "definition": "If tied on total VP, the player with the most mega-credits wins. If still tied, shared victory.", "category": "Scoring"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,928 @@
+{
+  "game_id": "tokaido",
+  "title": "Tokaido",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "text": "Let's set up Tokaido. Unfold the long game board and place it in the center of the table. This beautiful board depicts the East Sea Road from Kyoto to Edo, the famous historical route across Japan. You will see various stop locations along the path, with four intermediate inns between the start and finish.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Card Decks",
+          "text": "Now let's organize the card decks. Shuffle the meal cards and place separate face-down piles at each of the four intermediate inns and the final inn at Edo. Shuffle the souvenir cards and place them face down near the board. Do the same for the hot spring cards and the encounter cards. Sort the panorama cards by type into three stacks: Sea, Mountain, and Paddy, and place them near the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Coin Supply",
+          "text": "Place all the coin tokens in a general supply near the board where everyone can reach them. Coins come in denominations of one and three. You will need coins to buy meals at inns, purchase souvenirs at shops, and make donations at temples. Money management is a key part of the journey.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Traveler",
+          "text": "Deal two random traveler tiles to each player. Look at both tiles and choose one to keep. Each traveler has a unique ability and a different amount of starting coins. Some travelers get discounts at shops, others earn extra coins from farms, and some get bonus points from panoramas. Return your unchosen traveler face down.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Collect Starting Coins",
+          "text": "Take the number of coins shown on your chosen traveler tile from the supply. Starting coins vary by character, typically ranging from two to seven. Place your coins in front of you where everyone can see them. Coin supply is public information in Tokaido.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Place Pawns at the Starting Inn",
+          "text": "Everyone places their colored pawn at the first inn in Kyoto. Stack the pawns on top of each other at the inn. The order of the stack matters because the player on the bottom of the stack goes first, and the one on top goes last. Stack order can be randomized or determined by starting coins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player Count Adjustments",
+          "text": "Check the player count for any special rules. With two players, add a neutral dummy traveler that blocks spaces but does not score. With three players, each location can hold only one player except for inns. With four or five players, spaces marked with a two-player icon can hold two visitors. Make sure everyone understands which spaces are available at your player count.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Travel",
+          "text": "Setup is complete. Remember, the player who is furthest behind on the road always goes next. There is no fixed turn order. This means moving slowly gives you more turns and more location visits. Let's learn the rules of the journey.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Unfold the Board",
+          "bullets": [
+            "Place long board showing Kyoto → Edo road",
+            "4 intermediate inns between start and finish"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Card Decks",
+          "bullets": [
+            "Meal cards → face-down piles at each inn",
+            "Shuffle souvenir, hot spring, encounter decks separately",
+            "Sort panoramas into 3 stacks: Sea, Mountain, Paddy"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Coin Supply",
+          "bullets": [
+            "Place all coins (1 and 3 denominations) in shared supply",
+            "Coins buy meals, souvenirs, and temple donations"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Choose Your Traveler",
+          "bullets": [
+            "Deal 2 traveler tiles each → keep 1, return other face down",
+            "Each traveler has unique ability + different starting coins"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Collect Starting Coins",
+          "bullets": [
+            "Take coins equal to traveler tile's starting value (2-7 coins)",
+            "Coin supply is public information"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Place Pawns at the Starting Inn",
+          "bullets": [
+            "All pawns start at Kyoto (first inn)",
+            "Stack order: bottom = goes first, top = goes last"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Player Count Adjustments",
+          "bullets": [
+            "2 players: add neutral dummy traveler (blocks but doesn't score)",
+            "3 players: 1 player per space (except inns)",
+            "4-5 players: some spaces hold 2 players"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Travel",
+          "bullets": [
+            "Furthest-behind player always goes next (no fixed turn order)",
+            "Moving slowly = more turns = more location visits"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Tokaido is a travel-themed game for two to five players. You are travelers journeying along the East Sea Road from Kyoto to Edo. Along the way, you will visit hot springs, collect panoramic views, buy souvenirs, eat meals at inns, donate to temples, and meet interesting people. The player who has the most enriching journey, measured in victory points, wins the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Core Mechanic: Furthest Behind Goes Next",
+          "text": "There is no fixed turn order in Tokaido. The player whose pawn is furthest from Edo always takes the next turn. This means if you move only one space forward, you might still be the furthest behind and get to take another turn immediately. Moving slowly lets you visit more locations, but the player who reaches each inn first gets first pick of meals.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Movement",
+          "text": "On your turn, move your pawn forward to any unoccupied space between your current position and the next inn. You must move at least one space forward. You can jump ahead as many spaces as you want, but you skip everything in between. You cannot move backward. When you land on a space, immediately perform that location's action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Mandatory Inn Stops",
+          "text": "You must stop at each inn along the road. You cannot skip past an inn. Once you arrive at an inn, you wait there until all other players have also arrived. When everyone is at the inn, each player buys a meal card from that inn's selection, in the order they arrived. First to arrive gets the best selection.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Hot Springs",
+          "text": "When you land on a hot spring space, draw a hot spring card. Each card is worth two or three victory points. Hot springs are simple and reliable. There is no cost, no decision to make. Just soak in the warm water and collect your points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Panoramas",
+          "text": "Panorama spaces let you collect beautiful scenic views. There are three types: Sea, Mountain, and Paddy. Each panorama type is a series of numbered cards. You must collect them in order, starting with card one. The first Sea panorama is worth one point, the second is worth two, and so on up to five. A complete Sea panorama is worth fifteen total points. Mountain panoramas go up to four cards for ten total, and Paddy panoramas go up to three for six total.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Shops and Souvenirs",
+          "text": "When you land on a shop space, draw three souvenir cards from the deck and choose one to buy. Souvenirs cost one to three coins. They score in sets of unique types. One unique type scores one point. Two unique types score three. Three unique types score five. And a complete set of four unique types scores seven points. Additional complete sets score separately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Farms",
+          "text": "Landing on a farm space is simple. You receive three coins from the supply. Farms are your main income source during the journey. Without farm visits, you will run out of money for souvenirs and meals. Plan your route to hit farms between shopping opportunities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Temple Donations",
+          "text": "At a temple space, you may donate one, two, or three coins. Place donation tokens on your traveler tile to track your total. At game end, the player with the most total donation value scores ten victory points, second place scores seven, third scores four, and so on. The temple majority bonus is one of the biggest scoring categories in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Encounters",
+          "text": "Encounter spaces let you draw an encounter card and resolve it immediately. Encounters provide random bonuses such as a free souvenir, a free temple donation, bonus coins, or extra victory points. They are always beneficial, so landing on encounter spaces is never wasted.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Meals at Inns",
+          "text": "When all players arrive at an inn, each player purchases a meal. In arrival order, choose one meal card from those available. Meals cost one to three coins and are each worth six victory points regardless of price. You cannot eat the same meal twice during the entire journey. If you cannot afford any meal or choose not to buy one, you simply do not eat at that inn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Achievement Bonuses",
+          "text": "Four achievement bonuses are awarded at game end. The Gourmet goes to the player who spent the most on meals. The Bather goes to whoever collected the most hot spring cards. The Chatterbox goes to the player with the most encounter cards. And the Collector goes to whoever spent the most on souvenirs. Each achievement is worth three bonus victory points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Game End and Scoring",
+          "text": "The game ends when all players arrive at the final inn in Edo. After the last meal is purchased, tally up all scores. Add panorama points, temple donation bonuses, hot spring points, encounter card points, souvenir set points, meal points, and achievement bonuses. The player with the most victory points wins. Ties are broken by the player with the most achievement cards, then by most remaining coins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "2-5 player travel game from Kyoto to Edo",
+            "Visit locations, collect VP from experiences",
+            "Most enriching journey (VP) wins"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Core Mechanic: Furthest Behind Goes Next",
+          "bullets": [
+            "No fixed turn order — furthest-behind player goes next",
+            "Moving 1 space = may get consecutive turns",
+            "Moving slowly = more total location visits"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Movement",
+          "bullets": [
+            "Move forward to any unoccupied space before next inn",
+            "Must move at least 1 space; can jump ahead (skipping locations)",
+            "Landing → immediately perform that location's action"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Mandatory Inn Stops",
+          "bullets": [
+            "Must stop at each inn — cannot skip past",
+            "Wait for all players to arrive → buy meals in arrival order",
+            "First arrival = best meal selection"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hot Springs",
+          "bullets": [
+            "Draw a hot spring card (2 or 3 VP)",
+            "No cost, no decision — free points"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Panoramas",
+          "bullets": [
+            "3 types: Sea (5 cards, 15 max VP), Mountain (4, 10), Paddy (3, 6)",
+            "Collect in order (1st=1VP, 2nd=2VP, etc.)",
+            "Complete sets are very valuable"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Shops and Souvenirs",
+          "bullets": [
+            "Draw 3 souvenirs, buy up to 1 (cost 1-3 coins)",
+            "Set scoring: 1/2/3/4 unique types = 1/3/5/7 VP",
+            "Additional complete sets score separately"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Farms",
+          "bullets": [
+            "Receive 3 coins from supply",
+            "Main income source — plan farm visits between shops"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Temple Donations",
+          "bullets": [
+            "Donate 1-3 coins per visit",
+            "End-game majority: 1st=10VP, 2nd=7, 3rd=4, 4th=2, 5th=1",
+            "One of the biggest scoring categories"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Encounters",
+          "bullets": [
+            "Draw encounter card → resolve immediately",
+            "Random bonuses: free souvenir, donation, coins, VP",
+            "Always beneficial"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Meals at Inns",
+          "bullets": [
+            "All arrive at inn → buy meals in arrival order",
+            "Meals cost 1-3 coins, each worth 6 VP",
+            "Cannot eat same meal twice during journey"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Achievement Bonuses",
+          "bullets": [
+            "4 achievements: Gourmet, Bather, Chatterbox, Collector",
+            "Each worth 3 bonus VP at game end",
+            "Awarded to player leading each category"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Game End and Scoring",
+          "bullets": [
+            "Game ends when all arrive at Edo (final inn)",
+            "Panoramas + Temple + Hot Springs + Encounters + Souvenirs + Meals + Achievements",
+            "Most VP wins; tiebreaker: most achievements, then most coins"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the East Sea Road",
+          "text": "Welcome to your first journey on the Tokaido! In this practice tutorial, we will walk through the opening of a four-player game. Players one through four each have different traveler abilities and starting coins. Follow along to see how the furthest-behind mechanic, location visits, and inn stops work.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Starting Positions",
+          "text": "All four players are stacked at the first inn in Kyoto. Player one is on the bottom of the stack, meaning they go last. Player four is on top, meaning they go first. Remember, the furthest-behind player always takes the next turn. Since everyone starts at the same spot, stack order determines who moves first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player Four: A Careful First Move",
+          "text": "Player four moves just one space forward to the nearest location, which is a farm. They collect three coins from the supply. Smart move. By moving only one space, Player four stays close to the back, giving them a chance to take additional turns before others catch up. Plus, the extra coins will fund future purchases.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Three: Visiting a Hot Spring",
+          "text": "Player three moves forward two spaces to a hot spring. They draw a hot spring card worth three victory points. Free points with no cost. Player three is now ahead of Player four on the road, so Player four will get the next turn again if they are still furthest behind.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Four: Another Turn",
+          "text": "Player four is still the furthest behind, so they go again! This time they move to a panorama space and take the first Sea panorama card worth one point. Two turns in a row because they moved slowly. This is the core strategy of Tokaido: stay behind to get more visits.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Two: Starting a Panorama",
+          "text": "Player two moves to a different panorama space and takes the first Mountain panorama card, worth one point. They plan to complete the full Mountain set during the journey for ten total points. Starting panoramas early is important because you need to collect all the cards in order.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Player One: Jumping to the Shop",
+          "text": "Player one, eager to shop, jumps ahead several spaces to reach a shop location. They draw three souvenir cards and buy a small object for one coin. Now they have one souvenir type. They will need three more unique types for a full set worth seven points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Beginner Mistake: Rushing Ahead",
+          "text": "Player one jumped far ahead to reach the shop, skipping several valuable locations along the way. They missed a hot spring, a temple, and a panorama space. Those skipped locations can never be visited again. Meanwhile, the other three players who moved slowly will visit more locations and likely score more total points from the road.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Recovery: Slow Down Going Forward",
+          "text": "Player one realizes their mistake. Going forward, they should move just one or two spaces at a time to maximize location visits. The shop was not worth skipping three other locations. In Tokaido, patience is rewarded. The trailing players get more turns and more opportunities to score.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Arriving at the First Inn",
+          "text": "Players begin arriving at the first intermediate inn. Remember, you must stop at every inn. Player one arrived first and gets first pick of the meal cards. They choose a three-coin meal worth six victory points. The last player to arrive gets whatever meal is left.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Running Out of Coins",
+          "text": "Player three arrives at the inn but has only one coin left. They cannot afford any of the available meals, which all cost two or three coins. They skip eating at this inn entirely, missing six easy victory points. Running out of coins is one of the most common and costly mistakes in Tokaido.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Balance Spending with Farm Visits",
+          "text": "The lesson is clear: always plan your coin economy. Visit farms regularly to replenish your money. Meals are worth six points each regardless of cost, making them one of the most efficient scoring opportunities in the game. Skipping a meal because you are broke is a huge point loss. Budget your coins so you can always afford at least one meal at every inn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Beginner Mistake: Half-Finished Panoramas",
+          "text": "Player two collected the first Mountain panorama card worth one point but then kept choosing other locations instead of visiting the remaining mountain panorama spaces. By the end of the journey, they only collected two of four mountain cards, scoring just three points instead of the ten they could have earned from a complete set.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Commit to Your Panoramas",
+          "text": "Starting a panorama and not finishing it wastes the low-value early cards. The first card is worth only one point, but it unlocks the second worth two, the third worth three, and so on. Plan your route to visit all the panorama spaces for the types you start. Completing one or two panoramas is far better than starting all three and finishing none.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Continue the Journey",
+          "text": "After the inn, a new leg of the journey begins. The furthest-behind player goes first again. Continue visiting locations, managing your coins, and building toward achievements. The road from Kyoto to Edo has many more stops with opportunities for hot springs, panoramas, souvenirs, encounters, and temple donations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations! You have experienced the core flow of Tokaido. You have seen how the furthest-behind mechanic gives slower players more turns, how inn stops and meals work, and learned from three common beginner mistakes. Remember: stay behind for more visits, keep coins for meals, and finish your panoramas.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Travel",
+          "text": "Before you start your full journey, here are three things that can help.\n\nFirst, check out General Tips for strategies on movement pacing and coin management.\n\nSecond, reference the Appendix for location types, scoring details, and traveler abilities.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the East Sea Road",
+          "bullets": [
+            "Scripted tutorial with 4 players, different travelers",
+            "Covers movement, location visits, inn stops, common mistakes"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Starting Positions",
+          "bullets": [
+            "All pawns stacked at Kyoto (first inn)",
+            "Bottom of stack = goes first; top = goes last"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player Four: A Careful First Move",
+          "bullets": [
+            "Moves 1 space to farm → collects 3 coins",
+            "Stays close to back → likely gets another turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Three: Visiting a Hot Spring",
+          "bullets": [
+            "Moves 2 spaces to hot spring → draws 3 VP card",
+            "Now ahead of Player 4 on the road"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Player Four: Another Turn",
+          "bullets": [
+            "Still furthest behind → gets consecutive turn",
+            "Takes first Sea panorama (1 VP)",
+            "Core strategy: stay behind = more visits"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Two: Starting a Panorama",
+          "bullets": [
+            "Takes first Mountain panorama (1 VP)",
+            "Plans to complete full set (10 total VP)",
+            "Start panoramas early to finish them"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Player One: Jumping to the Shop",
+          "bullets": [
+            "Jumps ahead several spaces to shop",
+            "Buys 1 souvenir (1 of 4 needed for full set)"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Beginner Mistake: Rushing Ahead",
+          "bullets": [
+            "Player 1 skipped hot spring, temple, and panorama",
+            "Skipped locations can never be visited again",
+            "Other players moving slowly will score more total points"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Recovery: Slow Down Going Forward",
+          "bullets": [
+            "Move 1-2 spaces at a time to maximize visits",
+            "Patience is rewarded — trailing players get more turns"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Arriving at the First Inn",
+          "bullets": [
+            "Must stop at every inn — first arrival gets best meal pick",
+            "Player 1 chooses 3-coin meal worth 6 VP"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Beginner Mistake: Running Out of Coins",
+          "bullets": [
+            "Player 3 has only 1 coin → can't afford any meal",
+            "Skips eating → misses 6 easy VP"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Balance Spending with Farm Visits",
+          "bullets": [
+            "Meals = 6 VP each regardless of cost (very efficient)",
+            "Visit farms regularly for coin income",
+            "Budget to afford at least 1 meal at every inn"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Beginner Mistake: Half-Finished Panoramas",
+          "bullets": [
+            "Player 2 started Mountain panorama but only got 2 of 4 cards",
+            "Scored 3 VP instead of possible 10 VP",
+            "Half-finished panoramas waste low-value early cards"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Commit to Your Panoramas",
+          "bullets": [
+            "Plan route to visit all spaces for started panoramas",
+            "Completing 1-2 panoramas > starting 3 and finishing none",
+            "Progressive VP (1+2+3+...) rewards completion"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Continue the Journey",
+          "bullets": [
+            "After inn, new leg begins with furthest-behind going first",
+            "Continue visiting locations, managing coins, building achievements"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Experienced core flow: movement, inn stops, meals",
+            "Learned from 3 beginner mistakes",
+            "Stay behind, keep coins for meals, finish panoramas"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Travel",
+          "bullets": [
+            "Check out General Tips → movement pacing and coin management",
+            "Reference the Appendix → locations, scoring, traveler abilities",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Stay Behind for More Turns",
+          "text": "The most important concept in Tokaido is that moving slowly gives you more turns. The furthest-behind player always goes next, so moving just one space at a time lets you visit every location along the road. Rushing ahead means skipping locations and losing potential points forever. The exception is when you want to reach an inn first for the best meal selection or when a critical space is about to be taken.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Manage Your Coins Carefully",
+          "text": "Coins are scarce and essential. You need them for meals at inns, souvenirs at shops, and temple donations. Running out of money at an inn means missing a six-point meal. Visit farms regularly to replenish your supply. A good rule of thumb is to always keep at least two or three coins in reserve for the next inn's meal. Spend freely only after visiting a farm.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Commit to Panoramas",
+          "text": "Panoramas are one of the highest-scoring categories when completed. A full Sea panorama is worth fifteen points, Mountain is ten, and Paddy is six. But starting a panorama and not finishing it wastes the low-value early cards. Choose one or two panorama types to focus on and plan your route to hit every available space for those types. Trying to complete all three is nearly impossible on a single journey.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Match Your Traveler Ability",
+          "text": "Your traveler's unique ability should guide your strategy. If your character gets souvenir discounts, prioritize shop visits. If they earn extra coins from farms, you can afford more temple donations and meals. If they get bonus panorama points, focus on completing panorama sets. Playing to your traveler's strength is more efficient than fighting against it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Temple Donations Strategy",
+          "text": "The temple majority scoring is one of the biggest point swings in the game. First place earns ten points while fifth place earns only one. You need to either commit heavily to donations or ignore them entirely. Making small donations that leave you in third or fourth place wastes coins for minimal return. If you decide to compete for the temple bonus, donate consistently throughout the journey.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Meals Are Always Worth It",
+          "text": "Every meal costs one to three coins but is worth six victory points regardless of price. That makes even the most expensive three-coin meal extremely efficient at two points per coin. Never skip a meal to save money. Instead, plan your route to include farm visits that fund your dining. Over five inns, eating at each one is worth thirty points. That is often the difference between winning and losing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Souvenir Set Building",
+          "text": "Souvenirs score based on unique types collected. A fourth unique type completing a full set is worth seven points for just one purchase. When shopping, always buy a type you do not already have. Duplicate types within a set add nothing. If the shop offers three cards and all match types you already own, it may be better to skip the purchase and save your coins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "When to Jump Ahead",
+          "text": "While staying behind is generally best, sometimes jumping ahead is the right play. If a location two or three spaces ahead has a high-value reward and another player might take it, jumping secures it. Arriving at an inn first gives you the best meal selection. And if the temple or a panorama space is about to be blocked, jumping to claim it can be worth skipping a hot spring. The key is knowing when the reward of jumping outweighs the cost of skipped locations.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Stay Behind for More Turns",
+          "bullets": [
+            "Furthest-behind = goes next → move 1 space at a time",
+            "Rushing skips locations permanently",
+            "Exception: race to inn for best meal, or secure critical space"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Manage Your Coins Carefully",
+          "bullets": [
+            "Need coins for meals, souvenirs, temple donations",
+            "Keep 2-3 coins in reserve for next inn meal",
+            "Visit farms regularly; spend freely only after farming"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Commit to Panoramas",
+          "bullets": [
+            "Complete Sea (15 VP), Mountain (10), or Paddy (6)",
+            "Focus on 1-2 types; all 3 is nearly impossible",
+            "Plan route to hit all spaces for chosen types"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Match Your Traveler Ability",
+          "bullets": [
+            "Souvenir discount → prioritize shops",
+            "Farm bonus → afford more donations + meals",
+            "Panorama bonus → complete sets for max value"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Temple Donations Strategy",
+          "bullets": [
+            "Majority scoring: 1st=10VP, 5th=1VP — huge swing",
+            "Commit heavily or ignore entirely",
+            "Small donations for 3rd/4th place waste coins"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Meals Are Always Worth It",
+          "bullets": [
+            "Meals: 1-3 coins for 6 VP each (2+ VP per coin)",
+            "Never skip meals — plan farms to fund dining",
+            "5 inns × 6 VP = 30 VP potential from meals alone"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Souvenir Set Building",
+          "bullets": [
+            "Set scoring: 1/2/3/4 unique types = 1/3/5/7 VP",
+            "Always buy types you don't already have",
+            "Duplicates add nothing — skip purchase if no new types"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "When to Jump Ahead",
+          "bullets": [
+            "Jump to secure high-value locations about to be taken",
+            "First at inn = best meal selection",
+            "Weigh reward of jumping vs cost of skipped locations"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Slow Crawl Strategy",
+          "text": "The slow crawl maximizes location visits by moving one space at a time whenever possible. This gives you the most turns and the most opportunities to collect points from every category. The downside is that you arrive at inns last, giving you the worst meal selection. Pair this with a traveler who has cheap meal access or extra coins to mitigate the late-arrival penalty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Temple Domination Strategy",
+          "text": "Temple majority scoring awards ten points to first place, making it one of the most efficient point sources. A temple domination strategy involves donating at every temple space and visiting farms to fund the donations. If you can secure first place in temple donations, the ten-point bonus combined with your donation track record can swing twenty or more points in your favor. Watch your opponents' donation levels to ensure you stay ahead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Panorama Completionist",
+          "text": "Focus on completing two panorama sets for a combined twenty-five points from Sea and Mountain, or twenty-one from Sea and Paddy. Plan your entire route around hitting panorama spaces in sequence. The risk is that other players may take panorama spaces you need. Move deliberately to reach panorama spaces before opponents. Your traveler ability should ideally complement panorama collection.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Souvenir Collector",
+          "text": "Souvenir set scoring rewards volume. Two complete sets of four unique types each score fourteen points combined. The Collector achievement adds three more. Visit every shop on the road and use farm income to fund purchases. The key decision at each shop is whether the available types fill gaps in your collection. Skip duplicate types and save coins for shops that offer what you need.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Achievement Hunter",
+          "text": "Each of the four achievements is worth three points, for a possible twelve bonus points total. Few players win all four, but targeting two or three is realistic. The achievement hunter balances hot springs, encounters, meals, and souvenirs to lead in multiple categories. This is a balanced strategy that avoids over-specializing. It works best with travelers who have broad abilities rather than narrow specializations.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Strategic Blocking",
+          "text": "In Tokaido, spaces are limited. Jumping ahead to occupy a space your opponent desperately needs is a powerful denial tactic. If you see an opponent working on a Sea panorama and the next Sea space is coming up, jumping to claim it before them can ruin their set. The cost is skipping locations, so only block when the denial value exceeds what you would have gained from the skipped spaces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Inn Timing",
+          "text": "There is a strategic tension at inns. Arriving first gives you the best meal selection but means you moved ahead of other players, potentially skipping locations. Arriving last gives you more location visits but leaves you with the worst meal choice. Advanced players time their inn arrival based on the current leg's available locations. If the locations between you and the inn are low-value, rush to the inn for first meal pick. If they are high-value, take your time and accept a worse meal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Reading Opponents",
+          "text": "Pay attention to your opponents' traveler abilities, coin levels, and collected cards. If an opponent's traveler gives souvenir discounts, they will prioritize shops. If someone has been donating heavily to the temple, you need to either outpace them or abandon the temple race entirely. Track which panorama types opponents are collecting and whether they can complete their sets. This information helps you decide when to block, when to race, and when to focus on uncontested scoring categories.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Slow Crawl Strategy",
+          "bullets": [
+            "Move 1 space at a time → maximum location visits",
+            "Downside: arrive at inns last (worst meal pick)",
+            "Pair with traveler who has cheap meal access"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Temple Domination Strategy",
+          "bullets": [
+            "Donate at every temple, fund with farm visits",
+            "1st place temple = 10 VP bonus (huge swing)",
+            "Watch opponents' donation levels to stay ahead"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Panorama Completionist",
+          "bullets": [
+            "Complete 2 sets (Sea+Mountain = 25 VP, or Sea+Paddy = 21)",
+            "Plan entire route around panorama spaces",
+            "Move deliberately to reach spaces before opponents"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Souvenir Collector",
+          "bullets": [
+            "2 complete sets (4 unique types each) = 14 VP + 3 VP Collector achievement",
+            "Visit every shop, use farms to fund purchases",
+            "Skip duplicate types, save coins for missing types"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Achievement Hunter",
+          "bullets": [
+            "4 achievements × 3 VP each = 12 possible bonus VP",
+            "Target 2-3 achievements with balanced play",
+            "Works best with broad traveler abilities"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Strategic Blocking",
+          "bullets": [
+            "Jump ahead to occupy spaces opponents need",
+            "Ruining a panorama set = high denial value",
+            "Only block when denial > value of skipped locations"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Inn Timing",
+          "bullets": [
+            "First arrival = best meal, but skips locations",
+            "Last arrival = more visits, but worst meal",
+            "Decision based on value of locations between you and inn"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Reading Opponents",
+          "bullets": [
+            "Track traveler abilities, coins, collected cards",
+            "Decide: outpace temple leader or abandon race",
+            "Block panoramas, race for shops, focus on uncontested categories"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Furthest Behind", "definition": "The core turn-order mechanic. The player whose pawn is furthest from Edo always takes the next turn. If tied, the player on top of the stack goes first.", "category": "Mechanics"},
+        {"term": "Inn", "definition": "Mandatory stopping point on the road. All players must stop at each inn. Players buy meals in arrival order. Cannot skip past an inn.", "category": "Locations"},
+        {"term": "Hot Spring", "definition": "Location that awards a free hot spring card worth two or three VP. No cost, no decision.", "category": "Locations"},
+        {"term": "Farm", "definition": "Location that grants three coins from the supply. Main income source during the journey.", "category": "Locations"},
+        {"term": "Temple", "definition": "Location where you may donate one, two, or three coins. Donation totals are scored at game end by majority ranking.", "category": "Locations"},
+        {"term": "Shop", "definition": "Location where you draw three souvenir cards and may buy one for one to three coins. Souvenirs score in sets of unique types.", "category": "Locations"},
+        {"term": "Encounter", "definition": "Location where you draw an encounter card for a random bonus such as free souvenir, free donation, coins, or VP.", "category": "Locations"},
+        {"term": "Panorama (Sea)", "definition": "Five-card panorama set collected in order. Cards worth 1, 2, 3, 4, 5 VP progressively. Complete set = 15 VP total.", "category": "Panoramas"},
+        {"term": "Panorama (Mountain)", "definition": "Four-card panorama set collected in order. Cards worth 1, 2, 3, 4 VP progressively. Complete set = 10 VP total.", "category": "Panoramas"},
+        {"term": "Panorama (Paddy)", "definition": "Three-card panorama set collected in order. Cards worth 1, 2, 3 VP progressively. Complete set = 6 VP total.", "category": "Panoramas"},
+        {"term": "Meal Card", "definition": "Card purchased at inns. Each meal costs one to three coins and is worth six VP regardless of price. Cannot eat the same meal twice.", "category": "Cards"},
+        {"term": "Souvenir Card", "definition": "Card purchased at shops. Four types: small objects, clothing, art, food/drink. Set scoring: 1/2/3/4 unique types = 1/3/5/7 VP.", "category": "Cards"},
+        {"term": "Traveler Tile", "definition": "Character card with a unique ability and starting coin amount. Abilities provide permanent advantages such as discounts, bonus coins, or extra VP.", "category": "Components"},
+        {"term": "Temple Majority Scoring", "definition": "End-game scoring for total donation value. 1st place = 10 VP, 2nd = 7, 3rd = 4, 4th = 2, 5th = 1.", "category": "Scoring"},
+        {"term": "Achievement Cards", "definition": "Four end-game bonuses worth three VP each. Gourmet (most spent on meals), Bather (most hot springs), Chatterbox (most encounters), Collector (most spent on souvenirs).", "category": "Scoring"},
+        {"term": "Dummy Traveler", "definition": "Neutral pawn used in two-player games. Moves automatically to the nearest available space when furthest behind. Blocks spaces but does not collect items or score.", "category": "Variants"},
+        {"term": "Coins", "definition": "Currency in denominations of one and three. Used to buy meals, souvenirs, and make temple donations. Coin supply is public information.", "category": "Components"},
+        {"term": "Souvenir Set", "definition": "A collection of unique souvenir types. Scoring: 1 unique = 1 VP, 2 = 3, 3 = 5, 4 = 7. Additional complete sets scored separately.", "category": "Scoring"},
+        {"term": "Progressive Panorama Scoring", "definition": "Panorama cards increase in VP value as you collect more in sequence. Early cards are worth less, making completion essential for full value.", "category": "Scoring"},
+        {"term": "Stack Order", "definition": "When multiple pawns share a space (usually at inns), they are stacked. The player on top of the stack is considered furthest behind and goes first.", "category": "Mechanics"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,964 @@
+{
+  "game_id": "the-gallerist",
+  "title": "The Gallerist",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Main Board",
+          "text": "Let's place the main game board in the center of the table. It has four distinct location areas: the Artist Colony, the Sales Office, the Media Center, and the International Market. Each location offers different actions that drive the game forward.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Set Up the Artist Colony",
+          "text": "Place the starting artist tiles in the Artist Colony area. These represent emerging artists waiting to be discovered. Each artist is associated with a specific art style: digital, sculpture, painting, or photography. Their fame starts at the base level.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the International Market",
+          "text": "Set up the International Market display with available art pieces. These are artworks you can buy from around the world rather than directly from artists. The prices in this market fluctuate based on artist fame, creating dynamic opportunities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Configure the Media Center",
+          "text": "Place influence tokens and reputation tiles at the Media Center. This is where you will promote artists to raise their fame, gain influence for market transactions, and improve your gallery's reputation. The Media Center is central to driving art value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Stock the Sales Office",
+          "text": "Prepare contract tiles and the sales mechanisms at the Sales Office. Contracts are commissions for specific art types that provide bonus VP when fulfilled. The Sales Office is where your gallery visitors become buyers, turning your collection into profit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Fill the Visitor Bags",
+          "text": "Fill the visitor bags with white collector meeples and pink VIP meeples. Collectors buy art at standard prices, while VIPs buy at premium prices and provide extra bonuses. Drawing visitors from these bags adds an element of anticipation to your gallery management.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Set Up the Fame Track",
+          "text": "Place all artist fame markers at the base level on the fame track. As artists are promoted at the Media Center, their markers will advance. Fame directly determines the value of all artwork by that artist, regardless of who owns the pieces.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Distribute Player Boards",
+          "text": "Each player takes a personal gallery board. This has display walls for hanging art, a visitor lobby where new visitors wait, and an office area for administrative tracking. Your gallery board is your personal engine. Empty walls are opportunities waiting to be filled.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Distribute Starting Resources",
+          "text": "Each player takes their starting money, which varies by turn order to balance the first-player advantage. Take your set of assistant meeples and a small starting amount of influence tokens. Later players receive slightly more to compensate for acting later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Place Gallerist Pawns",
+          "text": "Each player has one gallerist pawn that they will move between the four locations on the main board. For the initial setup, place gallerist pawns on their designated starting positions. Your pawn's position determines which actions you can take on your turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Prepare Contract Tiles",
+          "text": "Shuffle the contract tiles and place a supply near the board. Contracts are available throughout the game and specify what art types you need to display in your gallery. Completing contracts provides VP and sometimes money or influence. They are a key scoring path.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Determine First Player",
+          "text": "Choose the first player randomly or by any agreed method. Turn order in The Gallerist is fluid because the kicked-out mechanism gives displaced players free actions. The game does not have fixed rounds, so play continues until an endgame condition is triggered.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Review Endgame Triggers",
+          "text": "Before we begin, note the two endgame triggers. The game can end when a certain number of artists reach maximum fame, or when the visitor bags are depleted. After the trigger, each player gets one more turn. Understanding these conditions helps you pace your strategy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Ready to Open Your Gallery",
+          "text": "Let's confirm everything is set. Artist Colony has artists to discover, the International Market has art to buy, visitor bags are full, and everyone has their gallery board and starting resources. The art world is waiting for you!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Main Board",
+          "bullets": ["4 locations: Artist Colony, Sales Office, Media Center, International Market", "Central board visible to all"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Set Up the Artist Colony",
+          "bullets": ["Starting artist tiles in Colony area", "4 art styles: digital, sculpture, painting, photography"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Prepare the International Market",
+          "bullets": ["Art display with purchasable works", "Prices fluctuate with artist fame"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Configure the Media Center",
+          "bullets": ["Influence tokens + reputation tiles", "Where artists are promoted and fame rises"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Stock the Sales Office",
+          "bullets": ["Contract tiles + sales mechanisms", "Where visitors buy art from your gallery"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Fill the Visitor Bags",
+          "bullets": ["White collectors = standard buyers", "Pink VIPs = premium buyers + bonuses"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Set Up the Fame Track",
+          "bullets": ["All artists start at base fame", "Fame determines art value for ALL owners"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Distribute Player Boards",
+          "bullets": ["Personal gallery: display walls + lobby + office", "Empty walls = scoring potential"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Distribute Starting Resources",
+          "bullets": ["Money varies by turn order (later = more)", "Assistants + starting influence tokens"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Place Gallerist Pawns",
+          "bullets": ["1 pawn per player on main board", "Position determines available actions"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Prepare Contract Tiles",
+          "bullets": ["Shuffle contracts → supply near board", "Fulfill for VP + possible money/influence"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Determine First Player",
+          "bullets": ["Random or agreed method", "No fixed rounds — kicked-out gives free actions"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Review Endgame Triggers",
+          "bullets": ["Trigger 1: enough artists at max fame", "Trigger 2: visitor bags depleted", "After trigger → 1 more turn each"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Ready to Open Your Gallery",
+          "bullets": ["All locations stocked, visitors bagged, galleries set", "Let the art world begin!"],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Let's learn how The Gallerist works. We are art gallery owners competing to discover artists, buy their work, display it to attract visitors, promote artists to increase value, and sell pieces for profit. The game uses a unique worker-placement system where displacing opponents gives them free bonus actions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "text": "On your turn, move your gallerist pawn to one of the four locations on the main board. If another player's gallerist was already there, they get kicked out and receive a free bonus action. Then perform one of the actions available at your new location. Optionally, you may also take an executive action using an assistant.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Kicked-Out Mechanism",
+          "text": "When someone moves to your location, your gallerist is displaced. You immediately get a free limited action such as gaining money, moving a visitor, or gaining influence. This mechanism rewards strategic positioning. Place your gallerist where opponents want to go and you get free actions constantly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Assistants",
+          "text": "Assistants are a secondary resource. You can leave an assistant at a location when your gallerist departs, which lets you benefit from kicked-out actions even after you move. You can also spend an assistant to take an executive action on your turn. Managing your limited assistant supply is critical.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Artist Colony Actions",
+          "text": "At the Artist Colony, you discover new artists and acquire their debut artwork. When you discover an artist, you become their patron and gain their first piece. You can also commission additional works from artists you have already discovered. Discovering artists early gets you first access to cheap, appreciating art.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Sales Office Actions",
+          "text": "At the Sales Office, you sell artwork from your gallery display. The sale price depends on the artist's fame plus the type of visitor present. Collector visitors buy at standard prices, while VIP visitors buy at premium prices with extra bonuses. You must have visitors in your gallery to make sales.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Media Center Actions",
+          "text": "At the Media Center, you promote artists to increase their fame on the fame track. You can also gain influence tokens and improve your gallery's reputation. Promoting an artist raises the value of all their artwork, not just yours. Time your promotions to maximize your own holdings.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "International Market Actions",
+          "text": "At the International Market, you buy art from a global display using money and influence, or sell art internationally for guaranteed prices. Market prices shift based on artist fame, creating opportunities for savvy buyers. This location lets you access art you did not discover yourself.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Gallery Management",
+          "text": "Your personal gallery board has display walls where you hang purchased artwork. Art on display attracts specific visitor types from the bags. Your gallery has limited wall space and visitor capacity. Managing what art to display versus what to sell is a constant balancing act.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Visitors",
+          "text": "There are two visitor types. White collectors buy art at standard prices. Pink VIPs buy at premium prices and provide bonus effects. Visitors are drawn randomly from bags. They go to your lobby first and must be moved to display rooms before they can purchase art.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Fame and Art Value",
+          "text": "Every artist has a position on the fame track. Promoting artists at the Media Center raises their fame. Art value is directly tied to the artist's current fame level. When you promote an artist, all players holding that artist's work benefit from higher value. Promote strategically to maximize your own holdings.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Contracts",
+          "text": "Contracts are commissions requiring specific art types displayed in your gallery. Take contracts that match your collection strategy. When you fulfill a contract by displaying the required art, you score VP and sometimes earn money or influence. Contracts add direction to your acquisitions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Executive Actions",
+          "text": "On your turn, after your main location action, you may optionally take an executive action by spending one assistant. Executive actions let you perform additional operations like moving visitors, gaining resources, or using special abilities. They extend your turn's productivity at the cost of a limited resource.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Reputation Track",
+          "text": "Your gallery's reputation advances on a separate track as you achieve milestones like selling high-fame art or attracting VIP visitors. Higher reputation scores more VP at game end. Reputation also unlocks bonuses and improves your gallery's prestige, attracting better visitors.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Endgame Triggers",
+          "text": "The game ends when either enough artists reach maximum fame or the visitor bags are depleted. After the trigger, each player gets one final turn. The endgame can arrive suddenly, so always have a plan for when it triggers. Do not get caught with unsold art and unfinished contracts.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring Categories",
+          "text": "At game end, score remaining money, art still in your gallery based on artist fame, VP from sales during the game, visitors in your gallery, reputation track position, remaining influence, completed contracts, and bonus tiles. Multiple scoring paths mean every resource has endgame value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Winning the Game",
+          "text": "The player with the most total victory points wins. Ties are broken by the player with more art pieces remaining in their gallery. The Gallerist rewards balanced play across all scoring categories rather than extreme focus on one path.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "No Fixed Rounds",
+          "text": "Unlike most games, The Gallerist has no fixed round structure. Players simply take turns moving their gallerist and performing actions until an endgame condition triggers. This open-ended structure means you control the tempo. Play aggressively to race the endgame or methodically to build a stronger engine.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": ["Gallery owners: discover artists, buy/display/sell art", "Unique kicked-out mechanism gives displaced players free actions"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure",
+          "bullets": ["Move gallerist to location → kick out opponent → perform action", "Optional: executive action using assistant"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "The Kicked-Out Mechanism",
+          "bullets": ["Displaced gallerist gets free limited action", "Position where opponents want to go = free actions for you"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Assistants",
+          "bullets": ["Leave at location for kicked-out benefits after moving", "Spend for executive actions; limited supply"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Artist Colony Actions",
+          "bullets": ["Discover new artists → become patron → get debut art", "Commission additional works from discovered artists"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Sales Office Actions",
+          "bullets": ["Sell art from gallery display", "Price = artist fame + visitor type (VIP = premium)", "Must have visitors in gallery"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Media Center Actions",
+          "bullets": ["Promote artists → raise fame → increase ALL holders' art value", "Gain influence, improve reputation"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "International Market Actions",
+          "bullets": ["Buy art with money + influence", "Sell internationally for guaranteed prices", "Prices shift with artist fame"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Gallery Management",
+          "bullets": ["Hang art on display walls → attracts visitors", "Limited wall space + visitor capacity"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Visitors",
+          "bullets": ["White collectors = standard; Pink VIPs = premium + bonuses", "Lobby first → move to display rooms to buy"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Fame and Art Value",
+          "bullets": ["Fame track determines art value", "Promoting benefits ALL holders of that artist's work"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Contracts",
+          "bullets": ["Require specific art types on display", "Fulfill → VP + money/influence"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Executive Actions",
+          "bullets": ["Optional extra action by spending 1 assistant", "Extends turn productivity at resource cost"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Reputation Track",
+          "bullets": ["Advances via milestones (sales, VIPs)", "Higher reputation → more endgame VP"],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Endgame Triggers",
+          "bullets": ["Artists at max fame OR visitor bags depleted", "Each player gets 1 final turn after trigger"],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Final Scoring Categories",
+          "bullets": ["Money, gallery art, sales VP, visitors, reputation", "Influence, contracts, bonus tiles"],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Winning the Game",
+          "bullets": ["Highest total VP wins", "Tiebreak: most art pieces remaining"],
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "No Fixed Rounds",
+          "bullets": ["Open-ended turns until endgame trigger", "You control tempo: race or build methodically"],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Art World",
+          "text": "Welcome to your first game of The Gallerist! We will walk through a few practice turns with three players. Each player has their gallery board, starting money, assistants, and a gallerist pawn on the main board. The art market is open and artists are waiting to be discovered.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Player One Discovers an Artist",
+          "text": "Player one moves their gallerist to the Artist Colony. No one is there, so no kicked-out action triggers. Player one discovers a painter, taking the artist tile and acquiring the debut artwork. They place the painting on their gallery display wall. Their first exhibition piece is hung!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player Two Visits the Media Center",
+          "text": "Player two moves to the Media Center. Again, no one is displaced. Player two promotes the same painter that Player one just discovered, raising the artist's fame by one level. This increases the value of Player one's painting! Player two gains influence tokens as a side benefit.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Shared Artist Investment",
+          "text": "Notice something important. Player two promoted an artist they do not own art from. This raised the value of Player one's painting. In The Gallerist, promoting an artist benefits everyone who holds their work. Ideally, you promote artists whose work you own the most of.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three Triggers a Kicked-Out Action",
+          "text": "Player three moves to the Artist Colony where Player one's gallerist is. Player one is kicked out and immediately receives a free bonus action. They choose to gain two money. Player three then discovers a sculptor and acquires the debut sculpture. The kicked-out mechanism just gave Player one something for free.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "A Beginner Mistake: Ignoring Kicked-Out Positioning",
+          "text": "Player two moves their gallerist to an empty location where nobody will want to go next turn. They miss out on any kicked-out bonuses. In The Gallerist, where you leave your gallerist is as important as what action you take. Position yourself where opponents need to go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Position for Kicked-Out Actions",
+          "text": "Every time an opponent moves to your location, you get a free action. That is pure profit. After taking your action, think about where opponents will want to go next and position yourself there. Over a full game, kicked-out actions can add up to the equivalent of several extra turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Attracting Visitors",
+          "text": "Player one now has a painting on display. Art on display attracts visitors. They draw a visitor from the bag and place a white collector in their gallery lobby. This collector will be available to purchase art when Player one visits the Sales Office. No visitors means no sales!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "A Beginner Mistake: Selling Before Promoting",
+          "text": "Player one is eager to sell their painting and moves to the Sales Office. They sell the painting to the white collector for its current value. But the artist's fame is still low, so the sale price is mediocre. If they had promoted the artist first, the painting would have been worth significantly more.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Promote Before You Sell",
+          "text": "Art value is tied directly to artist fame. Always try to promote an artist at the Media Center before selling their work at the Sales Office. A painting at fame level one might sell for six, but at fame level four it could sell for fifteen. The promotion action is an investment in your sale price.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Using an Assistant",
+          "text": "Player three takes their main location action and then spends one assistant for an executive action. The executive action lets them move a visitor from their lobby to a display room, positioning for a future sale. Assistants extend your turn but are limited, so spend them wisely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "A Beginner Mistake: Running Out of Assistants",
+          "text": "Player two has been spending assistants freely on executive actions every turn. Now they have none left. Without assistants, they cannot take executive actions, cannot leave presence at locations for kicked-out benefits, and their turns become far less productive. Assistant management is a critical constraint.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Manage Assistants Carefully",
+          "text": "Assistants are one of the scarcest resources in The Gallerist. Each one you spend is gone until you recover it. Prioritize leaving assistants at high-traffic locations for kicked-out bonuses over spending them on marginal executive actions. Running out of assistants cripples your flexibility.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "International Market Opportunity",
+          "text": "Player two visits the International Market and buys a sculpture from a high-fame artist using money and influence. The art is expensive but already valuable. They hang it in their gallery to attract visitors. Sometimes buying established art is faster than discovering and promoting from scratch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Contract Fulfillment",
+          "text": "Player three has a contract requiring a sculpture on display. They already have one! They reveal the contract and score the bonus VP plus some extra money. Contracts add direction to your gallery acquisitions and can provide significant scoring. Always check available contracts before buying art.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Game Takes Shape",
+          "text": "After several turns, each player's strategy is emerging. Player one is focused on discovering artists and quick sales. Player two is building a high-fame collection for maximum value. Player three is fulfilling contracts for steady VP. Multiple paths to victory are viable in The Gallerist.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Endgame Awareness",
+          "text": "Two artists are nearing maximum fame. When enough artists max out, the endgame triggers. Players with unsold art still benefit because gallery collections score at game end based on artist fame. But players with unfinished contracts or empty galleries will miss out on those VP sources.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Reputation Check",
+          "text": "Let's check where everyone stands on the reputation track. Player two has been selling high-fame art and attracting VIPs, advancing their reputation to the highest level. Player one and three are lagging behind. The reputation track can swing ten or more VP at game end, so ignoring it is costly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "text": "Congratulations on your first practice turns in The Gallerist! You learned about the kicked-out mechanism, the importance of promoting before selling, and the scarcity of assistants. You also saw how multiple strategies can succeed: quick sales, high-fame collections, and contract fulfillment.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "Ready to Curate",
+          "text": "Before you start your real game, here are three things to remember.\n\nFirst, check out General Tips for gallery management and timing strategies.\n\nSecond, reference the Appendix for a complete glossary of locations, visitor types, and scoring categories.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Art World",
+          "bullets": ["Practice turns with 3 players", "Gallery boards, starting money, gallerist pawns ready"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Player One Discovers an Artist",
+          "bullets": ["Moves to Artist Colony → discovers painter", "Gets debut artwork → hangs on display wall"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player Two Visits the Media Center",
+          "bullets": ["Promotes the same painter → fame +1", "Increases value of Player 1's painting too"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Shared Artist Investment",
+          "bullets": ["Promoting an artist benefits ALL holders", "Promote artists you own the most art from"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three Triggers a Kicked-Out Action",
+          "bullets": ["Moves to Colony where Player 1 sits", "Player 1 gets free bonus action (gains 2 money)"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "A Beginner Mistake: Ignoring Kicked-Out Positioning",
+          "bullets": ["Player 2 moves to empty, low-traffic location", "Misses out on all kicked-out bonuses"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Position for Kicked-Out Actions",
+          "bullets": ["Position where opponents want to go next", "Kicked-out actions = free extra turns over the game"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Attracting Visitors",
+          "bullets": ["Art on display → draw visitors from bag", "White collector placed in gallery lobby"],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "A Beginner Mistake: Selling Before Promoting",
+          "bullets": ["Sells painting at low fame → low price", "Should have promoted artist first"],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Promote Before You Sell",
+          "bullets": ["Art value = artist fame", "Promote at Media Center → then sell at Sales Office"],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Using an Assistant",
+          "bullets": ["Spend 1 assistant for executive action", "Moves visitor from lobby → display room"],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "A Beginner Mistake: Running Out of Assistants",
+          "bullets": ["Player 2 spent all assistants on executive actions", "No assistants = no executive actions, no location presence"],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Manage Assistants Carefully",
+          "bullets": ["Assistants are scarce — don't spend freely", "Prioritize location presence for kicked-out bonuses"],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "International Market Opportunity",
+          "bullets": ["Buy high-fame art with money + influence", "Faster than discover + promote from scratch"],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Contract Fulfillment",
+          "bullets": ["Contract needs sculpture on display → already have it", "Reveal → score VP + bonus money"],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "The Game Takes Shape",
+          "bullets": ["Player 1: quick sales; Player 2: high-fame collection", "Player 3: contract fulfillment; multiple paths viable"],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Endgame Awareness",
+          "bullets": ["Artists nearing max fame → endgame approaching", "Gallery art scores at end; unfinished contracts don't"],
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Reputation Check",
+          "bullets": ["Player 2 highest reputation from VIP sales + high-fame art", "Reputation track can swing 10+ VP at game end"],
+          "image": null
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "bullets": ["Learned kicked-out mechanism, promote-before-sell, assistant management", "Multiple winning strategies exist"],
+          "image": null
+        },
+        {
+          "step": 20,
+          "title": "Ready to Curate",
+          "bullets": ["Check out General Tips → gallery management and timing", "Reference the Appendix → locations, visitors, scoring", "Ask your personal GM Guide → tap Q&A for instant answers during play"],
+          "cta": true,
+          "image": null
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Discover Artists Early",
+          "text": "Getting first access to an artist's work is extremely valuable because their art starts cheap and appreciates as fame grows. Discovering an artist in the first few turns means your debut painting could triple in value by mid-game. Early discoveries are the foundation of a strong portfolio.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Promote Before Selling",
+          "text": "Art value is tied directly to artist fame. Always try to raise an artist's fame at the Media Center before selling their work at the Sales Office. A level-one painting sells for much less than a level-four painting. The promotion action is an investment that dramatically increases your return.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Exploit the Kicked-Out Mechanism",
+          "text": "Position your gallerist where opponents will want to go next. Every time you are kicked out, you get a free bonus action. Over a full game, these free actions add up to multiple extra turns. Think about opponent needs when choosing where to leave your gallerist.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Keep Visitors Flowing",
+          "text": "Without visitors in your gallery, you cannot make sales. Steadily attract visitors by keeping art on display and using actions to draw from the visitor bags. A gallery with no visitors is like a store with no customers. Maintain a consistent flow throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Manage Assistants Like Gold",
+          "text": "Assistants are one of your scarcest resources. Spending them all on executive actions leaves you unable to maintain location presence for kicked-out bonuses. Prioritize leaving assistants at high-traffic locations. Only spend an assistant on an executive action when the benefit clearly outweighs the cost.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Diversify Scoring Paths",
+          "text": "The Gallerist rewards balanced play across many scoring categories: sales, gallery collection, visitors, reputation, contracts, and influence. Focusing entirely on one path while ignoring others leaves VP on the table. Touch every scoring category at least a little for maximum total points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the Endgame Triggers",
+          "text": "The game can end when enough artists reach maximum fame or visitor bags empty. Always monitor these conditions. If the endgame is approaching, sell high-value art, complete contracts, and secure reputation before the final turn. Getting caught unprepared costs you dearly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Leverage the International Market",
+          "text": "The International Market lets you buy art from high-fame artists without discovering them yourself. If another player promoted an artist and you can buy their work cheaply, you benefit from their investment. The market is also a guaranteed sale outlet when you need money quickly.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Discover Artists Early",
+          "bullets": ["Debut art is cheap and appreciates with fame", "Early discoveries = strongest long-term portfolio"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Promote Before Selling",
+          "bullets": ["Art value = artist fame; promote at Media Center first", "Level 4 painting >> level 1 painting in sale price"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Exploit the Kicked-Out Mechanism",
+          "bullets": ["Position where opponents want to go", "Free actions add up to multiple extra turns"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Keep Visitors Flowing",
+          "bullets": ["No visitors = no sales", "Maintain steady visitor flow through display art"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Manage Assistants Like Gold",
+          "bullets": ["Prioritize location presence over executive actions", "Running out cripples flexibility"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Diversify Scoring Paths",
+          "bullets": ["Touch every scoring category for maximum VP", "Balance sales, collection, visitors, reputation, contracts"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Watch the Endgame Triggers",
+          "bullets": ["Max fame artists or empty visitor bags = end", "Sell, complete contracts, secure reputation before final turn"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Leverage the International Market",
+          "bullets": ["Buy high-fame art without discovering yourself", "Guaranteed sale outlet for quick money"],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Fame Engine Strategy",
+          "text": "Discover multiple artists early and aggressively promote them. Each promotion raises the value of all your holdings simultaneously. If you own three paintings by the same artist and promote them from fame two to fame five, all three pieces gain value. Concentrated holdings amplify promotion returns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "High-Volume Sales",
+          "text": "Instead of maximizing individual sale prices, focus on rapid gallery turnover. Acquire art, display it, attract visitors, sell quickly, and repeat. Each sale cycle generates money and sales VP. High volume compensates for moderate per-piece prices and keeps money flowing for more acquisitions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "VIP Hunting",
+          "text": "Pink VIP visitors provide premium sale prices and bonus effects. Displaying high-quality art increases your chances of drawing VIPs from the bag. Build your gallery around attracting VIPs by investing in high-fame pieces. A single VIP sale can be worth as much as two or three collector sales.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Kicked-Out Maximization",
+          "text": "Advanced players structure their entire turn sequence around kicked-out actions. Leave your gallerist at the most contested location. Leave assistants at secondary locations. Every kicked-out action is essentially a free turn. Over twenty or more actions in a game, maximizing kicked-outs provides a massive tempo advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Shared Investment Manipulation",
+          "text": "Promoting an artist benefits all holders. If you hold three pieces and your opponent holds one, the promotion is three times more valuable to you. But sometimes promoting an artist you do not hold is worth it for the influence or reputation gained. Calculate the net benefit before promoting, considering all holders.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Endgame Trigger Control",
+          "text": "You can influence when the game ends by choosing whether to promote artists toward maximum fame or deplete visitor bags. If you are ahead, push toward a trigger to lock in your advantage. If you are behind, slow the triggers by avoiding promotions that would max out artists and by not draining visitor bags.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Contract Portfolio Building",
+          "text": "Take contracts that align with art you already plan to acquire. Stacking multiple contracts that require the same art type lets you fulfill several with a single piece on display. Build your acquisition strategy around contract requirements for compound VP returns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Reputation Racing",
+          "text": "The reputation track provides escalating VP. The difference between a high reputation and a low one can be ten or more VP at game end. Invest in reputation-advancing actions throughout the game, especially when selling high-fame art or attracting VIPs, which advance reputation as a side benefit.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Fame Engine Strategy",
+          "bullets": ["Own multiple pieces by same artist → promote for compound value", "Concentrated holdings amplify promotion returns"],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "High-Volume Sales",
+          "bullets": ["Rapid acquire → display → sell cycles", "Volume compensates for moderate per-piece prices"],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "VIP Hunting",
+          "bullets": ["High-fame art attracts more VIPs from bag", "1 VIP sale ≈ 2-3 collector sales in value"],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Kicked-Out Maximization",
+          "bullets": ["Structure turns around getting kicked out", "Gallerist + assistants at contested locations"],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Shared Investment Manipulation",
+          "bullets": ["Promote artists you hold most of", "Calculate net benefit considering all holders"],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Endgame Trigger Control",
+          "bullets": ["Ahead? → push fame to max, trigger end", "Behind? → avoid maxing artists, slow triggers"],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Contract Portfolio Building",
+          "bullets": ["Stack contracts requiring same art type", "Single display piece fulfills multiple contracts"],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Reputation Racing",
+          "bullets": ["High vs low reputation = 10+ VP difference", "VIP sales and high-fame sales advance reputation"],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Artist Colony", "definition": "Main board location where you discover new artists and acquire their debut artwork. Also used to commission additional pieces from discovered artists.", "category": "Locations"},
+        {"term": "Sales Office", "definition": "Main board location where you sell artwork from your gallery display. Requires visitors in your gallery. Sale price depends on artist fame and visitor type.", "category": "Locations"},
+        {"term": "Media Center", "definition": "Main board location where you promote artists to increase fame, gain influence tokens, and improve your gallery's reputation.", "category": "Locations"},
+        {"term": "International Market", "definition": "Main board location where you buy art from a global display using money and influence, or sell art internationally for guaranteed prices.", "category": "Locations"},
+        {"term": "Gallerist Pawn", "definition": "Your main worker. Move it to a location to take actions there. When another player moves to your location, you are kicked out and receive a free bonus action.", "category": "Components"},
+        {"term": "Assistant Meeple", "definition": "Secondary workers used for executive actions or left at locations for kicked-out benefits. Limited supply; managing them is critical.", "category": "Components"},
+        {"term": "Gallery Board", "definition": "Your personal board with display walls for hanging art, a visitor lobby, and an office area. Limited wall space and visitor capacity.", "category": "Components"},
+        {"term": "Display Wall", "definition": "Spaces on your gallery board where purchased artwork is hung. Art on display attracts visitors and is required for sales.", "category": "Components"},
+        {"term": "Visitor Lobby", "definition": "Area on your gallery board where newly drawn visitors wait. Visitors must be moved from the lobby to display rooms before they can purchase art.", "category": "Components"},
+        {"term": "Collector (White Visitor)", "definition": "Standard visitor type that buys art at normal prices. Drawn randomly from visitor bags.", "category": "Visitor Types"},
+        {"term": "VIP (Pink Visitor)", "definition": "Premium visitor type that buys art at higher prices and provides bonus effects. More valuable than collectors.", "category": "Visitor Types"},
+        {"term": "Artist Tile", "definition": "Represents a discoverable artist with a specific art style (digital, sculpture, painting, photography). Their fame determines the value of their works.", "category": "Components"},
+        {"term": "Art Tile", "definition": "Individual artwork created by an artist. Has a value determined by the artist's current fame level. Can be displayed, sold, or held in collection.", "category": "Components"},
+        {"term": "Fame Track", "definition": "Tracks each artist's fame level. Fame increases through promotion at the Media Center. Higher fame means higher art value for all holders.", "category": "Mechanics"},
+        {"term": "Influence Token", "definition": "Used for transactions at the International Market and other actions. Remaining influence converts to VP at game end.", "category": "Resources"},
+        {"term": "Reputation Track", "definition": "Measures your gallery's prestige. Advances through achievements like selling high-fame art or attracting VIPs. Higher position scores more VP.", "category": "Scoring"},
+        {"term": "Contract Tile", "definition": "A commission requiring specific art types displayed in your gallery. Fulfilling scores VP and sometimes money or influence.", "category": "Components"},
+        {"term": "Kicked-Out Action", "definition": "A free limited bonus action received when another player moves to your location. Options include gaining money, moving visitors, or gaining influence.", "category": "Mechanics"},
+        {"term": "Executive Action", "definition": "An optional extra action on your turn, performed by spending one assistant. Extends your turn's productivity.", "category": "Actions"},
+        {"term": "Discover Artist", "definition": "An Artist Colony action. Take an artist tile from the colony, become their patron, and acquire their debut artwork.", "category": "Actions"},
+        {"term": "Commission Artwork", "definition": "An Artist Colony action. Pay an already-discovered artist to create an additional piece for your collection.", "category": "Actions"},
+        {"term": "Promote Artist", "definition": "A Media Center action. Increase an artist's fame on the fame track. Raises value of ALL artwork by that artist, regardless of owner.", "category": "Actions"},
+        {"term": "Sell Art", "definition": "A Sales Office action. Sell a piece from your gallery display. Price based on artist fame and visitor type. Requires at least one visitor.", "category": "Actions"},
+        {"term": "Buy International Art", "definition": "An International Market action. Purchase artwork using money and influence. Access art from artists you did not discover.", "category": "Actions"},
+        {"term": "Digital Art", "definition": "One of four art styles. Artists specialize in one style; their works are of that style.", "category": "Art Styles"},
+        {"term": "Sculpture", "definition": "One of four art styles. Artists specialize in one style; their works are of that style.", "category": "Art Styles"},
+        {"term": "Painting", "definition": "One of four art styles. Artists specialize in one style; their works are of that style.", "category": "Art Styles"},
+        {"term": "Photography", "definition": "One of four art styles. Artists specialize in one style; their works are of that style.", "category": "Art Styles"},
+        {"term": "Endgame Trigger: Max Fame", "definition": "The game can end when a certain number of artists reach maximum fame level. After triggering, each player gets one final turn.", "category": "Game Structure"},
+        {"term": "Endgame Trigger: Empty Bags", "definition": "The game can also end when the visitor bags are depleted. After triggering, each player gets one final turn.", "category": "Game Structure"},
+        {"term": "Money", "definition": "The primary currency for buying art, paying costs, and transactions. Remaining money converts to VP at game end.", "category": "Resources"},
+        {"term": "Ticket Token", "definition": "Tokens used for gallery visit management and visitor movement between lobby and display rooms.", "category": "Components"},
+        {"term": "Gallery Collection VP", "definition": "At game end, artwork still in your gallery scores VP based on the artist's current fame level. Unsold art is not wasted.", "category": "Scoring"},
+        {"term": "Sales VP", "definition": "VP earned during the game from selling artwork. Tracked as you make sales throughout play.", "category": "Scoring"},
+        {"term": "Visitor VP", "definition": "VP for visitors remaining in your gallery at game end. Both collectors and VIPs contribute.", "category": "Scoring"},
+        {"term": "Contract VP", "definition": "VP earned by fulfilling contract requirements during the game. Some contracts also provide money or influence.", "category": "Scoring"},
+        {"term": "Bonus Tile VP", "definition": "VP from various bonus scoring tiles earned through achievements and milestones during play.", "category": "Scoring"},
+        {"term": "Tiebreaker", "definition": "If total VP is tied, the player with more art pieces remaining in their gallery wins.", "category": "Scoring"}
+      ]
+    }
+  }
+}

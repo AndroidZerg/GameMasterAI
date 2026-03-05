@@ -1,0 +1,987 @@
+{
+  "game_id": "unmatched",
+  "title": "Unmatched",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Choose Your Heroes",
+          "text": "Let's set up a game of Unmatched! First, each player picks a hero to play. You can choose from any hero set in your collection. Each hero comes with their own miniature, a unique thirty-card deck, and a hero card that shows their health and special ability. Take a moment to read your hero card aloud so everyone knows what you are working with.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose a Map",
+          "text": "Now let's pick a battlefield. The game board is double-sided, so flip it to whichever map your group prefers. Each map has a different layout of zones connected by lines. The lines show where fighters can move, and some zones have ranged line-of-sight connections marked on them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Place Your Fighters",
+          "text": "Each player places their hero miniature on their designated starting zone. If your hero has a sidekick, place that figure on the same starting zone. Starting zones are on opposite sides of the map. Make sure everyone is in the right spot before moving on.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Set Health Dials",
+          "text": "Now set your hero's health dial to the number printed on your hero card. Most heroes start between thirteen and seventeen health. If your hero has a sidekick with its own health, set that as well. Keep your health dial where everyone can see it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Draw",
+          "text": "Take your hero's unique thirty-card deck and give it a good shuffle. Place it face down near your play area as your draw pile. Leave room next to it for a discard pile. Then draw five cards from the top of your deck to form your opening hand. Keep your hand hidden from your opponent.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "text": "Pick a random method to determine who goes first. Players will alternate turns back and forth. The first player takes their two actions, then the second player takes their two actions, and so on. Remember, your deck does not reshuffle, so every card counts.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Three to Four Player Setup",
+          "text": "If you are playing with three or four players, you can play as a free-for-all or as two-versus-two teams. In a team game, teammates sit across from each other. The last hero standing wins in free-for-all, and in teams, a team wins when both opposing heroes are defeated. Everyone still follows the same setup steps.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Fight",
+          "text": "That is it for setup! Each player should have their hero and sidekick on the board, health dials set, a shuffled deck, and five cards in hand. No tokens, no extra pieces to worry about. Unmatched is designed to get you into the action fast. Let's learn how to fight.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Choose Your Heroes",
+          "bullets": [
+            "Each player picks a hero from any Unmatched set",
+            "Take hero miniature, 30-card deck, hero card, and health dial"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Choose a Map",
+          "bullets": [
+            "Pick one side of the double-sided game board",
+            "Zones connected by lines for movement; some have ranged line-of-sight"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Place Your Fighters",
+          "bullets": [
+            "Hero on designated starting zone",
+            "Sidekick on same starting zone (if applicable)"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Set Health Dials",
+          "bullets": [
+            "Set hero health to value on hero card (13-17 HP typical)",
+            "Set sidekick health if applicable"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Shuffle and Draw",
+          "bullets": [
+            "Shuffle hero's 30-card deck → face-down draw pile",
+            "Draw 5 cards for opening hand, keep hidden"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Determine First Player",
+          "bullets": [
+            "Random first player, alternate turns",
+            "Deck does NOT reshuffle — every card counts"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Three to Four Player Setup",
+          "bullets": [
+            "3-4p: free-for-all or 2v2 teams",
+            "Teams: win when both opposing heroes are eliminated"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Ready to Fight",
+          "bullets": [
+            "Hero + sidekick placed, health set, deck shuffled, 5 cards in hand",
+            "No tokens or trackers — fast setup, straight into combat"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "text": "On your turn you take exactly two actions. You can pick from three options: Maneuver, Scheme, or Attack. Here is the important part — you can repeat the same action twice. So you could Maneuver twice, Attack twice, or mix and match. Let's look at each action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Maneuver",
+          "text": "When you choose Maneuver, you draw one card from your deck and add it to your hand. Then you may move your hero up to their movement value, which is the number of zone connections they can cross. You may also move your sidekick up to their movement value. Moving is optional — you can draw the card and stay put if you prefer.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Scheme",
+          "text": "When you choose Scheme, you play a card with the Scheme type from your hand. Read the card text and resolve its effect immediately. Scheme cards can do all sorts of things — draw extra cards, deal direct damage, reposition fighters, or create lasting effects. After resolving, discard the Scheme card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Attack",
+          "text": "When you choose Attack, you declare a target. Your fighter must be in range of the target. Melee fighters must be in the same zone. Ranged fighters can attack targets in zones connected by line-of-sight. Then you play an Attack card from your hand face down. The defender may play a Defense card face down, or choose not to defend at all.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Resolving Combat",
+          "text": "Both players flip their cards simultaneously. First, resolve any During Combat effects printed on either card. Then calculate damage. The attack value minus the defense value equals damage dealt to the defender. Damage cannot go below zero. After damage, resolve any After Combat effects. Then both cards are discarded.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Card Types",
+          "text": "Let's review the four card types. Attack cards have an attack value and can only be played when you are the attacker. Defense cards have a defense value and can only be played when defending. Versatile cards have both an attack and defense value, so they can be used for either role. Scheme cards are played as the Scheme action and cannot be used in combat.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Boost Abilities",
+          "text": "Some cards have a special Boost ability. When you draw a card with Boost during the Maneuver action specifically, you may choose to reveal it immediately for a bonus effect instead of adding it to your hand. Boosts are optional. If you choose not to use the Boost, simply add the card to your hand as normal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Sidekicks in Combat",
+          "text": "Most heroes have a sidekick that can move, attack, and be attacked independently. When your sidekick attacks, you still play cards from your hand — the sidekick does not have its own deck. Sidekicks can be targeted and defeated, but defeating a sidekick does not win you the game. Only reducing the opposing hero to zero health wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Deck Exhaustion",
+          "text": "Your thirty-card deck does not reshuffle. When it runs out, you simply cannot draw any more cards. Running low on cards is dangerous because you need cards to attack and defend. Managing your hand size and card economy is one of the most important skills in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "text": "The game ends immediately when a hero is reduced to zero health. The player who dealt the killing blow wins. In a multiplayer free-for-all, the last hero standing wins. In a team game, a team wins when both opposing heroes are defeated. Games typically last twenty to forty minutes, which makes best-of-three matches a popular format.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Overview",
+          "bullets": [
+            "Take exactly 2 actions per turn",
+            "Options: Maneuver, Scheme, or Attack",
+            "Can repeat the same action twice"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Maneuver",
+          "bullets": [
+            "Draw 1 card from deck",
+            "May move hero up to movement value",
+            "May also move sidekick up to their movement value"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Scheme",
+          "bullets": [
+            "Play a Scheme card from hand → resolve effect → discard",
+            "Effects: draw cards, deal damage, reposition, etc."
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Attack",
+          "bullets": [
+            "Declare target in range (melee = same zone, ranged = line-of-sight)",
+            "Play Attack card face-down; defender may play Defense card face-down"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Resolving Combat",
+          "bullets": [
+            "Flip cards simultaneously",
+            "Resolve During Combat effects → attack minus defense = damage (min 0)",
+            "Resolve After Combat effects → discard both cards"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Card Types",
+          "bullets": [
+            "Attack — attack value only, played when attacking",
+            "Defense — defense value only, played when defending",
+            "Versatile — both values, usable for either",
+            "Scheme — special effect, cannot be used in combat"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Boost Abilities",
+          "bullets": [
+            "Drawn during Maneuver → may reveal for bonus effect instead of keeping",
+            "Optional — can always add to hand instead"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Sidekicks in Combat",
+          "bullets": [
+            "Sidekicks move, attack, and can be attacked independently",
+            "Use hero's hand cards for sidekick attacks",
+            "Defeating a sidekick does NOT win the game"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Deck Exhaustion",
+          "bullets": [
+            "Deck does NOT reshuffle — 30 cards total, then empty",
+            "No cards = can't attack or defend effectively",
+            "Card economy is critical"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Winning the Game",
+          "bullets": [
+            "Hero reduced to 0 HP → that player is eliminated",
+            "2p: kill opponent's hero to win",
+            "FFA: last hero standing; Teams: both opposing heroes eliminated"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Arena",
+          "text": "Welcome to your first game of Unmatched! In this practice tutorial, we will walk through a scripted opening between two players. Player one will control a melee hero and Player two will control a ranged hero. Follow along with the moves to see how the game flows.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Opening Hands",
+          "text": "Both players have drawn their five starting cards. Take a moment to look through your hand. You should see a mix of Attack cards, Defense cards, Versatile cards, and maybe a Scheme card. Notice the attack and defense values on each card. Knowing what is in your hand helps you plan your first moves.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Turn One: Double Maneuver",
+          "text": "Player one, let's start by Maneuvering twice. For your first action, draw one card and move your hero two zones closer to the center of the map. For your second action, Maneuver again — draw another card and move your sidekick to a flanking position. You now have seven cards in hand and your fighters are in position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Why That Was Smart",
+          "text": "Opening with double Maneuver is one of the strongest starts. You padded your hand to seven cards, giving you plenty of options for attack and defense. You also positioned your fighters without wasting combat cards. As a melee hero, getting close is essential before you can start swinging.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two Turn One: Maneuver and Scheme",
+          "text": "Player two, let's Maneuver first. Draw one card and move your ranged hero to a zone with good line-of-sight to several areas. For your second action, play a Scheme card that lets you draw two additional cards. Now you have a huge hand with lots of flexibility.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player One Turn Two: Attack!",
+          "text": "Player one is now in the same zone as Player two's sidekick. Let's attack! For your first action, declare an attack on the sidekick. Play your strongest Attack card face down. Player two decides whether to defend. They play a Defense card face down. Flip both cards. Your attack value of four minus their defense value of two equals two damage to the sidekick.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Attacking Without Cards",
+          "text": "For your second action, Player one decides to attack again. But this time, look at your hand — you played your best Attack card already and only have one weak Attack left. You play it and deal just one damage. Even worse, you are now low on cards with no Defense cards in hand. Player two's hero is still at full health and loaded with cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Recovery: Refill Your Hand",
+          "text": "No worries, Player one. On your next turn, Maneuver twice to rebuild your hand. Draw two cards and reposition your fighters to safer zones. Never let your hand drop below two or three cards. An empty hand means you cannot attack or defend, and a defenseless hero goes down fast.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Card Economy is Everything",
+          "text": "The takeaway from that mistake is simple. Your thirty-card deck is a finite resource that never reshuffles. Every card you play is gone forever. Attacking is tempting, but burning through cards recklessly leaves you vulnerable. Balance your attacks with Maneuvers to keep your hand healthy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Player Two Strikes Back",
+          "text": "Player two uses their ranged advantage. From two zones away, they attack Player one's hero with a strong ranged Attack card. Player one plays a Versatile card as defense — remember, Versatile cards can be used for either attacking or defending. The attack value of five minus the defense value of three means two damage gets through.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Chasing the Sidekick",
+          "text": "Player two decides to use their second action to finish off Player one's sidekick instead of pressing the attack on the hero. They spend a strong Attack card to eliminate the sidekick. But remember — defeating a sidekick does not win the game. Player two just wasted their best card on a secondary target while Player one's hero is still standing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Focus on the Hero",
+          "text": "Unless a sidekick is causing serious problems with a powerful ability, your attacks should focus on the hero. Killing the sidekick feels productive but it does not end the game. Every card spent on a sidekick is a card not spent reducing the hero's health to zero.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Mid-Game Decision Point",
+          "text": "We are now several turns in. Player one has nine health remaining and four cards in hand. Player two has twelve health and five cards. Both players need to decide: keep building hand size with Maneuvers, or start pressing the attack? This tension between drawing cards and spending them is the heart of every Unmatched game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "The Mistake: Wasting Defense on Weak Attacks",
+          "text": "Player two plays a weak Attack card with a value of two. Player one panics and plays their strongest Defense card with a value of five to block it completely. That is a huge waste. Taking two damage and saving that powerful Defense card for a bigger hit would have been far better.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Pick Your Battles",
+          "text": "Not every attack deserves your best defense. If an incoming attack will only deal two or three damage, consider taking the hit and saving your strong Defense cards for the heavy blows. Your health is a resource too — spending a little health to save a critical card is often the right play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "Congratulations — you have seen how a real Unmatched game flows! You practiced Maneuvering, Scheming, and Attacking. You learned three key lessons: manage your card economy, focus on the hero not the sidekick, and pick your battles when defending. These fundamentals will serve you well no matter which hero you play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Ready to Duel",
+          "text": "Before you jump into your first real match, here are three things that can help.\n\nFirst — check out General Tips for more strategic guidance on positioning and hand management.\n\nSecond — reference the Appendix for a quick glossary of card types and combat terms.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Arena",
+          "bullets": [
+            "Scripted opening between 2 players: melee hero vs ranged hero",
+            "Follow along to learn turn flow and combat"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Opening Hands",
+          "bullets": [
+            "5 starting cards: mix of Attack, Defense, Versatile, Scheme",
+            "Know your hand before making your first moves"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Turn One: Double Maneuver",
+          "bullets": [
+            "Action 1: Maneuver → draw 1, move hero closer",
+            "Action 2: Maneuver → draw 1, move sidekick to flank",
+            "Hand now at 7 cards"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Why That Was Smart",
+          "bullets": [
+            "7 cards = strong attack and defense options",
+            "Positioned fighters without spending combat cards",
+            "Melee heroes need to close distance before striking"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Two Turn One: Maneuver and Scheme",
+          "bullets": [
+            "Maneuver to zone with good line-of-sight",
+            "Scheme card draws 2 extra cards",
+            "Large hand = lots of flexibility for ranged hero"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Player One Turn Two: Attack!",
+          "bullets": [
+            "Declare attack on sidekick in same zone",
+            "Play Attack card face-down; defender plays Defense face-down",
+            "Flip: attack 4 - defense 2 = 2 damage to sidekick"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Attacking Without Cards",
+          "bullets": [
+            "Second attack uses last good Attack card",
+            "Hand now low with no Defense cards remaining",
+            "Vulnerable to counterattack"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Recovery: Refill Your Hand",
+          "bullets": [
+            "Next turn: double Maneuver to draw 2 and reposition",
+            "Never let hand drop below 2-3 cards",
+            "Empty hand = can't attack or defend"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Lesson: Card Economy is Everything",
+          "bullets": [
+            "30-card deck never reshuffles",
+            "Every card played is gone forever",
+            "Balance attacks with Maneuvers to keep hand healthy"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Player Two Strikes Back",
+          "bullets": [
+            "Ranged attack from 2 zones away: attack 5, defense 3 → 2 damage",
+            "Versatile cards can be used for either attack or defense"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Chasing the Sidekick",
+          "bullets": [
+            "Player 2 wastes best Attack card killing the sidekick",
+            "Defeating a sidekick does NOT win the game",
+            "Wasted a strong card on a secondary target"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Focus on the Hero",
+          "bullets": [
+            "Attacks should primarily target the hero",
+            "Sidekick kills feel productive but don't end the game",
+            "Exception: sidekick with game-warping ability"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Mid-Game Decision Point",
+          "bullets": [
+            "Player 1: 9 HP, 4 cards; Player 2: 12 HP, 5 cards",
+            "Core tension: draw more cards vs press the attack",
+            "This decision defines every Unmatched game"
+          ],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "The Mistake: Wasting Defense on Weak Attacks",
+          "bullets": [
+            "Player 1 uses defense-5 to block attack-2",
+            "Taking 2 damage and saving the strong card would be better"
+          ],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Pick Your Battles",
+          "bullets": [
+            "Weak attacks (2-3 damage) often worth absorbing",
+            "Save strong Defense cards for heavy blows",
+            "Health is a resource — spend a little to save a critical card"
+          ],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced Maneuver, Scheme, and Attack actions",
+            "Three lessons: card economy, hero focus, pick your battles",
+            "Fundamentals apply to every hero matchup"
+          ],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Ready to Duel",
+          "bullets": [
+            "Check out General Tips → positioning and hand management",
+            "Reference the Appendix → card types and combat terms",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Know Your Deck",
+          "text": "Every hero's thirty-card deck is completely unique. Before your first game with a new hero, fan through the deck and get familiar with what is inside. How many Attack cards do you have? What is your biggest hit? How many Defense cards? Are there any Scheme cards with game-changing effects? Knowing your deck helps you plan when to be aggressive and when to hold back.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Size Management",
+          "text": "Your hand is your lifeline. A full hand of five to seven cards gives you options for offense and defense. An empty hand leaves you helpless. As a general rule, try to keep at least three cards in hand at all times. If you drop below three, dedicate your next turn to Maneuvering to rebuild. The best players treat hand refills as investments, not wasted turns.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Positioning Matters",
+          "text": "Where your fighters stand on the board is just as important as the cards in your hand. Melee heroes need to close distance before they can deal damage, so use Maneuvers to get into the same zone as your target. Ranged heroes want to maintain distance and attack through line-of-sight connections. If you are melee against ranged, use terrain and sidekick positioning to pin down the ranged hero.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "When to Attack vs Maneuver",
+          "text": "This is the central dilemma of every turn. Attacking costs cards but deals damage. Maneuvering replenishes cards but lets your opponent breathe. Early in the game, lean toward Maneuvering to build a strong hand. In the mid-game, start mixing in attacks when you have card advantage. In the late game, when decks are thin, every attack matters more because both players have fewer options.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Defense Decisions",
+          "text": "You do not have to defend every attack. If an incoming hit is small — say, two or three damage — it might be better to take the damage and save your Defense card for something bigger. Your hero has thirteen to seventeen health, which is a resource you can spend strategically. Think of defense as an investment. A strong Defense card blocking a six-damage attack saves six health. That same card blocking a two-damage attack only saves two.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Sidekick Strategy",
+          "text": "Your sidekick is a valuable tool but not the priority. Use sidekicks to apply pressure from a different angle, threaten zones your hero cannot reach, or bait your opponent into wasting cards. Do not invest too many cards defending your sidekick unless it has a critical ability. If your opponent spends resources killing your sidekick, that is resources not spent on your hero.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Read Your Opponent",
+          "text": "Pay attention to your opponent's hand size and how many cards remain in their deck. A player with one card left is nearly defenseless. A player who just drew back up to six or seven cards is dangerous. If you notice your opponent Maneuvering repeatedly, they may be setting up a big combo. If they are attacking constantly, their hand is probably running low.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Vary Your Play Pattern",
+          "text": "Predictability is your enemy. If you always Maneuver first and Attack second, your opponent will know exactly when to save their Defense cards. Mix up your action order. Sometimes lead with an attack to catch them off guard. Sometimes double Maneuver to build an overwhelming hand advantage before unleashing a flurry of attacks over two turns.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Know Your Deck",
+          "bullets": [
+            "Study your 30-card deck before first game with a new hero",
+            "Count attack, defense, versatile, and scheme cards",
+            "Knowing your best cards helps plan aggression timing"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Hand Size Management",
+          "bullets": [
+            "Keep 3+ cards in hand at all times",
+            "Below 3 → dedicate next turn to Maneuver",
+            "Hand refills are investments, not wasted turns"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Positioning Matters",
+          "bullets": [
+            "Melee: close distance before attacking",
+            "Ranged: maintain distance, attack through line-of-sight",
+            "Use sidekick positioning to pin down ranged opponents"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "When to Attack vs Maneuver",
+          "bullets": [
+            "Early: lean Maneuver to build hand",
+            "Mid: mix attacks when you have card advantage",
+            "Late: every attack matters, decks are thin"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Defense Decisions",
+          "bullets": [
+            "Don't defend every attack — small hits can be absorbed",
+            "Health is a resource (13-17 HP) you can spend strategically",
+            "Save strong Defense for big incoming hits"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Sidekick Strategy",
+          "bullets": [
+            "Use sidekick for pressure, flanking, or baiting opponent cards",
+            "Don't over-invest in sidekick defense",
+            "Opponent spending cards on sidekick = cards not spent on hero"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Read Your Opponent",
+          "bullets": [
+            "Track opponent's hand size and remaining deck",
+            "1 card left = nearly defenseless",
+            "Repeated Maneuvering = possible combo setup"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Vary Your Play Pattern",
+          "bullets": [
+            "Predictability lets opponent time their defense",
+            "Mix action order: lead with attack sometimes",
+            "Double Maneuver → double Attack flurry catches opponents off guard"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Card Counting",
+          "text": "Since decks do not reshuffle, tracking cards gives you a significant edge. You can count how many Attack cards your opponent has played and estimate what remains in their deck. If you know their biggest hit is already in the discard pile, you can defend less aggressively. Similarly, if they have played most of their Defense cards, it might be time to go all-in on attacks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Tempo and Initiative",
+          "text": "Tempo means who is dictating the pace of the fight. The player with tempo forces their opponent to react rather than execute their own plan. You gain tempo by attacking when your opponent is out of position or low on cards. You lose tempo when you are forced to Maneuver to rebuild instead of pressing your advantage. The key is recognizing when you have tempo and pushing hard before your opponent stabilizes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Zone Control",
+          "text": "Some zones on the map are strategically more valuable than others. Zones with many connections give melee heroes multiple attack angles. Zones with wide line-of-sight let ranged heroes cover large areas. Using your sidekick to control key zones forces your opponent into unfavorable positions. Think of the map as a resource — the player who controls the center usually controls the fight.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Matchup Knowledge",
+          "text": "Different hero matchups require different strategies. Against aggressive melee heroes, ranged heroes should focus on maintaining distance and using Scheme cards to reposition. Against defensive heroes who turtle up, apply constant pressure to drain their hand. The more matchups you play, the better you understand when to adapt your default strategy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Commit Timing",
+          "text": "There comes a moment in every game where you need to commit to finishing your opponent. Ideally, this happens when you have card advantage and your opponent's health is low. Stack your hand with four or five Attack cards, then spend two turns going all-in with double Attacks. The goal is to deal more damage than they can defend against before they can rebuild. Committing too early burns cards; committing too late lets them stabilize.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Bluffing and Feints",
+          "text": "Unmatched has a natural bluffing element. Moving toward your opponent's hero signals an attack, which forces them to hold Defense cards. But if you Maneuver close and then Scheme instead of Attacking, you have wasted their defensive posture while advancing your own position. Similarly, placing your sidekick aggressively can bait your opponent into attacking it, wasting their cards on a secondary target.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Versatile Card Mastery",
+          "text": "Versatile cards are the most flexible tools in your deck. Saving them for the right moment is crucial. Use Versatile cards as defense when you have no pure Defense cards available, or as attack when you need one more hit to finish the game. The best players hold Versatile cards as insurance, deploying them only when the situation demands it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Deck Management",
+          "text": "When your deck is down to its last five or six cards, every draw matters. Count what you have played and estimate what remains. If you know your last big Attack card is still in the deck, Maneuver to dig for it. If your deck is nearly empty and you have a good hand, stop drawing and spend your remaining cards efficiently. The endgame in Unmatched is about converting your remaining resources into a win before your opponent does the same.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Card Counting",
+          "bullets": [
+            "Track opponent's discarded Attack and Defense cards",
+            "Biggest hit already discarded → defend less aggressively",
+            "Most Defense played → time to go all-in"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Tempo and Initiative",
+          "bullets": [
+            "Tempo = who dictates the pace of the fight",
+            "Gain tempo: attack when opponent is out of position or low on cards",
+            "Push hard when you have tempo before opponent stabilizes"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Zone Control",
+          "bullets": [
+            "High-connection zones = versatile for melee heroes",
+            "Wide line-of-sight zones = power positions for ranged heroes",
+            "Use sidekick to control key zones and force bad positions"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Matchup Knowledge",
+          "bullets": [
+            "vs aggressive melee → maintain distance, use Schemes to reposition",
+            "vs defensive turtle → apply constant pressure to drain hand",
+            "More matchups played = better adaptation instincts"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Commit Timing",
+          "bullets": [
+            "Commit when you have card advantage and opponent is low HP",
+            "Stack 4-5 Attack cards → double Attack for 2 turns",
+            "Too early = burn cards; too late = opponent stabilizes"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Bluffing and Feints",
+          "bullets": [
+            "Move toward opponent → forces them to hold Defense cards",
+            "Maneuver close then Scheme instead of Attack = wasted their posture",
+            "Aggressive sidekick placement baits wasted attacks"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Versatile Card Mastery",
+          "bullets": [
+            "Most flexible cards in deck — save for the right moment",
+            "Use as defense when no pure Defense available",
+            "Hold as insurance, deploy only when situation demands it"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Endgame Deck Management",
+          "bullets": [
+            "Last 5-6 cards in deck → every draw matters",
+            "Count played cards, estimate remaining",
+            "Stop drawing when hand is good; spend efficiently to close"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Maneuver",
+          "definition": "One of the three available actions. Draw one card from your deck, then optionally move your hero and sidekick up to their movement values.",
+          "category": "Actions"
+        },
+        {
+          "term": "Scheme",
+          "definition": "One of the three available actions. Play a Scheme card from your hand, resolve its text effect, then discard the card.",
+          "category": "Actions"
+        },
+        {
+          "term": "Attack",
+          "definition": "One of the three available actions. Declare a target in range, play an Attack card face-down, defender may play a Defense card, flip simultaneously, and resolve damage.",
+          "category": "Actions"
+        },
+        {
+          "term": "Attack Card",
+          "definition": "A card with an attack value that can only be played when you are the attacker. Shows a red sword icon.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Defense Card",
+          "definition": "A card with a defense value that can only be played when you are the defender. Shows a blue shield icon.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Versatile Card",
+          "definition": "A card with both attack and defense values. Can be used when attacking or defending. The most flexible card type.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Scheme Card",
+          "definition": "A card played as the Scheme action during your turn. Has a special text effect but cannot be used in combat.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Boost",
+          "definition": "A bonus ability on some cards that triggers when drawn during the Maneuver action. You may reveal the card for an immediate effect instead of adding it to hand. Optional.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Hero",
+          "definition": "Your main fighter. Reducing the opposing hero to zero health wins the game. Each hero has unique health, movement value, and a thirty-card deck.",
+          "category": "Fighters"
+        },
+        {
+          "term": "Sidekick",
+          "definition": "A secondary fighter controlled by the hero player. Can move, attack, and be attacked independently. Uses the hero's hand cards. Defeating a sidekick does not win the game.",
+          "category": "Fighters"
+        },
+        {
+          "term": "Health Dial",
+          "definition": "Tracks a fighter's remaining health. When a hero's health reaches zero, that player is eliminated.",
+          "category": "Components"
+        },
+        {
+          "term": "Zone",
+          "definition": "A distinct area on the game board. Fighters occupy zones and move between them along connecting lines.",
+          "category": "Board"
+        },
+        {
+          "term": "Line of Sight",
+          "definition": "A connection between zones that allows ranged attacks. Not all zone connections grant line-of-sight — only those specifically marked on the map.",
+          "category": "Board"
+        },
+        {
+          "term": "Melee",
+          "definition": "A fighter type that can only attack targets in the same zone. Must close distance before dealing damage.",
+          "category": "Combat"
+        },
+        {
+          "term": "Ranged",
+          "definition": "A fighter type that can attack targets in zones connected by line-of-sight. Can deal damage from a distance.",
+          "category": "Combat"
+        },
+        {
+          "term": "During Combat",
+          "definition": "Effects on cards that resolve after cards are flipped but before damage is calculated.",
+          "category": "Combat"
+        },
+        {
+          "term": "After Combat",
+          "definition": "Effects on cards that resolve after damage is dealt. Both cards are then discarded.",
+          "category": "Combat"
+        },
+        {
+          "term": "Deck Exhaustion",
+          "definition": "When a player's thirty-card deck is empty, they cannot draw more cards. The deck does not reshuffle. Running out of cards is extremely dangerous.",
+          "category": "Core Rules"
+        },
+        {
+          "term": "Movement Value",
+          "definition": "The number of zone connections a fighter can cross during a Maneuver action. Printed on the hero card.",
+          "category": "Core Rules"
+        }
+      ]
+    }
+  }
+}

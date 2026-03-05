@@ -1,0 +1,815 @@
+{
+  "game_id": "uno",
+  "title": "Uno",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Shuffle the Deck",
+          "text": "Let's set up a game of Uno! Grab the full deck of one hundred and twelve cards and give it a thorough shuffle. The deck has number cards in four colors — red, yellow, green, and blue — plus action cards and wild cards. Mix them all together into one big shuffled pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Deal Seven Cards",
+          "text": "Now deal seven cards face down to each player. Everyone picks up their cards and holds them so only they can see them. Keep your hand hidden from other players. If you have a huge group, make sure there are enough cards to deal seven to everyone before you start.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Create the Draw and Discard Piles",
+          "text": "Place the remaining cards face down in the center of the table. This is your draw pile. Now flip the top card face up next to it to start the discard pile. If the first card is a Wild Draw Four, shuffle it back in and flip a new card. If it is any other action card or Wild, apply its effect immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Determine First Player",
+          "text": "The player to the left of the dealer goes first, and play proceeds clockwise around the table. That is all there is to Uno setup. Everyone has seven cards, the draw pile is in the center, and the discard pile has one face-up card to start. Let's learn how to play.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Shuffle the Deck",
+          "bullets": [
+            "Shuffle all 112 cards together",
+            "4 colors (red, yellow, green, blue) + action + wild cards"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Deal Seven Cards",
+          "bullets": [
+            "Deal 7 cards face-down to each player",
+            "Keep hand hidden from other players"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Create the Draw and Discard Piles",
+          "bullets": [
+            "Remaining cards → face-down draw pile",
+            "Flip top card → start discard pile",
+            "Wild Draw Four first? Reshuffle and reflip"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Determine First Player",
+          "bullets": [
+            "Left of dealer goes first, clockwise",
+            "Setup complete: 7 cards each, draw pile, 1 discard"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "On Your Turn",
+          "text": "When it is your turn, look at the top card of the discard pile. You need to play a card from your hand that matches it by color, number, or symbol. If the discard shows a red seven, you can play any red card or any seven of any color. If you cannot or do not want to play a card, draw one from the draw pile. If the drawn card is a legal play, you may play it immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Number Cards",
+          "text": "Number cards range from zero to nine in all four colors. There is one zero per color and two of each one through nine per color. They are the simplest cards — just match the color or the number to play them. Number cards are worth their face value in points at the end of a round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Action Cards: Skip",
+          "text": "Skip cards show a circle with a line through it. When you play a Skip, the next player in turn order loses their turn completely. It is as if they do not exist for that round. In a two-player game, a Skip effectively acts as another turn for you. Skip cards are worth twenty points each.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Action Cards: Reverse",
+          "text": "Reverse cards show two arrows forming a loop. When you play a Reverse, the direction of play switches. If play was going clockwise, it now goes counterclockwise, and vice versa. In a two-player game, Reverse acts the same as a Skip — the other player loses their turn. Reverse cards are worth twenty points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Action Cards: Draw Two",
+          "text": "Draw Two cards show a plus-two symbol. When you play a Draw Two, the next player must draw two cards from the draw pile and lose their turn. They do not get to play a card that turn. Important: in the official rules, you cannot stack Draw Twos. The next player simply draws two and is skipped. Draw Two cards are worth twenty points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Wild Cards",
+          "text": "Wild cards have no color and can be played on any card regardless of what is showing. When you play a Wild, you declare which color play continues with. Choose a color you have a lot of in your hand to give yourself more options on future turns. Wild cards are worth fifty points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Wild Draw Four",
+          "text": "The Wild Draw Four is the most powerful card in the game. When you play it, you declare a new color and the next player draws four cards and loses their turn. However, you are only supposed to play it when you have no cards matching the current color. The next player can challenge you. If the challenge succeeds, you draw four instead. If it fails, the challenger draws six total. Wild Draw Fours are worth fifty points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Calling Uno and Scoring",
+          "text": "When you play your second-to-last card and have just one card remaining, you must shout Uno before the next player starts their turn. If someone catches you not calling it, you draw two penalty cards. When a player empties their hand, the round ends. That player scores points equal to the total value of all cards remaining in opponents' hands. Play multiple rounds until someone reaches five hundred points to win the overall game.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "On Your Turn",
+          "bullets": [
+            "Play a card matching discard by color, number, or symbol",
+            "OR draw 1 card — may play it immediately if legal",
+            "Wild cards can be played on anything"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Number Cards",
+          "bullets": [
+            "0-9 in 4 colors (1 zero, 2 each of 1-9 per color)",
+            "Match by color or number to play",
+            "Worth face value in points"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Action Cards: Skip",
+          "bullets": [
+            "Next player loses their turn",
+            "2-player: acts as an extra turn for you",
+            "Worth 20 points"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Action Cards: Reverse",
+          "bullets": [
+            "Switches play direction (CW ↔ CCW)",
+            "2-player: acts as Skip",
+            "Worth 20 points"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Action Cards: Draw Two",
+          "bullets": [
+            "Next player draws 2 and loses their turn",
+            "Official rules: no stacking Draw Twos",
+            "Worth 20 points"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Wild Cards",
+          "bullets": [
+            "Play on any card — declare new color",
+            "Choose a color you have many of",
+            "Worth 50 points"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Wild Draw Four",
+          "bullets": [
+            "Declare new color; next player draws 4 and loses turn",
+            "Only legal if you have no cards matching current color",
+            "Challenge: illegal play → you draw 4; failed challenge → challenger draws 6",
+            "Worth 50 points"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Calling Uno and Scoring",
+          "bullets": [
+            "1 card left → shout \"Uno!\" or draw 2 penalty if caught",
+            "Round ends when a player empties their hand",
+            "Winner scores value of all opponents' remaining cards",
+            "First to 500 points wins the game"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Hand",
+          "text": "Welcome to your first game of Uno! We will walk through a scripted round with four players sitting around the table. Follow along to see how cards are played, actions resolve, and the round ends. Even if you have fewer players, the flow is the same.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Starting Card",
+          "text": "Everyone has been dealt seven cards. The top card of the discard pile is a green five. That means the first player needs to play a green card or any five. Let's see what happens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Matches Color",
+          "text": "Player one has a green eight in their hand. They play it on the green five because the colors match. Simple as that. The discard pile now shows a green eight. Play passes clockwise to Player two.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two Matches Number",
+          "text": "Player two does not have any green cards, but they do have a blue eight. Since the eight matches the number on the discard, they can play it. The discard pile now shows a blue eight, and the active color has changed to blue.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three Draws a Card",
+          "text": "Player three has no blue cards and no eights. They must draw a card from the draw pile. They draw a blue two. Since it matches the current color, they can play it immediately. They put it down and the discard now shows a blue two.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Four Plays a Skip",
+          "text": "Player four has a blue Skip card and plays it. The Skip means the next player — Player one — loses their turn entirely. Play jumps straight to Player two. Action cards like Skip are powerful because they deny opponents a chance to play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Forgetting to Say Uno",
+          "text": "Several turns later, Player three plays a card and is down to just one card remaining. But they forget to shout Uno. Player four notices and calls them out. Player three must now draw two penalty cards, bringing their hand back up to three. That really hurts when you were one card from winning.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Always Call Uno",
+          "text": "The takeaway is simple. Make it a habit to shout Uno every time you play down to one card. Do it immediately, before the next player even touches their cards. If you wait too long, someone will catch you. Practice saying it as you place the card — make it one fluid motion.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "The Mistake: Hoarding Wild Cards",
+          "text": "Player one has been holding a Wild card and a Wild Draw Four the entire game, waiting for the perfect moment. Meanwhile, they have been drawing cards every turn because they keep getting stuck with no matching color. They could have played a Wild three turns ago to switch to a color they have plenty of.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Use Your Wilds Wisely",
+          "text": "Do not hoard Wild cards forever waiting for a magical perfect moment. If you are stuck drawing multiple turns in a row, play a Wild to switch the color in your favor. Save one Wild for your final push to go out, but do not stockpile them while your hand keeps growing. A Wild in your hand is worth fifty points to your opponent if they go out first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Player Two Goes Out",
+          "text": "Player two plays their second-to-last card — a red Reverse — and immediately shouts Uno. On their next turn, they play their final yellow three on a matching yellow. Player two's hand is empty, and the round is over. Time to score.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Scoring the Round",
+          "text": "Player two scores points from everyone else's remaining cards. Player one still has five cards including a Wild Draw Four, which is fifty points alone. Player three has three cards. Player four has two cards. Add up all the face values and action card values. That total goes to Player two's score.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Congratulations",
+          "text": "Congratulations — you have played through your first round of Uno! You have seen how matching works, how action cards disrupt play, and why calling Uno is so important. You also learned two key lessons: always call Uno immediately, and do not hoard Wild cards while your hand grows.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Keep Playing",
+          "text": "Before your next round, here are three things that can help.\n\nFirst — check out General Tips for strategy on when to play action cards and how to control the color.\n\nSecond — reference the Appendix for a quick guide to card types and point values.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Your First Hand",
+          "bullets": [
+            "Scripted round with 4 players",
+            "Follow along to learn card matching and round flow"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Starting Card",
+          "bullets": [
+            "Discard pile starts with green 5",
+            "First player needs green card or any 5"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Player One Matches Color",
+          "bullets": [
+            "Plays green 8 on green 5 — color match",
+            "Discard now shows green 8"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two Matches Number",
+          "bullets": [
+            "No green cards, but has blue 8 — number match",
+            "Active color changes to blue"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Player Three Draws a Card",
+          "bullets": [
+            "No match → draw from pile",
+            "Drew blue 2 → legal match → plays immediately"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Player Four Plays a Skip",
+          "bullets": [
+            "Blue Skip → Player 1 loses turn, play jumps to Player 2",
+            "Action cards deny opponents turns"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Forgetting to Say Uno",
+          "bullets": [
+            "Player 3 plays down to 1 card but forgets to call Uno",
+            "Caught by Player 4 → draws 2 penalty cards",
+            "Back to 3 cards from almost winning"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Always Call Uno",
+          "bullets": [
+            "Shout Uno as you play your second-to-last card",
+            "Make it a habit — say it as you place the card",
+            "Don't wait; someone will catch you"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "The Mistake: Hoarding Wild Cards",
+          "bullets": [
+            "Player 1 holds Wild + Wild Draw Four for many turns",
+            "Keeps drawing because they can't match the color",
+            "Could have played Wild earlier to switch to a strong color"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Use Your Wilds Wisely",
+          "bullets": [
+            "Don't hoard Wilds forever — use them when stuck",
+            "Save 1 Wild for final push, but don't stockpile",
+            "Wild in hand = 50 points for opponent if they go out first"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Player Two Goes Out",
+          "bullets": [
+            "Plays Reverse, shouts Uno → 1 card left",
+            "Next turn: plays final card → hand empty → round over"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Scoring the Round",
+          "bullets": [
+            "Winner scores points from all opponents' remaining cards",
+            "Number cards = face value, action = 20, Wild = 50",
+            "Play rounds until someone hits 500 total"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Congratulations",
+          "bullets": [
+            "Practiced matching by color and number",
+            "Saw action cards in play and learned Uno call rule",
+            "Two lessons: always call Uno, don't hoard Wilds"
+          ],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Keep Playing",
+          "bullets": [
+            "Check out General Tips → action card timing and color control",
+            "Reference the Appendix → card types and point values",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Play Action Cards Early",
+          "text": "Action cards like Skip, Reverse, and Draw Two are worth twenty points each if they are stuck in your hand when someone goes out. Play them when you have a chance rather than hoarding them. They are also your best tools for disrupting opponents who are close to winning.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Control the Color",
+          "text": "One of the simplest and most effective strategies in Uno is color control. If you have four red cards, use a Wild to switch play to red. Now you have multiple turns where you can play freely while opponents might have to draw. Whenever you have a choice, steer the game toward your strongest color.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Watch Hand Sizes",
+          "text": "Always keep an eye on how many cards each player is holding. When someone gets down to two or three cards, they are close to going out. That is when you want to target them with Draw Twos, Skips, or Wild Draw Fours. Do not let someone quietly slip down to one card without resistance.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "When to Draw Instead of Play",
+          "text": "Sometimes you have a legal play but it would leave you in a bad position. For example, if playing your only blue card would leave you with no way to match the likely next color, it might be better to draw and hope for something more useful. This is a judgment call, but sometimes a strategic draw is worth more than a forced play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Save One Wild for the Finish",
+          "text": "Try to keep one Wild card in reserve for your final two cards. A Wild guarantees you can play on any discard, making it the perfect card to hold for your last play. But do not save more than one — extra Wilds are worth fifty points each to an opponent who goes out before you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Uno Call Habit",
+          "text": "Practice calling Uno the instant you play down to one card. Make it automatic. Some players even say it slightly before they place the card, just to be safe. The two-card penalty for forgetting can erase a winning position. In a competitive game, opponents will be watching you like hawks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reverse as a Weapon",
+          "text": "Reverse cards are not just direction changers. In a multiplayer game, a well-timed Reverse can send play back to someone who just went, effectively skipping everyone between you and them. It can also protect a friend by sending a Draw Two back the other way. Think of Reverse as a tactical redirect.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Know When to Be Aggressive",
+          "text": "When multiple players are close to going out, it is time to get aggressive. Play every action card you have to disrupt them. Use Draw Twos and Wild Draw Fours to inflate their hands. Skip their turns. In the endgame, being nice gets you nothing. The player who goes out first scores all those points from the cards stuck in everyone else's hands.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Play Action Cards Early",
+          "bullets": [
+            "Action cards = 20 pts stuck in hand at round end",
+            "Play them to disrupt opponents near winning",
+            "Don't hoard — use Skip/Reverse/Draw Two actively"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Control the Color",
+          "bullets": [
+            "Use Wilds to switch to your strongest color",
+            "4+ cards of one color = dominate the play",
+            "Opponents forced to draw while you play freely"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Watch Hand Sizes",
+          "bullets": [
+            "2-3 cards = close to going out → target them",
+            "Hit leaders with Draw Two, Skip, Wild Draw Four",
+            "Don't let someone slip to Uno unchallenged"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "When to Draw Instead of Play",
+          "bullets": [
+            "Sometimes drawing is better than a bad play",
+            "Playing your only matching color can leave you stuck",
+            "Strategic draws can improve your position"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Save One Wild for the Finish",
+          "bullets": [
+            "1 Wild in reserve = guaranteed last play",
+            "Don't save more than 1 — 50 pts each if opponent wins",
+            "Wild is the perfect final card"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Uno Call Habit",
+          "bullets": [
+            "Call Uno the instant you play to 1 card",
+            "Make it automatic — say it as you place the card",
+            "2-card penalty can erase a winning position"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Reverse as a Weapon",
+          "bullets": [
+            "Well-timed Reverse skips everyone between you and a target",
+            "Can redirect Draw Twos away from allies",
+            "Think of Reverse as a tactical redirect, not just direction change"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Know When to Be Aggressive",
+          "bullets": [
+            "Multiple players near Uno → time to disrupt aggressively",
+            "Stack Draw Twos, Skips, Wild Draw Fours on leaders",
+            "Going out first scores ALL opponents' remaining cards"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Card Counting",
+          "text": "Uno has a structured deck. Each color has exactly one zero and two of every other number, plus two each of Skip, Reverse, and Draw Two. There are four Wilds and four Wild Draw Fours. By paying attention to what has been played, you can estimate what opponents might be holding. If three red Skips have already been played, you know there is only one left in the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Color Denial",
+          "text": "Advanced players track which colors opponents draw on. If Player three keeps drawing when the color is yellow, they probably have no yellow cards. You can deliberately play yellow cards to force them to keep drawing. This is called color denial and it is one of the strongest tactics in competitive Uno.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Wild Draw Four Bluffing",
+          "text": "The Wild Draw Four is technically only legal when you have no cards matching the current color. But the challenge mechanic creates a bluffing game. If you play it illegally and no one challenges, you get away with it. If you are challenged, you draw four instead. Experienced players bluff when they know their opponent is unlikely to challenge — for example, when the opponent already has a large hand and cannot afford six more cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Position-Aware Play",
+          "text": "Pay attention to where you sit relative to dangerous players. If the player right before you in turn order is down to two cards, you want to play action cards that skip or reverse past them. If the player after you is dangerous, use Draw Twos to inflate their hand. Your seating position relative to threats should influence which cards you choose to play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Hand Sculpting",
+          "text": "Rather than playing whatever matches, think about what your hand looks like after each play. Ideally, you want to maintain cards in two or three colors so you are never stuck. If you have five red cards and one blue card, playing the blue card leaves you with only red — one Reverse or color change away from being stuck. Keep your hand diverse until you are ready for a final push.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Final Push",
+          "text": "When you are down to three or four cards, shift into go-out mode. Plan your sequence: which card will you play next, and which after that? If your last two cards are a red seven and a Wild, try to steer play to red so you can play the seven, call Uno, and then play the Wild on your final turn. Setting up this sequence a few turns in advance is what separates casual players from strategic ones.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Multi-Round Point Strategy",
+          "text": "Uno is officially played to five hundred points across multiple rounds. This means minimizing the points stuck in your hand is almost as important as going out. If you cannot win the round, dump your high-point cards — Wilds and action cards — early to reduce what an opponent scores from your hand. A round where you lose with two number cards costs your opponent only a few points, but losing with three Wilds gives them one hundred and fifty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Defensive Awareness",
+          "text": "In a multi-player game, sometimes the best strategy is preventing someone else from winning rather than trying to win yourself. If one player is at four hundred and fifty points and about to reach five hundred, every other player at the table should be targeting them with action cards. Temporary alliances form naturally. Focus your disruption on the overall leader, not just the person closest to going out this round.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Card Counting",
+          "bullets": [
+            "1 zero, 2 each of 1-9, 2 each action per color",
+            "4 Wilds + 4 Wild Draw Fours total",
+            "Track played cards to estimate opponents' hands"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Color Denial",
+          "bullets": [
+            "Track which colors force opponents to draw",
+            "Deliberately play those colors to make them keep drawing",
+            "One of the strongest competitive Uno tactics"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Wild Draw Four Bluffing",
+          "bullets": [
+            "Technically only legal with no matching color",
+            "Bluff when opponent unlikely to challenge (large hand)",
+            "Failed bluff = you draw 4; failed challenge = they draw 6"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Position-Aware Play",
+          "bullets": [
+            "Player before you close to Uno → use Skip/Reverse to block",
+            "Player after you dangerous → Draw Two to inflate hand",
+            "Seating position influences card selection"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Hand Sculpting",
+          "bullets": [
+            "Maintain cards in 2-3 colors to avoid being stuck",
+            "Don't dump diversity too early",
+            "All one color = vulnerable to one Reverse/color change"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Final Push",
+          "bullets": [
+            "3-4 cards left → plan your exact play sequence",
+            "Steer color to match your second-to-last card",
+            "Set up finale 2-3 turns in advance"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Multi-Round Point Strategy",
+          "bullets": [
+            "Can't win the round? Dump high-point cards early",
+            "Losing with 2 number cards = few points for opponent",
+            "Losing with 3 Wilds = 150 free points for opponent"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Defensive Awareness",
+          "bullets": [
+            "Overall leader at 450+ → everyone targets them",
+            "Temporary alliances form naturally",
+            "Disrupt the overall leader, not just this round's threat"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Number Card",
+          "definition": "Cards numbered zero through nine in four colors. One zero per color, two of each other number per color. Worth face value in points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Skip",
+          "definition": "Action card that causes the next player in turn order to lose their turn. In a two-player game, acts as an extra turn for you. Worth twenty points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Reverse",
+          "definition": "Action card that switches the direction of play between clockwise and counterclockwise. In a two-player game, acts as a Skip. Worth twenty points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Draw Two",
+          "definition": "Action card that forces the next player to draw two cards and lose their turn. Cannot be stacked in official rules. Worth twenty points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Wild",
+          "definition": "Card that can be played on any discard regardless of color or number. The player declares which color continues. Worth fifty points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Wild Draw Four",
+          "definition": "The most powerful card. Declares a new color and forces the next player to draw four and lose their turn. Technically only legal when you have no matching color. Subject to challenge. Worth fifty points.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Challenge",
+          "definition": "When a Wild Draw Four is played, the affected player may challenge. The player who played it must reveal their hand. If they had a matching color card, the challenge succeeds and they draw four instead. If they did not, the challenger draws six total.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Uno Call",
+          "definition": "When a player has one card remaining, they must shout Uno before the next player begins their turn. Failure to call results in a two-card draw penalty if caught by another player.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Stacking",
+          "definition": "A common house rule where Draw Two and Wild Draw Four cards can be chained by subsequent players, passing increasing draw penalties. Not part of the official rules.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Draw Pile",
+          "definition": "The face-down stack of cards in the center of the table. Players draw from here when they cannot or choose not to play. If empty, reshuffle the discard pile except the top card.",
+          "category": "Game Zones"
+        },
+        {
+          "term": "Discard Pile",
+          "definition": "The face-up stack where played cards go. Only the top card matters for matching. If the draw pile runs out, shuffle the discard pile to create a new draw pile.",
+          "category": "Game Zones"
+        },
+        {
+          "term": "Color Match",
+          "definition": "Playing a card that shares the same color as the top of the discard pile. One of three ways to legally play a card.",
+          "category": "Matching Rules"
+        },
+        {
+          "term": "Number Match",
+          "definition": "Playing a card that shares the same number as the top of the discard pile, regardless of color. One of three ways to legally play a card.",
+          "category": "Matching Rules"
+        },
+        {
+          "term": "Symbol Match",
+          "definition": "Playing an action card that shares the same symbol as the top of the discard pile, regardless of color. Skip matches Skip, Reverse matches Reverse, etc.",
+          "category": "Matching Rules"
+        }
+      ]
+    }
+  }
+}

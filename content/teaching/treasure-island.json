@@ -1,0 +1,975 @@
+{
+  "game_id": "treasure-island",
+  "title": "Treasure Island",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Lay Out the Island Board",
+          "text": "Let's set up our treasure hunt! Place the large game board in the center of the table so everyone can reach it. The board shows a tropical island with a hex grid overlay, various terrain types, and named locations. Make sure there is room around the board for the drawing tools and components.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Long John Silver",
+          "text": "One player takes the role of Long John Silver, the cunning pirate who has buried the treasure. Silver sits behind the screen where the hidden mini-map is located. The remaining players are all pirate seekers competing to find the treasure. Silver needs a good poker face because this role is all about deception.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Silver Hides the Treasure",
+          "text": "Silver secretly marks the treasure location on the mini-map behind the screen. The treasure must be on a land hex somewhere on the island. Silver should choose carefully, considering that the location must be defensible through clues and misdirection throughout the game. No one else should see where Silver marks the spot.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Calendar Track",
+          "text": "Place the calendar marker on Day one of the calendar track. The calendar counts down toward Silver's escape day. Each round advances one day, and when the marker reaches the escape day, Silver breaks free from captivity and races for the treasure personally. The calendar creates urgency for the pirate players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Place Pirate Figures at Camp",
+          "text": "Each pirate player takes a miniature figure and places it at the starting camp location on the board. All pirates begin at the same spot and will fan out across the island as they search. Silver's figure stays off the board until the escape day arrives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Drawing Tools and Markers",
+          "text": "Give each pirate player a dry-erase marker in their color for making personal notes on the board. Make sure Silver has access to the black marker and the drawing tools, including the straightedge and compass tools. These tools are how Silver physically draws clues on the board each round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Prepare Clue Cards and Search Tokens",
+          "text": "Place the clue cards, search tokens, and any remaining components within easy reach. The search tokens come in small and large sizes for different search radii. Shuffle the clue cards if your edition uses them. Make sure the drawing tools are accessible to Silver. Everyone is ready to begin the hunt!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Lay Out the Island Board",
+          "bullets": [
+            "Place the large island board in the center",
+            "Hex grid overlay with terrain types and named locations"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Long John Silver",
+          "bullets": [
+            "1 player = Silver (behind screen), rest = pirate seekers",
+            "Silver hides the treasure, pirates search for it"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Silver Hides the Treasure",
+          "bullets": [
+            "Mark treasure location secretly on mini-map behind screen",
+            "Must be on a land hex — no one else can see"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Set Up the Calendar Track",
+          "bullets": [
+            "Place marker on Day 1 of the calendar",
+            "Calendar counts down to Silver's escape day"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Place Pirate Figures at Camp",
+          "bullets": [
+            "All pirates start at base camp location",
+            "Silver's figure stays off-board until escape day"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Distribute Drawing Tools and Markers",
+          "bullets": [
+            "Each pirate gets a colored dry-erase marker",
+            "Silver gets black marker + straightedge + compass tools"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Prepare Clue Cards and Search Tokens",
+          "bullets": [
+            "Place search tokens (small + large radius) within reach",
+            "Set up clue cards and remaining components near the board"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Treasure Island is a one-versus-all deduction game. Long John Silver has buried treasure somewhere on the island and been captured by the pirate players. Each round, Silver is forced to give clues about the treasure's location by physically drawing on the board. Pirates must interpret these clues, narrow down the search area, and dig in the right hex before Silver escapes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Round Structure",
+          "text": "Each round represents one day and follows three phases. First, Silver gives a clue to all pirates by drawing on the board. Second, each pirate takes a turn to move and search. Third, the calendar advances one day. This cycle repeats until someone finds the treasure or Silver escapes and retrieves it personally.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Silver Gives a Clue",
+          "text": "At the start of each day, Silver must give one clue by drawing on the board using the physical tools. A line clue uses the straightedge to divide the island, meaning the treasure is on one side. A circle clue uses the compass tool, meaning the treasure is not within that circle. Silver must tell the truth most of the time, but has limited lie tokens for false clues.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Lie Tokens and Deception",
+          "text": "Silver has a limited number of lie tokens, typically one or two depending on the player count. When giving a clue, Silver may secretly spend a lie token to make that clue false. Pirates never know for certain which clues are truthful and which are lies. This element of deception keeps the pirates guessing and prevents them from trusting any single clue completely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Pirate Turn: Move",
+          "text": "On your turn as a pirate, you first move your figure up to two hexes on the grid. Mountains cost extra movement to cross, while paths allow faster travel between locations. Water and coastline cannot be crossed on foot. Planning your movement to cover new ground efficiently is key to searching the island quickly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Pirate Turn: Search",
+          "text": "After moving, you perform one search action. A small search checks your exact hex. An area search uses a token to check a larger circular area around your position. Silver must answer truthfully whether the treasure is within the searched area. If you are confident, you can dig at your exact location, and if the treasure is there, you win immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Marking the Board",
+          "text": "Pirates should use their dry-erase markers constantly to mark up the board. Cross out eliminated areas based on clues. Highlight zones where the treasure might still be. Note which clues you suspect might be lies. The board becomes a living map of deduction as the game progresses and the search area narrows with each new clue.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Forced Clue Rules",
+          "text": "Silver must give a clue every round and cannot refuse or give an intentionally useless clue. Drawing a line through the ocean that eliminates no land is not allowed. All clues must meaningfully relate to the treasure's position. This ensures the game progresses and the search area genuinely narrows over time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Silver's Escape",
+          "text": "When the calendar reaches the escape day, Silver breaks free and enters the board as a moving figure. Silver knows exactly where the treasure is and races toward it. Silver moves faster than the pirates each turn. Pirates can still search and dig, but the pressure is now enormous. If Silver reaches the treasure first, Silver wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Information Sharing Between Pirates",
+          "text": "Pirates may discuss clues openly and share their deductions with each other. However, remember that only one pirate wins. Sharing too much information helps your rivals as much as it helps you. The balance between cooperation against Silver and competition among pirates creates a fascinating dynamic where you must decide how much to reveal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Winning the Game",
+          "text": "A pirate wins immediately by digging at the correct hex where the treasure is buried. If no pirate finds the treasure before Silver escapes and reaches the treasure location, Silver wins. There is no scoring system. It is a direct victory for whichever side finds or protects the treasure successfully.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "1 vs all: Silver hid treasure, pirates must find it",
+            "Silver gives clues by drawing on the board each round"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Round Structure",
+          "bullets": [
+            "Phase 1: Silver gives a clue (draws on board)",
+            "Phase 2: Each pirate moves + searches",
+            "Phase 3: Calendar advances 1 day"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Silver Gives a Clue",
+          "bullets": [
+            "Line clue (straightedge): treasure is on one side",
+            "Circle clue (compass): treasure is NOT within this circle",
+            "Must tell truth most of the time — limited lie tokens"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Lie Tokens and Deception",
+          "bullets": [
+            "1-2 lie tokens per game (scales with player count)",
+            "Spend secretly to make a clue false",
+            "Pirates never know which clues are lies"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Pirate Turn: Move",
+          "bullets": [
+            "Move up to 2 hexes per turn",
+            "Mountains cost extra; paths allow faster travel",
+            "Cannot cross water/coastline on foot"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Pirate Turn: Search",
+          "bullets": [
+            "Small search: check your exact hex",
+            "Area search: check larger radius with token",
+            "Dig: if treasure is at your hex → you win immediately"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Marking the Board",
+          "bullets": [
+            "Use dry-erase markers to cross out eliminated areas",
+            "Highlight likely zones and note suspected lies",
+            "Board becomes a living deduction map"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Forced Clue Rules",
+          "bullets": [
+            "Silver must give a meaningful clue every round",
+            "No useless clues (e.g., line through ocean only)",
+            "Ensures the search area narrows over time"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Silver's Escape",
+          "bullets": [
+            "Calendar reaches escape day → Silver enters the board",
+            "Silver moves faster and knows the exact treasure location",
+            "If Silver reaches treasure first → Silver wins"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Information Sharing Between Pirates",
+          "bullets": [
+            "Pirates may discuss and share deductions openly",
+            "Only 1 pirate wins — sharing helps rivals too",
+            "Balance cooperation vs. competition"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Winning the Game",
+          "bullets": [
+            "Pirate digs at correct hex → that pirate wins immediately",
+            "Silver reaches treasure after escape → Silver wins",
+            "No scoring — direct victory condition"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Island",
+          "text": "Welcome to Treasure Island! We are going to walk through the opening days of a four-player game. Sam is playing Long John Silver and has hidden the treasure behind the screen. The three pirate seekers are Pirate Red, Pirate Blue, and Pirate Green. Follow along even if your group has a different number of players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Silver's Secret",
+          "text": "Behind the screen, Sam has marked the treasure on a land hex in the northeastern part of the island, near a small bay. Sam has two lie tokens for this game and plans to use them strategically. The pirates have no idea where to start looking. All they know is that the treasure is on land somewhere on this island.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Day One: Silver's First Clue",
+          "text": "Sam draws a line using the straightedge, cutting the island roughly in half from north to south. Sam announces that the treasure is on the east side of this line. This is a truthful clue, and it immediately eliminates the entire western half of the island. The pirates should mark the western side with X marks to show it is eliminated.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Pirate Red Moves and Searches",
+          "text": "Pirate Red moves two hexes east from base camp toward the center of the remaining search area. Red performs an area search using the large search token. Sam checks the mini-map and answers no, the treasure is not within that radius. Red marks the searched area as eliminated. Good, that narrows things down even further.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Pirate Blue Moves and Searches",
+          "text": "Pirate Blue heads northeast, moving two hexes toward the coast. Blue performs a small search on a specific hex. Sam answers no. Blue marks it off. The smart move here is that Blue chose a location far from Red's search area, maximizing the total ground covered by the pirate team this round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Mistake One: Clustering Together",
+          "text": "Pirate Green moves two hexes east, ending up right next to Pirate Red. Green performs an area search that overlaps significantly with the area Red already eliminated. Sam says no, which tells Green nothing new. Green just wasted a turn searching ground that was already cleared. This is one of the most common beginner mistakes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Spread Out Across the Island",
+          "text": "Pirates should spread out and search different areas of the island rather than clustering together. Every overlapping search is wasted effort. Before moving, look at where other pirates have already searched and head somewhere new. The more unique ground you cover each round, the faster you narrow down the treasure's location. Coordinate loosely but search independently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Day Two: A Suspicious Clue",
+          "text": "Sam draws a circle using the compass tool around a point in the southeast and announces the treasure is not within this circle. But wait, the treasure IS actually in the northeast, well outside this circle. This clue is truthful, but it cleverly directs attention away from the northeast by making the pirates think Sam is hiding something in the southeast.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Pirate Blue Gets Suspicious",
+          "text": "Pirate Blue notices that Sam's circle clue eliminated an area that was mostly ocean and only a small strip of land. Blue wonders if this clue was a lie meant to steer pirates toward the southeast. Blue decides to head north instead, testing a theory. Smart thinking. The best pirates question every clue and think about what Silver might be trying to hide.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Mistake Two: Trusting Every Clue Blindly",
+          "text": "Pirate Red takes the circle clue at face value and rushes southeast, convinced the treasure must be nearby since Silver seemed to be deflecting attention from that area. Red spends two turns moving south and searching there. But the treasure is in the northeast. Red just wasted two full days chasing a truthful clue that they misread as deception.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Evaluate Clues Critically",
+          "text": "Do not blindly trust or distrust every clue. Instead, look at each clue in context. Does it eliminate a meaningful area or mostly ocean? Does it contradict previous clues? If you can test a clue by searching an area that would prove it true or false, that is extremely valuable information. Think of clues as data points to triangulate, not as direct directions to follow.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Day Three: Triangulation Begins",
+          "text": "Sam draws another line from east to west, announcing the treasure is north of this line. Pirate Blue combines this with the first clue: east side AND north of this line. The intersection creates a wedge-shaped zone in the northeast. Blue marks the board carefully, shading the overlap zone. The search area is getting much smaller now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Pirate Green Heads to the Hot Zone",
+          "text": "Pirate Green sees the narrowing zone and heads northeast. Green performs an area search in the middle of the remaining zone and gets a no from Sam. Excellent. That eliminates a big chunk of the remaining search area. The triangulation of multiple clues is working, and now there are only a few possible hexes left.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Mistake Three: Digging Too Early",
+          "text": "Pirate Blue is excited. The zone is small and Blue thinks the treasure might be at a hex near the coast. Blue moves there and declares a dig instead of doing an area search first. Sam checks the mini-map. The treasure is two hexes away. Blue's dig fails, wasting a precious turn. Blue should have done one more area search to confirm before committing to a dig.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Confirm Before You Dig",
+          "text": "Digging is an all-or-nothing action. If you are wrong, you have wasted your entire turn. Use area searches to narrow down to two or three hexes first, then dig. A failed dig gives Silver another day to run out the clock. Only dig when you are highly confident or when the calendar is about to run out and you have no better option.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Race Tightens",
+          "text": "Day four arrives. Pirate Green uses an area search that gets a yes from Sam. The treasure is within this radius! Green narrows it down to three possible hexes. Meanwhile, Pirate Red has finally realized the treasure is in the northeast and is racing back. The calendar is getting close to the escape day. Every turn matters now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "text": "Congratulations! You have just experienced the core tension of Treasure Island. You learned how clues narrow the search area through triangulation, why spreading out is critical, how to evaluate clues critically for potential lies, and why confirming before digging saves precious turns. The race between pirate deduction and Silver's escape timer is what makes this game thrilling.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Start Your Hunt",
+          "text": "Before you start your own treasure hunt, here are three things that can help.\n\nFirst, check out General Tips for strategies on both the pirate and Silver sides.\n\nSecond, reference the Appendix for a quick guide to search types, clue rules, and terrain effects.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Now go find that treasure!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Island",
+          "bullets": [
+            "4-player tutorial: Sam (Silver), Pirate Red, Blue, Green",
+            "Covers clue interpretation, searching, and common mistakes"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Silver's Secret",
+          "bullets": [
+            "Treasure hidden in the northeast near a small bay",
+            "Sam has 2 lie tokens to use strategically"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Day One: Silver's First Clue",
+          "bullets": [
+            "Line clue: treasure is east of the line (truthful)",
+            "Eliminates entire western half — pirates mark with X"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Pirate Red Moves and Searches",
+          "bullets": [
+            "Moves 2 hexes east, area search with large token → no",
+            "Marks searched area as eliminated"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Pirate Blue Moves and Searches",
+          "bullets": [
+            "Heads northeast, far from Red's search area",
+            "Small search → no; marks it off"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Mistake One: Clustering Together",
+          "bullets": [
+            "Green searches area already cleared by Red → wasted turn",
+            "Overlapping searches = wasted effort"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Spread Out Across the Island",
+          "bullets": [
+            "Search different areas — no overlapping with other pirates",
+            "More unique ground per round = faster deduction"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Day Two: A Suspicious Clue",
+          "bullets": [
+            "Circle clue eliminating mostly ocean + small land strip",
+            "Truthful but cleverly misdirects toward the southeast"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Pirate Blue Gets Suspicious",
+          "bullets": [
+            "Notices clue eliminated very little useful land",
+            "Heads north instead — questioning Silver's intent"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Mistake Two: Trusting Every Clue Blindly",
+          "bullets": [
+            "Red misreads a truthful clue as deception, chases southeast",
+            "Wastes 2 full days searching the wrong area"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Evaluate Clues Critically",
+          "bullets": [
+            "Check if clue eliminates meaningful land or mostly ocean",
+            "Test clues by searching areas that would prove truth/lie",
+            "Triangulate multiple clues rather than following one blindly"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Day Three: Triangulation Begins",
+          "bullets": [
+            "New line clue: treasure is north → intersect with 'east' clue",
+            "Search zone narrows to northeast wedge"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Pirate Green Heads to the Hot Zone",
+          "bullets": [
+            "Area search in northeast zone → no",
+            "Eliminates large chunk, only a few hexes remain"
+          ],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "Mistake Three: Digging Too Early",
+          "bullets": [
+            "Blue digs at a guess instead of area searching first → fails",
+            "Treasure was 2 hexes away — wasted a precious turn"
+          ],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Confirm Before You Dig",
+          "bullets": [
+            "Use area searches to narrow to 2-3 hexes before digging",
+            "Failed dig = wasted turn + Silver gains another day",
+            "Only dig when highly confident or calendar is about to run out"
+          ],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "The Race Tightens",
+          "bullets": [
+            "Green's area search gets a yes → treasure within radius",
+            "3 possible hexes remain, calendar near escape day"
+          ],
+          "image": null
+        },
+        {
+          "step": 17,
+          "title": "Congratulations",
+          "bullets": [
+            "Learned triangulation, spreading out, critical evaluation, and confirm-before-dig",
+            "Core tension: pirate deduction vs. Silver's escape timer"
+          ],
+          "image": null
+        },
+        {
+          "step": 18,
+          "title": "Start Your Hunt",
+          "bullets": [
+            "Check out General Tips → pirate and Silver strategies",
+            "Reference the Appendix → search types, clue rules, terrain effects",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Mark the Board Constantly",
+          "text": "Your dry-erase marker is your most important tool. Every clue Silver gives should immediately be reflected on the board. Cross out eliminated areas with clear X marks. Shade zones where the treasure could still be. The board should become a visual map of your deductive progress. Players who mark thoroughly find the treasure faster than those who try to remember everything mentally.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Spread Out Across the Island",
+          "text": "Pirates should divide the island into sectors and search different areas. Two pirates searching the same zone waste half the group's effort. Before moving, look at where other pirates are headed and choose a different direction. The more unique ground your group covers each round, the faster the search area shrinks. Think of yourselves as a search grid sweeping the island systematically.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Use Area Searches Before Digging",
+          "text": "Area searches eliminate large zones with a single action and Silver must answer truthfully. Save your digs for when you have narrowed the possibilities to just two or three hexes. A wasted dig costs you an entire turn and gives Silver another day on the calendar. Use large area searches early to cut the island into manageable zones, then switch to small searches as you close in.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Triangulate Multiple Clues",
+          "text": "No single clue tells you where the treasure is, but combining clues creates powerful intersections. If one line clue says the treasure is east and another says it is north, the treasure must be in the northeast quadrant. Add a circle elimination on top of that and the zone shrinks dramatically. Always look at how new clues interact with previous ones to narrow your focus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Test for Lies Strategically",
+          "text": "If you suspect a particular clue might be a lie, you can test it. Search an area that should be eliminated according to that clue. If Silver says the treasure is within your search radius there, you have confirmed the clue was a lie, which is incredibly valuable information. Knowing that a clue was false reopens an entire section of the map and tells you Silver is trying to hide something specific.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Watch the Calendar",
+          "text": "The calendar is your ticking clock. As the escape day approaches, you need to shift from methodical searching to educated guessing. If you have narrowed the zone to five or six hexes and there are only two days left, start digging at the most likely spots rather than continuing to do area searches. A fifty-fifty dig is better than running out of time and letting Silver escape to win.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Silver Tips: Give Truthful but Misleading Clues",
+          "text": "As Silver, your best clues are technically truthful but psychologically misleading. A line clue that eliminates a tiny sliver of land near the treasure's actual location is technically helpful but practically useless. A circle clue centered near the treasure that eliminates mostly ocean makes pirates think you are hiding something in that area. Save your lie tokens for when pirates are genuinely close to the truth.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest beginner mistakes in one place. For pirates: clustering together instead of spreading out, trusting every clue without questioning it, digging before narrowing down sufficiently, and forgetting to mark the board. For Silver: wasting lie tokens early before they matter, giving clues that obviously eliminate very little, and showing nervous reactions when pirates search near the treasure. Keep a poker face!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Mark the Board Constantly",
+          "bullets": [
+            "Cross out eliminated areas, shade remaining zones",
+            "Visual deduction map > mental tracking"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Spread Out Across the Island",
+          "bullets": [
+            "Divide island into sectors — each pirate searches a different area",
+            "Overlapping searches = wasted group effort"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Use Area Searches Before Digging",
+          "bullets": [
+            "Large area searches early → small searches to close in → dig last",
+            "Wasted dig = lost turn + Silver gains another day"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Triangulate Multiple Clues",
+          "bullets": [
+            "Combine clues: east + north = northeast quadrant",
+            "Add circle eliminations to shrink zones dramatically"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Test for Lies Strategically",
+          "bullets": [
+            "Search an area that should be eliminated by a suspected lie",
+            "Confirmed lie = huge info — reopens entire map section"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Watch the Calendar",
+          "bullets": [
+            "Shift from methodical searching to educated guessing near escape day",
+            "50/50 dig > running out of time"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Silver Tips: Give Truthful but Misleading Clues",
+          "bullets": [
+            "Truthful clues that eliminate mostly ocean = misleading",
+            "Save lie tokens for when pirates are genuinely close"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Pirates: clustering, blind trust, early digs, not marking the board",
+            "Silver: wasting lies early, obvious low-value clues, nervous reactions"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Pirate: Systematic Elimination Grid",
+          "text": "Advanced pirate players mentally divide the island into a grid of sectors and systematically eliminate them. Start by using Silver's clues to identify which quadrant the treasure is in. Then divide that quadrant into sub-sectors and use area searches to clear them one by one. Track your progress on the board with clear sector markings. This methodical approach guarantees you will find the treasure given enough time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Pirate: Lie Detection Through Contradiction",
+          "text": "When you have accumulated three or more clues, look for contradictions. If clue one says the treasure is east, clue two says it is north, and clue three says it is south, then at least one clue is a lie. By testing which clues are consistent with your search results, you can identify the false clue and reopen the eliminated zone. Identifying a lie is often more valuable than a truthful clue because it reveals Silver's defensive strategy.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Pirate: Strategic Information Withholding",
+          "text": "You are competing against other pirates, not just Silver. When your area search gets a yes result near the treasure, you do not have to share that information. Other pirates can see your position on the board and might guess what you learned, but keeping specific search results private gives you a head start. The ideal balance is sharing enough to help the group narrow the zone but withholding your best lead.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Pirate: Predicting Silver's Escape Route",
+          "text": "Before the escape day arrives, study the board and figure out which escape point Silver will use and the fastest route to the treasure from there. If you can position yourself along Silver's likely path, you can search the hexes Silver is heading toward. Even after Silver escapes, a well-positioned pirate can dig at the right spot before Silver arrives on foot.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Silver: The Art of Technically True Clues",
+          "text": "As Silver, mastering technically true but practically useless clues is your core skill. Draw a line that puts the treasure barely on one side, eliminating only a tiny strip of land. Use the compass to draw a circle centered far from the treasure that eliminates mostly ocean. Give directional clues from points that technically include the treasure but point toward areas pirates have already cleared. Every wasted pirate turn is a turn closer to your escape.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Silver: Timing Your Lies",
+          "text": "Save your lie tokens for the critical moment when pirates have triangulated the treasure to a small zone. A well-timed lie that reopens a large area of the map can buy you two or three extra days as pirates re-evaluate their deductions. Never waste a lie token in the first few rounds when pirates are still searching broadly. The optimal time to lie is when pirates are confident they know the general area and a false clue shatters that confidence.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Silver: Misdirection Without Lying",
+          "text": "Your body language and clue presentation can misdirect without spending lie tokens. If you hesitate before drawing a clue, pirates might think you are uncomfortable. If you draw confidently, they might think the clue is designed to mislead. You can give clues that are truthful but framed to suggest the treasure is in a completely different area. A circle elimination near the treasure itself can make pirates think you are trying too hard to deflect attention from that zone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Silver: Planning Your Escape Route",
+          "text": "From the first day, Silver should be thinking about the escape. Know which escape point is closest to your treasure location and mentally trace the fastest path. Give clues that steer pirates away from that escape corridor if possible. When the escape day arrives, you want a clear, fast path to the treasure with as few pirates in your way as possible. The best Silver players win by controlling the space between the escape point and the treasure, not just by hiding the treasure well.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Pirate: Systematic Elimination Grid",
+          "bullets": [
+            "Divide island into sectors → eliminate one by one",
+            "Use clues to identify quadrant, then subdivide and search"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Pirate: Lie Detection Through Contradiction",
+          "bullets": [
+            "3+ clues → look for contradictions to identify lies",
+            "Confirmed lie reveals Silver's defensive strategy"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Pirate: Strategic Information Withholding",
+          "bullets": [
+            "Don't share 'yes' results from area searches",
+            "Share enough to narrow the zone, withhold your best lead"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Pirate: Predicting Silver's Escape Route",
+          "bullets": [
+            "Study escape points and likely paths to treasure",
+            "Position yourself along Silver's route for a last-chance dig"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Silver: The Art of Technically True Clues",
+          "bullets": [
+            "Line clue eliminating tiny land strip = truthful but useless",
+            "Circle clues centered far from treasure, eliminating mostly ocean"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Silver: Timing Your Lies",
+          "bullets": [
+            "Save lies for when pirates triangulate to a small zone",
+            "Well-timed lie can buy 2-3 extra days of confusion"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Silver: Misdirection Without Lying",
+          "bullets": [
+            "Body language and hesitation can misdirect for free",
+            "Truthful clues framed to suggest wrong areas"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Silver: Planning Your Escape Route",
+          "bullets": [
+            "Know closest escape point and fastest path to treasure",
+            "Steer pirates away from the escape corridor",
+            "Control the space between escape point and treasure"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Long John Silver",
+          "definition": "The player who hides the treasure and gives clues each round. Silver is forced to give truthful clues most of the time but has limited lie tokens for deception. Silver escapes when the calendar runs out.",
+          "category": "Roles"
+        },
+        {
+          "term": "Pirate Seeker",
+          "definition": "Players competing to find the treasure before Silver escapes. Pirates move across the island, search locations, and use deduction to narrow down the treasure's position.",
+          "category": "Roles"
+        },
+        {
+          "term": "Line Clue",
+          "definition": "Silver draws a straight line across the board using the straightedge. The treasure is on one specified side of this line. Eliminates half or more of the remaining search area.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Circle Clue",
+          "definition": "Silver draws a circle on the board using the compass tool. The treasure is NOT within this circle. Eliminates the circled area from the search zone.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Directional Clue",
+          "definition": "From a specific point on the board, Silver indicates a direction. The treasure lies in that general direction from the reference point.",
+          "category": "Clue Types"
+        },
+        {
+          "term": "Lie Token",
+          "definition": "Limited-use token (typically 1-2 per game) that Silver spends secretly to make a clue false. Pirates never know which clues are lies until they test them.",
+          "category": "Components"
+        },
+        {
+          "term": "Small Search",
+          "definition": "Pirate search action checking a single hex. Silver answers truthfully whether the treasure is at that exact location.",
+          "category": "Search Actions"
+        },
+        {
+          "term": "Area Search",
+          "definition": "Pirate search action using a search token to check a circular area around the pirate's position. Silver answers yes or no truthfully.",
+          "category": "Search Actions"
+        },
+        {
+          "term": "Dig",
+          "definition": "Pirate action declaring an attempt to unearth the treasure at the pirate's exact hex. If correct, that pirate wins immediately. If wrong, the turn is wasted.",
+          "category": "Search Actions"
+        },
+        {
+          "term": "Calendar Track",
+          "definition": "Day tracker that advances each round. When it reaches the escape day, Silver enters the board and races to the treasure. Creates time pressure for the pirates.",
+          "category": "Components"
+        },
+        {
+          "term": "Escape Day",
+          "definition": "The day on the calendar when Silver breaks free from captivity. Silver enters the board at an escape point and moves toward the treasure, faster than pirates.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Mini-Map",
+          "definition": "Hidden map behind Silver's screen where the treasure location is secretly marked. Used by Silver to answer search queries truthfully.",
+          "category": "Components"
+        },
+        {
+          "term": "Dry-Erase Marker",
+          "definition": "Marker used by pirates to annotate the board with personal notes, eliminated areas, and deduction markings. Each pirate has their own color.",
+          "category": "Components"
+        },
+        {
+          "term": "Jungle",
+          "definition": "Standard terrain type with normal movement cost. Most of the island's interior consists of jungle hexes.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Mountain",
+          "definition": "Difficult terrain that costs extra movement to cross. Slows pirate exploration but may hide the treasure in harder-to-reach locations.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Path",
+          "definition": "Trails connecting locations that allow faster movement between named points on the island.",
+          "category": "Terrain"
+        },
+        {
+          "term": "Triangulation",
+          "definition": "Strategy of combining multiple line and circle clues to identify the intersection zone where the treasure must be located. The core deduction technique for pirate players.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Forced Clue",
+          "definition": "Silver must give a meaningful clue each round. Cannot refuse or give intentionally useless clues (like lines through only ocean). Ensures the search area narrows over time.",
+          "category": "Rules"
+        }
+      ]
+    }
+  }
+}

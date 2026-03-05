@@ -1,0 +1,863 @@
+{
+  "game_id": "survive-escape-from-atlantis",
+  "title": "Survive: Escape from Atlantis",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Corner Islands",
+          "text": "Let's set up Survive: Escape from Atlantis. Start by placing the four corner island tiles at the four corners of the board. These are the safe havens where your explorers need to reach. Any explorer that makes it to a corner island is safe for the rest of the game and scores their hidden point value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Build the Island of Atlantis",
+          "text": "Now build the island of Atlantis in the center of the board. Place the land tiles randomly in the designated area. Mountains, the darkest tiles, go in the center. Forests, the medium-shaded tiles, surround the mountains. Beaches, the lightest tiles, form the outer ring. Place the volcano tile at the very center.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Place Sea Creatures",
+          "text": "Place the sea serpents, sharks, and whales on their designated starting ocean spaces around the board. These creatures will terrorize your explorers throughout the game. Sea serpents are the most dangerous. They destroy boats and eat swimmers. Sharks eat swimmers but ignore boats. Whales destroy boats but ignore swimmers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place Boats",
+          "text": "Place the twelve boats on the designated coastal spaces around the island. Boats are your primary means of getting explorers to safety. Each boat can carry up to three explorers from any combination of players. Getting your explorers onto boats quickly is essential for survival.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Distribute Explorer Meeples",
+          "text": "Each player receives ten explorer meeples in their chosen color. Before placing any, secretly look at the numbers on the bottom of each meeple. The values range from one to six, with one six-point explorer, one five, one four, two threes, two twos, and three ones. These hidden values determine how many points each explorer is worth if they survive.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Place Explorers on the Island",
+          "text": "Players take turns placing one explorer at a time on any land tile on the island. Continue until all explorers are placed. This is a critical strategic decision. Remember which of your high-value explorers you place where, because once placed, you cannot look at the numbers again during the game. Place your five and six near boats and escape routes.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Memorize Your Placement",
+          "text": "Take one last look at your explorer placement. Your six-point explorer is worth more than three one-point explorers combined. You need to remember which meeples are your most valuable ones. Some players use subtle memory tricks like placing their highest-value explorers closest to a specific corner. The player who placed last goes first. Let's learn the rules.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Corner Islands",
+          "bullets": [
+            "4 corner island tiles at board corners = safe destinations",
+            "Explorers reaching corners are safe and score their hidden value"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Build the Island of Atlantis",
+          "bullets": [
+            "Mountains (darkest) → center, Forests (medium) → middle ring, Beaches (lightest) → outer ring",
+            "Place volcano tile at the very center",
+            "Tiles placed randomly within each ring"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Place Sea Creatures",
+          "bullets": [
+            "Sea serpents, sharks, whales on designated starting spaces",
+            "Serpent: destroys boats + eats swimmers",
+            "Shark: eats swimmers, ignores boats",
+            "Whale: destroys boats, ignores swimmers"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place Boats",
+          "bullets": [
+            "12 boats on coastal spaces around the island",
+            "Each boat carries up to 3 explorers (any players)",
+            "Primary means of reaching safety"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Distribute Explorer Meeples",
+          "bullets": [
+            "10 meeples per player with hidden values (1-6) on bottom",
+            "Distribution: one 6, one 5, one 4, two 3s, two 2s, three 1s",
+            "Secretly check values before placing"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Place Explorers on the Island",
+          "bullets": [
+            "Take turns placing 1 explorer at a time on any land tile",
+            "Strategic decision: place high-value explorers near boats and escape routes",
+            "Cannot look at numbers again after placement"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Memorize Your Placement",
+          "bullets": [
+            "Memorize where your 5 and 6-value explorers are placed",
+            "6-point explorer > three 1-point explorers",
+            "Last player to place goes first"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "The island of Atlantis is sinking into the ocean. Each turn, one land tile disappears, starting with beaches, then forests, then mountains. Your goal is to evacuate your ten explorers to the safety of the four corner islands before they are eaten by sea monsters or drowned. Each explorer has a hidden point value, so saving your most valuable explorers is the key to winning.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure Overview",
+          "text": "On your turn, you perform four steps in order. First, play a saved tile effect if you have one. Second, move your explorers using three movement points. Third, remove one land tile from the island and apply its effect. Fourth, roll the creature die and move one sea creature. Let's walk through each step.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Step One: Play a Tile Effect",
+          "text": "Some land tiles you remove during the game have saved effects with red borders. You keep these tiles and can play one at the start of a future turn. Effects include moving a swimmer three spaces safely with a dolphin, moving a boat three extra spaces, or removing a creature from the board. If you do not have any saved tiles, skip this step.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Step Two: Move Explorers",
+          "text": "You have three movement points to spend across your explorers. Moving on land from one tile to an adjacent tile costs one point. Swimming one sea space costs one point. Moving a boat one space costs one point. You can split these points any way you like. Move one explorer three spaces, or three explorers one space each, or any other combination.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Boats and Boat Control",
+          "text": "Boats can carry up to three explorers from any combination of players. The player with the most explorers on a boat controls it. If tied, the active player controls it if they are one of the tied players. Otherwise, nobody can move the boat. When a boat reaches a corner island, all explorers aboard are delivered safely. Getting boat majority is extremely powerful.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Swimming",
+          "text": "Explorers in the water without a boat are swimmers. Swimming is extremely dangerous. Swimmers move one sea space per movement point and are vulnerable to sharks and sea serpents. Both of these creatures instantly kill all swimmers in their space. Get your explorers on boats whenever possible. Swimming should be a last resort.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Step Three: Remove a Land Tile",
+          "text": "Remove one land tile from the island following the sinking order. First, all beach tiles must be removed before any forest tiles. Then all forests before any mountains. You choose which specific tile within the current tier to remove. Any explorer on that tile becomes a swimmer in that sea space. Flip the tile to see its effect.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Tile Effects",
+          "text": "Removed tiles reveal one of two types of effects. Green-bordered immediate effects resolve right away. These include placing a new boat, spawning a shark, whale, or sea serpent, or triggering a whirlpool that destroys everything in adjacent spaces. Red-bordered saved effects are kept in your hand to play on a future turn. These include dolphins, extra boat movement, and creature removal.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Step Four: Roll the Creature Die",
+          "text": "Roll the die and move one creature of the indicated type. You choose which specific creature of that type to move. Sea serpents move one space and destroy boats and eat swimmers. Sharks move one or two spaces and eat swimmers but ignore boats. Whales move one to three spaces and destroy boats but ignore swimmers. Use this offensively by sending creatures toward opponents' explorers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Creature Interactions",
+          "text": "Let's be clear about what each creature does when it enters an occupied space. A sea serpent destroys any boat in its space and eats all swimmers. A shark eats all swimmers but ignores boats entirely. A whale destroys any boat, turning passengers into swimmers, but does not eat swimmers. Understanding these interactions is crucial for both protecting your explorers and threatening opponents.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Volcano",
+          "text": "When the last mountain tile is removed, the volcano erupts and the game ends immediately. Any explorer not already on a corner island is lost. This creates an intense countdown as the mountains start to fall. You can see how many mountain tiles remain and plan accordingly. Sometimes the game ends with explorers tantalizingly close to safety.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Scoring and Winning",
+          "text": "When the game ends, each player flips over their surviving explorers to reveal the hidden point values. Add up the values of all your explorers who reached corner islands. The player with the highest total wins. If tied, the player with the single most valuable surviving explorer wins. Remember, your six is worth more than three of your ones, so prioritize saving high-value explorers.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Island sinks: beaches first → forests → mountains",
+            "Evacuate explorers to 4 corner islands",
+            "Each explorer has hidden point value (1-6)",
+            "Save your most valuable explorers to win"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Turn Structure Overview",
+          "bullets": [
+            "4 steps in order: Play tile → Move explorers → Remove tile → Roll creature die"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Step One: Play a Tile Effect",
+          "bullets": [
+            "Play 1 saved tile effect (red border) from a previous turn",
+            "Options: dolphin (swim 3 safely), boat movement, creature removal",
+            "Skip if you have no saved tiles"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Step Two: Move Explorers",
+          "bullets": [
+            "3 movement points to spend across your explorers",
+            "Land-to-land: 1 pt, Swimming: 1 pt per sea space, Boat: 1 pt per space",
+            "Split points any way you like"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Boats and Boat Control",
+          "bullets": [
+            "Boats hold up to 3 explorers from any players",
+            "Majority of explorers on boat = you control it",
+            "Boat reaching corner island delivers all passengers safely"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Swimming",
+          "bullets": [
+            "Swimmers = explorers in water without a boat",
+            "Vulnerable to sharks and sea serpents (instant death)",
+            "Swimming is a last resort — get on boats"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Step Three: Remove a Land Tile",
+          "bullets": [
+            "Remove 1 tile following sinking order: beach → forest → mountain",
+            "Explorer on removed tile becomes a swimmer",
+            "Flip tile to reveal its effect"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Tile Effects",
+          "bullets": [
+            "Green border: immediate (new boat, spawn creature, whirlpool)",
+            "Red border: saved for future turn (dolphin, boat move, creature removal)"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Step Four: Roll the Creature Die",
+          "bullets": [
+            "Roll die → move 1 creature of indicated type",
+            "You choose which specific creature to move",
+            "Serpent: 1 space; Shark: 1-2 spaces; Whale: 1-3 spaces"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Creature Interactions",
+          "bullets": [
+            "Serpent: destroys boats AND eats swimmers",
+            "Shark: eats swimmers, ignores boats",
+            "Whale: destroys boats (→ swimmers), ignores swimmers"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Volcano",
+          "bullets": [
+            "Last mountain tile removed → volcano erupts → game ends immediately",
+            "All explorers not on corner islands are lost"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Scoring and Winning",
+          "bullets": [
+            "Flip surviving explorers → add up hidden point values",
+            "Highest total wins; tiebreaker: single most valuable survivor",
+            "Your 6 > three 1s — prioritize high-value rescues"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Atlantis",
+          "text": "Welcome to Survive: Escape from Atlantis! In this practice tutorial, we will walk through the first few turns of a four-player game. You will learn how to move explorers, manage boats, sink tiles, and use sea creatures. The island is sinking, so let's not waste time. Let's go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Survey the Board",
+          "text": "Before your first move, take stock of the situation. Find your ten explorers on the island. Try to remember where your highest-value meeples are. Notice which explorers are near boats and which are stranded deep in the interior. Also note where the sea creatures start. You want to move your high-value explorers toward boats and away from creatures.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Player One: Board a Boat",
+          "text": "Player one, let's get an explorer to safety. Use one of your three movement points to move your explorer from a beach tile onto an adjacent boat. Now use your remaining two points to move that boat two spaces toward the nearest corner island. You are already on your way to safety. Getting on boats early is the most important thing you can do.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Player Two: Sink a Beach",
+          "text": "After Player two moves their explorers, they must remove a land tile. Player two chooses a beach tile where an opponent's explorer is sitting. That explorer is now a swimmer in the open water. Player two has just created a vulnerable target. This is the take-that element that makes Survive so entertaining.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Rolling the Creature Die",
+          "text": "Player two rolls the creature die and gets a shark. They choose which shark to move and send it toward the opponent's newly created swimmer. The shark moves two spaces into the swimmer's location. That explorer is eaten. Player two just eliminated an opponent's explorer in a single turn. This is why swimming is so dangerous.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Player Three: Boat Politics",
+          "text": "Player three has two explorers near a boat that already has one of Player one's explorers on it. Player three loads both of their explorers onto the boat, giving them two out of three passengers. Now Player three controls the boat. They can sail it in any direction they want, even away from Player one's corner island. Boat control through majority is a powerful tool.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Beginner Mistake: Spreading Too Thin",
+          "text": "Player four tries to save all ten explorers at once, spending one movement point on three different explorers spread across the island. Each explorer inches forward but none reaches a boat. Meanwhile, beaches are sinking fast and creatures are closing in. Trying to save everyone usually means saving no one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Recovery: Prioritize High-Value Explorers",
+          "text": "Player four, focus your movement points on your highest-value explorers. Your six-point explorer is worth more than three ones combined. Concentrate all three movement points on getting your six onto a boat and toward a corner island. Let your low-value explorers serve as decoys or blockers while your VIPs escape.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Tile Effect: Creature Spawns",
+          "text": "Player one removes a beach tile and flips it to reveal a green-bordered immediate effect: a sea serpent spawns in that space. A sea serpent in open water near boats is extremely dangerous because serpents destroy boats and eat swimmers. Players will need to route their boats around this new threat.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Beginner Mistake: Ignoring Creature Movement",
+          "text": "Player three rolled a whale on the creature die but moved it randomly to an empty space. They missed the opportunity to send it toward an opponent's boat. Remember, you choose which creature of the rolled type to move. Always think about how creature movement can help you or hurt your opponents.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Recovery: Use Creatures Offensively",
+          "text": "When you roll the creature die, scan the board for opportunities. Send sharks toward opponents' swimmers. Send whales toward opponents' boats, especially boats carrying their high-value explorers if you can guess which ones are valuable. Move sea serpents toward crowded sea lanes. Every creature roll is a chance to gain an advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Beginner Mistake: Forgetting Sinking Order",
+          "text": "Player two tries to remove a forest tile while beach tiles are still on the board. You cannot do this. All beaches must be removed before any forests, and all forests before any mountains. This sinking order is strict. The good news is it gives you time to evacuate interior explorers since mountains sink last.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Recovery: Use the Sinking Order to Plan",
+          "text": "Since mountains sink last, explorers on mountains have the most time. This means you can focus early movement on beach explorers who are about to lose their land. Use the predictable sinking order to prioritize which explorers need rescuing first. Beach explorers are urgent. Mountain explorers can wait.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Reaching Safety",
+          "text": "Player one's boat arrives at a corner island. All three explorers aboard are safe for the rest of the game. Player one has guaranteed some points. But the game continues. There are still explorers on the sinking island, and more creatures are appearing every turn. Keep moving and keep sinking tiles.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations! You have survived the opening rounds of Atlantis. You have moved explorers, boarded boats, sunk tiles, spawned creatures, and used creature movement offensively. Remember: prioritize high-value explorers, control boats through majority, and use every creature roll strategically. The island is doomed, but your explorers do not have to be.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "What to Explore Next",
+          "text": "Before the island sinks again, here are three things that can help.\n\nFirst, check out General Tips for placement strategy and creature tactics.\n\nSecond, reference the Appendix for quick definitions of tile effects, creature behaviors, and scoring.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Atlantis",
+          "bullets": [
+            "Scripted opening turns for 4 players",
+            "Covers movement, boats, tile sinking, creature control"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Survey the Board",
+          "bullets": [
+            "Find your 10 explorers — remember high-value placement",
+            "Note nearby boats and creature positions"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Player One: Board a Boat",
+          "bullets": [
+            "Move explorer onto boat (1 pt), sail boat 2 spaces toward corner island",
+            "Getting on boats early is priority one"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Player Two: Sink a Beach",
+          "bullets": [
+            "Remove beach tile under opponent's explorer → they become a swimmer",
+            "Take-that element: target opponents strategically"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Rolling the Creature Die",
+          "bullets": [
+            "Roll shark → send toward opponent's swimmer → explorer eaten",
+            "Swimming is extremely dangerous"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Player Three: Boat Politics",
+          "bullets": [
+            "Load 2 explorers → gain majority (2 of 3) → control the boat",
+            "Can sail away from opponent's destination"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Beginner Mistake: Spreading Too Thin",
+          "bullets": [
+            "Spending 1 point each on 3 distant explorers → none reaches a boat",
+            "Trying to save everyone usually saves no one"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Recovery: Prioritize High-Value Explorers",
+          "bullets": [
+            "Focus all 3 movement points on your 6 or 5-value explorer",
+            "Let low-value explorers serve as decoys",
+            "6 > three 1s"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Tile Effect: Creature Spawns",
+          "bullets": [
+            "Green-bordered tile: sea serpent spawns in that space",
+            "New creatures threaten nearby boats and swimmers"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Beginner Mistake: Ignoring Creature Movement",
+          "bullets": [
+            "Moving creature to empty space wastes the opportunity",
+            "You choose WHICH creature to move — think offensively"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Recovery: Use Creatures Offensively",
+          "bullets": [
+            "Sharks → opponents' swimmers",
+            "Whales → opponents' boats",
+            "Every creature roll = chance for advantage"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Beginner Mistake: Forgetting Sinking Order",
+          "bullets": [
+            "Must remove all beaches before forests, all forests before mountains",
+            "Order is strict — plan around it"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Recovery: Use the Sinking Order to Plan",
+          "bullets": [
+            "Beach explorers: urgent (sink first)",
+            "Mountain explorers: safe longer (sink last)",
+            "Prioritize rescues based on sinking urgency"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Reaching Safety",
+          "bullets": [
+            "Boat reaches corner island → all aboard are safe and score",
+            "Game continues until volcano erupts or all explorers resolved"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Key lessons: prioritize high-value, control boats, use creatures offensively",
+            "The island is doomed but your explorers don't have to be"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "What to Explore Next",
+          "bullets": [
+            "Check out General Tips → placement strategy and creature tactics",
+            "Reference the Appendix → tile effects, creature behaviors, scoring",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Remember Your High-Value Explorers",
+          "text": "Your five-point and six-point explorers are the key to winning. Before the game begins, make a mental note of exactly where you placed them. Use a memory trick if you need one. Some players place their highest-value explorers near a specific landmark or in a pattern. Once the game starts, prioritize saving these explorers above all others.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Get on Boats Early",
+          "text": "Swimming is a death sentence in most situations. Sharks and sea serpents kill swimmers instantly. The earlier you get your explorers onto boats, the safer they are. Even if a boat is heading in the wrong direction, it is better than being a swimmer. You can always contest boat control later by loading more explorers on board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Control Boats Through Majority",
+          "text": "The player with the most explorers on a boat controls where it goes. This means having two explorers on a three-person boat gives you absolute control. You can sail the boat to your preferred corner island, even if the third passenger wanted to go somewhere else. Load your explorers onto boats strategically to ensure you have majority.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Use Creature Movement Offensively",
+          "text": "When you roll the creature die, you choose which specific creature of that type to move. This is not random. Send sharks toward opponents' swimmers. Send whales toward opponents' boats. Move sea serpents toward crowded areas where opponents have explorers. Every creature roll is an opportunity to thin the competition while your own explorers escape.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Sink Tiles Strategically",
+          "text": "When you remove a land tile, choose one that hurts your opponents the most. Sinking a tile under an opponent's explorer forces them into the water as a swimmer. If there is a shark or sea serpent nearby, that swimmer is in serious danger. Conversely, try to leave your own explorers' tiles intact as long as possible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Plan Around the Sinking Order",
+          "text": "Beaches sink first, then forests, then mountains. This means beach explorers are in the most immediate danger. Focus your early movement on rescuing beach explorers or getting them to higher ground. Mountain explorers have the luxury of time but will eventually need an escape route. Do not forget that the volcano erupts when the last mountain is removed, ending the game instantly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Placement Strategy",
+          "text": "During setup, place your high-value explorers near boats and near corner islands. Place your low-value ones in the interior as decoys. Your opponents do not know which of your meeples is your six, so they may waste creature attacks on your one-point explorers. Strategic placement can save you movement points throughout the entire game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Sacrifice Low-Value Explorers",
+          "text": "Do not try to save everyone. Your three one-point explorers are worth a combined total of three points, which is less than your single four-point explorer. Use low-value explorers as blockers, decoys, or boat fillers to deny opponents boat control. A low-value explorer swimming near a shark draws attacks away from your more valuable pieces.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Remember Your High-Value Explorers",
+          "bullets": [
+            "Memorize where your 5 and 6-value explorers are placed",
+            "Use memory tricks (placement patterns, landmarks)",
+            "Prioritize rescuing these above all others"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Get on Boats Early",
+          "bullets": [
+            "Swimming = death by sharks/serpents",
+            "Even a wrong-direction boat > being a swimmer",
+            "Contest control later by loading more explorers"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Control Boats Through Majority",
+          "bullets": [
+            "2 of your explorers on a 3-person boat = you control it",
+            "You choose the boat's direction, not other passengers",
+            "Load explorers strategically for majority"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Use Creature Movement Offensively",
+          "bullets": [
+            "You choose WHICH creature to move — not random",
+            "Sharks → swimmers, Whales → boats, Serpents → crowded areas",
+            "Every roll = opportunity to thin competition"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Sink Tiles Strategically",
+          "bullets": [
+            "Remove tiles under opponents' explorers to create swimmers",
+            "Pair with nearby creatures for combo kills",
+            "Protect your own explorers' tiles"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Plan Around the Sinking Order",
+          "bullets": [
+            "Beach explorers: urgent rescue priority",
+            "Mountain explorers: safe longest but need escape route",
+            "Volcano erupts when last mountain removed → game over"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Placement Strategy",
+          "bullets": [
+            "High-value explorers near boats and corner islands",
+            "Low-value in interior as decoys",
+            "Opponents don't know which meeple is your 6"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Sacrifice Low-Value Explorers",
+          "bullets": [
+            "Three 1-point explorers < one 4-point explorer",
+            "Use low-value as blockers, decoys, or boat fillers",
+            "Draw creature attacks toward expendables"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Deception Through Placement",
+          "text": "Your opponents cannot see the numbers on your meeples. Use this to your advantage by placing some low-value explorers near prime escape routes. When opponents see you aggressively rescuing certain explorers, they will assume those are your high-value pieces. In reality, your six might be quietly sitting on a mountain tile, waiting to be rescued later when attention shifts elsewhere.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Boat Hijacking",
+          "text": "If an opponent has one explorer on a boat, load two of yours onto it. You now control the boat and can sail it to your preferred corner island. This is especially effective when your opponent's explorer is their high-value piece. They are stuck on your boat going where you want. If they complain, remind them that a ride to the wrong island is still better than swimming with sharks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Creature Combo Attacks",
+          "text": "The most devastating plays combine tile sinking with creature movement. Sink a tile under an opponent's explorer to create a swimmer. Then roll the creature die and, if you get a shark or serpent, move one into that swimmer's space. Even if the die does not cooperate, the swimmer is vulnerable for the next player's creature roll. Positioning creatures near high-traffic areas maximizes your chances.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Whirlpool Awareness",
+          "text": "Whirlpool tiles are the most destructive immediate effects in the game. When a whirlpool triggers, all explorers and boats in adjacent spaces are destroyed. This means a single tile flip can eliminate multiple explorers from multiple players. Pay attention to which tiles might be whirlpools. Avoid clustering your boats near unflipped tiles, especially in the forest and mountain tiers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Endgame Mountain Strategy",
+          "text": "Mountains sink last, which means explorers on mountains have the most time. An advanced strategy is to place your six-point explorer on a mountain tile during setup. While everyone else scrambles to rescue beach explorers, your VIP waits safely on high ground. When the beaches and forests are gone, use boats to extract your mountain explorer with less competition on the water.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Saved Tile Timing",
+          "text": "Red-bordered saved tiles are powerful but timing matters. A dolphin tile that moves your swimmer three spaces safely is best used when your high-value explorer is stranded. A creature removal tile is most valuable when a sea serpent threatens your boat carrying three explorers. Hold saved tiles until the effect will create maximum value, not just any value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reading Opponents",
+          "text": "Watch which explorers your opponents prioritize rescuing. If someone is spending all three movement points on a single explorer and passing on others, that is likely their high-value piece. Direct creatures toward those priority explorers. Similarly, if an opponent seems indifferent to a certain explorer, it is probably a low-value decoy. Do not waste creature attacks on decoys.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Controlling the Pace",
+          "text": "The game ends when the last mountain is removed. If you have already rescued your high-value explorers, you can accelerate the game by choosing which tiles to remove strategically. Conversely, if you still need time, leave mountain tiles intact and remove less critical tiles from the edges. Controlling the pace of the island's destruction is a subtle but powerful advantage.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Deception Through Placement",
+          "bullets": [
+            "Place low-value explorers on prime routes as decoys",
+            "Let opponents assume your heavily-rescued pieces are high-value",
+            "Hide your 6 on a mountain for quiet late-game rescue"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Boat Hijacking",
+          "bullets": [
+            "Load 2 explorers onto opponent's 1-explorer boat → gain control",
+            "Force boat toward your corner island, not theirs",
+            "Especially effective when opponent's piece is high-value"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Creature Combo Attacks",
+          "bullets": [
+            "Sink tile → create swimmer → move creature into swimmer's space",
+            "Position creatures near high-traffic areas for combo setups",
+            "Even if die doesn't cooperate, swimmer is vulnerable to next player"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Whirlpool Awareness",
+          "bullets": [
+            "Whirlpools destroy everything in adjacent spaces",
+            "Avoid clustering boats near unflipped tiles",
+            "Single whirlpool can eliminate multiple explorers from multiple players"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Endgame Mountain Strategy",
+          "bullets": [
+            "Place 6-value explorer on mountain during setup",
+            "Mountains sink last → VIP waits safely on high ground",
+            "Extract via boat when competition for water routes has cleared"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Saved Tile Timing",
+          "bullets": [
+            "Hold saved tiles for maximum-value moments",
+            "Dolphin: save stranded high-value swimmer",
+            "Creature removal: protect boat carrying 3 explorers"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading Opponents",
+          "bullets": [
+            "Watch which explorers opponents prioritize → likely high-value",
+            "Target priority explorers with creatures",
+            "Ignore low-value decoys"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Controlling the Pace",
+          "bullets": [
+            "VIPs safe → accelerate sinking to end game before opponents rescue",
+            "Still need time → leave mountains, remove edge tiles",
+            "Control destruction pace = subtle but powerful advantage"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {"term": "Explorer", "definition": "A player meeple with a hidden point value (one to six) on its bottom. Explorers must reach corner islands to score their hidden value. Each player has ten explorers.", "category": "Components"},
+        {"term": "Hidden Value", "definition": "The number on the bottom of each explorer meeple, ranging from one to six. Distribution per player: one six, one five, one four, two threes, two twos, three ones. Cannot be checked after placement.", "category": "Components"},
+        {"term": "Boat", "definition": "Token that carries up to three explorers from any players. Controlled by the player with the most explorers aboard. Delivers all passengers to safety when reaching a corner island.", "category": "Components"},
+        {"term": "Corner Island", "definition": "One of four safe destinations at the board corners. An explorer reaching a corner island is permanently safe and scores their hidden point value at game end.", "category": "Components"},
+        {"term": "Beach Tile", "definition": "The lightest-colored land tiles forming the outer ring of Atlantis. Must be removed first during the sinking phase. Beach explorers are in the most immediate danger.", "category": "Land Tiles"},
+        {"term": "Forest Tile", "definition": "Medium-shaded land tiles forming the middle ring. Removed after all beaches are gone. Provide moderate time for evacuation.", "category": "Land Tiles"},
+        {"term": "Mountain Tile", "definition": "The darkest land tiles at the center of the island. Removed last, after all forests. The last mountain removal triggers the volcano and ends the game.", "category": "Land Tiles"},
+        {"term": "Volcano", "definition": "The central tile of Atlantis. When the last mountain tile is removed, the volcano erupts and the game ends immediately. All explorers not on corner islands are lost.", "category": "Land Tiles"},
+        {"term": "Sea Serpent", "definition": "The most dangerous creature. Moves one space. Destroys boats and eats all swimmers in its space. Five sea serpents in the game.", "category": "Creatures"},
+        {"term": "Shark", "definition": "A creature that eats swimmers but ignores boats. Moves one to two spaces. Six sharks in the game.", "category": "Creatures"},
+        {"term": "Whale", "definition": "A creature that destroys boats, turning passengers into swimmers, but does not eat swimmers. Moves one to three spaces. Five whales in the game.", "category": "Creatures"},
+        {"term": "Creature Die", "definition": "Rolled at the end of each turn to determine which creature type you must move. You choose which specific creature of that type to move.", "category": "Components"},
+        {"term": "Swimmer", "definition": "An explorer in the water without a boat. Moves one space per movement point. Extremely vulnerable to sharks and sea serpents.", "category": "Movement"},
+        {"term": "Movement Points", "definition": "Three points per turn, spent across your explorers. Land-to-land: one point, swimming: one point, boat movement: one point per space.", "category": "Movement"},
+        {"term": "Boat Control", "definition": "The player with the most explorers on a boat controls it. Tied players: active player controls if tied. Controls decide where the boat moves.", "category": "Mechanics"},
+        {"term": "Sinking Order", "definition": "The mandatory order for removing land tiles: all beaches first, then all forests, then all mountains. You choose which specific tile within the current tier.", "category": "Mechanics"},
+        {"term": "Immediate Effect", "definition": "A tile effect with a green border that resolves immediately when flipped. Examples: spawn a creature, place a new boat, trigger a whirlpool.", "category": "Tile Effects"},
+        {"term": "Saved Effect", "definition": "A tile effect with a red border that you keep and can play at the start of a future turn. Examples: dolphin movement, extra boat movement, creature removal.", "category": "Tile Effects"},
+        {"term": "Whirlpool", "definition": "An immediate tile effect that destroys all explorers and boats in adjacent spaces. One of the most devastating events in the game.", "category": "Tile Effects"},
+        {"term": "Dolphin", "definition": "A saved tile effect that lets one of your swimmers move three spaces safely, ignoring creatures. Best used on high-value stranded explorers.", "category": "Tile Effects"},
+        {"term": "Player Elimination", "definition": "If all of a player's explorers are destroyed or safe, that player continues taking turns (removing tiles and rolling creature die) to influence the game.", "category": "Mechanics"},
+        {"term": "Scoring", "definition": "At game end, flip surviving explorers. Add up hidden values. Highest total wins. Tiebreaker: player with the single most valuable surviving explorer.", "category": "Scoring"}
+      ]
+    }
+  }
+}

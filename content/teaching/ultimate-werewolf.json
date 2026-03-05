@@ -1,0 +1,952 @@
+{
+  "game_id": "ultimate-werewolf",
+  "title": "Ultimate Werewolf",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gather Your Group",
+          "text": "Let's set up a game of Ultimate Werewolf! Everyone sits in a circle or around a table where you can all see each other. One player volunteers to be the Moderator, who runs the game but does not play a role. The Moderator needs to be able to see all players and reach them for silent communication during the night phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Roles for the Group Size",
+          "text": "The Moderator selects role cards based on the player count. A good rule of thumb is one Werewolf for every four to five players. For a twelve-player game, use two or three Werewolves, one Seer, one Doctor, and fill the rest with Villagers. You can add fun optional roles like the Hunter, Witch, or Tanner once everyone is comfortable with the basics.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Announce Which Roles Are in Play",
+          "text": "Before dealing, the Moderator should tell everyone which roles are included in this game. For example, you might say there are two Werewolves, one Seer, one Doctor, one Hunter, and seven Villagers. This gives everyone context for their deductions without revealing who has which role. It is optional but recommended for newer groups.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Role Cards",
+          "text": "The Moderator shuffles the selected role cards and deals one face down to each player. Pick up your card and look at it secretly. Memorize your role and place the card face down in front of you. Do not show it to anyone. Your role determines your team, your abilities, and your win condition. Keep a straight face!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Designate the Elimination Area",
+          "text": "Set aside a space near the circle where eliminated players can sit and observe. Eliminated players must remain completely silent and cannot influence the game in any way. They are welcome to watch and enjoy the drama, but no talking, gesturing, or reacting to what they know. This is critical for fair play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Moderator's Night Script",
+          "text": "The Moderator should have the night phase order ready, either memorized or on a reference card. The standard order is: all close eyes, Werewolves wake and choose a target, Seer wakes and investigates, Doctor wakes and protects, then any additional roles. Having a smooth script keeps the night phase quick and prevents accidental reveals.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Run the First Night",
+          "text": "The Moderator calls for everyone to close their eyes. Then the Moderator calls each role in order. Werewolves open their eyes, see each other, and silently choose a victim by pointing. The Seer opens their eyes and points to a player to investigate. The Doctor opens their eyes and points to someone to protect. After all roles have acted, the Moderator resolves the night and announces the results. The first day begins!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gather Your Group",
+          "bullets": [
+            "Sit in a circle — everyone must see each other",
+            "1 player = Moderator (runs game, does not play a role)"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Roles for the Group Size",
+          "bullets": [
+            "~1 Werewolf per 4-5 players",
+            "12 players: 2-3 Werewolves, Seer, Doctor, rest Villagers",
+            "Add optional roles (Hunter, Witch, Tanner) after learning basics"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Announce Which Roles Are in Play",
+          "bullets": [
+            "Moderator lists all included roles (not who has them)",
+            "Gives context for deduction — recommended for newer groups"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Role Cards",
+          "bullets": [
+            "Shuffle and deal 1 card face down to each player",
+            "Look secretly, memorize, place face down — tell no one"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Designate the Elimination Area",
+          "bullets": [
+            "Space for eliminated players to observe silently",
+            "No talking, gesturing, or reacting — critical for fair play"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Prepare the Moderator's Night Script",
+          "bullets": [
+            "Night order: Werewolves → Seer → Doctor → other roles",
+            "Smooth script prevents accidental reveals"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Run the First Night",
+          "bullets": [
+            "All close eyes → Werewolves identify each other + choose victim",
+            "Seer investigates → Doctor protects → Moderator resolves",
+            "Announce results → first day begins"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Ultimate Werewolf is a social deduction game where a secret team of Werewolves hides among the Villagers. Each night, the Werewolves secretly kill a player. Each day, the village debates and votes to eliminate someone they suspect is a Werewolf. The Villagers win by eliminating all Werewolves. The Werewolves win when they equal or outnumber the remaining Villagers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Night Phase",
+          "text": "The Moderator calls for everyone to close their eyes and begin tapping the table to mask sounds. The Moderator then wakes each role in order. Werewolves open their eyes, silently agree on a victim by pointing, then close their eyes. The Seer opens their eyes and points to one player to investigate. The Moderator gives a thumbs up for Werewolf or thumbs down for not. The Doctor opens their eyes and points to one player to protect.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Resolving the Night",
+          "text": "After all night roles have acted, the Moderator resolves the results. If the Werewolves targeted a player and the Doctor did not protect them, that player is killed. If the Doctor saved the target, no one dies. The Moderator then announces morning. Any killed player reveals their role card and is permanently eliminated from the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Day Phase: Discussion",
+          "text": "During the day, all surviving players discuss openly. This is where the real game happens. Accuse, defend, argue, bluff, and read body language. Werewolves pretend to be Villagers. The Seer may reveal information or keep it secret. Everyone lies, tells the truth, or stays quiet, and the village must figure out who to trust. There is no wrong way to discuss.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Day Phase: Voting",
+          "text": "Any player may nominate another player for elimination. The nominated player gets a chance to defend themselves. Then the group votes by show of hands. A majority vote eliminates the nominated player, who reveals their role card and leaves the game. After at most one elimination per day, the Moderator calls for night. Some groups allow skipping the vote if no consensus is reached.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Seer's Power",
+          "text": "The Seer is the Villagers' most powerful role. Each night, the Seer learns whether one player is a Werewolf or not. This information is incredibly valuable but comes with a risk. If the Seer reveals themselves publicly, the Werewolves will almost certainly target them the next night. The Seer must decide when sharing information outweighs the risk of being killed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Doctor's Protection",
+          "text": "Each night, the Doctor chooses one player to protect from the Werewolves' kill. If the Doctor protects the Werewolves' target, that player survives and no one dies that night. The Doctor does not know who the Werewolves targeted, so it is a blind guess. Many groups rule that the Doctor cannot protect themselves on consecutive nights to prevent guaranteed survival.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Hunter's Revenge",
+          "text": "When the Hunter is eliminated by any means, whether by Werewolf kill at night or village vote during the day, the Hunter immediately names one other player to kill. That player is also eliminated and reveals their role. This makes the Hunter a risky target for Werewolves because killing the Hunter could cost them a teammate if the Hunter guesses right.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Elimination and Role Reveals",
+          "text": "When a player is eliminated, they flip their role card face up so everyone can see what role was lost. This information is public and helps the remaining players with their deductions. Eliminated players must remain completely silent. They cannot speak, gesture, or react to anything that happens. Dead players giving hints breaks the game for everyone.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Werewolf Win Condition",
+          "text": "The Werewolves win immediately when the number of living Werewolves equals or exceeds the number of living non-Werewolves. This is called parity. For example, if there are two Werewolves and two Villagers left, the Werewolves win. This check happens after every elimination, whether day or night. The village must eliminate Werewolves before parity is reached.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Villager Win Condition",
+          "text": "The Villagers win when every Werewolf has been eliminated. This can happen through day votes, the Hunter's revenge kill, or the Witch's poison. Once the last Werewolf is gone, the village is safe and all surviving Villager-team players share the victory. After either team wins, all remaining players reveal their roles for a fun debrief discussion.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Werewolves hide among Villagers; kill 1 player each night",
+            "Village debates and votes to eliminate 1 player each day",
+            "Villagers win: all Werewolves eliminated. Werewolves win: reach parity"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "The Night Phase",
+          "bullets": [
+            "All close eyes → table tapping masks sounds",
+            "Werewolves wake → point to victim → close eyes",
+            "Seer investigates 1 player → Doctor protects 1 player"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Resolving the Night",
+          "bullets": [
+            "Werewolf target not protected → killed, reveal role, eliminated",
+            "Doctor saved target → no one dies",
+            "Moderator announces morning"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "The Day Phase: Discussion",
+          "bullets": [
+            "Open discussion: accuse, defend, bluff, read body language",
+            "Werewolves pretend to be Villagers",
+            "No wrong way to discuss — lies and truth both welcome"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "The Day Phase: Voting",
+          "bullets": [
+            "Any player nominates another → defense → majority vote",
+            "Majority = eliminated (reveal role card, leave game)",
+            "At most 1 elimination per day → night begins"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Seer's Power",
+          "bullets": [
+            "Learns if 1 player is Werewolf or not each night",
+            "Revealing publicly = Werewolves will target you next",
+            "Balance info sharing vs. survival risk"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "The Doctor's Protection",
+          "bullets": [
+            "Protects 1 player from Werewolf kill each night (blind guess)",
+            "Can't self-protect on consecutive nights (common rule)",
+            "Correct guess → no one dies that night"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "The Hunter's Revenge",
+          "bullets": [
+            "When eliminated → immediately names 1 player to kill",
+            "Risky Werewolf target — could cost them a teammate"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Elimination and Role Reveals",
+          "bullets": [
+            "Eliminated player reveals role card face up — public info",
+            "Dead players must remain completely silent — no hints"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Werewolf Win Condition",
+          "bullets": [
+            "Parity: Werewolves ≥ non-Werewolves → Werewolves win immediately",
+            "Checked after every elimination (day or night)"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Villager Win Condition",
+          "bullets": [
+            "All Werewolves eliminated → Village wins",
+            "Can happen via day votes, Hunter revenge, or Witch poison",
+            "All reveal roles for debrief after game ends"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Village",
+          "text": "Welcome to your first game of Ultimate Werewolf! We are going to walk through two full day-night cycles of a twelve-player game. Our Moderator is Morgan. The twelve players have been dealt their roles: two Werewolves, one Seer, one Doctor, one Hunter, and seven Villagers. Nobody knows anyone else's role yet. Follow along even with a different group size.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Night One: Werewolves Identify Each Other",
+          "text": "Morgan calls for everyone to close their eyes. Then Morgan says, Werewolves, open your eyes. Two players, Alex and Sam, open their eyes and see each other. They now know who their teammate is. They silently point at a player named Jordan as their first victim. Morgan nods, and the Werewolves close their eyes. This is the only time all game the Werewolves communicate silently and directly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Night One: Seer and Doctor Act",
+          "text": "Morgan calls for the Seer to wake. The Seer, Riley, opens their eyes and points at a player named Casey. Morgan gives a thumbs down, meaning Casey is not a Werewolf. Riley closes their eyes. Then Morgan calls the Doctor. The Doctor, Taylor, opens their eyes and points at a random player to protect. Unfortunately, Taylor protects someone other than Jordan. Jordan will not survive the night.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Day One Begins",
+          "text": "Morgan announces that Jordan did not survive the night. Jordan flips their card, revealing Villager. The village has lost one ally. Now the discussion begins. Everyone is talking at once, trying to figure out who the Werewolves are. Some players are quiet, some are loud, and the Werewolves are doing their best to blend in.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Mistake One: The Seer Reveals Too Early",
+          "text": "Riley, the Seer, is excited about knowing that Casey is innocent. Riley immediately announces to the whole group: I am the Seer, and I checked Casey last night. Casey is not a Werewolf! The village now has confirmed information, but Riley has also painted a giant target on themselves. Alex and Sam, the Werewolves, mentally note to kill Riley tonight.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Protect Your Information Roles",
+          "text": "The Seer should gather two or three nights of investigation data before revealing their role. Once the Seer is known, the Werewolves will kill them immediately. Alternatively, another player can claim to be the Seer as a decoy to draw fire. If the Seer must reveal early, the Doctor should prioritize protecting them on subsequent nights. Information is power, but only if you survive to share it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Day One: The First Vote",
+          "text": "Discussion heats up. Several players suspect a quiet player named Pat. Pat defends themselves nervously. Alex, one of the Werewolves, joins the accusations against Pat to deflect attention from themselves. The village votes, and Pat is eliminated with a slim majority. Pat flips their card, revealing Villager. The village got it wrong. Two Villagers are gone after just one full cycle.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Night Two: Werewolves Strike the Seer",
+          "text": "As expected, Alex and Sam target Riley, the revealed Seer. The Doctor, Taylor, faces a tough choice. Should Taylor protect Riley, the obvious target? Taylor decides to protect Riley, guessing that the Werewolves will go for the known Seer. Morgan resolves the night. The Werewolves targeted Riley, and the Doctor saved Riley! No one dies tonight. A perfect save.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Day Two Discussion",
+          "text": "Morgan announces that no one died last night. The village erupts. The Doctor saved someone! But who? Taylor stays quiet, not wanting to reveal their Doctor role. Riley, still alive, now has another night's investigation to share. Riley checked Alex last night and got a thumbs up. Riley knows Alex is a Werewolf! But should Riley share this information immediately and risk being killed again tonight?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Mistake Two: Werewolves Defending Each Other",
+          "text": "Riley accuses Alex of being a Werewolf. Sam, the other Werewolf, immediately jumps to Alex's defense, saying Alex has been helpful all game and the accusation is baseless. But the vigor of Sam's defense is suspicious. Why does Sam care so much about Alex? Another player points out the connection, and suddenly both Alex and Sam are under suspicion. Werewolves defending each other too aggressively is a classic tell.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Werewolves Should Sometimes Let Allies Fall",
+          "text": "If you are a Werewolf and your teammate is being accused, resist the urge to rush to their defense. Defending them too strongly links you together in other players' minds. Sometimes the best Werewolf play is to let your ally be voted out to build personal credibility. One surviving Werewolf who is trusted by the village is more dangerous than two Werewolves who are both under suspicion.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Mistake Three: Voting Without Evidence",
+          "text": "Despite Riley's investigation, some players ignore the information and push to eliminate a different player named Quinn based on a gut feeling. Quinn has been quiet, which some players read as suspicious. The village splits between voting for Alex, who the Seer identified, and Quinn, who just seems suspicious. The vote is chaotic and nearly goes to Quinn instead of the confirmed Werewolf.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Trust Confirmed Information Over Gut Feelings",
+          "text": "When the Seer provides confirmed information about a player's identity, that evidence should carry more weight than vague suspicions. Gut feelings are useful when no hard evidence exists, but ignoring the Seer's investigation to chase a hunch wastes the village's most powerful resource. Vote based on the best available information, not the loudest voice in the room.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "The Vote Resolves",
+          "text": "The village ultimately votes to eliminate Alex based on Riley's Seer investigation. Alex flips their card, revealing Werewolf! The village cheers. One Werewolf down, one to go. Sam, the remaining Werewolf, needs to play very carefully from here. The game continues with heightened tension as the village hunts for the last Werewolf.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "text": "Congratulations! You have just experienced the core drama of Ultimate Werewolf. You saw how the Seer's information drives the village's deductions, why protecting information roles is crucial, how Werewolves can expose themselves through defensive behavior, and why evidence-based voting outperforms gut feelings. The social tension and deception are what make this game unforgettable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Gather Your Village",
+          "text": "Before you start your own game, here are three things that can help.\n\nFirst, check out General Tips for strategies on both the Village and Werewolf sides.\n\nSecond, reference the Appendix for a quick guide to all roles, win conditions, and night phase order.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. The village needs you!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Village",
+          "bullets": [
+            "12-player tutorial: 2 Werewolves, Seer, Doctor, Hunter, 7 Villagers",
+            "Covers 2 full day-night cycles with common mistakes"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Night One: Werewolves Identify Each Other",
+          "bullets": [
+            "Alex and Sam (Werewolves) see each other, choose Jordan as victim",
+            "Silent pointing + nod from Moderator"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Night One: Seer and Doctor Act",
+          "bullets": [
+            "Seer (Riley) checks Casey → not a Werewolf",
+            "Doctor (Taylor) protects wrong player → Jordan dies"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Day One Begins",
+          "bullets": [
+            "Jordan revealed as Villager — village lost an ally",
+            "Open discussion begins — accusations and defenses fly"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Mistake One: The Seer Reveals Too Early",
+          "bullets": [
+            "Riley announces Seer role publicly on Day 1",
+            "Werewolves immediately plan to kill Riley tonight"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Protect Your Information Roles",
+          "bullets": [
+            "Seer should gather 2-3 nights of data before revealing",
+            "Decoy Seer claims can draw Werewolf fire",
+            "Doctor should protect known Seer on subsequent nights"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Day One: The First Vote",
+          "bullets": [
+            "Village votes out Pat (quiet player) → revealed as Villager",
+            "Wrong elimination — 2 Villagers lost after 1 cycle"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Night Two: Werewolves Strike the Seer",
+          "bullets": [
+            "Werewolves target Riley → Doctor saves Riley → no one dies!",
+            "Perfect save by the Doctor"
+          ],
+          "image": null
+        },
+        {
+          "step": 9,
+          "title": "Day Two Discussion",
+          "bullets": [
+            "Riley survived and checked Alex → confirmed Werewolf",
+            "Riley must decide whether to share this info immediately"
+          ],
+          "image": null
+        },
+        {
+          "step": 10,
+          "title": "Mistake Two: Werewolves Defending Each Other",
+          "bullets": [
+            "Sam aggressively defends Alex → links them together",
+            "Both now under suspicion — classic Werewolf tell"
+          ],
+          "image": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Werewolves Should Sometimes Let Allies Fall",
+          "bullets": [
+            "Don't rush to defend your Werewolf partner",
+            "Letting an ally be voted out builds personal credibility",
+            "1 trusted Werewolf > 2 suspicious Werewolves"
+          ],
+          "image": null
+        },
+        {
+          "step": 12,
+          "title": "Mistake Three: Voting Without Evidence",
+          "bullets": [
+            "Some players push to eliminate Quinn based on gut feeling",
+            "Nearly override Seer's confirmed investigation of Alex"
+          ],
+          "image": null
+        },
+        {
+          "step": 13,
+          "title": "Lesson: Trust Confirmed Information Over Gut Feelings",
+          "bullets": [
+            "Seer investigations = hard evidence → should outweigh hunches",
+            "Vote on best available info, not the loudest voice"
+          ],
+          "image": null
+        },
+        {
+          "step": 14,
+          "title": "The Vote Resolves",
+          "bullets": [
+            "Village votes out Alex → confirmed Werewolf! 1 down, 1 to go",
+            "Sam must play carefully as the remaining Werewolf"
+          ],
+          "image": null
+        },
+        {
+          "step": 15,
+          "title": "Congratulations",
+          "bullets": [
+            "Key lessons: protect info roles, don't over-defend allies, trust evidence",
+            "Social tension and deception are the heart of the game"
+          ],
+          "image": null
+        },
+        {
+          "step": 16,
+          "title": "Gather Your Village",
+          "bullets": [
+            "Check out General Tips → Village and Werewolf strategies",
+            "Reference the Appendix → all roles, win conditions, night phase order",
+            "Ask your personal GM Guide → tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Pay Attention to Behavior, Not Just Words",
+          "text": "The most important skill in Werewolf is reading people. Watch for changes in behavior between day and night. Does someone seem more relaxed after a night kill? Is someone unusually aggressive in accusing others? Body language, eye contact, and nervous habits reveal more than words. The best deductions come from observing how people act, not just what they say.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Track Eliminations Carefully",
+          "text": "Keep a mental list of every eliminated player and their revealed role. If two Werewolves are in the game and one has been eliminated, you know exactly one remains. If the Seer has been killed, the village has lost its investigation ability. This role-tracking narrows the possibilities and helps you figure out which remaining players could be Werewolves. It is simple bookkeeping that most beginners forget to do.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Villagers: Vote With Purpose",
+          "text": "Random eliminations hurt the village far more than they hurt the Werewolves. With twelve players, two of whom are Werewolves, a random vote has roughly an eighty-three percent chance of hitting a Villager. Use day discussion to build a case based on behavioral reads, Seer information, and voting patterns. If no consensus exists, consider skipping the elimination rather than guessing randomly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Werewolves: Target Information Roles First",
+          "text": "As a Werewolf, your highest priority targets at night are the Seer and the Doctor. The Seer will eventually identify you, and the Doctor can block your kills. If you are not sure who has these roles, watch for players who seem to know too much or who advocate saving specific players. Eliminating information roles early keeps the village blind and disorganized.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Werewolves: Do Not Vote as a Block",
+          "text": "If both Werewolves always vote the same way, observant players will notice the correlation. Vary your votes. Sometimes vote with the majority, sometimes dissent. Occasionally let your Werewolf partner face a vote without defending them. The goal is to look like two independent Villagers, not a coordinated team. Break patterns at every opportunity.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Seer: Manage Your Reveal Timing",
+          "text": "The single biggest decision for the Seer is when to reveal. Revealing early shares critical information but makes you the immediate Werewolf target. Revealing late accumulates more data but risks dying before sharing any of it. A good middle ground is to reveal after two or three investigations, ideally when you have confirmed at least one Werewolf. Have someone else claim Seer first as a decoy if possible.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Doctor: Vary Your Protection",
+          "text": "Do not always protect the same player. If Werewolves figure out your protection pattern, they will simply target someone else. Alternate between protecting the Seer, protecting yourself, and protecting players who are leading the village discussion. Unpredictable protection is harder for Werewolves to work around and increases your chances of making a save.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Common Mistakes to Avoid",
+          "text": "Here are the biggest beginner mistakes in one place. Seer revealing on Day one before gathering enough information. Doctor always self-protecting instead of saving key roles. Villagers voting randomly on Day one with no evidence. Werewolves aggressively defending each other when accused. Dead players giving away information through facial reactions. And the Moderator accidentally hinting at roles through pacing or body language during the night phase.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Pay Attention to Behavior",
+          "bullets": [
+            "Watch body language, eye contact, nervous habits",
+            "Behavior changes between day and night reveal hidden info"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Track Eliminations Carefully",
+          "bullets": [
+            "Mental list: eliminated players + revealed roles",
+            "Narrows remaining possibilities for who could be Werewolves"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Villagers: Vote With Purpose",
+          "bullets": [
+            "Random vote = ~83% chance of hitting a Villager",
+            "Build cases from behavior, Seer info, and voting patterns",
+            "Consider skipping elimination if no consensus"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Werewolves: Target Information Roles First",
+          "bullets": [
+            "Kill Seer and Doctor ASAP — they threaten your survival",
+            "Watch for players who seem to know too much"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Werewolves: Do Not Vote as a Block",
+          "bullets": [
+            "Vary your votes — don't always vote with your partner",
+            "Look like 2 independent Villagers, not a coordinated team"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Seer: Manage Your Reveal Timing",
+          "bullets": [
+            "Reveal after 2-3 investigations, ideally with a confirmed Werewolf",
+            "Too early = instant target; too late = info dies with you"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Doctor: Vary Your Protection",
+          "bullets": [
+            "Don't always protect the same player — be unpredictable",
+            "Alternate between Seer, self, and discussion leaders"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Common Mistakes to Avoid",
+          "bullets": [
+            "Seer revealing Day 1 before gathering info",
+            "Doctor only self-protecting, ignoring key roles",
+            "Werewolves defending each other too aggressively",
+            "Dead players reacting to reveals and giving hints"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Fake Seer Gambit",
+          "text": "A powerful Village strategy is for a non-Seer Villager to falsely claim they are the Seer. This draws the Werewolves' attention to the fake Seer, protecting the real one. The real Seer continues investigating in secret while the decoy absorbs the heat. The risk is that the village might vote out the fake Seer if their fake investigations contradict reality. Coordinate this play carefully.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Voting Pattern Analysis",
+          "text": "Advanced players track how everyone votes over multiple days. Werewolves tend to avoid voting for each other. If two players never vote against each other across three or more votes, that correlation is worth investigating. Similarly, watch who pushes hardest for eliminating confirmed Villagers versus who advocates caution. Voting patterns are harder to fake than words.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Werewolf: The Bus Strategy",
+          "text": "Bussing means a Werewolf deliberately votes to eliminate their own teammate to build credibility. If your Werewolf partner is under heavy suspicion and likely to be voted out anyway, voting with the majority makes you look like a concerned Villager. You lose a teammate but gain the trust of the village, which is often worth more in the long run. The surviving Werewolf with village trust is the deadliest player in the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Werewolf: Claim a Role Strategically",
+          "text": "If challenged, claiming to be a basic Villager is the safest default. But advanced Werewolves sometimes claim to be the Doctor or Hunter to create confusion. Claiming Doctor makes the village hesitant to eliminate you because losing the Doctor hurts the village. Claiming Hunter deters Werewolves on your own team from sacrificing you. These claims are risky but can buy crucial extra days.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Night Kill Target Selection",
+          "text": "Beyond targeting information roles, advanced Werewolves consider killing the most vocal and organized Village leader. A player who is rallying the village, building consensus, and driving accurate votes is more dangerous than a quiet Seer who has not revealed yet. Silencing the village organizer creates confusion and slows the village's decision-making process dramatically.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Tanner Meta-Game",
+          "text": "When the Tanner role is in play, it changes the dynamic entirely. The Tanner wins if the village votes them out, which means the village must be careful about eliminating suspicious players. A player acting obviously suspicious might be a Tanner baiting the village into giving them the win. Advanced players learn to distinguish between genuine Werewolf suspicion and Tanner-bait behavior.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Moderator Tips for Smooth Games",
+          "text": "Great moderation makes or breaks the Werewolf experience. Keep the night phase consistent in timing. Call each role even if that role has been eliminated to prevent information leaks. Use background noise or table tapping to mask sounds. During the day, set a timer to keep discussion focused. End the game with a full role reveal and debrief session where everyone discusses their reasoning. The debrief is often the best part of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Scaling for Large Groups",
+          "text": "Werewolf scales beautifully to large groups of twenty or more players. With larger groups, add more special roles to give people interesting abilities. Consider using discussion timers of five to seven minutes to keep the game moving. Multiple nominations per day can speed up larger games. In very large games with thirty-plus players, you can run multiple Werewolf packs that do not know each other, creating a three-way conflict that adds a fascinating layer of chaos.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Fake Seer Gambit",
+          "bullets": [
+            "Non-Seer claims Seer to draw Werewolf attacks",
+            "Real Seer investigates in secret while decoy absorbs heat"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Voting Pattern Analysis",
+          "bullets": [
+            "Track who never votes against each other → possible Werewolf pair",
+            "Voting patterns harder to fake than words"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Werewolf: The Bus Strategy",
+          "bullets": [
+            "Vote to eliminate your own teammate to build trust",
+            "Lose a partner, gain village credibility — often worth it"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Werewolf: Claim a Role Strategically",
+          "bullets": [
+            "Claim Doctor → village hesitant to eliminate you",
+            "Claim Hunter → deters targeting you at night",
+            "Risky but can buy crucial extra days"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Night Kill Target Selection",
+          "bullets": [
+            "Kill the most vocal Village organizer, not just info roles",
+            "Silencing the leader creates confusion and slows village decisions"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "The Tanner Meta-Game",
+          "bullets": [
+            "Tanner wins if voted out → village must be careful with suspicious players",
+            "Distinguish real Werewolf suspicion from Tanner-bait behavior"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Moderator Tips for Smooth Games",
+          "bullets": [
+            "Call every role during night (even eliminated ones) to prevent info leaks",
+            "Use timers for day discussion, background noise for night phase",
+            "End with full role reveal + debrief — often the best part"
+          ],
+          "image": null
+        },
+        {
+          "step": 8,
+          "title": "Scaling for Large Groups",
+          "bullets": [
+            "20+ players: add more special roles, use 5-7 min timers",
+            "30+ players: multiple Werewolf packs that don't know each other"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Werewolf",
+          "definition": "Evil team role. Wakes at night with other Werewolves to collectively choose one player to kill. During the day, pretends to be a Villager. Wins when Werewolves reach parity with non-Werewolves.",
+          "category": "Core Roles"
+        },
+        {
+          "term": "Villager",
+          "definition": "Good team role with no special ability. Relies on discussion, deduction, and voting to identify Werewolves. Wins when all Werewolves are eliminated.",
+          "category": "Core Roles"
+        },
+        {
+          "term": "Seer",
+          "definition": "Good team role. Each night, points to one player and learns from the Moderator whether they are a Werewolf (thumbs up) or not (thumbs down). The village's most powerful information source.",
+          "category": "Core Roles"
+        },
+        {
+          "term": "Doctor (Bodyguard)",
+          "definition": "Good team role. Each night, chooses one player to protect. If the Werewolves target that player, the kill is blocked and no one dies. Blind save — does not know who was targeted.",
+          "category": "Core Roles"
+        },
+        {
+          "term": "Hunter",
+          "definition": "Good team role. When eliminated by any means (day vote or night kill), immediately names one player to kill. Powerful deterrent against Werewolves targeting suspected Hunters.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Witch",
+          "definition": "Good team role. Has one healing potion (save tonight's victim) and one poison potion (kill any player). Each used once per game. Moderator shows who was targeted at night.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Cupid",
+          "definition": "Good team role. On the first night, links two players as lovers. If one dies, the other dies immediately. Cross-team lovers (Werewolf + Villager) can win as a pair if both survive.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Tanner",
+          "definition": "Neutral role. Wins only if the village votes the Tanner out during the day. If the Tanner wins, both Werewolves and Villagers lose. Night kills do not give the Tanner a win.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Minion",
+          "definition": "Evil team role. Knows who the Werewolves are but is not one. If killed, Werewolves are unaffected. Helps Werewolves by providing cover and deflecting suspicion.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Mayor",
+          "definition": "Good team role. The Mayor's vote counts as two during day-phase elimination votes. Doubles voting power but also makes the Mayor a potential Werewolf target.",
+          "category": "Special Roles"
+        },
+        {
+          "term": "Night Phase",
+          "definition": "Phase where all players close their eyes. Werewolves choose a victim, and special roles (Seer, Doctor, etc.) perform their actions. Moderator resolves kills and saves.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Day Phase",
+          "definition": "Phase where all surviving players discuss openly, make accusations, and vote to eliminate one player. Eliminated player reveals their role card.",
+          "category": "Game Phases"
+        },
+        {
+          "term": "Parity",
+          "definition": "Werewolf win condition. When living Werewolves equal or outnumber living non-Werewolves, Werewolves win immediately. Checked after every elimination.",
+          "category": "Win Conditions"
+        },
+        {
+          "term": "Village Victory",
+          "definition": "All Werewolves eliminated through any combination of day votes, Hunter revenge, and Witch poison. All surviving Good team players win together.",
+          "category": "Win Conditions"
+        },
+        {
+          "term": "Nomination",
+          "definition": "Any player may nominate another for elimination during the day. The nominated player speaks in defense, then the group votes by show of hands. Majority eliminates.",
+          "category": "Day Phase Actions"
+        },
+        {
+          "term": "Role Reveal",
+          "definition": "Eliminated players flip their role card face up. This public information helps surviving players with deductions. Dead players must then remain silent.",
+          "category": "Rules"
+        },
+        {
+          "term": "Moderator",
+          "definition": "The player who runs the game. Calls night phase roles, resolves kills, announces results, and manages day discussion. Does not play a role. Must remain impartial.",
+          "category": "Roles"
+        },
+        {
+          "term": "Bussing",
+          "definition": "Advanced Werewolf strategy where a Werewolf deliberately votes to eliminate their own teammate to build personal credibility with the village.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Player Count Scaling",
+          "definition": "5-8 players: 1-2 Werewolves, 1-2 special roles. 9-15: 2-3 Werewolves, 3-5 specials. 16-30: 3-5 Werewolves. 31+: 5+ Werewolves. ~1 Werewolf per 4-5 players.",
+          "category": "Setup"
+        }
+      ]
+    }
+  }
+}
