@@ -10,7 +10,7 @@ import DemoBadge from "./components/DemoBadge";
 import ProtectedRoute from "./components/ProtectedRoute";
 import GameSelector from "./components/GameSelector";
 import GameTeacher from "./components/GameTeacher";
-import LandingPage from "./components/LandingPage";
+
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import ExpiredPage from "./components/ExpiredPage";
@@ -122,7 +122,7 @@ function AppShell() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/play" element={<PlayLanding />} />
         <Route path="/expired" element={<ExpiredPage />} />
-        <Route path="/landing" element={<LandingPage />} />
+
         <Route path="/games" element={<ProtectedRoute><GameSelector /></ProtectedRoute>} />
         <Route path="/app" element={<Navigate to="/games" replace />} />
         <Route path="/game/:gameId" element={<ProtectedRoute><GameTeacher /></ProtectedRoute>} />
