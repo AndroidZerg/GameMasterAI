@@ -1,0 +1,946 @@
+{
+  "game_id": "take-5-take-a-number",
+  "title": "Take 5! & Take A Number",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Grab the Cards",
+          "text": "Open up the box and pull out the deck of 104 numbered cards. Each card shows a number from 1 to 104, and every card also has one or more bullhead symbols on it. Those bullheads are the penalty points you definitely do not want! You will also want a piece of paper and a pencil nearby for keeping score across rounds.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Shuffle and Deal",
+          "text": "Give all 104 cards a good shuffle. Then deal 10 cards face down to each player. Everyone picks up their cards and arranges them in order from lowest to highest. This sorted hand will be your best friend all game long -- it makes it much easier to plan which card to play each round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Create the Four Rows",
+          "text": "After dealing, flip the top four cards from the remaining deck face up and place them in a column in the center of the table. Each of these four cards is the starting card of its own row. Cards will be added to the right of each starting card as the game goes on, building rows of up to five cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Set Aside the Rest",
+          "text": "Put the leftover cards back in the box or off to the side -- you will not need them this round. Those mystery cards are out of play, which means nobody knows exactly which numbers are floating around the table. That uncertainty is a big part of the fun!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Understand the Bullhead Values",
+          "text": "Before you start playing, take a quick look at how bullheads work. Most cards have just 1 bullhead. Cards ending in 5 (like 5, 15, 25) have 2 bullheads. Multiples of 10 (10, 20, 30) have 3 bullheads. Doublets where both digits match (11, 22, 33) have 5 bullheads. And the dreaded 55 -- both a doublet AND ending in 5 -- has a whopping 7 bullheads. Ouch!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Ready to Play!",
+          "text": "That is the entire setup. Everyone has their 10 sorted cards, four rows are started in the center, and you know what those bullhead symbols mean. No designated first player is needed because everyone plays at the same time -- simultaneous card selection is what makes this game so fast and chaotic. Let the bull-dodging begin!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Grab the Cards",
+          "bullets": [
+            "104 numbered cards (1-104), each with 1-7 bullhead symbols",
+            "Grab paper and pencil for scoring across rounds"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Shuffle and Deal",
+          "bullets": [
+            "Shuffle all 104 cards",
+            "Deal 10 cards to each player",
+            "Sort your hand from lowest to highest"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Create the Four Rows",
+          "bullets": [
+            "Flip top 4 cards face up in the center",
+            "Each card starts its own row",
+            "Rows can hold up to 5 cards total"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Set Aside the Rest",
+          "bullets": [
+            "Remaining cards go back in the box",
+            "Unknown cards add uncertainty and fun"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Understand the Bullhead Values",
+          "bullets": [
+            "Most cards: 1 bullhead",
+            "Ends in 5 (5, 15, 25...): 2 bullheads",
+            "Multiples of 10 (10, 20, 30...): 3 bullheads",
+            "Doublets (11, 22, 33...): 5 bullheads",
+            "Card 55: 7 bullheads (doublet + ends in 5)"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Ready to Play!",
+          "bullets": [
+            "No first player needed -- everyone plays simultaneously",
+            "Setup complete: 10 cards each, 4 rows in center"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Everyone Picks a Card Secretly",
+          "text": "Each round, every player looks at their hand and secretly selects one card to play. Place your chosen card face down in front of you. No peeking at what others chose! Once everyone has a card down, all players flip their cards face up at the same time. This simultaneous reveal is where the drama happens.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Lowest Card Goes First",
+          "text": "Now look at all the revealed cards. The player who played the lowest number resolves their card first, then the next lowest, and so on until all cards have been placed. This order matters a lot -- a card that looked safe when you played it might end up in a terrible spot after someone else's card shifts things around.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Rule 1 -- Ascending Order",
+          "text": "When placing your card, it must go into a row where your card's number is higher than the last (rightmost) card in that row. You can never place a card into a row where it would be lower than the current end card. This means each row is always ascending from left to right.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Rule 2 -- Smallest Difference",
+          "text": "If your card could legally go into more than one row (because it is higher than the last card in multiple rows), it MUST go into the row where the difference is smallest. For example, if the rows end in 12, 37, 43, and 58, and you played a 44, it goes next to the 43 (difference of 1), not the 37 (difference of 7). No choosing -- the math decides!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Rule 3 -- Full Row (The Sixth Card)",
+          "text": "Here is where things get spicy. A row can hold at most 5 cards. If your card would be the sixth card added to a row, you do NOT add it. Instead, you must pick up all 5 cards in that row and add them to your penalty pile (your bullhead stack). Your card then becomes the new first card of that now-empty row. Those 5 cards you picked up? Count up the bullheads -- those are your penalty points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Rule 4 -- Card Too Low",
+          "text": "What if your card is lower than the last card of every single row? It cannot legally go anywhere! In this case, you must choose one of the four rows and pick up ALL cards in that row. Your card then starts that row fresh. Naturally, you will want to pick the row with the fewest bullheads. This is the one time you get to choose which row your card affects.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Penalty Pile (Bullhead Stack)",
+          "text": "Whenever you pick up cards -- whether from a full row or a too-low card -- place them face down in a personal penalty pile in front of you. These cards are out of the game and cannot be played. At the end of the round you will count up all the bullheads on these cards. Each bullhead is one penalty point.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Repeat for 10 Rounds",
+          "text": "After all played cards are resolved, everyone picks another card from their hand and the process repeats. Since everyone was dealt 10 cards, you will play exactly 10 rounds before hands are empty. The round is over when all 10 cards have been played.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Scoring and End of Game",
+          "text": "When the round ends, each player counts the bullheads in their penalty pile and records the total. Shuffle all 104 cards and start a new round with fresh hands and fresh rows. Keep playing rounds until someone hits 66 or more total bullheads. At that point, the player with the FEWEST total bullheads across all rounds wins! You can also agree on a different target score or a set number of rounds if you prefer.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Quick Recap",
+          "text": "To sum it all up: pick a card, reveal simultaneously, resolve from lowest to highest, place in the row with the smallest difference, pick up five cards if you would be the sixth, and pick up a row of your choice if your card is too low. Lowest total bullheads after someone hits 66 wins. Simple rules, wild results!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Everyone Picks a Card Secretly",
+          "bullets": [
+            "Choose 1 card from your hand, place face down",
+            "All players reveal simultaneously"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Lowest Card Goes First",
+          "bullets": [
+            "Resolve cards in ascending order (lowest number first)",
+            "Earlier placements can change where later cards land"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Rule 1 -- Ascending Order",
+          "bullets": [
+            "Card must go into a row where it is HIGHER than the last card",
+            "Rows always ascend left to right"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Rule 2 -- Smallest Difference",
+          "bullets": [
+            "If multiple rows are valid, card goes in the one with smallest gap",
+            "No player choice -- the math decides"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Rule 3 -- Full Row (The Sixth Card)",
+          "bullets": [
+            "Rows hold max 5 cards",
+            "If your card would be the 6th, pick up all 5 cards as penalties",
+            "Your card starts the new row"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Rule 4 -- Card Too Low",
+          "bullets": [
+            "If your card is lower than ALL row-end cards, it cannot be placed",
+            "You choose a row to pick up (pick the one with fewest bullheads!)",
+            "Your card starts that row fresh"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Penalty Pile (Bullhead Stack)",
+          "bullets": [
+            "Collected cards go face down in your penalty pile",
+            "Cannot be played -- they are just penalty points",
+            "Each bullhead = 1 penalty point"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Repeat for 10 Rounds",
+          "bullets": [
+            "Play all 10 cards from your hand (10 rounds per deal)",
+            "Same process every round: pick, reveal, resolve"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Scoring and End of Game",
+          "bullets": [
+            "Count bullheads in penalty pile, record score",
+            "Reshuffle and deal a new round",
+            "Game ends when someone reaches 66+ bullheads",
+            "Fewest total bullheads wins"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Quick Recap",
+          "bullets": [
+            "Pick card -> reveal -> resolve lowest first -> place by smallest difference",
+            "6th card in row = pick up 5 penalty cards",
+            "Too-low card = choose a row to pick up",
+            "Lowest total bullheads after 66 threshold = winner"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Recommended Player Count",
+          "text": "For your first game, 4 to 6 players is the sweet spot. With fewer than 4 it is a bit predictable, and with 7 or more the chaos level goes through the roof (fun, but harder to learn from). Grab 4 to 6 friends and let's walk through a practice round together!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Deal and Sort Your Hand",
+          "text": "Shuffle and deal 10 cards to each player. Flip 4 cards to start the rows. For this walkthrough, let's say the four starting row cards are 12, 37, 43, and 58. Pick up your 10 cards and sort them from low to high. Get comfortable scanning your hand -- you will do it every round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Pick Your First Card",
+          "text": "Look at your sorted hand and pick one card. A safe first instinct is to play a card that lands close to a row's current end card, so it tucks in neatly. Avoid cards close to making a row 5 long unless you are feeling bold. Place your card face down.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Big Reveal",
+          "text": "Everyone flips their cards. Let's say four players revealed 14, 15, 44, and 61. Now arrange them in ascending order: 14 goes first, then 15, then 44, then 61. The player with the 14 resolves their card before anyone else.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Place the Lowest Card",
+          "text": "The 14 needs to go into a row where it is higher than the end card and the difference is smallest. The rows end at 12, 37, 43, 58. It is only higher than 12, so it goes next to the 12 in the first row. Easy!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Place the Next Card",
+          "text": "Now the 15 resolves. The first row now ends at 14 (just placed). The 15 is higher than 14 (difference 1), and also higher than 12... wait, the row ends at 14 now. It is NOT higher than 37, 43, or 58. So it goes into the first row next to the 14. Row one now has three cards: 12, 14, 15.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Smallest Difference in Action",
+          "text": "The 44 is higher than 15 (row 1), 37 (row 2), and 43 (row 3). It is not higher than 58 (row 4). Among the valid rows, the smallest difference is 44 minus 43 = 1, so it MUST go into row 3. The player does not get to pick row 1 or row 2 even if they wanted to. The math decides.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Last Card This Round",
+          "text": "The 61 is higher than all four row ends (15, 37, 44, 58). Smallest difference: 61 minus 58 = 3. So it goes in row 4, next to the 58. All four cards are placed, and the round is complete. See how quick that was?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Watch for the Sixth Card",
+          "text": "Now play a few more rounds on your own. As the rows grow, keep your eye on any row that reaches 5 cards. If your card would be the sixth, you pick up all 5 cards as penalties. This is the most common way people collect bullheads, and it tends to catch new players off guard.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Practice the Too-Low Scenario",
+          "text": "Imagine the rows end at 22, 45, 60, and 88. If you play a 3, it is lower than every row end. You have to pick up an entire row of your choice! You would obviously choose whichever row has the fewest bullheads. Remember this situation -- it is actually a strategic tool, not just bad luck.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Common Mistake 1 -- Ignoring the Row Length",
+          "text": "New players often focus only on the number at the end of a row and forget to count how many cards are in the row. A row with 4 cards is a ticking time bomb -- any card that lands there next will trigger a pickup. Always scan the row lengths before choosing your card!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Common Mistake 2 -- Playing High Cards Too Early",
+          "text": "It is tempting to dump your highest cards first because they feel safe. But high cards are your lifeline in later rounds -- they almost always have a valid row to go to. If you burn them early, you might be stuck with a handful of mid-range cards that collide with everyone else's plays. Save a few big numbers for the endgame.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Common Mistake 3 -- Forgetting the Smallest Difference Rule",
+          "text": "A very common error: you play a card thinking it will land in one row, but the smallest-difference rule forces it into a different row entirely. Double-check before you commit! Look at ALL row ends, calculate the gaps, and make sure your card goes where you think it will. Many groans at the table come from this mistake.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Read the Table",
+          "text": "After a couple of rounds, pause and look at the four rows. Which rows are getting long? Which rows have big bullhead cards in them? Which end-of-row numbers leave a large gap for safe plays? Getting in the habit of reading the table before picking your card will improve your play instantly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Think About What Others Might Play",
+          "text": "Since everyone plays simultaneously, you cannot react to other players' moves. But you CAN think about the odds. If a row ends at 75 and has 4 cards, lots of people probably have cards between 76 and 104 that would land there. Playing one of those yourself is risky because someone with a lower number in that range will fill the row before you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Intentional Low Play",
+          "text": "Sometimes deliberately playing your lowest card to pick up a short row with only 1-2 bullheads is a great move. It clears out a dangerous row for you and resets it with your low card. This is especially handy when rows are getting dangerously close to 5 cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Counting Bullheads on the Fly",
+          "text": "As you play, glance at the bullhead counts in each row. You do not need to memorize them precisely, but knowing which rows are 'expensive' (lots of doublets or multiples of 10) and which are 'cheap' (mostly 1-bullhead cards) helps you decide which row to pick up if you are forced to take one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Finish the Round and Score",
+          "text": "Keep playing until all 10 cards are gone. Count the bullheads in your penalty pile and write down the total. Shuffle everything, deal again, and play another round. After a few rounds someone will approach 66 bullheads and the game ends. Whoever has the fewest total bullheads is the champion bull-dodger!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Try a Shorter Game",
+          "text": "If you want a quicker session, agree on a lower target (like 33 bullheads) or just play a set number of rounds (3 rounds works well). The game is extremely flexible and plays great as a quick filler or a longer multi-round showdown.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "You Are Ready!",
+          "text": "That is everything you need to play Take 5! confidently. The rules are simple but the decisions are surprisingly tricky -- every card you play is a little gamble. Jump in, do not worry about playing perfectly, and enjoy the groans and cheers when cards land in unexpected places. Have fun!",
+          "image": null,
+          "image_caption": null,
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Recommended Player Count",
+          "bullets": [
+            "Best for learning: 4-6 players",
+            "Fewer than 4 is predictable; 7+ is wild"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Deal and Sort Your Hand",
+          "bullets": [
+            "Deal 10 cards, flip 4 for starting rows",
+            "Sort hand low to high"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Pick Your First Card",
+          "bullets": [
+            "Choose a card that lands close to a row end",
+            "Avoid filling a row to 5 unless safe"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Big Reveal",
+          "bullets": [
+            "All players flip cards simultaneously",
+            "Resolve from lowest number to highest"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Place the Lowest Card",
+          "bullets": [
+            "Must be higher than a row end",
+            "Goes into the row with smallest difference"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Place the Next Card",
+          "bullets": [
+            "Row ends update after each placement",
+            "Recalculate valid rows for each card"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Smallest Difference in Action",
+          "bullets": [
+            "Check all valid rows",
+            "Card MUST go where the gap is smallest -- no choice"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Last Card This Round",
+          "bullets": [
+            "Continue until all revealed cards are placed",
+            "Round resolves quickly once you get the flow"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Watch for the Sixth Card",
+          "bullets": [
+            "Rows max out at 5 cards",
+            "6th card = pick up all 5 as penalties"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Practice the Too-Low Scenario",
+          "bullets": [
+            "If your card is lower than ALL row ends, pick up a row of your choice",
+            "Choose the row with fewest bullheads"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Common Mistake 1 -- Ignoring Row Length",
+          "bullets": [
+            "Always count how many cards are in each row",
+            "A row with 4 cards is one play away from triggering a pickup"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Common Mistake 2 -- Playing High Cards Too Early",
+          "bullets": [
+            "High cards are safe plays for later rounds",
+            "Save a few big numbers for the endgame"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Common Mistake 3 -- Forgetting Smallest Difference",
+          "bullets": [
+            "Your card may not land where you expect",
+            "Always check all row ends and calculate gaps"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Read the Table",
+          "bullets": [
+            "Scan row lengths and bullhead counts before picking",
+            "Identify dangerous vs. safe rows"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Think About What Others Might Play",
+          "bullets": [
+            "Simultaneous play means you cannot react",
+            "Estimate which rows others are likely targeting"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Intentional Low Play",
+          "bullets": [
+            "Deliberately play a low card to pick up a cheap row",
+            "Resets a dangerous row with your card"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Counting Bullheads on the Fly",
+          "bullets": [
+            "Track which rows are expensive (doublets, multiples of 10)",
+            "Helps you decide which row to take if forced"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Finish the Round and Score",
+          "bullets": [
+            "Play all 10 cards, count penalty bullheads",
+            "Reshuffle and deal for next round",
+            "Game ends when someone hits 66 bullheads"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Try a Shorter Game",
+          "bullets": [
+            "Lower target (33 bullheads) or set number of rounds (3)",
+            "Flexible for filler or longer sessions"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "You Are Ready!",
+          "bullets": [
+            "Simple rules, tricky decisions",
+            "Jump in and enjoy the chaos!"
+          ]
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Sort and Scan Every Round",
+          "text": "Always keep your hand sorted low to high. Before picking a card each round, quickly scan the four rows: how many cards in each? What number does each row end with? This two-second habit will prevent most avoidable mistakes and help you pick the safest card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Save Your High Cards",
+          "text": "High cards (roughly 80-104) are almost always safe to play because they go above whatever the rows end at. If you blow through your high cards in the first few rounds, you will be stuck with mid-range cards that are far more likely to collide with other players or trigger a sixth-card pickup. Sprinkle your high cards throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Low Cards Can Be Weapons",
+          "text": "Your lowest cards (1-10) often cannot legally go into any row, which means you will have to pick up a row. But that is not always bad! If one row only has one or two low-bullhead cards, picking it up costs you almost nothing and lets you reset that row. Think of low cards as controlled demolition tools.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Avoid the Middle of the Pack",
+          "text": "Mid-range cards (30-70) are the danger zone. They are the numbers most likely to end up in contested rows where multiple players are trying to play at the same time. Play these cards when the table looks safe -- ideally when rows have plenty of room and the end-of-row numbers line up nicely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Count the Row Cards",
+          "text": "This is the single most important habit. A row with 1-2 cards is safe territory. A row with 3 is getting warm. A row with 4 is a minefield -- anyone who places the fifth card is safe, but whoever would be sixth is eating bullheads. Always know which rows are about to blow.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to Gaps",
+          "text": "Look for big gaps between row end-cards. If one row ends at 30 and the next-closest row ends at 70, any card from 31-69 is going to the 30 row. That is a lot of traffic! Rows with big gaps above them attract more cards and fill up faster. Avoid playing into crowded funnels.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Play Fast and Have Fun",
+          "text": "Take 5 is a party game at heart. Do not agonize over every card for minutes -- a quick gut check is usually enough. The chaos of simultaneous play means no amount of perfect calculation can guarantee safety. Enjoy the surprises, laugh at the disasters, and keep the pace snappy!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Sort and Scan Every Round",
+          "bullets": [
+            "Keep hand sorted low to high",
+            "Check row lengths and end-cards before picking"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Save Your High Cards",
+          "bullets": [
+            "Cards 80-104 are your safety net",
+            "Spread them across the game, don't dump early"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Low Cards Can Be Weapons",
+          "bullets": [
+            "Low cards (1-10) often force a row pickup",
+            "Use them to grab cheap rows on purpose"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Avoid the Middle of the Pack",
+          "bullets": [
+            "Cards 30-70 are the riskiest",
+            "Play them when rows have room and gaps are clear"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Count the Row Cards",
+          "bullets": [
+            "1-2 cards: safe. 3: warming up. 4: danger zone",
+            "The 5th card is safe; the 6th triggers pickup"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to Gaps",
+          "bullets": [
+            "Big gaps between row ends = lots of traffic",
+            "Rows that attract many cards fill fast"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Play Fast and Have Fun",
+          "bullets": [
+            "Quick gut checks over deep analysis",
+            "Embrace the chaos -- that's the fun!"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Card Counting Lite",
+          "text": "You do not need to memorize every card, but keeping a loose mental note of which high and low numbers have already appeared helps. If you notice that cards 90-104 have been mostly played, the current 'safe ceiling' just dropped. Similarly, if no low cards have appeared yet, brace for someone to trigger a too-low pickup soon.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Position Your Card as the Fifth",
+          "text": "Being the fifth card in a row is actually the best position -- you are safe, and the NEXT person to play into that row is the one who gets punished. If you can calculate that your card will be the fifth (based on the current row length and what is likely to be played before you), go for it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Bait the Row Reset",
+          "text": "When a row has 4 cards with a lot of bullheads, try to play a card that just barely does NOT land there (maybe it goes to a different row by smallest difference). Other players aiming for the same row will be the ones taking the hit. You stay clean while they eat the bullheads.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Sacrifice Play",
+          "text": "Sometimes the board is ugly and there is no safe play. In these situations, take the smallest hit available. Play a low card to intentionally pick up the cheapest row (fewest bullheads). Taking 2-3 bullheads on purpose beats getting blindsided by a 10-bullhead disaster later.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Read the Player Count",
+          "text": "With more players, more cards are played each round, which means rows fill faster and collisions are more common. Adjust by being more conservative -- play safer cards and hold back your mid-range numbers longer. With fewer players, you can be bolder because rows grow slowly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Mid-Range Cards",
+          "text": "The ideal time to play a mid-range card is right after a row has been reset (picked up by someone). Fresh rows have only 1 card and 4 empty slots -- plenty of room. If you hold your mid-range cards for these windows, they are much less likely to land you in trouble.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Track Bullhead-Heavy Cards",
+          "text": "The big penalty cards are the doublets (11, 22, 33, 44, 55, 66, 77, 88, 99) and the multiples of 10. If you see a row containing card 55 (7 bullheads!) or card 33 (5 bullheads), that row is extremely expensive to pick up. Steer clear of being the sixth card there, and also avoid picking that row with a too-low card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Multi-Round Meta Strategy",
+          "text": "Since the game spans multiple rounds until 66 bullheads, think long-term. If you had a great round with zero bullheads, you can afford a slightly riskier approach next round. If you are already close to 66, play ultra-conservatively. Also watch opponents' totals -- if someone is near 66, the game might end soon, so protect your lead rather than gambling for zero.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Card Counting Lite",
+          "bullets": [
+            "Track which high/low numbers have appeared",
+            "Adjust your sense of what's 'safe' as cards are played"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Position Your Card as the Fifth",
+          "bullets": [
+            "5th card is safe; 6th card triggers the pickup",
+            "Calculate row length + likely plays before you"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Bait the Row Reset",
+          "bullets": [
+            "Play cards that just miss a dangerous row",
+            "Let others trigger the pickup"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Sacrifice Play",
+          "bullets": [
+            "When no safe play exists, take the smallest hit",
+            "2-3 bullheads now beats 10+ later"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Read the Player Count",
+          "bullets": [
+            "More players = faster row growth, more collisions",
+            "Fewer players = more predictable, bolder plays OK"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Mid-Range Cards",
+          "bullets": [
+            "Play mid-range cards right after a row reset",
+            "Fresh rows have room and are safer targets"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Track Bullhead-Heavy Cards",
+          "bullets": [
+            "Doublets (11,22,33...99): 5 bullheads each",
+            "Card 55: 7 bullheads -- the single worst card",
+            "Avoid rows loaded with these penalty cards"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Multi-Round Meta Strategy",
+          "bullets": [
+            "Track everyone's cumulative bullheads across rounds",
+            "Play conservatively when close to 66 threshold",
+            "Adjust risk based on your standing vs. opponents"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Bullhead",
+          "definition": "The penalty symbol printed on each card. Each bullhead equals 1 penalty point. Cards have 1 to 7 bullheads.",
+          "category": "core concept"
+        },
+        {
+          "term": "Bullhead Stack",
+          "definition": "Your personal face-down penalty pile of cards collected during the game. You count the bullheads here at the end of the round.",
+          "category": "core concept"
+        },
+        {
+          "term": "Row",
+          "definition": "One of the four horizontal lines of cards in the center of the table. Each row starts with one card and can hold up to 5 cards total.",
+          "category": "core concept"
+        },
+        {
+          "term": "Row End Card",
+          "definition": "The rightmost (highest-numbered) card in a row. This is the number you compare your played card against to determine valid placement.",
+          "category": "core concept"
+        },
+        {
+          "term": "Ascending Order Rule",
+          "definition": "Rule 1: A card can only be placed in a row where its number is higher than the current row end card.",
+          "category": "rule"
+        },
+        {
+          "term": "Smallest Difference Rule",
+          "definition": "Rule 2: When a card could go in multiple rows, it must go in the row where the numerical gap between the row end card and the played card is smallest.",
+          "category": "rule"
+        },
+        {
+          "term": "Full Row Rule (Sixth Card)",
+          "definition": "Rule 3: If a card would be the 6th in a row, the player picks up all 5 existing cards as penalties. Their card then starts the row fresh.",
+          "category": "rule"
+        },
+        {
+          "term": "Too-Low Rule (Lowest Card)",
+          "definition": "Rule 4: If a played card is lower than all row end cards, the player must choose a row to pick up entirely. Their card starts that row anew.",
+          "category": "rule"
+        },
+        {
+          "term": "Simultaneous Selection",
+          "definition": "All players choose and place a card face down at the same time, then reveal together. This is the core mechanic that creates unpredictability.",
+          "category": "mechanic"
+        },
+        {
+          "term": "Resolve Order",
+          "definition": "After simultaneous reveal, cards are placed into rows starting from the lowest number and going up to the highest.",
+          "category": "mechanic"
+        },
+        {
+          "term": "Round (Hand)",
+          "definition": "A complete cycle of 10 simultaneous card plays, after which hands are empty and bullheads are scored.",
+          "category": "game structure"
+        },
+        {
+          "term": "Game End Threshold",
+          "definition": "The default game ends when any player accumulates 66 or more total bullheads across all rounds. Players can agree on a different number.",
+          "category": "game structure"
+        },
+        {
+          "term": "Doublet Card",
+          "definition": "A card whose number has two identical digits (11, 22, 33, 44, 55, 66, 77, 88, 99). Doublets carry 5 bullheads, except 55 which has 7.",
+          "category": "card type"
+        },
+        {
+          "term": "Multiple of 10 Card",
+          "definition": "Cards numbered 10, 20, 30, 40, 50, 60, 70, 80, 90, 100. Each carries 3 bullheads.",
+          "category": "card type"
+        },
+        {
+          "term": "Ends-in-5 Card",
+          "definition": "Cards whose number ends in 5 (5, 15, 25, 35, 45, 55, 65, 75, 85, 95, 105). Each carries 2 bullheads, except 55 which has 7.",
+          "category": "card type"
+        },
+        {
+          "term": "Standard Card",
+          "definition": "Any card that is not a doublet, multiple of 10, or ends-in-5. These carry just 1 bullhead each.",
+          "category": "card type"
+        },
+        {
+          "term": "Card 55",
+          "definition": "The single most dangerous card in the game with 7 bullheads. It is both a doublet and ends in 5, stacking both penalties.",
+          "category": "card type"
+        },
+        {
+          "term": "Sacrifice Play",
+          "definition": "Intentionally playing a low card to pick up a cheap row (few bullheads) rather than risking a worse outcome later.",
+          "category": "strategy"
+        },
+        {
+          "term": "Row Reset",
+          "definition": "When a row is picked up (via 6th card or too-low rule), the triggering card becomes the sole card in that row. The row is 'reset' with fresh space.",
+          "category": "mechanic"
+        },
+        {
+          "term": "Traffic Funnel",
+          "definition": "A large numerical gap above a row end card, meaning many possible card values would be forced into that row. High-traffic rows fill up fast.",
+          "category": "strategy"
+        },
+        {
+          "term": "Safe Ceiling",
+          "definition": "An informal term for the highest card numbers still available to play. As high cards are used up, the safe ceiling drops and risk increases.",
+          "category": "strategy"
+        },
+        {
+          "term": "Take 5! Tactics Variant",
+          "definition": "A variant where only cards numbered 1 through (players x 10 + 4) are used, so all cards in play are known. More strategic, less random.",
+          "category": "variant"
+        },
+        {
+          "term": "Take 5! Logic Variant",
+          "definition": "Players draft their 10-card hands from face-up cards instead of receiving random deals. Adds a drafting layer to the Tactics variant.",
+          "category": "variant"
+        },
+        {
+          "term": "Take 5! Professional Variant",
+          "definition": "Cards can be added to either end of a row (left descending, right ascending). Much more complex placement decisions.",
+          "category": "variant"
+        },
+        {
+          "term": "Take 5! Open Variant",
+          "definition": "Players take turns playing cards face up in clockwise order instead of simultaneously. Removes the hidden information element.",
+          "category": "variant"
+        }
+      ]
+    }
+  }
+}

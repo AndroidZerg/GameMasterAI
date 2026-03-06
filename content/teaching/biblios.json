@@ -1,0 +1,973 @@
+{
+  "game_id": "biblios",
+  "title": "Biblios",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Dice Board",
+          "text": "Welcome, Abbot. Let us prepare the scriptorium. Begin by placing the small game board in the center of the table. This board holds the five category dice, one for each type of sacred work in your monastery's library: pigments, holy books, manuscripts, forbidden tomes, and monks.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Set the Category Dice",
+          "text": "Take the five colored dice and place each one on its matching space on the board. Set every die to show the value 3. These dice represent how many victory points each category is worth at the end of the game. Their values will shift during play as abbots use Church cards to manipulate them, so no category's worth is fixed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Shuffle the Deck",
+          "text": "Gather all 87 cards into a single deck and shuffle them thoroughly. The deck contains three types of cards: colored category cards with values from 1 to 4, gold cards with values from 1 to 3, and Church cards that let you adjust dice values. Everything goes into one shared deck.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Remove Cards by Player Count",
+          "text": "Based on the number of abbots at the table, you must remove some cards from the game unseen. For 2 players, remove 22 cards face down. For 3 players, remove 15 cards. For 4 players, remove 8 cards. Set these aside without looking at them. They remain secret for the entire game, creating uncertainty about which cards are still available.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Determine the Starting Player",
+          "text": "Choose a starting player. The youngest abbot may go first, or you may select randomly. No cards are dealt to anyone at the start. Your entire hand will be built during the Gift Phase through careful drafting. Place the deck within reach of the starting player, and you are ready to begin.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Dice Board",
+          "bullets": [
+            "Place the small game board in the center of the table",
+            "Board holds the 5 category dice"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Set the Category Dice",
+          "bullets": [
+            "Place 5 colored dice on matching board spaces",
+            "Set each die to 3 (values can change during the game via Church cards)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Shuffle the Deck",
+          "bullets": [
+            "Shuffle all 87 cards into one deck",
+            "Card types: category cards (values 1-4), gold cards (values 1-3), Church cards"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Remove Cards by Player Count",
+          "bullets": [
+            "2 players: remove 22 cards face down",
+            "3 players: remove 15 cards face down",
+            "4 players: remove 8 cards face down",
+            "Removed cards stay secret — never revealed"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Determine the Starting Player",
+          "bullets": [
+            "Youngest player or random selection goes first",
+            "No cards are dealt — hands built during the Gift Phase"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Two Phases of Play",
+          "text": "Biblios unfolds across two distinct phases. First comes the Gift Phase, where abbots draft cards from the shared deck to build their hands and fill the auction pile. Then comes the Auction Phase, where the contents of the auction pile are bid upon one at a time. Understanding both phases is essential before your first game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Gift Phase: Drawing Cards",
+          "text": "During the Gift Phase, the active abbot draws cards one at a time from the top of the deck. The number of cards drawn equals the number of players plus one. In a 2-player game, draw 3 cards. In a 3-player game, draw 4. In a 4-player game, draw 5. Each card must be assigned immediately before drawing the next one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Gift Phase: Assigning Each Card",
+          "text": "For each card you draw, you must immediately choose one of three destinations. You may keep it by placing it face down in your hand, but you may only keep exactly one card per turn. You may give it face up to an opponent, and each opponent must receive exactly one card per turn. Or you may place it face down on the auction pile, and exactly one card must go there per turn. The tension is fierce: you assign each card blind to what comes next.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Gift Phase: Playing Church Cards",
+          "text": "Church cards are special. If you have a Church card in your hand at any point during your turn in either phase, you may play it as a free action. When you play a Church card, choose any one category die on the board and adjust it up or down by exactly 1, within the range of 1 to 6. This changes how many victory points that category is worth. You may play Church cards immediately upon keeping them during the Gift Phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Gift Phase Ends",
+          "text": "After the active player assigns all their drawn cards, the next player clockwise becomes the active player and draws their own set of cards. This continues around the table until the entire draw deck is exhausted. Once the last card from the deck has been assigned, the Gift Phase is over and the Auction Phase begins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Auction Phase: Revealing Cards",
+          "text": "Shuffle the auction pile thoroughly. Then reveal cards from the top one at a time. Each revealed card is auctioned off before the next one is flipped. The player to the left of the current auctioneer bids first, and bidding proceeds clockwise. The role of auctioneer rotates clockwise after each auction.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Auction Phase: Bidding on Category and Church Cards",
+          "text": "When a category card or Church card is revealed, players bid using gold cards from their hand. Bids must be at least 1 gold in value. Going clockwise, each player may raise the bid or pass. Once you pass, you are out of that auction. The highest bidder wins the card and discards the gold cards they bid. If nobody bids, the auctioneer takes the card for free.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Auction Phase: Bidding on Gold Cards",
+          "text": "Here is the twist that gives Biblios its bite. When a gold card is revealed from the auction pile, players bid using their category cards instead. The highest total value of discarded category cards wins the gold. This reversal is critical. You are spending your scoring cards to gain auction currency. Every gold card won costs you points elsewhere, so bid wisely.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Scoring: Who Wins Each Die",
+          "text": "After every card in the auction pile has been resolved, scoring begins. For each of the five categories, every player totals the values printed on their cards of that color. The player with the highest total in a category claims that category's die. In case of a tie, no one wins that die. It remains unclaimed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Scoring: Determining the Winner",
+          "text": "Each claimed die is worth the number of victory points currently showing on its face, which may have been changed by Church cards throughout the game. Add up the values of all dice you won. The abbot with the highest total is the victor. If two players are tied in total die value, the player who won more individual dice wins. If still tied, the abbots share in their glory.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Two Phases of Play",
+          "bullets": [
+            "Phase 1: Gift Phase (card drafting from deck)",
+            "Phase 2: Auction Phase (bid on the auction pile)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Gift Phase: Drawing Cards",
+          "bullets": [
+            "Active player draws cards = number of players + 1",
+            "2P: draw 3 | 3P: draw 4 | 4P: draw 5",
+            "Cards drawn one at a time, assigned immediately"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Gift Phase: Assigning Each Card",
+          "bullets": [
+            "Keep 1 card (face down in hand)",
+            "Give 1 card face up to each opponent",
+            "Place 1 card face down on auction pile",
+            "Must assign each card before drawing the next"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Gift Phase: Playing Church Cards",
+          "bullets": [
+            "Church cards can be played as a free action on your turn",
+            "Adjust any one category die up or down by 1 (range: 1-6)",
+            "Usable in either phase"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Gift Phase Ends",
+          "bullets": [
+            "Play passes clockwise after each player assigns all drawn cards",
+            "Phase ends when the draw deck is empty"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Auction Phase: Revealing Cards",
+          "bullets": [
+            "Shuffle the auction pile, reveal cards one at a time",
+            "Bidding starts left of the auctioneer, goes clockwise",
+            "Auctioneer role rotates clockwise after each auction"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Auction Phase: Bidding on Category and Church Cards",
+          "bullets": [
+            "Bid with gold cards from hand (minimum 1 gold)",
+            "Raise or pass — passing removes you from that auction",
+            "Highest bidder wins card, discards gold spent",
+            "If no one bids, auctioneer takes the card free"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Auction Phase: Bidding on Gold Cards",
+          "bullets": [
+            "Bid with category cards (not gold) — values totaled",
+            "Highest category-card total wins the gold card",
+            "You sacrifice scoring cards to gain auction currency"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Scoring: Who Wins Each Die",
+          "bullets": [
+            "Total card values in each of the 5 categories",
+            "Highest total in a category wins that die",
+            "Ties: no one wins the die — it stays unclaimed"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Scoring: Determining the Winner",
+          "bullets": [
+            "Each die is worth its current face value (may have been adjusted by Church cards)",
+            "Highest total die value wins",
+            "Tiebreak: player with more dice won; if still tied, shared victory"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Scriptorium",
+          "text": "In this practice tutorial, we shall walk through a 3-player game between Abbot Aldric, Abbot Beatrice, and Abbot Cassius. Three players is the recommended count for Biblios — it strikes the best balance between competition and card flow. We will cover both phases and highlight common mistakes new abbots make.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Setting the Stage",
+          "text": "The dice board is placed with all five dice set to 3. Fifteen cards have been removed unseen from the 87-card deck. No one knows which categories were thinned. Abbot Aldric is the starting player. In a 3-player game, the active player draws 4 cards per turn: keep 1, give 1 to each of the other 2 players, and place 1 on the auction pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Aldric's First Draw",
+          "text": "Aldric draws his first card: a blue Holy Books card worth 3. That is a strong card. Should he keep it now, or gamble that something better is coming? Aldric decides to keep it immediately. He draws the second card: a gold card worth 2. Not bad, but he already used his keep. He places the gold face up in front of Beatrice. Third card: a red Pigments card worth 4. Aldric groans and must give it to Cassius. Fourth card: a green Manuscripts card worth 1. This goes to the auction pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "The Agony of Early Commitment",
+          "text": "Notice what happened. Aldric kept a decent card early, then watched a gold card and a high-value pigments card slip through his fingers. This is the core tension of the Gift Phase. Every card must be assigned the moment you see it. You cannot peek ahead. Sometimes you keep early and regret it. Sometimes you give away early and regret that instead. Embrace the uncertainty — it is what makes the Gift Phase so engaging.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Beatrice Drafts Wisely",
+          "text": "Beatrice draws her four cards. First: a gold card worth 1. She sends it to the auction pile since 1-gold is weak. Second: a purple Forbidden Tomes card worth 3. She keeps it. Third: a Church card. She gives it to Aldric, reasoning that Aldric might use it to raise a category she does not care about. Fourth: a yellow Monks card worth 2. She gives it to Cassius. Beatrice kept a strong category card and avoided giving away anything too valuable.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Cassius and the Gift Phase Continues",
+          "text": "Cassius takes his turn, and the Gift Phase continues around the table. Over many rounds, hands fill up. Aldric is collecting blue Holy Books and some gold. Beatrice is focusing on purple Forbidden Tomes and red Pigments. Cassius has a pile of yellow Monks cards and some gold. The auction pile grows steadily with each turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Ignoring Church Cards",
+          "text": "Aldric received a Church card from Beatrice earlier but has been holding it, unsure when to use it. Several turns pass. Meanwhile, Cassius plays a Church card to raise the yellow Monks die from 3 to 4. This is a common beginner mistake: hoarding Church cards without purpose. Church cards are free actions. If you are collecting a category, raise its die immediately to increase its value. If an opponent is winning a category, lower it to reduce their payoff.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Use Church Cards Proactively",
+          "text": "Church cards are among the most powerful tools in Biblios. Raising a die you are winning from 3 to 4 is like adding a free victory point. Lowering a die your opponent dominates from 3 to 2 costs them a point. Do not sit on Church cards hoping for the perfect moment. The perfect moment is usually now. Use them to shape the scoring landscape in your favor throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "The Gift Phase Ends",
+          "text": "After many rounds of drafting, the draw deck runs out. The Gift Phase is over. Each player has a hand of category cards, gold cards, and perhaps a Church card or two. The auction pile is a mysterious stack of face-down cards. Everyone contributed to it, and everyone remembers some of what they put there — but not everything. Now the real bidding war begins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Auction Phase Begins",
+          "text": "The auction pile is shuffled and the first card is revealed: a red Pigments card worth 4. Beatrice wants it badly — she has been collecting Pigments. Aldric opens with a bid of 1 gold. Beatrice raises to 2 gold. Cassius passes. Aldric thinks about it and raises to 3 gold. Beatrice grits her teeth and bids 4 gold. Aldric passes. Beatrice wins the card but spent two gold cards totaling 4 value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Overbidding in Auctions",
+          "text": "Beatrice spent 4 gold on a single card worth 4 points in Pigments. But is it worth it? If the Pigments die is only at 3, and she was already winning Pigments without this card, she overpaid. She burned gold that she could have used on two cheaper cards later. New players often overbid on cards they want emotionally rather than calculating whether the cost is justified by the die's current value.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Bid Based on Die Value and Need",
+          "text": "Before bidding, check two things. First, what is the die currently worth for that category? A category die at 5 or 6 is worth fighting for. A die at 1 or 2 might not be worth a single gold. Second, do you actually need this card to win the category, or are you already ahead? Spend gold only where it changes the outcome. Every gold card spent is one fewer bid in future auctions.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "A Gold Card Appears at Auction",
+          "text": "The next auction card is a gold card worth 3. Remember, gold cards at auction are paid for with category cards, not gold. Cassius bids a yellow Monks card worth 1. Aldric bids a green Manuscripts card worth 2. Cassius raises with another Monks card, bringing his total to 3. Aldric passes. Cassius wins the gold card but sacrificed two Monks cards totaling 3 points from his collection.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "The Mistake: Overspending Category Cards for Gold",
+          "text": "Cassius spent 3 points worth of Monks cards to gain a 3-value gold card. But those Monks cards were contributing to his majority in yellow Monks. If another player now ties or beats him in that category, Cassius loses the Monks die entirely. Bidding category cards for gold is always a painful trade. Only do it if you have a surplus in that category or if you desperately need gold for a critical upcoming auction.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Guard Your Majorities",
+          "text": "In Biblios, you win dice by having the highest card total in each color. Every category card you spend on gold auctions weakens your position. Before bidding category cards, mentally check: can I still win this category if I give up these cards? If the answer is uncertain, hold your cards. It is better to skip a gold card than to lose a die worth 3 to 6 victory points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "The Final Auctions and Church Cards",
+          "text": "As the auction pile dwindles, a Church card is revealed. Aldric wins it with a bid of 2 gold and immediately plays it, raising the blue Holy Books die from 3 to 4. He has been collecting Holy Books all game. This last-minute adjustment means the die he is about to win is now worth 4 instead of 3. Church cards auctioned late in the game can be decisive. Never ignore them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Scoring the Game",
+          "text": "The auction pile is empty. Time to score. Each abbot totals their card values in each of the five colors. Aldric wins Holy Books with 8 total versus Beatrice's 5 and Cassius's 3 — he claims the blue die showing 4. Beatrice wins Pigments at 10 and Forbidden Tomes at 7, claiming dice worth 3 and 3. Cassius wins Monks at 6, claiming the die at 4. No one wins Manuscripts outright due to a tie. Aldric: 4 points. Beatrice: 6 points. Cassius: 4 points. Beatrice, Abbot of the Finest Library, wins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Reflecting on the Game",
+          "text": "Beatrice won by committing to two categories early and using Church cards to protect her interests. Aldric focused too narrowly on one category and held his Church card too long. Cassius weakened his Monks majority by spending cards on gold he did not need. The lessons are clear: commit to two or three categories, use Church cards aggressively, and guard your majorities in the Auction Phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Key Takeaways",
+          "text": "Here is what to remember from this practice session. First, the Gift Phase is about controlled uncertainty — assign each card wisely knowing you cannot see ahead. Second, Church cards are free and powerful — use them to raise your dice and lower your opponents' dice. Third, in the Auction Phase, bid only when the die value and your need justify the cost. Fourth, never sacrifice category cards for gold unless your majority is safe.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "Before You Enter the Monastery",
+          "text": "Before you begin your own game of Biblios, here are three things that can help.\n\nFirst, check out General Tips for guidance on which categories to pursue and how to value Church cards.\n\nSecond, browse the Appendix for a quick reference on card types, bidding rules, and scoring details.\n\nAnd most importantly, ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. May your library be the envy of all Christendom!",
+          "cta": true,
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Scriptorium",
+          "bullets": [
+            "Practice tutorial with 3 players: Aldric, Beatrice, Cassius",
+            "3 players is the recommended count for Biblios"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Setting the Stage",
+          "bullets": [
+            "All 5 dice set to 3, 15 cards removed unseen",
+            "3P game: draw 4 cards per turn (keep 1, give 2, auction 1)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Aldric's First Draw",
+          "bullets": [
+            "Keeps Holy Books 3 early, then watches better cards go to opponents",
+            "Must assign each card before seeing the next"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Agony of Early Commitment",
+          "bullets": [
+            "Cards assigned one at a time — no peeking ahead",
+            "Keeping early means risking missing a better card later",
+            "This tension is the heart of the Gift Phase"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Beatrice Drafts Wisely",
+          "bullets": [
+            "Sends weak gold to auction, keeps a strong category card",
+            "Gives a Church card to an opponent strategically"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Cassius and the Gift Phase Continues",
+          "bullets": [
+            "Players build collections over many rounds of drafting",
+            "Auction pile grows with each turn"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Mistake: Ignoring Church Cards",
+          "bullets": [
+            "Aldric hoards a Church card without using it",
+            "Meanwhile Cassius raises his Monks die from 3 to 4"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Lesson: Use Church Cards Proactively",
+          "bullets": [
+            "Raise dice you are winning = free victory points",
+            "Lower dice opponents dominate = reduce their payoff",
+            "Church cards are free actions — use them early and often"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "The Gift Phase Ends",
+          "bullets": [
+            "Deck runs out, Gift Phase is over",
+            "Players have hands of category cards, gold, and possibly Church cards",
+            "Auction pile is shuffled for Phase 2"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Auction Phase Begins",
+          "bullets": [
+            "First card revealed: Pigments 4",
+            "Beatrice wins after a bidding war, spending 4 gold"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Mistake: Overbidding in Auctions",
+          "bullets": [
+            "Beatrice spent 4 gold on a card she may not have needed",
+            "Burned gold that could fund 2 cheaper auctions later"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Bid Based on Die Value and Need",
+          "bullets": [
+            "Check the die value — high die = worth bidding, low die = skip",
+            "Check if you need the card to win the category",
+            "Every gold spent is one fewer bid later"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "A Gold Card Appears at Auction",
+          "bullets": [
+            "Gold cards are bid on with category cards (the reversal)",
+            "Cassius wins gold 3 by sacrificing two Monks cards totaling 3"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "The Mistake: Overspending Category Cards for Gold",
+          "bullets": [
+            "Cassius weakened his Monks majority to gain gold",
+            "If another player ties him in Monks, he loses the die entirely"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Lesson: Guard Your Majorities",
+          "bullets": [
+            "Every category card spent on gold weakens your scoring position",
+            "Only bid category cards if your majority is safe",
+            "Losing a die (3-6 VP) is worse than missing a gold card"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "The Final Auctions and Church Cards",
+          "bullets": [
+            "Aldric wins a Church card at auction and raises Holy Books to 4",
+            "Late-game Church cards can swing final scoring"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Scoring the Game",
+          "bullets": [
+            "Highest card total per category wins that die",
+            "Tied categories: die unclaimed",
+            "Beatrice wins with 6 VP from two dice"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Reflecting on the Game",
+          "bullets": [
+            "Beatrice won by committing to 2 categories + using Church cards",
+            "Aldric too narrow; Cassius weakened his majority for gold"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Key Takeaways",
+          "bullets": [
+            "Gift Phase: controlled uncertainty, assign each card wisely",
+            "Church cards: free actions, use proactively",
+            "Auctions: bid only when die value and need justify cost",
+            "Guard majorities — do not sacrifice scoring cards carelessly"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Before You Enter the Monastery",
+          "bullets": [
+            "Check out General Tips for category and Church card strategy",
+            "Browse the Appendix for card types, bidding rules, and scoring",
+            "Ask your personal GM Guide — tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Focus on Two or Three Categories",
+          "text": "The most common mistake new abbots make is spreading their collection across all five categories. With only so many cards available, you cannot win every die. Instead, commit to two or three colors early in the Gift Phase and funnel your efforts there. Winning two dice worth 4 and 5 is far better than losing all five categories by one card each. Let go of categories that are not working and double down on those that are.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Church Cards Are Your Secret Weapon",
+          "text": "Church cards can shift a die up or down by 1. This may seem small, but it is enormous in a game decided by single victory points. Raising a die you are winning from 3 to 5 over two Church cards nets you 2 extra VP for free. Lowering a die your opponent dominates from 3 to 1 saves you from conceding 2 VP. Play Church cards early and with purpose. Raise your strong categories and crush your opponents' best categories.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Remember What You Put in the Auction Pile",
+          "text": "During the Gift Phase, you place one card face down on the auction pile every turn. Pay attention to what goes there. If you sent three gold cards to the pile, you know the Auction Phase will have gold available. If you buried high-value category cards there, you know competition will be fierce. Your memory of the auction pile gives you an information edge when bidding.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Gold Is Only Useful for Bidding",
+          "text": "Gold cards have zero value at the end of the game. They exist solely as auction currency. Do not hoard gold past the Auction Phase — spend every last coin. Conversely, do not undervalue gold during the Gift Phase. A hand with no gold means you cannot win a single auction for category cards or Church cards. Aim to enter the Auction Phase with a healthy reserve of gold, then spend all of it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Watch What Opponents Collect",
+          "text": "During the Gift Phase, you give cards face up to opponents, so everyone sees some of what others are collecting. Pay close attention. If Beatrice is stacking red Pigments, you can lower the Pigments die with a Church card or stop bidding on Pigments in the Auction Phase. If no one seems to be collecting green Manuscripts, you might sneak a majority there with just a few cards. Information is power in the monastery.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Gift Phase Assignment Strategy",
+          "text": "When deciding how to assign each drawn card, follow a simple priority. If the card is great for you and you have not kept one yet, keep it. If the card is terrible for everyone, send it to the auction pile. If you must give a card to an opponent, give the one that helps them least. Avoid giving strong cards in a color an opponent is already collecting. And always send low-value gold and unwanted category cards to the auction pile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Auction Phase Discipline",
+          "text": "In the Auction Phase, set a mental budget before bidding starts. Decide which categories you need to reinforce and how much gold you are willing to spend on each. Let cards you do not need go cheaply to opponents. If a bidding war erupts over a card that does not help your main categories, let the other abbots bleed each other dry. Your gold is better spent on the cards that actually swing your majorities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Ties Are Your Enemy",
+          "text": "Remember that tied categories mean no one wins the die. If you suspect you and an opponent are neck and neck in a color, you must either pull ahead or abandon that category entirely. Investing cards and gold into a tie is the worst outcome — you spent resources and got zero VP. When in doubt, one extra card in a contested category is worth more than two cards in a category you are already winning comfortably.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Focus on Two or Three Categories",
+          "bullets": [
+            "Do not spread across all 5 colors — commit to 2-3",
+            "Winning two dice at 4-5 VP beats losing all five by 1 card",
+            "Abandon categories that are not working"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Church Cards Are Your Secret Weapon",
+          "bullets": [
+            "Raise dice you are winning, lower dice opponents dominate",
+            "Two Church cards on one die = 2 extra VP (or 2 fewer for opponent)",
+            "Play them early with clear purpose"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Remember What You Put in the Auction Pile",
+          "bullets": [
+            "Track what you sent to the auction pile during the Gift Phase",
+            "Memory gives you an edge when bidding"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Gold Is Only Useful for Bidding",
+          "bullets": [
+            "Gold = 0 VP at game end — spend it all during auctions",
+            "Enter the Auction Phase with enough gold to compete",
+            "Do not hoard gold, do not ignore gold"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Watch What Opponents Collect",
+          "bullets": [
+            "Cards given face up reveal opponents' strategies",
+            "Lower dice for colors opponents dominate",
+            "Exploit uncontested categories with minimal investment"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Gift Phase Assignment Strategy",
+          "bullets": [
+            "Keep great cards early if you have not used your keep",
+            "Send low-value or unwanted cards to the auction pile",
+            "Give opponents cards that help them least"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Auction Phase Discipline",
+          "bullets": [
+            "Set a mental gold budget before auctions begin",
+            "Only bid on cards that reinforce your target categories",
+            "Let opponents bleed each other on cards you do not need"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ties Are Your Enemy",
+          "bullets": [
+            "Tied categories = no one wins the die = wasted resources",
+            "Invest one extra card in contested categories to break ties",
+            "Abandon a tie if cost exceeds the die's value"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Die Manipulation Engine",
+          "text": "The most powerful advanced strategy in Biblios revolves around Church cards. Instead of collecting the highest card totals, focus on winning two or three cheap categories while inflating their dice to 5 or 6. If you raise two dice to 5 each and win them with modest card totals, you score 10 VP while opponents who won more expensive categories at lower die values fall short. Pair this with lowering dice in categories you cannot win.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Auction Pile Seeding",
+          "text": "During the Gift Phase, you control what goes into the auction pile. Advanced players seed the pile strategically. Send cards there that you want to buy cheaply later — cards in categories your opponents are not collecting. Your opponents will not bid hard on those cards, so you pick them up for minimal gold. Conversely, avoid sending cards to the pile that help your strongest opponent. Even a 1-value card in their best color strengthens them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Gold Economy",
+          "text": "Gold management separates beginners from veterans. In the Gift Phase, keep gold cards worth 2 or 3 whenever possible. Low-value gold cards worth 1 are better sent to the auction pile or given to opponents as weak gifts. Entering the Auction Phase with 6 or more gold value gives you dominant bidding power. You can win two or three critical auctions while opponents who neglected gold can only watch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Misdirection and Feints",
+          "text": "In the Gift Phase, the cards you give opponents are visible. Use this to mislead. If you are secretly collecting Monks, occasionally give an opponent a Monks card you do not need (a low-value 1) while keeping high-value ones hidden in your hand. Opponents may assume you are not pursuing Monks and lower their guard. In the Auction Phase, pass on a Monks card early to seem disinterested, then bid aggressively on a critical one later when opponents have spent their gold.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reading the Removed Cards",
+          "text": "At the start of the game, cards are removed unseen. You cannot know exactly which cards were taken, but you can deduce information as the game progresses. If very few Holy Books cards appear during the Gift Phase, many were likely removed. This means the category is thin, and a small investment might win the die. Pay attention to which colors seem underrepresented — those are the categories where a few cards go a long way.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Church Card Plays",
+          "text": "While General Tips said to play Church cards early, advanced players sometimes hold one for a calculated late strike. If you play a Church card to raise a die during the Auction Phase, opponents may not have time to respond. They have already spent their Church cards or cannot adjust the die back. A late Church card play can steal a VP that changes the winner. The risk is holding it too long and never using it. Use this tactic only when you have a specific scoring scenario in mind.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Gold Auction Reversal",
+          "text": "When gold cards appear in the auction, category cards become currency. Advanced players exploit this asymmetry. If you have surplus cards in a category you have already locked up — say you are winning Manuscripts by 6 points and have a spare 2-value card — use that surplus to buy gold cheaply. The key word is surplus. Never bid away cards that threaten your majority. Calculate your lead in each category before every gold auction and only spend from safe margins.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Two-Die Victory Path",
+          "text": "In most games, winning two high-value dice is enough to win. If you can push two dice to 5 or 6 each using Church cards and lock those categories with strong card totals, your 10-12 VP will likely beat opponents who won three dice at 2-3 each. This means you can concede entire categories early, focusing all your drafting, gold, and Church cards on just two colors. It is a concentrated, efficient path to victory — the hallmark of an experienced abbot.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Die Manipulation Engine",
+          "bullets": [
+            "Win cheap categories and inflate their dice to 5-6 with Church cards",
+            "Lower dice in categories you concede",
+            "Two dice at 5 each (10 VP) often beats three dice at 2-3"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Auction Pile Seeding",
+          "bullets": [
+            "Send cards to auction that you can buy cheaply later",
+            "Seed categories opponents are not collecting",
+            "Avoid sending cards that strengthen your rival's best color"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Gold Economy",
+          "bullets": [
+            "Prioritize keeping gold 2 and gold 3 during the Gift Phase",
+            "Send gold 1 to the auction pile or give as weak gifts",
+            "6+ gold value entering Auction Phase = dominant bidding power"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Misdirection and Feints",
+          "bullets": [
+            "Give low-value cards in your secret color to mislead opponents",
+            "Pass on early auctions in your target color to seem disinterested",
+            "Bid aggressively later when opponents have spent their gold"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Removed Cards",
+          "bullets": [
+            "Track which colors are underrepresented during the Gift Phase",
+            "Thin categories = small investment can win the die",
+            "Deduction improves as more cards are revealed"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Timing Your Church Card Plays",
+          "bullets": [
+            "Late Church card plays catch opponents off guard",
+            "Opponents may have no Church cards left to respond",
+            "Risk: holding too long and never using it — only delay with a plan"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Gold Auction Reversal",
+          "bullets": [
+            "Bid category cards for gold only from surplus (safe margins)",
+            "Calculate your lead in each category before every gold auction",
+            "Surplus = points above what you need to maintain majority"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Two-Die Victory Path",
+          "bullets": [
+            "Winning 2 high-value dice (5-6 each) often beats 3 low-value dice",
+            "Concede weak categories early to concentrate resources",
+            "Focus all drafting, gold, and Church cards on 2 colors"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Category Cards",
+          "definition": "Colored cards in five types (pigments, holy books, manuscripts, forbidden tomes, monks) with printed values of 1 to 4. Collected to compete for category dice.",
+          "category": "Components"
+        },
+        {
+          "term": "Gold Cards",
+          "definition": "Cards with values of 1, 2, or 3 used as currency during the Auction Phase to bid on category and Church cards. Worth zero victory points at end of game.",
+          "category": "Components"
+        },
+        {
+          "term": "Church Cards",
+          "definition": "Special cards that allow you to adjust any one category die up or down by 1 (within range 1-6). Can be played as a free action on your turn in either phase.",
+          "category": "Components"
+        },
+        {
+          "term": "Category Dice",
+          "definition": "Five colored dice, one per category, placed on the game board. Each starts at 3 and can be adjusted by Church cards. The face value equals the VP awarded to the player who wins that category.",
+          "category": "Components"
+        },
+        {
+          "term": "Game Board",
+          "definition": "A small board placed in the center of the table that holds the five category dice. Provides a visual reference for current die values.",
+          "category": "Components"
+        },
+        {
+          "term": "Auction Pile",
+          "definition": "A face-down pile of cards built during the Gift Phase. Each player contributes one card per turn. The pile is shuffled and auctioned off one card at a time during the Auction Phase.",
+          "category": "Gameplay"
+        },
+        {
+          "term": "Gift Phase",
+          "definition": "The first phase of the game. The active player draws cards one at a time (players + 1) and assigns each immediately: keep 1, give 1 to each opponent, and place 1 on the auction pile.",
+          "category": "Phases"
+        },
+        {
+          "term": "Auction Phase",
+          "definition": "The second phase. The auction pile is shuffled, and cards are revealed one at a time. Players bid to win each card. Category and Church cards are bid on with gold; gold cards are bid on with category cards.",
+          "category": "Phases"
+        },
+        {
+          "term": "Keep (Gift Phase Action)",
+          "definition": "Place a drawn card face down into your hand. You may keep exactly one card per turn during the Gift Phase.",
+          "category": "Actions"
+        },
+        {
+          "term": "Give (Gift Phase Action)",
+          "definition": "Place a drawn card face up in front of an opponent. Each opponent must receive exactly one card per turn. Given cards are visible to all players.",
+          "category": "Actions"
+        },
+        {
+          "term": "Auction (Gift Phase Action)",
+          "definition": "Place a drawn card face down on the auction pile. Exactly one card must go to the pile each turn.",
+          "category": "Actions"
+        },
+        {
+          "term": "Bidding on Category Cards",
+          "definition": "When a category card is revealed at auction, players bid using gold cards. Highest gold value wins. Minimum bid is 1 gold. Pass once and you are out of that auction.",
+          "category": "Auction Rules"
+        },
+        {
+          "term": "Bidding on Gold Cards",
+          "definition": "When a gold card is revealed at auction, players bid using category cards from their hand. Highest total category card value wins. The spent category cards are discarded.",
+          "category": "Auction Rules"
+        },
+        {
+          "term": "Bidding on Church Cards",
+          "definition": "When a Church card is revealed at auction, players bid using gold cards, same as for category cards. The winner may play the Church card effect immediately.",
+          "category": "Auction Rules"
+        },
+        {
+          "term": "Passing in Auctions",
+          "definition": "Once you pass on an auction, you cannot re-enter bidding for that card. If all players pass, the auctioneer (current turn player) takes the card for free.",
+          "category": "Auction Rules"
+        },
+        {
+          "term": "Pigments",
+          "definition": "One of the five card categories (color-coded). Represents the inks and paints used by monastery scribes to illuminate manuscripts.",
+          "category": "Categories"
+        },
+        {
+          "term": "Holy Books",
+          "definition": "One of the five card categories (color-coded). Represents sacred religious texts collected for the monastery's library.",
+          "category": "Categories"
+        },
+        {
+          "term": "Manuscripts",
+          "definition": "One of the five card categories (color-coded). Represents hand-copied texts and scrolls produced in the scriptorium.",
+          "category": "Categories"
+        },
+        {
+          "term": "Forbidden Tomes",
+          "definition": "One of the five card categories (color-coded). Represents rare and controversial texts kept hidden in the monastery's restricted collection.",
+          "category": "Categories"
+        },
+        {
+          "term": "Monks",
+          "definition": "One of the five card categories (color-coded). Represents the scribes and scholars working in the monastery to produce and preserve texts.",
+          "category": "Categories"
+        },
+        {
+          "term": "Card Removal at Setup",
+          "definition": "Before play begins, cards are removed unseen from the deck. 2 players: 22 removed. 3 players: 15 removed. 4 players: 8 removed. These cards stay secret all game.",
+          "category": "Setup"
+        },
+        {
+          "term": "Cards Drawn Per Turn",
+          "definition": "The active player draws cards equal to number of players plus 1. In a 2-player game: 3 cards. 3-player: 4 cards. 4-player: 5 cards.",
+          "category": "Setup"
+        },
+        {
+          "term": "Majority",
+          "definition": "Having the highest total card value in a category. The player with the majority wins that category's die. Ties mean no one wins the die.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Die Value (Victory Points)",
+          "definition": "Each category die shows a value from 1 to 6, starting at 3. This value equals the VP awarded to the player who wins the majority in that category. Church cards adjust die values during play.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Tiebreaker",
+          "definition": "If players are tied in total die VP, the player who won more individual dice wins. If still tied, players share the victory.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Free Action (Church Card)",
+          "definition": "Playing a Church card does not cost you your turn or replace any other action. It can be played at any time during your turn in either phase, in addition to your normal actions.",
+          "category": "Actions"
+        }
+      ]
+    }
+  }
+}
