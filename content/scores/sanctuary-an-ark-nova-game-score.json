@@ -1,0 +1,12 @@
+{
+  "game_id": "sanctuary-an-ark-nova-game",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "appeal_points", "label": "Appeal Points", "points_each": 1, "type": "manual", "description": "Your position on the Appeal track at end of game"},
+    {"id": "conservation_points", "label": "Conservation Points", "points_each": 1, "type": "manual", "description": "Your position on the Conservation track at end of game"},
+    {"id": "final_scoring_card", "label": "Final Scoring Card", "points_each": 1, "type": "manual", "description": "Conservation points earned from your remaining Final Scoring card (0-4)"},
+    {"id": "endgame_sponsor_cards", "label": "End-of-Game Sponsor Effects", "points_each": 1, "type": "manual", "description": "Appeal or conservation points from Sponsor cards with end-of-game effects (brown strip)"},
+    {"id": "victory_points", "label": "Victory Points (Final)", "points_each": 1, "type": "manual", "description": "Appeal value minus the target number from your Conservation scoring area. Positive = good, negative = bad."}
+  ],
+  "notes": "Scoring in Sanctuary (Ark Nova) works differently from most games. Your Appeal counter and Conservation counter move toward each other on opposite tracks. When they meet or cross, the game ends. Your Victory Points = your Appeal value minus the lowest Appeal value in the scoring area where your Conservation counter sits. Final Scoring cards and end-of-game Sponsor effects add conservation points before calculating the final score."
+}

@@ -1,0 +1,12 @@
+{
+  "game_id": "spartacus",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "influence", "label": "Influence", "points_each": 1, "type": "manual", "description": "Current Influence level on your House Card (race to 12)"},
+    {"id": "gladiator_value", "label": "Gladiator Coin Values", "points_each": 1, "type": "manual", "description": "Sum of Coin Values of all your Gladiators (tiebreaker in tournaments)"},
+    {"id": "equipment_value", "label": "Equipment Coin Values", "points_each": 1, "type": "manual", "description": "Sum of Coin Values of all your Equipment cards (tiebreaker in tournaments)"},
+    {"id": "coins", "label": "Coins in Treasury", "points_each": 1, "type": "count", "description": "Total Coins currently held"},
+    {"id": "favour_tokens", "label": "Favour Tokens", "points_each": 1, "type": "count", "description": "Favour tokens on your Gladiators (each worth 2 Coins tribute per Arena phase)"},
+    {"id": "champion_tokens", "label": "Champion Tokens", "points_each": 1, "type": "count", "description": "Champion tokens on your Gladiators (worth 6 Coins tribute and +1/-1 Influence)"}
+  ]
+}

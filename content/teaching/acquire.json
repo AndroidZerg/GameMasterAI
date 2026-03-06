@@ -1,0 +1,1231 @@
+{
+  "game_id": "acquire",
+  "title": "Acquire",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Gameboard",
+          "text": "Let's get Acquire set up. First, place the gameboard in the center of the table where everyone can reach it. The board is a grid of letter-number spaces from 1A all the way to 12I. Each space corresponds to a specific building tile. This is where you'll be placing tiles and growing hotel chains throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Building Tiles",
+          "text": "Find all 108 building tiles. These are small tiles with a letter and a number on each one, like 3C or 7F. Place them all facedown next to the gameboard and mix them up really well. Think of it like shuffling a deck of cards but with tiles. These tiles are your main resource throughout the game — you'll draw from this pool every turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Choose a Banker",
+          "text": "Pick one player to be the banker. This person will handle all money exchanges and stock transactions throughout the game. The banker takes the seven headquarters buildings and all the stock cards, separated by hotel chain, and places them in the stock market tray. There are 25 stock cards for each of the seven hotel chains, totaling 175 stock cards.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Distribute Starting Money",
+          "text": "The banker gives each player $6,000 in starting cash. The exact bills are: four $1,000 bills, three $500 bills, and five $100 bills. That adds up to $4,000 + $1,500 + $500 = $6,000. Make sure everyone counts their money and confirms they have the right amount. The remaining bills get separated by denomination into four piles next to the gameboard — that's the bank.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Stockholder Info Cards",
+          "text": "Each player takes one stockholder info card and places it in front of them. This card is your cheat sheet for the whole game — it tells you stock prices and stockholder bonuses based on hotel chain size. As a group, decide which mode you want to play. Classic Mode pays bonuses to the top two stockholders during mergers. Tycoon Mode pays bonuses to the top three stockholders. If this is your first game, Tycoon Mode is recommended because it spreads the wealth and keeps everyone engaged.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Decide on Open or Hidden Information",
+          "text": "Here's a group decision that changes the feel of the game. You can play with stocks and money visible to everyone, or keep them hidden. For your first game, we recommend playing with everything visible. It's easier to learn when you can see what everyone is investing in. The game gets a lot more challenging and strategic when stocks and money are hidden, because you have to remember who bought what.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "text": "To decide who goes first, each player draws one building tile from the facedown pile and places it faceup on its matching space on the gameboard. The player whose tile is closest to space 1A goes first, and play moves to the left. A helpful rule: 9A is closer to 1A than 1B is — number takes priority over letter. Leave all these tiles on the board. If any of them happen to be adjacent, they're still considered independent for now — no hotel chain is formed yet.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Draw Your Starting Hand",
+          "text": "Finally, each player draws six building tiles from the facedown pile. Stand your tiles up in front of you so only you can see them, like a hand of cards. These are your options for placement on your upcoming turns. You'll always have six tiles in hand at the start of each turn (unless the pile runs low). You're all set — let's play!",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Gameboard",
+          "bullets": [
+            "Place the grid board centrally — spaces range from 1A to 12I",
+            "Each space matches a specific building tile"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Building Tiles",
+          "bullets": [
+            "Place all 108 building tiles facedown next to the board",
+            "Mix them thoroughly"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Choose a Banker",
+          "bullets": [
+            "One player handles all money and stock transactions",
+            "Place 7 headquarters buildings and 175 stock cards (25 per chain) in the stock market tray"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Distribute Starting Money",
+          "bullets": [
+            "Each player receives $6,000 total",
+            "Breakdown: 4x $1,000 + 3x $500 + 5x $100",
+            "Remaining bills form the bank in four denomination piles"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Hand Out Stockholder Info Cards",
+          "bullets": [
+            "Each player gets one stockholder info card",
+            "Choose Classic Mode (top 2 bonuses) or Tycoon Mode (top 3 bonuses)",
+            "First game recommendation: Tycoon Mode"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Decide on Open or Hidden Information",
+          "bullets": [
+            "Group decides: visible or hidden stocks and money",
+            "First game recommendation: play with everything visible",
+            "Hidden info adds memory and bluffing challenge"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Determine First Player",
+          "bullets": [
+            "Each player draws 1 tile and places it on the board",
+            "Closest tile to 1A goes first, play moves left",
+            "9A is closer to 1A than 1B (number before letter)",
+            "Leave tiles on board — they're independent until joined later"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Draw Your Starting Hand",
+          "bullets": [
+            "Each player draws 6 building tiles from the facedown pile",
+            "Stand tiles up so only you can see them",
+            "You'll maintain 6 tiles in hand throughout the game"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Overview: Three Actions Every Turn",
+          "text": "On your turn, you always do three things in order. First, place a building tile on the board. Second, optionally buy up to three stocks. Third, draw a new building tile. That's it — place, buy, draw. Simple structure, but what happens when you place that tile can get very interesting. Let's walk through each action.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Placing a Building Tile: The Four Outcomes",
+          "text": "When you place a tile, one of four things happens depending on what's around it. One: it lands next to nothing — it's just an independent building, nothing special happens. Two: it lands next to other independent tiles — you've just founded a new hotel chain. Three: it lands next to an existing hotel chain — that chain grows by one tile. Four: it connects two or more hotel chains — a merger happens. The position of your tile determines everything, so pay close attention to the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Founding a Hotel Chain",
+          "text": "When your tile connects to one or more independent tiles and none of them are already part of a hotel chain, congratulations — you've founded a new hotel chain! Immediately pick one of the available headquarters buildings from the stock market tray and place it on any of the newly connected tiles. Then take one free stock card for that hotel chain. That's your founder's bonus. It's like a thank-you for starting the company. If all seven headquarters are already on the board, you can't found a new chain — but you might be able to play that tile later when a headquarters becomes available.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Growing a Hotel Chain",
+          "text": "If your tile lands next to a tile that's already part of a hotel chain, that chain simply grows larger by one tile. Nothing dramatic happens, but the chain's stock price goes up as it gets bigger. Growing a chain you own stock in is always a good thing — it increases the value of your investment and makes the chain harder to acquire.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Mergers: The Heart of the Game",
+          "text": "Here's where Acquire gets exciting. If you place a tile that connects two or more hotel chains, a merger happens. The larger chain — the one with more building tiles — survives and absorbs the smaller one. Do NOT count the merging tile itself when comparing sizes. Remove the headquarters building from the smaller chain and return it to the tray. All the smaller chain's tiles now belong to the larger chain. If the chains are the same size, the mergemaker — that's you, the person who placed the tile — gets to decide which chain survives.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Safe Hotel Chains",
+          "text": "A hotel chain with 11 or more building tiles is considered safe. A safe chain can never be acquired in a merger. This is a huge deal. Two safe chains cannot merge, even if a tile would connect them. If you hold a tile that would merge two safe chains, that tile is unplayable — set it aside at the end of your turn and draw a replacement. But a safe chain can still acquire a smaller chain in a merger, it just can't be the one that gets absorbed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Stockholder Bonuses During Mergers",
+          "text": "When a chain gets acquired, the big payoff happens. Everyone reveals how many stocks they own in the acquired chain. The player with the most stocks is the primary stockholder and gets a big cash bonus. The player with the second-most is the secondary stockholder and gets a smaller bonus. In Tycoon Mode, the player with the third-most is the tertiary stockholder and gets an even smaller bonus. The exact bonus amounts depend on the chain's name and size — check your stockholder info card. These bonuses come from the bank, not from other players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Tie-Breaking for Stockholder Bonuses",
+          "text": "Ties happen often and the rules handle them specifically. In Classic Mode: if two players tie for primary, add the primary and secondary bonuses together, divide evenly, round up to the nearest hundred, and pay each tied player that amount. The secondary position gets nothing. If two players tie for secondary, split the secondary bonus between them, rounded up. In Tycoon Mode, ties work similarly but across three positions. If primary is tied, add primary and secondary, split between tied players, and the secondary gets the tertiary bonus. If there's only one stockholder, they get both primary and secondary bonuses in Classic, or primary and tertiary in Tycoon.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "What to Do with Acquired Stock",
+          "text": "After bonuses are paid, starting with the mergemaker and going clockwise, each player who holds stock in the acquired chain must decide what to do with it. You have three options, and you can mix and match. Option 1: Keep it — hold onto the stock hoping that hotel chain gets re-founded later. Option 2: Sell it — sell shares back to the bank at the current price based on the chain's size before the merger. Option 3: Trade it in — for every two stocks of the acquired chain, get one stock of the surviving chain from the tray. This 2-for-1 trade is very powerful.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Multi-Chain Mergers",
+          "text": "When three or more hotel chains merge at once, the largest chain survives and the smaller ones are acquired one at a time, from largest to smallest. The mergemaker breaks any ties about which chain survives. For each acquired chain, you pay out stockholder bonuses and let players keep, sell, or trade their stock before moving to the next acquired chain. It's the same process repeated for each chain that gets absorbed.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Buying Stocks",
+          "text": "After placing your tile and resolving any mergers, you may buy up to three stock cards from the stock market tray. You can buy stocks in any combination of active hotel chains — three in one chain, one each in three different chains, or anything in between. Stock prices depend on the chain's name and current size, as listed on your stockholder info card. You must announce what you're buying and the price you're paying. You can't buy stock in a chain that doesn't have its headquarters on the board. At any time, anyone can ask how many stocks remain in the tray for any chain.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Running Out of Money",
+          "text": "You can run out of money, and that's rough. If you're broke, you still place tiles and draw tiles each turn, but you cannot buy stock. No loans from the bank or other players are allowed. Your only way back to solvency is through stockholder bonuses from mergers or selling stock in an acquired chain. You cannot sell stock in an active chain at any point in the game — stocks in active chains are locked until a merger or the end of the game. The lesson: don't over-invest. You don't need to be the majority stockholder in every chain to win.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Drawing a Building Tile",
+          "text": "At the end of your turn, draw one building tile from the facedown pile to bring your hand back up to six. Also check your hand for unplayable tiles — these are tiles that would merge two or more safe hotel chains, which is impossible. If you find any, set them aside faceup and draw replacements. Note: tiles that would found an eighth hotel chain are not unplayable, but you can't play them until a headquarters building is available. If you draw new unplayable tiles as replacements, you must wait until your next turn to discard them.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "How the Game Ends",
+          "text": "The game ends when a player announces during their turn that either all active hotel chains on the board are safe (11+ tiles each) or that one hotel chain has 41 or more building tiles. The announcement is optional — you don't have to end the game if it benefits you to keep playing. After making the announcement, that player finishes their turn as normal, then the game ends immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Final Scoring",
+          "text": "When the game ends, three things happen in order. First, pay out primary, secondary, and tertiary (in Tycoon Mode) stockholder bonuses for every active hotel chain still on the board, just like during a merger. Second, all players sell all their remaining stocks back to the bank at prices determined by each chain's name and current size. Stocks in chains not on the board are worth nothing. Third, everyone counts up their total cash. The player with the most money wins! If there's a tie, the victory is shared. That's the whole game — place tiles, buy stocks, collect bonuses, and make the most money.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Rare Cases",
+          "text": "A few rare situations can come up. If you found a hotel chain but all 25 of its stock cards are already owned by players, you receive the founder's bonus as a cash payment equal to the stock's current value instead of a free stock card. If a tile is placed on the wrong space and caught on the same turn, move it to the correct spot. If discovered on a later turn, it stays where it is, and the correct tile is swapped if another player holds it. In Tycoon Mode with only two stockholders, the tertiary bonus is simply ignored.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Overview: Three Actions Every Turn",
+          "bullets": [
+            "1. Place a building tile on its matching space",
+            "2. Buy up to 3 stocks in any active hotel chains (optional)",
+            "3. Draw a new building tile from the facedown pile"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Placing a Building Tile: The Four Outcomes",
+          "bullets": [
+            "Independent: tile not adjacent to anything — nothing happens",
+            "Found: tile connects independent tiles — new hotel chain",
+            "Grow: tile adjacent to existing chain — chain gets larger",
+            "Merge: tile connects 2+ chains — smaller absorbed by larger"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Founding a Hotel Chain",
+          "bullets": [
+            "Place a headquarters building from the tray onto one of the connected tiles",
+            "Take 1 free stock card as founder's bonus",
+            "Cannot found if all 7 headquarters are already on the board",
+            "If all stock is owned, founder gets cash equal to stock value instead"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Growing a Hotel Chain",
+          "bullets": [
+            "Chain grows by 1 tile — stock price increases with size",
+            "No special actions needed, just place the tile"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Mergers: The Heart of the Game",
+          "bullets": [
+            "Larger chain (more tiles) survives, smaller chain is acquired",
+            "Do NOT count the merging tile when comparing sizes",
+            "Mergemaker breaks ties on which chain survives",
+            "Return acquired chain's headquarters to the tray"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Safe Hotel Chains",
+          "bullets": [
+            "A chain with 11+ tiles is safe — can never be acquired",
+            "Two safe chains cannot merge",
+            "Tiles that would merge two safe chains are unplayable — discard and redraw",
+            "A safe chain can still acquire smaller chains"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Stockholder Bonuses During Mergers",
+          "bullets": [
+            "Primary stockholder (most stock) gets the largest bonus",
+            "Secondary stockholder (2nd most) gets a smaller bonus",
+            "Tycoon Mode: tertiary stockholder (3rd most) gets a bonus too",
+            "Bonus amounts depend on chain name and size — check info card"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Tie-Breaking for Stockholder Bonuses",
+          "bullets": [
+            "Tie for primary: add primary + secondary bonuses, split evenly, round up to nearest $100",
+            "Tie for secondary: split secondary bonus, round up",
+            "Tycoon ties: same logic cascading through 3 positions",
+            "Single stockholder in Classic: gets primary + secondary; in Tycoon: gets primary + tertiary"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "What to Do with Acquired Stock",
+          "bullets": [
+            "Starting with mergemaker, clockwise, each player chooses:",
+            "Keep — hold stock for possible re-founding of that chain",
+            "Sell — sell to bank at current price per info card",
+            "Trade — 2 acquired stocks = 1 stock in surviving chain",
+            "You can mix and match all three options"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Multi-Chain Mergers",
+          "bullets": [
+            "Largest chain survives, smaller chains acquired one at a time",
+            "Process each acquired chain from largest to smallest",
+            "Pay bonuses and resolve stock for each acquired chain separately",
+            "Mergemaker breaks all ties"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Buying Stocks",
+          "bullets": [
+            "Buy up to 3 stock cards per turn from the stock market tray",
+            "Any combination of active hotel chains allowed",
+            "Prices depend on chain name and current size (check info card)",
+            "Must announce purchases and prices to all players"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Running Out of Money",
+          "bullets": [
+            "If broke: still place and draw tiles, but cannot buy stock",
+            "No loans from bank or other players allowed",
+            "Cannot sell stock in active chains — only during mergers or end of game",
+            "Recovery: wait for merger bonuses or stock sales from acquisitions"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Drawing a Building Tile",
+          "bullets": [
+            "Draw 1 tile at end of turn to maintain a hand of 6",
+            "Unplayable tiles (would merge 2+ safe chains): set aside faceup, draw replacements",
+            "Tiles that would found an 8th chain: keep but can't play until a HQ is available",
+            "New unplayable replacements must wait until next turn to discard"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "How the Game Ends",
+          "bullets": [
+            "Game ends when a player announces: all active chains are safe, OR one chain has 41+ tiles",
+            "Announcement is optional — player may choose to keep playing",
+            "After announcement, that player finishes their turn, then the game ends"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Final Scoring",
+          "bullets": [
+            "1. Pay stockholder bonuses for all active hotel chains",
+            "2. All players sell all stocks back to bank at current prices",
+            "3. Stocks in chains not on the board are worth $0",
+            "4. Player with the most total cash wins — ties share victory"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Rare Cases",
+          "bullets": [
+            "Founding with no stock available: receive cash equal to stock value",
+            "Wrong tile placement caught same turn: move it; later turn: stays, swap tiles",
+            "Tycoon Mode with only 2 stockholders: tertiary bonus is ignored"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome & Meet the Players",
+          "text": "In this practice tutorial, we'll walk through a scripted first round with three players — Alice, Bob, and Carol. They'll each make different moves so you can see how tile placement, hotel founding, stock buying, and mergers all work. One of them will stumble into a few classic beginner mistakes along the way. Follow along even if your player count is different. Ready? Let's go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Board After Setup",
+          "text": "During setup, each player drew a tile to determine first player. Alice drew 2C, Bob drew 5F, and Carol drew 8D. Those three tiles are now on the board. Alice is closest to 1A, so she goes first, then Bob, then Carol. Each player has $6,000 and six building tiles in hand. The stock market tray has all seven headquarters buildings and all 175 stock cards. Let's begin.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Alice's Turn 1: Placing an Independent Tile",
+          "text": "Alice looks at her hand and plays tile 7B. She places it on space 7B on the board. There's nothing adjacent to it — no other tiles nearby. So it's just an independent building. Nothing exciting, but it's on the board now. Alice then decides to skip buying stocks since there are no active hotel chains yet. She draws a new tile to bring her hand back to six. Simple turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Bob's Turn 1: Founding a Hotel Chain",
+          "text": "Bob has tile 5E in his hand. He places it on space 5E, which is right next to the 5F tile already on the board from setup. Two adjacent tiles with no headquarters? That means Bob just founded a hotel chain! He picks a headquarters building from the tray — let's say he chooses Imperial — and places it on one of the connected tiles. He takes one free Imperial stock card as his founder's bonus. Nice move, Bob. Now Bob can buy stocks. He buys two more Imperial stocks at the starting price of $200 each (a 2-tile chain in the mid-tier). That costs him $400. He draws a tile to end his turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Carol's Turn 1: The First Mistake",
+          "text": "Carol has tile 8E in her hand. She places it next to 8D on the board — another founding opportunity! She picks Continental as her headquarters and gets her free founder's bonus stock. Now here's where Carol makes her first mistake. She looks at the stock market and sees Imperial stock is only $200 per share. She thinks 'That's cheap, I should load up!' So she buys three Imperial stocks for $600, completely ignoring her own Continental chain. She has zero investment in the company she just founded.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Invest in What You Found",
+          "text": "Carol's mistake is a classic beginner trap. She founded Continental and got one free stock, but then spent all her buying power on someone else's chain. Meanwhile, Bob already has three Imperial stocks. If Imperial gets acquired later, Bob will be the primary stockholder and get the big bonus — Carol's three shares will earn her the secondary bonus at best. Worse, if Continental gets acquired, Carol only has one stock while nobody else has any. She'll get the bonuses by default, but they'll be small because the chain is tiny. The lesson: when you found a chain, buy stock in it immediately. You're already the majority holder with your free share — build on that advantage.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Alice's Turn 2: Growing a Chain",
+          "text": "Alice plays tile 5G, which is adjacent to the Imperial chain. Imperial just grew from 2 tiles to 3 tiles. The stock price ticks up. Alice didn't found Imperial, but growing it is still useful because it increases the value for anyone holding Imperial stock. Alice decides to buy two Imperial stocks at the new price. She's jumping into the stock race with Bob. She draws a tile to end her turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Bob's Turn 2: Strategic Positioning",
+          "text": "Bob plays tile 9D, right next to Carol's Continental chain. Continental grows to 3 tiles. But wait — Bob doesn't own any Continental stock. Why did he grow it? Because he has tile 6E in his hand, and he can see that a future play might connect Imperial and Continental. If he triggers that merger and Imperial is bigger, he'll get stockholder bonuses from Continental's acquisition. For now, Bob buys one more Imperial stock, bringing his total to four. He draws a tile.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Carol's Turn 2: The Second Mistake",
+          "text": "Carol looks at the board and gets excited. She has tile 3C, which is right next to the 2C tile Alice placed during setup. She plays it and founds a brand new hotel chain — let's call it American. She takes her free founder's stock. But then Carol makes her second mistake: she buys three more Imperial stocks. She now has six Imperial stocks and only one each in Continental and American. She's spread herself thin in the wrong direction — heavily invested in Bob's chain while neglecting her own two chains.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Don't Chase One Chain While Ignoring Your Own",
+          "text": "Carol now has the most Imperial stock with six shares — but Bob has four and Alice has two. If Imperial gets acquired, Carol gets the primary bonus, sure. But she founded TWO chains and has almost no stock in either one. If someone else buys Continental or American stock, they could easily overtake her as primary stockholder in chains she founded. The lesson: diversify your investments, especially in chains you founded. Your founder's bonus stock is a head start — don't waste it by pouring all your money elsewhere.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Alice's Turn 3: Triggering a Merger",
+          "text": "Alice plays tile 6E, and it connects Imperial (which now has 4 tiles) to Continental (which has 3 tiles). Merger! Imperial is larger, so it survives. Continental's headquarters goes back to the tray. Now stockholder bonuses for Continental are paid out. Carol has 1 Continental stock, making her the only stockholder. In Tycoon Mode, a single stockholder gets the primary and tertiary bonuses. For a 3-tile chain, that's a nice payout for Carol — but it would have been much bigger if the chain had grown larger before being acquired.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Resolving the Merger: Stock Decisions",
+          "text": "Alice triggered the merger, so she's the mergemaker and decides first. She has no Continental stock, so nothing to decide. Bob goes next — he also has no Continental stock. Carol has one Continental stock. She can keep it (hoping Continental gets re-founded), sell it at the current price, or trade 2 Continental stocks for 1 Imperial stock (but she only has one, so trading isn't an option). Carol decides to sell her one Continental stock for the listed price. The merger is now resolved, and Imperial has absorbed Continental's tiles, growing to 8 tiles total.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Carol's Turn 3: The Third Mistake",
+          "text": "Carol is now sitting on a lot of Imperial stock and feeling confident. She plays tile 4C next to American, growing it to 3 tiles. But then she does something risky: she spends almost all of her remaining cash buying three more stocks. She picks up two Imperial stocks and one American stock, leaving herself with just a few hundred dollars. Carol is now nearly broke.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Don't Go Broke",
+          "text": "Running out of money in Acquire is one of the worst things that can happen. You can't buy stock, and there are no loans allowed — not from the bank, not from other players. Carol will have to keep placing tiles and drawing tiles each turn, but she's locked out of buying stock until a merger pays her a bonus or she gets to sell stock in an acquired chain. Meanwhile, Alice and Bob can keep buying stock every turn, strengthening their positions. The lesson: always keep a cash reserve. You don't have to buy three stocks every turn. Sometimes buying one or zero is the smart play.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Continuing Play",
+          "text": "Play continues clockwise. Each turn follows the same rhythm: place a tile, optionally buy up to three stocks, draw a tile. The board fills up, chains grow, and the stock market gets more competitive. Watch for merger opportunities — they're where the big money is. Pay attention to chain sizes approaching 11 tiles, because once a chain is safe, it can never be acquired. The player who reads the board best and invests wisely will come out on top.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "You've seen tile placement, hotel founding, chain growth, a merger with stockholder bonuses, and the stock buy-sell-trade decision. You've also seen Carol make three common beginner mistakes: ignoring her own founded chains, chasing one stock instead of diversifying, and spending herself into near-bankruptcy. Those are the traps to avoid. You're ready to play a full game of Acquire!",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Before You Invest",
+          "text": "Before you dive into a full game, here are three things that can help.\n\nFirst — check out General Tips for investment strategy basics and common mistakes to avoid.\n\nSecond — reference the Appendix for a quick guide to all hotel chains, stock tiers, and merger rules.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome & Meet the Players",
+          "bullets": [
+            "Scripted tutorial with 3 players: Alice, Bob, Carol",
+            "Covers tile placement, founding, merging, and stock decisions",
+            "Carol makes 3 classic beginner mistakes along the way"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Board After Setup",
+          "bullets": [
+            "Setup tiles on board: Alice 2C, Bob 5F, Carol 8D",
+            "Alice goes first (closest to 1A)",
+            "Each player starts with $6,000 and 6 tiles"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Alice's Turn 1: Placing an Independent Tile",
+          "bullets": [
+            "Alice plays 7B — no adjacent tiles, so it's independent",
+            "No hotel chains exist yet, so no stocks to buy",
+            "Draws a tile to end turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Bob's Turn 1: Founding a Hotel Chain",
+          "bullets": [
+            "Bob plays 5E adjacent to 5F — founds Imperial",
+            "Places headquarters, takes 1 free stock (founder's bonus)",
+            "Buys 2 more Imperial stocks — now holds 3 total"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Carol's Turn 1: The First Mistake",
+          "bullets": [
+            "Carol plays 8E adjacent to 8D — founds Continental",
+            "Gets 1 free Continental stock as founder's bonus",
+            "MISTAKE: Buys 3 Imperial stocks instead of investing in her own chain"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Lesson: Invest in What You Found",
+          "bullets": [
+            "When you found a chain, you're already the majority holder — build on it",
+            "Don't spend all buying power on someone else's chain",
+            "Your founder's bonus stock is a head start — protect that advantage"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Alice's Turn 2: Growing a Chain",
+          "bullets": [
+            "Alice grows Imperial to 3 tiles by playing adjacent tile",
+            "Stock price increases with chain size",
+            "Buys 2 Imperial stocks — joins the stock race"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Bob's Turn 2: Strategic Positioning",
+          "bullets": [
+            "Bob grows Continental (Carol's chain) to set up a future merger",
+            "Sees a potential play to merge Imperial and Continental",
+            "Buys 1 more Imperial stock — now holds 4"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Carol's Turn 2: The Second Mistake",
+          "bullets": [
+            "Carol founds American — her second chain, gets free stock",
+            "MISTAKE: Buys 3 more Imperial stocks instead of her own chains",
+            "Now has 6 Imperial but only 1 each in her own two chains"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Lesson: Don't Chase One Chain While Ignoring Your Own",
+          "bullets": [
+            "Diversify investments — especially in chains you founded",
+            "Other players can easily overtake your 1-stock position",
+            "Spread your buys to protect majority positions in multiple chains"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Alice's Turn 3: Triggering a Merger",
+          "bullets": [
+            "Alice connects Imperial (4 tiles) and Continental (3 tiles) — merger!",
+            "Imperial survives (larger), Continental is acquired",
+            "Carol gets stockholder bonuses as sole Continental stockholder"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Resolving the Merger: Stock Decisions",
+          "bullets": [
+            "Mergemaker (Alice) decides first — no Continental stock, nothing to do",
+            "Carol sells her 1 Continental stock at current price",
+            "Trading requires 2-for-1 ratio (2 acquired = 1 surviving chain stock)",
+            "Imperial absorbs Continental tiles, growing to 8 tiles"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Carol's Turn 3: The Third Mistake",
+          "bullets": [
+            "Carol grows American to 3 tiles",
+            "MISTAKE: Spends almost all remaining cash on stocks",
+            "Left nearly broke with only a few hundred dollars"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Don't Go Broke",
+          "bullets": [
+            "No loans allowed — from bank or other players",
+            "Broke = no stock purchases until a merger pays you",
+            "Always keep a cash reserve — buying 0-1 stocks is often smart"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Continuing Play",
+          "bullets": [
+            "Each turn: place tile, buy up to 3 stocks, draw tile",
+            "Watch for merger opportunities — that's where big money is",
+            "Chains with 11+ tiles are safe and can never be acquired"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen founding, growing, merging, and stock decisions",
+            "Carol's 3 mistakes: ignoring own chains, not diversifying, going broke",
+            "You're ready for a full game of Acquire!"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Before You Invest",
+          "bullets": [
+            "Check out General Tips for investment strategy basics",
+            "Reference the Appendix for hotel chains, stock tiers, and merger rules",
+            "Ask your personal GM Guide anytime — tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Diversify Your Stock Portfolio",
+          "text": "The single most important lesson in Acquire is diversification. Don't dump all your money into one hotel chain. Stockholder bonuses are the primary way to make money, and you earn bonuses by being a top stockholder when chains get acquired. If you spread your investments across multiple chains, you'll collect bonuses from multiple mergers throughout the game. Being the primary stockholder in two small chains is usually worth more than being the primary in one large chain that never gets acquired.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Always Invest in Chains You Found",
+          "text": "When you found a hotel chain, you get one free stock card. That's your head start. Buy more stock in that chain immediately on the same turn. If you don't, other players will buy in during their turns and you'll lose your majority position. Your one free stock means nothing if another player buys three stocks on their next turn. Think of founding a chain as planting a flag — you need to defend it with your wallet.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Keep a Cash Reserve",
+          "text": "Running out of money is devastating. You cannot buy stocks, you cannot take loans, and you're stuck waiting for a lucky merger to bail you out. Always keep at least $1,000 to $2,000 in reserve. You don't have to buy three stocks every turn — sometimes buying one or even zero is the correct play. Think of cash as flexibility. With money in hand, you can react to unexpected opportunities like a sudden founding or a cheap stock in a chain about to merge.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Watch the Board for Merger Opportunities",
+          "text": "Mergers are where the big money flows. Pay close attention to which chains are close to each other on the board. If you see two chains that are only one tile apart, there's a good chance someone has the tile that will connect them. Make sure you have stock in the smaller chain before it gets acquired — that's your ticket to a stockholder bonus. Conversely, if you're holding the merging tile, sometimes it's worth waiting a turn or two to buy more stock in the smaller chain before you trigger the merger.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Understand the 2-for-1 Trade",
+          "text": "When a chain gets acquired, the 2-for-1 stock trade is one of the most powerful moves in the game. For every two stocks of the acquired chain, you get one stock in the surviving chain — for free. This lets you build a position in the surviving chain without spending cash. It's especially valuable when the surviving chain is large and its stock is expensive. Before selling acquired stock, always consider whether a trade would give you a better position for future bonuses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to Chain Sizes",
+          "text": "Chain size controls everything in Acquire — stock prices, stockholder bonus amounts, and whether a chain is safe. A chain with 11 or more tiles is safe and can never be acquired, which means its stockholders will only cash out at the end of the game. Small chains (2-5 tiles) have cheap stock and small bonuses, but they're more likely to get merged soon. Medium chains (6-10 tiles) are the sweet spot — significant bonuses but still vulnerable to acquisition. Large chains approaching safety are valuable for end-game scoring. Read the stockholder info card frequently to understand the price and bonus tiers.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Founding New Chains Is Powerful",
+          "text": "Don't underestimate the power of founding new chains throughout the game. Every time you found a chain, you get a free stock — that's free money in the form of a built-in investment. If you can found a chain and immediately buy two or three more stocks, you're the dominant stockholder from the start. Later in the game, founding chains becomes even more strategic because other players may be holding onto old stocks from acquired chains. If someone held onto three Imperial stocks after a merger and you re-found Imperial, those stocks are suddenly valuable again — and that player didn't have to buy new ones.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Hotel Chain Tiers Matter",
+          "text": "The seven hotel chains are split into three pricing tiers. The cheapest tier has the lowest stock prices and smallest bonuses. The mid tier is moderately priced. The expensive tier has the highest stock prices and biggest bonuses. When founding a chain, choosing which headquarters to place is a real decision. A cheap-tier chain costs less to invest in, so you can buy more shares and secure your position. An expensive-tier chain costs more but pays bigger bonuses in mergers. Consider what you can afford and what the board situation looks like before choosing."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Diversify Your Stock Portfolio",
+          "bullets": [
+            "Spread investments across multiple hotel chains",
+            "Stockholder bonuses from multiple mergers > one big payout",
+            "Being primary in 2 small chains often beats primary in 1 large chain"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Always Invest in Chains You Found",
+          "bullets": [
+            "Free founder's stock = head start, but must buy more immediately",
+            "Other players can overtake your 1-stock lead in a single turn",
+            "Founding without follow-up investment wastes your advantage"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Keep a Cash Reserve",
+          "bullets": [
+            "Running out of money = locked out of buying stocks",
+            "No loans allowed from bank or players",
+            "Keep $1,000-$2,000 in reserve for opportunities",
+            "Buying 0-1 stocks per turn is often the smart play"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Watch the Board for Merger Opportunities",
+          "bullets": [
+            "Chains close together on the board are likely to merge soon",
+            "Buy stock in the smaller chain before it gets acquired",
+            "If you hold the merging tile, consider waiting to buy more stock first"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Understand the 2-for-1 Trade",
+          "bullets": [
+            "Trade 2 acquired stocks for 1 surviving chain stock — no cash needed",
+            "Especially valuable when surviving chain's stock is expensive",
+            "Always evaluate trade vs. sell before deciding"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to Chain Sizes",
+          "bullets": [
+            "Small chains (2-5 tiles): cheap stock, small bonuses, merge soon",
+            "Medium chains (6-10 tiles): sweet spot for bonus value",
+            "11+ tiles = safe, can never be acquired",
+            "Read the stockholder info card frequently for price tiers"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Founding New Chains Is Powerful",
+          "bullets": [
+            "Free founder's stock = free investment every time",
+            "Found + buy 2-3 more = instant dominant position",
+            "Re-founding reactivates old stocks held by other players",
+            "Look for founding opportunities throughout the game"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Hotel Chain Tiers Matter",
+          "bullets": [
+            "7 chains split into 3 pricing tiers: cheap, mid, expensive",
+            "Cheap tier: lower prices, more shares affordable, smaller bonuses",
+            "Expensive tier: higher prices, fewer shares, bigger bonuses",
+            "Choose headquarters based on budget and board position"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Controlling the Merger Timing",
+          "text": "Advanced players don't just react to mergers — they control when they happen. If you hold a tile that would trigger a merger, you have enormous leverage. You can wait to play it until you've bought enough stock in the smaller chain to secure the primary stockholder bonus. You can also time it to when the smaller chain has grown, increasing the bonus payout for everyone. On the flip side, triggering a merger early — before other players have invested in the smaller chain — means you collect the bonus with less competition. Timing is everything.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Mergemaker Advantage",
+          "text": "Being the mergemaker gives you two huge advantages. First, when the chains are tied in size, you choose which one survives. This lets you protect chains you're invested in and target chains where your opponents hold the majority. Second, you get first choice on what to do with acquired stock — keep, sell, or trade — before anyone else. This matters because stock in the surviving chain can run out. If you trade first, you get stocks from the tray before others have the chance. Always think about who benefits when you trigger a merger, and make sure it's you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Stock Exhaustion Play",
+          "text": "Each hotel chain has only 25 stock cards. When the stock runs out, nobody can buy more. Advanced players use this to lock out opponents. If you and one ally buy heavily into a chain early, you can exhaust the stock before other players get in. Now those other players can't compete for stockholder bonuses in that chain, no matter how much money they have. Watch the stock supply carefully and buy aggressively when you see an opportunity to lock in a dominant position.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Chain Placement Strategy",
+          "text": "When you found a hotel chain, you choose which headquarters to place. This is more strategic than it seems. Placing a cheap-tier headquarters means the stock is affordable — you can buy three shares per turn more easily and lock down majority ownership quickly. Placing an expensive-tier headquarters means bigger bonuses when the chain is eventually acquired, but fewer players can afford to invest, which may mean you're competing for bonuses against fewer people. Also consider the chain's position on the board. A chain in the center is more likely to merge than one on the edge.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "The Hold Strategy After Mergers",
+          "text": "When a chain you own stock in gets acquired, selling for immediate cash is tempting, but holding can be more profitable. If you hold your stocks and that chain gets re-founded later, your stocks instantly become active again — and you didn't pay anything for them the second time around. This works especially well if you have a tile that could re-found the chain yourself. You hold the stocks, re-found the chain, and you're immediately the majority stockholder with a huge head start. Other players would have to buy stock from scratch to compete with you.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Defensive Stock Buying",
+          "text": "Sometimes the best stock purchase isn't in a chain you want to win — it's in a chain you want to prevent someone else from winning. If another player has six stocks in a chain and you can see a merger coming, buying three stocks in that chain might bump you to secondary stockholder and earn you a nice bonus, while also diluting their advantage. In Tycoon Mode, even tertiary stockholder bonuses are worth chasing. Think of stock buying as both offense and defense.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Reading the Tile Draw",
+          "text": "Since tiles are drawn randomly, you can't know exactly what's in other players' hands. But you can read the board. If there's a one-tile gap between two chains and nobody has merged them in several turns, that merging tile is probably not in anyone's hand — or someone is deliberately holding it. If a chain hasn't grown in a while, the adjacent tiles might be concentrated in the facedown pile. Use this information to estimate probabilities and make better investment decisions. The more you pay attention to what's been played, the better your reads become.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "End-Game Triggering",
+          "text": "Deciding when to end the game is one of the most important strategic decisions in Acquire. You can declare the game over when all active chains are safe or one chain has 41+ tiles — but you don't have to. If you're ahead, ending the game locks in your lead. If you're behind, keeping the game going gives you more chances for mergers and bonus payouts. Watch the board carefully. If your opponents have large stock positions in active chains and you can trigger end-game bonuses that favor your positions, pull the trigger. If they'd benefit more, keep playing and look for mergers that shift the balance in your favor.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Multi-Merger Manipulation",
+          "text": "When you can trigger a merger involving three or more chains at once, you have extraordinary power. As mergemaker, you choose which chain survives (if tied) and which order the smaller chains are resolved. This means you can pick the resolution order that maximizes your bonuses and trading opportunities. For example, resolve the chain where you're primary stockholder first to collect that bonus cash, then use the 2-for-1 trade from the second acquired chain to build your position in the surviving chain. Multi-mergers are rare but game-changing when they happen.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Cash Flow Management",
+          "text": "Elite Acquire players think about cash flow, not just total wealth. Every stock purchase is an illiquid investment — you can't sell it until a merger or game end. The question isn't just 'Is this stock worth buying?' but 'Can I afford to lock up this cash right now?' If a merger is likely coming soon, keeping cash liquid lets you buy into the opportunity. If the board is stable, investing heavily is fine because you'll have time to earn returns. Balance your liquid cash against your invested stock, and always ask whether you'd rather have the flexibility of cash or the potential upside of another stock card."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Controlling the Merger Timing",
+          "bullets": [
+            "Hold merger tiles until you've secured primary stockholder position",
+            "Wait for the smaller chain to grow to increase bonus payouts",
+            "Or trigger early before opponents invest — less competition for bonuses"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Mergemaker Advantage",
+          "bullets": [
+            "Tied chains: mergemaker chooses which survives",
+            "First choice on keep/sell/trade before stock runs out",
+            "Always consider who benefits most before triggering a merger"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Stock Exhaustion Play",
+          "bullets": [
+            "Each chain has only 25 stock cards total",
+            "Buy heavily early to exhaust supply and lock out opponents",
+            "Monitor stock availability — the tray is public information"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Chain Placement Strategy",
+          "bullets": [
+            "Cheap-tier HQ: affordable stock, easier to lock majority",
+            "Expensive-tier HQ: bigger bonuses but fewer buyers",
+            "Central board position = more likely to merge than edges"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Hold Strategy After Mergers",
+          "bullets": [
+            "Holding acquired stock is free if the chain gets re-founded",
+            "Especially powerful if you hold a tile that can re-found the chain",
+            "Re-founding with held stocks = instant majority stockholder"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Defensive Stock Buying",
+          "bullets": [
+            "Buy stock to block opponents' majority stockholder positions",
+            "Even secondary or tertiary bonuses are worth competing for",
+            "Stock buying is both offense (your bonuses) and defense (limiting theirs)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading the Tile Draw",
+          "bullets": [
+            "One-tile gaps that persist = merging tile likely still in the pile",
+            "Stagnant chains = adjacent tiles may not be in players' hands",
+            "Track played tiles to estimate merger probability"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "End-Game Triggering",
+          "bullets": [
+            "End game when: all chains safe, or 1 chain has 41+ tiles",
+            "Announcement is optional — choose timing that favors your positions",
+            "Ahead? End it. Behind? Keep playing for more merger opportunities"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Multi-Merger Manipulation",
+          "bullets": [
+            "Mergemaker chooses survival and resolution order in multi-mergers",
+            "Resolve your best bonus first, then trade into the surviving chain",
+            "Rare but game-changing — plan for them when the board allows"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Cash Flow Management",
+          "bullets": [
+            "Every stock purchase is illiquid until a merger or game end",
+            "Keep cash liquid when mergers are imminent — buy into opportunities",
+            "Invest heavily when board is stable and returns have time to develop",
+            "Balance liquid cash vs. invested stock for maximum flexibility"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Building Tile",
+          "definition": "A tile with a letter-number combination (e.g. 3C, 7F) that is placed on the matching gameboard space. 108 tiles total in the game. Each player holds 6 tiles in hand at a time.",
+          "category": "Components"
+        },
+        {
+          "term": "Gameboard",
+          "definition": "The central board with a grid of letter-number spaces where building tiles are placed. The grid runs from 1A to 12I, providing 108 total spaces.",
+          "category": "Components"
+        },
+        {
+          "term": "Headquarters Building",
+          "definition": "A 3D building piece placed on a hotel chain's tiles to indicate it is active. There are 7 headquarters buildings total, one for each hotel chain. Returned to the tray when a chain is acquired.",
+          "category": "Components"
+        },
+        {
+          "term": "Stock Card",
+          "definition": "A card representing one share of ownership in a hotel chain. 25 stock cards per chain, 175 total. Bought from the stock market tray and sold back to the bank during mergers or at game end.",
+          "category": "Components"
+        },
+        {
+          "term": "Stock Market Tray",
+          "definition": "The tray holding all headquarters buildings and stock cards organized by hotel chain. The banker manages the tray throughout the game. Players can ask how many stocks remain for any chain at any time.",
+          "category": "Components"
+        },
+        {
+          "term": "Stockholder Info Card",
+          "definition": "A reference card each player keeps that shows stock prices and stockholder bonus amounts based on hotel chain name and size. Has two sides: Classic Mode and Tycoon Mode.",
+          "category": "Components"
+        },
+        {
+          "term": "Money Pack",
+          "definition": "The game's cash supply: 30x $100 bills, 40x $500 bills, 50x $1,000 bills, and 35x $5,000 bills. Each player starts with $6,000; the rest forms the bank.",
+          "category": "Components"
+        },
+        {
+          "term": "Banker",
+          "definition": "The player designated to manage all money exchanges and stock transactions. The banker passes out stocks, handles money, and manages the stock market tray throughout the game.",
+          "category": "Roles"
+        },
+        {
+          "term": "Mergemaker",
+          "definition": "The player who places the building tile that connects two or more hotel chains, triggering a merger. The mergemaker breaks ties on which chain survives and gets first choice on stock decisions (keep, sell, or trade).",
+          "category": "Roles"
+        },
+        {
+          "term": "Primary Stockholder",
+          "definition": "The player who owns the most stock in a given hotel chain. Receives the largest stockholder bonus when that chain is acquired. In both Classic and Tycoon Mode.",
+          "category": "Roles"
+        },
+        {
+          "term": "Secondary Stockholder",
+          "definition": "The player who owns the second-most stock in a given hotel chain. Receives a smaller stockholder bonus when that chain is acquired. In both Classic and Tycoon Mode.",
+          "category": "Roles"
+        },
+        {
+          "term": "Tertiary Stockholder",
+          "definition": "The player who owns the third-most stock in a given hotel chain. Receives the smallest stockholder bonus when that chain is acquired. Only applicable in Tycoon Mode.",
+          "category": "Roles"
+        },
+        {
+          "term": "Founder",
+          "definition": "The player who creates a hotel chain by placing a tile that connects two or more independent tiles and choosing a headquarters building. The founder receives one free stock card in that chain as a bonus.",
+          "category": "Roles"
+        },
+        {
+          "term": "Independent Building Tile",
+          "definition": "A building tile on the board that is not adjacent to any other building tile, or a group of connected tiles without a headquarters building. Independent tiles are not part of any hotel chain.",
+          "category": "Board State"
+        },
+        {
+          "term": "Connected Building Tiles",
+          "definition": "Two or more building tiles that are orthogonally adjacent (up, down, left, right — not diagonal) to each other on the gameboard.",
+          "category": "Board State"
+        },
+        {
+          "term": "Hotel Chain",
+          "definition": "A group of two or more connected building tiles with a headquarters building placed on one of them. Represents a company that players can invest in by buying stock cards.",
+          "category": "Board State"
+        },
+        {
+          "term": "Active Hotel Chain",
+          "definition": "A hotel chain with its headquarters building currently on the gameboard. Only active chains can have their stock purchased. There can be up to 7 active chains at once.",
+          "category": "Board State"
+        },
+        {
+          "term": "Safe Hotel Chain",
+          "definition": "A hotel chain with 11 or more building tiles. A safe chain can never be acquired in a merger. Two safe chains cannot merge. Tiles that would merge two safe chains are unplayable.",
+          "category": "Board State"
+        },
+        {
+          "term": "Acquired Hotel Chain",
+          "definition": "A hotel chain that has been dissolved through a merger. Its headquarters building is returned to the stock market tray and its tiles become part of the surviving chain. The chain can potentially be re-founded later.",
+          "category": "Board State"
+        },
+        {
+          "term": "Founding a Hotel Chain",
+          "definition": "Occurs when a player places a tile that connects two or more independent tiles. The player chooses a headquarters building from the tray, places it on one of the connected tiles, and receives one free stock card as founder's bonus.",
+          "category": "Actions"
+        },
+        {
+          "term": "Place a Building Tile",
+          "definition": "The first action each turn. Choose one tile from your hand and place it on its matching gameboard space. Can result in: nothing (independent), founding a chain, growing a chain, or triggering a merger.",
+          "category": "Actions"
+        },
+        {
+          "term": "Buy Stocks",
+          "definition": "The second action each turn (optional). Purchase up to 3 stock cards from the stock market tray in any combination of active hotel chains. Must announce purchases and prices to all players.",
+          "category": "Actions"
+        },
+        {
+          "term": "Draw a Building Tile",
+          "definition": "The third action each turn. Draw one tile from the facedown pile to maintain a hand of 6. Also check for and discard any unplayable tiles, drawing replacements.",
+          "category": "Actions"
+        },
+        {
+          "term": "Merger",
+          "definition": "Occurs when a player places a building tile that connects two or more hotel chains. The larger chain survives and absorbs the smaller chain. Triggers stockholder bonus payouts for the acquired chain.",
+          "category": "Actions"
+        },
+        {
+          "term": "Keep Stock",
+          "definition": "One of three options when your stock's chain is acquired. Hold onto the stock cards in hopes the chain will be re-founded later. Stocks in inactive chains are worth $0 at game end.",
+          "category": "Stock Decisions"
+        },
+        {
+          "term": "Sell Stock",
+          "definition": "One of three options when your stock's chain is acquired. Sell stock cards back to the bank at the current price determined by the chain's name and size at the time of acquisition.",
+          "category": "Stock Decisions"
+        },
+        {
+          "term": "Trade Stock (2-for-1)",
+          "definition": "One of three options when your stock's chain is acquired. Exchange 2 stock cards of the acquired chain for 1 stock card of the surviving chain from the stock market tray. No cash cost.",
+          "category": "Stock Decisions"
+        },
+        {
+          "term": "Stockholder Bonus",
+          "definition": "Cash paid from the bank to top stockholders when a hotel chain is acquired or at game end. Amount depends on the chain's name, size, and the player's stockholder rank (primary, secondary, tertiary).",
+          "category": "Bonuses"
+        },
+        {
+          "term": "Founder's Bonus Stock",
+          "definition": "One free stock card given to the player who founds a hotel chain. If all 25 stocks of that chain are already owned, the founder receives a cash payment equal to the stock's current value instead.",
+          "category": "Bonuses"
+        },
+        {
+          "term": "Classic Mode",
+          "definition": "A game mode where stockholder bonuses are paid to only the primary and secondary stockholders during mergers and at game end. Uses one side of the stockholder info card.",
+          "category": "Game Modes"
+        },
+        {
+          "term": "Tycoon Mode",
+          "definition": "A game mode where stockholder bonuses are paid to the primary, secondary, and tertiary stockholders during mergers and at game end. Recommended for first-time players. Uses the other side of the stockholder info card.",
+          "category": "Game Modes"
+        },
+        {
+          "term": "Open Information",
+          "definition": "A group-chosen variant where all players display their stocks and money openly. Recommended for first games. Allows everyone to see investment positions.",
+          "category": "Game Modes"
+        },
+        {
+          "term": "Hidden Information",
+          "definition": "A group-chosen variant where stocks and money are kept secret. More challenging because players must remember opponents' purchases. Adds bluffing and memory elements.",
+          "category": "Game Modes"
+        },
+        {
+          "term": "Unplayable Tile",
+          "definition": "A building tile that would merge two or more safe hotel chains, which is not allowed. Unplayable tiles are set aside faceup at the end of your turn and replaced with new draws. Tiles that would found an 8th chain are NOT unplayable — they just can't be played until a HQ is available.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Tie for Primary Stockholder (Classic)",
+          "definition": "When two or more players tie for primary stockholder: add primary and secondary bonuses together, divide evenly, and round up to the nearest $100. The secondary position receives no bonus.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Tie for Primary Stockholder (Tycoon)",
+          "definition": "When two or more players tie for primary stockholder: add primary and secondary bonuses together, divide by two, and round up. The secondary stockholder receives the tertiary bonus. The tertiary stockholder receives nothing.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Tie for Secondary Stockholder (Classic)",
+          "definition": "When two or more players tie for secondary stockholder: split the secondary bonus among tied players, rounding up to the nearest $100.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Tie for Secondary Stockholder (Tycoon)",
+          "definition": "When two or more players tie for secondary stockholder: add secondary and tertiary bonuses together, divide by two, and round up. Players with the third-most stocks receive no bonus.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Tie for Tertiary Stockholder (Tycoon)",
+          "definition": "When two or more players tie for tertiary stockholder: split the tertiary bonus among tied players, rounding up to the nearest $100.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Single Stockholder (Classic)",
+          "definition": "When only one player owns stock in an acquired chain in Classic Mode, that player receives both the primary and secondary bonuses.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Single Stockholder (Tycoon)",
+          "definition": "When only one player owns stock in an acquired chain in Tycoon Mode, that player receives the primary and tertiary bonuses. The secondary bonus is not awarded.",
+          "category": "Special Rules"
+        },
+        {
+          "term": "Game End Conditions",
+          "definition": "The game can end when a player announces that all active chains are safe (11+ tiles each), or that one chain has 41 or more tiles. The announcement is optional. After announcing, the player finishes their turn, then the game ends.",
+          "category": "End Game"
+        },
+        {
+          "term": "Final Scoring",
+          "definition": "At game end: 1) Pay stockholder bonuses for all active chains. 2) All players sell all stocks at current prices. 3) Stocks in chains not on the board are worth $0. 4) Player with the most cash wins. Ties share victory.",
+          "category": "End Game"
+        },
+        {
+          "term": "Stock Price Tiers",
+          "definition": "The 7 hotel chains fall into three pricing tiers that determine stock buy/sell prices and stockholder bonus amounts. Cheap-tier chains have the lowest prices, mid-tier are moderate, and expensive-tier have the highest prices and bonuses.",
+          "category": "Stock Market"
+        },
+        {
+          "term": "Chain Size and Stock Price",
+          "definition": "Stock prices increase as hotel chains grow larger. Prices are determined by the chain's name (which tier it's in) and its current number of building tiles. Check the stockholder info card for exact prices at each size level.",
+          "category": "Stock Market"
+        },
+        {
+          "term": "Two-Player Variant",
+          "definition": "In a 2-player game, use Classic Mode. During mergers, draw a tile to determine how many stocks the 'stock market' holds in the acquired chain (the number on the tile). The stock market competes for bonuses but any bonus it earns stays in the bank. Redraw tile after each merger.",
+          "category": "Variants"
+        },
+        {
+          "term": "Incorrect Tile Placement",
+          "definition": "If a tile is placed on the wrong board space and caught on the same turn, move it to the correct space. If discovered on a later turn, it stays where it is. If the correct tile is in another player's hand, swap the tiles.",
+          "category": "Special Rules"
+        }
+      ]
+    }
+  }
+}

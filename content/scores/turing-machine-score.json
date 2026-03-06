@@ -1,0 +1,8 @@
+{
+  "game_id": "turing-machine",
+  "scoring_type": "winner",
+  "categories": [
+    {"id": "correct_code", "label": "Correct Code", "points_each": 0, "type": "boolean", "description": "Did this player correctly identify the secret code?"},
+    {"id": "questions_asked", "label": "Questions Asked", "points_each": 0, "type": "count", "description": "Total number of Verifier questions asked across all rounds (fewer = better, used as tiebreaker)"}
+  ]
+}

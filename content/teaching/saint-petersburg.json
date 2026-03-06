@@ -1,0 +1,1262 @@
+{
+  "game_id": "saint-petersburg",
+  "title": "Saint Petersburg",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "text": "Alright, let's get Saint Petersburg set up. Grab the game board and place it in the middle of the table where everyone can reach. You will see spaces for four card stacks (workers, buildings, aristocrats, and trading cards), two card rows (upper and lower), a discard space, and a scoring track around the edge. There is also a handy table printed on the board showing end-game aristocrat diversity points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Sort and Place the Card Stacks",
+          "text": "Now find the 120 cards. They come in four groups and you can tell them apart by their back color and symbol. Green cards with a chair symbol are workers (31 cards). Blue cards with a tower symbol are buildings (28 cards). Orange cards with a head symbol are aristocrats (27 cards). And the tri-colored cards with a square symbol are trading cards (30 cards: 10 workers, 10 buildings, 10 aristocrats). Shuffle each group separately and place each face-down stack on its matching space on the board.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Bank",
+          "text": "Take all 382 rubles and sort them into separate stacks by denomination: 1, 3, 5, 10, 25, and 50 ruble notes. Place these stacks next to the board. This is the bank. One player should volunteer to be the administrator, who manages the bank, places new cards, and moves scoring markers throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Give Each Player Starting Money",
+          "text": "Each player takes 25 rubles from the bank. This is your starting cash. Important rule: your money is secret. You may never tell other players how much you have. Keep your rubles hidden behind your hand or under the table edge. Money management is a core skill in this game, and bluffing about your finances is part of the fun.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Choose Colors and Place Scoring Markers",
+          "text": "Each player picks a color and takes the 2 wooden figures of that color. Place one figure on space 0 of the scoring track on the board. Place the other figure in front of you in your play area as a color reminder for the other players. Your play area is the space on the table in front of you where you will place your purchased cards throughout the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Deal Starting Player Cards",
+          "text": "Find the 4 starting player cards. These determine who goes first in each phase. One player shuffles them and deals them out. In a 4-player game, each player gets 1 card. In a 3-player game, the youngest player gets 2 cards and the other two players each get 1. In a 2-player game, each player gets 2 cards. Take the matching starting player markers shown on your cards and place them in your play area. Put the starting player cards back in the box after dealing; they are not used again.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Deal Starting Worker Cards",
+          "text": "The administrator (oldest player) now draws worker cards from the top of the worker stack and places them face up in the upper card row. How many depends on player count: 8 cards for 4 players, 6 cards for 3 players, and 4 cards for 2 players. After placing the cards, turn the worker stack 90 degrees on its board space. This sideways stack trick shows everyone which phase the game is currently in. The game is now ready to begin with the first worker phase.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Place the Game Board",
+          "bullets": [
+            "Place board centrally with card spaces, card rows, discard area, and scoring track visible",
+            "Note the aristocrat scoring table printed on the board"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Sort and Place the Card Stacks",
+          "bullets": [
+            "120 cards in 4 groups: Workers (31 green), Buildings (28 blue), Aristocrats (27 orange), Trading (30 tri-color)",
+            "Shuffle each group separately, place face-down on matching board space"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Set Up the Bank",
+          "bullets": [
+            "Sort 382 rubles by denomination (1, 3, 5, 10, 25, 50)",
+            "Place beside the board; designate one player as administrator"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Give Each Player Starting Money",
+          "bullets": [
+            "Each player takes 25 rubles from the bank",
+            "Money is kept secret from other players at all times"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Choose Colors and Place Scoring Markers",
+          "bullets": [
+            "Each player takes 2 figures in their color",
+            "1 figure on scoring track space 0, 1 figure in play area as color reminder"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Deal Starting Player Cards",
+          "bullets": [
+            "4 players: 1 card each. 3 players: youngest gets 2, others get 1. 2 players: 2 each",
+            "Take matching starting player markers, return cards to box"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Deal Starting Worker Cards",
+          "bullets": [
+            "Deal workers face up to upper row: 8 (4p), 6 (3p), or 4 (2p)",
+            "Turn worker stack 90 degrees to indicate current phase",
+            "Game begins with the first worker phase"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Round Structure",
+          "text": "Saint Petersburg is played over several rounds, typically 7 to 10 depending on how quickly cards get bought. Each round has exactly 4 phases in this order: the Worker Phase, the Building Phase, the Aristocrat Phase, and the Trading Card Phase. Every phase follows the same three-step pattern: first the players take actions, then there is a scoring step, and finally the administrator adds new cards to the board. The trading card phase is slightly different because it has no scoring step. After the trading card phase, the round ends and a new round begins with the worker phase again.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Four Actions",
+          "text": "On your turn, you must take exactly one of four actions. First, you can buy a card: pay its cost in rubles to the bank and place it face up in your play area. Second, you can add a card to your hand: take any card from the board without paying, but it goes into your hand (hidden) instead of your play area. You can hold at most 3 cards in hand, and each card still in your hand at game end costs you 5 points. Third, you can play a card from your hand: take a card you previously added to your hand, pay its cost, and place it in your play area. Fourth, you can pass. Important: you can buy, add, or play cards of any color in any phase. You are not limited to buying workers only in the worker phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Turn Order and Passing",
+          "text": "The player with the starting player marker for the current phase goes first. Then play continues clockwise. After everyone has taken one action, it comes back to the starting player for another action. This continues around and around until all players pass consecutively in player order. Here is the key nuance: passing does not lock you out. If you pass, you can still take an action on your next turn. But once all players pass in sequence without anyone taking an action, the action portion of that phase ends and you move to scoring. Always say 'pass' clearly so the next player knows it is their turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Scoring Each Phase",
+          "text": "After the actions end, scoring happens. In the worker phase, you score only your worker cards. In the building phase, you score only your building cards. In the aristocrat phase, you score only your aristocrat cards. There is no scoring in the trading card phase. Each card shows what it earns: a coin symbol means rubles from the bank, a shield symbol means victory points on the scoring track, and some cards give both. You score all cards of the matching type in your play area, including ones you just bought this turn and ones from previous rounds. Start with the starting player and go clockwise to keep things organized.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Adding New Cards",
+          "text": "After scoring, the administrator replenishes the board. Cards are always added to the upper row, and the total across both rows must reach 8 cards (regardless of player count). The administrator draws from the next stack in phase order. Then the administrator turns the card stacks to indicate which phase just ended and which phase comes next. This visual cue is really helpful for tracking where you are in the round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The Upper and Lower Card Rows",
+          "text": "This is an important concept that trips up new players. At any given time, cards can be in either the upper row or the lower row. You can buy or take cards from either row. Cards in the lower row cost 1 ruble less than their printed price. At the end of each round, during the trading card phase cleanup, all cards remaining in the lower row are discarded permanently to the discard space. Then all remaining upper row cards slide down to the lower row. Then new worker cards are added to fill back to 8 total, and the next round begins. This means cards get cheaper before they disappear forever.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "The Three Card Types",
+          "text": "Workers are green cards. They primarily earn you rubles during worker phase scoring. They are cheap and keep your cash flowing. There are 5 types: Lumberjack (cost 3, earns 3 rubles), Gold Miner (cost 4, earns 3 rubles), Shepherd (cost 5, earns 4 rubles), Fur Trapper (cost 6, earns 3 rubles), and Ship Builder (cost 7, earns 3 rubles plus 1 point). Buildings are blue cards. They primarily earn you victory points during building phase scoring. They range from the cheap Market (cost 5, earns 1 point) all the way up to the expensive Theater (cost 20, earns 5 points). Aristocrats are orange cards. They earn both rubles and victory points during aristocrat phase scoring, and they are critical for the end-game diversity bonus.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Cost Reductions",
+          "text": "There are four ways to reduce the cost of a card, and they all stack. First, if you already own a copy of the same card, you pay 1 less per copy you own. So your third Lumberjack costs 1 ruble instead of 3. Second, cards in the lower row cost 1 less. Third, if you own a Carpenter Workshop (a green trading card), all blue cards cost 1 less. Fourth, if you own a Gold Smelter (a green trading card), all orange cards cost 1 less. All of these reductions are cumulative. However, you can never pay less than 1 ruble. Even if all discounts reduce a card's cost to 0 or below, you still must pay at least 1 ruble.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Trading Cards",
+          "text": "Trading cards are upgrade cards. You cannot simply place them in your play area like other cards. When you buy or play a trading card, you must displace (replace) an existing card of the same color already in your play area. The displaced card goes to the discard pile permanently. Green trading cards are worker upgrades, and each one can only replace its specific matching worker type (the symbols in the upper right must match). Blue trading cards can replace any building. Orange trading cards can replace any aristocrat. A trading card cannot replace another trading card. The cost is the difference between the trading card price and the card being replaced, with a minimum of 1 ruble. All normal cost reductions apply on top of this.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Special Cards",
+          "text": "Several cards have unique abilities. The Pub lets you buy up to 5 victory points after each building scoring, at 2 rubles per point (you cannot sell points for rubles). The Warehouse lets you hold 4 cards in hand instead of 3. The Observatory lets you either score 1 point during building scoring or use a special ability once during the building phase: draw the top card from any stack and immediately buy it, add it to your hand, or discard it, then flip the Observatory face-down until next round. The Theater earns 1 extra ruble for each aristocrat you own during building scoring. The Academy earns 1 extra ruble for each worker you own during aristocrat scoring. And Czar Peter is a special aristocrat that can be displaced by any green trading card, not just a matching one.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Starting Player Rotation",
+          "text": "At the end of each round, after the trading card phase, every player passes their starting player markers to the player on their left. This means the starting player for each phase changes every round. Being the starting player matters because you get first pick of the new cards, but you also have to commit to actions before seeing what others will do. Planning around when you will be starting player is a subtle but important part of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Game End Trigger",
+          "text": "The game ends when the administrator places the last card from any of the four stacks onto the board. When this happens, you finish the current round completely through all four phases. If there are not enough cards to fill to 8, place as many as there are. After that round ends, proceed to final scoring.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Final Scoring",
+          "text": "Final scoring has three parts. First, aristocrat diversity: count how many different aristocrats you have in your play area. Duplicates do not count. Look up your total on the scoring table on the board. The points ramp up fast: 1 different = 0 points, 2 = 1, 3 = 3, 4 = 6, 5 = 10, 6 = 15, 7 = 21, 8 = 28, 9 = 36, 10 = 45. Second, leftover money: for every full 10 rubles you have left, you earn 1 point. Third, hand penalty: for each card still in your hand, you lose 5 points. The player with the most points wins. If tied, the player with the most rubles among the tied players wins.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Round Structure",
+          "bullets": [
+            "Each round has 4 phases: Worker, Building, Aristocrat, Trading Card",
+            "Each phase: Actions, then Scoring, then New Cards (no scoring in Trading phase)",
+            "Game lasts about 7-10 rounds"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Four Actions",
+          "bullets": [
+            "Buy: pay cost, place card in play area immediately",
+            "Add to hand: take card for free, max 3 in hand, -5 pts each at game end",
+            "Play from hand: pay cost for a card previously added to hand",
+            "Pass: skip this turn (you can still act on your next turn)",
+            "You can buy/add any card color in any phase"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Turn Order and Passing",
+          "bullets": [
+            "Starting player for the phase goes first, then clockwise",
+            "Continue taking turns until all players pass consecutively in order",
+            "Passing does NOT lock you out — you can act again next turn"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Scoring Each Phase",
+          "bullets": [
+            "Worker phase: score workers (mostly rubles)",
+            "Building phase: score buildings (mostly victory points)",
+            "Aristocrat phase: score aristocrats (rubles and points)",
+            "Trading card phase: NO scoring"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Adding New Cards",
+          "bullets": [
+            "After scoring, administrator fills upper row to 8 total cards across both rows",
+            "Cards drawn from the next phase's stack",
+            "Turn card stacks to indicate current phase"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The Upper and Lower Card Rows",
+          "bullets": [
+            "Cards in lower row cost 1 ruble less than printed price",
+            "End of round: lower row cards are discarded, upper row slides to lower row",
+            "Cards get cheaper before disappearing forever"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "The Three Card Types",
+          "bullets": [
+            "Workers (green): earn rubles during worker scoring — keep cash flowing",
+            "Buildings (blue): earn victory points during building scoring",
+            "Aristocrats (orange): earn both rubles and points, plus end-game diversity bonus"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Cost Reductions",
+          "bullets": [
+            "Own duplicate: -1 ruble per copy you already have",
+            "Lower row: -1 ruble",
+            "Carpenter Workshop: -1 ruble on all blue cards",
+            "Gold Smelter: -1 ruble on all orange cards",
+            "All stack, but minimum cost is always 1 ruble"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Trading Cards",
+          "bullets": [
+            "Must displace (replace) an existing same-color card in your play area",
+            "Green upgrades: must match specific worker type (matching symbols)",
+            "Blue/Orange upgrades: can replace any building/aristocrat respectively",
+            "Cost = difference between trading card and replaced card (minimum 1 ruble)",
+            "Cannot replace another trading card"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Special Cards",
+          "bullets": [
+            "Pub: buy up to 5 VP after building scoring at 2 rubles each",
+            "Warehouse: hold 4 cards in hand instead of 3",
+            "Observatory: score 1 point OR draw from any stack once per round",
+            "Theater: +1 ruble per aristocrat during building scoring",
+            "Academy: +1 ruble per worker during aristocrat scoring",
+            "Czar Peter: can be displaced by any green trading card"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Starting Player Rotation",
+          "bullets": [
+            "At end of each round, pass all starting player markers to the left",
+            "Starting player gets first pick but must commit first"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Game End Trigger",
+          "bullets": [
+            "Triggered when last card of any stack is placed on the board",
+            "Finish the current round through all 4 phases",
+            "If not enough cards to fill to 8, place as many as available"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Final Scoring",
+          "bullets": [
+            "Aristocrat diversity: 1=0, 2=1, 3=3, 4=6, 5=10, 6=15, 7=21, 8=28, 9=36, 10=45 pts",
+            "Leftover money: 1 point per full 10 rubles",
+            "Hand penalty: -5 points per card in hand",
+            "Tiebreaker: most rubles"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to Saint Petersburg",
+          "text": "In this practice tutorial, we will walk through a scripted first round with three players: Anna, Boris, and Clara. Anna has the worker starting player marker, Boris has the building marker, and Clara has the aristocrat marker. Each player starts with 25 rubles. The administrator has dealt 6 worker cards face up in the upper row (since we have 3 players). Let's see how a full round plays out.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Worker Phase Begins",
+          "text": "The worker phase starts. Anna goes first since she has the worker starting player marker. The upper row has 6 workers: two Lumberjacks (cost 3, earn 3 rubles), a Gold Miner (cost 4, earn 3 rubles), a Shepherd (cost 5, earn 4 rubles), a Fur Trapper (cost 6, earn 3 rubles), and a Ship Builder (cost 7, earn 3 rubles plus 1 point). Anna needs income to fund future purchases, so she buys a Lumberjack for 3 rubles. Smart move. She places it in her play area and now has 22 rubles left.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Boris and Clara Buy Workers",
+          "text": "Boris buys the other Lumberjack for 3 rubles. Same smart thinking. Clara buys the Shepherd for 5 rubles, earning slightly better income (4 rubles per scoring) but spending more upfront. Now it comes back around to Anna.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Second Round of Actions",
+          "text": "Anna buys the Gold Miner for 4 rubles. Good, she will now earn 6 rubles each worker scoring. Boris grabs the Ship Builder for 7 rubles because it gives both money and a point. Clara decides to buy the Fur Trapper for 6 rubles. There is still one card on the board, but all three players pass in order since they want to save their remaining cash. The actions end.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Worker Phase Scoring",
+          "text": "Time to score workers. Anna has a Lumberjack (3 rubles) and a Gold Miner (3 rubles), earning 6 rubles from the bank. Boris has a Lumberjack (3 rubles) and a Ship Builder (3 rubles and 1 point), earning 6 rubles and moving up 1 on the scoring track. Clara has a Shepherd (4 rubles) and a Fur Trapper (3 rubles), earning 7 rubles. Each player just got some of their investment back. This income will compound every single round.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "New Cards and Building Phase Setup",
+          "text": "The administrator fills the board back to 8 cards using building cards in the upper row. There is 1 leftover worker in the upper row from before, plus 7 new building cards. The building phase begins, and Boris has the building starting player marker, so he goes first.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Boris Makes a Mistake: The Greedy Buy",
+          "text": "Boris sees a beautiful Theater on the board. Cost: 20 rubles. It earns 5 points every building scoring, which is incredible. Boris has 22 rubles total. He gets excited and buys the Theater for 20 rubles, leaving himself with just 2 rubles. He grins proudly at his big purchase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Why That Was a Mistake",
+          "text": "Here is the problem. Boris just spent almost everything he has. He now has 2 rubles. When the aristocrat phase comes around, he will not be able to buy any aristocrats because the cheapest ones cost 4 rubles. He will not be able to buy trading cards either. And when new workers appear next round, he might not even afford a Lumberjack. The Theater is a great card, but buying it on the first round when you need cash to build your engine is a classic beginner trap. Boris is going to fall behind for at least 2 rounds while his opponents grow their income.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Anna and Clara Play Smart",
+          "text": "Clara buys a Market for 5 rubles. It only scores 1 point per building phase, but it is cheap and she still has money for later phases. Anna picks up a Customs House for 8 rubles, which earns 2 points per scoring. Both players still have double-digit rubles in reserve. They will be able to participate in the aristocrat and trading card phases too.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Clara's Mistake: Adding an Expensive Card to Hand",
+          "text": "Clara sees another building she likes — a Library costing 13 rubles — but she cannot afford it right now. She adds it to her hand for free, planning to play it later. The thing is, Clara already has limited cash flow. If she cannot play this card for several rounds, it is just sitting in her hand doing nothing and threatening a 5-point penalty at game end. Meanwhile, she has wasted a turn she could have used to buy something she can afford now.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Be Strategic About Hand Cards",
+          "text": "Adding a card to your hand is a powerful move, but only if you can play it within a round or two. Every card in your hand at game end costs you 5 points. That is a huge penalty. The best time to add a card to your hand is when you know you will have the cash to play it soon, or when you want to deny an opponent a card they clearly need. Do not add cards to your hand just because they look nice.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Building Phase Scoring",
+          "text": "After everyone passes, building scoring happens. Boris earns 5 points for his Theater. Nice reward, but he is broke. Anna earns 2 points for her Customs House. Clara earns 1 point for her Market. Boris is ahead on points, but Anna and Clara have more money and more flexibility going forward.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Aristocrat Phase",
+          "text": "New cards are placed, and the aristocrat phase begins. Clara has the aristocrat starting player marker, so she goes first. Aristocrats are special because they give both income and points during scoring, plus they have a huge end-game diversity bonus. Clara buys a Nobleman for 7 rubles. Anna buys an Administrator for 9 rubles. Boris, with only 2 rubles, cannot afford anything. He has to pass. He watches helplessly as Clara and Anna pick up the best aristocrats.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Boris's Second Mistake: Ignoring Aristocrats",
+          "text": "Boris is now paying the price for his greedy Theater buy. He cannot afford any aristocrats, and aristocrats are arguably the most important card type in the game. The end-game diversity bonus is massive: having 6 different aristocrats is worth 15 bonus points, and 10 different is worth 45. Every round Boris goes without buying aristocrats, he falls further behind on this critical scoring dimension. The Theater's 5 points per round will not make up for missing out on aristocrat diversity.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Aristocrat Scoring",
+          "text": "After actions end, aristocrats are scored. Clara's Nobleman earns her some rubles and a point. Anna's Administrator earns her some rubles and a point. Boris earns nothing because he has no aristocrats. The income gap is widening.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Trading Card Phase",
+          "text": "The trading card phase begins. Remember, there is no scoring in this phase, just actions. A few trading cards are available on the board. These are upgrade cards that replace existing cards in your play area with better versions. Anna spots the Carpenter Workshop, a green trading card that reduces all blue card costs by 1 ruble. She buys it, displacing her Lumberjack (the Carpenter Workshop specifically replaces a Lumberjack). The cost is the difference: the Carpenter Workshop costs 4, the Lumberjack cost 3, so Anna pays just 1 ruble. Now every future building she buys is 1 ruble cheaper. Great long-term investment.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "End of Round Cleanup",
+          "text": "After the trading card phase actions end, end-of-round cleanup happens. First, any cards remaining in the lower row are discarded permanently. Then, cards in the upper row slide down to become the lower row (where they will cost 1 less next time). The administrator then adds new worker cards to fill back to 8 total. Finally, all players pass their starting player markers to the left. Anna's worker marker goes to Boris, Boris's building marker goes to Clara, and Clara's aristocrat marker goes to Anna.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "Round 1 Recap",
+          "text": "Let's look at where everyone stands after Round 1. Anna has a Gold Miner, a Customs House, an Administrator, and a Carpenter Workshop. She has balanced income, some points rolling in, one aristocrat for diversity, and a cost reduction for buildings. Well played. Clara has a Shepherd, a Fur Trapper, a Market, a Nobleman, and an expensive card stuck in her hand. She has decent income but needs to play that hand card soon or it becomes a liability. Boris has a Lumberjack, a Ship Builder, and a Theater. He is leading in building points but has no aristocrats and no cash. He needs to recover his finances quickly.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "text": "You have now seen a full round of Saint Petersburg. You have watched workers generate income, buildings generate points, aristocrats provide both, and trading cards upgrade your engine. You have seen Boris learn the hard way that overspending early leaves you powerless in later phases. And you have seen Clara learn that adding expensive cards to your hand is risky if you cannot pay for them soon. The most important takeaway: balance your spending across the round so you can participate in every phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "Before You Begin",
+          "text": "Before you start your own game, here are three things that can help.\n\nFirst — check out General Tips for strategy basics like how many workers to buy in round one and when to invest in expensive buildings.\n\nSecond — reference the Appendix for every card type, phase name, and special ability explained.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun building Saint Petersburg!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to Saint Petersburg",
+          "bullets": [
+            "Scripted first round with 3 players: Anna, Boris, Clara",
+            "Each starts with 25 rubles and different starting player markers",
+            "6 worker cards dealt to upper row (3-player game)"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Worker Phase Begins",
+          "bullets": [
+            "Anna (worker starting player) goes first",
+            "6 workers available ranging from 3 to 7 rubles",
+            "Anna buys a Lumberjack for 3 rubles — cheap income"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Boris and Clara Buy Workers",
+          "bullets": [
+            "Boris buys Lumberjack (3 rubles), Clara buys Shepherd (5 rubles)",
+            "All three players prioritize early income — correct play"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Second Round of Actions",
+          "bullets": [
+            "Anna buys Gold Miner (4 rubles), Boris buys Ship Builder (7 rubles)",
+            "Clara buys Fur Trapper (6 rubles), all pass to end actions",
+            "Each player now has 2 workers generating income"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Worker Phase Scoring",
+          "bullets": [
+            "Anna earns 6 rubles, Boris earns 6 rubles + 1 point, Clara earns 7 rubles",
+            "Worker income compounds every round — critical early investment"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "New Cards and Building Phase Setup",
+          "bullets": [
+            "Board filled to 8 with building cards",
+            "Boris goes first (has building starting player marker)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Boris Makes a Mistake: The Greedy Buy",
+          "bullets": [
+            "Boris buys Theater (20 rubles) with 22 rubles total",
+            "Left with only 2 rubles — cannot participate in upcoming phases"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Why That Was a Mistake",
+          "bullets": [
+            "Cannot afford aristocrats (cheapest costs 4+), trading cards, or even workers next round",
+            "Great card, terrible timing — will fall behind for 2+ rounds",
+            "Classic beginner trap: expensive card too early"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Anna and Clara Play Smart",
+          "bullets": [
+            "Clara buys Market (5 rubles), Anna buys Customs House (8 rubles)",
+            "Both keep double-digit reserves for later phases"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Clara's Mistake: Adding an Expensive Card to Hand",
+          "bullets": [
+            "Clara adds a 13-ruble Library to hand — free but risky",
+            "Cannot afford to play it for several rounds",
+            "Wasted a turn and risks -5 point penalty at game end"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Lesson: Be Strategic About Hand Cards",
+          "bullets": [
+            "Only add cards you can play within 1-2 rounds",
+            "Each card in hand at game end = -5 points",
+            "Best use: hold a card briefly or deny it to opponents"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Building Phase Scoring",
+          "bullets": [
+            "Boris: 5 pts (Theater), Anna: 2 pts (Customs House), Clara: 1 pt (Market)",
+            "Boris leads points but is broke — flexibility matters more early on"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Aristocrat Phase",
+          "bullets": [
+            "Clara buys Nobleman (7 rubles), Anna buys Administrator (9 rubles)",
+            "Boris cannot afford anything — forced to pass the entire phase"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Boris's Second Mistake: Ignoring Aristocrats",
+          "bullets": [
+            "Missing aristocrats means missing the massive diversity bonus (up to 45 pts)",
+            "Every round without aristocrats widens the gap",
+            "Theater points cannot compensate for lost diversity scoring"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Aristocrat Scoring",
+          "bullets": [
+            "Clara and Anna earn rubles and points from their aristocrats",
+            "Boris earns nothing — no aristocrats to score"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Trading Card Phase",
+          "bullets": [
+            "Anna buys Carpenter Workshop, replacing Lumberjack for 1 ruble",
+            "Now all future blue cards cost 1 less — great long-term value",
+            "No scoring in trading card phase"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "End of Round Cleanup",
+          "bullets": [
+            "Lower row cards discarded, upper row slides to lower row",
+            "New workers dealt to fill to 8 total",
+            "All starting player markers passed to the left"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "Round 1 Recap",
+          "bullets": [
+            "Anna: balanced engine + cost reduction — well positioned",
+            "Clara: decent income but risky card in hand",
+            "Boris: leads in building points but broke with zero aristocrats"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "bullets": [
+            "Full round completed: workers, buildings, aristocrats, trading cards",
+            "Lessons: don't overspend early, don't hoard hand cards, buy aristocrats",
+            "Key takeaway: balance spending across all phases"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Before You Begin",
+          "bullets": [
+            "Check out General Tips for strategy basics",
+            "Reference the Appendix for card types, phases, and special abilities",
+            "Ask your personal GM Guide anytime via the Q&A tab"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Buy Two Workers in Round One",
+          "text": "This is the single most important tip for new players. In the first worker phase, buy at least two workers. Workers have the best cost-to-reward ratio in the game. A Lumberjack costs 3 rubles and earns 3 rubles every single round. That means it pays for itself in one round and then prints free money for the rest of the game. A player who only buys one worker will fall behind a player who buys two, and that gap only grows as the game goes on. Two workers early is the foundation of everything else.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Do Not Overspend in Any Single Phase",
+          "text": "This is the trap that catches every new player. You see an amazing expensive card and blow all your money on it. Then you sit helpless through the next two phases while your opponents buy workers, buildings, and aristocrats. Saint Petersburg is a game of permanent money shortages. You need to budget your rubles across all four phases of every round. Before buying anything, ask yourself: will I still have enough to participate in the phases that come after this one?",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Prioritize Aristocrats for End-Game",
+          "text": "Aristocrats are the most valuable card type in the game, and it is not close. They give you both rubles and points during scoring, but more importantly, the end-game diversity bonus is enormous. Having 6 different aristocrats gives you 15 bonus points. Having 10 different gives you 45 points. No other single source of points in the game comes close to this. Start buying aristocrats as soon as you can afford them, and prioritize getting different ones over duplicates. The diversity bonus can easily be the difference between winning and losing.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Expensive Cards Have Better Ratios",
+          "text": "Here is a subtlety that new players miss. A Market costs 5 rubles and earns 1 point per round. That is 5 rubles per point. A Customs House costs 8 rubles and earns 2 points. That is 4 rubles per point. A Church costs 15 rubles and earns 3 points. That is 5 rubles per point. As a general rule, more expensive buildings give you better return on investment over time. So if you can afford a more expensive building early, it will usually earn you more points in the long run than a cheap one. The trick is being able to afford it without going broke.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Use Cost Reductions Aggressively",
+          "text": "Cost reductions are one of the most powerful mechanics in Saint Petersburg. Buying duplicate cards gives you a 1-ruble discount per copy you already own. This makes buying a third or fourth copy of a cheap worker essentially free (minimum cost is 1 ruble). The Carpenter Workshop and Gold Smelter are incredible value because they discount every future blue or orange card you buy for the rest of the game. Grabbing one of these early can save you 10 or more rubles over the course of the game. Always think about cumulative discounts before making a purchase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Save Money for Trading Cards",
+          "text": "Trading cards appear in the fourth phase of each round, after all the scoring phases are done. This means there is no scoring to replenish your money until the next round. Many players spend everything in the first three phases and then have nothing left for trading cards. This is a mistake because trading cards are often the best value in the game. They upgrade your existing cards for a fraction of their face cost. Always try to keep a small reserve (at least 5 to 8 rubles) for the trading card phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Be Careful with Hand Cards",
+          "text": "Adding a card to your hand is free and can be tempting. But remember: each card in your hand at game end costs you 5 points. That is a huge penalty. Only add a card to your hand if you are confident you will play it within a round or two, or if you are specifically denying a card to an opponent who desperately needs it. A card sitting uselessly in your hand for the whole game is worse than a card your opponent buys, because at least the opponent paid for theirs while you just gave yourself minus 5 points.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Watch the Card Rows",
+          "text": "Pay attention to what is in the upper row versus the lower row. Cards in the lower row cost 1 ruble less, which can make a big difference, especially combined with other discounts. Also, cards in the lower row will be discarded at the end of the round if nobody buys them. If you see a card in the lower row that you need, buy it now or it will be gone forever. Conversely, if a card is in the upper row, you know it will slide down to the lower row at end of round and be available cheaper next time, but another player might grab it first. This timing game is a core part of Saint Petersburg strategy.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Buy Two Workers in Round One",
+          "bullets": [
+            "Workers have the best cost-to-reward ratio in the game",
+            "Lumberjack: 3 rubles cost, 3 rubles income — pays for itself in 1 round",
+            "2 workers early is the foundation for all future purchases"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Do Not Overspend in Any Single Phase",
+          "bullets": [
+            "Budget rubles across all 4 phases each round",
+            "Before buying, ask: can I still participate in later phases?",
+            "Saint Petersburg is a game of permanent money shortages"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Prioritize Aristocrats for End-Game",
+          "bullets": [
+            "Aristocrats give both income and points during play",
+            "Diversity bonus is massive: 6 different = 15 pts, 10 different = 45 pts",
+            "Always prioritize different aristocrats over duplicates"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Expensive Cards Have Better Ratios",
+          "bullets": [
+            "Market: 5 rubles per point. Customs House: 4 rubles per point",
+            "Expensive buildings earn more points per ruble invested over time",
+            "Only buy expensive cards if you can afford them without going broke"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Use Cost Reductions Aggressively",
+          "bullets": [
+            "Duplicate cards: -1 ruble per existing copy (minimum 1 ruble)",
+            "Carpenter Workshop: -1 on all blue cards for the rest of the game",
+            "Gold Smelter: -1 on all orange cards for the rest of the game",
+            "All reductions stack — can save 10+ rubles over a game"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Save Money for Trading Cards",
+          "bullets": [
+            "Trading phase is last — no scoring to replenish after it",
+            "Trading cards upgrade existing cards at a fraction of cost",
+            "Keep 5-8 rubles in reserve for trading card opportunities"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Be Careful with Hand Cards",
+          "bullets": [
+            "-5 points per card in hand at game end",
+            "Only add cards you can play within 1-2 rounds",
+            "Best use: brief hold or denying a critical card to opponents"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Watch the Card Rows",
+          "bullets": [
+            "Lower row = 1 ruble cheaper but discarded at end of round",
+            "Upper row cards slide to lower row at round end",
+            "Buy lower row cards now or lose them forever",
+            "Timing card purchases around row movement is a core skill"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Worker Engine Opening",
+          "text": "The strongest opening in Saint Petersburg is to buy as many workers as possible in the first two rounds. Ideally you want three or four workers generating income before you invest heavily in buildings or aristocrats. Workers pay for themselves quickly and the compounding income means you will have more money every round to outbid your opponents. The Lumberjack is the best value at 3 rubles for 3 income, but even the more expensive workers are worth buying early. Once your worker engine is humming, you can transition to buildings and aristocrats with a strong financial base.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Duplicate Card Strategy",
+          "text": "Buying duplicates is underrated by new players. Each duplicate reduces the cost of the next copy by 1 ruble. Your third Lumberjack costs just 1 ruble (the minimum). Your fourth also costs 1 ruble. Each of these 1-ruble Lumberjacks still earns you 3 rubles every worker scoring. That is a 300 percent return each round. The same logic applies to buildings and aristocrats, though the discount per duplicate matters less on expensive cards. The key insight is that cheap duplicates are essentially free money printers. Stack them early and let the income compound.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "The Aristocrat Diversity Race",
+          "text": "The single highest-scoring play in the game is collecting many different aristocrats. The diversity bonus scales quadratically: 1 different earns 0, but 6 different earns 15, 8 different earns 28, and 10 different earns 45. This means that every additional unique aristocrat is worth more than the last. Getting your 10th different aristocrat is worth 9 points by itself, on top of whatever the card earns during the game. If you can reach 8 to 10 different aristocrats, you will almost certainly win. Prioritize unique aristocrats over everything except essential income.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Trading Card Timing",
+          "text": "Trading cards are the most efficient purchases in the game because you pay only the cost difference between the upgrade and the card being replaced. A Wharf replaces a Ship Builder for 5 rubles (12 minus 7) and earns you 6 rubles plus 1 point instead of just 3 rubles and 1 point. That extra 3 rubles per round for just 5 rubles up front is incredible value. The best time to buy trading cards is after you have established the base cards they will replace. Never buy a base card just to replace it immediately, but if you have been earning income from workers for two or three rounds and then replace one with a trading card upgrade, the total value is enormous.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Carpenter Workshop and Gold Smelter Priority",
+          "text": "These two trading cards deserve special mention because their value increases with every purchase you make for the rest of the game. The Carpenter Workshop reduces the cost of every blue card (building) you buy by 1 ruble. If you buy 6 buildings after acquiring it, that is 6 rubles saved. The Gold Smelter does the same for orange cards (aristocrats). Since aristocrats are the most important card type, the Gold Smelter is arguably the most valuable trading card in the game. If either appears early, strongly consider buying it, even if it means skipping a decent card in another phase.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Positional Awareness and Starting Player",
+          "text": "Your position relative to the starting player matters more than most people realize. When you are the starting player for a phase, you get first pick but you also have to commit before seeing what others do. When you are last, you get the leftover cards but you have perfect information about what everyone else bought. Experienced players plan around the starting player rotation. If you are about to be starting player for the aristocrat phase next round, you know you will get first pick of aristocrats. That might mean you can afford to spend more aggressively on buildings this round, knowing you will have your pick of aristocrats next.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Card Flow",
+          "text": "Here is an advanced concept: every card taken from the board creates space for a new card in the next phase. When you are going to be the starting player in the next phase, you want fewer new cards placed, because you already have first pick of what is there. When you are far from starting player, you want more new cards, giving you more options to choose from when your turn comes. This means that sometimes adding a card to your hand — even a mediocre one — is correct if it opens board space for new cards that benefit you, or if removing a card denies the next starting player a good option.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "The Observatory Power Play",
+          "text": "The Observatory is one of the most skill-intensive cards in the game. It gives you 1 point per building scoring if you leave it face up, but its special ability is far more valuable in the right hands. Once during the building phase, instead of your normal action, you can peek at the top card of any stack and immediately buy it, add it to your hand, or discard it. This means you can see a card nobody else can access. In the late game when stacks are running low, this ability lets you grab the last critical aristocrat from the stack before anyone knows it exists. Use the scoring if you have no good targets, but use the ability when the stacks hold cards you need.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "End-Game Money Management",
+          "text": "As the game nears its end, your spending priorities should shift. Every 10 rubles you have at game end is worth 1 point. This means you should not spend your last few rubles on a card that earns only 1 point per scoring if there is only one scoring left. In the final round, money saved is often worth more than marginal cards purchased. Additionally, if you have cards in your hand you cannot play, consider whether the 5-point penalty is worth the effort of playing them. Sometimes it is better to play a hand card even if the card itself is mediocre, just to avoid the penalty.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Reading Your Opponents",
+          "text": "Saint Petersburg has significant player interaction through the shared card market. Pay attention to what your opponents are buying. If someone is collecting a lot of different aristocrats, they are racing for the diversity bonus and you need to compete or cut them off. If someone has the Carpenter Workshop, they will be aggressively buying buildings at a discount. If an opponent is low on cash, you can take your time with purchases knowing they cannot compete this phase. The best players are always watching the board, watching their opponents' play areas, and making educated guesses about how much money each opponent has.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Worker Engine Opening",
+          "bullets": [
+            "Buy 3-4 workers in the first 2 rounds for maximum compounding income",
+            "Lumberjack: best ratio at 3 cost / 3 income",
+            "Strong worker base funds everything else in the mid and late game"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Duplicate Card Strategy",
+          "bullets": [
+            "Each duplicate reduces cost by 1 ruble (minimum cost: 1)",
+            "3rd+ Lumberjack costs 1 ruble, earns 3 = 300% return per round",
+            "Cheap duplicates are free money printers — stack them early"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "The Aristocrat Diversity Race",
+          "bullets": [
+            "Diversity bonus scales quadratically: 6 diff = 15, 8 = 28, 10 = 45",
+            "Each additional unique aristocrat is worth more than the last",
+            "Reaching 8-10 different aristocrats almost guarantees a win"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Trading Card Timing",
+          "bullets": [
+            "Cost = difference between upgrade and replaced card (min 1 ruble)",
+            "Wharf replaces Ship Builder for 5 rubles: +3 income per round",
+            "Best after base cards have earned income for 2-3 rounds"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Carpenter Workshop and Gold Smelter Priority",
+          "bullets": [
+            "Carpenter Workshop: -1 on every blue card for the rest of the game",
+            "Gold Smelter: -1 on every orange card — arguably the best trading card",
+            "Buy either one early; value increases with every future purchase"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Positional Awareness and Starting Player",
+          "bullets": [
+            "Starting player gets first pick but commits before seeing opponents' moves",
+            "Plan spending around the starting player rotation schedule",
+            "Spend aggressively before phases where you are starting player"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Controlling the Card Flow",
+          "bullets": [
+            "Taking cards creates space for new cards in the next phase",
+            "As starting player: fewer new cards is better (you already have first pick)",
+            "Far from starting player: more new cards means more options for you"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Observatory Power Play",
+          "bullets": [
+            "1 point if unused OR peek at top of any stack and buy/add/discard",
+            "Late game: grab critical cards from stacks before opponents see them",
+            "Flips face-down after use, resets at start of next round"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "End-Game Money Management",
+          "bullets": [
+            "Every full 10 rubles at game end = 1 point",
+            "Final round: saved money often beats marginal card purchases",
+            "Play hand cards even if mediocre to avoid -5 penalty each"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Reading Your Opponents",
+          "bullets": [
+            "Track opponents' aristocrat diversity — compete or cut them off",
+            "Note who has Carpenter Workshop/Gold Smelter (they will buy aggressively)",
+            "Opponents low on cash = safe to take your time buying",
+            "Always estimate opponents' hidden money based on their purchases"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Worker Phase",
+          "definition": "The first phase of each round. Players take actions (buy, add to hand, play from hand, or pass), then all worker cards in play areas are scored (earning primarily rubles), then new building cards are added to the board.",
+          "category": "Phases"
+        },
+        {
+          "term": "Building Phase",
+          "definition": "The second phase of each round. Players take actions, then all building cards in play areas are scored (earning primarily victory points), then new aristocrat cards are added to the board.",
+          "category": "Phases"
+        },
+        {
+          "term": "Aristocrat Phase",
+          "definition": "The third phase of each round. Players take actions, then all aristocrat cards in play areas are scored (earning both rubles and victory points), then new trading cards are added to the board.",
+          "category": "Phases"
+        },
+        {
+          "term": "Trading Card Phase",
+          "definition": "The fourth and final phase of each round. Players take actions only — there is no scoring. After actions, lower row cards are discarded, upper row slides to lower, new worker cards fill to 8, and starting player markers pass left.",
+          "category": "Phases"
+        },
+        {
+          "term": "Buy",
+          "definition": "One of four possible actions. Pay a card's cost in rubles to the bank and place it face up in your play area. You may buy any card from either row in any phase, not just cards matching the current phase.",
+          "category": "Actions"
+        },
+        {
+          "term": "Add to Hand",
+          "definition": "One of four possible actions. Take any card from the board and add it to your hand for free. Maximum hand size is 3 cards (4 with Warehouse). Cards in hand at game end score -5 points each.",
+          "category": "Actions"
+        },
+        {
+          "term": "Play from Hand",
+          "definition": "One of four possible actions. Take a card previously added to your hand, pay its full cost, and place it face up in your play area. You may play any card from your hand in any phase.",
+          "category": "Actions"
+        },
+        {
+          "term": "Pass",
+          "definition": "One of four possible actions. Skip your turn. Passing does not eliminate you from the phase — you may take a normal action on your next turn. The phase ends when all players pass consecutively in player order.",
+          "category": "Actions"
+        },
+        {
+          "term": "Upper Card Row",
+          "definition": "The top row on the game board where new cards are placed each phase. Cards here cost their full printed price. At end of round, unsold upper row cards move to the lower row.",
+          "category": "Board"
+        },
+        {
+          "term": "Lower Card Row",
+          "definition": "The bottom row on the game board. Cards here cost 1 ruble less than their printed price. At end of round, any cards remaining in the lower row are permanently discarded.",
+          "category": "Board"
+        },
+        {
+          "term": "Discard Space",
+          "definition": "The area on the board where cards are permanently removed from the game. Cards go here when discarded from the lower row at end of round, or when displaced by trading cards.",
+          "category": "Board"
+        },
+        {
+          "term": "Scoring Track",
+          "definition": "The numbered track around the edge of the game board where players track their victory points using wooden figures.",
+          "category": "Board"
+        },
+        {
+          "term": "Aristocrat Scoring Table",
+          "definition": "A reference table printed on the game board showing end-game bonus points for aristocrat diversity: 1 different = 0, 2 = 1, 3 = 3, 4 = 6, 5 = 10, 6 = 15, 7 = 21, 8 = 28, 9 = 36, 10 = 45.",
+          "category": "Board"
+        },
+        {
+          "term": "Lumberjack",
+          "definition": "Green worker card. Cost: 3 rubles. Earns 3 rubles during worker scoring. The cheapest worker with the best cost-to-income ratio. Can be upgraded to Carpenter Workshop.",
+          "category": "Workers"
+        },
+        {
+          "term": "Gold Miner",
+          "definition": "Green worker card. Cost: 4 rubles. Earns 3 rubles during worker scoring. Can be upgraded to Gold Smelter.",
+          "category": "Workers"
+        },
+        {
+          "term": "Shepherd",
+          "definition": "Green worker card. Cost: 5 rubles. Earns 4 rubles during worker scoring. The highest pure income among base workers. Can be upgraded to Weaving Mill.",
+          "category": "Workers"
+        },
+        {
+          "term": "Fur Trapper",
+          "definition": "Green worker card. Cost: 6 rubles. Earns 3 rubles during worker scoring. Can be upgraded to Fur Shop.",
+          "category": "Workers"
+        },
+        {
+          "term": "Ship Builder",
+          "definition": "Green worker card. Cost: 7 rubles. Earns 3 rubles and 1 victory point during worker scoring. The only base worker that generates points. Can be upgraded to Wharf.",
+          "category": "Workers"
+        },
+        {
+          "term": "Carpenter Workshop",
+          "definition": "Green trading card (worker upgrade). Cost: 4 rubles. Replaces a Lumberjack. Earns 3 rubles during worker scoring. Special: reduces the cost of all blue (building) cards the owner buys by 1 ruble for the rest of the game.",
+          "category": "Trading Cards — Workers"
+        },
+        {
+          "term": "Gold Smelter",
+          "definition": "Green trading card (worker upgrade). Cost: 6 rubles. Replaces a Gold Miner. Earns 3 rubles during worker scoring. Special: reduces the cost of all orange (aristocrat) cards the owner buys by 1 ruble for the rest of the game.",
+          "category": "Trading Cards — Workers"
+        },
+        {
+          "term": "Weaving Mill",
+          "definition": "Green trading card (worker upgrade). Cost: 8 rubles. Replaces a Shepherd. Earns 6 rubles during worker scoring (up from 4). A significant income boost.",
+          "category": "Trading Cards — Workers"
+        },
+        {
+          "term": "Fur Shop",
+          "definition": "Green trading card (worker upgrade). Cost: 10 rubles. Replaces a Fur Trapper. Earns 3 rubles and 2 victory points during worker scoring. Adds significant points to your worker income.",
+          "category": "Trading Cards — Workers"
+        },
+        {
+          "term": "Wharf",
+          "definition": "Green trading card (worker upgrade). Cost: 12 rubles. Replaces a Ship Builder. Earns 6 rubles and 1 victory point during worker scoring (up from 3 rubles and 1 point). Doubles the income of a Ship Builder.",
+          "category": "Trading Cards — Workers"
+        },
+        {
+          "term": "Market",
+          "definition": "Blue building card. Cost: 5 rubles. Earns 1 victory point during building scoring. The cheapest building, often bought in multiples for cost reduction.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Customs House",
+          "definition": "Blue building card. Cost: 8 rubles. Earns 2 victory points during building scoring. Good value per ruble invested.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Firehouse",
+          "definition": "Blue building card. Cost: 11 rubles. Earns 3 victory points during building scoring.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Hospital",
+          "definition": "Blue building card. Cost: 13 rubles. Earns 3 victory points during building scoring.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Library",
+          "definition": "Blue building card. Cost: 13 rubles. Earns 3 victory points during building scoring.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Church",
+          "definition": "Blue building card. Cost: 15 rubles. Earns 3 victory points during building scoring.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Theater",
+          "definition": "Blue building card. Cost: 20 rubles. Earns 5 victory points during building scoring. The most expensive and highest-scoring building. Special: also earns 1 ruble per aristocrat in your play area during building scoring.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Pub",
+          "definition": "Blue building card (special). Cost: 8 rubles. Earns 1 victory point during building scoring. Special: immediately after each building scoring, you may buy up to 5 victory points at 2 rubles each. You cannot sell points back for rubles.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Warehouse",
+          "definition": "Blue building card (special). Cost: 5 rubles. Earns 1 victory point during building scoring. Special: increases your maximum hand size from 3 to 4 cards. If you upgrade the Warehouse with a trading card, you do not need to immediately reduce your hand.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Observatory",
+          "definition": "Blue building card (special). Cost: 9 rubles. Earns 1 victory point during building scoring if face up. Special: once during the building actions phase, instead of a normal action, draw the top card from any stack (not the last card) and immediately buy it, add it to your hand, or discard it. Then flip the Observatory face-down (no points). It flips face-up at the start of the next round.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Village",
+          "definition": "Blue building card (special). Cost: 2 rubles. Earns 0 during building scoring. The cheapest building in the game. If displaced by a trading card, it counts as 6 rubles toward the cost difference, making upgrades cheaper.",
+          "category": "Buildings"
+        },
+        {
+          "term": "Nobleman",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. One of the aristocrat types that count toward the diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Administrator",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Warehouse Manager",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Secretary",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Controller",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Judge",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Mistress of Ceremonies",
+          "definition": "Orange aristocrat card. Earns rubles and victory points during aristocrat scoring. Counts toward aristocrat diversity bonus.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Academy",
+          "definition": "Orange aristocrat card (special). Earns rubles and victory points during aristocrat scoring. Special: during aristocrat scoring, earns 1 additional ruble for each worker in your play area.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Czar Peter",
+          "definition": "Orange aristocrat card (special). Earns rubles and victory points during aristocrat scoring. Special: unlike other aristocrats, Czar Peter can be displaced by any green trading card, not just a matching one. Counts as a unique aristocrat for diversity.",
+          "category": "Aristocrats"
+        },
+        {
+          "term": "Trading Card (General)",
+          "definition": "Upgrade cards with tri-colored backs. 30 total: 10 worker upgrades (green front), 10 building upgrades (blue front), 10 aristocrat upgrades (orange front). Must displace an existing card of the same color to be played. Cannot replace another trading card.",
+          "category": "Trading Cards"
+        },
+        {
+          "term": "Displace",
+          "definition": "When playing a trading card, you must remove an existing card of the same color from your play area and place it on the discard pile. The trading card takes its place. Green worker trading cards must match the specific worker type being replaced.",
+          "category": "Trading Cards"
+        },
+        {
+          "term": "Cost Reduction — Duplicates",
+          "definition": "When buying a card you already own a copy of, reduce the cost by 1 ruble per existing copy. Example: 3rd Lumberjack costs 3 minus 2 = 1 ruble. Minimum cost is always 1 ruble.",
+          "category": "Cost Reductions"
+        },
+        {
+          "term": "Cost Reduction — Lower Row",
+          "definition": "Cards in the lower card row cost 1 ruble less than their printed price. Stacks with all other cost reductions.",
+          "category": "Cost Reductions"
+        },
+        {
+          "term": "Cost Reduction — Carpenter Workshop",
+          "definition": "Owning a Carpenter Workshop reduces the cost of all blue (building) cards you buy by 1 ruble. Applies to purchases and trading card upgrades. Stacks with all other reductions.",
+          "category": "Cost Reductions"
+        },
+        {
+          "term": "Cost Reduction — Gold Smelter",
+          "definition": "Owning a Gold Smelter reduces the cost of all orange (aristocrat) cards you buy by 1 ruble. Applies to purchases and trading card upgrades. Stacks with all other reductions.",
+          "category": "Cost Reductions"
+        },
+        {
+          "term": "Minimum Cost",
+          "definition": "No matter how many cost reductions apply, a player must always pay at least 1 ruble to buy or play a card. You can never pay 0 or gain money from buying a card.",
+          "category": "Cost Reductions"
+        },
+        {
+          "term": "Starting Player Marker",
+          "definition": "Tokens indicating who goes first in each phase. There are 4 markers, one per phase. At end of round, all markers pass to the player on the left. In a 3-player game, the youngest player starts with 2 markers.",
+          "category": "Components"
+        },
+        {
+          "term": "Starting Player Card",
+          "definition": "Cards dealt at the beginning of the game to determine which players receive which starting player markers. Returned to the box after setup; not used during the game.",
+          "category": "Components"
+        },
+        {
+          "term": "Play Area",
+          "definition": "The space in front of each player where purchased cards are placed face up. Cards should be organized by type: workers together, buildings together, aristocrats together. Your play area is public information.",
+          "category": "Components"
+        },
+        {
+          "term": "Rubles",
+          "definition": "The currency of the game. 382 total in denominations of 1, 3, 5, 10, 25, and 50. Each player starts with 25. Money is kept secret. At game end, every full 10 rubles = 1 victory point.",
+          "category": "Components"
+        },
+        {
+          "term": "Administrator (Role)",
+          "definition": "One player designated to manage the bank, place new cards on the board, move scoring markers, and manage phase transitions. The oldest player is typically the administrator. This is a table duty, not a game advantage.",
+          "category": "Components"
+        },
+        {
+          "term": "Hand Limit",
+          "definition": "Players may hold at most 3 cards in hand (4 with Warehouse). Cards in hand at game end score -5 points each. The maximum penalty is -15 (or -20 with Warehouse).",
+          "category": "Terminology"
+        },
+        {
+          "term": "Aristocrat Diversity Bonus",
+          "definition": "End-game scoring based on the number of differently named aristocrats in your play area. Duplicate aristocrats do not count. Points: 1=0, 2=1, 3=3, 4=6, 5=10, 6=15, 7=21, 8=28, 9=36, 10=45. The most important scoring category in the game.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Final Scoring",
+          "definition": "Occurs after the last round. Three components: aristocrat diversity bonus (from scoring table), leftover money (1 point per full 10 rubles), and hand penalty (-5 per card in hand). Added to points accumulated during play.",
+          "category": "Scoring"
+        },
+        {
+          "term": "Tiebreaker",
+          "definition": "If players are tied on total victory points at game end, the player among the tied players with the most rubles remaining wins.",
+          "category": "Scoring"
+        }
+      ]
+    }
+  }
+}

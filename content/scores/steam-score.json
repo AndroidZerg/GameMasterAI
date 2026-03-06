@@ -1,0 +1,10 @@
+{
+  "game_id": "steam",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "delivery_vps", "label": "Delivery Victory Points", "points_each": 1, "type": "manual", "description": "VPs earned from delivering goods cubes during the game"},
+    {"id": "completed_links", "label": "Completed Links", "points_each": 1, "type": "count", "description": "1 VP per completed link you own at end of game"},
+    {"id": "income_conversion", "label": "Income Conversion", "points_each": 1, "type": "manual", "description": "Positive income: +1 VP per 2 income (round down). Negative income: -2 VP per 1 negative income point"},
+    {"id": "vp_penalties", "label": "VP Penalties", "points_each": -1, "type": "manual", "description": "VPs lost from raising money at -10 income (-2 VP per $5 raised)"}
+  ]
+}

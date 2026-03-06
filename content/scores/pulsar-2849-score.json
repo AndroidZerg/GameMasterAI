@@ -1,0 +1,16 @@
+{
+  "game_id": "pulsar-2849",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "spinning_gyrodynes", "label": "Spinning Gyrodynes (in-game)", "points_each": 1, "type": "manual", "description": "Points scored each Production Phase from spinning gyrodynes (face value + row bonus)"},
+    {"id": "online_transmitters", "label": "Online Transmitters (in-game)", "points_each": 1, "type": "manual", "description": "Points scored each Production Phase from flipped transmitter tiles"},
+    {"id": "technologies_in_game", "label": "Technology & Action Points (in-game)", "points_each": 1, "type": "manual", "description": "Points scored during Action/Production Phases from patents, exploration bonuses, gate runs, and construction awards"},
+    {"id": "purple_patents", "label": "Purple Patent End-Game Bonuses", "points_each": 1, "type": "manual", "description": "End-of-game points from purple technology patents"},
+    {"id": "goal_tiles", "label": "Goal Tile Points", "points_each": 1, "type": "manual", "description": "Points from achieving end-of-game goal tile conditions, including purchased bonuses"},
+    {"id": "undeveloped_pulsars", "label": "Undeveloped Pulsars", "points_each": 1, "type": "count", "description": "1 point per claimed pulsar with no gyrodyne or a gyrodyne still under construction"},
+    {"id": "unused_gyrodynes", "label": "Unused Gyrodyne Tiles", "points_each": 1, "type": "count", "description": "1 point per gyrodyne tile still under construction or not yet placed on a pulsar"},
+    {"id": "engineering_cubes", "label": "Engineering Cube Pairs", "points_each": 1, "type": "count", "description": "1 point per pair of leftover engineering cubes (a single cube scores nothing)"},
+    {"id": "initiative_track", "label": "Initiative Track Position", "points_each": 1, "type": "manual", "description": "7 points for 1st, 4 for 2nd, 2 for 3rd (4-player); no 3rd in 3-player"},
+    {"id": "stations", "label": "Station Points", "points_each": 1, "type": "manual", "description": "Points based on total stations in planetary systems (up to 50 for 13 stations, +3 per station beyond 13)"}
+  ]
+}

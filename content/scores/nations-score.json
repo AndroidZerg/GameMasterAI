@@ -1,0 +1,11 @@
+{
+  "game_id": "nations",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "game_vp", "label": "Game VP", "points_each": 1, "type": "manual", "description": "VP tokens accumulated during the game (Books scoring, events, wars, etc.)"},
+    {"id": "colonies", "label": "Colonies", "points_each": 1, "type": "manual", "description": "VP from your Colony cards"},
+    {"id": "wonders", "label": "Wonders", "points_each": 1, "type": "manual", "description": "VP from completed Wonders, including any special VP bonuses"},
+    {"id": "buildings_military", "label": "Buildings & Military", "points_each": 1, "type": "manual", "description": "VP from deployed Workers on Building and Military cards"},
+    {"id": "resources", "label": "Resources", "points_each": 1, "type": "manual", "description": "1 VP per full 10 of (Gold + Food + Stone + Books + Military Strength + Stability)"}
+  ]
+}

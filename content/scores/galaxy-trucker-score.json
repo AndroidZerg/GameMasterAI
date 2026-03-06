@@ -1,0 +1,11 @@
+{
+  "game_id": "galaxy-trucker",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "arrival_bonus", "label": "Arrival Bonus", "points_each": 1, "type": "manual", "description": "Credits earned based on order of arrival at destination (varies by round)"},
+    {"id": "best_ship_bonus", "label": "Best-Looking Ship Bonus", "points_each": 1, "type": "manual", "description": "Bonus credits for fewest exposed connectors"},
+    {"id": "goods_sold", "label": "Goods Sold", "points_each": 1, "type": "manual", "description": "Credits from selling cargo (yellow=1, green=2, blue=3, red=4)"},
+    {"id": "adventure_credits", "label": "Adventure Credits", "points_each": 1, "type": "manual", "description": "Credits earned from abandoned ships, defeated enemies, etc."},
+    {"id": "lost_components", "label": "Lost Components", "points_each": -1, "type": "count", "description": "Lose 1 credit per component lost (up to round maximum)"}
+  ]
+}

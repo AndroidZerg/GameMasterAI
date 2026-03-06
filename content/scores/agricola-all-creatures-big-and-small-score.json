@@ -1,0 +1,13 @@
+{
+  "game_id": "agricola-all-creatures-big-and-small",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "sheep", "label": "Sheep", "points_each": 1, "type": "count", "description": "1 point per sheep. Lose 3 points if you have 3 or fewer. Bonus: +1 per sheep beyond 13."},
+    {"id": "pigs", "label": "Pigs", "points_each": 1, "type": "count", "description": "1 point per pig. Lose 3 points if you have 3 or fewer. Bonus: +1 per pig beyond 11."},
+    {"id": "cows", "label": "Cows", "points_each": 1, "type": "count", "description": "1 point per cow. Lose 3 points if you have 3 or fewer. Bonus: +1 per cow beyond 10."},
+    {"id": "horses", "label": "Horses", "points_each": 1, "type": "count", "description": "1 point per horse. Lose 3 points if you have 3 or fewer. Bonus: +1 per horse beyond 9."},
+    {"id": "animal_bonus", "label": "Animal Bonus/Penalty", "points_each": 1, "type": "manual", "description": "Sum of all bonus points (+1 per extra animal past threshold) and penalties (-3 per type with 3 or fewer)"},
+    {"id": "building_points", "label": "Building Points", "points_each": 1, "type": "manual", "description": "Points from buildings: Half-Timbered House (5), Open Stables (2), Storage Building (variable), Shelter (0)"},
+    {"id": "farm_expansions", "label": "Farm Expansions", "points_each": 4, "type": "count", "description": "4 points per fully used farm expansion (all 3 spaces must have a building, feeding trough, or be part of a fully enclosed pasture)"}
+  ]
+}

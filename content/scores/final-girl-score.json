@@ -1,0 +1,12 @@
+{
+  "game_id": "final-girl",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "victims_saved", "label": "Victims Saved", "points_each": 1, "type": "count", "description": "Count of victims successfully rescued to exit spaces"},
+    {"id": "killer_health_removed", "label": "Killer Health Removed", "points_each": 1, "type": "count", "description": "Total health markers removed from the Killer"},
+    {"id": "items_found", "label": "Items Found", "points_each": 1, "type": "count", "description": "Number of items acquired during the game"},
+    {"id": "horror_level_final", "label": "Final Horror Level", "points_each": -1, "type": "manual", "description": "Subtract points equal to the final Horror Level (lower is better)"},
+    {"id": "victims_dead", "label": "Victims Killed", "points_each": -1, "type": "count", "description": "Subtract 1 point per victim killed during the game"},
+    {"id": "victory_bonus", "label": "Victory Bonus", "points_each": 1, "type": "manual", "description": "Bonus points if the Killer was defeated (suggested: 10 points)"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "game_id": "roll-player",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "attribute_goals", "label": "Attribute Goals", "points_each": 1, "type": "manual", "description": "Reputation Stars earned from meeting Class card Attribute Goals for each row"},
+    {"id": "class_color_dice", "label": "Class Color Dice", "points_each": 1, "type": "count", "description": "1 Reputation Star per die on Character Sheet matching your Class color"},
+    {"id": "alignment", "label": "Alignment Card", "points_each": 1, "type": "manual", "description": "Reputation Stars gained or lost based on tracking token position on Alignment card"},
+    {"id": "backstory", "label": "Backstory Card", "points_each": 1, "type": "manual", "description": "Reputation Stars for matching dice colors/positions to Backstory card (0-1=0, 2-3=1, 4-5=3, 6=6)"},
+    {"id": "armor", "label": "Armor Cards", "points_each": 1, "type": "manual", "description": "Reputation Stars from Armor sets (Chain, Leather, Mystic) plus Class color bonus per set"},
+    {"id": "traits", "label": "Trait Cards", "points_each": 1, "type": "manual", "description": "Reputation Stars earned from meeting criteria on collected Trait cards"}
+  ]
+}

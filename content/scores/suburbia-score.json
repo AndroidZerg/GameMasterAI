@@ -1,0 +1,10 @@
+{
+  "game_id": "suburbia",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "population", "label": "Population Track", "points_each": 1, "type": "manual", "description": "Current position on the Population Board at game end"},
+    {"id": "public_goals", "label": "Public Goals", "points_each": 1, "type": "manual", "description": "Population bonus from achieved public goals on the Real Estate Market"},
+    {"id": "secret_goal", "label": "Secret Goal", "points_each": 1, "type": "manual", "description": "Population bonus from your private goal tile (if uniquely achieved)"},
+    {"id": "money_conversion", "label": "Money to Population", "points_each": 5, "type": "count", "description": "1 population per $5 remaining (rounded down)"}
+  ]
+}
