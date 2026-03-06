@@ -37,6 +37,7 @@ from app.api.routes.device_sessions import router as device_sessions_router
 from app.api.routes.device_sessions import init_device_session_tables
 from app.api.routes.rentals import router as rentals_router
 from app.api.routes.rentals import init_rental_tables
+from app.api.routes.lgs import router as lgs_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -55,6 +56,7 @@ from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
+from app.models.marketplace import init_marketplace_tables
 
 
 limiter = Limiter(key_func=get_remote_address)
@@ -77,6 +79,7 @@ async def lifespan(app: FastAPI):
     init_turso_analytics()
     init_device_session_tables()
     run_venue_platform_migrations()
+    init_marketplace_tables()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmg2026")
@@ -171,6 +174,10 @@ app.include_router(orders_router)
 
 # --- Rentals ---
 app.include_router(rentals_router)
+
+# --- LGS Marketplace (admin) ---
+# Phase 2: venue downgrade blocked with 409 if active games > new tier seat limit
+app.include_router(lgs_router, prefix="/api/v1/admin")
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

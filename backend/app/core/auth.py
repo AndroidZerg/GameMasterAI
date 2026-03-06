@@ -24,7 +24,8 @@ def verify_password(password: str, password_hash: str) -> bool:
     return hmac.compare_digest(hash_password(password), password_hash)
 
 
-def create_token(venue_id: str, venue_name: str, role: str = "venue_admin") -> str:
+def create_token(venue_id: str, venue_name: str, role: str = "venue_admin",
+                 lgs_id: str = None) -> str:
     payload = {
         "venue_id": venue_id,
         "venue_name": venue_name,
@@ -32,6 +33,8 @@ def create_token(venue_id: str, venue_name: str, role: str = "venue_admin") -> s
         "exp": datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRE_HOURS),
         "iat": datetime.now(timezone.utc),
     }
+    if lgs_id:
+        payload["lgs_id"] = lgs_id
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
 
@@ -47,17 +50,20 @@ def decode_token(token: str) -> Optional[dict]:
 async def get_current_venue(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(_security),
 ) -> dict:
-    """FastAPI dependency: extract and validate JWT. Returns {venue_id, venue_name, role}."""
+    """FastAPI dependency: extract and validate JWT. Returns {venue_id, venue_name, role, lgs_id?}."""
     if not credentials:
         raise HTTPException(status_code=401, detail="Not authenticated")
     payload = decode_token(credentials.credentials)
     if not payload:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    return {
+    result = {
         "venue_id": payload["venue_id"],
         "venue_name": payload["venue_name"],
         "role": payload.get("role", "venue_admin"),
     }
+    if "lgs_id" in payload:
+        result["lgs_id"] = payload["lgs_id"]
+    return result
 
 
 async def get_optional_venue(
@@ -69,8 +75,11 @@ async def get_optional_venue(
     payload = decode_token(credentials.credentials)
     if not payload:
         return None
-    return {
+    result = {
         "venue_id": payload["venue_id"],
         "venue_name": payload["venue_name"],
         "role": payload.get("role", "venue_admin"),
     }
+    if "lgs_id" in payload:
+        result["lgs_id"] = payload["lgs_id"]
+    return result

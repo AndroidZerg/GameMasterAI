@@ -82,8 +82,9 @@ async def login(req: LoginRequest):
                 pass
 
     update_venue_login(venue["venue_id"])
-    token = create_token(venue["venue_id"], venue["venue_name"], role=role)
-    return {
+    lgs_id = venue.get("lgs_id") if role == "lgs_admin" else None
+    token = create_token(venue["venue_id"], venue["venue_name"], role=role, lgs_id=lgs_id)
+    resp = {
         "token": token,
         "venue_id": venue["venue_id"],
         "venue_name": venue["venue_name"],
@@ -91,6 +92,9 @@ async def login(req: LoginRequest):
         "status": venue.get("status", "prospect"),
         "expires_at": venue.get("expires_at"),
     }
+    if lgs_id:
+        resp["lgs_id"] = lgs_id
+    return resp
 
 
 @router.get("/join")
