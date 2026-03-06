@@ -1,0 +1,1026 @@
+{
+  "game_id": "the-resistance-coup",
+  "title": "The Resistance Coup",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Gather the Components",
+          "text": "Let's get Coup set up. Open the box and find the following components. First, the character deck of fifteen cards — three copies each of five different characters: Duke, Assassin, Captain, Ambassador, and Contessa. Second, the coin supply of fifty coins. Third, the summary cards that list all character actions and counteractions. Lay everything out where everyone can see it.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Shuffle the Character Deck",
+          "text": "Take all fifteen character cards and give them a thorough shuffle. This is the Court deck. Place it face down in the center of the table where everyone can reach it. Do not look at any of the cards while shuffling. The identity of every card in the deck should remain hidden.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Create the Treasury",
+          "text": "Place all fifty coins in a central pile on the table. This is the Treasury. Players will take coins from here throughout the game and return coins here when paying for actions like Coup and Assassinate. Make sure everyone can reach the Treasury easily.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Influence Cards",
+          "text": "Deal two cards face down to each player from the Court deck. These are your influence cards. Each card represents one life — when you lose both, you are eliminated. Look at your own cards secretly, but do not reveal them to anyone. Keep them face down in front of you at all times. The remaining cards stay in the Court deck in the center of the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Distribute Starting Coins",
+          "text": "Each player takes two coins from the Treasury. Place your coins in front of you where all players can see them. Your coin count is always public information — anyone can count your coins at any time. This matters because players with ten or more coins are forced to Coup.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Hand Out Summary Cards",
+          "text": "Give each player one summary card. These cards list every character, their actions, and which characters can block which actions. Keep your summary card face up for quick reference throughout the game. New players should study this card before the first turn — it shows the full action menu at a glance.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Choose the Starting Player",
+          "text": "Pick a starting player by any method your group likes — youngest player, random selection, or whoever won the last game. Play proceeds clockwise from the starting player. You are now ready to begin. On your turn you will take exactly one action, and then play passes to the left.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Gather the Components",
+          "bullets": [
+            "15 character cards (3 each of Duke, Assassin, Captain, Ambassador, Contessa)",
+            "50 coins for the Treasury",
+            "Summary cards listing all actions and counteractions"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Shuffle the Character Deck",
+          "bullets": [
+            "Shuffle all 15 character cards thoroughly",
+            "Place face down in center — this is the Court deck",
+            "Do not look at any cards"
+          ],
+          "image": null
+        },
+        {
+          "step": 3,
+          "title": "Create the Treasury",
+          "bullets": [
+            "Place all 50 coins in a central pile",
+            "This is the shared Treasury for all players",
+            "Everyone must be able to reach it"
+          ],
+          "image": null
+        },
+        {
+          "step": 4,
+          "title": "Deal Influence Cards",
+          "bullets": [
+            "Deal 2 cards face down to each player",
+            "These are your influence — each card is one life",
+            "Look at your own cards secretly, keep them face down"
+          ],
+          "image": null
+        },
+        {
+          "step": 5,
+          "title": "Distribute Starting Coins",
+          "bullets": [
+            "Each player takes 2 coins from the Treasury",
+            "Coins are always public information",
+            "Players with 10+ coins must Coup on their turn"
+          ],
+          "image": null
+        },
+        {
+          "step": 6,
+          "title": "Hand Out Summary Cards",
+          "bullets": [
+            "Give each player 1 summary card for reference",
+            "Lists all characters, actions, and counteractions",
+            "Keep face up for quick reference during play"
+          ],
+          "image": null
+        },
+        {
+          "step": 7,
+          "title": "Choose the Starting Player",
+          "bullets": [
+            "Pick a starting player by any method",
+            "Play proceeds clockwise",
+            "Each turn: take exactly one action, then pass left"
+          ],
+          "image": null
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Turn Structure Overview",
+          "text": "On your turn, you must take exactly one action. You have eight possible actions to choose from. Three are general actions that anyone can take without claiming a character: Income, Foreign Aid, and Coup. The other five are character actions tied to specific characters: Duke, Assassin, Captain, Ambassador, and Contessa. Here is the key concept that makes Coup special — you can claim any character action regardless of which cards you actually have. You can bluff. But if someone challenges your claim and you are lying, you lose an influence card."
+        },
+        {
+          "step": 2,
+          "title": "Income",
+          "text": "Income is the safest action in the game. Take one coin from the Treasury and add it to your supply. That is it. Income cannot be challenged and cannot be blocked by anyone. It is slow but completely risk-free. Use Income when you need coins but do not want to draw attention or risk a challenge."
+        },
+        {
+          "step": 3,
+          "title": "Foreign Aid",
+          "text": "Foreign Aid lets you take two coins from the Treasury instead of one. It does not require claiming any character — anyone can attempt it. However, Foreign Aid can be blocked by a player claiming to have the Duke. If someone blocks your Foreign Aid, you get nothing, unless you challenge their Duke claim. Foreign Aid is faster than Income but carries the risk of being blocked."
+        },
+        {
+          "step": 4,
+          "title": "Coup",
+          "text": "Coup costs seven coins. Pay seven coins to the Treasury and choose any other player. That player must immediately turn one of their influence cards face up — they lose one influence. Coup cannot be challenged and cannot be blocked. It is the only guaranteed way to eliminate an opponent's influence. Critical rule: if you have ten or more coins at the start of your turn, you must Coup. You cannot take any other action. This prevents players from hoarding coins indefinitely."
+        },
+        {
+          "step": 5,
+          "title": "Duke — Tax",
+          "text": "Claim the Duke to take three coins from the Treasury. This is called Tax. It is the fastest way to accumulate coins in the game. The Duke can also block Foreign Aid attempts by other players. Because the Duke is so powerful for income, it is one of the most commonly claimed characters — and one of the most commonly bluffed. If you are challenged while claiming Duke and you do not actually have a Duke, you lose one influence."
+        },
+        {
+          "step": 6,
+          "title": "Assassin — Assassinate",
+          "text": "Claim the Assassin to pay three coins and target another player. That player must lose one influence by turning a card face up — unless they block or someone challenges you. The Contessa can block assassination. The targeted player can also challenge your Assassin claim. If the target challenges and you really have the Assassin, the target loses an influence from the failed challenge. If you are bluffing and get caught, you lose an influence instead and keep your three coins. Assassination is the cheapest way to directly attack someone."
+        },
+        {
+          "step": 7,
+          "title": "Captain — Steal",
+          "text": "Claim the Captain to steal two coins from another player. Take two coins from your target and add them to your supply. If the target has only one coin, you take that one coin. If the target has zero coins, you cannot steal from them. Stealing can be blocked by a player claiming Captain or Ambassador. The Captain is powerful because it both gains you coins and weakens your opponent at the same time."
+        },
+        {
+          "step": 8,
+          "title": "Ambassador — Exchange",
+          "text": "Claim the Ambassador to draw two cards from the Court deck. Look at those two cards plus your own face-down influence cards. Choose which cards to keep (you must end up with the same number of face-down cards you started with) and return the rest to the Court deck. Shuffle the Court deck afterward. The Ambassador also blocks stealing by the Captain. Exchange is powerful for cycling through characters to find what you need, and it lets you honestly claim characters you did not start with."
+        },
+        {
+          "step": 9,
+          "title": "Contessa — Block Assassination",
+          "text": "The Contessa has no active action on your turn. Her only power is defensive: she blocks assassination. When another player targets you with Assassinate, you can claim Contessa to block it. If you block with Contessa, the assassination fails — the Assassin still pays their three coins, but you do not lose an influence. The Contessa block can itself be challenged. If the challenger proves you do not have a Contessa, you lose an influence to the failed block and then still lose another influence to the assassination."
+        },
+        {
+          "step": 10,
+          "title": "Challenges",
+          "text": "Any time a player claims a character — either for an action or a block — any other player may challenge that claim. Only one player can challenge at a time. Here is how challenges resolve. If the challenged player was bluffing and does not have the claimed character, they lose one influence — turn one card face up. The action or block they attempted fails. If the challenged player actually has the claimed character, they reveal it to prove it, and the challenger loses one influence instead. The proven player then shuffles that revealed card back into the Court deck and draws a new card. This means a successful defense against a challenge gives you a fresh, unknown card."
+        },
+        {
+          "step": 11,
+          "title": "Blocking",
+          "text": "Some actions can be blocked by other players claiming specific characters. Here is the full blocking chart. Foreign Aid can be blocked by anyone claiming Duke. Stealing (Captain) can be blocked by the target claiming Captain or Ambassador. Assassination can be blocked by the target claiming Contessa. Blocks are themselves claims and can be challenged. If you block and get challenged, you must prove you have the blocking character or lose influence. The original action only fails if the block succeeds unchallenged or survives a challenge."
+        },
+        {
+          "step": 12,
+          "title": "Losing Influence",
+          "text": "When you lose influence — from a Coup, a failed challenge, a successful assassination, or any other effect — you choose one of your face-down cards and turn it face up. That card is now permanently revealed and cannot be used. You still keep it in front of you as public information. Once both of your influence cards are face up, you are eliminated from the game. You cannot take any more actions and you cannot challenge or block. Your coins return to the Treasury."
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "text": "The game continues clockwise until only one player has at least one face-down influence card remaining. That player wins. Games of Coup are fast — typically five to ten minutes. It is common to play multiple rounds, and many groups play a series of games to determine an overall champion."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Turn Structure Overview",
+          "bullets": [
+            "Take exactly 1 action per turn, then pass left",
+            "3 general actions: Income, Foreign Aid, Coup",
+            "5 character actions: Duke, Assassin, Captain, Ambassador, Contessa",
+            "You may claim ANY character action — bluffing is allowed"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Income",
+          "bullets": [
+            "Take 1 coin from the Treasury",
+            "Cannot be challenged or blocked",
+            "Safest action, but slowest coin generation"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Foreign Aid",
+          "bullets": [
+            "Take 2 coins from the Treasury",
+            "Does not require claiming a character",
+            "Can be blocked by anyone claiming Duke"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Coup",
+          "bullets": [
+            "Pay 7 coins — target player loses 1 influence",
+            "Cannot be challenged or blocked",
+            "Mandatory if you have 10+ coins at start of turn"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Duke — Tax",
+          "bullets": [
+            "Claim Duke: take 3 coins from Treasury (Tax)",
+            "Duke also blocks Foreign Aid",
+            "Most commonly claimed — and most commonly bluffed"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Assassin — Assassinate",
+          "bullets": [
+            "Claim Assassin: pay 3 coins, target loses 1 influence",
+            "Blocked by Contessa",
+            "If challenged and bluffing, you lose influence instead (keep coins)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Captain — Steal",
+          "bullets": [
+            "Claim Captain: steal 2 coins from another player",
+            "If target has 0 coins, you cannot steal",
+            "Blocked by target claiming Captain or Ambassador"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Ambassador — Exchange",
+          "bullets": [
+            "Claim Ambassador: draw 2 cards from Court deck",
+            "Keep your original count of face-down cards, return the rest",
+            "Also blocks stealing (Captain)",
+            "Lets you cycle characters — can honestly claim new roles"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Contessa — Block Assassination",
+          "bullets": [
+            "No active action on your turn",
+            "Blocks assassination when you are targeted",
+            "Assassin still pays 3 coins if blocked",
+            "Block can be challenged — risky if bluffing Contessa"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Challenges",
+          "bullets": [
+            "Any player may challenge a character claim (action or block)",
+            "Bluffing = lose 1 influence, action/block fails",
+            "Truthful = challenger loses 1 influence, proven card shuffled back, draw new card",
+            "Only 1 challenge per claim"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Blocking",
+          "bullets": [
+            "Foreign Aid blocked by Duke",
+            "Stealing blocked by Captain or Ambassador",
+            "Assassination blocked by Contessa",
+            "Blocks are claims and can be challenged"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Losing Influence",
+          "bullets": [
+            "Flip 1 face-down card face up — permanently revealed",
+            "Both cards face up = eliminated from the game",
+            "Eliminated player's coins return to Treasury",
+            "You choose which card to reveal when you lose influence"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Winning the Game",
+          "bullets": [
+            "Last player with at least 1 face-down influence card wins",
+            "Typical game length: 5-10 minutes",
+            "Common to play multiple rounds in a session"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Round",
+          "text": "In this practice tutorial, we will walk through a scripted round of Coup with four players — Alice, Bob, Carol, and Dave. Each player will demonstrate different actions so you can see how the game flows. We will also watch Dave make a few classic beginner mistakes so you can learn from them. Ready? Cards are dealt, everyone has two coins. Let's go.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Alice's Turn: Claiming Duke",
+          "text": "Alice goes first. She looks at her two face-down cards and sees she has a Duke and a Captain. She announces: 'I will take Tax — I have the Duke.' She takes three coins from the Treasury, bringing her total to five. Nobody challenges her. Clean and simple. The Duke's Tax action is the strongest income move in the game, giving you three coins instead of the usual one or two.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Why Nobody Challenged Alice",
+          "text": "Why did nobody challenge Alice? Early in the game, challenging is risky. If Alice really has the Duke — and she does — the challenger would lose an influence on the very first turn. Most experienced players let early Duke claims slide and watch for patterns before challenging. Challenging becomes safer when you hold a Duke yourself, because you know one of the three copies is in your hand."
+        },
+        {
+          "step": 4,
+          "title": "Bob's Turn: Foreign Aid",
+          "text": "Bob decides to take Foreign Aid — two coins from the Treasury. He does not need to claim any character for this. But remember, the Duke can block Foreign Aid. Alice could claim Duke and block Bob. She decides not to — she already got her three coins and does not want to draw more attention. Bob takes his two coins, bringing his total to four. Sometimes the best play is to let small advantages go unchallenged.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Carol's Turn: Claiming Ambassador",
+          "text": "Carol claims Ambassador and uses the Exchange action. She draws two cards from the Court deck, looks at all four cards (her two original plus the two drawn), and decides which two to keep. She returns two cards to the Court deck and shuffles it. Carol now potentially has entirely different characters than she started with — and nobody knows which ones. The Ambassador is powerful because it gives you flexibility and information.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Dave's Turn: The Reckless Bluff",
+          "text": "Dave has an Ambassador and a Contessa. He looks at Alice's five coins and decides to be aggressive. He announces: 'I have the Assassin. I am going to assassinate Alice. Pay three coins.' But Dave does not actually have the Assassin — he is bluffing. Alice thinks for a moment. She has seen Dave hesitate before announcing, and she has a Duke in hand, which means one fewer Duke in the deck for Dave to potentially have. Alice challenges. Dave cannot reveal an Assassin, so he loses one influence. He flips his Ambassador face up. His three coins stay in his supply since the action failed. Ouch.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Do Not Bluff Assassination Early",
+          "text": "Dave's mistake was bluffing a high-stakes action too early. Assassination is the most dangerous bluff because it costs three coins if it works and costs an influence if it fails. Early in the game, players are more likely to challenge because the risk of losing to an early assassination is too high to ignore. Save aggressive bluffs for later when other players have less information and more to lose by challenging."
+        },
+        {
+          "step": 8,
+          "title": "Alice's Second Turn: Building Up",
+          "text": "Alice claims Duke again and takes Tax — three more coins. Her total is now eight. She is getting dangerously close to Coup range. Nobody challenges because she proved nothing but consistency, and challenging a likely Duke is a big risk. Notice how Alice is playing conservatively — claiming the same character she actually has, building coins steadily."
+        },
+        {
+          "step": 9,
+          "title": "Bob's Turn: Claiming Captain",
+          "text": "Bob announces: 'I have the Captain. I am going to steal two coins from Alice.' Alice now has a choice — she could claim Captain or Ambassador to block the steal, or she could let it happen. She decides to let Bob take two coins rather than risk a confrontation. Bob takes two of Alice's coins. Alice drops to six, Bob rises to six. Stealing is strong because you gain and your opponent loses at the same time."
+        },
+        {
+          "step": 10,
+          "title": "Carol's Turn: Claiming Duke",
+          "text": "Carol claims Duke and takes Tax for three coins. But wait — does Carol really have the Duke? She used Ambassador earlier and could have swapped into anything. Nobody knows. Dave thinks about challenging, but he already lost one influence. If he challenges and is wrong, he is eliminated. So he stays quiet. This is the power of the Ambassador: once you use Exchange, every future claim becomes believable because you could have picked up any character."
+        },
+        {
+          "step": 11,
+          "title": "Dave's Second Mistake: Forgetting the Forced Coup",
+          "text": "Dave has only his Contessa remaining (face down) and four coins. He takes Income for one coin, then Income again on his next turn, slowly building up. A couple of rounds later, Dave has accumulated ten coins. He announces: 'I claim Duke — Tax.' But the table stops him. When you have ten or more coins at the start of your turn, you must Coup. You cannot take any other action. Dave forgot this critical rule and wasted mental energy planning a move he was not allowed to make."
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch Your Coin Count",
+          "text": "The ten-coin forced Coup rule is one of the most important rules in Coup, and beginners forget it constantly. Once you hit ten coins, your only option is to pay seven coins and Coup someone. This means you should plan your Coup target before you reach ten coins, not after. Many experienced players will Coup at seven coins rather than waiting, because having exactly seven lets you Coup and still have zero coins — no wasted money, and you do not get locked into the forced action."
+        },
+        {
+          "step": 13,
+          "title": "Dave's Third Mistake: Not Challenging When He Should",
+          "text": "The game continues. Bob claims Duke to block Carol's Foreign Aid. Dave notices something — Alice has been claiming Duke all game, and now Bob claims Duke too. There are only three Dukes in the deck. Dave actually has no Duke himself, but he also knows Carol used Ambassador and might have one. The math is getting interesting. Dave could challenge Bob, but he is scared because he only has one influence left. So he stays silent. Carol's Foreign Aid is blocked. Later, it turns out Bob did not have the Duke — Dave missed a free challenge that would have cost Bob an influence.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Use Card Counting to Challenge",
+          "text": "In Coup, there are only three copies of each character. If you can see one Duke face up on the table and you hold another in your hand, you know there is only one Duke left among all other players. If two people are both claiming Duke, at least one of them is lying. Pay attention to which cards have been revealed — this is free, public information that should inform every challenge decision you make."
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Unfolds",
+          "text": "Let's wrap up. Alice has been steadily building coins with her real Duke. She Coups Dave, eliminating him. Bob Coups Carol, who only had one influence left. Now it is Alice versus Bob. Alice has seven coins and Coups Bob. Bob has seven coins and Coups Alice. Alice reveals her Captain — she is down to one influence. She claims Duke for Tax. Bob challenges. Alice reveals her Duke. Bob loses his last influence. Alice wins."
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "text": "You have seen all the major actions in Coup: Tax, Foreign Aid, Assassinate, Steal, Exchange, Income, Coup, and blocking. You watched Dave learn from three common beginner mistakes — bluffing assassination too early, forgetting the forced Coup rule, and missing a good challenge opportunity. These are real mistakes that happen in every new player's first few games. You are ready to play for real."
+        },
+        {
+          "step": 17,
+          "title": "Ready to Bluff",
+          "text": "Before you start your first real game, here are three things that can help.\n\nFirst — check out General Tips for beginner strategy on when to bluff, when to challenge, and how to read opponents.\n\nSecond — reference the Appendix for a quick guide to all characters, actions, and blocking rules.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Good luck, and remember: everyone is lying.",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome to the Practice Round",
+          "bullets": [
+            "Scripted tutorial with 4 players: Alice, Bob, Carol, Dave",
+            "Each player demonstrates different actions",
+            "Dave makes 3 classic beginner mistakes for learning"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Alice's Turn: Claiming Duke",
+          "bullets": [
+            "Alice claims Duke and takes Tax — 3 coins from Treasury",
+            "Nobody challenges on the first turn",
+            "Duke's Tax is the strongest income action (3 coins)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Why Nobody Challenged Alice",
+          "bullets": [
+            "Early challenges are risky — wrong guess costs an influence",
+            "Most players let early Duke claims slide",
+            "Challenging is safer when you hold one of the claimed character yourself"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Bob's Turn: Foreign Aid",
+          "bullets": [
+            "Foreign Aid: take 2 coins, no character claim needed",
+            "Duke can block Foreign Aid, but Alice lets it pass",
+            "Sometimes the best play is to not draw attention"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Carol's Turn: Claiming Ambassador",
+          "bullets": [
+            "Ambassador Exchange: draw 2 cards, keep 2, return 2",
+            "Carol may now have entirely different characters",
+            "Exchange gives flexibility and makes all future claims believable"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Dave's Turn: The Reckless Bluff",
+          "bullets": [
+            "Dave bluffs Assassin to assassinate Alice — he does not have one",
+            "Alice notices his hesitation and challenges",
+            "Dave loses 1 influence (flips Ambassador face up)"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Do Not Bluff Assassination Early",
+          "bullets": [
+            "Assassination bluffs are high-risk: costs influence if caught",
+            "Early in the game, players are more willing to challenge",
+            "Save aggressive bluffs for later when information is murkier"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Alice's Second Turn: Building Up",
+          "bullets": [
+            "Alice claims Duke again — Tax for 3 more coins (total: 8)",
+            "Consistent claims are harder to challenge",
+            "Conservative play with a real character builds a strong position"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Bob's Turn: Claiming Captain",
+          "bullets": [
+            "Bob steals 2 coins from Alice using Captain",
+            "Alice could block with Captain or Ambassador but lets it pass",
+            "Stealing both gains you coins and weakens your opponent"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Carol's Turn: Claiming Duke",
+          "bullets": [
+            "Carol claims Duke for Tax — believable after her Ambassador Exchange",
+            "Dave considers challenging but cannot risk his last influence",
+            "Ambassador Exchange makes every future claim plausible"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Dave's Second Mistake: Forgetting the Forced Coup",
+          "bullets": [
+            "Dave reaches 10 coins and tries to claim Duke for Tax",
+            "10+ coins at start of turn = must Coup, no other action allowed",
+            "Dave wasted mental energy on a move he could not make"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Watch Your Coin Count",
+          "bullets": [
+            "10-coin forced Coup rule is critical — beginners forget it often",
+            "Plan your Coup target before reaching 10 coins",
+            "Many experienced players Coup at exactly 7 coins to stay flexible"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Dave's Third Mistake: Not Challenging When He Should",
+          "bullets": [
+            "Bob claims Duke to block — but Alice has been claiming Duke all game",
+            "Only 3 Dukes exist in the deck — the math favors a challenge",
+            "Dave stays silent and misses a free catch"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Lesson: Use Card Counting to Challenge",
+          "bullets": [
+            "Only 3 copies of each character in the deck",
+            "Track face-up revealed cards — free public information",
+            "If too many players claim the same character, someone is lying"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "The Endgame Unfolds",
+          "bullets": [
+            "Alice eliminates Dave with Coup, Bob eliminates Carol",
+            "Alice vs Bob: Coup exchanges, then Alice proves Duke on a challenge",
+            "Bob loses his last influence — Alice wins"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Congratulations",
+          "bullets": [
+            "You have seen all major actions: Tax, Foreign Aid, Assassinate, Steal, Exchange, Income, Coup",
+            "Dave's 3 mistakes: reckless bluff, forgetting forced Coup, missing a challenge",
+            "These are real mistakes every beginner makes — now you know to avoid them"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Ready to Bluff",
+          "bullets": [
+            "Check out General Tips for beginner bluffing and challenge strategy",
+            "Reference the Appendix for all characters, actions, and blocking rules",
+            "Ask your personal GM Guide anytime — tap Q&A for instant answers"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Start with the Truth",
+          "text": "The best beginner strategy in Coup is to start by claiming characters you actually have. If you have a Duke, use Tax. If you have a Captain, steal. Playing honestly in the first few rounds builds credibility. Other players will remember that your claims went unchallenged and uncontested. Later in the game, when you need to bluff, that established credibility makes your bluffs much harder to detect. Think of early honesty as an investment in future deception."
+        },
+        {
+          "step": 2,
+          "title": "Do Not Be Afraid to Take Income",
+          "text": "New players often feel pressure to claim a character every turn because it feels more exciting. But Income is a perfectly valid and safe play. Taking one coin with Income cannot be challenged or blocked. It draws no attention. Use Income when you are unsure of your position, when the table is watching you closely, or when you just need a coin or two to reach Coup range. Experienced players use Income far more than beginners expect."
+        },
+        {
+          "step": 3,
+          "title": "Challenge Based on Information, Not Feelings",
+          "text": "Beginners challenge based on gut feelings — 'I just do not think they have it.' This loses games. Challenge based on hard information instead. There are exactly three copies of each character. If you hold a Duke and one Duke is face up on the table, there is only one Duke left in the entire remaining deck and player hands. If two people are both claiming Duke, one of them must be lying. Count cards, track reveals, and pay attention to what characters have been seen. Your challenge success rate will skyrocket."
+        },
+        {
+          "step": 4,
+          "title": "The Duke is Not Mandatory",
+          "text": "Many new players treat Duke-Tax as the default opening because three coins is the best income action. But if everyone at the table claims Duke, nobody can all be telling the truth. Sometimes the best strategy is to avoid the Duke entirely. Take Foreign Aid (two coins, no character claim needed), use Captain to steal, or use Ambassador to exchange into better cards. Diversity in your claims makes you harder to read and less likely to be challenged."
+        },
+        {
+          "step": 5,
+          "title": "Protect Your Last Influence",
+          "text": "When you are down to one face-down card, everything changes. Every wrong challenge eliminates you. Every successful assassination against you ends your game. Play defensively when you have one influence. Avoid making challenges unless you are nearly certain. Avoid bluffs that could be challenged. If someone targets you with assassination, carefully consider whether claiming Contessa is worth the risk of being challenged. Sometimes it is better to lose to the assassination and reveal a card you were not using than to gamble on a Contessa bluff and get eliminated."
+        },
+        {
+          "step": 6,
+          "title": "Watch Coin Counts",
+          "text": "Always keep track of how many coins every player has. A player with six coins is one turn away from being able to Coup. A player with seven can Coup right now. A player with ten must Coup. This information drives your entire decision-making. If someone has seven coins, they are a threat — consider whether you need to act against them before they act against you. If you have seven coins, you have maximum flexibility: you can Coup someone, or you can take another action and stay below the forced-Coup threshold."
+        },
+        {
+          "step": 7,
+          "title": "Bluff Characters That Matter",
+          "text": "When you bluff, bluff something useful. Claiming Duke when you need coins is a strong bluff because even if someone is suspicious, challenging a Duke claim is risky — you might actually have it. Bluffing Contessa when someone assassinates you is a strong defensive bluff because the alternative is losing an influence for sure. Bad bluffs are bluffing just for the sake of it, or bluffing a character nobody cares about. Every bluff should serve a strategic purpose."
+        },
+        {
+          "step": 8,
+          "title": "Pay Attention to Blocks",
+          "text": "Blocking actions reveal information just like taking actions. If Alice blocks your steal by claiming Captain, you now know — or at least suspect — that Alice has a Captain. If Bob blocks your Foreign Aid by claiming Duke, Bob is likely holding a Duke. Keep a mental log of who has claimed what. Over the course of several turns, these claims form a picture. If someone's claims contradict what you know about the cards, that is your signal to challenge."
+        },
+        {
+          "step": 9,
+          "title": "Coup Early When Ahead",
+          "text": "If you have a healthy lead — two influence cards and plenty of coins — do not wait to reach ten coins before Couping. Coup at seven. The three coins you save by waiting are not worth giving your opponents extra turns to catch up, steal from you, or assassinate you. Aggressive Coups when you are ahead put pressure on the table and force opponents into desperate, mistake-prone plays. The player who acts decisively usually wins."
+        },
+        {
+          "step": 10,
+          "title": "Adapt to Your Table",
+          "text": "Coup is a social game, and the best strategy depends on who you are playing with. Aggressive tables full of challengers reward honest play and patient coin-building. Passive tables that rarely challenge reward bluffing and bold claims. Watch the first round or two to read your table's personality. If nobody is challenging, start bluffing more aggressively. If people challenge every claim, play it straight and let them burn their own influence on failed challenges."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Start with the Truth",
+          "bullets": [
+            "Claim characters you actually have in the first few rounds",
+            "Early honesty builds credibility for later bluffs",
+            "Unchallenged truthful claims train opponents to trust you"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Do Not Be Afraid to Take Income",
+          "bullets": [
+            "Income cannot be challenged or blocked — completely safe",
+            "Use it when the table is watching you closely",
+            "Experienced players use Income more than beginners expect"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Challenge Based on Information, Not Feelings",
+          "bullets": [
+            "Only 3 copies of each character — track what's face up",
+            "If you hold a card + 1 is revealed, only 1 remains for all other players",
+            "Two players claiming the same character = at least one is lying"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Duke is Not Mandatory",
+          "bullets": [
+            "If everyone claims Duke, someone is lying",
+            "Foreign Aid, Captain-steal, and Ambassador-exchange are valid alternatives",
+            "Diverse claims make you harder to read"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Protect Your Last Influence",
+          "bullets": [
+            "One influence left = every wrong challenge eliminates you",
+            "Play defensively — avoid risky bluffs and challenges",
+            "Sometimes better to lose to assassination than gamble on Contessa"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Watch Coin Counts",
+          "bullets": [
+            "6 coins = one turn from Coup threat",
+            "7 coins = can Coup this turn",
+            "10+ coins = must Coup, no other action allowed",
+            "Track every player's coin count constantly"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Bluff Characters That Matter",
+          "bullets": [
+            "Bluff Duke for coins — high reward, hard to prove wrong",
+            "Bluff Contessa to survive assassination — the alternative is guaranteed loss",
+            "Every bluff should serve a clear strategic purpose"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Pay Attention to Blocks",
+          "bullets": [
+            "Blocks reveal information about opponent's hand",
+            "Track who has claimed what over multiple turns",
+            "Contradictions in claims = good challenge opportunities"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Coup Early When Ahead",
+          "bullets": [
+            "Coup at 7 coins rather than waiting for 10",
+            "Aggressive Coups pressure opponents into mistakes",
+            "Waiting gives opponents extra turns to catch up or attack you"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Adapt to Your Table",
+          "bullets": [
+            "Aggressive challengers = play honestly, let them burn influence",
+            "Passive tables = bluff more boldly",
+            "Read the table in rounds 1-2, then adjust strategy accordingly"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "The Meta-Game: Exploiting Expectations",
+          "text": "In Coup, advanced play is about exploiting what opponents expect. If you always claim Duke early, opponents learn to expect it and eventually challenge. The counter is to vary your opening. Claim Ambassador first, then Duke next game, then Foreign Aid. Unpredictability is your strongest weapon. The meta-game is a layer above the cards themselves — it is about the patterns you establish across multiple games and how you break those patterns at critical moments."
+        },
+        {
+          "step": 2,
+          "title": "The Ambassador Power Play",
+          "text": "The Ambassador is the most underrated character in Coup. Exchange lets you look at two extra cards and choose what to keep. This gives you two advantages. First, information — you see what characters are in the Court deck, which tells you what is not in other players' hands. Second, flexibility — you can swap into whatever character you need for the current board state. After an Exchange, you can honestly claim any character because you might genuinely have it. This makes you virtually unchallengeable for the next few turns."
+        },
+        {
+          "step": 3,
+          "title": "Timing Your Bluffs",
+          "text": "Advanced bluffing is about timing, not courage. The best time to bluff is when challenging you would be dangerous for the challenger. If your opponent is down to one influence, they cannot afford to challenge you unless they are certain — a wrong challenge eliminates them. This is when you ramp up your bluffs. Conversely, do not bluff against a player with two influence and nothing to lose — they will challenge freely because the cost is lower for them. Match your aggression to your opponents' vulnerability."
+        },
+        {
+          "step": 4,
+          "title": "The Assassination Decision Tree",
+          "text": "Assassination is the most complex decision in Coup. When you assassinate, four things can happen. One: it goes through — you eliminate an influence. Two: the target claims Contessa — do you challenge? If they really have Contessa, you lose an influence and wasted three coins. Three: someone challenges your Assassin claim — if you have it, they lose an influence and the assassination still happens. Four: the target challenges and is wrong — they lose an influence from the challenge, and then you can still choose to assassinate another player or even the same player again (losing their second influence). The key: only assassinate when you are prepared for all four outcomes."
+        },
+        {
+          "step": 5,
+          "title": "The Duke Block Trap",
+          "text": "Here is an advanced play. Take Foreign Aid deliberately to bait out Duke blocks. If someone blocks your Foreign Aid claiming Duke, you now have information: they likely have a Duke. You can use this information to plan your challenges later. Even better, if you suspect someone is bluffing Duke for the block, challenge them — a successful challenge costs them an influence and you still get your two coins. The two coins are not the point. The information and potential influence loss are the real prize."
+        },
+        {
+          "step": 6,
+          "title": "Controlling the Threat Hierarchy",
+          "text": "In Coup, the biggest threat is always the player with the most coins. Smart players redirect attention toward the coin leader. If Alice has eight coins, you should be pointing that out: 'Alice is about to Coup someone.' This shifts the table's aggression toward Alice and away from you. Conversely, if you are the coin leader, you need to act fast — Coup someone before the table turns on you. Threat management is about making sure you are never the primary target until you are ready to win."
+        },
+        {
+          "step": 7,
+          "title": "Reading Physical Tells",
+          "text": "Coup is a bluffing game, and bluffing games involve human tells. Watch for hesitation before a claim — a player who pauses slightly before saying 'Duke' might be deciding whether to bluff. Watch for changes in speed — a player who has been claiming quickly all game and suddenly slows down is often calculating a new lie. Watch for eye contact patterns — some players look directly at their cards when they are about to bluff, as if reassuring themselves. None of these tells are guaranteed, but they add information to your decision-making."
+        },
+        {
+          "step": 8,
+          "title": "The Endgame — One vs. One",
+          "text": "When the game reaches a one-versus-one showdown, the dynamics change completely. There are no other players to draw fire or provide cover. Every action is a direct confrontation. In the endgame, the player with more coins usually wins because Coup cannot be blocked. If you have seven coins, Coup immediately. If you both have low coins, the race is to seven. Tax (Duke) wins this race, so claiming Duke in the endgame is almost always correct — even as a bluff, because your opponent risks elimination if they challenge and are wrong."
+        },
+        {
+          "step": 9,
+          "title": "Selective Honesty as a Weapon",
+          "text": "The most dangerous player in Coup is not the one who always bluffs or always tells the truth — it is the player who mixes both unpredictably. A strong pattern is to play honestly for two or three games in a row, building a reputation as a truthful player. Then, when the stakes are highest, deliver one devastating bluff that nobody expects. Your opponents will hesitate to challenge because your track record says you are honest. This multi-game strategy is where Coup becomes truly deep. You are not just playing the current hand — you are investing in a reputation you can spend later."
+        },
+        {
+          "step": 10,
+          "title": "Counter-Bluffing: The Double Think",
+          "text": "Advanced players will sometimes counter-bluff — claiming a character they do not have specifically because they know you think they are bluffing. For example, if Dave's Ambassador was revealed earlier (face up), everyone knows he does not have an Ambassador anymore. If Dave later uses Exchange, he should expect an immediate challenge. But what if Dave used a previous Ambassador Exchange to pick up a new Ambassador? Now his 'impossible' claim is actually true, and challenging it costs you an influence. The lesson: never assume you know someone's hand for certain unless you can see all three copies of a character accounted for."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "The Meta-Game: Exploiting Expectations",
+          "bullets": [
+            "Vary your opening claims across multiple games",
+            "Unpredictability is stronger than any single strategy",
+            "Break patterns at critical moments for maximum impact"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Ambassador Power Play",
+          "bullets": [
+            "Exchange gives information about what's in the Court deck",
+            "After Exchange, you can honestly claim any character",
+            "Makes you virtually unchallengeable for several turns"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Timing Your Bluffs",
+          "bullets": [
+            "Bluff when opponents cannot afford to challenge (1 influence left)",
+            "Do not bluff against players with 2 influence and nothing to lose",
+            "Match aggression to opponents' vulnerability"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "The Assassination Decision Tree",
+          "bullets": [
+            "4 possible outcomes: success, Contessa block, Assassin challenged, target challenges wrong",
+            "Only assassinate when prepared for all outcomes",
+            "Successful challenge + assassination = devastating two-for-one"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "The Duke Block Trap",
+          "bullets": [
+            "Take Foreign Aid to bait out Duke block claims",
+            "Blocks reveal hand information for future challenges",
+            "Challenge a suspected bluff-block for influence + coins"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Controlling the Threat Hierarchy",
+          "bullets": [
+            "Redirect table aggression toward the coin leader",
+            "If you are the coin leader, Coup someone before the table turns on you",
+            "Never be the primary target until you are ready to close out the game"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Reading Physical Tells",
+          "bullets": [
+            "Hesitation before claims may indicate a bluff decision",
+            "Speed changes from a player's baseline are informative",
+            "Eye contact with own cards often precedes a lie",
+            "Tells are supplementary — combine with card-counting information"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "The Endgame — One vs. One",
+          "bullets": [
+            "With 7+ coins, Coup immediately in the final showdown",
+            "Low coins = race to 7, Duke-Tax wins the race",
+            "Bluff Duke in 1v1 — opponent risks elimination if they challenge wrong"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Selective Honesty as a Weapon",
+          "bullets": [
+            "Play honestly for 2-3 games to build a reputation",
+            "Spend that reputation on one devastating bluff at a critical moment",
+            "Multi-game strategy: invest in credibility, then cash it in"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Counter-Bluffing: The Double Think",
+          "bullets": [
+            "Ambassador Exchange can replace revealed cards with fresh copies",
+            "A 'known' bluffer may actually have the claimed character",
+            "Never assume hand contents unless all 3 copies are accounted for"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Duke",
+          "definition": "One of five characters in Coup. Active action: Tax — take 3 coins from the Treasury. Defensive action: blocks Foreign Aid. There are 3 Duke cards in the deck. The Duke is the most efficient income generator and the most commonly claimed character.",
+          "category": "Characters"
+        },
+        {
+          "term": "Assassin",
+          "definition": "One of five characters in Coup. Active action: Assassinate — pay 3 coins to force a target player to lose 1 influence. Can be blocked by Contessa. There are 3 Assassin cards in the deck. Assassination is the cheapest direct attack, costing 3 coins compared to Coup's 7.",
+          "category": "Characters"
+        },
+        {
+          "term": "Captain",
+          "definition": "One of five characters in Coup. Active action: Steal — take 2 coins from another player. Defensive action: blocks stealing. Can be blocked by the target claiming Captain or Ambassador. There are 3 Captain cards in the deck.",
+          "category": "Characters"
+        },
+        {
+          "term": "Ambassador",
+          "definition": "One of five characters in Coup. Active action: Exchange — draw 2 cards from the Court deck, choose which to keep (maintaining your current face-down card count), return the rest. Defensive action: blocks stealing. There are 3 Ambassador cards in the deck.",
+          "category": "Characters"
+        },
+        {
+          "term": "Contessa",
+          "definition": "One of five characters in Coup. No active action. Defensive action: blocks assassination attempts against you. There are 3 Contessa cards in the deck. The Contessa's only power is survival — but it is one of the most frequently bluffed characters because the alternative to blocking is losing influence.",
+          "category": "Characters"
+        },
+        {
+          "term": "Inquisitor (Optional Variant)",
+          "definition": "Optional character that replaces the Ambassador. Can draw 1 card from the Court deck and choose whether to exchange, OR force an opponent to show you one of their cards (opponent chooses which) and optionally force them to draw a replacement and shuffle the shown card back. Also blocks stealing. Used as an alternative to Ambassador for a different play experience.",
+          "category": "Characters"
+        },
+        {
+          "term": "Income",
+          "definition": "General action available to all players. Take 1 coin from the Treasury. Cannot be challenged or blocked. The safest action in the game, requiring no character claim and carrying zero risk.",
+          "category": "Actions"
+        },
+        {
+          "term": "Foreign Aid",
+          "definition": "General action available to all players. Take 2 coins from the Treasury. Does not require a character claim, but can be blocked by any player claiming Duke. Faster than Income but vulnerable to Duke blocks.",
+          "category": "Actions"
+        },
+        {
+          "term": "Coup",
+          "definition": "General action available to all players. Pay 7 coins to the Treasury and force any opponent to lose 1 influence (turn a card face up). Cannot be challenged or blocked. Mandatory if you have 10 or more coins at the start of your turn.",
+          "category": "Actions"
+        },
+        {
+          "term": "Tax",
+          "definition": "Character action requiring a Duke claim. Take 3 coins from the Treasury. The strongest income action in the game. Can be challenged if another player doubts your Duke claim.",
+          "category": "Actions"
+        },
+        {
+          "term": "Assassinate",
+          "definition": "Character action requiring an Assassin claim. Pay 3 coins and target another player, forcing them to lose 1 influence. Can be blocked by the target claiming Contessa. Can be challenged if another player doubts your Assassin claim.",
+          "category": "Actions"
+        },
+        {
+          "term": "Steal",
+          "definition": "Character action requiring a Captain claim. Take 2 coins from another player. If the target has only 1 coin, take that 1 coin. Cannot target a player with 0 coins. Can be blocked by the target claiming Captain or Ambassador.",
+          "category": "Actions"
+        },
+        {
+          "term": "Exchange",
+          "definition": "Character action requiring an Ambassador claim. Draw 2 cards from the Court deck, look at them together with your face-down cards, choose which to keep (same number of face-down cards as before), and return the rest to the Court deck. Shuffle the deck afterward.",
+          "category": "Actions"
+        },
+        {
+          "term": "Challenge",
+          "definition": "Any player may challenge another player's character claim, whether the claim is for an active action or a defensive block. If the challenged player was bluffing, they lose 1 influence and their action/block fails. If the challenged player proves the claim by revealing the card, the challenger loses 1 influence, the proven card is shuffled into the Court deck, and the player draws a replacement.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Block",
+          "definition": "A defensive character claim that prevents another player's action from succeeding. Duke blocks Foreign Aid. Captain blocks stealing. Ambassador blocks stealing. Contessa blocks assassination. Blocks are character claims and can themselves be challenged.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Influence",
+          "definition": "Your face-down character cards. Each player starts with 2 influence. When you lose influence, you turn one card face up permanently. When both cards are face up, you are eliminated. You choose which card to reveal when losing influence.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Losing Influence",
+          "definition": "When you lose influence (from Coup, failed challenge, successful assassination, etc.), choose one of your face-down cards and turn it face up. That card is permanently revealed and can no longer be used for claims or blocks. Both cards face up means elimination.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Elimination",
+          "definition": "When both of your influence cards are face up, you are out of the game. You cannot take turns, challenge, or block. Your coins return to the Treasury. The game continues until only one player remains.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Bluffing",
+          "definition": "Claiming a character you do not actually hold in your face-down cards. This is legal and central to Coup's gameplay. Any character action or block can be a bluff. If challenged while bluffing, you lose 1 influence.",
+          "category": "Core Mechanics"
+        },
+        {
+          "term": "Court Deck",
+          "definition": "The face-down pile of character cards in the center of the table. Cards are drawn from here during Ambassador Exchange and returned here when characters are proven during challenges. The deck is shuffled whenever cards are returned to it.",
+          "category": "Components"
+        },
+        {
+          "term": "Treasury",
+          "definition": "The shared supply of 50 coins in the center of the table. Players take coins from the Treasury through Income, Foreign Aid, Tax, and Steal. Players return coins to the Treasury when paying for Coup (7 coins) or Assassinate (3 coins).",
+          "category": "Components"
+        },
+        {
+          "term": "Coins",
+          "definition": "The currency of Coup. Each player starts with 2. Coins are public information — anyone can count any player's coins at any time. Used to pay for Coup (7) and Assassinate (3). Having 10+ coins forces a Coup on your turn.",
+          "category": "Components"
+        },
+        {
+          "term": "Summary Cards",
+          "definition": "Reference cards included in the game that list all five characters, their actions, their blocking abilities, and the general actions (Income, Foreign Aid, Coup). One per player for quick reference during play.",
+          "category": "Components"
+        },
+        {
+          "term": "Character Cards",
+          "definition": "The 15 cards that make up the Court deck, consisting of 3 copies each of 5 characters: Duke, Assassin, Captain, Ambassador, and Contessa. Each card shows the character's name, art, action, and blocking ability.",
+          "category": "Components"
+        },
+        {
+          "term": "Forced Coup",
+          "definition": "If you have 10 or more coins at the start of your turn, you must take the Coup action. You cannot choose any other action. This rule prevents players from hoarding coins indefinitely and ensures the game progresses toward elimination.",
+          "category": "Rules"
+        },
+        {
+          "term": "Proving a Challenge",
+          "definition": "When challenged, if you actually hold the claimed character, you reveal it to all players. The challenger loses 1 influence. You then shuffle the revealed card back into the Court deck and draw a new replacement card. This means surviving a challenge gives you a fresh, unknown card.",
+          "category": "Rules"
+        },
+        {
+          "term": "Card Counting",
+          "definition": "The strategy of tracking which character cards have been revealed face up through lost influence. Since there are only 3 copies of each character, knowing which cards are out of play helps you determine the probability of opponents' claims being truthful.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Threat Assessment",
+          "definition": "Evaluating which player poses the biggest danger based on their coin count, remaining influence, and claimed characters. Players with high coins and two influence are the biggest threats. Players with one influence are vulnerable but desperate.",
+          "category": "Strategy Terms"
+        },
+        {
+          "term": "Table Read",
+          "definition": "Assessing the overall play style of your group — whether they challenge aggressively or passively, bluff frequently or play honestly. Adjusting your strategy based on the table's personality is a key skill in Coup.",
+          "category": "Strategy Terms"
+        }
+      ]
+    }
+  }
+}

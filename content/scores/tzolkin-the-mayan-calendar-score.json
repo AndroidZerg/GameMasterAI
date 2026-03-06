@@ -1,0 +1,14 @@
+{
+  "game_id": "tzolkin-the-mayan-calendar",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "temples_vp", "label": "Temple Victory Points", "points_each": 1, "type": "manual", "description": "VP earned from temple positions during the two end-of-age scoring rounds"},
+    {"id": "temple_bonuses", "label": "Temple Bonuses (Highest)", "points_each": 1, "type": "manual", "description": "Bonus VP for being the highest-ranked player on each temple at end of each age"},
+    {"id": "crystal_skulls_placed", "label": "Crystal Skull VP (Chichen Itza)", "points_each": 1, "type": "manual", "description": "VP earned when placing crystal skulls on Chichen Itza action spaces"},
+    {"id": "buildings_vp", "label": "Building VP", "points_each": 1, "type": "manual", "description": "VP from single-use buildings that grant immediate victory points"},
+    {"id": "monuments", "label": "Monument VP", "points_each": 1, "type": "manual", "description": "End-of-game VP from constructed monuments"},
+    {"id": "crystal_skulls_remaining", "label": "Crystal Skulls Remaining", "points_each": 3, "type": "count", "description": "3 VP per crystal skull still in your possession at game end"},
+    {"id": "corn_vp", "label": "Corn & Resource VP", "points_each": 1, "type": "manual", "description": "Convert all resources to corn via market rate, then score 1 VP per 4 corn (round down)"},
+    {"id": "unfed_penalty", "label": "Unfed Worker Penalty", "points_each": -3, "type": "count", "description": "-3 VP per worker you could not feed on a Food Day"}
+  ]
+}

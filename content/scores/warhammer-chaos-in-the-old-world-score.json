@@ -1,0 +1,31 @@
+{
+  "game_id": "warhammer-chaos-in-the-old-world",
+  "scoring_type": "tracker",
+  "win_condition": "First to reach Threat dial Victory, first to 50 VP, or most VP when 5 regions ruined. If Old World deck runs out, all players lose.",
+  "categories": [
+    {
+      "id": "domination_vp",
+      "label": "Domination VP",
+      "type": "manual",
+      "description": "Victory points scored for dominating regions (exceeding Resistance with highest domination value)"
+    },
+    {
+      "id": "ruination_vp",
+      "label": "Ruination VP",
+      "type": "manual",
+      "description": "Victory points scored when a region is ruined (ruiner bonus + 1st/2nd place corruption)"
+    },
+    {
+      "id": "dial_vp",
+      "label": "Threat Dial VP",
+      "type": "manual",
+      "description": "Victory points scored from Threat dial advancement instructions"
+    },
+    {
+      "id": "other_vp",
+      "label": "Other VP (Cards/Effects)",
+      "type": "manual",
+      "description": "Victory points from Chaos card effects, Old World card effects, or other sources"
+    }
+  ]
+}

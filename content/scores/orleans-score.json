@@ -1,0 +1,15 @@
+{
+  "game_id": "orleans",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "coins", "label": "Coins", "points_each": 1, "type": "count", "description": "1 VP per coin remaining"},
+    {"id": "grain", "label": "Grain", "points_each": 1, "type": "count", "description": "1 VP per Grain tile"},
+    {"id": "cheese", "label": "Cheese", "points_each": 2, "type": "count", "description": "2 VP per Cheese tile"},
+    {"id": "wine", "label": "Wine", "points_each": 3, "type": "count", "description": "3 VP per Wine tile"},
+    {"id": "wool", "label": "Wool", "points_each": 4, "type": "count", "description": "4 VP per Wool tile"},
+    {"id": "brocade", "label": "Brocade", "points_each": 5, "type": "count", "description": "5 VP per Brocade tile"},
+    {"id": "trading_stations", "label": "Trading Stations", "points_each": 1, "type": "multiplied", "multiplier_source": "dev_status", "description": "Each Trading Station built is worth VP equal to your Development Status"},
+    {"id": "citizen_tiles", "label": "Citizen Tiles", "points_each": 1, "type": "multiplied", "multiplier_source": "dev_status", "description": "Each Citizen Tile collected is worth VP equal to your Development Status"},
+    {"id": "dev_status", "label": "Development Status", "points_each": 0, "type": "manual", "description": "Your current Development Status value (used as multiplier for Trading Stations and Citizen Tiles, not scored directly)"}
+  ]
+}

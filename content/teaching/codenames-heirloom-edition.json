@@ -1,0 +1,1138 @@
+{
+  "game_id": "codenames-heirloom-edition",
+  "title": "Codenames Heirloom Edition",
+  "sections": {
+    "setup": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Split Into Two Teams",
+          "text": "First, divide everyone into two teams of roughly equal size and skill. You need at least four players total — two per team — for a standard game. One team will be Red and the other will be Blue. If you have an odd number, one team will simply have one extra person. Variants for two or three players exist, but for now let's focus on the standard team game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Spymasters",
+          "text": "Each team picks one player to be their spymaster. The two spymasters sit on the same side of the table, next to each other. Everyone else sits across from them — these players are the field operatives. The spymasters will be giving clues, and the field operatives will be doing the guessing. This seating arrangement matters because the spymasters need to share a key card stand that only they can see.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Lay Out the Codename Grid",
+          "text": "Randomly choose 25 codename cards from the deck and arrange them face-up on the table in a 5-by-5 grid. Each card shows a single word — these are the codenames of secret agents. While shuffling the codename deck, make sure to flip over half the deck occasionally to mix the words more thoroughly, since each card has a different word on each side.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Place the Key Card",
+          "text": "Now find the key cards. Randomly choose one key card and slide it into the stand between the two spymasters. Either side can face up — don't overthink it, just slide it in. The key card is a small grid that maps to the 5-by-5 layout on the table. It shows which codenames belong to the Red team, which belong to the Blue team, which are innocent bystanders, and which one is the assassin. Only the spymasters can see the key card. Do not let the field operatives peek.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Determine the Starting Team",
+          "text": "Look at the four colored lights around the edge of the key card. They indicate which team goes first. The starting team has 9 agents to find, while the other team has only 8. This one-agent advantage is balanced by the fact that the starting team gets to give the first clue.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Agent Card Stacks",
+          "text": "Place the 8 red agent cards in a stack in front of the Red spymaster and the 8 blue agent cards in front of the Blue spymaster. This also helps everyone remember which team they are on. Find the 1 double agent card and flip it to the color of whichever team starts — it becomes that team's ninth agent card for this game. Place the 7 innocent bystander cards and the 1 assassin card in the center of the table between the two spymasters, where both can reach them easily.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Ready to Play",
+          "text": "That is the entire setup. To recap: 25 codename cards in a 5-by-5 grid, a key card visible only to the two spymasters, agent card stacks sorted by color, the double agent flipped to the starting team's color, and innocent bystander and assassin cards in the middle. The starting team's spymaster will give the first clue. Let's learn how to play.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Split Into Two Teams",
+          "bullets": [
+            "Divide players into two teams of similar size and skill",
+            "Minimum 4 players (2 per team) for a standard game",
+            "One team is Red, the other is Blue"
+          ],
+          "image": null
+        },
+        {
+          "step": 2,
+          "title": "Choose Spymasters",
+          "bullets": [
+            "Each team chooses 1 spymaster",
+            "Both spymasters sit on the same side of the table",
+            "All other players are field operatives, sitting across from spymasters"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Lay Out the Codename Grid",
+          "bullets": [
+            "Randomly draw 25 codename cards",
+            "Arrange face-up in a 5-by-5 grid on the table",
+            "Flip half the deck while shuffling to mix both sides"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Place the Key Card",
+          "bullets": [
+            "Randomly choose 1 key card, slide into the stand between spymasters",
+            "Either side can face up — don't overthink it",
+            "Key card maps to the grid: blue squares, red squares, pale (bystander), black (assassin)",
+            "Only spymasters may see the key card"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Determine the Starting Team",
+          "bullets": [
+            "Four colored lights on the key card edges indicate the starting team",
+            "Starting team has 9 agents to find; other team has 8",
+            "Starting team gives the first clue"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Set Up the Agent Card Stacks",
+          "bullets": [
+            "8 red agent cards in front of Red spymaster",
+            "8 blue agent cards in front of Blue spymaster",
+            "1 double agent flipped to the starting team's color (their 9th agent)",
+            "7 innocent bystander cards + 1 assassin card in the center"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Ready to Play",
+          "bullets": [
+            "25 codenames in a 5x5 grid, key card in stand (spymasters only)",
+            "Agent cards sorted by team color, double agent set",
+            "Bystander and assassin cards centered between spymasters",
+            "Starting team's spymaster gives the first clue"
+          ]
+        }
+      ]
+    },
+    "rules": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "text": "Codenames is a team-based word game. The spymasters know the secret identities of all 25 agents on the table. Their teammates — the field operatives — know the agents only by their codenames. Spymasters take turns giving one-word clues that can relate to multiple words on the grid. The field operatives try to guess which words their spymaster meant. The first team to contact all of their agents wins. But beware: if you contact the assassin, your team loses immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Giving a Clue",
+          "text": "On your team's turn, the spymaster gives exactly one clue. A clue consists of one word and one number. The word relates to one or more codenames on the table that belong to your team. The number tells your teammates how many codenames relate to this clue. For example, if two of your words are NUT and BARK, you could say 'tree: 2' because both grow on trees. You can give a clue for just one word (like 'cashew: 1'), but trying for two or more is where the fun lies. Getting four words with one clue is a big accomplishment.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Clue Rules and Restrictions",
+          "text": "Your clue must be only one word. Do not give extra hints — no saying 'this might be a stretch' or gesturing. Your clue cannot be any of the codenames currently visible on the table (though once a codename is covered by a card, it may become a legal clue on later turns). You cannot say any form of a visible word — until BREAK is covered, you cannot say break, broken, breakage, or breakdown. You also cannot use part of a compound word on the table — if HORSESHOE is visible, you cannot say horse, shoe, or snowshoe. The clue must be about meaning, not about spelling, letter patterns, or position on the table.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Making Contact (Guessing)",
+          "text": "After the spymaster gives a clue, the field operatives discuss it among themselves and try to figure out what it means. The spymaster must keep a straight face and give no hints during this discussion. When the operatives are ready, one of them touches a codename card on the table to make an official guess. The spymaster then reveals its identity by covering it with the appropriate card.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Guess Outcomes",
+          "text": "There are four possible outcomes when a field operative touches a card. First, if it belongs to your team, the spymaster covers it with your team's agent card — and you get to guess again. Second, if it is an innocent bystander, the spymaster covers it with a bystander card — your turn ends immediately. Third, if it belongs to the other team, the spymaster covers it with the other team's agent card — your turn ends, and you just helped the other team. Fourth, if it is the assassin, the spymaster covers it with the assassin card — the game ends instantly, and your team loses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Number of Guesses Allowed",
+          "text": "The field operatives must always make at least one guess. If they guess correctly (their team's color), they may continue guessing. They can make up to one more guess than the number the spymaster said. So if the spymaster said 'tree: 2', the operatives can guess up to 3 times — the 2 intended words plus 1 bonus guess. This extra guess lets operatives go back for words from previous clues they might have missed. The operatives can also choose to stop guessing at any time. Any wrong guess ends the turn immediately.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Turn Structure and Game Flow",
+          "text": "Teams alternate turns. The starting team (indicated by the key card) goes first. On each turn, the spymaster gives a clue, then the operatives guess. The turn ends when the operatives guess wrong, decide to stop guessing, or have made the maximum number of guesses for that clue. Then the other team takes their turn. This alternation continues until the game ends.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "text": "The game ends when one team has all their agents contacted — all their codenames covered by agent cards. That team wins. It is even possible to win on the other team's turn if they accidentally guess your last remaining word. The game also ends immediately if any team contacts the assassin. The team that touched the assassin loses, and the other team wins regardless of how many agents they had found.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Invalid Clues and Penalties",
+          "text": "If a spymaster gives an invalid clue — a clue that breaks any of the rules — the team's turn ends immediately. As an additional penalty, the opposing spymaster may cover one of their own team's words with an agent card before giving their next clue, essentially getting a free point. However, if nobody notices the invalid clue, it counts as valid. So pay attention, but don't be too strict — if the opposing spymaster allows it, the clue stands.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Spymaster Conduct",
+          "text": "The spymaster must keep a straight face at all times. Do not reach for any card while your teammates are deliberating. When a teammate touches a word, consult the key card and cover the word with the correct card. If your teammate picks a correct word, act as though it was exactly the one you meant, even if it wasn't. Field operatives should focus on the table while guessing and avoid making eye contact with the spymaster. When your information is strictly limited to one word and one number, you are playing in the spirit of the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "The Sand Timer",
+          "text": "The game includes a sand timer, but it is entirely optional. If a player is thinking too long, any player can flip the sand timer and ask the slow player to make a decision before time runs out. You can even use it on yourself if you are struggling as spymaster — give a clue for your hardest word and keep thinking while the other team plays. For strict time limits, you can use the Codenames timer app.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Setup for the Next Game",
+          "text": "Want to play again? Remove all the cards covering the codenames and return them to their stacks. Flip over the 25 codename cards to reveal new words on the other side. Pick a new key card. Rotate spymasters if other players want a turn. You are ready to go in under a minute.",
+          "image": null,
+          "image_caption": null
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Game Overview",
+          "bullets": [
+            "Team-based word game: spymasters give clues, operatives guess",
+            "Spymasters know all 25 secret identities; operatives know only codenames",
+            "First team to contact all their agents wins; touching the assassin loses instantly"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Giving a Clue",
+          "bullets": [
+            "Spymaster says one word + one number",
+            "The word relates to codenames belonging to your team",
+            "The number indicates how many codenames relate to the clue",
+            "Example: NUT and BARK on your team -> 'tree: 2'"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Clue Rules and Restrictions",
+          "bullets": [
+            "Clue must be exactly one word — no extra hints or gestures",
+            "Cannot use any visible codename or any form of it (break, broken, breakage)",
+            "Cannot use part of a compound word on the table (horse if HORSESHOE is visible)",
+            "Clue must relate to meaning, not spelling, letters, or position"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Making Contact (Guessing)",
+          "bullets": [
+            "Operatives discuss the clue among themselves",
+            "Spymaster must keep a straight face — no hints",
+            "One operative touches a codename card to make an official guess",
+            "Spymaster reveals identity by covering it with the appropriate card"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Guess Outcomes",
+          "bullets": [
+            "Your team's agent: covered with your color, guess again",
+            "Innocent bystander: covered with bystander card, turn ends",
+            "Other team's agent: covered with their color, turn ends (helps them)",
+            "Assassin: covered with assassin card, your team loses immediately"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Number of Guesses Allowed",
+          "bullets": [
+            "Must make at least 1 guess per turn",
+            "Correct guess = may continue guessing",
+            "Maximum guesses = clue number + 1 (bonus guess for previous clues)",
+            "Can stop guessing voluntarily at any time; wrong guess ends turn"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Turn Structure and Game Flow",
+          "bullets": [
+            "Teams alternate: starting team goes first",
+            "Each turn: spymaster gives clue, operatives guess",
+            "Turn ends on wrong guess, voluntary stop, or max guesses reached",
+            "Then the other team takes their turn"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Winning the Game",
+          "bullets": [
+            "Win: all your team's agents contacted (all codenames covered)",
+            "Can win on the other team's turn if they guess your last word",
+            "Lose: your team contacts the assassin — game ends instantly",
+            "The non-assassin team wins by default"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Invalid Clues and Penalties",
+          "bullets": [
+            "Invalid clue = team's turn ends immediately",
+            "Penalty: opposing spymaster may cover one of their own words for free",
+            "If nobody notices the invalid clue, it counts as valid",
+            "When in doubt, ask the opposing spymaster quietly"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Spymaster Conduct",
+          "bullets": [
+            "Keep a straight face — no reactions, no reaching for cards",
+            "If teammate guesses correctly, act like it was the intended word",
+            "Operatives should focus on the table, not the spymaster's face",
+            "Spirit of the game: only one word and one number, nothing else"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "The Sand Timer",
+          "bullets": [
+            "Timer is optional — use it if someone is taking too long",
+            "Any player can flip it to pressure a slow player",
+            "Spymasters can use it on themselves to force a decision",
+            "Codenames timer app available for strict time limits"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Setup for the Next Game",
+          "bullets": [
+            "Remove covering cards, return to stacks",
+            "Flip 25 codenames to their other side for new words",
+            "Pick a new key card, rotate spymasters if desired",
+            "Ready to play again in under a minute"
+          ]
+        }
+      ]
+    },
+    "practice_tutorial": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Welcome and Meet the Teams",
+          "text": "In this practice tutorial, we will walk through a scripted first round with two teams of three players each. Red Team has a spymaster and two field operatives. Blue Team also has a spymaster and two field operatives. We will follow both teams through several turns so you can see how clue-giving, guessing, and common mistakes all work. Just follow along, even if your group has more or fewer players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Grid and the Key",
+          "text": "Imagine 25 codenames laid out in a 5-by-5 grid. The key card shows that Red Team has 9 agents (they go first), Blue Team has 8, there are 7 innocent bystanders, and 1 assassin. The Red spymaster studies the key card and sees words like APPLE, PIE, CRUST, OVEN, DIAMOND, RING, GOLD, IRON, MERCURY among the red words. The assassin word is HOSPITAL. Blue's words include WHALE, OCEAN, SHIP, SAIL, PIANO, NOTE, BAND, and DRUM.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Red Team's First Clue",
+          "text": "The Red spymaster looks at the grid and spots that APPLE, PIE, and CRUST are all red words. Perfect — they are all related to baking. The spymaster says 'baking: 3.' The Red operatives huddle up and start discussing. They quickly agree that PIE and APPLE relate to baking. One operative says 'What about CRUST? Pie crust!' They touch PIE first. The Red spymaster covers it with a red agent card. They touch APPLE next — another red agent card. Two down, one more guess for the clue.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Red Team Guesses CRUST",
+          "text": "The Red operatives feel confident about CRUST. They touch it — and it is red! Three correct guesses on one clue. Excellent start. The operatives could make one more bonus guess (the clue number was 3, so they get up to 4 guesses), but they decide to play it safe and end their turn. Smart move — the bonus guess is risky if you are not sure about any remaining words.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Blue Team's First Clue",
+          "text": "Now it is Blue's turn. The Blue spymaster sees WHALE, OCEAN, and SHIP among their words. They think 'sea' would connect all three, so they say 'sea: 3.' The Blue operatives immediately agree on OCEAN and WHALE. They touch OCEAN — blue agent card. They touch WHALE — blue agent card. Now they debate the third word. SHIP seems obvious, but one operative wonders about SAIL.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Blue Team's First Mistake: Too Many Choices",
+          "text": "Here is where things get tricky. Both SHIP and SAIL seem related to 'sea.' The Blue operatives argue for a moment. One says SHIP, the other says SAIL. They cannot tell which one(s) the spymaster intended. They go with SHIP — and it is blue! Three correct. But notice the problem: the clue 'sea' was ambiguous because it connected to more words than intended. The Blue spymaster should have considered that SAIL was also on the table. A tighter clue like 'marine: 2' for just WHALE and OCEAN would have been cleaner.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Watch for Unintended Connections",
+          "text": "When giving clues as spymaster, always scan the entire grid — not just your team's words. Your clue might accidentally connect to the other team's words, bystanders, or worst of all, the assassin. Before you speak, mentally check: does this clue relate to any word I do NOT want my team to touch? If it does, find a different clue, even if it connects fewer words.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Red Team's Second Clue",
+          "text": "Red's turn again. The Red spymaster wants to connect RING, DIAMOND, and GOLD. They consider saying 'jewelry: 3' but then notice BAND is on the table — and it is a Blue word. Ring and band are very similar. If the operatives touch BAND thinking it connects to jewelry, Red just helps Blue Team. The spymaster smartly narrows the clue to 'engagement: 2' targeting RING and DIAMOND specifically.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Red Team Guesses Carefully",
+          "text": "The Red operatives hear 'engagement: 2' and immediately think RING. They touch RING — red agent card. Then one operative says 'engagement... DIAMOND? Like an engagement ring with a diamond?' They touch DIAMOND — red agent card. Two more correct. Red now has 5 of 9 agents found. They could use their bonus guess, but they stop. Good discipline.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Blue Team's Second Clue",
+          "text": "Blue's spymaster needs to get their remaining 5 words: SAIL, PIANO, NOTE, BAND, and DRUM. They see a great connection — PIANO, NOTE, BAND, and DRUM are all music-related. They say 'music: 4.' The Blue operatives are excited. DRUM is obvious. PIANO is obvious. NOTE relates to music. And BAND is a music group. They start touching cards confidently.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 11,
+          "title": "Blue Team's Second Mistake: Hitting a Bystander",
+          "text": "The Blue operatives touch DRUM — blue agent card. They touch PIANO — blue agent card. They touch NOTE — blue agent card. Three correct. Feeling bold, one operative says 'What about CONCERT? That is musical too!' The other operative is not sure it is even on the grid, but there is a word MARCH on the table. The eager operative touches MARCH thinking of a marching band. The Red spymaster covers MARCH with an innocent bystander card. Turn over. Blue wasted their momentum on a word that was not even one of the clue targets.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Stick to the Clue Number",
+          "text": "The spymaster said 'music: 4' — that means exactly four words are intended. Once you have guessed three correctly and are unsure about the fourth, it is often better to stop and let your spymaster give a more targeted clue next turn. Guessing beyond the clue number is only worth it when you are very confident about a word from a previous clue. Guessing randomly or reaching for tenuous connections costs you the turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 13,
+          "title": "Red Team's Third Clue",
+          "text": "Red needs 4 more agents. The Red spymaster sees OVEN, IRON, MERCURY, and GOLD remaining. They think about 'metal: 2' for IRON and GOLD, but then they notice MERCURY — that is also a metal. However, MERCURY could also be a planet, a car brand, or the element. The spymaster decides to be precise: 'element: 3' for IRON, GOLD, and MERCURY, all chemical elements.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 14,
+          "title": "Red Team Nails It",
+          "text": "The Red operatives discuss 'element: 3.' One says 'IRON — that is an element on the periodic table.' Another says 'GOLD and MERCURY too.' They touch IRON — red. GOLD — red. MERCURY — red. Three more agents found. Red now has 8 of 9. One more agent to go. They could use their bonus guess for OVEN, but they are not sure it relates to 'element,' so they wisely stop.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 15,
+          "title": "Blue Team's Third Clue: The Assassin Danger",
+          "text": "Blue needs SAIL and BAND still. The Blue spymaster considers the clue 'group: 2' for BAND (a music group) and SAIL (a group of sails?). But wait — the spymaster double-checks the key card and realizes HOSPITAL, the assassin word, is right next to BAND on the grid. That is not a connection issue, but it reminds the spymaster to be extra careful. They cannot give a clue that might lead to the assassin. The spymaster says 'wind: 2' targeting SAIL (wind in the sails) and BAND (a wind band, like brass instruments).",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 16,
+          "title": "Blue Team's Third Mistake: Touching the Assassin",
+          "text": "The Blue operatives hear 'wind: 2.' One operative says 'SAIL — wind fills the sails, easy.' They touch SAIL — blue agent card. Now for the second word. One operative suggests BAND. But the other operative says 'Wait — what about HURRICANE? Wind... hurricane...' There is no HURRICANE on the grid, but there is a word STORM. The eager operative reaches for it, but then another word catches their eye — HOSPITAL. 'Wind knocked out of you... you end up in a hospital?' They touch HOSPITAL. The Red spymaster places the assassin card on HOSPITAL. Game over. Blue Team loses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 17,
+          "title": "Lesson: The Assassin Is Always Lurking",
+          "text": "The assassin is the most dangerous card on the table. As a spymaster, before saying your clue out loud, always check whether it could possibly lead to the assassin. As an operative, when you are unsure about a guess, stop guessing. Ending your turn voluntarily is always better than touching the assassin. You can never 'win' a single guess, but you can instantly lose the entire game. When in doubt, stop.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 18,
+          "title": "What Should Have Happened",
+          "text": "Let's rewind that last turn. Blue's operatives got SAIL correct. For the second guess, BAND was the intended target — a wind band. They should have discussed more carefully. 'Wind band' is a real phrase in music. HOSPITAL has nothing to do with wind in any common usage. The lesson is to stick to strong, direct connections and avoid reaching for obscure or unlikely links, especially when any wrong guess could end the game.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "text": "Even though Blue Team hit the assassin, you have now seen how a full game of Codenames plays out. You watched teams give multi-word clues, debate guesses, and make three classic mistakes: giving an ambiguous clue with unintended connections, guessing beyond the clue number, and touching the assassin. These are the exact pitfalls every new group falls into. Now you know what to watch out for.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 20,
+          "title": "Before You Begin",
+          "text": "Before you start your own game, here are three things that can help.\n\nFirst — check out General Tips for advice on giving better clues and smarter guessing.\n\nSecond — reference the Appendix for a quick guide to all the valid clue rules, special terms, and game variants.\n\nAnd most importantly — ask your personal GM Guide for help anytime. Just tap the Q&A tab and ask any question during your game. Have fun!",
+          "cta": true
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Welcome and Meet the Teams",
+          "bullets": [
+            "Scripted tutorial with 2 teams of 3 players each (spymaster + 2 operatives)",
+            "Follow along even if your group is a different size",
+            "Covers multiple turns with clue-giving, guessing, and common mistakes"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Grid and the Key",
+          "bullets": [
+            "25 codenames in a 5x5 grid with a key card showing identities",
+            "Red has 9 agents (goes first), Blue has 8, plus 7 bystanders and 1 assassin",
+            "Both spymasters study the key card to plan their clues"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Red Team's First Clue",
+          "bullets": [
+            "Red spymaster gives 'baking: 3' for APPLE, PIE, and CRUST",
+            "Operatives discuss and guess PIE, then APPLE — both correct",
+            "Good clue: clear connection, no overlap with other teams' words"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Red Team Guesses CRUST",
+          "bullets": [
+            "Third guess CRUST is also correct — 3 for 3 on this clue",
+            "Operatives could use bonus guess but wisely stop",
+            "Stopping when unsure preserves your turn for next round"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Blue Team's First Clue",
+          "bullets": [
+            "Blue spymaster says 'sea: 3' for OCEAN, WHALE, and SHIP",
+            "Operatives get OCEAN and WHALE correct immediately",
+            "Debate between SHIP and SAIL — both seem to fit the clue"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Blue Team's First Mistake: Too Many Choices",
+          "bullets": [
+            "SHIP is correct, but SAIL also connected to 'sea' — ambiguous clue",
+            "Spymaster did not account for unintended connections on the grid",
+            "A tighter clue like 'marine: 2' would have been cleaner"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Lesson: Watch for Unintended Connections",
+          "bullets": [
+            "Always scan the ENTIRE grid before giving a clue",
+            "Check if your clue relates to other team's words, bystanders, or assassin",
+            "If it does, find a different clue even if it connects fewer words"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Red Team's Second Clue",
+          "bullets": [
+            "Red spymaster considers 'jewelry: 3' but BAND (Blue word) is too close",
+            "Narrows to 'engagement: 2' for RING and DIAMOND only",
+            "Smart adjustment: avoids giving the other team a free guess"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Red Team Guesses Carefully",
+          "bullets": [
+            "RING and DIAMOND both correct — 2 for 2",
+            "Red now has 5 of 9 agents found",
+            "Stop rather than risk the bonus guess — good discipline"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Blue Team's Second Clue",
+          "bullets": [
+            "Blue spymaster says 'music: 4' for PIANO, NOTE, BAND, and DRUM",
+            "Ambitious clue connecting 4 words with a clear theme",
+            "Operatives are excited and start guessing confidently"
+          ]
+        },
+        {
+          "step": 11,
+          "title": "Blue Team's Second Mistake: Hitting a Bystander",
+          "bullets": [
+            "DRUM, PIANO, NOTE all correct — 3 for 3",
+            "On 4th guess, operative reaches for MARCH instead of BAND",
+            "MARCH is an innocent bystander — turn ends, momentum lost"
+          ]
+        },
+        {
+          "step": 12,
+          "title": "Lesson: Stick to the Clue Number",
+          "bullets": [
+            "The clue number tells you exactly how many words are intended",
+            "If unsure on the last guess, stopping is often smarter",
+            "Random guessing costs your turn and can help the other team"
+          ]
+        },
+        {
+          "step": 13,
+          "title": "Red Team's Third Clue",
+          "bullets": [
+            "Red spymaster says 'element: 3' for IRON, GOLD, and MERCURY",
+            "Precise clue — all three are chemical elements on the periodic table",
+            "Spymaster avoided ambiguity by choosing a specific domain"
+          ]
+        },
+        {
+          "step": 14,
+          "title": "Red Team Nails It",
+          "bullets": [
+            "IRON, GOLD, MERCURY all correct — Red now has 8 of 9",
+            "Operatives wisely stop rather than guess OVEN on the bonus",
+            "One more agent needed to win"
+          ]
+        },
+        {
+          "step": 15,
+          "title": "Blue Team's Third Clue: The Assassin Danger",
+          "bullets": [
+            "Blue needs SAIL and BAND — spymaster gives 'wind: 2'",
+            "SAIL = wind in sails, BAND = wind band (brass instruments)",
+            "Spymaster double-checks that the clue does not connect to the assassin"
+          ]
+        },
+        {
+          "step": 16,
+          "title": "Blue Team's Third Mistake: Touching the Assassin",
+          "bullets": [
+            "SAIL guessed correctly, but then an operative reaches for HOSPITAL",
+            "Tenuous logic: 'wind knocked out of you -> hospital'",
+            "HOSPITAL is the assassin — game over, Blue Team loses instantly"
+          ]
+        },
+        {
+          "step": 17,
+          "title": "Lesson: The Assassin Is Always Lurking",
+          "bullets": [
+            "Spymasters: always check if your clue could lead to the assassin",
+            "Operatives: when unsure, STOP guessing — you cannot un-touch a card",
+            "Ending your turn voluntarily is always better than risking the assassin"
+          ]
+        },
+        {
+          "step": 18,
+          "title": "What Should Have Happened",
+          "bullets": [
+            "BAND was the intended target — 'wind band' is a real musical term",
+            "HOSPITAL has no strong connection to 'wind'",
+            "Stick to direct, strong connections — avoid obscure leaps of logic"
+          ]
+        },
+        {
+          "step": 19,
+          "title": "Congratulations",
+          "bullets": [
+            "You've seen a full game with clue-giving, guessing, and three classic mistakes",
+            "Ambiguous clues, over-guessing, and hitting the assassin — now you know the pitfalls",
+            "You're ready to play your own game of Codenames!"
+          ]
+        },
+        {
+          "step": 20,
+          "title": "Before You Begin",
+          "bullets": [
+            "Check out General Tips for clue-giving and guessing advice",
+            "Reference the Appendix for valid clue rules and game terms",
+            "Ask your personal GM Guide anytime — tap Q&A for instant answers during play"
+          ],
+          "cta": true
+        }
+      ]
+    },
+    "general_tips": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Think Before You Speak (Spymaster)",
+          "text": "The most common spymaster mistake is blurting out the first clue that comes to mind without scanning the entire grid. Before you say your clue, mentally test it against every single word on the table — not just your team's words. Ask yourself: could my operatives confuse this clue with an innocent bystander? Could it lead to the other team's word? Could it possibly connect to the assassin? If the answer to any of those is yes, find a different clue. A safer two-word clue beats a risky four-word clue every time.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "Start With Two-Word Clues",
+          "text": "Beginners often try to be heroes with big clue numbers right away. Resist this urge. Start with clues that connect just two words. Two-word clues are easier to construct, less likely to have unintended connections, and your operatives are more likely to guess both words correctly. As you get more comfortable with the game, you can start reaching for three or even four. But in your first few games, consistent two-word clues will win more games than ambitious four-word clues that backfire.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Avoid the Assassin at All Costs",
+          "text": "Before saying any clue, the very first thing you should check is the assassin. Which word is it? Does your clue relate to it in any way? Even a tenuous connection is dangerous, because your operatives will be brainstorming freely and might make a leap you didn't expect. If your best clue has even a slight connection to the assassin, throw it out and find something else. Losing one turn is annoying. Losing the entire game is devastating.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Use the Bonus Guess Wisely",
+          "text": "Remember that your operatives can always guess one more time than the number you said. This bonus guess is designed for going back to words from previous clues. If your spymaster said 'tree: 2' last turn and you only got one of the two words, the bonus guess this turn lets you try for that missed word. As an operative, keep a mental list of words you think were targets from earlier clues. The bonus guess is your chance to catch up.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "When in Doubt, Stop Guessing",
+          "text": "One of the hardest skills for new operatives is knowing when to stop. If your spymaster said a number and you have made that many correct guesses, you have done your job. The bonus guess is optional. If you are not confident about another word, end your turn. A wrong guess helps the other team (either by revealing their agent or ending your turn early). There is no shame in stopping after one correct guess on a two-word clue. Patience wins Codenames games.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to the Other Team's Clues",
+          "text": "Listen carefully to the other team's clues and which words they guess. This gives you valuable information. If the other spymaster said 'ocean: 2' and their operatives touched WHALE and SHIP, you now know those are the other team's words — you can safely avoid them. You also learn what categories are in play. This information helps both operatives (narrowing down safe guesses) and spymasters (knowing which words to steer clear of in future clues).",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Communicate as Operatives",
+          "text": "Field operatives should talk through their reasoning out loud — that is part of the game. Discuss why you think a word fits the clue before touching it. Your teammates might see a connection you missed, or they might talk you out of a dangerous guess. The spymaster cannot participate in this discussion, but the debate among operatives is where the fun lives. Just remember that the other team is also listening, so your discussion can help them too.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Learn Your Spymaster's Style",
+          "text": "Every spymaster thinks differently. Some give very literal clues, others think in metaphors or cultural references. Over multiple games, you will start to learn how your spymaster's brain works. If they tend to make wordplay connections, think about puns and double meanings. If they think in categories, look for groups of similar things. The more games you play with the same people, the better you get at reading each other. This is why Codenames gets more fun the more you play with the same group."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Think Before You Speak (Spymaster)",
+          "bullets": [
+            "Scan the ENTIRE grid before giving a clue",
+            "Test your clue against bystanders, opponents' words, and the assassin",
+            "A safe 2-word clue beats a risky 4-word clue every time"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Start With Two-Word Clues",
+          "bullets": [
+            "Beginners should aim for 2-word connections first",
+            "Easier to construct, less likely to have unintended links",
+            "Consistent 2-word clues win more games than ambitious misfires"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Avoid the Assassin at All Costs",
+          "bullets": [
+            "Always check the assassin word FIRST before giving any clue",
+            "Even a tenuous connection is dangerous — operatives brainstorm freely",
+            "If your best clue has any assassin link, throw it out and find another"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Use the Bonus Guess Wisely",
+          "bullets": [
+            "Operatives can guess clue number + 1 times per turn",
+            "Bonus guess is designed for revisiting missed words from earlier clues",
+            "Keep a mental list of likely targets from previous rounds"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "When in Doubt, Stop Guessing",
+          "bullets": [
+            "If you've matched the clue number in correct guesses, you've done your job",
+            "Bonus guess is optional — skip it when unsure",
+            "Wrong guesses help the other team; patience wins games"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Pay Attention to the Other Team's Clues",
+          "bullets": [
+            "Other team's clues reveal which words belong to them",
+            "This helps you avoid their words and narrow down safe guesses",
+            "Both operatives and spymasters benefit from this information"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Communicate as Operatives",
+          "bullets": [
+            "Talk through your reasoning out loud before touching a card",
+            "Teammates may spot connections or dangers you missed",
+            "The debate among operatives is a core part of the fun"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Learn Your Spymaster's Style",
+          "bullets": [
+            "Every spymaster thinks differently — literal, metaphorical, cultural",
+            "Over multiple games you learn how your spymaster's brain works",
+            "Codenames gets better the more you play with the same group"
+          ]
+        }
+      ]
+    },
+    "advanced_strategies": {
+      "walkthrough": [
+        {
+          "step": 1,
+          "title": "Building Multi-Word Connections",
+          "text": "The best spymasters think in categories and overlapping concepts rather than simple one-to-one associations. Instead of looking for two words that share an obvious link, look for an abstract concept that connects three or four words in a non-obvious way. For example, if your words include STAR, FISH, and ROCK, the clue 'sea' connects them all — starfish, rockfish, and sea star. Training yourself to see these hidden category overlaps is the single biggest skill gap between casual and expert Codenames players.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 2,
+          "title": "The Elimination Strategy",
+          "text": "As the game progresses, both teams gather information about which words are definitely not theirs. A savvy operative tracks every revealed card — if three bystanders have been exposed and the assassin has been identified on a near-miss, those are five fewer dangerous words. This narrowing of the field makes later guesses safer. Expert operatives keep a running mental map: 'These words are confirmed ours, these are confirmed theirs, these are confirmed bystanders, and these remain unknown.' The fewer unknowns, the bolder you can be with your guesses.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 3,
+          "title": "Using Zero as a Clue Number",
+          "text": "An advanced move: you can give 0 as your clue number. For example, 'feathers: 0' means 'none of our words relate to feathers.' This tells your operatives what to avoid without directly pointing to your words. When you say 0, the normal guess limit does not apply — your operatives can guess as many words as they want (but must guess at least one). This is a defensive play best used when the assassin or several opponent words share a theme you want your team to steer clear of. It sacrifices your clue turn for safety information.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 4,
+          "title": "Using Unlimited as a Clue Number",
+          "text": "Instead of saying a number, you can say 'unlimited.' For example, 'feathers: unlimited.' This means at least one word relates to the new clue, but your operatives can guess as many words as they want — there is no cap. Use this when you have multiple unguessed words from previous rounds and want to give your team a chance to sweep the board. The downside is that your operatives do not know how many words relate to the new clue versus old clues. The upside is that a strong team can close out the game in one massive turn.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 5,
+          "title": "Reading the Opposing Spymaster",
+          "text": "Expert players pay close attention to the opposing spymaster's behavior. While spymasters are supposed to keep straight faces, subtle reactions can slip through — a grimace when the operative is reaching for the assassin, relief when they guess correctly, or a slight lean when they are about to cover a word. You should not rely on these tells, but being aware of body language adds another layer of information. More importantly, analyze the opposing team's clue patterns to deduce which uncovered words are theirs, which are bystanders, and where the assassin might be.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 6,
+          "title": "The One-Word Sacrifice Play",
+          "text": "Sometimes the best clue connects to only one word but is so specific that it is guaranteed to be correct. This is the sacrifice play — you trade ambition for certainty. Use this when you have a tough word that does not connect naturally to anything else on the board. By giving a precise one-word clue like 'cashew: 1' for NUT, you clear it off the board and make future multi-word clues easier to construct. Think of it as pruning — removing isolated words so the remaining words cluster into better groups.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 7,
+          "title": "Tempo and Turn Economy",
+          "text": "Codenames is fundamentally a race. The starting team has 9 words versus 8, so they must average more correct guesses per turn to maintain their lead. If you are on the starting team, you need to connect at least 2 words per clue consistently. If you are on the trailing team, you can afford to play more conservatively — one-word clues that guarantee progress are fine because you need fewer total words. Always think about the tempo: how many turns will it take each team to finish at current pace? If you are behind, take bigger risks. If you are ahead, play safe.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 8,
+          "title": "Compound and Proper Name Strategies",
+          "text": "Your group's rules on compound words and proper names can dramatically change clue strategy. If your group allows compound words as single-word clues, then 'greenhouse' can connect GREEN and HOUSE. If proper names are allowed as one word, 'Shakespeare' can connect PLAY, DRAMA, and HAMLET. Discuss these rules before the game starts and build your strategy around them. Experienced groups often allow common compound words and well-known proper names, which opens up many more creative clue possibilities.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 9,
+          "title": "Defensive Clue-Giving",
+          "text": "Sometimes the best offensive clue is too dangerous because it overlaps with the assassin or multiple opponent words. In these situations, switch to defensive clue-giving. Give a safe clue that connects your easiest two words, even if you could theoretically connect three or four. The goal is incremental, guaranteed progress rather than a risky big play. Defensive play is especially important when the assassin word shares a theme with several of your words. In those situations, give clues that explicitly steer away from that theme, even at the cost of fewer connected words.",
+          "image": null,
+          "image_caption": null
+        },
+        {
+          "step": 10,
+          "title": "Endgame Tactics",
+          "text": "The endgame — when each team has only one or two words left — plays very differently from the opening. With few words remaining, the grid is mostly covered and the remaining codenames are more exposed. As spymaster, your clues become much more targeted and specific. As operative, you have more information from covered cards to narrow down the remaining possibilities. If you are one word away from winning, consider whether your operatives might guess your last word on the opponent's turn — if the opponent accidentally touches it, you win. Some spymasters even give clues designed to bait the other team into guessing their word for them."
+        }
+      ],
+      "summary": [
+        {
+          "step": 1,
+          "title": "Building Multi-Word Connections",
+          "bullets": [
+            "Think in categories and overlapping concepts, not simple pairs",
+            "Look for abstract connections that link 3-4 words non-obviously",
+            "Example: STAR, FISH, ROCK all connect through 'sea' (starfish, rockfish, sea star)",
+            "This skill is the biggest gap between casual and expert players"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "The Elimination Strategy",
+          "bullets": [
+            "Track every revealed card — bystanders, agents, near-misses",
+            "Fewer unknowns = safer and bolder guesses",
+            "Keep a mental map: confirmed ours, theirs, bystanders, unknown",
+            "Information accumulates each turn — use it"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Using Zero as a Clue Number",
+          "bullets": [
+            "'feathers: 0' = none of our words relate to feathers",
+            "Normal guess limit does not apply — operatives can guess as many as they want",
+            "Defensive play: tells team what to avoid (assassin danger zone)",
+            "Sacrifices your clue turn for safety information"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Using Unlimited as a Clue Number",
+          "bullets": [
+            "Say 'unlimited' instead of a number for uncapped guesses",
+            "Use when multiple unguessed words remain from previous clues",
+            "Downside: operatives don't know how many words relate to the new clue",
+            "Upside: strong team can sweep the board in one turn"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Reading the Opposing Spymaster",
+          "bullets": [
+            "Watch for subtle reactions — grimaces, relief, leaning",
+            "Don't rely on tells, but be aware of body language",
+            "More valuable: analyze opponent clue patterns to deduce their words",
+            "Use revealed information to avoid their agents and the assassin"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "The One-Word Sacrifice Play",
+          "bullets": [
+            "Give a precise 1-word clue to clear an isolated, hard-to-connect word",
+            "Think of it as pruning — removing outliers so remaining words cluster better",
+            "Trade ambition for certainty when a word has no natural partners",
+            "Makes future multi-word clues easier to construct"
+          ]
+        },
+        {
+          "step": 7,
+          "title": "Tempo and Turn Economy",
+          "bullets": [
+            "Starting team (9 words) must average 2+ correct guesses per turn",
+            "Trailing team (8 words) can afford more conservative 1-word clues",
+            "Always calculate: how many turns to finish at current pace?",
+            "Behind = take bigger risks; ahead = play safe"
+          ]
+        },
+        {
+          "step": 8,
+          "title": "Compound and Proper Name Strategies",
+          "bullets": [
+            "Group rules on compounds and proper names change strategy dramatically",
+            "If allowed: 'greenhouse' connects GREEN + HOUSE, 'Shakespeare' connects PLAY + DRAMA",
+            "Discuss rules before the game starts",
+            "Experienced groups often allow common compounds and well-known names"
+          ]
+        },
+        {
+          "step": 9,
+          "title": "Defensive Clue-Giving",
+          "bullets": [
+            "Switch to safe 2-word clues when the best clue overlaps with the assassin",
+            "Incremental guaranteed progress beats risky big plays",
+            "Especially important when assassin shares a theme with your words",
+            "Steer away from dangerous themes even at the cost of fewer connections"
+          ]
+        },
+        {
+          "step": 10,
+          "title": "Endgame Tactics",
+          "bullets": [
+            "Endgame (1-2 words left) plays very differently from the opening",
+            "Grid is mostly covered — remaining words are more exposed",
+            "Covered cards provide information to narrow down possibilities",
+            "Some spymasters bait opponents into guessing their word for them"
+          ]
+        }
+      ]
+    },
+    "appendix": {
+      "entries": [
+        {
+          "term": "Codename",
+          "definition": "A word printed on one of the 25 cards in the 5-by-5 grid. Each codename represents the cover identity of a secret agent, an innocent bystander, or the assassin. Each card is double-sided with a different word on each side.",
+          "category": "Components"
+        },
+        {
+          "term": "Key Card",
+          "definition": "A small card placed in a stand between the two spymasters. It shows a grid that maps to the 5-by-5 codename layout, revealing which words belong to Red, Blue, are bystanders, or are the assassin. Only spymasters may see the key card. Either side can face up.",
+          "category": "Components"
+        },
+        {
+          "term": "Agent Card (Red)",
+          "definition": "One of 8 red cards used to cover a codename when it is revealed as a Red team agent. Stacked in front of the Red spymaster at the start of the game.",
+          "category": "Components"
+        },
+        {
+          "term": "Agent Card (Blue)",
+          "definition": "One of 8 blue cards used to cover a codename when it is revealed as a Blue team agent. Stacked in front of the Blue spymaster at the start of the game.",
+          "category": "Components"
+        },
+        {
+          "term": "Double Agent",
+          "definition": "A special agent card that belongs to whichever team goes first. Flip it to show that team's color. It serves as the starting team's 9th agent card, balancing the extra word they must find.",
+          "category": "Components"
+        },
+        {
+          "term": "Innocent Bystander Card",
+          "definition": "One of 7 cards used to cover a codename when it is revealed as an innocent bystander. Touching a bystander ends your turn but has no other penalty. Placed in the center of the table during setup.",
+          "category": "Components"
+        },
+        {
+          "term": "Assassin Card",
+          "definition": "A single card used to cover the codename that is the assassin. If any team's operative touches the assassin, that team loses immediately and the game ends. There is exactly 1 assassin per game.",
+          "category": "Components"
+        },
+        {
+          "term": "Sand Timer",
+          "definition": "An optional component included in the game. Any player can flip it to pressure a slow player into making a decision. Not required for play. A timer app is also available at codenamesgame.com.",
+          "category": "Components"
+        },
+        {
+          "term": "Key Card Stand",
+          "definition": "A plastic or wooden stand that holds the key card upright between the two spymasters so only they can see it. The key card slides into the stand at the start of each game.",
+          "category": "Components"
+        },
+        {
+          "term": "Spymaster",
+          "definition": "One player per team who knows the secret identities of all 25 codenames by viewing the key card. The spymaster gives one-word clues to guide their team's field operatives. Must keep a straight face and give no extra hints beyond the clue word and number.",
+          "category": "Roles"
+        },
+        {
+          "term": "Field Operative",
+          "definition": "All non-spymaster players on a team. Field operatives discuss the spymaster's clue and make guesses by touching codename cards on the table. They do not see the key card and must rely entirely on the spymaster's clues.",
+          "category": "Roles"
+        },
+        {
+          "term": "Starting Team",
+          "definition": "The team that goes first, as indicated by the four colored lights on the edges of the key card. The starting team has 9 agents to find (including the double agent), while the other team has 8. The starting team gives the first clue.",
+          "category": "Rules"
+        },
+        {
+          "term": "Clue",
+          "definition": "A one-word hint plus a number given by the spymaster. The word must relate to the meaning of one or more codenames on the table. The number indicates how many codenames relate to the clue. The clue must follow all validity rules regarding visible words, compound words, and meaning-based connections.",
+          "category": "Rules"
+        },
+        {
+          "term": "Clue Number",
+          "definition": "The number spoken after the clue word. Tells operatives how many codenames relate to the clue. Operatives may guess up to this number plus one (the bonus guess). The number itself cannot be used as part of the clue's meaning (e.g., 'citrus: 8' is not valid for LEMON and OCTOPUS).",
+          "category": "Rules"
+        },
+        {
+          "term": "Bonus Guess",
+          "definition": "Operatives may always make one more guess than the clue number. This extra guess is designed for returning to words from previous clues that were missed. It is optional — operatives can stop before using it.",
+          "category": "Rules"
+        },
+        {
+          "term": "Making Contact",
+          "definition": "The act of an operative touching a codename card on the table to make an official guess. Once a card is touched, the spymaster must reveal its identity by covering it with the appropriate card (agent, bystander, or assassin).",
+          "category": "Rules"
+        },
+        {
+          "term": "Invalid Clue",
+          "definition": "A clue that violates the rules — such as using a visible codename, giving extra hints, or relating to letter patterns rather than meaning. Penalty: the team's turn ends immediately, and the opposing spymaster may cover one of their own words with an agent card for free. If nobody notices, the clue counts as valid.",
+          "category": "Rules"
+        },
+        {
+          "term": "Compound Word Rule",
+          "definition": "English has three forms of compound words: one word (greenhouse), two words (pack rat), and hyphenated (mother-in-law). Strictly, only single-word compounds are valid one-word clues. Groups may agree to allow any compound words, but players should never be allowed to invent compounds (e.g., 'lunar squid' is never valid).",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Proper Name Rule",
+          "definition": "Proper names are always valid clues if they follow other rules. Groups can agree to count multi-word proper names as one word (e.g., 'The Three Musketeers'). Place names like 'New York' are often allowed as exceptions. Spymasters should not make up names.",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Homonym Rule",
+          "definition": "Words that sound the same but are spelled differently (night/knight) are considered different words — you cannot give knight-related clues for NIGHT. Words spelled the same but pronounced differently (bow as in theater/bow as in ship) are the same word and can be used for either meaning.",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Spelling Out a Clue",
+          "definition": "You may spell out your clue letter by letter (e.g., b-o-w) without committing to a pronunciation. Useful for homonyms, noisy rooms, or groups with different accents. You cannot spell a word that is a different form of a visible codename (e.g., cannot spell t-h-e-a-t-r-e when THEATER is on the table).",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Foreign Word Rule",
+          "definition": "You must play in English. A foreign word is allowed only if the players in your group would naturally use it in an English sentence. For example, 'strudel' is fine, but 'Apfel' (German for apple) is not.",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Rhyme Rule",
+          "definition": "Rhymes are valid when they refer to meaning (e.g., 'snail' for MAIL because 'snail mail' is a common phrase, or for WHALE because both are animals). Rhymes based purely on sound (snail for SCALE) are not valid by default. Groups can choose to allow all rhyming clues.",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Acronym and Abbreviation Rule",
+          "definition": "Technically acronyms like CIA are not one word, but they make great clues. Groups can choose to allow common abbreviations like UK, lol, and PhD. Words that originated as acronyms (laser, radar, sonar) are always valid.",
+          "category": "Valid Clues"
+        },
+        {
+          "term": "Zero Clue (Expert)",
+          "definition": "Saying 0 as the clue number means none of your team's words relate to the clue word. When 0 is the number, the usual guess limit does not apply — operatives can guess as many words as they want but must guess at least one. Used defensively to indicate what to avoid.",
+          "category": "Expert Rules"
+        },
+        {
+          "term": "Unlimited Clue (Expert)",
+          "definition": "Saying 'unlimited' instead of a number means at least one word relates to the new clue, but operatives may guess as many words as they want with no cap. Useful when multiple unguessed words remain from previous rounds. The downside is operatives do not know the exact number of intended targets.",
+          "category": "Expert Rules"
+        },
+        {
+          "term": "Two-Player Variant",
+          "definition": "Both players are on the same team. One is the spymaster, the other is the field operative. The other team has no players — the spymaster simulates them by covering one enemy word each time the enemy would get a turn. The spymaster chooses which word to cover. You must be the starting team. Score is based on how many enemy agent cards remain in their stack when you win (scale of 1-8).",
+          "category": "Variants"
+        },
+        {
+          "term": "Three-Player Variant (Cooperative)",
+          "definition": "Three players on one team play the same way as the two-player variant, with one spymaster and two field operatives cooperating against a simulated opponent.",
+          "category": "Variants"
+        },
+        {
+          "term": "Three-Player Variant (Competitive)",
+          "definition": "Two players are spymasters on opposing teams, and the third player is a single field operative working for both sides. The operative tries to do a good job for both teams. The winning spymaster is determined in the usual way.",
+          "category": "Variants"
+        },
+        {
+          "term": "Assassin",
+          "definition": "The single most dangerous identity on the board, shown as a black square on the key card. If any operative touches the assassin's codename, their team loses the game immediately. Spymasters should always check that their clue does not relate to the assassin before speaking.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Innocent Bystander",
+          "definition": "A neutral identity shown as pale squares on the key card. There are 7 bystanders per game. Touching one ends your turn but does not help or hurt either team beyond wasting a guess. Bystanders are the least punishing wrong answer.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Red Agent",
+          "definition": "A secret agent belonging to the Red team, shown as a red square on the key card. Red team needs to contact all their agents (8 or 9 depending on starting team) to win.",
+          "category": "Card Types"
+        },
+        {
+          "term": "Blue Agent",
+          "definition": "A secret agent belonging to the Blue team, shown as a blue square on the key card. Blue team needs to contact all their agents (8 or 9 depending on starting team) to win.",
+          "category": "Card Types"
+        }
+      ]
+    }
+  }
+}

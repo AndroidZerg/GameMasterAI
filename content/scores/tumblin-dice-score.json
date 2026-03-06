@@ -1,0 +1,37 @@
+{
+  "game_id": "tumblin-dice",
+  "scoring_type": "round_tracker",
+  "win_condition": "Highest total score after 4 rounds (or first to 301 points)",
+  "categories": [
+    {
+      "id": "round_1",
+      "label": "Round 1",
+      "type": "manual",
+      "description": "Sum of (face-up value x zone multiplier) for all scoring dice"
+    },
+    {
+      "id": "round_2",
+      "label": "Round 2",
+      "type": "manual",
+      "description": "Sum of (face-up value x zone multiplier) for all scoring dice"
+    },
+    {
+      "id": "round_3",
+      "label": "Round 3",
+      "type": "manual",
+      "description": "Sum of (face-up value x zone multiplier) for all scoring dice"
+    },
+    {
+      "id": "round_4",
+      "label": "Round 4",
+      "type": "manual",
+      "description": "Sum of (face-up value x zone multiplier) for all scoring dice"
+    },
+    {
+      "id": "overtime",
+      "label": "Overtime",
+      "type": "manual",
+      "description": "Extra round(s) if tied after 4 rounds — tied players only"
+    }
+  ]
+}

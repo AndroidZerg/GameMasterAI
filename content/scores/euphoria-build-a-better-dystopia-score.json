@@ -1,0 +1,14 @@
+{
+  "game_id": "euphoria-build-a-better-dystopia",
+  "scoring_type": "race",
+  "win_condition": "First player to place all 10 authority stars wins immediately",
+  "categories": [
+    {"id": "markets", "label": "Markets Built", "points_each": 1, "type": "count", "description": "Stars placed by helping construct markets"},
+    {"id": "artifact_sets", "label": "Artifact Sets", "points_each": 1, "type": "count", "description": "Stars placed by trading in artifact card sets"},
+    {"id": "allegiance", "label": "Allegiance Milestones", "points_each": 1, "type": "count", "description": "Stars placed by reaching faction allegiance milestones"},
+    {"id": "recruits", "label": "Recruit Abilities", "points_each": 1, "type": "count", "description": "Stars placed via recruit card abilities"},
+    {"id": "other", "label": "Other Actions", "points_each": 1, "type": "count", "description": "Stars placed via special board spaces or other abilities"}
+  ],
+  "total_stars": 10,
+  "notes": "The game ends immediately when any player places their 10th authority star. There is no second place."
+}

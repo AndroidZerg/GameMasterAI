@@ -1,0 +1,17 @@
+{
+  "game_id": "fury-of-dracula",
+  "scoring_type": "asymmetric",
+  "win_condition": "Dracula: advance influence track to 13. Hunters: deal 15 damage to Dracula.",
+  "message": "Fury of Dracula is an asymmetric one-vs-many game with no point scoring. Dracula wins by reaching influence 13 (via maturing vampires, defeating hunters, Fangs on mesmerized hunters, and the Fury of Dracula ability). The hunters win by accumulating 15 damage tokens on Dracula's character sheet. There is no tie — the game continues until one side achieves their victory condition.",
+  "dracula_influence_sources": [
+    { "source": "Maturing a vampire encounter", "value": "Varies by vampire type" },
+    { "source": "Defeating a hunter", "value": "2 + number of despair tokens on time track" },
+    { "source": "Resolving Fangs against a mesmerized hunter", "value": "1" },
+    { "source": "Fury of Dracula ability (all 3 despair tokens placed)", "value": "3 per location/Hide placed on trail" },
+    { "source": "Rumor token on maturing vampire hideout", "value": "+3 bonus" }
+  ],
+  "hunter_victory": {
+    "condition": "15 damage tokens on Dracula's character sheet",
+    "damage_sources": ["Combat cards (Punch, weapons like Pistol and Rifle)", "Encounter effects", "Event card effects"]
+  }
+}

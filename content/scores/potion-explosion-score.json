@@ -1,0 +1,9 @@
+{
+  "game_id": "potion-explosion",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "potion_points", "label": "Potion Points", "points_each": 1, "type": "manual", "description": "Sum of point values on all completed potion tiles"},
+    {"id": "skill_tokens", "label": "Skill Tokens", "points_each": 4, "type": "count", "description": "4 points per Skill token earned"},
+    {"id": "little_help", "label": "Little Help Tokens", "points_each": -2, "type": "count", "description": "Lose 2 points per Little Help token taken"}
+  ]
+}

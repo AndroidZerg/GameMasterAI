@@ -1,0 +1,15 @@
+{
+  "game_id": "ingenious",
+  "scoring_type": "lowest_wins_score",
+  "description": "Track each color from 0-18. Your final score is your LOWEST color. Highest lowest score wins.",
+  "categories": [
+    {"id": "circle_blue", "label": "Blue (Circles)", "min": 0, "max": 18, "type": "counter", "description": "Blue circle symbol score track (0-18)"},
+    {"id": "star_yellow", "label": "Yellow (Stars)", "min": 0, "max": 18, "type": "counter", "description": "Yellow star symbol score track (0-18)"},
+    {"id": "diamond_green", "label": "Green (Diamonds)", "min": 0, "max": 18, "type": "counter", "description": "Green diamond symbol score track (0-18)"},
+    {"id": "cross_red", "label": "Red (Crosses)", "min": 0, "max": 18, "type": "counter", "description": "Red cross symbol score track (0-18)"},
+    {"id": "sun_orange", "label": "Orange (Suns)", "min": 0, "max": 18, "type": "counter", "description": "Orange sun symbol score track (0-18)"},
+    {"id": "hex_purple", "label": "Purple (Hexagons)", "min": 0, "max": 18, "type": "counter", "description": "Purple hexagon symbol score track (0-18)"}
+  ],
+  "win_condition": "lowest_of_all",
+  "win_condition_description": "Your score = your lowest color. Ties broken by next-lowest color, then next, etc. All six at 18 = instant win."
+}

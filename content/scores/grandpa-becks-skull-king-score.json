@@ -1,0 +1,26 @@
+{
+  "game_id": "grandpa-becks-skull-king",
+  "scoring_type": "calculator",
+  "win_condition": "Most points after 10 rounds",
+  "tiebreaker": "Player with the highest single-round score",
+  "categories": [
+    {
+      "id": "bid_points",
+      "label": "Bid Points",
+      "type": "manual",
+      "description": "Points from correct/incorrect bids (+20 per trick if correct, -10 per trick off if wrong, or +/-10 x round for zero bids)"
+    },
+    {
+      "id": "bonus_14s",
+      "label": "14 Card Bonuses",
+      "type": "manual",
+      "description": "+10 per standard suit 14 captured, +20 for black (Jolly Roger) 14 captured (only if bid was correct)"
+    },
+    {
+      "id": "bonus_captures",
+      "label": "Character Capture Bonuses",
+      "type": "manual",
+      "description": "Pirate captures Mermaid (+20), Skull King captures Pirate (+30), Mermaid captures Skull King (+40) (only if bid was correct)"
+    }
+  ]
+}

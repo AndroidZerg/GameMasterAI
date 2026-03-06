@@ -1,0 +1,32 @@
+{
+  "game_id": "cthulhu-wars-onslaught",
+  "scoring_type": "race",
+  "win_condition": "Highest Doom with all 6 Spellbooks when game ends (30+ Doom or Instant Death triggered)",
+  "categories": [
+    {
+      "id": "gate_doom",
+      "label": "Doom from Controlled Gates",
+      "type": "manual",
+      "description": "Each Doom Phase, advance Doom 1 per Controlled Gate"
+    },
+    {
+      "id": "ritual_doom",
+      "label": "Ritual of Annihilation Doom",
+      "type": "manual",
+      "description": "Spend Power to perform Ritual — gain additional Doom equal to Controlled Gates"
+    },
+    {
+      "id": "elder_signs",
+      "label": "Elder Sign Trophies",
+      "type": "manual",
+      "description": "Hidden tokens worth 1, 2, or 3 Doom each — earned via Rituals (1 per Great Old One in play) and certain abilities"
+    },
+    {
+      "id": "spellbooks",
+      "label": "Spellbooks Earned",
+      "type": "count",
+      "max": 6,
+      "description": "Must have all 6 Spellbooks on Faction Card to be eligible to win"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "game_id": "inis",
+  "scoring_type": "victory_condition",
+  "categories": [
+    {"id": "territories", "label": "Territories (Presence)", "points_each": 1, "type": "count", "description": "Number of territories where you have at least one clan present. Need 6+ to meet this victory condition."},
+    {"id": "opposing_clans", "label": "Opposing Clans (Chieftain)", "points_each": 1, "type": "count", "description": "Total opposing clans in territories where you are chieftain. Need 6+ to meet this victory condition."},
+    {"id": "sanctuaries", "label": "Sanctuaries (Presence)", "points_each": 1, "type": "count", "description": "Total sanctuaries in territories where you have at least one clan present. Need 6+ to meet this victory condition."},
+    {"id": "deeds", "label": "Deed Tokens", "points_each": 1, "type": "count", "description": "Wild tokens that add +1 toward any single victory condition each. Each Deed can only supplement one condition."},
+    {"id": "conditions_met", "label": "Victory Conditions Met", "points_each": 1, "type": "count", "description": "Total number of victory conditions fulfilled (0-3). The player with the most conditions met and a Pretender token wins."},
+    {"id": "is_brenn", "label": "Is Brenn?", "points_each": 0, "type": "toggle", "description": "The Brenn wins ties for most victory conditions met."}
+  ]
+}

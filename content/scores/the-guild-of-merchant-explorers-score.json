@@ -1,0 +1,14 @@
+{
+  "game_id": "the-guild-of-merchant-explorers",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "trade_routes", "label": "Trade Routes", "points_each": 1, "type": "manual", "description": "Points from connecting cities (multiply the 2 city values together)"},
+    {"id": "villages", "label": "Villages Discovered", "points_each": 1, "type": "manual", "description": "Points earned from discovering villages by completing regions"},
+    {"id": "discovery_towers", "label": "Discovery Towers", "points_each": 1, "type": "manual", "description": "Points earned from placing discovery towers on discovery spaces"},
+    {"id": "coin_spaces", "label": "Coin Spaces", "points_each": 1, "type": "manual", "description": "Coins earned from exploring coin spaces on the map"},
+    {"id": "goal_cards", "label": "Goal Cards", "points_each": 1, "type": "manual", "description": "Points earned from completing the 3 goal card objectives"},
+    {"id": "treasure_cards", "label": "Treasure Cards", "points_each": 1, "type": "manual", "description": "Points from treasure cards collected at ruin spaces (including vase sets)"},
+    {"id": "crystal_spaces", "label": "Crystal Spaces (Cnidaria)", "points_each": 1, "type": "manual", "description": "Points from exploring sonulux crystal spaces (Cnidaria map only)"}
+  ],
+  "win_condition": "Most coins wins. Tiebreaker: most discovery towers, then most villages."
+}

@@ -1,0 +1,15 @@
+{
+  "game_id": "wyrmspan",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "dragon_guild", "label": "Dragon Guild Markers", "points_each": 1, "type": "manual", "description": "Points from player markers placed on the Dragon Guild tile"},
+    {"id": "dragon_points", "label": "Printed Dragon VP", "points_each": 1, "type": "manual", "description": "Sum of printed VP values on all visible dragons on your player mat"},
+    {"id": "end_game_abilities", "label": "End Game Abilities", "points_each": 1, "type": "manual", "description": "VP from end-game dragon abilities"},
+    {"id": "eggs", "label": "Eggs", "points_each": 1, "type": "count", "description": "1 point per egg on dragons and player mat nests"},
+    {"id": "cached_resources", "label": "Cached Resources", "points_each": 1, "type": "count", "description": "1 point per resource token cached on dragons"},
+    {"id": "tucked_cards", "label": "Tucked Cards", "points_each": 1, "type": "count", "description": "1 point per dragon card tucked under other dragons"},
+    {"id": "public_objectives", "label": "Public Objectives", "points_each": 1, "type": "manual", "description": "Points from the 4 end-of-round objective tiles"},
+    {"id": "remaining_coins", "label": "Remaining Coins", "points_each": 1, "type": "count", "description": "1 point per remaining coin"},
+    {"id": "remaining_items", "label": "Remaining Items", "points_each": 0.25, "type": "count", "description": "1 point per 4 remaining items (resources, dragons, cave cards in hand), round down"}
+  ]
+}

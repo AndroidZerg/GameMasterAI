@@ -1,0 +1,16 @@
+{
+  "game_id": "viscounts-of-the-west-kingdom",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "buildings", "label": "Constructed Buildings", "points_each": 1, "type": "manual", "description": "Points from constructed buildings as printed on Player Board (Workshops: 3/5, Trading Posts: 4/9/15, Guildhalls: 5/4/9/15)"},
+    {"id": "workers_castle", "label": "Workers in the Castle", "points_each": 1, "type": "manual", "description": "Each worker scores VP equal to its tier in the Castle (1st tier = 1 VP, 2nd tier = 2 VP, 3rd tier = 3 VP)"},
+    {"id": "manuscripts", "label": "Transcribed Manuscripts", "points_each": 1, "type": "manual", "description": "VP from manuscript sets of different ribbon colours (1=1, 2=4, 3=9) plus VP printed on specific manuscripts"},
+    {"id": "castle_leader", "label": "Castle Leader Card", "points_each": 5, "type": "count", "description": "5 VP if you hold the Castle Leader Card at game end"},
+    {"id": "cleric_bonus", "label": "Cleric Bonus Cards", "points_each": 3, "type": "count", "description": "3 VP each for Cleric Bonus Cards (first to collect 3 manuscripts of same ribbon colour)"},
+    {"id": "unpaid_debts", "label": "Unpaid Debts", "points_each": -2, "type": "count", "description": "-2 VP for each unpaid (unflipped) Debt card"},
+    {"id": "acquired_deeds", "label": "Acquired Deeds", "points_each": 1, "type": "count", "description": "1 VP for each acquired (unflipped) Deed card"},
+    {"id": "approved_deeds", "label": "Approved Deeds", "points_each": 3, "type": "count", "description": "3 VP for each approved (flipped) Deed card"},
+    {"id": "poverty_card", "label": "Poverty Card Bonus", "points_each": 1, "type": "manual", "description": "If Poverty Card revealed: most flipped Deeds scores 12, second 8, third 4 VP"},
+    {"id": "prosperity_card", "label": "Prosperity Card Bonus", "points_each": 1, "type": "manual", "description": "If Prosperity Card revealed: most flipped Debts scores 12, second 8, third 4 VP"}
+  ]
+}

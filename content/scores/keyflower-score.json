@@ -1,0 +1,12 @@
+{
+  "game_id": "keyflower",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "tile_points", "label": "Tile Victory Points", "points_each": 1, "type": "manual", "description": "Points printed on upgraded (flipped) village tiles"},
+    {"id": "winter_scoring", "label": "Winter Scoring Tiles", "points_each": 1, "type": "manual", "description": "Points from winter tiles (Apothecary, Craftsman's Guild, Jeweller, Key Guild, Keythedral, Key Market, Mercer's Guild, Scholar, Scribes, Village Hall, Watermill, Windmill)"},
+    {"id": "boat_points", "label": "Boat Tile Points", "points_each": 1, "type": "manual", "description": "Points from boat tiles (Keyflower, Sea Bastion, Sea Breese, Flipper, Ianvincible, White Wind)"},
+    {"id": "turn_order_points", "label": "Turn Order Tile Points", "points_each": 1, "type": "manual", "description": "1 point per adjacent tile for each turn order tile in your village"},
+    {"id": "gold_points", "label": "Gold Counters", "points_each": 1, "type": "count", "description": "1 point per gold counter not allocated to a scoring tile"},
+    {"id": "resource_tiles", "label": "Resource Storage Tiles", "points_each": 1, "type": "manual", "description": "Points from Barn, Blacksmith, Stone Yard, and Timber Yard for stored resources"}
+  ]
+}

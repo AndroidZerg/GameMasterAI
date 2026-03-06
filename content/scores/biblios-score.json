@@ -1,0 +1,12 @@
+{
+  "game_id": "biblios",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "pigments_die", "label": "Pigments Die", "points_each": 1, "type": "manual", "description": "VP from Pigments die if you won the majority (0 if not won)"},
+    {"id": "holy_books_die", "label": "Holy Books Die", "points_each": 1, "type": "manual", "description": "VP from Holy Books die if you won the majority (0 if not won)"},
+    {"id": "manuscripts_die", "label": "Manuscripts Die", "points_each": 1, "type": "manual", "description": "VP from Manuscripts die if you won the majority (0 if not won)"},
+    {"id": "forbidden_tomes_die", "label": "Forbidden Tomes Die", "points_each": 1, "type": "manual", "description": "VP from Forbidden Tomes die if you won the majority (0 if not won)"},
+    {"id": "monks_die", "label": "Monks Die", "points_each": 1, "type": "manual", "description": "VP from Monks die if you won the majority (0 if not won)"}
+  ],
+  "win_condition": "Highest total VP from won dice. Tiebreak: most dice won. If still tied, shared victory."
+}

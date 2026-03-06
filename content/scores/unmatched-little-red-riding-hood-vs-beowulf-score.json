@@ -1,0 +1,38 @@
+{
+  "game_id": "unmatched-little-red-riding-hood-vs-beowulf",
+  "scoring_type": "elimination",
+  "win_condition": "Reduce your opponent's hero to 0 HP. The game ends immediately when a hero is defeated.",
+  "message": "Unmatched is an elimination duel -- reduce your opponent's hero to 0 HP to win. Little Red starts at 14 HP (Huntsman: 9 HP). Beowulf starts at 17 HP (Wiglaf: 6 HP). Track hero and sidekick health separately using the included health dials. Beowulf also tracks Rage (starts at 1, max 3) with flame tokens.",
+  "categories": [
+    {
+      "id": "hero_health",
+      "label": "Hero Health",
+      "type": "info",
+      "description": "Track each hero's remaining HP on their health dial. Little Red starts at 14, Beowulf starts at 17. Hero at 0 HP ('The End') = defeated, game over."
+    },
+    {
+      "id": "sidekick_health",
+      "label": "Sidekick Health",
+      "type": "info",
+      "description": "Track each sidekick's remaining HP. Huntsman starts at 9, Wiglaf starts at 6. Sidekick at 0 HP is removed from the battlefield but does not end the game."
+    },
+    {
+      "id": "beowulf_rage",
+      "label": "Beowulf's Rage",
+      "type": "info",
+      "description": "Track Beowulf's current Rage (0-3). Starts at 1. Gains 1 Rage when Beowulf takes damage (not Wiglaf). Spent for card effects. Use flame tokens: lit = active, unlit = spent."
+    },
+    {
+      "id": "basket_item",
+      "label": "Little Red's Basket",
+      "type": "info",
+      "description": "The top card of Little Red's discard pile is her basket. Check the banner for the current item: knife, pelt, wolfsbane, or wild. Basket effects on cards only trigger if the correct item is showing."
+    },
+    {
+      "id": "doors",
+      "label": "Door Status",
+      "type": "info",
+      "description": "Track which of the 3 Heorot doors are open or closed. Closed doors block movement, attacks, adjacency, and split zones. Close for free during Maneuver; open costs 1 movement."
+    }
+  ]
+}

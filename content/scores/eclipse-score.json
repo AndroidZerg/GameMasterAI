@@ -1,0 +1,14 @@
+{
+  "game_id": "eclipse",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "reputation_tiles", "label": "Reputation Tiles", "points_each": 1, "type": "manual", "description": "Sum of VP values on all face-down Reputation Tiles (1-4 VP each)"},
+    {"id": "ambassador_tiles", "label": "Ambassador Tiles", "points_each": 1, "type": "count", "description": "1 VP per Ambassador Tile on your Reputation Track"},
+    {"id": "controlled_sectors", "label": "Controlled Sectors", "points_each": 1, "type": "manual", "description": "Sum of VP values on all Sectors you Control (1-4 VP each)"},
+    {"id": "monoliths", "label": "Monoliths", "points_each": 3, "type": "count", "description": "3 VP per Monolith on Controlled Sectors"},
+    {"id": "discovery_tiles", "label": "Discovery Tiles", "points_each": 2, "type": "count", "description": "2 VP per Discovery Tile kept VP-side-up"},
+    {"id": "tech_track_progress", "label": "Tech Track Progress", "points_each": 1, "type": "manual", "description": "VP from progress on each Tech Track (Military, Grid, Nano) based on leftmost uncovered VP symbol"},
+    {"id": "species_bonuses", "label": "Species Bonuses", "points_each": 1, "type": "manual", "description": "VP from species-specific scoring abilities (e.g., Planta extra sector VP, Descendants per Ancient)"},
+    {"id": "traitor_tile", "label": "Traitor Tile", "points_each": -2, "type": "count", "description": "-2 VP if you hold the Traitor Tile at game end"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "game_id": "colt-express",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "purses", "label": "Purses", "points_each": 1, "type": "manual", "description": "Sum of all Purse token values ($250-$500 each)"},
+    {"id": "jewels", "label": "Jewels", "points_each": 500, "type": "count", "description": "$500 per Jewel token"},
+    {"id": "strongboxes", "label": "Strongboxes", "points_each": 1000, "type": "count", "description": "$1000 per Strongbox token"},
+    {"id": "gunslinger", "label": "Gunslinger Bonus", "points_each": 1000, "type": "toggle", "description": "$1000 if you fired the most Bullets (fewest remaining). Tied players all receive the bonus."}
+  ]
+}

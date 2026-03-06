@@ -1,0 +1,15 @@
+{
+  "game_id": "star-wars-rebellion",
+  "scoring_type": "asymmetric_victory",
+  "win_conditions": [
+    {
+      "faction": "Galactic Empire",
+      "condition": "Have Imperial units in the Rebel base's system with no Rebel units remaining in that system (base must be revealed first)"
+    },
+    {
+      "faction": "Rebel Alliance",
+      "condition": "The reputation marker reaches the same space as the time marker on the time track"
+    }
+  ],
+  "message": "Star Wars: Rebellion has asymmetric victory conditions. The Empire wins by finding and destroying the Rebel base. The Rebels win by gaining enough reputation (through objective cards) before time runs out. The reputation marker starts on space 14 and moves toward the time marker; the time marker advances one space each round. If they meet, the Rebels win immediately."
+}
