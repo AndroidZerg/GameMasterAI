@@ -1,0 +1,9 @@
+{
+  "game_id": "dc-deck-building-game",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "card_vp", "label": "Card Victory Points", "points_each": 1, "type": "manual", "description": "Sum of VP values on all cards in your deck (Heroes, Villains, Super-Villains, Equipment, Super Powers, Locations, Kicks)"},
+    {"id": "super_villains", "label": "Super-Villain Bonus VP", "points_each": 1, "type": "manual", "description": "Additional VP from Super-Villain card abilities (e.g. Suicide Squad scaling)"},
+    {"id": "weaknesses", "label": "Weakness Cards", "points_each": -1, "type": "count", "description": "Each Weakness card subtracts 1 VP from your total"}
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "game_id": "pictomania",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "correct_guesses",
+      "label": "Correct Guess Tokens (Stars)",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Total stars on scoring tokens earned from correctly guessing other players' words (right side)"
+    },
+    {
+      "id": "black_token",
+      "label": "Black Scoring Token (Stars)",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Stars on the black bonus token you took when finishing (right side, positive). Enter 0 if you are the black sheep or returned it."
+    },
+    {
+      "id": "unawarded_tokens",
+      "label": "Unawarded Tokens (Stars)",
+      "points_each": -1,
+      "type": "manual",
+      "description": "Total stars on your own colored scoring tokens NOT given away (left side, negative). These are tokens remaining because players failed to guess your word."
+    },
+    {
+      "id": "black_sheep_penalty",
+      "label": "Black Sheep Penalty (Stars)",
+      "points_each": -1,
+      "type": "manual",
+      "description": "If you are the black sheep (most wrong guesses), enter the stars on your black token here as a penalty. Enter 0 if you are not the black sheep."
+    }
+  ]
+}

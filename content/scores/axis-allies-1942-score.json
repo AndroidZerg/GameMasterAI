@@ -1,0 +1,55 @@
+{
+  "game_id": "axis-allies-1942",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "victory_cities_axis",
+      "label": "Axis Victory Cities",
+      "points_each": 1,
+      "type": "count",
+      "description": "Number of victory cities controlled by Axis powers. Axis wins with 8+ of 12 victory cities."
+    },
+    {
+      "id": "victory_cities_allies",
+      "label": "Allied Victory Cities",
+      "points_each": 1,
+      "type": "count",
+      "description": "Number of victory cities controlled by Allied powers. Allies win with 9+ of 12 victory cities."
+    },
+    {
+      "id": "ipc_germany",
+      "label": "Germany IPC Income",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Germany's current Industrial Production Certificate income per turn"
+    },
+    {
+      "id": "ipc_japan",
+      "label": "Japan IPC Income",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Japan's current Industrial Production Certificate income per turn"
+    },
+    {
+      "id": "ipc_ussr",
+      "label": "USSR IPC Income",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Soviet Union's current Industrial Production Certificate income per turn"
+    },
+    {
+      "id": "ipc_uk",
+      "label": "United Kingdom IPC Income",
+      "points_each": 1,
+      "type": "manual",
+      "description": "United Kingdom's current Industrial Production Certificate income per turn"
+    },
+    {
+      "id": "ipc_usa",
+      "label": "United States IPC Income",
+      "points_each": 1,
+      "type": "manual",
+      "description": "United States' current Industrial Production Certificate income per turn"
+    }
+  ]
+}

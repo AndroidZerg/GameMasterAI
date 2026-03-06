@@ -1,0 +1,62 @@
+{
+  "game_id": "elder-sign",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "elder-signs",
+      "label": "Elder Signs Collected",
+      "points_each": 1,
+      "type": "count",
+      "description": "Number of elder sign tokens placed next to the Ancient One card. Track progress toward the Elder Sign limit."
+    },
+    {
+      "id": "doom-tokens",
+      "label": "Doom Tokens on Track",
+      "points_each": -1,
+      "type": "count",
+      "description": "Number of doom tokens on the Ancient One's doom track. Each token brings the Ancient One closer to awakening."
+    },
+    {
+      "id": "investigators-devoured",
+      "label": "Investigators Devoured",
+      "points_each": -1,
+      "type": "count",
+      "description": "Number of investigators devoured during the game. Each devouring also adds 1 doom token."
+    },
+    {
+      "id": "adventures-completed",
+      "label": "Adventures Completed",
+      "points_each": 1,
+      "type": "count",
+      "description": "Total adventure cards successfully resolved by the team."
+    },
+    {
+      "id": "monsters-defeated",
+      "label": "Monsters Defeated",
+      "points_each": 1,
+      "type": "count",
+      "description": "Total monster markers whose tasks were completed by the team."
+    },
+    {
+      "id": "trophies-held",
+      "label": "Trophies Held",
+      "points_each": 1,
+      "type": "count",
+      "description": "Adventure cards and monster markers currently held as unspent trophies."
+    },
+    {
+      "id": "midnight-count",
+      "label": "Midnights Survived",
+      "points_each": 0,
+      "type": "count",
+      "description": "Number of times midnight struck and a Mythos card was drawn. Tracks game length and pacing."
+    },
+    {
+      "id": "game-result",
+      "label": "Game Result",
+      "points_each": 0,
+      "type": "manual",
+      "description": "Cooperative outcome: Win (sealed Ancient One or defeated in battle) or Loss (all investigators devoured)."
+    }
+  ]
+}

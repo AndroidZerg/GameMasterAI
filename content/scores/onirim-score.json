@@ -1,0 +1,55 @@
+{
+  "game_id": "onirim",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "doors_found",
+      "label": "Doors Found",
+      "points_each": 1,
+      "type": "count",
+      "description": "Number of oneiric Door cards acquired (0-8). All 8 required to win."
+    },
+    {
+      "id": "nightmares_faced",
+      "label": "Nightmares Faced",
+      "points_each": 0,
+      "type": "count",
+      "description": "Number of Nightmare cards encountered during the game (out of 10 total). Track for performance analysis."
+    },
+    {
+      "id": "keys_used_for_doors",
+      "label": "Keys Used for Doors",
+      "points_each": 0,
+      "type": "count",
+      "description": "Number of Key cards used to claim Doors when drawn. Track to measure Key efficiency."
+    },
+    {
+      "id": "sequences_completed",
+      "label": "Sequences Completed",
+      "points_each": 0,
+      "type": "count",
+      "description": "Number of three-in-a-row color sequences completed to discover Doors."
+    },
+    {
+      "id": "prophecies_triggered",
+      "label": "Prophecies Triggered",
+      "points_each": 0,
+      "type": "count",
+      "description": "Number of Prophecies triggered by discarding Key cards."
+    },
+    {
+      "id": "cards_remaining",
+      "label": "Cards Remaining in Deck",
+      "points_each": 1,
+      "type": "manual",
+      "description": "Cards left in the deck when the game ends. Higher is better (more margin of safety on a win)."
+    },
+    {
+      "id": "game_result",
+      "label": "Game Result",
+      "points_each": 0,
+      "type": "manual",
+      "description": "Win (all 8 Doors found) or Loss (deck exhausted). Enter 1 for win, 0 for loss."
+    }
+  ]
+}

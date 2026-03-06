@@ -1,0 +1,41 @@
+{
+  "game_id": "spyfall",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "spy_no_accusation",
+      "label": "Spy Win (No Accusation)",
+      "points_each": 2,
+      "type": "count",
+      "description": "Spy earns 2 points when no one is successfully accused of being the spy by end of round"
+    },
+    {
+      "id": "spy_wrong_accusation",
+      "label": "Spy Win (Non-Spy Accused)",
+      "points_each": 4,
+      "type": "count",
+      "description": "Spy earns 4 points when a non-spy player is unanimously accused of being the spy"
+    },
+    {
+      "id": "spy_correct_guess",
+      "label": "Spy Win (Guessed Location)",
+      "points_each": 4,
+      "type": "count",
+      "description": "Spy earns 4 points by revealing their spy card and correctly identifying the location"
+    },
+    {
+      "id": "nonspy_win",
+      "label": "Non-Spy Win",
+      "points_each": 1,
+      "type": "count",
+      "description": "Each non-spy earns 1 point when the spy is successfully caught"
+    },
+    {
+      "id": "nonspy_accuser_win",
+      "label": "Non-Spy Win (Made Accusation)",
+      "points_each": 2,
+      "type": "count",
+      "description": "The non-spy who initiated the successful accusation earns 2 points instead of 1"
+    }
+  ]
+}

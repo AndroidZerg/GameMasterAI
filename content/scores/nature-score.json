@@ -1,0 +1,27 @@
+{
+  "game_id": "nature",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "plant_food",
+      "label": "Plant Food",
+      "points_each": 1,
+      "type": "manual",
+      "description": "1 point for each plant token behind your player screen (collected from fed population each round)"
+    },
+    {
+      "id": "meat_food",
+      "label": "Meat Food",
+      "points_each": 1,
+      "type": "manual",
+      "description": "1 point for each meat token behind your player screen (collected from fed population each round)"
+    },
+    {
+      "id": "surviving_species",
+      "label": "Surviving Species",
+      "points_each": 2,
+      "type": "count",
+      "description": "2 points for each species with at least 1 living population at the end of Round 4"
+    }
+  ]
+}

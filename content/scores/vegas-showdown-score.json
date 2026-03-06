@@ -1,0 +1,15 @@
+{
+  "game_id": "vegas-showdown",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "fame_track", "label": "Fame Track", "points_each": 1, "type": "manual", "description": "Fame accumulated on the score track during the game from tiles and Publicity actions"},
+    {"id": "filled_casino", "label": "Filled Casino Section", "points_each": 5, "type": "count", "description": "5 Fame if the yellow casino section is completely filled with yellow and/or green tiles"},
+    {"id": "filled_hotel", "label": "Filled Hotel Section", "points_each": 5, "type": "count", "description": "5 Fame if the blue hotel section is completely filled with blue and/or green tiles"},
+    {"id": "connected", "label": "Connected Hotel-Casino", "points_each": 3, "type": "count", "description": "3 Fame if an uninterrupted path connects your casino entrance to your hotel entrance"},
+    {"id": "highest_population", "label": "Highest Population Bonus", "points_each": 1, "type": "manual", "description": "1st place: 5 Fame, 2nd: 3 Fame, 3rd: 1 Fame (ties split and round down)"},
+    {"id": "highest_revenue", "label": "Highest Revenue Bonus", "points_each": 1, "type": "manual", "description": "1st place: 5 Fame, 2nd: 3 Fame, 3rd: 1 Fame (ties split and round down)"},
+    {"id": "cash_bonus", "label": "Cash Bonus", "points_each": 1, "type": "manual", "description": "1 Fame for each full $10 in cash at end of game"},
+    {"id": "three_quarter_diamonds", "label": "Three-Quarter Diamonds", "points_each": 1, "type": "count", "description": "1 Fame for each three-quarter diamond shape formed by theme bonus symbols"},
+    {"id": "full_diamonds", "label": "Full Diamonds", "points_each": 3, "type": "count", "description": "3 Fame for each full diamond shape formed by theme bonus symbols"}
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "game_id": "vast-the-crystal-caverns",
+  "scoring_type": "win_condition",
+  "categories": [
+    {
+      "id": "knight_treasure",
+      "label": "Knight — Treasure Collected",
+      "points_each": 1,
+      "type": "count",
+      "description": "Knight collects treasure tokens. Wins by killing the Dragon."
+    },
+    {
+      "id": "goblin_tribe_tokens",
+      "label": "Goblins — Tribe Tokens Placed",
+      "points_each": 1,
+      "type": "count",
+      "description": "Goblins scatter tribes across the cave. Wins by killing the Knight."
+    },
+    {
+      "id": "dragon_wakefulness",
+      "label": "Dragon — Wakefulness Track",
+      "points_each": 1,
+      "type": "count",
+      "description": "Dragon awakens over time. Wins by waking up fully and escaping the cave."
+    },
+    {
+      "id": "cave_tiles_collapsed",
+      "label": "Cave — Tiles Collapsed",
+      "points_each": 1,
+      "type": "count",
+      "description": "The Cave grows and collapses. Wins by collapsing enough tiles to bury everyone."
+    },
+    {
+      "id": "thief_treasure_stashed",
+      "label": "Thief — Treasure Stashed",
+      "points_each": 1,
+      "type": "count",
+      "description": "Thief steals and stashes treasure. Wins by collecting and stashing enough loot."
+    }
+  ]
+}
