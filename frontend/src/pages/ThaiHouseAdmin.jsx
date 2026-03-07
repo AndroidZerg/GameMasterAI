@@ -126,7 +126,7 @@ function MenuItemsTab({ categories, toggles, pin, refresh }) {
   };
 
   const handleDeleteItem = async (slug) => {
-    try { await deleteMenuItem(pin, slug); setConfirmDel(null); await refresh(); }
+    try { await deleteMenuItem(slug, pin); setConfirmDel(null); await refresh(); }
     catch (err) { alert("Delete failed: " + err.message); }
   };
 
@@ -257,22 +257,22 @@ function ItemFormModal({ item, category, categories, toggles, pin, onClose, onSa
     setSaving(true); setErr(null);
     try {
       if (isNew) {
-        await createMenuItem(pin, {
+        await createMenuItem({
           category: cat,
           name: name.trim(),
           description: desc.trim(),
           price: parseFloat(price),
           toggles: selectedToggles,
           allows_modifications: allowsMods,
-        });
+        }, pin);
       } else {
-        await updateMenuItem(pin, item.slug, {
+        await updateMenuItem(item.slug, {
           name: name.trim(),
           description: desc.trim(),
           price: parseFloat(price),
           toggles: selectedToggles,
           allows_modifications: allowsMods,
-        });
+        }, pin);
       }
       onSaved();
     } catch (e) { setErr(e.message); }
@@ -371,7 +371,7 @@ function TogglesTab({ toggles: initialToggles, pin, refresh }) {
   };
 
   const handleDelete = async (tid) => {
-    try { await deleteToggle(pin, tid); setConfirmDel(null); await refreshToggles(); }
+    try { await deleteToggle(tid, pin); setConfirmDel(null); await refreshToggles(); }
     catch (err) { alert("Delete failed: " + err.message); }
   };
 
@@ -469,9 +469,9 @@ function ToggleFormModal({ toggle, pin, onClose, onSaved }) {
 
     try {
       if (isNew) {
-        await createToggle(pin, { id: tid, name: name.trim(), required, options: cleanOptions });
+        await createToggle({ id: tid, name: name.trim(), required, options: cleanOptions }, pin);
       } else {
-        await updateToggle(pin, toggle.id, { name: name.trim(), required, options: cleanOptions });
+        await updateToggle(toggle.id, { name: name.trim(), required, options: cleanOptions }, pin);
       }
       onSaved();
     } catch (e) { setErr(e.message); }

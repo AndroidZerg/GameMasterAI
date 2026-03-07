@@ -580,6 +580,12 @@ export const saveDrinkClubPhone = (subscriberId, phone) =>
 
 // ── Menu Admin ──
 
+function _errMsg(e, fallback) {
+  if (typeof e.detail === 'string') return e.detail;
+  if (Array.isArray(e.detail)) return e.detail.map(d => d.msg || JSON.stringify(d)).join('; ');
+  return fallback;
+}
+
 export const getMenuItems = (pin) =>
   fetch(`${API_BASE}/api/admin/menu-items`, {
     headers: { 'X-Staff-Pin': pin }
@@ -594,7 +600,7 @@ export const createMenuItem = (data, pin) =>
     headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
     body: JSON.stringify(data),
   }).then(r => {
-    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Create failed'); });
+    if (!r.ok) return r.json().then(e => { throw new Error(_errMsg(e, 'Create failed')); });
     return r.json();
   });
 
@@ -604,7 +610,7 @@ export const updateMenuItem = (slug, data, pin) =>
     headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
     body: JSON.stringify(data),
   }).then(r => {
-    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Update failed'); });
+    if (!r.ok) return r.json().then(e => { throw new Error(_errMsg(e, 'Update failed')); });
     return r.json();
   });
 
