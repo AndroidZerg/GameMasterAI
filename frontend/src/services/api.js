@@ -300,6 +300,23 @@ export async function placeOrder(order) {
   return handleResponse(res);
 }
 
+// ── Print Queue (admin) ──
+
+export async function fetchPrintStatus() {
+  const res = await fetch(`${API_BASE}/api/admin/print-status`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function reprintOrder(orderId) {
+  const res = await fetch(`${API_BASE}/api/print-queue/${orderId}/reprint`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
 // ── Lobby endpoints (no auth required) ──
 
 export async function createLobby(gameId, hostName) {
@@ -505,6 +522,42 @@ export async function fetchPendingFulfillments(venueId) {
   });
   return handleResponse(res);
 }
+
+// ── Thai House Public ──
+
+export const fetchPublicMenu = (slug) =>
+  fetch(`${API_BASE}/api/public/menu/${slug}`).then(r => r.json());
+
+export const placePublicOrder = (slug, order) =>
+  fetch(`${API_BASE}/api/public/order/${slug}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(order)
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Order failed'); });
+    return r.json();
+  });
+
+export const lookupDrinkMember = (email) =>
+  fetch(`${API_BASE}/api/thaihouse/member?email=${encodeURIComponent(email)}`).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Not found'); });
+    return r.json();
+  });
+
+export const staffSearch = (query, pin) =>
+  fetch(`${API_BASE}/api/thaihouse/staff/search?q=${encodeURIComponent(query)}`, {
+    headers: { 'X-Staff-Pin': pin }
+  }).then(r => r.json());
+
+export const staffRedeem = (subscriberId, pin, drinkName) =>
+  fetch(`${API_BASE}/api/thaihouse/staff/redeem`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subscriber_id: subscriberId, staff_pin: pin, drink_name: drinkName })
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Redeem failed'); });
+    return r.json();
+  });
 
 // ── Device session endpoints (no auth required) ──
 

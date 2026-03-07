@@ -10,6 +10,7 @@ import stripe
 from fastapi import APIRouter, Request, HTTPException
 
 from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
+from app.models.drink_club import upsert_subscriber, update_subscriber_status
 
 router = APIRouter(prefix="/api/v1/webhooks", tags=["webhooks"])
 
@@ -303,16 +304,81 @@ async def stripe_webhook(request: Request):
     data_object = event.get("data", {}).get("object", {})
 
     if event_type == "checkout.session.completed":
-        _handle_checkout_completed(data_object)
+        meta = (data_object.get("metadata") or {})
+        if meta.get("drink_club"):
+            _handle_drink_club_checkout(data_object)
+        else:
+            _handle_checkout_completed(data_object)
     elif event_type == "invoice.payment_succeeded":
         _handle_invoice_succeeded(data_object)
     elif event_type == "invoice.payment_failed":
         _handle_invoice_failed(data_object)
+        _handle_drink_club_sub_event(data_object, "past_due")
+    elif event_type == "customer.subscription.updated":
+        _handle_drink_club_sub_update(data_object)
     elif event_type == "customer.subscription.deleted":
         _handle_subscription_deleted(data_object)
+        _handle_drink_club_sub_event(data_object, "canceled")
     elif event_type == "payment_intent.succeeded":
         _handle_payment_intent_succeeded(data_object)
     elif event_type == "charge.refunded":
         _handle_charge_refunded(data_object)
 
     return {"received": True}
+
+
+# ── Drink Club webhook handlers ──────────────────────────────────
+
+def _handle_drink_club_checkout(session):
+    """Drink club checkout.session.completed — create subscriber record."""
+    import secrets
+    meta = session.get("metadata") or {}
+    email = (session.get("customer_details") or {}).get("email", "")
+    name = (session.get("customer_details") or {}).get("name", "")
+    if not email:
+        email = meta.get("email", "")
+    if not name:
+        name = meta.get("name", email)
+
+    customer_id = session.get("customer", "")
+    subscription_id = session.get("subscription", "")
+    qr_code = secrets.token_urlsafe(16)
+
+    upsert_subscriber(
+        name=name,
+        email=email.lower(),
+        phone=meta.get("phone", ""),
+        stripe_customer_id=customer_id,
+        stripe_subscription_id=subscription_id,
+        qr_code=qr_code,
+        status="active",
+    )
+    _telegram_notify(f"New Drink Club member: {name} ({email})")
+
+
+def _handle_drink_club_sub_update(subscription):
+    """customer.subscription.updated — update drink club subscriber status."""
+    meta = (subscription.get("metadata") or {})
+    if not meta.get("drink_club"):
+        return
+    sub_id = subscription.get("id", "")
+    status = subscription.get("status", "active")
+    status_map = {"active": "active", "past_due": "past_due",
+                  "canceled": "canceled", "unpaid": "past_due",
+                  "trialing": "active"}
+    update_subscriber_status(sub_id, status_map.get(status, status))
+
+
+def _handle_drink_club_sub_event(data_object, new_status: str):
+    """Generic handler for drink club subscription lifecycle events."""
+    sub_id = data_object.get("subscription") or data_object.get("id", "")
+    if not sub_id:
+        return
+    try:
+        sub = stripe.Subscription.retrieve(sub_id)
+    except Exception:
+        return
+    meta = (sub.get("metadata") or {})
+    if not meta.get("drink_club"):
+        return
+    update_subscriber_status(sub_id, new_status)

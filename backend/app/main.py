@@ -4,9 +4,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
+from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
+from app.core.limiter import limiter
 
 from app.api.routes.dashboard import router as dashboard_router
 from app.api.routes.games import router as games_router
@@ -29,6 +29,7 @@ from app.api.routes.score_history import router as score_history_router
 from app.api.routes.menu import router as menu_router
 from app.api.routes.lobby import router as lobby_router
 from app.api.routes.orders import router as orders_router
+from app.api.routes.print_queue import router as print_queue_router
 from app.api.routes.onboarding import router as onboarding_router
 from app.api.routes.venue_dashboard import router as venue_dashboard_router
 from app.api.routes.crm import router as crm_router
@@ -43,6 +44,8 @@ from app.api.routes.webhooks import router as webhooks_router
 from app.api.routes.game_selection import router as game_selection_router
 from app.api.routes.lgs_dashboard import router as lgs_dashboard_router
 from app.api.routes.shop import router as shop_router
+from app.api.routes.thaihouse import router as thaihouse_router
+from app.api.routes.drink_club import router as drink_club_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -55,16 +58,14 @@ from app.models.game import search_limited_library
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
-from app.models.orders import init_orders_table
+from app.models.orders import init_orders_table, init_print_queue_tables
 from app.services.turso import init_analytics_tables as init_turso_analytics
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-
-
-limiter = Limiter(key_func=get_remote_address)
+from app.models.drink_club import init_drink_club_tables
 
 
 @asynccontextmanager
@@ -80,11 +81,13 @@ async def lifespan(app: FastAPI):
     init_score_history_table()
     init_house_rules_table()
     init_orders_table()
+    init_print_queue_tables()
     init_rental_tables()
     init_turso_analytics()
     init_device_session_tables()
     run_venue_platform_migrations()
     init_marketplace_tables()
+    init_drink_club_tables()
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmg2026")
@@ -174,8 +177,9 @@ app.include_router(export_router)
 # --- Lobby ---
 app.include_router(lobby_router)
 
-# --- Orders ---
+# --- Orders & Print Queue ---
 app.include_router(orders_router)
+app.include_router(print_queue_router)
 
 # --- Rentals ---
 app.include_router(rentals_router)
@@ -187,6 +191,10 @@ app.include_router(webhooks_router)
 app.include_router(game_selection_router)
 app.include_router(lgs_dashboard_router)
 app.include_router(shop_router)
+
+# --- Thai House Public ---
+app.include_router(thaihouse_router)
+app.include_router(drink_club_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

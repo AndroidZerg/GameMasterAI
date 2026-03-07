@@ -9,6 +9,7 @@ router = APIRouter(prefix="/api", tags=["images"])
 
 _IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images"
 _VENUE_LOGOS_DIR = Path(__file__).resolve().parents[4] / "content" / "venue-logos"
+_MENU_IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images" / "menu"
 
 
 @router.get("/images/venue-logos/{filename}")
@@ -20,6 +21,21 @@ async def get_venue_logo(filename: str):
     if not filepath.exists():
         raise HTTPException(status_code=404, detail="Logo not found")
     return FileResponse(filepath, media_type="image/png")
+
+
+@router.get("/images/menu/{filename}")
+async def get_menu_image(filename: str):
+    """Serve menu food photos with caching."""
+    if ".." in filename or "/" in filename or "\\" in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    filepath = _MENU_IMAGES_DIR / filename
+    if not filepath.exists():
+        raise HTTPException(status_code=404, detail="Image not found")
+    suffix = filepath.suffix.lower()
+    media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
+             "webp": "image/webp"}.get(suffix.lstrip("."), "image/jpeg")
+    return FileResponse(filepath, media_type=media,
+                        headers={"Cache-Control": "public, max-age=86400"})
 
 
 @router.get("/images/{game_id}/{filename}")

@@ -51,6 +51,14 @@ STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
 STRIPE_PRICE_STARTER = os.getenv("STRIPE_PRICE_STARTER", "")
 STRIPE_PRICE_STANDARD = os.getenv("STRIPE_PRICE_STANDARD", "")
 STRIPE_PRICE_PREMIUM = os.getenv("STRIPE_PRICE_PREMIUM", "")
+STRIPE_DRINK_CLUB_PRICE_ID = os.getenv("STRIPE_DRINK_CLUB_PRICE_ID", "")
+STRIPE_DRINK_CLUB_PAYMENT_LINK = os.getenv("STRIPE_DRINK_CLUB_PAYMENT_LINK", "")
+
+# ── Drink Club ──────────────────────────────────────────────────
+DRINK_CLUB_STAFF_PIN = os.getenv("DRINK_CLUB_STAFF_PIN", "1234")
+
+# ── Print Agent ──────────────────────────────────────────────────
+PRINT_AGENT_API_KEY = os.getenv("PRINT_AGENT_API_KEY", "")
 
 # ── Auth / JWT ───────────────────────────────────────────────────
 JWT_SECRET = os.getenv("JWT_SECRET", "gmai-dev-secret-change-in-production-2026")

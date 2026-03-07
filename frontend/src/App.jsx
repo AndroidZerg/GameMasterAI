@@ -31,6 +31,12 @@ import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import LGSDashboard from "./pages/LGSDashboard";
 import PlayLanding from "./components/PlayLanding";
+import ThaiHousePage from "./pages/ThaiHousePage";
+import DrinkClubPage from "./pages/DrinkClubPage";
+import DrinkClubWelcome from "./pages/DrinkClubWelcome";
+import DrinkClubMember from "./pages/DrinkClubMember";
+import StaffPage from "./pages/StaffPage";
+import StaffRedeem from "./pages/StaffRedeem";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -157,7 +163,17 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <AppShell />
+        <Routes>
+          {/* Thai House public routes — no app shell, no auth */}
+          <Route path="/thaihouse" element={<ThaiHousePage />} />
+          <Route path="/thaihouse/drinks" element={<DrinkClubPage />} />
+          <Route path="/thaihouse/drinks/welcome" element={<DrinkClubWelcome />} />
+          <Route path="/thaihouse/drinks/member" element={<DrinkClubMember />} />
+          <Route path="/thaihouse/staff" element={<StaffPage />} />
+          <Route path="/thaihouse/staff/redeem" element={<StaffRedeem />} />
+          {/* Main GMAI app */}
+          <Route path="/*" element={<AppShell />} />
+        </Routes>
       </AuthProvider>
     </BrowserRouter>
   );

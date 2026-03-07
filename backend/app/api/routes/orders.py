@@ -1,5 +1,6 @@
 """Orders endpoints — place orders, admin list, Telegram notification."""
 
+import json
 import logging
 import os
 from datetime import datetime, timezone, timedelta
@@ -11,7 +12,10 @@ from typing import Optional, List
 
 from app.core.auth import get_current_venue
 from app.core.config import THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID
-from app.models.orders import create_order, get_orders, update_order_status
+from app.models.orders import (
+    create_order, get_orders, update_order_status,
+    next_order_number, insert_print_queue,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -107,8 +111,13 @@ async def place_order(req: PlaceOrderRequest):
         raise HTTPException(status_code=400, detail="Total must be positive")
 
     items_list = [it.model_dump() for it in req.items]
+    venue_id = req.venue_id or "default"
+
+    # Generate per-venue order number
+    order_number = next_order_number(venue_id)
+
     order_id = create_order(
-        venue_id=req.venue_id,
+        venue_id=venue_id,
         session_id=req.session_id,
         items=items_list,
         total=req.total,
@@ -124,14 +133,26 @@ async def place_order(req: PlaceOrderRequest):
     )
 
     # 2. Thai House bot (meetup orders only)
-    if req.venue_id == "meetup":
+    if venue_id == "meetup":
         _send_thai_house_order(
             items=items_list,
             total=req.total,
             customer_name=req.customer_name or "",
         )
 
-    return {"order_id": order_id, "success": True}
+    # 3. Print queue — local thermal printer agent polls for these
+    try:
+        order_data = json.dumps({
+            "items": items_list,
+            "total": req.total,
+            "customer_name": req.customer_name or "Guest",
+            "session_id": req.session_id or "",
+        })
+        insert_print_queue(order_id, venue_id, order_data, order_number)
+    except Exception as e:
+        logger.error(f"Failed to insert print queue record: {e}")
+
+    return {"order_id": order_id, "order_number": order_number, "success": True}
 
 
 @router.get("/admin/orders")
