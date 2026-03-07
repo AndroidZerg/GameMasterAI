@@ -37,6 +37,7 @@ import DrinkClubWelcome from "./pages/DrinkClubWelcome";
 import DrinkClubMember from "./pages/DrinkClubMember";
 import StaffPage from "./pages/StaffPage";
 import StaffRedeem from "./pages/StaffRedeem";
+import ThaiHousePhotoAdmin from "./pages/ThaiHousePhotoAdmin";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -171,6 +172,7 @@ function App() {
           <Route path="/thaihouse/drinks/member" element={<DrinkClubMember />} />
           <Route path="/thaihouse/staff" element={<StaffPage />} />
           <Route path="/thaihouse/staff/redeem" element={<StaffRedeem />} />
+          <Route path="/thaihouse/admin/photos" element={<ThaiHousePhotoAdmin />} />
           {/* Main GMAI app */}
           <Route path="/*" element={<AppShell />} />
         </Routes>

@@ -1,5 +1,6 @@
 """Drink Club model — SQLite persistence for drink subscriptions and redemptions."""
 
+import re
 import sqlite3
 from datetime import datetime, timedelta, timezone
 
@@ -38,6 +39,11 @@ def init_drink_club_tables():
                 UNIQUE(subscriber_id, week_start)
             )
         """)
+        # Ensure phone index exists for lookups
+        conn.execute("""
+            CREATE INDEX IF NOT EXISTS idx_drink_subscribers_phone
+            ON drink_subscribers(phone)
+        """)
         conn.commit()
 
 
@@ -48,11 +54,32 @@ def _current_week_start() -> str:
     return monday.strftime("%Y-%m-%d")
 
 
+def _normalize_phone(phone: str) -> str:
+    """Normalize phone to digits-only, with leading 1 for US numbers."""
+    digits = re.sub(r"\D", "", phone)
+    if len(digits) == 10:
+        digits = "1" + digits
+    return digits
+
+
 def get_subscriber_by_email(email: str) -> dict | None:
     with sqlite3.connect(DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         row = conn.execute(
             "SELECT * FROM drink_subscribers WHERE email = ?", (email,)
+        ).fetchone()
+        return dict(row) if row else None
+
+
+def get_subscriber_by_phone(phone: str) -> dict | None:
+    """Look up subscriber by normalized phone number."""
+    normalized = _normalize_phone(phone)
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.row_factory = sqlite3.Row
+        # Try exact match on normalized digits
+        row = conn.execute(
+            "SELECT * FROM drink_subscribers WHERE REPLACE(REPLACE(REPLACE(REPLACE(phone, '-', ''), ' ', ''), '(', ''), ')', '') LIKE ?",
+            (f"%{normalized[-10:]}%",)
         ).fetchone()
         return dict(row) if row else None
 
@@ -154,5 +181,16 @@ def update_subscriber_status(stripe_subscription_id: str, status: str):
         conn.execute(
             "UPDATE drink_subscribers SET subscription_status=?, updated_at=? WHERE stripe_subscription_id=?",
             (status, now, stripe_subscription_id),
+        )
+        conn.commit()
+
+
+def update_subscriber_phone(subscriber_id: int, phone: str):
+    """Update phone number for a subscriber."""
+    now = datetime.now(timezone.utc).isoformat()
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(
+            "UPDATE drink_subscribers SET phone=?, updated_at=? WHERE id=?",
+            (phone, now, subscriber_id),
         )
         conn.commit()

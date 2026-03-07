@@ -14,6 +14,10 @@ from typing import List, Optional
 from app.core.config import THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID
 from app.core.limiter import limiter
 from app.models.orders import create_order, next_order_number, insert_print_queue
+from app.models.drink_club import (
+    get_subscriber_by_phone, get_week_redemption, _current_week_start,
+    create_redemption,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -31,12 +35,17 @@ class PublicOrderItem(BaseModel):
     name: str
     price: float
     quantity: int = 1
+    protein: Optional[str] = None
+    spice_level: Optional[int] = None
+    notes: Optional[str] = None
+    is_drink_club: bool = False
 
 
 class PublicOrderRequest(BaseModel):
     customer_name: str
     items: List[PublicOrderItem]
     total: float
+    table_number: Optional[int] = None
 
 
 @router.get("/menu/{venue_slug}")
@@ -63,8 +72,15 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         raise HTTPException(status_code=400, detail="Order must have at least one item")
     if not req.customer_name.strip():
         raise HTTPException(status_code=400, detail="Customer name is required")
-    if req.total <= 0:
-        raise HTTPException(status_code=400, detail="Total must be positive")
+    if req.total < 0:
+        raise HTTPException(status_code=400, detail="Total must not be negative")
+
+    # Validate drink club items
+    for item in req.items:
+        if item.is_drink_club:
+            # Drink club validation happens at checkout — price must be 0
+            if item.price != 0:
+                raise HTTPException(status_code=400, detail="Drink club items must be free")
 
     items_list = [it.model_dump() for it in req.items]
 
@@ -77,15 +93,19 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         customer_name=req.customer_name.strip(),
     )
 
+    table_str = f" (Table {req.table_number})" if req.table_number else ""
+
     # Telegram: GMAI Leads bot
     _send_telegram(
         TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
+        req.table_number,
     )
     # Telegram: Thai House Orders bot
     _send_telegram(
         THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
+        req.table_number,
     )
 
     # Print queue
@@ -94,6 +114,7 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
             "items": items_list,
             "total": req.total,
             "customer_name": req.customer_name.strip(),
+            "table_number": req.table_number,
             "session_id": "",
         })
         insert_print_queue(order_id, venue_id, order_data, order_number)
@@ -104,20 +125,35 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
 
 
 def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
-                   customer_name: str, order_number: int):
+                   customer_name: str, order_number: int,
+                   table_number: int = None):
     if not bot_token or not chat_id:
         return
     pt = timezone(timedelta(hours=-8))
     now_pt = datetime.now(pt).strftime("%I:%M %p PT")
-    item_lines = "\n".join(
-        f"  {it['quantity']}x {it['name']} -- ${it['price'] * it['quantity']:.2f}"
-        for it in items
-    )
+
+    item_lines = []
+    for it in items:
+        line = f"  {it['quantity']}x {it['name']} -- ${it['price'] * it['quantity']:.2f}"
+        extras = []
+        if it.get("protein"):
+            extras.append(it["protein"])
+        if it.get("spice_level") is not None:
+            extras.append(f"Spice: {it['spice_level']}")
+        if it.get("is_drink_club"):
+            extras.append("DRINK CLUB")
+        if extras:
+            line += f"\n     > {', '.join(extras)}"
+        if it.get("notes"):
+            line += f"\n     > {it['notes']}"
+        item_lines.append(line)
+
+    table_line = f"\nTable: {table_number}" if table_number else ""
     text = (
         f"Thai House Menu Order #{order_number}\n"
         f"{now_pt}\n"
-        f"Name: {customer_name}\n\n"
-        f"Order:\n{item_lines}\n\n"
+        f"Name: {customer_name}{table_line}\n\n"
+        f"Order:\n" + "\n".join(item_lines) + f"\n\n"
         f"Total: ${total:.2f}"
     )
     try:

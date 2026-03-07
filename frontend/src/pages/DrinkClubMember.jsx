@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { lookupDrinkMember } from "../services/api";
 
@@ -8,18 +8,25 @@ const THEME = {
 };
 
 export default function DrinkClubMember() {
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [member, setMember] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleLookup = async (e) => {
-    e.preventDefault();
-    if (!email.trim()) return;
+  // Auto-lookup if phone is saved
+  useEffect(() => {
+    const saved = localStorage.getItem("thaihouse_dc_phone");
+    if (saved) {
+      setPhone(saved);
+      doLookup(saved);
+    }
+  }, []);
+
+  const doLookup = async (phoneNum) => {
     setLoading(true);
     setError(null);
     try {
-      const data = await lookupDrinkMember(email.trim());
+      const data = await lookupDrinkMember(phoneNum);
       setMember(data);
     } catch (err) {
       setError(err.message);
@@ -27,6 +34,13 @@ export default function DrinkClubMember() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleLookup = async (e) => {
+    e.preventDefault();
+    if (!phone.trim()) return;
+    localStorage.setItem("thaihouse_dc_phone", phone.trim());
+    doLookup(phone.trim());
   };
 
   return (
@@ -41,10 +55,10 @@ export default function DrinkClubMember() {
         {!member && (
           <form onSubmit={handleLookup}>
             <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="tel"
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               style={styles.input}
             />
             <button type="submit" disabled={loading} style={{ ...styles.btn, width: "100%", opacity: loading ? 0.5 : 1 }}>
@@ -81,23 +95,9 @@ export default function DrinkClubMember() {
                 <div style={{ color: member.redeemed_this_week ? THEME.textSecondary : THEME.accent, fontSize: 14 }}>
                   {member.redeemed_this_week
                     ? `Redeemed: ${member.redemption?.drink_name || "Specialty drink"}`
-                    : "Available! Visit Thai House to redeem your drink."}
+                    : "Available! Order from the menu to claim your drink."}
                 </div>
               </div>
-
-              {/* QR Code */}
-              {member.qr_code && (
-                <div style={{ textAlign: "center", padding: "12px 0" }}>
-                  <div style={{ color: THEME.textSecondary, fontSize: 12, marginBottom: 8 }}>Your Member Code</div>
-                  <div style={{
-                    fontFamily: "monospace", fontSize: 18, color: THEME.accent,
-                    background: THEME.bg, padding: "10px 16px", borderRadius: 8,
-                    letterSpacing: 2, wordBreak: "break-all",
-                  }}>
-                    {member.qr_code}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Redemption History */}
@@ -117,7 +117,7 @@ export default function DrinkClubMember() {
               </div>
             )}
 
-            <button onClick={() => { setMember(null); setEmail(""); }}
+            <button onClick={() => { setMember(null); setPhone(""); localStorage.removeItem("thaihouse_dc_phone"); }}
               style={{ ...styles.btn, width: "100%", marginTop: 24, background: "transparent",
                        border: `1px solid ${THEME.accent}`, color: THEME.accent }}>
               Look Up Another

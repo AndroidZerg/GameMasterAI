@@ -33,6 +33,12 @@ def format_receipt(order, venue_name="Thai House", venue_tagline=""):
         customer = order.get("customer_name", "Guest")
         printer.set(align="center", bold=True)
         printer.text(f"Name: {customer}\n")
+
+        # ===== TABLE NUMBER =====
+        table_number = order.get("table_number")
+        if table_number:
+            printer.text(f"Table: {table_number}\n")
+
         printer.set(bold=False)
         printer.text("-" * RECEIPT_WIDTH + "\n")
 
@@ -61,6 +67,23 @@ def format_receipt(order, venue_name="Thai House", venue_tagline=""):
                 spaces = RECEIPT_WIDTH - len(left) - len(right)
 
             printer.text(f"{left}{' ' * max(spaces, 1)}{right}\n")
+
+            # Customization sub-lines
+            extras = []
+            if item.get("protein"):
+                extras.append(item["protein"])
+            if item.get("spice_level") is not None:
+                extras.append(f"Spice: {item['spice_level']}")
+            if item.get("is_drink_club"):
+                extras.append("DRINK CLUB")
+            if extras:
+                printer.set(bold=False)
+                printer.text(f"   > {', '.join(extras)}\n")
+                printer.set(bold=True)
+            if item.get("notes"):
+                printer.set(bold=False)
+                printer.text(f"   > {item['notes']}\n")
+                printer.set(bold=True)
 
         printer.set(bold=False)
         printer.text("-" * RECEIPT_WIDTH + "\n")

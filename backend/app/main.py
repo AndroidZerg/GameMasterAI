@@ -46,6 +46,7 @@ from app.api.routes.lgs_dashboard import router as lgs_dashboard_router
 from app.api.routes.shop import router as shop_router
 from app.api.routes.thaihouse import router as thaihouse_router
 from app.api.routes.drink_club import router as drink_club_router
+from app.api.routes.menu_photos import router as menu_photos_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -195,6 +196,7 @@ app.include_router(shop_router)
 # --- Thai House Public ---
 app.include_router(thaihouse_router)
 app.include_router(drink_club_router)
+app.include_router(menu_photos_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

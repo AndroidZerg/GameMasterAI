@@ -538,11 +538,16 @@ export const placePublicOrder = (slug, order) =>
     return r.json();
   });
 
-export const lookupDrinkMember = (email) =>
-  fetch(`${API_BASE}/api/thaihouse/member?email=${encodeURIComponent(email)}`).then(r => {
+export const lookupDrinkMember = (emailOrPhone) => {
+  const isPhone = /^\d/.test(emailOrPhone.replace(/[\s\-()]/g, ''));
+  const param = isPhone
+    ? `phone=${encodeURIComponent(emailOrPhone)}`
+    : `email=${encodeURIComponent(emailOrPhone)}`;
+  return fetch(`${API_BASE}/api/thaihouse/member?${param}`).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Not found'); });
     return r.json();
   });
+};
 
 export const staffSearch = (query, pin) =>
   fetch(`${API_BASE}/api/thaihouse/staff/search?q=${encodeURIComponent(query)}`, {
@@ -556,6 +561,52 @@ export const staffRedeem = (subscriberId, pin, drinkName) =>
     body: JSON.stringify({ subscriber_id: subscriberId, staff_pin: pin, drink_name: drinkName })
   }).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Redeem failed'); });
+    return r.json();
+  });
+
+export const verifyDrinkClub = (phone) =>
+  fetch(`${API_BASE}/api/thaihouse/drink-club/verify`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone })
+  }).then(r => r.json());
+
+export const saveDrinkClubPhone = (subscriberId, phone) =>
+  fetch(`${API_BASE}/api/thaihouse/drink-club/save-phone`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subscriber_id: subscriberId, phone })
+  }).then(r => r.json());
+
+// ── Admin Photo Management ──
+
+export const listMenuItems = (pin) =>
+  fetch(`${API_BASE}/api/admin/menu-items`, {
+    headers: { 'X-Admin-Pin': pin }
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Forbidden'); });
+    return r.json();
+  });
+
+export const uploadMenuPhoto = (slug, file, pin) => {
+  const form = new FormData();
+  form.append('file', file);
+  return fetch(`${API_BASE}/api/admin/menu-photos/${slug}`, {
+    method: 'POST',
+    headers: { 'X-Admin-Pin': pin },
+    body: form,
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Upload failed'); });
+    return r.json();
+  });
+};
+
+export const deleteMenuPhoto = (slug, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-photos/${slug}`, {
+    method: 'DELETE',
+    headers: { 'X-Admin-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Delete failed'); });
     return r.json();
   });
 

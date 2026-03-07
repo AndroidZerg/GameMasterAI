@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { API_BASE } from "../services/api";
+import { saveDrinkClubPhone } from "../services/api";
 
 const THEME = {
   bg: "#1a1210", card: "#2a1f1a", accent: "#d4a843",
@@ -10,21 +10,29 @@ const THEME = {
 export default function DrinkClubWelcome() {
   const [params] = useSearchParams();
   const sessionId = params.get("session_id");
-  const [member, setMember] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const subscriberId = params.get("sub_id");
+  const [phone, setPhone] = useState("");
+  const [phoneSaved, setPhoneSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     document.title = "Welcome to Drink Club!";
-    if (!sessionId) {
-      setError("No session ID provided");
-      setLoading(false);
-      return;
+  }, []);
+
+  const handleSavePhone = async (e) => {
+    e.preventDefault();
+    if (!phone.trim() || !subscriberId) return;
+    setSaving(true);
+    try {
+      await saveDrinkClubPhone(parseInt(subscriberId, 10), phone.trim());
+      localStorage.setItem("thaihouse_dc_phone", phone.trim());
+      setPhoneSaved(true);
+    } catch {
+      alert("Failed to save phone number. Please try again.");
+    } finally {
+      setSaving(false);
     }
-    // Look up session via backend (the checkout webhook should have created the subscriber)
-    // For now, show a generic welcome since we don't have a session lookup endpoint
-    setLoading(false);
-  }, [sessionId]);
+  };
 
   return (
     <div style={styles.page}>
@@ -37,24 +45,42 @@ export default function DrinkClubWelcome() {
           Your subscription is active. You can redeem one specialty drink per week at Thai House.
         </p>
 
-        {member?.qr_code && (
-          <div style={styles.qrCard}>
-            <div style={{ color: THEME.accent, fontWeight: 700, marginBottom: 12 }}>Your Member Code</div>
-            <div style={{ fontFamily: "monospace", fontSize: 20, color: THEME.text, letterSpacing: 2,
-                          background: THEME.bg, padding: "12px 20px", borderRadius: 8, wordBreak: "break-all" }}>
-              {member.qr_code}
+        {!phoneSaved ? (
+          <div style={styles.phoneCard}>
+            <div style={{ color: THEME.accent, fontWeight: 700, marginBottom: 8, fontSize: 16 }}>
+              Save Your Phone Number
             </div>
-            <p style={{ color: THEME.textSecondary, fontSize: 12, marginTop: 8 }}>
-              Show this code to staff when redeeming
+            <p style={{ color: THEME.textSecondary, fontSize: 13, marginBottom: 16 }}>
+              We'll use your phone number to look up your membership when you order.
+            </p>
+            <form onSubmit={handleSavePhone}>
+              <input
+                type="tel"
+                placeholder="(555) 123-4567"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                style={styles.input}
+              />
+              <button type="submit" disabled={saving || !phone.trim()} style={{
+                ...styles.btn, width: "100%",
+                opacity: saving || !phone.trim() ? 0.5 : 1,
+              }}>
+                {saving ? "Saving..." : "Save & Continue"}
+              </button>
+            </form>
+          </div>
+        ) : (
+          <div style={styles.phoneCard}>
+            <div style={{ color: "#27ae60", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>
+              Phone Saved!
+            </div>
+            <p style={{ color: THEME.text, fontSize: 14 }}>
+              You're all set. When you visit Thai House, your free drink will appear automatically on the menu.
             </p>
           </div>
         )}
 
-        <p style={{ color: THEME.textSecondary, fontSize: 14, margin: "24px 0" }}>
-          Save this page or bookmark it for easy access!
-        </p>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24 }}>
           <Link to="/thaihouse/drinks/member" style={{ ...styles.btn, textDecoration: "none" }}>
             Go to Member Portal
           </Link>
@@ -72,9 +98,15 @@ const styles = {
     background: THEME.bg, minHeight: "100vh", color: THEME.text,
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   },
-  qrCard: {
+  phoneCard: {
     background: THEME.card, padding: 24, borderRadius: 16,
     border: `1.5px solid ${THEME.accent}`, marginBottom: 24,
+  },
+  input: {
+    width: "100%", padding: "14px 16px", borderRadius: 10,
+    border: `1px solid ${THEME.textSecondary}60`, background: THEME.bg,
+    color: THEME.text, fontSize: 16, marginBottom: 12, boxSizing: "border-box",
+    outline: "none",
   },
   btn: {
     display: "block", padding: "14px 28px", borderRadius: 12, border: "none",
