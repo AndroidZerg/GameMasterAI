@@ -14,6 +14,7 @@ export default function DrinkClubWelcome() {
   const [phone, setPhone] = useState("");
   const [phoneSaved, setPhoneSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     document.title = "Welcome to Drink Club!";
@@ -21,14 +22,23 @@ export default function DrinkClubWelcome() {
 
   const handleSavePhone = async (e) => {
     e.preventDefault();
-    if (!phone.trim() || !subscriberId) return;
+    if (!phone.trim()) return;
+    if (!subscriberId && !sessionId) {
+      setError("Missing session info. Please use the link from your checkout confirmation email.");
+      return;
+    }
     setSaving(true);
+    setError(null);
     try {
-      await saveDrinkClubPhone(parseInt(subscriberId, 10), phone.trim());
+      await saveDrinkClubPhone({
+        subscriberId: subscriberId ? parseInt(subscriberId, 10) : null,
+        sessionId: sessionId || null,
+        phone: phone.trim(),
+      });
       localStorage.setItem("thaihouse_dc_phone", phone.trim());
       setPhoneSaved(true);
-    } catch {
-      alert("Failed to save phone number. Please try again.");
+    } catch (err) {
+      setError(err.message || "Failed to save phone number. Please try again.");
     } finally {
       setSaving(false);
     }
@@ -61,6 +71,9 @@ export default function DrinkClubWelcome() {
                 onChange={(e) => setPhone(e.target.value)}
                 style={styles.input}
               />
+              {error && (
+                <p style={{ color: "#e74c3c", fontSize: 13, marginBottom: 12 }}>{error}</p>
+              )}
               <button type="submit" disabled={saving || !phone.trim()} style={{
                 ...styles.btn, width: "100%",
                 opacity: saving || !phone.trim() ? 0.5 : 1,

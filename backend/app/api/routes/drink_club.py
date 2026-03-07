@@ -4,16 +4,20 @@ import os
 import sqlite3
 import logging
 
+import stripe
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 from typing import Optional
 
+from app.core.config import STRIPE_SECRET_KEY
 from app.models.drink_club import (
     get_subscriber_by_email, get_subscriber_by_phone, get_subscriber_by_qr,
     get_subscriber_by_id, search_subscribers, get_week_redemption,
     get_redemption_history, create_redemption, _current_week_start,
     update_subscriber_phone,
 )
+
+stripe.api_key = STRIPE_SECRET_KEY
 
 logger = logging.getLogger(__name__)
 
@@ -85,18 +89,41 @@ async def verify_drink_club(req: PhoneVerifyRequest):
 
 
 class SavePhoneRequest(BaseModel):
-    subscriber_id: int
+    subscriber_id: Optional[int] = None
+    session_id: Optional[str] = None
     phone: str
 
 
 @router.post("/drink-club/save-phone")
 async def save_phone(req: SavePhoneRequest):
-    """Save phone number for a subscriber (post-checkout)."""
-    sub = get_subscriber_by_id(req.subscriber_id)
+    """Save phone number for a subscriber (post-checkout).
+
+    Accepts either subscriber_id (direct DB lookup) or session_id
+    (Stripe checkout session → email → subscriber lookup).
+    """
+    sub = None
+
+    if req.subscriber_id:
+        sub = get_subscriber_by_id(req.subscriber_id)
+    elif req.session_id:
+        try:
+            session = stripe.checkout.Session.retrieve(req.session_id)
+            email = (session.get("customer_details") or {}).get("email", "")
+            if email:
+                sub = get_subscriber_by_email(email.lower())
+        except Exception as e:
+            logger.warning("Stripe session lookup failed for %s: %s", req.session_id, e)
+            raise HTTPException(status_code=400, detail="Could not verify checkout session")
+    else:
+        raise HTTPException(status_code=400, detail="subscriber_id or session_id required")
+
     if not sub:
-        raise HTTPException(status_code=404, detail="Subscriber not found")
-    update_subscriber_phone(req.subscriber_id, req.phone.strip())
-    return {"success": True}
+        raise HTTPException(
+            status_code=404,
+            detail="Subscriber not found. Your subscription may still be processing — please wait a moment and try again.",
+        )
+    update_subscriber_phone(sub["id"], req.phone.strip())
+    return {"success": True, "subscriber_id": sub["id"]}
 
 
 @router.get("/staff/search")

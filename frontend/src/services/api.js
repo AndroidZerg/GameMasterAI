@@ -571,12 +571,19 @@ export const verifyDrinkClub = (phone) =>
     body: JSON.stringify({ phone })
   }).then(r => r.json());
 
-export const saveDrinkClubPhone = (subscriberId, phone) =>
+export const saveDrinkClubPhone = ({ subscriberId, sessionId, phone }) =>
   fetch(`${API_BASE}/api/thaihouse/drink-club/save-phone`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ subscriber_id: subscriberId, phone })
-  }).then(r => r.json());
+    body: JSON.stringify({
+      ...(subscriberId ? { subscriber_id: subscriberId } : {}),
+      ...(sessionId ? { session_id: sessionId } : {}),
+      phone,
+    })
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(_errMsg(e, 'Failed to save phone')); });
+    return r.json();
+  });
 
 // ── Menu Admin ──
 
