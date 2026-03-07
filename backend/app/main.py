@@ -42,6 +42,7 @@ from app.api.routes.venue_subscriptions import router as venue_sub_router
 from app.api.routes.webhooks import router as webhooks_router
 from app.api.routes.game_selection import router as game_selection_router
 from app.api.routes.lgs_dashboard import router as lgs_dashboard_router
+from app.api.routes.shop import router as shop_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -185,6 +186,7 @@ app.include_router(venue_sub_router)
 app.include_router(webhooks_router)
 app.include_router(game_selection_router)
 app.include_router(lgs_dashboard_router)
+app.include_router(shop_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

@@ -463,6 +463,49 @@ export async function fetchLGSTransactions(lgsId, period, type) {
   return handleResponse(res);
 }
 
+// ---------------------------------------------------------------------------
+// Shop / Game Purchase
+// ---------------------------------------------------------------------------
+
+export async function fetchVenueShop(venueId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/shop`);
+  return handleResponse(res);
+}
+
+export async function createPurchase(venueId, gameId, email, name) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/shop/purchase`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ game_id: gameId, customer_email: email, customer_name: name }),
+  });
+  return handleResponse(res);
+}
+
+export async function confirmFulfillment(venueId, purchaseId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/shop/fulfill`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({ purchase_id: purchaseId }),
+  });
+  return handleResponse(res);
+}
+
+export async function reportFulfillmentFailed(venueId, purchaseId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/shop/fulfillment-failed`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({ purchase_id: purchaseId }),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchPendingFulfillments(venueId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/shop/pending-fulfillments`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
 // ── Device session endpoints (no auth required) ──
 
 export async function fetchNotes(gameId, deviceId) {

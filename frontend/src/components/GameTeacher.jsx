@@ -22,6 +22,7 @@ import AppendixTab from "./AppendixTab";
 import TutorialCTAStep from "./TutorialCTAStep";
 import TabNavigator from "./TabNavigator";
 import TableOfContents from "./TableOfContents";
+import BuyGameButton from "./GameTeacher/BuyGameButton";
 
 // Tab order: Setup > Rules > Practice Tutorial > General Tips > Advanced Strategies > Appendix > Q&A > Score
 // Practice Tutorial hidden if no practice_tutorial content
@@ -1057,6 +1058,7 @@ export default function GameTeacher() {
           <h1 style={{ fontSize: "1.4rem", margin: 0, color: "var(--text-primary)" }}>
             {gameTitle}
           </h1>
+          <BuyGameButton gameId={gameId} gameTitle={gameTitle} />
           {sessionStorage.getItem('gmg_station_id') && (
             <span style={{
               fontSize: "0.7rem", fontWeight: 600, padding: "2px 8px",

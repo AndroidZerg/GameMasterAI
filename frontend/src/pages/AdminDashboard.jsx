@@ -14,6 +14,7 @@ import ConfigSection from "../components/dashboard/ConfigSection";
 import QAIntelSection from "../components/dashboard/QAIntelSection";
 import RentalsSection from "../components/dashboard/RentalsSection";
 import GameSelectionSection from "../components/dashboard/GameSelectionSection";
+import FulfillmentBanner from "../components/dashboard/FulfillmentBanner";
 
 const SIDEBAR_ITEMS = [
   { key: "overview", label: "Overview", icon: "\u{1F4CA}" },
@@ -574,6 +575,7 @@ export default function AdminDashboard() {
 
         {/* Section content */}
         <main style={{ flex: 1, padding: 24, overflowY: "auto" }}>
+          <FulfillmentBanner />
           {renderSection()}
         </main>
       </div>

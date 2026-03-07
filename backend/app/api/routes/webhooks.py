@@ -185,6 +185,75 @@ def _handle_invoice_failed(invoice):
         conn.close()
 
 
+def _handle_payment_intent_succeeded(payment_intent):
+    """Handle payment_intent.succeeded — notify venue staff of game purchase."""
+    pi_id = payment_intent.get("id")
+    if not pi_id:
+        return
+
+    conn = _get_conn()
+    try:
+        purchase = conn.execute(
+            """SELECT id, venue_id, game_title, customer_name, customer_email,
+                      fulfillment_status
+               FROM game_purchases WHERE stripe_payment_intent_id = ?""",
+            (pi_id,),
+        ).fetchone()
+        if not purchase or purchase["fulfillment_status"] != "pending":
+            return
+
+        customer = purchase["customer_name"] or purchase["customer_email"]
+        venue = conn.execute(
+            "SELECT venue_name FROM venues WHERE venue_id = ?",
+            (purchase["venue_id"],),
+        ).fetchone()
+        venue_name = venue["venue_name"] if venue else purchase["venue_id"]
+
+        _telegram_notify(
+            f"New purchase: {purchase['game_title']} at {venue_name} "
+            f"— please hand to customer ({customer})"
+        )
+    finally:
+        conn.close()
+
+
+def _handle_charge_refunded(charge):
+    """Handle charge.refunded — mark purchase refunded and restore stock."""
+    pi_id = charge.get("payment_intent")
+    if not pi_id:
+        return
+
+    conn = _get_conn()
+    try:
+        purchase = conn.execute(
+            """SELECT id, venue_id, game_id, fulfillment_status
+               FROM game_purchases WHERE stripe_payment_intent_id = ?""",
+            (pi_id,),
+        ).fetchone()
+        if not purchase:
+            return
+        # Only update if still pending (fulfilled purchases shouldn't revert)
+        if purchase["fulfillment_status"] != "pending":
+            return
+
+        now = datetime.now(timezone.utc).isoformat()
+        conn.execute(
+            """UPDATE game_purchases
+               SET fulfillment_status = 'refunded', refunded_at = ?
+               WHERE id = ?""",
+            (now, purchase["id"]),
+        )
+        conn.execute(
+            """UPDATE venue_game_inventory
+               SET stock_count = stock_count + 1, updated_at = ?
+               WHERE venue_id = ? AND game_id = ?""",
+            (now, purchase["venue_id"], purchase["game_id"]),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
 def _handle_subscription_deleted(subscription):
     """Handle customer.subscription.deleted — mark canceled but don't deactivate games."""
     sub_id = subscription.get("id")
@@ -241,5 +310,9 @@ async def stripe_webhook(request: Request):
         _handle_invoice_failed(data_object)
     elif event_type == "customer.subscription.deleted":
         _handle_subscription_deleted(data_object)
+    elif event_type == "payment_intent.succeeded":
+        _handle_payment_intent_succeeded(data_object)
+    elif event_type == "charge.refunded":
+        _handle_charge_refunded(data_object)
 
     return {"received": True}
