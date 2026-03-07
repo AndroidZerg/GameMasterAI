@@ -1,7 +1,6 @@
 """Drink Club API — member lookup, staff search, redemption, phone verify."""
 
 import os
-import sqlite3
 import logging
 
 import stripe
@@ -160,8 +159,10 @@ async def staff_redeem(req: RedeemRequest):
 
     try:
         rid = create_redemption(sub["id"], req.staff_pin, req.drink_name or "")
-    except sqlite3.IntegrityError:
-        raise HTTPException(status_code=400, detail="Already redeemed this week")
+    except Exception as e:
+        if "UNIQUE constraint" in str(e) or "IntegrityError" in type(e).__name__:
+            raise HTTPException(status_code=400, detail="Already redeemed this week")
+        raise
 
     return {"success": True, "redemption_id": rid, "week_start": ws}
 

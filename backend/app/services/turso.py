@@ -1,4 +1,4 @@
-"""Turso (libsql) connection manager for analytics."""
+"""Turso (libsql) connection manager for analytics and drink club."""
 import os
 import logging
 
@@ -168,3 +168,48 @@ def init_analytics_tables():
 
     db.commit()
     logger.info("Analytics tables initialized")
+
+
+def get_drink_club_db():
+    """Return the shared Turso connection for drink club tables.
+
+    Reuses the same Turso database as analytics — no need for a separate DB.
+    """
+    return get_analytics_db()
+
+
+def init_drink_club_tables():
+    """Create drink_subscribers and drink_redemptions tables in Turso."""
+    db = get_drink_club_db()
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS drink_subscribers (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            phone TEXT,
+            stripe_customer_id TEXT,
+            stripe_subscription_id TEXT,
+            subscription_status TEXT DEFAULT 'inactive',
+            qr_code TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS drink_redemptions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subscriber_id INTEGER NOT NULL,
+            redeemed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            redeemed_by TEXT,
+            drink_name TEXT,
+            week_start TEXT NOT NULL,
+            FOREIGN KEY (subscriber_id) REFERENCES drink_subscribers(id),
+            UNIQUE(subscriber_id, week_start)
+        )
+    """)
+    db.execute("""
+        CREATE INDEX IF NOT EXISTS idx_drink_subscribers_phone
+        ON drink_subscribers(phone)
+    """)
+    db.commit()
+    logger.info("Drink club tables initialized")

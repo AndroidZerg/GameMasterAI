@@ -66,7 +66,7 @@ from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.models.drink_club import init_drink_club_tables
+from app.services.turso import init_drink_club_tables
 
 
 @asynccontextmanager
