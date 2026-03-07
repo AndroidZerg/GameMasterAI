@@ -35,8 +35,7 @@ class PublicOrderItem(BaseModel):
     name: str
     price: float
     quantity: int = 1
-    protein: Optional[str] = None
-    spice_level: Optional[int] = None
+    customizations: Optional[dict] = None
     notes: Optional[str] = None
     is_drink_club: bool = False
 
@@ -46,6 +45,7 @@ class PublicOrderRequest(BaseModel):
     items: List[PublicOrderItem]
     total: float
     table_number: Optional[int] = None
+    drink_club_phone: Optional[str] = None
 
 
 @router.get("/menu/{venue_slug}")
@@ -76,11 +76,30 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         raise HTTPException(status_code=400, detail="Total must not be negative")
 
     # Validate drink club items
+    has_drink_club_item = False
     for item in req.items:
         if item.is_drink_club:
-            # Drink club validation happens at checkout — price must be 0
+            if has_drink_club_item:
+                raise HTTPException(status_code=400, detail="Only one drink club item per order")
+            has_drink_club_item = True
             if item.price != 0:
                 raise HTTPException(status_code=400, detail="Drink club items must be free")
+            if not req.drink_club_phone:
+                raise HTTPException(status_code=400, detail="Phone number required for drink club redemption")
+            subscriber = get_subscriber_by_phone(req.drink_club_phone)
+            if not subscriber:
+                raise HTTPException(status_code=400, detail="No active drink club subscription found for this phone")
+            if subscriber["subscription_status"] != "active":
+                raise HTTPException(status_code=400, detail="Drink club subscription is not active")
+            ws = _current_week_start()
+            existing = get_week_redemption(subscriber["id"], ws)
+            if existing:
+                raise HTTPException(status_code=400, detail="Drink already claimed this week")
+            # Record the redemption
+            try:
+                create_redemption(subscriber["id"], staff_pin="app", drink_name=item.name)
+            except Exception:
+                raise HTTPException(status_code=400, detail="Drink already claimed this week")
 
     items_list = [it.model_dump() for it in req.items]
 
@@ -136,10 +155,11 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
     for it in items:
         line = f"  {it['quantity']}x {it['name']} -- ${it['price'] * it['quantity']:.2f}"
         extras = []
-        if it.get("protein"):
-            extras.append(it["protein"])
-        if it.get("spice_level") is not None:
-            extras.append(f"Spice: {it['spice_level']}")
+        # Toggle-based customizations
+        custs = it.get("customizations") or {}
+        for _tid, val in custs.items():
+            if val:
+                extras.append(str(val))
         if it.get("is_drink_club"):
             extras.append("DRINK CLUB")
         if extras:

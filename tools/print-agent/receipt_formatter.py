@@ -70,10 +70,10 @@ def format_receipt(order, venue_name="Thai House", venue_tagline=""):
 
             # Customization sub-lines
             extras = []
-            if item.get("protein"):
-                extras.append(item["protein"])
-            if item.get("spice_level") is not None:
-                extras.append(f"Spice: {item['spice_level']}")
+            custs = item.get("customizations") or {}
+            for _tid, val in custs.items():
+                if val:
+                    extras.append(str(val))
             if item.get("is_drink_club"):
                 extras.append("DRINK CLUB")
             if extras:

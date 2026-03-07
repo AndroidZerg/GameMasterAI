@@ -6,7 +6,7 @@ const THEME = {
   text: "#f5f0e8", textSecondary: "#a89880",
 };
 
-const DRINK_CLUB_LINK = import.meta.env.VITE_DRINK_CLUB_LINK || "";
+const DRINK_CLUB_LINK = import.meta.env.VITE_DRINK_CLUB_LINK || "https://buy.stripe.com/4gMcMY3UhfAj6ri96S5Vu00";
 
 const FAQS = [
   { q: "How does it work?", a: "Subscribe for $14.99/month. Each week (Monday-Sunday), you can redeem one specialty drink at Thai House. Just show your name or QR code to staff." },
@@ -64,15 +64,14 @@ export default function DrinkClubPage() {
 
       {/* Subscribe CTA */}
       <div style={{ padding: "0 24px", marginBottom: 32 }}>
-        {DRINK_CLUB_LINK ? (
-          <a href={DRINK_CLUB_LINK} style={{ ...styles.primaryBtn, display: "block", textAlign: "center", textDecoration: "none" }}>
-            Subscribe Now
-          </a>
-        ) : (
-          <button disabled style={{ ...styles.primaryBtn, opacity: 0.5, width: "100%", cursor: "default" }}>
-            Coming Soon
-          </button>
-        )}
+        <a
+          href={DRINK_CLUB_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ ...styles.primaryBtn, display: "block", textAlign: "center", textDecoration: "none" }}
+        >
+          Subscribe &mdash; $14.99/month
+        </a>
       </div>
 
       {/* Already a member? */}

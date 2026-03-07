@@ -578,13 +578,42 @@ export const saveDrinkClubPhone = (subscriberId, phone) =>
     body: JSON.stringify({ subscriber_id: subscriberId, phone })
   }).then(r => r.json());
 
-// ── Admin Photo Management ──
+// ── Menu Admin ──
 
-export const listMenuItems = (pin) =>
+export const getMenuItems = (pin) =>
   fetch(`${API_BASE}/api/admin/menu-items`, {
-    headers: { 'X-Admin-Pin': pin }
+    headers: { 'X-Staff-Pin': pin }
   }).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Forbidden'); });
+    return r.json();
+  });
+
+export const createMenuItem = (data, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-items`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Create failed'); });
+    return r.json();
+  });
+
+export const updateMenuItem = (slug, data, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-items/${slug}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Update failed'); });
+    return r.json();
+  });
+
+export const deleteMenuItem = (slug, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-items/${slug}`, {
+    method: 'DELETE',
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Delete failed'); });
     return r.json();
   });
 
@@ -593,7 +622,7 @@ export const uploadMenuPhoto = (slug, file, pin) => {
   form.append('file', file);
   return fetch(`${API_BASE}/api/admin/menu-photos/${slug}`, {
     method: 'POST',
-    headers: { 'X-Admin-Pin': pin },
+    headers: { 'X-Staff-Pin': pin },
     body: form,
   }).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Upload failed'); });
@@ -604,7 +633,44 @@ export const uploadMenuPhoto = (slug, file, pin) => {
 export const deleteMenuPhoto = (slug, pin) =>
   fetch(`${API_BASE}/api/admin/menu-photos/${slug}`, {
     method: 'DELETE',
-    headers: { 'X-Admin-Pin': pin },
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Delete failed'); });
+    return r.json();
+  });
+
+export const getToggles = (pin) =>
+  fetch(`${API_BASE}/api/admin/toggles`, {
+    headers: { 'X-Staff-Pin': pin }
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Forbidden'); });
+    return r.json();
+  });
+
+export const createToggle = (data, pin) =>
+  fetch(`${API_BASE}/api/admin/toggles`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Create failed'); });
+    return r.json();
+  });
+
+export const updateToggle = (toggleId, data, pin) =>
+  fetch(`${API_BASE}/api/admin/toggles/${toggleId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Update failed'); });
+    return r.json();
+  });
+
+export const deleteToggle = (toggleId, pin) =>
+  fetch(`${API_BASE}/api/admin/toggles/${toggleId}`, {
+    method: 'DELETE',
+    headers: { 'X-Staff-Pin': pin },
   }).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Delete failed'); });
     return r.json();
