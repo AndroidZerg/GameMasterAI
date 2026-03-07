@@ -1,7 +1,7 @@
 """Full menu administration: items CRUD, toggle CRUD, photo management.
 
 All endpoints require staff PIN via X-Staff-Pin header.
-Persists to content/menus/meetup.json with atomic writes.
+Primary storage: Turso DB. Also syncs to content/menus/meetup.json as backup.
 """
 
 import json
@@ -14,6 +14,8 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException, UploadFile, File, Header
 from pydantic import BaseModel
 from typing import List, Optional
+
+from app.services.turso import get_menu_db
 
 logger = logging.getLogger(__name__)
 
@@ -41,41 +43,64 @@ def _slugify(name: str) -> str:
     return s.strip("-")
 
 
-def _load_menu() -> dict:
-    with open(_MENU_JSON, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def _save_menu(menu: dict):
-    """Atomic write: write to temp file, then rename."""
-    _MENU_JSON.parent.mkdir(parents=True, exist_ok=True)
-    tmp_fd, tmp_path = tempfile.mkstemp(
-        dir=str(_MENU_JSON.parent), suffix=".json.tmp"
-    )
+def _sync_json_from_turso():
+    """Sync Turso menu state back to the JSON file as a backup."""
     try:
-        with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
-            json.dump(menu, f, indent=2, ensure_ascii=False)
-        # On Windows, we need to remove target first
-        if _MENU_JSON.exists():
-            _MENU_JSON.unlink()
-        Path(tmp_path).rename(_MENU_JSON)
-    except Exception:
-        # Clean up temp file on failure
+        db = get_menu_db()
+        toggle_rows = db.execute(
+            "SELECT id, name, required, options FROM menu_toggles ORDER BY sort_order"
+        ).fetchall()
+        toggles = [
+            {"id": r[0], "name": r[1], "required": bool(r[2]),
+             "options": json.loads(r[3])}
+            for r in toggle_rows
+        ]
+
+        cat_rows = db.execute(
+            "SELECT id, name, icon FROM menu_categories ORDER BY sort_order"
+        ).fetchall()
+        sections = []
+        for cat in cat_rows:
+            item_rows = db.execute(
+                """SELECT slug, name, description, price, image, toggles,
+                          allows_modifications
+                   FROM menu_items WHERE category_id = ? ORDER BY sort_order""",
+                (cat[0],)
+            ).fetchall()
+            items = []
+            for r in item_rows:
+                item = {"name": r[1], "price": r[3]}
+                if r[2]:
+                    item["description"] = r[2]
+                if r[4]:
+                    item["image"] = r[4]
+                item_toggles = json.loads(r[5]) if r[5] else []
+                if item_toggles:
+                    item["toggles"] = item_toggles
+                if bool(r[6]):
+                    item["allows_modifications"] = True
+                items.append(item)
+            sections.append({"name": cat[1], "icon": cat[2], "items": items})
+
+        menu = {"toggles": toggles, "sections": sections}
+        _MENU_JSON.parent.mkdir(parents=True, exist_ok=True)
+        tmp_fd, tmp_path = tempfile.mkstemp(
+            dir=str(_MENU_JSON.parent), suffix=".json.tmp"
+        )
         try:
-            Path(tmp_path).unlink(missing_ok=True)
+            with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
+                json.dump(menu, f, indent=2, ensure_ascii=False)
+            if _MENU_JSON.exists():
+                _MENU_JSON.unlink()
+            Path(tmp_path).rename(_MENU_JSON)
         except Exception:
-            pass
-        raise
-
-
-def _find_item(menu: dict, slug: str):
-    """Find item + section by slug. Returns (section, item, index) or raises 404."""
-    for section in menu.get("sections", []):
-        for i, item in enumerate(section.get("items", [])):
-            item_slug = item.get("image", _slugify(item["name"]))
-            if item_slug == slug or _slugify(item["name"]) == slug:
-                return section, item, i
-    raise HTTPException(status_code=404, detail=f"Item not found: {slug}")
+            try:
+                Path(tmp_path).unlink(missing_ok=True)
+            except Exception:
+                pass
+            raise
+    except Exception as e:
+        logger.error(f"JSON sync from Turso failed: {e}")
 
 
 def _delete_photo_files(slug: str):
@@ -92,27 +117,45 @@ def _delete_photo_files(slug: str):
 async def list_menu_items(x_staff_pin: Optional[str] = Header(None)):
     """List all menu items grouped by category with toggle and photo info."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    toggles = menu.get("toggles", [])
+    db = get_menu_db()
+
+    toggle_rows = db.execute(
+        "SELECT id, name, required, options FROM menu_toggles ORDER BY sort_order"
+    ).fetchall()
+    toggles = [
+        {"id": r[0], "name": r[1], "required": bool(r[2]),
+         "options": json.loads(r[3])}
+        for r in toggle_rows
+    ]
+
+    cat_rows = db.execute(
+        "SELECT id, name, icon FROM menu_categories ORDER BY sort_order"
+    ).fetchall()
     categories = []
-    for section in menu.get("sections", []):
+    for cat in cat_rows:
+        item_rows = db.execute(
+            """SELECT slug, name, description, price, image, toggles,
+                      allows_modifications
+               FROM menu_items WHERE category_id = ? ORDER BY sort_order""",
+            (cat[0],)
+        ).fetchall()
         items = []
-        for item in section.get("items", []):
-            slug = item.get("image", _slugify(item["name"]))
+        for r in item_rows:
+            slug = r[0]
             has_photo = (_IMG_DIR / f"{slug}.jpg").exists()
             items.append({
-                "name": item["name"],
-                "description": item.get("description", ""),
-                "price": item["price"],
+                "name": r[1],
+                "description": r[2] or "",
+                "price": r[3],
                 "slug": slug,
                 "has_photo": has_photo,
-                "image": item.get("image"),
-                "toggles": item.get("toggles", []),
-                "allows_modifications": item.get("allows_modifications", False),
+                "image": r[4],
+                "toggles": json.loads(r[5]) if r[5] else [],
+                "allows_modifications": bool(r[6]),
             })
         categories.append({
-            "name": section["name"],
-            "icon": section.get("icon", ""),
+            "name": cat[1],
+            "icon": cat[2],
             "items": items,
         })
     return {"categories": categories, "toggles": toggles}
@@ -132,42 +175,47 @@ async def create_menu_item(req: CreateItemRequest,
                            x_staff_pin: Optional[str] = Header(None)):
     """Add a new item to the specified category."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
+    db = get_menu_db()
 
-    # Find the target section
-    target = None
-    for section in menu.get("sections", []):
-        if section["name"] == req.category:
-            target = section
-            break
-    if not target:
+    # Find the target category
+    cat_row = db.execute(
+        "SELECT id FROM menu_categories WHERE name = ?", (req.category,)
+    ).fetchone()
+    if not cat_row:
         raise HTTPException(status_code=404, detail=f"Category not found: {req.category}")
 
     slug = _slugify(req.name)
 
     # Check for duplicate
-    for section in menu.get("sections", []):
-        for item in section.get("items", []):
-            if _slugify(item["name"]) == slug:
-                raise HTTPException(status_code=409, detail=f"Item already exists: {req.name}")
+    existing = db.execute(
+        "SELECT id FROM menu_items WHERE slug = ?", (slug,)
+    ).fetchone()
+    if existing:
+        raise HTTPException(status_code=409, detail=f"Item already exists: {req.name}")
 
-    new_item = {
-        "name": req.name,
-        "price": req.price,
-        "description": req.description,
-    }
-    if req.toggles:
-        new_item["toggles"] = req.toggles
-    if req.allows_modifications:
-        new_item["allows_modifications"] = True
+    # Get max sort_order for this category
+    max_sort = db.execute(
+        "SELECT COALESCE(MAX(sort_order), -1) FROM menu_items WHERE category_id = ?",
+        (cat_row[0],)
+    ).fetchone()[0]
 
-    target["items"].append(new_item)
-    _save_menu(menu)
+    db.execute(
+        """INSERT INTO menu_items
+           (slug, category_id, name, description, price, toggles,
+            allows_modifications, active, sort_order)
+           VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?)""",
+        (slug, cat_row[0], req.name, req.description, req.price,
+         json.dumps(req.toggles), 1 if req.allows_modifications else 0,
+         max_sort + 1)
+    )
+    db.commit()
+    _sync_json_from_turso()
 
     return {
         "success": True,
         "slug": slug,
-        "item": {**new_item, "slug": slug, "has_photo": False, "image": None},
+        "item": {"name": req.name, "price": req.price, "slug": slug,
+                 "has_photo": False, "image": None},
     }
 
 
@@ -184,29 +232,53 @@ async def update_menu_item(slug: str, req: UpdateItemRequest,
                            x_staff_pin: Optional[str] = Header(None)):
     """Update an existing menu item."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    _section, item, _idx = _find_item(menu, slug)
+    db = get_menu_db()
 
+    existing = db.execute(
+        "SELECT id, name, image FROM menu_items WHERE slug = ?", (slug,)
+    ).fetchone()
+    if not existing:
+        raise HTTPException(status_code=404, detail=f"Item not found: {slug}")
+
+    updates = []
+    params = []
     if req.name is not None:
-        item["name"] = req.name
+        updates.append("name = ?")
+        params.append(req.name)
     if req.description is not None:
-        item["description"] = req.description
+        updates.append("description = ?")
+        params.append(req.description)
     if req.price is not None:
-        item["price"] = req.price
+        updates.append("price = ?")
+        params.append(req.price)
     if req.toggles is not None:
-        if req.toggles:
-            item["toggles"] = req.toggles
-        else:
-            item.pop("toggles", None)
+        updates.append("toggles = ?")
+        params.append(json.dumps(req.toggles))
     if req.allows_modifications is not None:
-        if req.allows_modifications:
-            item["allows_modifications"] = True
-        else:
-            item.pop("allows_modifications", None)
+        updates.append("allows_modifications = ?")
+        params.append(1 if req.allows_modifications else 0)
 
-    _save_menu(menu)
-    new_slug = item.get("image", _slugify(item["name"]))
-    return {"success": True, "slug": new_slug, "item": item}
+    if updates:
+        updates.append("updated_at = CURRENT_TIMESTAMP")
+        params.append(slug)
+        db.execute(
+            f"UPDATE menu_items SET {', '.join(updates)} WHERE slug = ?",
+            tuple(params)
+        )
+        db.commit()
+        _sync_json_from_turso()
+
+    # Return updated item
+    row = db.execute(
+        "SELECT slug, name, description, price, image, toggles, allows_modifications FROM menu_items WHERE slug = ?",
+        (slug,)
+    ).fetchone()
+    item = {
+        "name": row[1], "description": row[2], "price": row[3],
+        "image": row[4], "toggles": json.loads(row[5]) if row[5] else [],
+        "allows_modifications": bool(row[6]), "slug": row[0],
+    }
+    return {"success": True, "slug": slug, "item": item}
 
 
 @router.delete("/menu-items/{slug}")
@@ -214,15 +286,21 @@ async def delete_menu_item(slug: str,
                            x_staff_pin: Optional[str] = Header(None)):
     """Remove an item from the menu. Also deletes associated photos."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    section, item, idx = _find_item(menu, slug)
+    db = get_menu_db()
 
-    # Delete photo files
-    photo_slug = item.get("image", slug)
+    existing = db.execute(
+        "SELECT id, image FROM menu_items WHERE slug = ?", (slug,)
+    ).fetchone()
+    if not existing:
+        raise HTTPException(status_code=404, detail=f"Item not found: {slug}")
+
+    photo_slug = existing[1] or slug
     _delete_photo_files(photo_slug)
 
-    section["items"].pop(idx)
-    _save_menu(menu)
+    db.execute("DELETE FROM menu_items WHERE slug = ?", (slug,))
+    db.commit()
+    _sync_json_from_turso()
+
     return {"success": True, "slug": slug}
 
 
@@ -257,22 +335,16 @@ async def upload_photo(slug: str, file: UploadFile = File(...),
     img_thumb.thumbnail((400, 400), Image.LANCZOS)
     img_thumb.save(_IMG_DIR / f"{slug}-thumb.jpg", "JPEG", quality=80)
 
-    # Update menu JSON — set image field
-    menu = _load_menu()
-    found = False
-    for section in menu.get("sections", []):
-        for item in section.get("items", []):
-            if item.get("image") == slug or _slugify(item["name"]) == slug:
-                item["image"] = slug
-                found = True
-                break
-        if found:
-            break
+    # Update Turso — set image field
+    db = get_menu_db()
+    result = db.execute(
+        "UPDATE menu_items SET image = ?, updated_at = CURRENT_TIMESTAMP WHERE slug = ?",
+        (slug, slug)
+    )
+    db.commit()
+    _sync_json_from_turso()
 
-    if found:
-        _save_menu(menu)
-
-    return {"success": True, "slug": slug, "menu_updated": found}
+    return {"success": True, "slug": slug, "menu_updated": True}
 
 
 @router.delete("/menu-photos/{slug}")
@@ -295,14 +367,14 @@ async def delete_photo(slug: str,
     if not deleted:
         raise HTTPException(status_code=404, detail="Photo not found")
 
-    # Remove image field from menu JSON
-    menu = _load_menu()
-    for section in menu.get("sections", []):
-        for item in section.get("items", []):
-            if item.get("image") == slug:
-                del item["image"]
-                break
-    _save_menu(menu)
+    # Remove image field in Turso
+    db = get_menu_db()
+    db.execute(
+        "UPDATE menu_items SET image = NULL, updated_at = CURRENT_TIMESTAMP WHERE slug = ?",
+        (slug,)
+    )
+    db.commit()
+    _sync_json_from_turso()
 
     return {"success": True, "slug": slug}
 
@@ -313,18 +385,26 @@ async def delete_photo(slug: str,
 async def list_toggles(x_staff_pin: Optional[str] = Header(None)):
     """Return all customization toggles."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    toggles = menu.get("toggles", [])
+    db = get_menu_db()
 
-    # Count how many items use each toggle
-    usage = {}
-    for section in menu.get("sections", []):
-        for item in section.get("items", []):
-            for tid in item.get("toggles", []):
-                usage[tid] = usage.get(tid, 0) + 1
+    toggle_rows = db.execute(
+        "SELECT id, name, required, options FROM menu_toggles ORDER BY sort_order"
+    ).fetchall()
 
-    for t in toggles:
-        t["item_count"] = usage.get(t["id"], 0)
+    # Count usage
+    toggles = []
+    for r in toggle_rows:
+        tid = r[0]
+        count = 0
+        item_rows = db.execute(
+            "SELECT toggles FROM menu_items WHERE toggles LIKE ?",
+            (f'%"{tid}"%',)
+        ).fetchall()
+        count = len(item_rows)
+        toggles.append({
+            "id": tid, "name": r[1], "required": bool(r[2]),
+            "options": json.loads(r[3]), "item_count": count,
+        })
 
     return {"toggles": toggles}
 
@@ -347,26 +427,28 @@ async def create_toggle(req: CreateToggleRequest,
     """Create a new customization toggle."""
     _verify_pin(x_staff_pin)
 
-    # Validate id format
     tid = req.id.lower().strip()
     if not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", tid):
         raise HTTPException(status_code=400, detail="Toggle ID must be lowercase, hyphenated")
 
-    menu = _load_menu()
-    toggles = menu.setdefault("toggles", [])
-
-    # Check for duplicate
-    if any(t["id"] == tid for t in toggles):
+    db = get_menu_db()
+    existing = db.execute("SELECT id FROM menu_toggles WHERE id = ?", (tid,)).fetchone()
+    if existing:
         raise HTTPException(status_code=409, detail=f"Toggle already exists: {tid}")
 
+    max_sort = db.execute("SELECT COALESCE(MAX(sort_order), -1) FROM menu_toggles").fetchone()[0]
+
     new_toggle = {
-        "id": tid,
-        "name": req.name,
-        "required": req.required,
+        "id": tid, "name": req.name, "required": req.required,
         "options": [opt.model_dump() for opt in req.options],
     }
-    toggles.append(new_toggle)
-    _save_menu(menu)
+    db.execute(
+        "INSERT INTO menu_toggles (id, name, required, options, sort_order) VALUES (?, ?, ?, ?, ?)",
+        (tid, req.name, 1 if req.required else 0,
+         json.dumps(new_toggle["options"]), max_sort + 1)
+    )
+    db.commit()
+    _sync_json_from_turso()
 
     return {"success": True, "toggle": new_toggle}
 
@@ -382,26 +464,41 @@ async def update_toggle(toggle_id: str, req: UpdateToggleRequest,
                         x_staff_pin: Optional[str] = Header(None)):
     """Update an existing toggle."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    toggles = menu.get("toggles", [])
+    db = get_menu_db()
 
-    target = None
-    for t in toggles:
-        if t["id"] == toggle_id:
-            target = t
-            break
-    if not target:
+    existing = db.execute("SELECT id FROM menu_toggles WHERE id = ?", (toggle_id,)).fetchone()
+    if not existing:
         raise HTTPException(status_code=404, detail=f"Toggle not found: {toggle_id}")
 
+    updates = []
+    params = []
     if req.name is not None:
-        target["name"] = req.name
+        updates.append("name = ?")
+        params.append(req.name)
     if req.required is not None:
-        target["required"] = req.required
+        updates.append("required = ?")
+        params.append(1 if req.required else 0)
     if req.options is not None:
-        target["options"] = [opt.model_dump() for opt in req.options]
+        updates.append("options = ?")
+        params.append(json.dumps([opt.model_dump() for opt in req.options]))
 
-    _save_menu(menu)
-    return {"success": True, "toggle": target}
+    if updates:
+        params.append(toggle_id)
+        db.execute(
+            f"UPDATE menu_toggles SET {', '.join(updates)} WHERE id = ?",
+            tuple(params)
+        )
+        db.commit()
+        _sync_json_from_turso()
+
+    row = db.execute(
+        "SELECT id, name, required, options FROM menu_toggles WHERE id = ?", (toggle_id,)
+    ).fetchone()
+    toggle = {
+        "id": row[0], "name": row[1], "required": bool(row[2]),
+        "options": json.loads(row[3]),
+    }
+    return {"success": True, "toggle": toggle}
 
 
 @router.delete("/toggles/{toggle_id}")
@@ -409,24 +506,30 @@ async def delete_toggle(toggle_id: str,
                         x_staff_pin: Optional[str] = Header(None)):
     """Delete a toggle. Also removes it from all menu items."""
     _verify_pin(x_staff_pin)
-    menu = _load_menu()
-    toggles = menu.get("toggles", [])
+    db = get_menu_db()
 
-    original_len = len(toggles)
-    menu["toggles"] = [t for t in toggles if t["id"] != toggle_id]
-    if len(menu["toggles"]) == original_len:
+    existing = db.execute("SELECT id FROM menu_toggles WHERE id = ?", (toggle_id,)).fetchone()
+    if not existing:
         raise HTTPException(status_code=404, detail=f"Toggle not found: {toggle_id}")
 
     # Remove from all items
     items_affected = 0
-    for section in menu.get("sections", []):
-        for item in section.get("items", []):
-            item_toggles = item.get("toggles", [])
-            if toggle_id in item_toggles:
-                item["toggles"] = [t for t in item_toggles if t != toggle_id]
-                if not item["toggles"]:
-                    del item["toggles"]
-                items_affected += 1
+    item_rows = db.execute(
+        "SELECT id, toggles FROM menu_items WHERE toggles LIKE ?",
+        (f'%"{toggle_id}"%',)
+    ).fetchall()
+    for row in item_rows:
+        item_toggles = json.loads(row[1]) if row[1] else []
+        if toggle_id in item_toggles:
+            item_toggles = [t for t in item_toggles if t != toggle_id]
+            db.execute(
+                "UPDATE menu_items SET toggles = ? WHERE id = ?",
+                (json.dumps(item_toggles), row[0])
+            )
+            items_affected += 1
 
-    _save_menu(menu)
+    db.execute("DELETE FROM menu_toggles WHERE id = ?", (toggle_id,))
+    db.commit()
+    _sync_json_from_turso()
+
     return {"success": True, "toggle_id": toggle_id, "items_affected": items_affected}

@@ -50,10 +50,60 @@ class PublicOrderRequest(BaseModel):
 
 @router.get("/menu/{venue_slug}")
 async def public_menu(venue_slug: str):
-    """Serve public menu JSON for a venue slug."""
+    """Serve public menu JSON — reads from Turso, falls back to JSON file."""
     venue_id = VENUE_SLUGS.get(venue_slug)
     if not venue_id:
         raise HTTPException(status_code=404, detail="Venue not found")
+
+    try:
+        from app.services.turso import get_menu_db
+        db = get_menu_db()
+
+        # Toggles
+        toggle_rows = db.execute(
+            "SELECT id, name, required, options FROM menu_toggles ORDER BY sort_order"
+        ).fetchall()
+        toggles = [
+            {"id": r[0], "name": r[1], "required": bool(r[2]),
+             "options": json.loads(r[3])}
+            for r in toggle_rows
+        ]
+
+        # Categories with items
+        cat_rows = db.execute(
+            "SELECT id, name, icon FROM menu_categories ORDER BY sort_order"
+        ).fetchall()
+        sections = []
+        for cat in cat_rows:
+            item_rows = db.execute(
+                """SELECT slug, name, description, price, image, toggles,
+                          allows_modifications
+                   FROM menu_items
+                   WHERE category_id = ? AND active = 1
+                   ORDER BY sort_order""",
+                (cat[0],)
+            ).fetchall()
+            items = []
+            for r in item_rows:
+                item = {"name": r[1], "price": r[3]}
+                if r[2]:
+                    item["description"] = r[2]
+                if r[4]:
+                    item["image"] = r[4]
+                item_toggles = json.loads(r[5]) if r[5] else []
+                if item_toggles:
+                    item["toggles"] = item_toggles
+                if bool(r[6]):
+                    item["allows_modifications"] = True
+                items.append(item)
+            sections.append({"name": cat[1], "icon": cat[2], "items": items})
+
+        if sections:
+            return {"toggles": toggles, "sections": sections}
+    except Exception as e:
+        logger.warning(f"Turso menu read failed, falling back to JSON: {e}")
+
+    # Fallback to JSON file
     menu_path = _CONTENT_DIR / f"{venue_id}.json"
     if not menu_path.exists():
         raise HTTPException(status_code=404, detail="Menu not found")
@@ -112,6 +162,29 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         customer_name=req.customer_name.strip(),
     )
 
+    # Also save to Turso venue_orders for dashboard persistence
+    try:
+        from app.services.turso import get_menu_db
+        mdb = get_menu_db()
+        mdb.execute(
+            """INSERT INTO venue_orders
+               (order_number, source, table_number, customer_name,
+                customer_phone, items, total, drink_club_phone)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            (order_number, "in_house", req.table_number,
+             req.customer_name.strip(), None,
+             json.dumps(items_list), req.total,
+             req.drink_club_phone)
+        )
+        mdb.commit()
+
+        # Update loyalty if phone provided
+        if req.drink_club_phone:
+            _update_loyalty(mdb, req.customer_name.strip(),
+                            req.drink_club_phone, req.total)
+    except Exception as e:
+        logger.error(f"Turso venue_orders insert failed: {e}")
+
     table_str = f" (Table {req.table_number})" if req.table_number else ""
 
     # Telegram: GMAI Leads bot
@@ -141,6 +214,31 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         logger.error(f"Failed to insert print queue: {e}")
 
     return {"order_id": order_id, "order_number": order_number, "success": True}
+
+
+def _update_loyalty(db, name: str, phone: str, total: float):
+    """Create or update a loyalty member when an order includes a phone number."""
+    import math
+    points = math.floor(total / 10)
+    existing = db.execute(
+        "SELECT id FROM loyalty_members WHERE phone = ?", (phone,)
+    ).fetchone()
+    if existing:
+        db.execute(
+            """UPDATE loyalty_members
+               SET points = points + ?, total_spent = total_spent + ?,
+                   visits = visits + 1, last_visit = CURRENT_TIMESTAMP,
+                   name = ?
+               WHERE phone = ?""",
+            (points, total, name, phone)
+        )
+    else:
+        db.execute(
+            """INSERT INTO loyalty_members (name, phone, points, total_spent, visits, last_visit)
+               VALUES (?, ?, ?, ?, 1, CURRENT_TIMESTAMP)""",
+            (name, phone, points, total)
+        )
+    db.commit()
 
 
 def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,

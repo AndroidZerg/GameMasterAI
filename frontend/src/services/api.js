@@ -713,3 +713,94 @@ export async function fetchQAHistory(gameId, deviceId) {
   );
   return handleResponse(res);
 }
+
+// ── Dashboard: Orders ──
+
+const _pinH = (pin) => ({ 'X-Staff-Pin': pin });
+const _pinJsonH = (pin) => ({ 'Content-Type': 'application/json', 'X-Staff-Pin': pin });
+
+export const getAdminOrders = (pin, statuses) =>
+  fetch(`${API_BASE}/api/admin/venue-orders${statuses ? '?status=' + statuses : ''}`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const confirmOrder = (pin, id) =>
+  fetch(`${API_BASE}/api/admin/venue-orders/${id}/confirm`, {
+    method: 'POST', headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const completeOrder = (pin, id) =>
+  fetch(`${API_BASE}/api/admin/venue-orders/${id}/complete`, {
+    method: 'POST', headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const rejectOrder = (pin, id, reason) =>
+  fetch(`${API_BASE}/api/admin/venue-orders/${id}/reject`, {
+    method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify({ reason }),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const reprintVenueOrder = (pin, id) =>
+  fetch(`${API_BASE}/api/admin/venue-orders/${id}/reprint`, {
+    method: 'POST', headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const getOrderStats = (pin) =>
+  fetch(`${API_BASE}/api/admin/venue-orders/stats`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Dashboard: Floor ──
+
+export const getFloorPlan = (pin) =>
+  fetch(`${API_BASE}/api/admin/floor`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const updateFloorTables = (pin, tables) =>
+  fetch(`${API_BASE}/api/admin/floor/tables`, {
+    method: 'PUT', headers: _pinJsonH(pin), body: JSON.stringify(tables),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const updateFloorZones = (pin, zones) =>
+  fetch(`${API_BASE}/api/admin/floor/zones`, {
+    method: 'PUT', headers: _pinJsonH(pin), body: JSON.stringify(zones),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const addFloorTable = (pin, table) =>
+  fetch(`${API_BASE}/api/admin/floor/tables`, {
+    method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify(table),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const deleteFloorTable = (pin, id) =>
+  fetch(`${API_BASE}/api/admin/floor/tables/${id}`, {
+    method: 'DELETE', headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const updateTableParty = (pin, tableId, partySize) =>
+  fetch(`${API_BASE}/api/admin/floor/tables/${tableId}/party`, {
+    method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify({ party_size: partySize }),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Dashboard: Loyalty ──
+
+export const getLoyaltyMembers = (pin) =>
+  fetch(`${API_BASE}/api/admin/loyalty/members`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const getLoyaltyMember = (pin, phone) =>
+  fetch(`${API_BASE}/api/admin/loyalty/members/${encodeURIComponent(phone)}`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const redeemReward = (pin, phone, rewardType) =>
+  fetch(`${API_BASE}/api/admin/loyalty/redeem/${encodeURIComponent(phone)}`, {
+    method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify({ reward_type: rewardType }),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Dashboard: CRM ──
+
+export const getCRMStats = (pin) =>
+  fetch(`${API_BASE}/api/admin/crm/dashboard`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));

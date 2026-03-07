@@ -213,3 +213,178 @@ def init_drink_club_tables():
     """)
     db.commit()
     logger.info("Drink club tables initialized")
+
+
+def get_menu_db():
+    """Return the shared Turso connection for menu/floor/loyalty/orders tables."""
+    return get_analytics_db()
+
+
+def init_menu_tables():
+    """Create menu, floor plan, loyalty, and venue order tables in Turso."""
+    db = get_menu_db()
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS menu_toggles (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            required INTEGER DEFAULT 1,
+            options TEXT NOT NULL,
+            sort_order INTEGER DEFAULT 0
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS menu_categories (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            icon TEXT DEFAULT '',
+            sort_order INTEGER DEFAULT 0
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS menu_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            slug TEXT NOT NULL UNIQUE,
+            category_id INTEGER NOT NULL,
+            name TEXT NOT NULL,
+            description TEXT DEFAULT '',
+            price REAL NOT NULL,
+            image TEXT,
+            toggles TEXT DEFAULT '[]',
+            allows_modifications INTEGER DEFAULT 1,
+            active INTEGER DEFAULT 1,
+            sort_order INTEGER DEFAULT 0,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (category_id) REFERENCES menu_categories(id)
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS floor_tables (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            num INTEGER NOT NULL,
+            x REAL NOT NULL,
+            y REAL NOT NULL,
+            w REAL DEFAULT 90,
+            h REAL DEFAULT 50,
+            type TEXT DEFAULT 'table',
+            seats INTEGER DEFAULT 4,
+            label TEXT DEFAULT 'Table',
+            zone TEXT DEFAULT ''
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS floor_zones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            label TEXT NOT NULL,
+            x REAL NOT NULL,
+            y REAL NOT NULL,
+            w REAL NOT NULL,
+            h REAL NOT NULL,
+            color TEXT DEFAULT '#2a3025',
+            is_entrance INTEGER DEFAULT 0
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS loyalty_members (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            phone TEXT UNIQUE,
+            email TEXT,
+            points INTEGER DEFAULT 0,
+            total_spent REAL DEFAULT 0,
+            visits INTEGER DEFAULT 0,
+            last_visit TIMESTAMP,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS venue_orders (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            order_number INTEGER NOT NULL,
+            source TEXT DEFAULT 'in_house',
+            table_number INTEGER,
+            customer_name TEXT NOT NULL,
+            customer_phone TEXT,
+            items TEXT NOT NULL,
+            total REAL NOT NULL,
+            order_status TEXT DEFAULT 'new',
+            print_status TEXT DEFAULT 'pending',
+            drink_club_phone TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            confirmed_at TIMESTAMP,
+            completed_at TIMESTAMP,
+            rejected_reason TEXT
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_status ON venue_orders(order_status)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_created ON venue_orders(created_at)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_phone ON loyalty_members(phone)")
+
+    db.commit()
+    logger.info("Menu/floor/loyalty/orders tables initialized")
+
+
+def seed_menu_from_json():
+    """One-time seed: load content/menus/meetup.json into Turso menu tables."""
+    import json as _json
+    from pathlib import Path
+
+    menu_path = Path(__file__).resolve().parents[3] / "content" / "menus" / "meetup.json"
+    if not menu_path.exists():
+        logger.warning(f"Menu JSON not found at {menu_path} — skipping seed")
+        return
+
+    db = get_menu_db()
+    with open(menu_path, "r", encoding="utf-8") as f:
+        data = _json.load(f)
+
+    # Seed toggles
+    for t in data.get("toggles", []):
+        db.execute(
+            "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order) VALUES (?, ?, ?, ?, ?)",
+            (t["id"], t["name"], 1 if t.get("required", True) else 0, _json.dumps(t["options"]), 0)
+        )
+
+    # Seed categories + items
+    import re
+    def _slugify(name):
+        s = name.lower()
+        s = re.sub(r"\([^)]*\)", "", s).strip()
+        s = re.sub(r"[&]", "and", s)
+        s = re.sub(r"[^a-z0-9]+", "-", s)
+        return s.strip("-")
+
+    for idx, section in enumerate(data.get("sections", [])):
+        db.execute(
+            "INSERT OR IGNORE INTO menu_categories (name, icon, sort_order) VALUES (?, ?, ?)",
+            (section["name"], section.get("icon", ""), idx)
+        )
+        cat_row = db.execute("SELECT id FROM menu_categories WHERE name = ?", (section["name"],)).fetchone()
+        cat_id = cat_row[0]
+
+        for item_idx, item in enumerate(section["items"]):
+            slug = item.get("image") or _slugify(item["name"])
+            db.execute(
+                """INSERT OR REPLACE INTO menu_items
+                (slug, category_id, name, description, price, image, toggles,
+                 allows_modifications, active, sort_order)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (slug, cat_id, item["name"], item.get("description", ""),
+                 item["price"], item.get("image"),
+                 _json.dumps(item.get("toggles", [])),
+                 1 if item.get("allows_modifications", True) else 0,
+                 1 if item.get("active", True) else 0, item_idx)
+            )
+
+    db.commit()
+    count = db.execute("SELECT COUNT(*) FROM menu_items").fetchone()[0]
+    cats = db.execute("SELECT COUNT(*) FROM menu_categories").fetchone()[0]
+    toggles = db.execute("SELECT COUNT(*) FROM menu_toggles").fetchone()[0]
+    logger.info(f"Menu seeded from JSON: {cats} categories, {count} items, {toggles} toggles")

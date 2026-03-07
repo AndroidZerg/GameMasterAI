@@ -47,6 +47,10 @@ from app.api.routes.shop import router as shop_router
 from app.api.routes.thaihouse import router as thaihouse_router
 from app.api.routes.drink_club import router as drink_club_router
 from app.api.routes.menu_admin import router as menu_admin_router
+from app.api.routes.order_management import router as order_mgmt_router
+from app.api.routes.loyalty import router as loyalty_router
+from app.api.routes.floor import router as floor_router
+from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -66,7 +70,7 @@ from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db
 
 
 @asynccontextmanager
@@ -89,6 +93,16 @@ async def lifespan(app: FastAPI):
     run_venue_platform_migrations()
     init_marketplace_tables()
     init_drink_club_tables()
+    init_menu_tables()
+
+    # Auto-seed menu from JSON if tables are empty
+    try:
+        _mdb = get_menu_db()
+        _menu_count = _mdb.execute("SELECT COUNT(*) FROM menu_items").fetchone()[0]
+        if _menu_count == 0:
+            seed_menu_from_json()
+    except Exception as e:
+        print(f"[GMAI] Menu auto-seed skipped: {e}")
 
     # Seed all Las Vegas demo venues
     pw_hash = hash_password("gmg2026")
@@ -197,6 +211,10 @@ app.include_router(shop_router)
 app.include_router(thaihouse_router)
 app.include_router(drink_club_router)
 app.include_router(menu_admin_router)
+app.include_router(order_mgmt_router)
+app.include_router(loyalty_router)
+app.include_router(floor_router)
+app.include_router(thaihouse_crm_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)
