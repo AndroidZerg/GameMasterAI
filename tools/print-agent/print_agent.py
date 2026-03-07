@@ -9,8 +9,9 @@ import logging
 import requests
 
 from config import (
-    API_BASE_URL, API_KEY, VENUE_ID, PRINTER_IP, PRINTER_PORT,
-    POLL_INTERVAL_SECONDS, HEARTBEAT_INTERVAL_SECONDS, VENUE_NAME, VENUE_TAGLINE,
+    API_BASE_URL, API_KEY, VENUE_ID, PRINTER_MODE, PRINTER_IP, PRINTER_PORT,
+    PRINTER_NAME, POLL_INTERVAL_SECONDS, HEARTBEAT_INTERVAL_SECONDS,
+    VENUE_NAME, VENUE_TAGLINE,
 )
 from receipt_formatter import format_receipt
 
@@ -41,12 +42,24 @@ def poll_orders():
         return []
 
 
+def _get_printer():
+    """Create a printer instance based on configured mode."""
+    if PRINTER_MODE == "network":
+        from escpos.printer import Network
+        return Network(PRINTER_IP, PRINTER_PORT, timeout=10)
+    elif PRINTER_MODE == "usb":
+        from escpos.printer import Usb
+        # Epson TM-T88V: vendor 0x04b8, product 0x0202
+        return Usb(0x04b8, 0x0202, timeout=10)
+    else:  # "windows"
+        from escpos.printer import Win32Raw
+        return Win32Raw(PRINTER_NAME)
+
+
 def print_order(order):
     """Format and print a single order."""
-    from escpos.printer import Network
-
     try:
-        printer = Network(PRINTER_IP, PRINTER_PORT, timeout=10)
+        printer = _get_printer()
         receipt_commands = format_receipt(order, VENUE_NAME, VENUE_TAGLINE)
         receipt_commands(printer)
         printer.cut()
@@ -81,7 +94,7 @@ def send_heartbeat(printer_online):
             f"{API_BASE_URL}/api/print-queue/heartbeat",
             json={
                 "venue_id": VENUE_ID,
-                "printer_ip": PRINTER_IP,
+                "printer_id": PRINTER_NAME if PRINTER_MODE != "network" else PRINTER_IP,
                 "printer_status": "online" if printer_online else "offline",
                 "agent_uptime_seconds": int(time.time() - _start_time),
             },
@@ -96,7 +109,11 @@ _start_time = time.time()
 
 
 def main():
-    log.info(f"Print Agent starting -- Venue: {VENUE_ID}, Printer: {PRINTER_IP}:{PRINTER_PORT}")
+    printer_desc = (
+        f"{PRINTER_IP}:{PRINTER_PORT}" if PRINTER_MODE == "network"
+        else PRINTER_NAME
+    )
+    log.info(f"Print Agent starting -- Venue: {VENUE_ID}, Mode: {PRINTER_MODE}, Printer: {printer_desc}")
     log.info(f"Polling {API_BASE_URL} every {POLL_INTERVAL_SECONDS}s")
 
     if not API_KEY:
@@ -106,8 +123,7 @@ def main():
     # Quick printer connectivity check on startup
     printer_online = False
     try:
-        from escpos.printer import Network
-        test = Network(PRINTER_IP, PRINTER_PORT, timeout=5)
+        test = _get_printer()
         test.close()
         log.info("Printer connection OK")
         printer_online = True

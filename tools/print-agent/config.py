@@ -14,10 +14,15 @@ API_BASE_URL = os.getenv("GMG_API_URL", "https://gmai-backend.onrender.com")
 API_KEY = os.getenv("GMG_PRINT_API_KEY", "")
 VENUE_ID = os.getenv("GMG_VENUE_ID", "meetup")
 
-# Printer (Epson ESC/POS over TCP)
+# Printer connection mode: "network", "usb", or "windows"
+PRINTER_MODE = os.getenv("GMG_PRINTER_MODE", "windows")
+
+# Network printer (ESC/POS over TCP)
 PRINTER_IP = os.getenv("GMG_PRINTER_IP", "192.168.1.100")
 PRINTER_PORT = int(os.getenv("GMG_PRINTER_PORT", "9100"))
-PRINTER_PROFILE = os.getenv("GMG_PRINTER_PROFILE", "default")
+
+# Windows USB printer (shared printer name)
+PRINTER_NAME = os.getenv("GMG_PRINTER_NAME", "EPSON TM-T88V")
 
 # Polling
 POLL_INTERVAL_SECONDS = int(os.getenv("GMG_POLL_INTERVAL", "5"))
