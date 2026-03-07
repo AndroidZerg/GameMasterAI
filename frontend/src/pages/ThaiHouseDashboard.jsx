@@ -5,7 +5,7 @@ import {
   getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem, uploadMenuPhoto, deleteMenuPhoto,
   getToggles, createToggle, updateToggle, deleteToggle,
   getLoyaltyMembers, getLoyaltyMember, redeemReward,
-  getCRMStats, staffSearch, staffRedeem,
+  getCRMStats, staffSearch, staffRedeem, getChaClubMembers,
 } from '../services/api.js';
 
 const API_BASE = import.meta.env.VITE_API_URL || '';
@@ -195,12 +195,30 @@ function OrdersTab({ pin }) {
 // ════════════════════════════════════════════════════════
 // TABLES TAB
 // ════════════════════════════════════════════════════════
+const ZONE_COLORS = ['#2a3025','#2a2540','#402a25','#253040','#3a2a3a','#2a3a2a','#3a3025','#25303a'];
+const HANDLE_SIZE = 10;
+const HANDLE_POSITIONS = {
+  nw: (z) => ({ x: z.x, y: z.y }),
+  n:  (z) => ({ x: z.x + z.w/2, y: z.y }),
+  ne: (z) => ({ x: z.x + z.w, y: z.y }),
+  e:  (z) => ({ x: z.x + z.w, y: z.y + z.h/2 }),
+  se: (z) => ({ x: z.x + z.w, y: z.y + z.h }),
+  s:  (z) => ({ x: z.x + z.w/2, y: z.y + z.h }),
+  sw: (z) => ({ x: z.x, y: z.y + z.h }),
+  w:  (z) => ({ x: z.x, y: z.y + z.h/2 }),
+};
+const HANDLE_CURSORS = { nw:'nwse-resize', n:'ns-resize', ne:'nesw-resize', e:'ew-resize', se:'nwse-resize', s:'ns-resize', sw:'nesw-resize', w:'ew-resize' };
+
 function TablesTab({ pin }) {
   const [tables, setTables] = useState([]);
   const [zones, setZones] = useState([]);
   const [editMode, setEditMode] = useState(false);
-  const [dragging, setDragging] = useState(null);
+  const [draggingTable, setDraggingTable] = useState(null);
+  const [draggingZone, setDraggingZone] = useState(null);
+  const [resizingZone, setResizingZone] = useState(null);
+  const [selectedZone, setSelectedZone] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [resizeStart, setResizeStart] = useState(null);
   const containerRef = useRef(null);
 
   const load = useCallback(() => {
@@ -216,7 +234,7 @@ function TablesTab({ pin }) {
     Promise.all([
       updateFloorTables(pin, tables),
       updateFloorZones(pin, zones),
-    ]).then(() => { setEditMode(false); load(); });
+    ]).then(() => { setEditMode(false); setSelectedZone(null); load(); });
   };
 
   const handleAddTable = () => {
@@ -224,102 +242,215 @@ function TablesTab({ pin }) {
     setTables([...tables, { num, x: 100, y: 100, w: 90, h: 50, type: 'table', seats: 4, label: 'Table', zone: '' }]);
   };
 
-  const handleDeleteTable = (idx) => {
-    setTables(tables.filter((_, i) => i !== idx));
-  };
-
   const handleAddZone = () => {
-    const label = prompt('Zone label:');
-    if (!label) return;
-    setZones([...zones, { label, x: 50, y: 50, w: 200, h: 150, color: '#2a3025', is_entrance: false }]);
+    setZones([...zones, { label: 'New Zone', x: 60, y: 60, w: 200, h: 150, color: '#2a3025', is_entrance: false }]);
+    setSelectedZone(zones.length);
   };
 
-  const handleMouseDown = (e, idx) => {
-    if (!editMode) return;
+  // ── Mouse handlers ──
+  const getPos = (e) => {
     const rect = containerRef.current.getBoundingClientRect();
-    setDragging(idx);
-    setDragOffset({ x: e.clientX - rect.left - tables[idx].x, y: e.clientY - rect.top - tables[idx].y });
+    return { mx: e.clientX - rect.left, my: e.clientY - rect.top };
+  };
+
+  const handleTableMouseDown = (e, idx) => {
+    if (!editMode) return;
+    e.stopPropagation();
+    const { mx, my } = getPos(e);
+    setDraggingTable(idx);
+    setDragOffset({ x: mx - tables[idx].x, y: my - tables[idx].y });
+    setSelectedZone(null);
+  };
+
+  const handleZoneMouseDown = (e, idx) => {
+    if (!editMode) return;
+    e.stopPropagation();
+    const { mx, my } = getPos(e);
+    setSelectedZone(idx);
+    setDraggingZone(idx);
+    setDragOffset({ x: mx - zones[idx].x, y: my - zones[idx].y });
+  };
+
+  const handleHandleMouseDown = (e, handle) => {
+    if (selectedZone === null) return;
+    e.stopPropagation();
+    const { mx, my } = getPos(e);
+    setResizingZone({ idx: selectedZone, handle });
+    setResizeStart({ mx, my, ...zones[selectedZone] });
   };
 
   const handleMouseMove = (e) => {
-    if (dragging === null || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - rect.left - dragOffset.x, rect.width - 90));
-    const y = Math.max(0, Math.min(e.clientY - rect.top - dragOffset.y, rect.height - 50));
-    setTables(prev => prev.map((t, i) => i === dragging ? { ...t, x, y } : t));
+    if (!containerRef.current) return;
+    const { mx, my } = getPos(e);
+    const cw = containerRef.current.offsetWidth;
+    const ch = containerRef.current.offsetHeight;
+
+    if (draggingTable !== null) {
+      const x = Math.max(0, Math.min(mx - dragOffset.x, cw - 90));
+      const y = Math.max(0, Math.min(my - dragOffset.y, ch - 50));
+      setTables(prev => prev.map((t, i) => i === draggingTable ? { ...t, x, y } : t));
+    } else if (draggingZone !== null && !resizingZone) {
+      const z = zones[draggingZone];
+      const x = Math.max(0, Math.min(mx - dragOffset.x, cw - z.w));
+      const y = Math.max(0, Math.min(my - dragOffset.y, ch - z.h));
+      setZones(prev => prev.map((zn, i) => i === draggingZone ? { ...zn, x, y } : zn));
+    } else if (resizingZone && resizeStart) {
+      const { handle, idx } = resizingZone;
+      const dx = mx - resizeStart.mx;
+      const dy = my - resizeStart.my;
+      let { x, y, w, h } = resizeStart;
+      const MIN_W = 60, MIN_H = 40;
+
+      if (handle.includes('e')) w = Math.max(MIN_W, resizeStart.w + dx);
+      if (handle.includes('w')) { w = Math.max(MIN_W, resizeStart.w - dx); x = resizeStart.x + resizeStart.w - w; }
+      if (handle.includes('s')) h = Math.max(MIN_H, resizeStart.h + dy);
+      if (handle.includes('n')) { h = Math.max(MIN_H, resizeStart.h - dy); y = resizeStart.y + resizeStart.h - h; }
+
+      setZones(prev => prev.map((zn, i) => i === idx ? { ...zn, x, y, w, h } : zn));
+    }
   };
 
-  const handleMouseUp = () => setDragging(null);
+  const handleMouseUp = () => {
+    setDraggingTable(null);
+    setDraggingZone(null);
+    setResizingZone(null);
+    setResizeStart(null);
+  };
+
+  const handleCanvasClick = (e) => {
+    if (e.target === containerRef.current) setSelectedZone(null);
+  };
 
   const totalSeats = tables.reduce((s, t) => s + (t.seats || 4), 0);
+  const toolbarBtn = (bg, label, onClick) => (
+    <button onClick={onClick} style={{ padding: '8px 16px', background: bg, color: bg === T.accent ? '#000' : '#fff',
+      border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 600, fontSize: 13 }}>{label}</button>
+  );
 
   return (
-    <div>
-      <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center' }}>
-        <Stat label="Tables" value={tables.length} />
-        <Stat label="Total Seats" value={totalSeats} />
-        <div style={{ flex: 1 }} />
-        {editMode ? <>
-          <button onClick={handleAddTable} style={{ padding: '8px 16px', background: T.blue, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 600 }}>+ Table</button>
-          <button onClick={handleAddZone} style={{ padding: '8px 16px', background: T.orange, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 600 }}>+ Zone</button>
-          <button onClick={handleSave} style={{ padding: '8px 16px', background: T.green, color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}>Save</button>
-          <button onClick={() => { setEditMode(false); load(); }} style={{ padding: '8px 16px', background: T.border, color: T.textDim, border: 'none', borderRadius: 6, cursor: 'pointer' }}>Cancel</button>
-        </> : <button onClick={() => setEditMode(true)} style={{ padding: '8px 16px', background: T.accent, color: '#000', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 700 }}>Edit Mode</button>}
+    <div style={{ display: 'flex', gap: 16 }}>
+      {/* Main canvas area */}
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'center' }}>
+          <Stat label="Tables" value={tables.length} />
+          <Stat label="Total Seats" value={totalSeats} />
+          <div style={{ flex: 1 }} />
+          {editMode ? <>
+            {toolbarBtn(T.blue, '+ Table', handleAddTable)}
+            {toolbarBtn(T.orange, '+ Zone', handleAddZone)}
+            {toolbarBtn(T.green, 'Save', handleSave)}
+            {toolbarBtn(T.border, 'Cancel', () => { setEditMode(false); setSelectedZone(null); load(); })}
+          </> : toolbarBtn(T.accent, 'Edit Mode', () => setEditMode(true))}
+        </div>
+        <div ref={containerRef} onClick={handleCanvasClick}
+          onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
+          style={{ position: 'relative', width: '100%', height: 'calc(100vh - 200px)', minHeight: 500,
+            background: T.card, borderRadius: 12, border: `1px solid ${T.border}`, overflow: 'hidden' }}>
+          {/* Zones */}
+          {zones.map((z, i) => (
+            <div key={`z-${i}`}
+              onMouseDown={(e) => handleZoneMouseDown(e, i)}
+              style={{
+                position: 'absolute', left: z.x, top: z.y, width: z.w, height: z.h,
+                background: z.is_entrance ? 'rgba(76,175,80,0.15)' : (z.color + '30'),
+                border: selectedZone === i ? `2px solid ${T.accent}` : `1px dashed ${z.is_entrance ? T.green : T.border}`,
+                borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: T.textDim, fontSize: 13, fontWeight: 600,
+                cursor: editMode ? 'move' : 'default', userSelect: 'none',
+              }}>
+              {z.is_entrance ? 'Entrance' : z.label}
+            </div>
+          ))}
+          {/* Resize handles for selected zone */}
+          {editMode && selectedZone !== null && zones[selectedZone] && Object.entries(HANDLE_POSITIONS).map(([key, posFn]) => {
+            const pos = posFn(zones[selectedZone]);
+            return (
+              <div key={`h-${key}`}
+                onMouseDown={(e) => handleHandleMouseDown(e, key)}
+                style={{
+                  position: 'absolute', left: pos.x - HANDLE_SIZE/2, top: pos.y - HANDLE_SIZE/2,
+                  width: HANDLE_SIZE, height: HANDLE_SIZE, background: T.accent, border: `1px solid ${T.bg}`,
+                  cursor: HANDLE_CURSORS[key], zIndex: 10, borderRadius: 2,
+                }} />
+            );
+          })}
+          {/* Tables */}
+          {tables.map((t, i) => (
+            <div key={`t-${i}`}
+              onMouseDown={(e) => handleTableMouseDown(e, i)}
+              onDoubleClick={() => {
+                if (!editMode) return;
+                const seats = prompt('Party size / seats:', t.seats);
+                if (seats) setTables(prev => prev.map((tb, j) => j === i ? { ...tb, seats: parseInt(seats) || 4 } : tb));
+              }}
+              style={{
+                position: 'absolute', left: t.x, top: t.y, width: t.w || 90, height: t.h || 50,
+                background: T.accent + '20', border: `2px solid ${T.accent}`, borderRadius: 8,
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                cursor: editMode ? 'move' : 'default', userSelect: 'none', zIndex: 5,
+              }}>
+              <span style={{ color: T.accent, fontWeight: 700, fontSize: 14 }}>{t.num}</span>
+              <span style={{ color: T.textDim, fontSize: 10 }}>{t.seats} seats</span>
+              {editMode && <button onClick={(e) => { e.stopPropagation(); setTables(tables.filter((_, j) => j !== i)); }}
+                style={{ position: 'absolute', top: -8, right: -8, background: T.red, color: '#fff',
+                  border: 'none', borderRadius: '50%', width: 18, height: 18, fontSize: 11,
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 6 }}>x</button>}
+            </div>
+          ))}
+        </div>
       </div>
-      <div ref={containerRef}
-        onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
-        style={{ position: 'relative', width: '100%', height: 500, background: T.card,
-          borderRadius: 12, border: `1px solid ${T.border}`, overflow: 'hidden' }}>
-        {zones.map((z, i) => (
-          <div key={`z-${i}`} style={{
-            position: 'absolute', left: z.x, top: z.y, width: z.w, height: z.h,
-            background: z.is_entrance ? 'rgba(76,175,80,0.15)' : (z.color + '30'),
-            border: `1px dashed ${z.is_entrance ? T.green : T.border}`, borderRadius: 8,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: T.textDim, fontSize: 13, fontWeight: 600,
-          }}>
-            {z.is_entrance ? 'Entrance' : z.label}
-            {editMode && <button onClick={() => setZones(zones.filter((_, j) => j !== i))}
-              style={{ position: 'absolute', top: 2, right: 2, background: T.red, color: '#fff',
-                border: 'none', borderRadius: '50%', width: 18, height: 18, fontSize: 11,
-                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>x</button>}
+      {/* Zone sidebar — only visible when a zone is selected in edit mode */}
+      {editMode && selectedZone !== null && zones[selectedZone] && (
+        <div style={{ width: 240, background: T.card, borderRadius: 12, padding: 16,
+          border: `1px solid ${T.border}`, alignSelf: 'flex-start', position: 'sticky', top: 16 }}>
+          <h4 style={{ color: T.accent, margin: '0 0 12px', fontSize: 14 }}>Zone Properties</h4>
+          <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 4 }}>Label</label>
+          <input value={zones[selectedZone].label}
+            onChange={e => setZones(prev => prev.map((z, i) => i === selectedZone ? { ...z, label: e.target.value } : z))}
+            style={{ width: '100%', padding: 8, background: T.bg, color: T.text, border: `1px solid ${T.border}`,
+              borderRadius: 6, fontSize: 13, marginBottom: 12, boxSizing: 'border-box', outline: 'none' }} />
+          <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 4 }}>Color</label>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
+            {ZONE_COLORS.map(c => (
+              <div key={c} onClick={() => setZones(prev => prev.map((z, i) => i === selectedZone ? { ...z, color: c } : z))}
+                style={{ width: 24, height: 24, borderRadius: 4, background: c, cursor: 'pointer',
+                  border: zones[selectedZone].color === c ? `2px solid ${T.accent}` : `1px solid ${T.border}` }} />
+            ))}
           </div>
-        ))}
-        {tables.map((t, i) => (
-          <div key={`t-${i}`}
-            onMouseDown={(e) => handleMouseDown(e, i)}
-            onDoubleClick={() => {
-              if (!editMode) return;
-              const seats = prompt('Party size / seats:', t.seats);
-              if (seats) setTables(prev => prev.map((tb, j) => j === i ? { ...tb, seats: parseInt(seats) || 4 } : tb));
-            }}
-            style={{
-              position: 'absolute', left: t.x, top: t.y, width: t.w || 90, height: t.h || 50,
-              background: T.accent + '20', border: `2px solid ${T.accent}`, borderRadius: 8,
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              cursor: editMode ? 'move' : 'default', userSelect: 'none',
-            }}>
-            <span style={{ color: T.accent, fontWeight: 700, fontSize: 14 }}>{t.num}</span>
-            <span style={{ color: T.textDim, fontSize: 10 }}>{t.seats} seats</span>
-            {editMode && <button onClick={(e) => { e.stopPropagation(); handleDeleteTable(i); }}
-              style={{ position: 'absolute', top: -8, right: -8, background: T.red, color: '#fff',
-                border: 'none', borderRadius: '50%', width: 18, height: 18, fontSize: 11,
-                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>x</button>}
-          </div>
-        ))}
-      </div>
+          <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 8 }}>
+            Size: {Math.round(zones[selectedZone].w)} x {Math.round(zones[selectedZone].h)}
+          </label>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, color: T.text, fontSize: 13, marginBottom: 16, cursor: 'pointer' }}>
+            <input type="checkbox" checked={zones[selectedZone].is_entrance}
+              onChange={e => setZones(prev => prev.map((z, i) => i === selectedZone ? { ...z, is_entrance: e.target.checked } : z))} />
+            Is Entrance
+          </label>
+          <button onClick={() => { setZones(zones.filter((_, i) => i !== selectedZone)); setSelectedZone(null); }}
+            style={{ width: '100%', padding: 8, background: T.red, color: '#fff', border: 'none',
+              borderRadius: 6, cursor: 'pointer', fontWeight: 600, fontSize: 13 }}>Delete Zone</button>
+        </div>
+      )}
     </div>
   );
 }
 
 // ════════════════════════════════════════════════════════
-// MENU TAB
+// MENU TAB — Side Panel Editor
 // ════════════════════════════════════════════════════════
 function MenuTab({ pin }) {
   const [categories, setCategories] = useState([]);
   const [togglesList, setTogglesList] = useState([]);
-  const [editing, setEditing] = useState(null);
+  const [selected, setSelected] = useState(null); // slug of selected item
   const [search, setSearch] = useState('');
+  // Edit form state
+  const [editName, setEditName] = useState('');
+  const [editDesc, setEditDesc] = useState('');
+  const [editPrice, setEditPrice] = useState(0);
+  const [editToggles, setEditToggles] = useState([]);
+  const [editMods, setEditMods] = useState(false);
+  const [editCat, setEditCat] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
 
   const load = useCallback(() => {
     getMenuItems(pin).then(d => {
@@ -330,33 +461,79 @@ function MenuTab({ pin }) {
 
   useEffect(() => { load(); }, [load]);
 
+  // Find selected item across categories
+  const selectedItem = (() => {
+    if (!selected) return null;
+    for (const cat of categories) {
+      const item = cat.items.find(i => i.slug === selected);
+      if (item) return { ...item, category: cat.name };
+    }
+    return null;
+  })();
+
+  // Populate edit form when selection changes
+  useEffect(() => {
+    if (selectedItem) {
+      setEditName(selectedItem.name);
+      setEditDesc(selectedItem.description || '');
+      setEditPrice(selectedItem.price);
+      setEditToggles(selectedItem.toggles || []);
+      setEditMods(selectedItem.allows_modifications || false);
+      setEditCat(selectedItem.category);
+    }
+  }, [selected]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const filtered = categories.map(cat => ({
     ...cat,
-    items: cat.items.filter(it =>
-      it.name.toLowerCase().includes(search.toLowerCase())
-    ),
+    items: cat.items.filter(it => it.name.toLowerCase().includes(search.toLowerCase())),
   })).filter(cat => cat.items.length > 0);
 
   const totalItems = categories.reduce((s, c) => s + c.items.length, 0);
   const withPhotos = categories.reduce((s, c) => s + c.items.filter(i => i.has_photo).length, 0);
 
-  const handleSave = (slug, data) => {
-    updateMenuItem(slug, data, pin).then(() => { setEditing(null); load(); });
+  const handleSave = () => {
+    if (!selected) return;
+    setSaving(true);
+    updateMenuItem(selected, {
+      name: editName, description: editDesc, price: editPrice,
+      toggles: editToggles, allows_modifications: editMods,
+    }, pin).then(() => { load(); setSaving(false); }).catch(() => setSaving(false));
   };
 
-  const handleDelete = (slug) => {
-    if (!confirm('Delete this item?')) return;
-    deleteMenuItem(slug, pin).then(load);
+  const handleDelete = () => {
+    if (!selected || !confirm(`Delete "${editName}"?`)) return;
+    deleteMenuItem(selected, pin).then(() => { setSelected(null); load(); });
   };
 
-  const handlePhotoUpload = (slug) => {
+  const handlePhotoUpload = (file) => {
+    if (!selected || !file) return;
+    uploadMenuPhoto(selected, file, pin).then(load);
+  };
+
+  const handlePhotoDrop = (e) => {
+    e.preventDefault(); setDragOver(false);
+    const file = e.dataTransfer?.files?.[0];
+    if (file && file.type.startsWith('image/')) handlePhotoUpload(file);
+  };
+
+  const handlePhotoClick = () => {
     const input = document.createElement('input');
     input.type = 'file'; input.accept = 'image/*';
-    input.onchange = (e) => {
-      if (e.target.files[0]) uploadMenuPhoto(slug, e.target.files[0], pin).then(load);
-    };
+    input.onchange = (e) => { if (e.target.files[0]) handlePhotoUpload(e.target.files[0]); };
     input.click();
   };
+
+  const handlePhotoDelete = () => {
+    if (!selected) return;
+    deleteMenuPhoto(selected, pin).then(load);
+  };
+
+  const toggleToggle = (tid) => {
+    setEditToggles(prev => prev.includes(tid) ? prev.filter(t => t !== tid) : [...prev, tid]);
+  };
+
+  const inputStyle = { width: '100%', padding: 8, background: T.bg, color: T.text,
+    border: `1px solid ${T.border}`, borderRadius: 6, fontSize: 13, boxSizing: 'border-box', outline: 'none' };
 
   return (
     <div>
@@ -366,149 +543,282 @@ function MenuTab({ pin }) {
         <Stat label="Categories" value={categories.length} />
         <Stat label="Toggles" value={togglesList.length} />
       </div>
-      <input value={search} onChange={e => setSearch(e.target.value)}
-        placeholder="Search items..." style={{ width: '100%', padding: 10, marginBottom: 16,
-          background: T.bg, color: T.text, border: `1px solid ${T.border}`, borderRadius: 8,
-          outline: 'none', boxSizing: 'border-box', fontSize: 14 }} />
-      {filtered.map(cat => (
-        <div key={cat.name} style={{ marginBottom: 16 }}>
-          <h3 style={{ color: T.accent, margin: '0 0 8px', fontSize: 15 }}>
-            {cat.icon} {cat.name} ({cat.items.length})
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 8 }}>
-            {cat.items.map(item => (
-              <div key={item.slug} style={{ background: T.bg, borderRadius: 8, padding: 10,
-                border: `1px solid ${T.border}`, display: 'flex', gap: 10, alignItems: 'center' }}>
-                {item.has_photo ? (
-                  <img src={`${API_BASE}/api/images/menu/${item.slug}-thumb.jpg`}
-                    style={{ width: 48, height: 48, borderRadius: 6, objectFit: 'cover' }}
-                    onError={e => e.target.style.display = 'none'} />
-                ) : (
-                  <div style={{ width: 48, height: 48, borderRadius: 6, background: T.border,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: T.textDim, fontSize: 10, cursor: 'pointer' }}
-                    onClick={() => handlePhotoUpload(item.slug)}>
-                    + Photo
+      <div style={{ display: 'flex', gap: 16 }}>
+        {/* Left: item grid */}
+        <div style={{ flex: 1, minWidth: 0, maxHeight: 'calc(100vh - 240px)', overflowY: 'auto', paddingRight: 4 }}>
+          <input value={search} onChange={e => setSearch(e.target.value)}
+            placeholder="Search items..." style={{ ...inputStyle, marginBottom: 12, padding: 10, fontSize: 14 }} />
+          {filtered.map(cat => (
+            <div key={cat.name} style={{ marginBottom: 14 }}>
+              <h3 style={{ color: T.accent, margin: '0 0 8px', fontSize: 14 }}>
+                {cat.icon} {cat.name} ({cat.items.length})
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 6 }}>
+                {cat.items.map(item => (
+                  <div key={item.slug} onClick={() => setSelected(item.slug)}
+                    style={{ background: T.bg, borderRadius: 8, padding: 8, cursor: 'pointer',
+                      border: selected === item.slug ? `2px solid ${T.accent}` : `1px solid ${T.border}`,
+                      display: 'flex', gap: 8, alignItems: 'center', transition: 'border-color 0.15s' }}>
+                    {item.has_photo ? (
+                      <img src={`${API_BASE}/api/images/menu/${item.slug}-thumb.jpg`}
+                        style={{ width: 40, height: 40, borderRadius: 4, objectFit: 'cover', flexShrink: 0 }}
+                        onError={e => e.target.style.display = 'none'} />
+                    ) : (
+                      <div style={{ width: 40, height: 40, borderRadius: 4, background: T.border, flexShrink: 0,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', color: T.textDim, fontSize: 9 }}>
+                        No img
+                      </div>
+                    )}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ color: T.text, fontWeight: 600, fontSize: 12, whiteSpace: 'nowrap',
+                        overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
+                      <div style={{ color: T.accent, fontWeight: 700, fontSize: 13 }}>${item.price?.toFixed(2)}</div>
+                    </div>
                   </div>
-                )}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  {editing === item.slug ? (
-                    <EditInline item={item} onSave={handleSave} onCancel={() => setEditing(null)} />
-                  ) : <>
-                    <div style={{ color: T.text, fontWeight: 600, fontSize: 13, whiteSpace: 'nowrap',
-                      overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
-                    <div style={{ color: T.accent, fontWeight: 700 }}>${item.price?.toFixed(2)}</div>
-                  </>}
-                </div>
-                {editing !== item.slug && <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
-                  <button onClick={() => setEditing(item.slug)} title="Edit"
-                    style={{ background: 'transparent', border: 'none', color: T.blue, cursor: 'pointer', fontSize: 16 }}>&#9998;</button>
-                  <button onClick={() => handleDelete(item.slug)} title="Delete"
-                    style={{ background: 'transparent', border: 'none', color: T.red, cursor: 'pointer', fontSize: 16 }}>&#10005;</button>
-                </div>}
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  );
-}
+        {/* Right: edit panel */}
+        <div style={{
+          width: selected ? 320 : 0, overflow: 'hidden',
+          transition: 'width 0.25s ease', flexShrink: 0,
+        }}>
+          {selectedItem && (
+            <div style={{ width: 320, background: T.card, borderRadius: 12, padding: 16,
+              border: `1px solid ${T.border}`, position: 'sticky', top: 0 }}>
+              {/* Photo area */}
+              <div onClick={handlePhotoClick}
+                onDragOver={e => { e.preventDefault(); setDragOver(true); }}
+                onDragLeave={() => setDragOver(false)}
+                onDrop={handlePhotoDrop}
+                style={{
+                  width: '100%', height: 200, borderRadius: 10, marginBottom: 14,
+                  background: dragOver ? T.accent + '20' : T.bg,
+                  border: `2px dashed ${dragOver ? T.accent : T.border}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', overflow: 'hidden', position: 'relative',
+                }}>
+                {selectedItem.has_photo ? (
+                  <img src={`${API_BASE}/api/images/menu/${selectedItem.slug}.jpg?t=${Date.now()}`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <span style={{ color: T.textDim, fontSize: 13 }}>Click or drop image</span>
+                )}
+              </div>
+              {selectedItem.has_photo && (
+                <button onClick={handlePhotoDelete}
+                  style={{ width: '100%', padding: 6, background: 'transparent', color: T.red,
+                    border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer',
+                    fontSize: 12, marginBottom: 12 }}>Remove Photo</button>
+              )}
 
-function EditInline({ item, onSave, onCancel }) {
-  const [name, setName] = useState(item.name);
-  const [price, setPrice] = useState(item.price);
-  return (
-    <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-      <input value={name} onChange={e => setName(e.target.value)}
-        style={{ flex: 1, padding: 4, background: T.bg, color: T.text, border: `1px solid ${T.border}`,
-          borderRadius: 4, fontSize: 12, minWidth: 0 }} />
-      <input type="number" step="0.01" value={price} onChange={e => setPrice(parseFloat(e.target.value) || 0)}
-        style={{ width: 60, padding: 4, background: T.bg, color: T.text, border: `1px solid ${T.border}`,
-          borderRadius: 4, fontSize: 12 }} />
-      <button onClick={() => onSave(item.slug, { name, price })}
-        style={{ background: T.green, color: '#fff', border: 'none', borderRadius: 4, padding: '4px 8px', cursor: 'pointer', fontSize: 11, fontWeight: 700 }}>Save</button>
-      <button onClick={onCancel}
-        style={{ background: T.border, color: T.textDim, border: 'none', borderRadius: 4, padding: '4px 8px', cursor: 'pointer', fontSize: 11 }}>X</button>
+              {/* Name */}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Name</label>
+              <input value={editName} onChange={e => setEditName(e.target.value)}
+                style={{ ...inputStyle, fontSize: 15, fontWeight: 600, marginBottom: 10 }} />
+
+              {/* Description */}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Description</label>
+              <textarea value={editDesc} onChange={e => setEditDesc(e.target.value)} rows={3}
+                style={{ ...inputStyle, resize: 'vertical', marginBottom: 10, fontFamily: 'inherit' }} />
+
+              {/* Price */}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Price</label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 10 }}>
+                <span style={{ color: T.accent, fontWeight: 700 }}>$</span>
+                <input type="number" step="0.01" value={editPrice}
+                  onChange={e => setEditPrice(parseFloat(e.target.value) || 0)}
+                  style={{ ...inputStyle, flex: 1 }} />
+              </div>
+
+              {/* Category */}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Category</label>
+              <select value={editCat} onChange={e => setEditCat(e.target.value)}
+                style={{ ...inputStyle, marginBottom: 10 }}>
+                {categories.map(c => <option key={c.name} value={c.name}>{c.icon} {c.name}</option>)}
+              </select>
+
+              {/* Toggles */}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 6 }}>Customization Toggles</label>
+              <div style={{ marginBottom: 10 }}>
+                {togglesList.map(tg => (
+                  <label key={tg.id} style={{ display: 'flex', alignItems: 'center', gap: 6, color: T.text,
+                    fontSize: 13, marginBottom: 4, cursor: 'pointer' }}>
+                    <input type="checkbox" checked={editToggles.includes(tg.id)}
+                      onChange={() => toggleToggle(tg.id)} />
+                    {tg.name}
+                  </label>
+                ))}
+              </div>
+
+              {/* Allow modifications */}
+              <label style={{ display: 'flex', alignItems: 'center', gap: 6, color: T.text,
+                fontSize: 13, marginBottom: 16, cursor: 'pointer' }}>
+                <input type="checkbox" checked={editMods} onChange={e => setEditMods(e.target.checked)} />
+                Allow special instructions
+              </label>
+
+              {/* Actions */}
+              <button onClick={handleSave} disabled={saving}
+                style={{ width: '100%', padding: 10, background: T.accent, color: '#000',
+                  border: 'none', borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: 'pointer',
+                  marginBottom: 8, opacity: saving ? 0.6 : 1 }}>
+                {saving ? 'Saving...' : 'Save Changes'}
+              </button>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={handleDelete}
+                  style={{ flex: 1, padding: 8, background: 'transparent', color: T.red,
+                    border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>
+                  Delete Item
+                </button>
+                <button onClick={() => setSelected(null)}
+                  style={{ flex: 1, padding: 8, background: 'transparent', color: T.textDim,
+                    border: `1px solid ${T.border}`, borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
 
 // ════════════════════════════════════════════════════════
-// CHA CLUB TAB
+// CHA CLUB TAB — All Members with Filter
 // ════════════════════════════════════════════════════════
 function ChaClubTab({ pin }) {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [members, setMembers] = useState([]);
+  const [search, setSearch] = useState('');
   const [selected, setSelected] = useState(null);
   const [msg, setMsg] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const handleSearch = () => {
-    if (!query.trim()) return;
-    staffSearch(query, pin).then(d => setResults(d.results || [])).catch(e => setMsg(e.message));
-  };
+  const load = useCallback(() => {
+    setLoading(true);
+    getChaClubMembers(pin).then(d => {
+      setMembers(d.members || []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [pin]);
+
+  useEffect(() => { load(); }, [load]);
 
   const handleRedeem = (subscriberId, drinkName) => {
-    staffRedeem(subscriberId, pin, drinkName).then(d => {
+    staffRedeem(subscriberId, pin, drinkName).then(() => {
       setMsg(`Drink redeemed! ${drinkName}`);
       setSelected(null);
+      load(); // Refresh to update redeemed status
     }).catch(e => setMsg(e.message));
   };
+
+  // Clear message after 4 seconds
+  useEffect(() => {
+    if (!msg) return;
+    const t = setTimeout(() => setMsg(''), 4000);
+    return () => clearTimeout(t);
+  }, [msg]);
 
   const drinks = ['Thai Iced Tea', 'Thai Iced Coffee', 'Lychee Juice', 'Mango Juice',
     'Coconut Water', 'Passion Fruit Juice', 'Guava Juice', 'Smoothie'];
 
+  const filtered = members.filter(m =>
+    m.name.toLowerCase().includes(search.toLowerCase()) ||
+    (m.phone || '').includes(search) ||
+    (m.email || '').toLowerCase().includes(search.toLowerCase())
+  );
+
+  const activeCount = members.filter(m => m.status === 'active').length;
+  const availableCount = members.filter(m => m.status === 'active' && !m.redeemed_this_week).length;
+
   return (
     <div>
-      <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
-        <input value={query} onChange={e => setQuery(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && handleSearch()}
-          placeholder="Search by name or phone..."
-          style={{ flex: 1, padding: 12, background: T.bg, color: T.text, border: `1px solid ${T.border}`,
-            borderRadius: 8, outline: 'none', fontSize: 14 }} />
-        <button onClick={handleSearch}
-          style={{ padding: '12px 24px', background: T.accent, color: '#000', border: 'none',
-            borderRadius: 8, fontWeight: 700, cursor: 'pointer' }}>Search</button>
+      {/* Stats */}
+      <div style={{ display: 'flex', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
+        <Stat label="Total Members" value={members.length} />
+        <Stat label="Active" value={activeCount} color={T.green} />
+        <Stat label="Drinks Available" value={availableCount} color={T.blue} />
       </div>
-      {msg && <div style={{ padding: 12, background: msg.includes('redeemed') ? T.green + '30' : T.red + '30',
-        color: msg.includes('redeemed') ? T.green : T.red, borderRadius: 8, marginBottom: 12, fontSize: 14 }}>{msg}</div>}
-      {results.map(m => (
-        <div key={m.id} style={{ background: T.bg, borderRadius: 10, padding: 16, marginBottom: 10,
-          border: `1px solid ${T.border}` }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <div style={{ color: T.text, fontWeight: 700, fontSize: 16 }}>{m.name}</div>
-              <div style={{ color: T.textDim, fontSize: 13 }}>{m.phone || m.email}</div>
-              <div style={{ fontSize: 12, marginTop: 4 }}>
-                <span style={{ color: m.subscription_status === 'active' ? T.green : T.red, fontWeight: 600 }}>
-                  {m.subscription_status?.toUpperCase()}
-                </span>
-                {m.redeemed_this_week && <span style={{ color: T.orange, marginLeft: 8 }}>Already redeemed this week</span>}
-              </div>
-            </div>
-            {m.subscription_status === 'active' && !m.redeemed_this_week && (
-              <button onClick={() => setSelected(selected === m.id ? null : m.id)}
-                style={{ padding: '8px 16px', background: T.green, color: '#fff', border: 'none',
-                  borderRadius: 6, cursor: 'pointer', fontWeight: 600 }}>
-                Redeem Drink
-              </button>
-            )}
+
+      {/* Success/error message */}
+      {msg && <div style={{ padding: 12, background: msg.includes('redeemed') ? T.green + '20' : T.red + '20',
+        color: msg.includes('redeemed') ? T.green : T.red, borderRadius: 8, marginBottom: 12, fontSize: 14, fontWeight: 600 }}>{msg}</div>}
+
+      {/* Search */}
+      <input value={search} onChange={e => setSearch(e.target.value)}
+        placeholder="Search members..."
+        style={{ width: '100%', padding: 10, marginBottom: 12, background: T.bg, color: T.text,
+          border: `1px solid ${T.border}`, borderRadius: 8, outline: 'none', boxSizing: 'border-box', fontSize: 14 }} />
+
+      {loading ? (
+        <p style={{ color: T.textDim, textAlign: 'center' }}>Loading members...</p>
+      ) : (
+        /* Member table */
+        <div style={{ background: T.bg, borderRadius: 10, border: `1px solid ${T.border}`, overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr 1fr', padding: '10px 14px',
+            background: T.border, fontSize: 12, color: T.textDim, fontWeight: 600 }}>
+            <div>Name</div><div>Phone</div><div>Status</div><div>This Week</div>
           </div>
-          {selected === m.id && (
-            <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-              {drinks.map(d => (
-                <button key={d} onClick={() => handleRedeem(m.id, d)}
-                  style={{ padding: '8px 14px', background: T.accent + '30', color: T.accent,
-                    border: `1px solid ${T.accent}`, borderRadius: 20, cursor: 'pointer',
-                    fontSize: 13, fontWeight: 600 }}>
-                  {d}
-                </button>
-              ))}
+          {filtered.map(m => (
+            <div key={m.id}>
+              <div onClick={() => {
+                if (m.status === 'active' && !m.redeemed_this_week) {
+                  setSelected(selected === m.id ? null : m.id);
+                }
+              }}
+                style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr 1fr', padding: '12px 14px',
+                  borderBottom: `1px solid ${T.border}`,
+                  cursor: (m.status === 'active' && !m.redeemed_this_week) ? 'pointer' : 'default',
+                  fontSize: 13, color: T.text, transition: 'background 0.15s',
+                  background: selected === m.id ? T.accent + '10' : 'transparent' }}
+                onMouseEnter={e => { if (selected !== m.id) e.currentTarget.style.background = T.card; }}
+                onMouseLeave={e => { if (selected !== m.id) e.currentTarget.style.background = 'transparent'; }}>
+                <div style={{ fontWeight: 600 }}>{m.name}</div>
+                <div style={{ color: T.textDim }}>{m.phone || m.email || '-'}</div>
+                <div>
+                  <span style={{ padding: '2px 8px', borderRadius: 10, fontSize: 11, fontWeight: 600,
+                    background: m.status === 'active' ? T.green + '20' : T.red + '20',
+                    color: m.status === 'active' ? T.green : T.red }}>
+                    {m.status === 'active' ? 'Active' : m.status === 'inactive' ? 'Paused' : (m.status || 'Unknown')}
+                  </span>
+                </div>
+                <div>
+                  {m.status !== 'active' ? (
+                    <span style={{ color: T.textDim }}>-</span>
+                  ) : m.redeemed_this_week ? (
+                    <span style={{ color: T.orange, fontWeight: 600, fontSize: 12 }}>Redeemed</span>
+                  ) : (
+                    <span style={{ color: T.green, fontWeight: 600, fontSize: 12 }}>Available</span>
+                  )}
+                </div>
+              </div>
+              {/* Drink picker row */}
+              {selected === m.id && (
+                <div style={{ padding: '10px 14px', background: T.card, borderBottom: `1px solid ${T.border}`,
+                  display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                  <span style={{ color: T.textDim, fontSize: 12, width: '100%', marginBottom: 4 }}>Select drink to redeem:</span>
+                  {drinks.map(d => (
+                    <button key={d} onClick={() => handleRedeem(m.id, d)}
+                      style={{ padding: '6px 14px', background: T.accent + '20', color: T.accent,
+                        border: `1px solid ${T.accent}50`, borderRadius: 20, cursor: 'pointer',
+                        fontSize: 12, fontWeight: 600 }}>
+                      {d}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          {!filtered.length && (
+            <div style={{ padding: 24, textAlign: 'center', color: T.textDim }}>
+              {members.length ? 'No members match your search' : 'No Cha Club members yet'}
             </div>
           )}
         </div>
-      ))}
-      {results.length === 0 && query && <p style={{ color: T.textDim, textAlign: 'center' }}>No members found</p>}
+      )}
     </div>
   );
 }

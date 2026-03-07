@@ -554,6 +554,13 @@ export const staffSearch = (query, pin) =>
     headers: { 'X-Staff-Pin': pin }
   }).then(r => r.json());
 
+export const getChaClubMembers = (pin) =>
+  fetch(`${API_BASE}/api/thaihouse/staff/members?pin=${encodeURIComponent(pin)}`)
+    .then(r => {
+      if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Failed'); });
+      return r.json();
+    });
+
 export const staffRedeem = (subscriberId, pin, drinkName) =>
   fetch(`${API_BASE}/api/thaihouse/staff/redeem`, {
     method: 'POST',

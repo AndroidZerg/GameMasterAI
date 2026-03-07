@@ -97,6 +97,15 @@ def search_subscribers(query: str) -> list:
     return [_row_to_dict(r) for r in rows]
 
 
+def get_all_subscribers() -> list:
+    """Return all drink club subscribers."""
+    db = _db()
+    rows = db.execute(
+        "SELECT * FROM drink_subscribers ORDER BY name LIMIT 200"
+    ).fetchall()
+    return [_row_to_dict(r) for r in rows]
+
+
 def get_week_redemption(subscriber_id: int, week_start: str = None) -> dict | None:
     ws = week_start or _current_week_start()
     db = _db()

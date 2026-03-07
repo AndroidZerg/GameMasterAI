@@ -11,7 +11,8 @@ from typing import Optional
 from app.core.config import STRIPE_SECRET_KEY
 from app.models.drink_club import (
     get_subscriber_by_email, get_subscriber_by_phone, get_subscriber_by_qr,
-    get_subscriber_by_id, search_subscribers, get_week_redemption,
+    get_subscriber_by_id, search_subscribers, get_all_subscribers,
+    get_week_redemption,
     get_redemption_history, create_redemption, _current_week_start,
     update_subscriber_phone,
 )
@@ -123,6 +124,15 @@ async def save_phone(req: SavePhoneRequest):
         )
     update_subscriber_phone(sub["id"], req.phone.strip())
     return {"success": True, "subscriber_id": sub["id"]}
+
+
+@router.get("/staff/members")
+async def staff_list_all(x_staff_pin: str = Query(None, alias="pin")):
+    """List all drink club subscribers with redemption status."""
+    if x_staff_pin != DRINK_CLUB_STAFF_PIN:
+        raise HTTPException(status_code=403, detail="Invalid staff PIN")
+    results = get_all_subscribers()
+    return {"members": [_subscriber_response(s) for s in results]}
 
 
 @router.get("/staff/search")
