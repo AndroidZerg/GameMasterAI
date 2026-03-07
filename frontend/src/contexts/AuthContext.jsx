@@ -9,6 +9,7 @@ const STORAGE_KEYS = {
   role: "gmai_role",
   status: "gmai_status",
   expiresAt: "gmai_expires_at",
+  lgsId: "gmai_lgs_id",
   sessionExpired: "gmai_session_expired",
 };
 
@@ -22,16 +23,19 @@ export function AuthProvider({ children }) {
   const [role, setRole] = useState(() => localStorage.getItem(STORAGE_KEYS.role));
   const [status, setStatus] = useState(() => localStorage.getItem(STORAGE_KEYS.status));
   const [expiresAt, setExpiresAt] = useState(() => localStorage.getItem(STORAGE_KEYS.expiresAt));
+  const [lgsId, setLgsId] = useState(() => localStorage.getItem(STORAGE_KEYS.lgsId));
 
   const isLoggedIn = !!token;
 
-  const login = useCallback((tokenValue, venueIdValue, venueNameValue, roleValue, statusValue, expiresAtValue) => {
+  const login = useCallback((tokenValue, venueIdValue, venueNameValue, roleValue, statusValue, expiresAtValue, lgsIdValue) => {
     localStorage.setItem(STORAGE_KEYS.token, tokenValue);
     localStorage.setItem(STORAGE_KEYS.venueId, venueIdValue);
     localStorage.setItem(STORAGE_KEYS.venueName, venueNameValue);
     if (roleValue) localStorage.setItem(STORAGE_KEYS.role, roleValue);
     if (statusValue) localStorage.setItem(STORAGE_KEYS.status, statusValue);
     if (expiresAtValue) localStorage.setItem(STORAGE_KEYS.expiresAt, expiresAtValue);
+    if (lgsIdValue) localStorage.setItem(STORAGE_KEYS.lgsId, lgsIdValue);
+    else localStorage.removeItem(STORAGE_KEYS.lgsId);
     localStorage.removeItem(STORAGE_KEYS.sessionExpired);
     setToken(tokenValue);
     setVenueId(venueIdValue);
@@ -39,6 +43,7 @@ export function AuthProvider({ children }) {
     setRole(roleValue || "venue_admin");
     setStatus(statusValue || "prospect");
     setExpiresAt(expiresAtValue || null);
+    setLgsId(lgsIdValue || null);
   }, []);
 
   const logout = useCallback((expired = false) => {
@@ -48,6 +53,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem(STORAGE_KEYS.role);
     localStorage.removeItem(STORAGE_KEYS.status);
     localStorage.removeItem(STORAGE_KEYS.expiresAt);
+    localStorage.removeItem(STORAGE_KEYS.lgsId);
     if (expired) {
       localStorage.setItem(STORAGE_KEYS.sessionExpired, "true");
     }
@@ -57,6 +63,7 @@ export function AuthProvider({ children }) {
     setRole(null);
     setStatus(null);
     setExpiresAt(null);
+    setLgsId(null);
   }, []);
 
   const getSessionExpired = useCallback(() => {
@@ -83,12 +90,13 @@ export function AuthProvider({ children }) {
     role,
     status,
     expiresAt,
+    lgsId,
     isLoggedIn,
     login,
     logout,
     getSessionExpired,
     isExpired,
-  }), [token, venueId, venueName, role, status, expiresAt, isLoggedIn, login, logout, getSessionExpired, isExpired]);
+  }), [token, venueId, venueName, role, status, expiresAt, lgsId, isLoggedIn, login, logout, getSessionExpired, isExpired]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

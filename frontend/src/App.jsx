@@ -29,10 +29,12 @@ import VenueDashboard from "./pages/VenueDashboard";
 import CRMPage from "./pages/CRMPage";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import LGSDashboard from "./pages/LGSDashboard";
 import PlayLanding from "./components/PlayLanding";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
+const LGS_ROLES = ["lgs_admin", "super_admin"];
 
 function AuthWatcher() {
   const { logout } = useAuth();
@@ -141,6 +143,8 @@ function AppShell() {
         <Route path="/admin/crm" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/admin/analytics" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/venue/dashboard" element={<Navigate to="/admin/dashboard" replace />} />
+        {/* LGS partner routes */}
+        <Route path="/lgs/dashboard" element={<ProtectedRoute allowedRoles={LGS_ROLES}><LGSDashboard /></ProtectedRoute>} />
         {/* Venue platform routes */}
         <Route path="/onboarding" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />
         <Route path="/onboarding/:step" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><OnboardingPage /></ProtectedRoute>} />

@@ -30,8 +30,12 @@ export default function LoginPage() {
 
     try {
       const data = await loginVenue(email, password);
-      login(data.token, data.venue_id, data.venue_name, data.role, data.status, data.expires_at);
-      navigate("/games", { replace: true });
+      login(data.token, data.venue_id, data.venue_name, data.role, data.status, data.expires_at, data.lgs_id);
+      if (data.role === "lgs_admin") {
+        navigate("/lgs/dashboard", { replace: true });
+      } else {
+        navigate("/games", { replace: true });
+      }
     } catch (err) {
       const msg = err.message || "";
       if (msg === "expired") {

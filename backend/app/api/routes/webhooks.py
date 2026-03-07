@@ -1,0 +1,245 @@
+"""Stripe webhook handler — subscription lifecycle events."""
+
+import os
+import sqlite3
+import uuid
+from datetime import datetime, timezone
+
+import httpx
+import stripe
+from fastapi import APIRouter, Request, HTTPException
+
+from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
+
+router = APIRouter(prefix="/api/v1/webhooks", tags=["webhooks"])
+
+stripe.api_key = STRIPE_SECRET_KEY
+
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+TIER_SEATS = {"starter": 10, "standard": 25, "premium": -1}
+
+
+def _get_conn() -> sqlite3.Connection:
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def _generate_id() -> str:
+    try:
+        import ulid
+        return str(ulid.new())
+    except ImportError:
+        return str(uuid.uuid4())
+
+
+def _telegram_notify(text: str):
+    """Fire-and-forget Telegram notification."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    try:
+        httpx.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": text},
+            timeout=10,
+        )
+    except Exception:
+        pass
+
+
+def _handle_checkout_completed(session):
+    """Handle checkout.session.completed — activate new subscription."""
+    venue_id = (session.get("metadata") or {}).get("gmg_venue_id")
+    if not venue_id:
+        return
+
+    tier = (session.get("metadata") or {}).get("tier", "starter")
+    seat_limit = TIER_SEATS.get(tier, 10)
+    subscription_id = session.get("subscription")
+    now = datetime.now(timezone.utc).isoformat()
+
+    conn = _get_conn()
+    try:
+        conn.execute(
+            """UPDATE venues SET
+                subscription_tier = ?,
+                game_seat_limit = ?,
+                stripe_subscription_id = ?,
+                subscription_status = 'trialing',
+                updated_at = ?
+            WHERE venue_id = ?""",
+            (tier, seat_limit, subscription_id, now, venue_id),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+    _telegram_notify(f"New venue subscription: {venue_id} on {tier} tier")
+
+
+def _handle_invoice_succeeded(invoice):
+    """Handle invoice.payment_succeeded — update status and transfer 80% to LGS."""
+    subscription_id = invoice.get("subscription")
+    if not subscription_id:
+        return
+
+    # Get venue_id from subscription metadata
+    try:
+        sub = stripe.Subscription.retrieve(subscription_id)
+    except Exception:
+        return
+
+    meta = sub.get("metadata") or {}
+    venue_id = meta.get("gmg_venue_id")
+    lgs_id = meta.get("lgs_id")
+    if not venue_id:
+        return
+
+    now = datetime.now(timezone.utc).isoformat()
+    period_end = invoice.get("period_end")
+    period_end_iso = None
+    if period_end:
+        period_end_iso = datetime.fromtimestamp(period_end, tz=timezone.utc).isoformat()
+
+    conn = _get_conn()
+    try:
+        conn.execute(
+            """UPDATE venues SET
+                subscription_status = 'active',
+                current_period_end = ?,
+                updated_at = ?
+            WHERE venue_id = ?""",
+            (period_end_iso, now, venue_id),
+        )
+        conn.commit()
+
+        # Transfer 80% to LGS if paired
+        if lgs_id:
+            lgs = conn.execute(
+                "SELECT id, stripe_account_id, stripe_onboarding_complete FROM lgs_partners WHERE id = ?",
+                (lgs_id,),
+            ).fetchone()
+
+            amount_paid = invoice.get("amount_paid", 0)
+            invoice_id = invoice.get("id", "")
+
+            if lgs and lgs["stripe_account_id"] and lgs["stripe_onboarding_complete"]:
+                transfer_amount = round(amount_paid * 0.80)
+                try:
+                    transfer = stripe.Transfer.create(
+                        amount=transfer_amount,
+                        currency="usd",
+                        destination=lgs["stripe_account_id"],
+                        transfer_group=f"venue_sub_{venue_id}_{invoice_id}",
+                        metadata={
+                            "venue_id": venue_id,
+                            "invoice_id": invoice_id,
+                            "type": "subscription_split",
+                        },
+                    )
+                    conn.execute(
+                        """INSERT INTO lgs_transfer_log
+                            (id, lgs_id, transfer_type, source_id, amount_cents,
+                             stripe_transfer_id, stripe_invoice_id, status, created_at)
+                        VALUES (?, ?, 'subscription_split', ?, ?, ?, ?, 'completed', ?)""",
+                        (_generate_id(), lgs_id, venue_id, transfer_amount,
+                         transfer.id, invoice_id, now),
+                    )
+                    conn.commit()
+                except Exception as e:
+                    _telegram_notify(f"Transfer failed for venue {venue_id}: {e}")
+            elif lgs_id:
+                _telegram_notify(
+                    f"LGS transfer skipped — Stripe onboarding incomplete for {lgs_id}"
+                )
+    finally:
+        conn.close()
+
+
+def _handle_invoice_failed(invoice):
+    """Handle invoice.payment_failed — mark venue as past_due."""
+    subscription_id = invoice.get("subscription")
+    if not subscription_id:
+        return
+
+    now = datetime.now(timezone.utc).isoformat()
+    conn = _get_conn()
+    try:
+        venue = conn.execute(
+            "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
+            (subscription_id,),
+        ).fetchone()
+
+        conn.execute(
+            "UPDATE venues SET subscription_status = 'past_due', updated_at = ? "
+            "WHERE stripe_subscription_id = ?",
+            (now, subscription_id),
+        )
+        conn.commit()
+
+        venue_id = venue["venue_id"] if venue else "unknown"
+        _telegram_notify(f"Venue payment failed: {venue_id}")
+    finally:
+        conn.close()
+
+
+def _handle_subscription_deleted(subscription):
+    """Handle customer.subscription.deleted — mark canceled but don't deactivate games."""
+    sub_id = subscription.get("id")
+    if not sub_id:
+        return
+
+    now = datetime.now(timezone.utc).isoformat()
+    conn = _get_conn()
+    try:
+        venue = conn.execute(
+            "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
+            (sub_id,),
+        ).fetchone()
+
+        conn.execute(
+            "UPDATE venues SET subscription_status = 'canceled', updated_at = ? "
+            "WHERE stripe_subscription_id = ?",
+            (now, sub_id),
+        )
+        conn.commit()
+
+        venue_id = venue["venue_id"] if venue else "unknown"
+        _telegram_notify(f"Venue subscription canceled: {venue_id}")
+    finally:
+        conn.close()
+
+
+@router.post("/stripe")
+async def stripe_webhook(request: Request):
+    """Handle Stripe webhook events with signature verification."""
+    payload = await request.body()
+    sig_header = request.headers.get("stripe-signature")
+
+    if not sig_header:
+        raise HTTPException(status_code=400, detail="Missing stripe-signature header")
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, STRIPE_WEBHOOK_SECRET
+        )
+    except stripe.SignatureVerificationError:
+        raise HTTPException(status_code=400, detail="Invalid signature")
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid payload")
+
+    event_type = event.get("type", "")
+    data_object = event.get("data", {}).get("object", {})
+
+    if event_type == "checkout.session.completed":
+        _handle_checkout_completed(data_object)
+    elif event_type == "invoice.payment_succeeded":
+        _handle_invoice_succeeded(data_object)
+    elif event_type == "invoice.payment_failed":
+        _handle_invoice_failed(data_object)
+    elif event_type == "customer.subscription.deleted":
+        _handle_subscription_deleted(data_object)
+
+    return {"received": True}

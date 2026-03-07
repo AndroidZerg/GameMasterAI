@@ -352,6 +352,117 @@ export async function leaveLobby(lobbyId, playerId) {
   return handleResponse(res);
 }
 
+// ── Marketplace: Subscriptions & Game Selection ──
+
+export async function fetchSubscriptionStatus(venueId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/subscription-status`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function subscribeVenue(venueId, tier) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/subscribe`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ tier }),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchGameSelection(venueId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/game-selection`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function activateGame(venueId, gameId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/games/activate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ game_id: gameId }),
+  });
+  return handleResponse(res);
+}
+
+export async function deactivateGame(venueId, gameId) {
+  const res = await fetch(`${API_BASE}/api/v1/venues/${encodeURIComponent(venueId)}/games/deactivate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ game_id: gameId }),
+  });
+  return handleResponse(res);
+}
+
+// ── LGS Dashboard ──
+
+export async function fetchLGSDashboard(lgsId) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/dashboard`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchLGSVenueInventory(lgsId, venueId) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/venues/${encodeURIComponent(venueId)}/inventory`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function updateLGSInventory(lgsId, venueId, gameId, stockCount) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/inventory/update`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ venue_id: venueId, game_id: gameId, stock_count: stockCount }),
+  });
+  return handleResponse(res);
+}
+
+export async function updateLGSThreshold(lgsId, venueId, gameId, restockThreshold) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/inventory/set-threshold`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ venue_id: venueId, game_id: gameId, restock_threshold: restockThreshold }),
+  });
+  return handleResponse(res);
+}
+
+export async function updateLGSPricing(lgsId, gameId, retailPriceCents, isAvailable) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/pricing/update`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ game_id: gameId, retail_price_cents: retailPriceCents, is_available: isAvailable }),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchLGSPricing(lgsId) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/pricing`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchLGSAlerts(lgsId) {
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/alerts`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchLGSTransactions(lgsId, period, type) {
+  const params = new URLSearchParams();
+  if (period) params.set("period", period);
+  if (type && type !== "all") params.set("type", type);
+  const qs = params.toString() ? `?${params}` : "";
+  const res = await fetch(`${API_BASE}/api/v1/lgs/${encodeURIComponent(lgsId)}/transactions${qs}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
 // ── Device session endpoints (no auth required) ──
 
 export async function fetchNotes(gameId, deviceId) {

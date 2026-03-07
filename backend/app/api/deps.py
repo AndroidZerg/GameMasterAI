@@ -34,3 +34,19 @@ async def get_current_super_admin(
     if payload.get("role") != "super_admin":
         raise HTTPException(status_code=403, detail="Super admin required")
     return payload
+
+
+async def get_current_lgs_admin(
+    credentials: HTTPAuthorizationCredentials = Depends(_security),
+) -> dict:
+    """Require lgs_admin or super_admin role. Returns payload with lgs_id."""
+    if not credentials:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    payload = decode_token(credentials.credentials)
+    if not payload:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    if payload.get("role") not in ("lgs_admin", "super_admin"):
+        raise HTTPException(status_code=403, detail="LGS admin access required")
+    if payload.get("role") == "lgs_admin" and not payload.get("lgs_id"):
+        raise HTTPException(status_code=403, detail="LGS ID not found in token")
+    return payload

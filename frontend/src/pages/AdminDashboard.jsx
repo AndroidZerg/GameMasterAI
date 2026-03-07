@@ -13,6 +13,7 @@ import LeadsSection from "../components/dashboard/LeadsSection";
 import ConfigSection from "../components/dashboard/ConfigSection";
 import QAIntelSection from "../components/dashboard/QAIntelSection";
 import RentalsSection from "../components/dashboard/RentalsSection";
+import GameSelectionSection from "../components/dashboard/GameSelectionSection";
 
 const SIDEBAR_ITEMS = [
   { key: "overview", label: "Overview", icon: "\u{1F4CA}" },
@@ -25,6 +26,7 @@ const SIDEBAR_ITEMS = [
   { key: "venues", label: "Venues", icon: "\u{1F3EA}", superOnly: true },
   { key: "leads", label: "Leads", icon: "\u{1F4E8}", superOnly: true },
   { key: "qa-intel", label: "Q&A Intel", icon: "\u{1F9E0}", superOnly: true },
+  { key: "marketplace", label: "Marketplace", icon: "\uD83C\uDFEA" },
   { key: "config", label: "Config", icon: "\u2699\uFE0F", superOnly: true },
 ];
 
@@ -401,6 +403,7 @@ export default function AdminDashboard() {
       case "venues": return isSuperAdmin ? <VenuesSection {...filterProps} /> : null;
       case "leads": return isSuperAdmin ? <LeadsSection {...filterProps} /> : null;
       case "qa-intel": return isSuperAdmin ? <QAIntelSection {...filterProps} /> : null;
+      case "marketplace": return <GameSelectionSection />;
       case "config": return <ConfigSection {...filterProps} />;
       default: return <OverviewSection {...filterProps} />;
     }

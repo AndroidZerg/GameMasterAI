@@ -38,6 +38,10 @@ from app.api.routes.device_sessions import init_device_session_tables
 from app.api.routes.rentals import router as rentals_router
 from app.api.routes.rentals import init_rental_tables
 from app.api.routes.lgs import router as lgs_router
+from app.api.routes.venue_subscriptions import router as venue_sub_router
+from app.api.routes.webhooks import router as webhooks_router
+from app.api.routes.game_selection import router as game_selection_router
+from app.api.routes.lgs_dashboard import router as lgs_dashboard_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -175,9 +179,12 @@ app.include_router(orders_router)
 # --- Rentals ---
 app.include_router(rentals_router)
 
-# --- LGS Marketplace (admin) ---
-# Phase 2: venue downgrade blocked with 409 if active games > new tier seat limit
+# --- LGS Marketplace ---
 app.include_router(lgs_router, prefix="/api/v1/admin")
+app.include_router(venue_sub_router)
+app.include_router(webhooks_router)
+app.include_router(game_selection_router)
+app.include_router(lgs_dashboard_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

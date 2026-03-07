@@ -1,4 +1,14 @@
 import os
+from pathlib import Path
+
+# Load .env if present (local dev only — Render sets env vars directly)
+_env_file = Path(__file__).resolve().parent.parent.parent / ".env"
+if _env_file.exists():
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(_env_file)
+    except ImportError:
+        pass  # python-dotenv not installed — rely on shell env
 
 # ── LLM Configuration ────────────────────────────────────────────
 # LLM_MODE controls which LLM backend to use:
@@ -33,6 +43,14 @@ DB_PATH = os.getenv("DB_PATH", "/tmp/games.db" if _IS_RENDER else "/mnt/d/GameMa
 # ── Telegram — Thai House Orders bot ─────────────────────────────
 THAI_HOUSE_BOT_TOKEN = os.getenv("THAI_HOUSE_BOT_TOKEN", "")
 THAI_HOUSE_CHAT_ID = os.getenv("THAI_HOUSE_CHAT_ID", "")
+
+# ── Stripe ─────────────────────────────────────────────────────
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY", "")
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+STRIPE_PRICE_STARTER = os.getenv("STRIPE_PRICE_STARTER", "")
+STRIPE_PRICE_STANDARD = os.getenv("STRIPE_PRICE_STANDARD", "")
+STRIPE_PRICE_PREMIUM = os.getenv("STRIPE_PRICE_PREMIUM", "")
 
 # ── Auth / JWT ───────────────────────────────────────────────────
 JWT_SECRET = os.getenv("JWT_SECRET", "gmai-dev-secret-change-in-production-2026")
