@@ -323,12 +323,35 @@ def init_menu_tables():
             rejected_reason TEXT
         )
     """)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS order_counters (
+            venue_id TEXT PRIMARY KEY,
+            last_number INTEGER DEFAULT 0
+        )
+    """)
+
     db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_status ON venue_orders(order_status)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_created ON venue_orders(created_at)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_phone ON loyalty_members(phone)")
 
     db.commit()
     logger.info("Menu/floor/loyalty/orders tables initialized")
+
+
+def get_next_order_number(venue_id="meetup"):
+    """Atomically increment and return the next order number (persisted in Turso)."""
+    db = get_menu_db()
+    db.execute(
+        "INSERT INTO order_counters (venue_id, last_number) VALUES (?, 1) "
+        "ON CONFLICT(venue_id) DO UPDATE SET last_number = last_number + 1",
+        (venue_id,)
+    )
+    db.commit()
+    row = db.execute(
+        "SELECT last_number FROM order_counters WHERE venue_id = ?",
+        (venue_id,)
+    ).fetchone()
+    return row[0]
 
 
 def seed_menu_from_json():

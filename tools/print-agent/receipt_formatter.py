@@ -34,6 +34,11 @@ def format_receipt(order, venue_name="Thai House", venue_tagline=""):
         printer.set(align="center", bold=True)
         printer.text(f"Name: {customer}\n")
 
+        # ===== PHONE =====
+        phone = order.get("customer_phone")
+        if phone:
+            printer.text(f"Phone: {phone}\n")
+
         # ===== TABLE NUMBER =====
         table_number = order.get("table_number")
         if table_number:

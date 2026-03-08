@@ -20,6 +20,7 @@ export default function ThaiHousePage() {
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderNumber, setOrderNumber] = useState(null);
   const [placing, setPlacing] = useState(false);
@@ -171,6 +172,7 @@ export default function ThaiHousePage() {
       const items = cart.map(({ _key, ...rest }) => rest);
       const res = await placePublicOrder("thaihouse", {
         customer_name: customerName.trim(),
+        customer_phone: customerPhone.trim() || undefined,
         items,
         total: Math.round(cartTotal * 100) / 100,
         table_number: tableNumber,
@@ -256,6 +258,7 @@ export default function ThaiHousePage() {
               setOrderPlaced(false);
               setOrderNumber(null);
               setCustomerName("");
+              setCustomerPhone("");
               setClaimedDrinkName(null);
             }}
             style={styles.primaryBtn}
@@ -550,6 +553,16 @@ export default function ThaiHousePage() {
                 onChange={(e) => setCustomerName(e.target.value)}
                 style={styles.nameInput}
               />
+              <input
+                type="tel"
+                placeholder="Phone # for loyalty rewards (optional)"
+                value={customerPhone}
+                onChange={(e) => setCustomerPhone(e.target.value)}
+                style={{ ...styles.nameInput, marginBottom: 4 }}
+              />
+              <div style={{ fontSize: 11, color: THEME.textSecondary, marginBottom: 12 }}>
+                Earn 1 point per $10 spent. 10 points = free entr&#233;e or 1 month Cha Club!
+              </div>
               <button
                 onClick={handleCheckout}
                 disabled={!customerName.trim() || cart.length === 0 || placing}

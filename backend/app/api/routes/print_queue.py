@@ -80,6 +80,7 @@ async def get_print_queue(venue_id: str, status: str = "pending", request: Reque
             "id": item["order_id"],
             "order_number": item.get("order_number"),
             "customer_name": data.get("customer_name", "Guest"),
+            "customer_phone": data.get("customer_phone"),
             "table_number": data.get("table_number"),
             "items": data.get("items", []),
             "subtotal": data.get("total", 0),

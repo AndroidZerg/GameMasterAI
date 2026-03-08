@@ -559,8 +559,8 @@ function MenuTab({ pin }) {
                     style={{ background: T.bg, borderRadius: 8, padding: 8, cursor: 'pointer',
                       border: selected === item.slug ? `2px solid ${T.accent}` : `1px solid ${T.border}`,
                       display: 'flex', gap: 8, alignItems: 'center', transition: 'border-color 0.15s' }}>
-                    {item.has_photo ? (
-                      <img src={`${API_BASE}/api/images/menu/${item.slug}-thumb.jpg`}
+                    {item.has_photo && item.image ? (
+                      <img src={`${API_BASE}/api/images/menu/${item.image}-thumb.jpg`}
                         style={{ width: 40, height: 40, borderRadius: 4, objectFit: 'cover', flexShrink: 0 }}
                         onError={e => e.target.style.display = 'none'} />
                     ) : (
@@ -600,8 +600,8 @@ function MenuTab({ pin }) {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', overflow: 'hidden', position: 'relative',
                 }}>
-                {selectedItem.has_photo ? (
-                  <img src={`${API_BASE}/api/images/menu/${selectedItem.slug}.jpg?t=${Date.now()}`}
+                {selectedItem.has_photo && selectedItem.image ? (
+                  <img src={`${API_BASE}/api/images/menu/${selectedItem.image}.jpg?t=${Date.now()}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 ) : (
                   <span style={{ color: T.textDim, fontSize: 13 }}>Click or drop image</span>

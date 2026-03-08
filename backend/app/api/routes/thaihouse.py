@@ -13,7 +13,8 @@ from typing import List, Optional
 
 from app.core.config import THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID
 from app.core.limiter import limiter
-from app.models.orders import create_order, next_order_number, insert_print_queue
+from app.models.orders import create_order, insert_print_queue
+from app.services.turso import get_next_order_number
 from app.models.drink_club import (
     get_subscriber_by_phone, get_week_redemption, _current_week_start,
     create_redemption,
@@ -42,6 +43,7 @@ class PublicOrderItem(BaseModel):
 
 class PublicOrderRequest(BaseModel):
     customer_name: str
+    customer_phone: Optional[str] = None
     items: List[PublicOrderItem]
     total: float
     table_number: Optional[int] = None
@@ -153,7 +155,7 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
 
     items_list = [it.model_dump() for it in req.items]
 
-    order_number = next_order_number(venue_id)
+    order_number = get_next_order_number(venue_id)
     order_id = create_order(
         venue_id=venue_id,
         session_id="",
@@ -163,6 +165,7 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     )
 
     # Also save to Turso venue_orders for dashboard persistence
+    loyalty_phone = req.customer_phone or req.drink_club_phone
     try:
         from app.services.turso import get_menu_db
         mdb = get_menu_db()
@@ -172,16 +175,16 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
                 customer_phone, items, total, drink_club_phone)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
             (order_number, "in_house", req.table_number,
-             req.customer_name.strip(), None,
+             req.customer_name.strip(), req.customer_phone,
              json.dumps(items_list), req.total,
              req.drink_club_phone)
         )
         mdb.commit()
 
-        # Update loyalty if phone provided
-        if req.drink_club_phone:
+        # Update loyalty if any phone provided
+        if loyalty_phone:
             _update_loyalty(mdb, req.customer_name.strip(),
-                            req.drink_club_phone, req.total)
+                            loyalty_phone, req.total)
     except Exception as e:
         logger.error(f"Turso venue_orders insert failed: {e}")
 
@@ -191,13 +194,13 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     _send_telegram(
         TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
-        req.table_number,
+        req.table_number, req.customer_phone,
     )
     # Telegram: Thai House Orders bot
     _send_telegram(
         THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
-        req.table_number,
+        req.table_number, req.customer_phone,
     )
 
     # Print queue
@@ -206,6 +209,7 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
             "items": items_list,
             "total": req.total,
             "customer_name": req.customer_name.strip(),
+            "customer_phone": req.customer_phone,
             "table_number": req.table_number,
             "session_id": "",
         })
@@ -216,34 +220,39 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     return {"order_id": order_id, "order_number": order_number, "success": True}
 
 
-def _update_loyalty(db, name: str, phone: str, total: float):
-    """Create or update a loyalty member when an order includes a phone number."""
+def _update_loyalty(db, name: str, phone: str, order_total: float):
+    """Create or update a loyalty member. Points are CUMULATIVE: floor(total_spent / 10)."""
     import math
-    points = math.floor(total / 10)
+    phone = ''.join(c for c in phone if c.isdigit())
+    if len(phone) < 7:
+        return
     existing = db.execute(
-        "SELECT id FROM loyalty_members WHERE phone = ?", (phone,)
+        "SELECT id, total_spent FROM loyalty_members WHERE phone = ?", (phone,)
     ).fetchone()
     if existing:
+        new_spent = existing[1] + order_total
+        new_points = math.floor(new_spent / 10)
         db.execute(
             """UPDATE loyalty_members
-               SET points = points + ?, total_spent = total_spent + ?,
+               SET points = ?, total_spent = ?,
                    visits = visits + 1, last_visit = CURRENT_TIMESTAMP,
                    name = ?
-               WHERE phone = ?""",
-            (points, total, name, phone)
+               WHERE id = ?""",
+            (new_points, new_spent, name, existing[0])
         )
     else:
+        initial_points = math.floor(order_total / 10)
         db.execute(
             """INSERT INTO loyalty_members (name, phone, points, total_spent, visits, last_visit)
                VALUES (?, ?, ?, ?, 1, CURRENT_TIMESTAMP)""",
-            (name, phone, points, total)
+            (name, phone, initial_points, order_total)
         )
     db.commit()
 
 
 def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
                    customer_name: str, order_number: int,
-                   table_number: int = None):
+                   table_number: int = None, customer_phone: str = None):
     if not bot_token or not chat_id:
         return
     pt = timezone(timedelta(hours=-8))
@@ -266,11 +275,12 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
             line += f"\n     > {it['notes']}"
         item_lines.append(line)
 
+    phone_line = f"\nPhone: {customer_phone}" if customer_phone else ""
     table_line = f"\nTable: {table_number}" if table_number else ""
     text = (
         f"Thai House Menu Order #{order_number}\n"
         f"{now_pt}\n"
-        f"Name: {customer_name}{table_line}\n\n"
+        f"Name: {customer_name}{phone_line}{table_line}\n\n"
         f"Order:\n" + "\n".join(item_lines) + f"\n\n"
         f"Total: ${total:.2f}"
     )
