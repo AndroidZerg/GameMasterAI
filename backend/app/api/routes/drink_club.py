@@ -14,7 +14,7 @@ from app.models.drink_club import (
     get_subscriber_by_id, search_subscribers, get_all_subscribers,
     get_week_redemption,
     get_redemption_history, create_redemption, _current_week_start,
-    update_subscriber_phone,
+    update_subscriber_phone, upsert_subscriber,
 )
 
 stripe.api_key = STRIPE_SECRET_KEY
@@ -184,3 +184,37 @@ async def staff_redeem_qr(code: str = Query(...)):
     if not sub:
         raise HTTPException(status_code=404, detail="Member not found")
     return _subscriber_response(sub)
+
+
+class AddMemberRequest(BaseModel):
+    name: str
+    phone: str
+    email: Optional[str] = ""
+    staff_pin: str
+
+
+@router.post("/staff/add-member")
+async def staff_add_member(req: AddMemberRequest):
+    """Manually add a Cha Club member. Requires staff PIN."""
+    if req.staff_pin != DRINK_CLUB_STAFF_PIN:
+        raise HTTPException(status_code=403, detail="Invalid staff PIN")
+    if not req.name.strip():
+        raise HTTPException(status_code=400, detail="Name is required")
+    if not req.phone.strip():
+        raise HTTPException(status_code=400, detail="Phone is required")
+
+    import secrets
+    qr_code = secrets.token_urlsafe(16)
+    sub_id = upsert_subscriber(
+        name=req.name.strip(),
+        email=(req.email or "").strip().lower(),
+        phone=req.phone.strip(),
+        stripe_customer_id="manual_entry",
+        qr_code=qr_code,
+        status="active",
+    )
+    logger.info("Manual Cha Club member added: name=%s phone=%s id=%s", req.name, req.phone, sub_id)
+    sub = get_subscriber_by_id(sub_id)
+    if sub:
+        return _subscriber_response(sub)
+    return {"success": True, "subscriber_id": sub_id}

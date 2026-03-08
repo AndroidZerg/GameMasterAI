@@ -5,7 +5,7 @@ import {
   getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem, uploadMenuPhoto, deleteMenuPhoto,
   getToggles, createToggle, updateToggle, deleteToggle,
   getLoyaltyMembers, getLoyaltyMember, redeemReward,
-  getCRMStats, staffSearch, staffRedeem, getChaClubMembers,
+  getCRMStats, staffSearch, staffRedeem, getChaClubMembers, addChaClubMember,
 } from '../services/api.js';
 
 const API_BASE = import.meta.env.VITE_API_URL || '';
@@ -696,6 +696,9 @@ function ChaClubTab({ pin }) {
   const [selected, setSelected] = useState(null);
   const [msg, setMsg] = useState('');
   const [loading, setLoading] = useState(true);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newMember, setNewMember] = useState({ name: '', phone: '', email: '' });
+  const [addLoading, setAddLoading] = useState(false);
 
   const load = useCallback(() => {
     setLoading(true);
@@ -711,8 +714,22 @@ function ChaClubTab({ pin }) {
     staffRedeem(subscriberId, pin, drinkName).then(() => {
       setMsg(`Drink redeemed! ${drinkName}`);
       setSelected(null);
-      load(); // Refresh to update redeemed status
+      load();
     }).catch(e => setMsg(e.message));
+  };
+
+  const handleAddMember = () => {
+    if (!newMember.name.trim() || !newMember.phone.trim()) {
+      setMsg('Name and phone are required');
+      return;
+    }
+    setAddLoading(true);
+    addChaClubMember(pin, newMember).then(() => {
+      setMsg(`Added ${newMember.name}!`);
+      setNewMember({ name: '', phone: '', email: '' });
+      setShowAddModal(false);
+      load();
+    }).catch(e => setMsg(e.message)).finally(() => setAddLoading(false));
   };
 
   // Clear message after 4 seconds
@@ -736,12 +753,53 @@ function ChaClubTab({ pin }) {
 
   return (
     <div>
-      {/* Stats */}
-      <div style={{ display: 'flex', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
+      {/* Stats + Add button */}
+      <div style={{ display: 'flex', gap: 12, marginBottom: 16, flexWrap: 'wrap', alignItems: 'center' }}>
         <Stat label="Total Members" value={members.length} />
         <Stat label="Active" value={activeCount} color={T.green} />
         <Stat label="Drinks Available" value={availableCount} color={T.blue} />
+        <button onClick={() => setShowAddModal(true)}
+          style={{ marginLeft: 'auto', padding: '8px 18px', background: T.accent, color: '#000',
+            border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 700, fontSize: 14 }}>
+          + Add Member
+        </button>
       </div>
+
+      {/* Add Member Modal */}
+      {showAddModal && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex',
+          alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}
+          onClick={() => setShowAddModal(false)}>
+          <div style={{ background: T.card, borderRadius: 14, padding: 24, width: 340,
+            border: `1px solid ${T.border}` }} onClick={e => e.stopPropagation()}>
+            <h3 style={{ color: T.text, margin: '0 0 16px' }}>Add Cha Club Member</h3>
+            {[
+              { label: 'Name *', key: 'name', placeholder: 'Full name' },
+              { label: 'Phone *', key: 'phone', placeholder: '7021234567' },
+              { label: 'Email', key: 'email', placeholder: 'optional@email.com' },
+            ].map(f => (
+              <div key={f.key} style={{ marginBottom: 12 }}>
+                <label style={{ color: T.textDim, fontSize: 12, display: 'block', marginBottom: 4 }}>{f.label}</label>
+                <input value={newMember[f.key]} onChange={e => setNewMember(p => ({ ...p, [f.key]: e.target.value }))}
+                  placeholder={f.placeholder}
+                  style={{ width: '100%', padding: 10, background: T.bg, color: T.text,
+                    border: `1px solid ${T.border}`, borderRadius: 8, outline: 'none', boxSizing: 'border-box', fontSize: 14 }} />
+              </div>
+            ))}
+            <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
+              <button onClick={() => setShowAddModal(false)}
+                style={{ flex: 1, padding: 10, background: T.bg, color: T.textDim, border: `1px solid ${T.border}`,
+                  borderRadius: 8, cursor: 'pointer', fontSize: 14 }}>Cancel</button>
+              <button onClick={handleAddMember} disabled={addLoading}
+                style={{ flex: 1, padding: 10, background: T.accent, color: '#000', border: 'none',
+                  borderRadius: 8, cursor: 'pointer', fontWeight: 700, fontSize: 14,
+                  opacity: addLoading ? 0.6 : 1 }}>
+                {addLoading ? 'Adding...' : 'Add Member'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Success/error message */}
       {msg && <div style={{ padding: 12, background: msg.includes('redeemed') ? T.green + '20' : T.red + '20',

@@ -1,5 +1,6 @@
 """Stripe webhook handler — subscription lifecycle events."""
 
+import logging
 import os
 import sqlite3
 import uuid
@@ -8,6 +9,8 @@ from datetime import datetime, timezone
 import httpx
 import stripe
 from fastapi import APIRouter, Request, HTTPException
+
+logger = logging.getLogger(__name__)
 
 from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
 from app.models.drink_club import upsert_subscriber, update_subscriber_status
@@ -282,11 +285,28 @@ def _handle_subscription_deleted(subscription):
         conn.close()
 
 
+def _is_drink_club_checkout(metadata: dict) -> bool:
+    """Check if checkout session metadata indicates a Drink Club subscription.
+
+    Accepts multiple metadata formats to handle different Stripe configurations:
+    - {"drink_club": "true"} or {"drink_club": true}
+    - {"product": "drink_club"}
+    - {"type": "drink_club"}
+    """
+    return bool(
+        metadata.get("drink_club")
+        or metadata.get("product") == "drink_club"
+        or metadata.get("type") == "drink_club"
+    )
+
+
 @router.post("/stripe")
 async def stripe_webhook(request: Request):
     """Handle Stripe webhook events with signature verification."""
     payload = await request.body()
     sig_header = request.headers.get("stripe-signature")
+
+    logger.info("[STRIPE WEBHOOK] Received event, sig present: %s", bool(sig_header))
 
     if not sig_header:
         raise HTTPException(status_code=400, detail="Missing stripe-signature header")
@@ -295,9 +315,12 @@ async def stripe_webhook(request: Request):
         event = stripe.Webhook.construct_event(
             payload, sig_header, STRIPE_WEBHOOK_SECRET
         )
-    except stripe.SignatureVerificationError:
+        logger.info("[STRIPE WEBHOOK] Signature verified OK, event type: %s", event.get("type"))
+    except stripe.SignatureVerificationError as e:
+        logger.error("[STRIPE WEBHOOK] Signature verification FAILED: %s", e)
         raise HTTPException(status_code=400, detail="Invalid signature")
-    except ValueError:
+    except ValueError as e:
+        logger.error("[STRIPE WEBHOOK] Invalid payload: %s", e)
         raise HTTPException(status_code=400, detail="Invalid payload")
 
     event_type = event.get("type", "")
@@ -305,9 +328,17 @@ async def stripe_webhook(request: Request):
 
     if event_type == "checkout.session.completed":
         meta = (data_object.get("metadata") or {})
-        if meta.get("drink_club"):
+        customer_details = data_object.get("customer_details") or {}
+        logger.info("[STRIPE WEBHOOK] checkout.session.completed — metadata=%s", meta)
+        logger.info("[STRIPE WEBHOOK] customer_email=%s customer_name=%s",
+                     customer_details.get("email"), customer_details.get("name"))
+
+        if _is_drink_club_checkout(meta):
+            logger.info("[STRIPE WEBHOOK] Routing to drink club handler")
             _handle_drink_club_checkout(data_object)
         else:
+            logger.warning("[STRIPE WEBHOOK] No drink_club metadata (keys: %s) — routing to venue handler",
+                           list(meta.keys()))
             _handle_checkout_completed(data_object)
     elif event_type == "invoice.payment_succeeded":
         _handle_invoice_succeeded(data_object)
@@ -323,6 +354,8 @@ async def stripe_webhook(request: Request):
         _handle_payment_intent_succeeded(data_object)
     elif event_type == "charge.refunded":
         _handle_charge_refunded(data_object)
+    else:
+        logger.info("[STRIPE WEBHOOK] Unhandled event type: %s", event_type)
 
     return {"received": True}
 
@@ -335,6 +368,7 @@ def _handle_drink_club_checkout(session):
     meta = session.get("metadata") or {}
     email = (session.get("customer_details") or {}).get("email", "")
     name = (session.get("customer_details") or {}).get("name", "")
+    phone_from_checkout = (session.get("customer_details") or {}).get("phone", "")
     if not email:
         email = meta.get("email", "")
     if not name:
@@ -344,15 +378,24 @@ def _handle_drink_club_checkout(session):
     subscription_id = session.get("subscription", "")
     qr_code = secrets.token_urlsafe(16)
 
-    upsert_subscriber(
-        name=name,
-        email=email.lower(),
-        phone=meta.get("phone", ""),
-        stripe_customer_id=customer_id,
-        stripe_subscription_id=subscription_id,
-        qr_code=qr_code,
-        status="active",
-    )
+    phone = meta.get("phone", "") or phone_from_checkout
+    logger.info("[STRIPE WEBHOOK] Creating drink club subscriber: name=%s email=%s phone=%s customer=%s sub=%s",
+                name, email, phone, customer_id, subscription_id)
+    try:
+        sub_id = upsert_subscriber(
+            name=name,
+            email=email.lower() if email else "",
+            phone=phone,
+            stripe_customer_id=customer_id,
+            stripe_subscription_id=subscription_id,
+            qr_code=qr_code,
+            status="active",
+        )
+        logger.info("[STRIPE WEBHOOK] Drink club subscriber created/updated, id=%s", sub_id)
+    except Exception as e:
+        logger.error("[STRIPE WEBHOOK] FAILED to create subscriber: %s", e, exc_info=True)
+        _telegram_notify(f"FAILED to create Drink Club member: {name} ({email}) — {e}")
+        return
     _telegram_notify(f"New Drink Club member: {name} ({email})")
 
 

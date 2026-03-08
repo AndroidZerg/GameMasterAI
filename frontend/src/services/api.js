@@ -571,6 +571,16 @@ export const staffRedeem = (subscriberId, pin, drinkName) =>
     return r.json();
   });
 
+export const addChaClubMember = (pin, { name, phone, email }) =>
+  fetch(`${API_BASE}/api/thaihouse/staff/add-member`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, phone, email: email || '', staff_pin: pin })
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Failed to add member'); });
+    return r.json();
+  });
+
 export const verifyDrinkClub = (phone) =>
   fetch(`${API_BASE}/api/thaihouse/drink-club/verify`, {
     method: 'POST',

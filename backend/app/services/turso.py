@@ -212,6 +212,22 @@ def init_drink_club_tables():
         ON drink_subscribers(phone)
     """)
     db.commit()
+
+    # Seed Gershon as manual subscriber if not already present
+    existing = db.execute(
+        "SELECT id FROM drink_subscribers WHERE phone = '7029185658'"
+    ).fetchone()
+    if not existing:
+        import secrets
+        db.execute(
+            """INSERT INTO drink_subscribers
+               (name, email, phone, stripe_customer_id, subscription_status, qr_code, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))""",
+            ("Gershon", "", "7029185658", "manual_entry", "active", secrets.token_urlsafe(16)),
+        )
+        db.commit()
+        logger.info("Seeded Gershon as drink club subscriber")
+
     logger.info("Drink club tables initialized")
 
 
