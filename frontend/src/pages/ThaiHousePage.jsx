@@ -336,7 +336,7 @@ export default function ThaiHousePage() {
                 &#127881;
               </div>
               <h1 style={{ color: "#27ae60", fontSize: 26, margin: "0 0 8px", animation: "celebratePop 0.6s ease-out 0.1s both" }}>
-                Drink Club Drink Claimed!
+                Cha Club Drink Claimed!
               </h1>
               <p style={{ color: THEME.text, fontSize: 18, margin: "0 0 4px", animation: "celebratePop 0.6s ease-out 0.2s both" }}>
                 {claimedDrinkName} &mdash; on us this week.
@@ -932,7 +932,7 @@ function DrinkClubBanner({ drinkClub, drinkClubLoading, onActivateClaim, freeDri
       <Link to="/thaihouse/drinks" style={{ textDecoration: "none" }}>
         <div style={styles.drinkBanner}>
           <div style={{ fontSize: 20, fontWeight: 700, color: THEME.accent, marginBottom: 4 }}>
-            Join Drink Club
+            Join Cha Club
           </div>
           <div style={{ color: THEME.text, fontSize: 14 }}>
             1 specialty drink every week for $14.99/mo
@@ -950,7 +950,7 @@ function DrinkClubBanner({ drinkClub, drinkClubLoading, onActivateClaim, freeDri
     return (
       <div style={{ ...styles.drinkBanner, borderColor: "#27ae60" }}>
         <div style={{ fontSize: 16, fontWeight: 700, color: "#27ae60" }}>
-          Drink Club drink in cart
+          Cha Club drink in cart
         </div>
       </div>
     );

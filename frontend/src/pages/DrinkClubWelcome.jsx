@@ -17,7 +17,7 @@ export default function DrinkClubWelcome() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    document.title = "Welcome to Drink Club!";
+    document.title = "Welcome to Cha Club!";
   }, []);
 
   const handleSavePhone = async (e) => {
@@ -49,7 +49,7 @@ export default function DrinkClubWelcome() {
       <div style={{ maxWidth: 420, margin: "0 auto", padding: "48px 24px", textAlign: "center" }}>
         <div style={{ fontSize: 64, marginBottom: 16 }}>&#127881;</div>
         <h1 style={{ color: THEME.accent, fontSize: 28, margin: "0 0 8px" }}>
-          Welcome to Drink Club!
+          Welcome to Cha Club!
         </h1>
         <p style={{ color: THEME.text, fontSize: 16, margin: "0 0 32px" }}>
           Your subscription is active. You can redeem one specialty drink per week at Thai House.

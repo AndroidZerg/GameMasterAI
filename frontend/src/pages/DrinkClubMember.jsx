@@ -47,7 +47,7 @@ export default function DrinkClubMember() {
     <div style={styles.page}>
       <div style={{ maxWidth: 420, margin: "0 auto", padding: "32px 24px" }}>
         <Link to="/thaihouse/drinks" style={{ color: THEME.textSecondary, textDecoration: "none", fontSize: 14 }}>
-          &larr; Back to Drink Club
+          &larr; Back to Cha Club
         </Link>
 
         <h1 style={{ color: THEME.accent, fontSize: 24, margin: "16px 0" }}>Member Portal</h1>

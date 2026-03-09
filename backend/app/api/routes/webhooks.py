@@ -394,9 +394,9 @@ def _handle_drink_club_checkout(session):
         logger.info("[STRIPE WEBHOOK] Drink club subscriber created/updated, id=%s", sub_id)
     except Exception as e:
         logger.error("[STRIPE WEBHOOK] FAILED to create subscriber: %s", e, exc_info=True)
-        _telegram_notify(f"FAILED to create Drink Club member: {name} ({email}) — {e}")
+        _telegram_notify(f"FAILED to create Cha Club member: {name} ({email}) — {e}")
         return
-    _telegram_notify(f"New Drink Club member: {name} ({email})")
+    _telegram_notify(f"New Cha Club member: {name} ({email})")
 
 
 def _handle_drink_club_sub_update(subscription):

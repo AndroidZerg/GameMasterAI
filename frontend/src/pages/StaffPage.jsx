@@ -81,7 +81,7 @@ export default function StaffPage() {
   return (
     <div style={styles.page}>
       <div style={{ maxWidth: 480, margin: "0 auto", padding: "32px 24px" }}>
-        <h1 style={{ color: THEME.accent, fontSize: 24, margin: "0 0 20px" }}>Drink Club - Staff</h1>
+        <h1 style={{ color: THEME.accent, fontSize: 24, margin: "0 0 20px" }}>Cha Club - Staff</h1>
 
         <form onSubmit={handleSearch} style={{ display: "flex", gap: 8, marginBottom: 20 }}>
           <input

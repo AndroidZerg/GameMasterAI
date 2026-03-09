@@ -168,17 +168,17 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     for item in req.items:
         if item.is_drink_club or item.is_free_drink:
             if has_drink_club_item:
-                raise HTTPException(status_code=400, detail="Only one drink club item per order")
+                raise HTTPException(status_code=400, detail="Only one Cha Club item per order")
             has_drink_club_item = True
             if item.price != 0:
-                raise HTTPException(status_code=400, detail="Drink club items must be free")
+                raise HTTPException(status_code=400, detail="Cha Club items must be free")
             if not req.drink_club_phone:
-                raise HTTPException(status_code=400, detail="Phone number required for drink club redemption")
+                raise HTTPException(status_code=400, detail="Phone number required for Cha Club redemption")
             subscriber = get_subscriber_by_phone(req.drink_club_phone)
             if not subscriber:
-                raise HTTPException(status_code=400, detail="No active drink club subscription found for this phone")
+                raise HTTPException(status_code=400, detail="No active Cha Club subscription found for this phone")
             if subscriber["subscription_status"] != "active":
-                raise HTTPException(status_code=400, detail="Drink club subscription is not active")
+                raise HTTPException(status_code=400, detail="Cha Club subscription is not active")
             ws = _current_week_start()
             existing = get_week_redemption(subscriber["id"], ws)
             if existing:

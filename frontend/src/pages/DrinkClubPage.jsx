@@ -26,7 +26,7 @@ export default function DrinkClubPage() {
           &larr; Back to Menu
         </Link>
         <h1 style={{ color: THEME.accent, fontSize: 32, margin: "16px 0 4px", fontWeight: 700 }}>
-          Thai House Drink Club
+          Thai House Cha Club
         </h1>
         <p style={{ color: THEME.textSecondary, margin: 0, fontSize: 16 }}>
           Your weekly specialty drink, on us.

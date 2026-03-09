@@ -57,7 +57,7 @@ export default function StaffRedeem() {
   return (
     <div style={styles.page}>
       <div style={{ maxWidth: 420, margin: "0 auto", padding: "48px 24px", textAlign: "center" }}>
-        <h1 style={{ color: THEME.accent, fontSize: 24, margin: "0 0 24px" }}>Drink Club Redemption</h1>
+        <h1 style={{ color: THEME.accent, fontSize: 24, margin: "0 0 24px" }}>Cha Club Redemption</h1>
 
         {loading && <p style={{ color: THEME.textSecondary }}>Loading member info...</p>}
         {error && <p style={{ color: "#e74c3c" }}>{error}</p>}
