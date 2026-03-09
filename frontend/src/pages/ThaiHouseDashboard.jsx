@@ -453,6 +453,8 @@ function MenuTab({ pin }) {
   const [editCat, setEditCat] = useState('');
   const [saving, setSaving] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  const [isNewItem, setIsNewItem] = useState(false);
+  const [validationErr, setValidationErr] = useState('');
   // Gallery state
   const [galleryImages, setGalleryImages] = useState([]);
   const [galleryLoading, setGalleryLoading] = useState(false);
@@ -576,7 +578,38 @@ function MenuTab({ pin }) {
   const totalItems = categories.reduce((s, c) => s + c.items.length, 0);
   const withPhotos = categories.reduce((s, c) => s + c.items.filter(i => i.has_photo).length, 0);
 
+  const handleStartNewItem = () => {
+    setSelected(null);
+    setIsNewItem(true);
+    setEditName('');
+    setEditDesc('');
+    setEditPrice(0);
+    setEditToggles([]);
+    setEditMods(false);
+    setEditCat(categories[0]?.name || '');
+    setGalleryImages([]);
+    setValidationErr('');
+  };
+
   const handleSave = () => {
+    setValidationErr('');
+    if (!editName.trim()) { setValidationErr('Name is required'); return; }
+    if (!editPrice || editPrice <= 0) { setValidationErr('Price is required'); return; }
+
+    if (isNewItem) {
+      setSaving(true);
+      createMenuItem({
+        category: editCat, name: editName.trim(), description: editDesc,
+        price: editPrice, toggles: editToggles, allows_modifications: editMods,
+      }, pin).then(result => {
+        setIsNewItem(false);
+        load();
+        // Select the newly created item so Tim can upload a photo
+        if (result.slug) setSelected(result.slug);
+        setSaving(false);
+      }).catch(e => { setValidationErr(e.message); setSaving(false); });
+      return;
+    }
     if (!selected) return;
     setSaving(true);
     updateMenuItem(selected, {
@@ -623,6 +656,11 @@ function MenuTab({ pin }) {
         <Stat label="With Photos" value={withPhotos} color={T.green} />
         <Stat label="Categories" value={categories.length} />
         <Stat label="Toggles" value={togglesList.length} />
+        <button onClick={handleStartNewItem}
+          style={{ padding: '8px 18px', background: T.accent, color: '#000', border: 'none',
+            borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+          + Add Item
+        </button>
         <button onClick={handleBulkImport} disabled={bulkImporting}
           style={{ padding: '8px 14px', background: T.blue, color: '#fff', border: 'none',
             borderRadius: 8, fontWeight: 600, fontSize: 12, cursor: 'pointer',
@@ -647,7 +685,7 @@ function MenuTab({ pin }) {
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 6 }}>
                 {cat.items.map(item => (
-                  <div key={item.slug} onClick={() => setSelected(item.slug)}
+                  <div key={item.slug} onClick={() => { setSelected(item.slug); setIsNewItem(false); setValidationErr(''); }}
                     style={{ background: T.bg, borderRadius: 8, padding: 8, cursor: 'pointer',
                       border: selected === item.slug ? `2px solid ${T.accent}` : `1px solid ${T.border}`,
                       display: 'flex', gap: 8, alignItems: 'center', transition: 'border-color 0.15s' }}>
@@ -676,13 +714,14 @@ function MenuTab({ pin }) {
         </div>
         {/* Right: edit panel */}
         <div style={{
-          width: selected ? 320 : 0, overflow: 'hidden',
+          width: (selected || isNewItem) ? 320 : 0, overflow: 'hidden',
           transition: 'width 0.25s ease', flexShrink: 0,
         }}>
-          {selectedItem && (
+          {(selectedItem || isNewItem) && (
             <div style={{ width: 320, background: T.card, borderRadius: 12, padding: 16,
               border: `1px solid ${T.border}`, position: 'sticky', top: 0 }}>
-              {/* Photo area */}
+              {/* Photo area — only for existing items */}
+              {!isNewItem && (
               <div onClick={handlePhotoClick}
                 onDragOver={e => { e.preventDefault(); setDragOver(true); }}
                 onDragLeave={() => setDragOver(false)}
@@ -694,18 +733,19 @@ function MenuTab({ pin }) {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', overflow: 'hidden', position: 'relative',
                 }}>
-                {selectedItem.gallery_image_id ? (
+                {selectedItem?.gallery_image_id ? (
                   <img src={`${API_BASE}/api/public/menu-images/${selectedItem.gallery_image_id}?t=${Date.now()}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                ) : selectedItem.has_photo && selectedItem.image ? (
+                ) : selectedItem?.has_photo && selectedItem?.image ? (
                   <img src={`${API_BASE}/api/images/menu/${selectedItem.image}.jpg?t=${Date.now()}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 ) : (
                   <span style={{ color: T.textDim, fontSize: 13 }}>Click or drop image</span>
                 )}
               </div>
-              {/* Image Gallery */}
-              <div style={{ marginBottom: 12 }}>
+              )}
+              {/* Image Gallery — only for existing items */}
+              {!isNewItem && <div style={{ marginBottom: 12 }}>
                 <div onClick={() => setShowGallery(!showGallery)}
                   style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', marginBottom: 8 }}>
                   <span style={{ color: T.accent, fontSize: 12, fontWeight: 700 }}>
@@ -807,7 +847,17 @@ function MenuTab({ pin }) {
                     )}
                   </div>
                 )}
-              </div>
+              </div>}
+
+              {isNewItem && (
+                <h3 style={{ color: T.accent, margin: '0 0 12px', fontSize: 16 }}>New Menu Item</h3>
+              )}
+
+              {/* Validation error */}
+              {validationErr && (
+                <div style={{ padding: 8, background: T.red + '20', color: T.red,
+                  borderRadius: 6, marginBottom: 10, fontSize: 12, fontWeight: 600 }}>{validationErr}</div>
+              )}
 
               {/* Name */}
               <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Name</label>
@@ -860,15 +910,17 @@ function MenuTab({ pin }) {
                 style={{ width: '100%', padding: 10, background: T.accent, color: '#000',
                   border: 'none', borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: 'pointer',
                   marginBottom: 8, opacity: saving ? 0.6 : 1 }}>
-                {saving ? 'Saving...' : 'Save Changes'}
+                {saving ? 'Saving...' : isNewItem ? 'Create Item' : 'Save Changes'}
               </button>
               <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleDelete}
-                  style={{ flex: 1, padding: 8, background: 'transparent', color: T.red,
-                    border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>
-                  Delete Item
-                </button>
-                <button onClick={() => setSelected(null)}
+                {!isNewItem && (
+                  <button onClick={handleDelete}
+                    style={{ flex: 1, padding: 8, background: 'transparent', color: T.red,
+                      border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>
+                    Delete Item
+                  </button>
+                )}
+                <button onClick={() => { setSelected(null); setIsNewItem(false); setValidationErr(''); }}
                   style={{ flex: 1, padding: 8, background: 'transparent', color: T.textDim,
                     border: `1px solid ${T.border}`, borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>
                   Cancel
