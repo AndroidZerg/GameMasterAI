@@ -7,6 +7,8 @@ import {
   fetchRentalCatalog,
   fetchGames,
   createRentalReservation,
+  addToWishlist,
+  removeFromWishlist,
 } from "../../services/api";
 
 const STRIPE_LINK = "https://buy.stripe.com/test_4gMcMY3UhfAj6ri96S5Vu00";
@@ -224,6 +226,8 @@ export default function SWPRentalBrowse() {
   const [reserving, setReserving] = useState(false);
   const [reserveMsg, setReserveMsg] = useState(null);
   const [showSubscribeModal, setShowSubscribeModal] = useState(false);
+  const [wishlistUpdating, setWishlistUpdating] = useState(new Set());
+  const [instoreToast, setInstoreToast] = useState(null);
 
   // Filter state
   const [complexity, setComplexity] = useState("all");
@@ -245,7 +249,7 @@ export default function SWPRentalBrowse() {
     try {
       // Load rental catalog + main catalog in parallel
       const [catalogData, mainGames] = await Promise.all([
-        fetchRentalCatalog("shallweplay"),
+        fetchRentalCatalog("shallweplay", "all", customerId || null),
         fetchGames().catch(() => []),
       ]);
       setGames(catalogData.games || []);
@@ -347,6 +351,12 @@ export default function SWPRentalBrowse() {
 
   const handleGameClick = (g) => {
     if (g.status !== "available") return;
+    // In-store only games can't be reserved
+    if (!g.rentable_takehome && g.rentable_instore) {
+      setInstoreToast(g.title);
+      setTimeout(() => setInstoreToast(null), 3000);
+      return;
+    }
     if (!isSubscriber) {
       setShowSubscribeModal(true);
       return;
@@ -355,6 +365,31 @@ export default function SWPRentalBrowse() {
     setPickupDate("");
     setReserveMsg(null);
     setReserving(false);
+  };
+
+  const handleWishlistToggle = async (e, game) => {
+    e.stopPropagation();
+    if (!customerId || !isSubscriber) {
+      setShowSubscribeModal(true);
+      return;
+    }
+    const id = game.id;
+    setWishlistUpdating((prev) => new Set(prev).add(id));
+    try {
+      if (game.wishlisted) {
+        await removeFromWishlist({ stripe_customer_id: customerId, inventory_id: id });
+      } else {
+        await addToWishlist({ stripe_customer_id: customerId, inventory_id: id });
+      }
+      setGames((prev) =>
+        prev.map((g) =>
+          g.id === id
+            ? { ...g, wishlisted: !g.wishlisted, wishlist_count: (g.wishlist_count || 0) + (g.wishlisted ? -1 : 1) }
+            : g,
+        ),
+      );
+    } catch { /* silently fail */ }
+    setWishlistUpdating((prev) => { const s = new Set(prev); s.delete(id); return s; });
   };
 
   const handleReserve = async () => {
@@ -461,6 +496,26 @@ export default function SWPRentalBrowse() {
             const isYours = hasCurrentRental && currentRental.game_title === g.title;
             const isAvailable = g.status === "available" && !isYours;
             const isUnmatched = hasActiveFilters && !g._meta;
+            const instoreOnly = g.rentable_instore && !g.rentable_takehome;
+
+            // Badge logic
+            let badgeBg = "#9ca3af";
+            let badgeText = "Rented";
+            if (isYours) {
+              badgeBg = THEME.primary;
+              badgeText = "You have this!";
+            } else if (g.status === "available") {
+              if (instoreOnly) {
+                badgeBg = "#3b82f6";
+                badgeText = "In-Store Only";
+              } else {
+                badgeBg = "#22c55e";
+                badgeText = "Available";
+              }
+            } else if (g.status === "reserved") {
+              badgeBg = "#eab308";
+              badgeText = "Reserved";
+            }
 
             return (
               <div
@@ -489,21 +544,42 @@ export default function SWPRentalBrowse() {
                       &#127922;
                     </div>
                   )}
+                  {/* Wishlist heart */}
+                  <button
+                    onClick={(e) => handleWishlistToggle(e, g)}
+                    disabled={wishlistUpdating.has(g.id)}
+                    style={{
+                      position: "absolute", top: 8, left: 8,
+                      background: "rgba(255,255,255,0.85)", border: "none", borderRadius: "50%",
+                      width: 30, height: 30, cursor: "pointer", fontSize: 14,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      opacity: wishlistUpdating.has(g.id) ? 0.5 : 1,
+                    }}
+                  >
+                    {g.wishlisted ? "\u2764\uFE0F" : "\uD83E\uDD0D"}
+                  </button>
                   {/* Status badge */}
                   <div style={{
                     position: "absolute", top: 8, right: 8,
                     padding: "3px 8px", borderRadius: 8, fontSize: 11, fontWeight: 700,
-                    background: isYours ? THEME.primary
-                      : g.status === "available" ? "#22c55e"
-                      : g.status === "reserved" ? "#eab308"
-                      : "#9ca3af",
+                    background: badgeBg,
                     color: "#fff",
                   }}>
-                    {isYours ? "You have this!" : g.status === "available" ? "Available" : g.status === "reserved" ? "Reserved" : "Rented"}
+                    {badgeText}
                   </div>
                 </div>
                 <div style={{ padding: "10px 12px" }}>
                   <div style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.3 }}>{g.title}</div>
+                  {g.for_sale && g.shopify_price_cents > 0 && (
+                    <div style={{ fontSize: 12, color: "#22c55e", fontWeight: 700, marginTop: 2 }}>
+                      ${(g.shopify_price_cents / 100).toFixed(2)}
+                    </div>
+                  )}
+                  {g.wishlist_count > 0 && (
+                    <div style={{ fontSize: 11, color: THEME.textSecondary, marginTop: 2 }}>
+                      {g.wishlist_count} wishlisted
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -531,6 +607,17 @@ export default function SWPRentalBrowse() {
           </div>
         )}
       </div>
+
+      {/* In-store only toast */}
+      {instoreToast && (
+        <div style={{
+          position: "fixed", bottom: 24, left: "50%", transform: "translateX(-50%)",
+          background: "#1e40af", color: "#fff", padding: "12px 24px", borderRadius: 12,
+          fontSize: 14, fontWeight: 600, zIndex: 1100, maxWidth: 340, textAlign: "center",
+        }}>
+          {instoreToast} is in-store only — visit Shall We Play? to play!
+        </div>
+      )}
 
       {/* Subscribe modal (non-subscribers clicking Reserve) */}
       {showSubscribeModal && (

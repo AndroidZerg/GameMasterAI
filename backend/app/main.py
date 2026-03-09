@@ -67,7 +67,7 @@ from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
 from app.models.orders import init_orders_table, init_print_queue_tables
 from app.services.turso import init_analytics_tables as init_turso_analytics
-from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory
+from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory, match_shopify_inventory
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
@@ -99,6 +99,7 @@ async def lifespan(app: FastAPI):
     init_menu_tables()
     init_swp_rental_tables()
     seed_swp_rental_inventory()
+    match_shopify_inventory()
 
     # Auto-seed menu from JSON if tables are empty
     try:

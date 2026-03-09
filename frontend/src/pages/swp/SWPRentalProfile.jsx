@@ -7,6 +7,8 @@ import {
   fetchRentalBillingPortal,
   cancelRentalReservation,
   initiateRentalReturn,
+  fetchWishlist,
+  removeFromWishlist,
 } from "../../services/api";
 
 function getDateOptions() {
@@ -31,6 +33,7 @@ export default function SWPRentalProfile() {
   const [returnDate, setReturnDate] = useState("");
   const [returning, setReturning] = useState(false);
   const [cancelling, setCancelling] = useState(false);
+  const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     document.title = "My Rentals | SWP";
@@ -45,13 +48,17 @@ export default function SWPRentalProfile() {
   const loadProfile = useCallback(async () => {
     if (!customerId) { navigate("/swp/rentals"); return; }
     try {
-      const data = await fetchRentalProfile(customerId);
+      const [data, wlData] = await Promise.all([
+        fetchRentalProfile(customerId),
+        fetchWishlist(customerId).catch(() => ({ games: [] })),
+      ]);
       if (!data.subscriber || data.subscriber.status !== "active") {
         localStorage.removeItem("swp_rental_customer");
         navigate("/swp/rentals");
         return;
       }
       setProfile(data);
+      setWishlist(wlData.games || []);
     } catch {
       localStorage.removeItem("swp_rental_customer");
       navigate("/swp/rentals");
@@ -103,6 +110,13 @@ export default function SWPRentalProfile() {
     } finally {
       setCancelling(false);
     }
+  };
+
+  const handleRemoveWishlist = async (inventoryId) => {
+    try {
+      await removeFromWishlist({ stripe_customer_id: customerId, inventory_id: inventoryId });
+      setWishlist((prev) => prev.filter((w) => w.inventory_id !== inventoryId));
+    } catch { /* silently fail */ }
   };
 
   const dateOptions = getDateOptions();
@@ -229,6 +243,44 @@ export default function SWPRentalProfile() {
               style={{ ...styles.tealBtn, textDecoration: "none", display: "inline-block" }}>
               Browse Games
             </Link>
+          </div>
+        )}
+
+        {/* Wishlist */}
+        {wishlist.length > 0 && (
+          <div style={{ ...styles.card, marginBottom: 20 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "#ec4899", textTransform: "uppercase", letterSpacing: 1, marginBottom: 12 }}>
+              My Wishlist
+            </div>
+            {wishlist.map((w, i) => (
+              <div key={w.inventory_id} style={{
+                padding: "10px 0",
+                borderTop: i > 0 ? `1px solid ${THEME.cardBorder}` : "none",
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  {w.image_url && (
+                    <img src={w.image_url} alt={w.game_title}
+                      style={{ width: 40, height: 40, borderRadius: 8, objectFit: "cover" }}
+                    />
+                  )}
+                  <div>
+                    <span style={{ fontWeight: 600, fontSize: 14 }}>{w.game_title}</span>
+                    {w.for_sale && w.shopify_price_cents > 0 && (
+                      <div style={{ fontSize: 12, color: "#22c55e", fontWeight: 600 }}>
+                        Now available! ${(w.shopify_price_cents / 100).toFixed(2)}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button onClick={() => handleRemoveWishlist(w.inventory_id)} style={{
+                  background: "none", border: "none", color: "#dc2626",
+                  fontSize: 18, cursor: "pointer", padding: "4px 8px",
+                }}>
+                  &times;
+                </button>
+              </div>
+            ))}
           </div>
         )}
 

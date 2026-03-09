@@ -310,8 +310,10 @@ export async function fetchRentalProfile(stripeCustomerId) {
   return handleResponse(res);
 }
 
-export async function fetchRentalCatalog(venueId = "shallweplay") {
-  const res = await fetch(`${API_BASE}/api/v1/rentals/catalog?venue_id=${encodeURIComponent(venueId)}`);
+export async function fetchRentalCatalog(venueId = "shallweplay", type = "all", stripeCustomerId = null) {
+  const params = new URLSearchParams({ venue_id: venueId, type });
+  if (stripeCustomerId) params.set("stripe_customer_id", stripeCustomerId);
+  const res = await fetch(`${API_BASE}/api/v1/rentals/catalog?${params}`);
   return handleResponse(res);
 }
 
@@ -368,6 +370,62 @@ export async function confirmRentalReturn(reservationId) {
     method: "POST",
     headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
     body: JSON.stringify({ reservation_id: reservationId }),
+  });
+  return handleResponse(res);
+}
+
+// ── Wishlist ──
+
+export async function addToWishlist(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/wishlist/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function removeFromWishlist(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/wishlist/remove`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchWishlist(stripeCustomerId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/wishlist?stripe_customer_id=${encodeURIComponent(stripeCustomerId)}`);
+  return handleResponse(res);
+}
+
+// ── Admin Game Flags ──
+
+export async function fetchGameFlags(venueId = "shallweplay", search = "") {
+  const params = new URLSearchParams({ venue_id: venueId });
+  if (search) params.set("search", search);
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/game-flags?${params}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function updateGameFlag(gameId, flags) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/game-flags/${gameId}`, {
+    method: "PATCH",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify(flags),
+  });
+  return handleResponse(res);
+}
+
+export async function importGameFlagsCSV(file) {
+  const fd = new FormData();
+  fd.append("file", file);
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/game-flags/import`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: fd,
   });
   return handleResponse(res);
 }

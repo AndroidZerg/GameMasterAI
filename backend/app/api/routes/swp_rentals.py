@@ -4,8 +4,11 @@ import logging
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
+import csv
+import io
 import stripe
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from app.core.config import STRIPE_SECRET_KEY
@@ -27,7 +30,10 @@ _SUB_COLS = [
 _INV_COLS = [
     "id", "venue_id", "game_title", "game_id", "image_url",
     "copies_total", "copies_available", "status", "current_renter_id", "created_at",
+    "rentable_instore", "rentable_takehome", "for_sale",
+    "shopify_title", "shopify_price_cents", "shopify_available",
 ]
+_WISH_COLS = ["id", "subscriber_id", "inventory_id", "venue_id", "created_at"]
 _RES_COLS = [
     "id", "subscriber_id", "inventory_id", "venue_id", "reservation_type",
     "pickup_deadline", "return_deadline", "status", "checked_out_at",
@@ -127,33 +133,109 @@ class CancelReservationRequest(BaseModel):
     reservation_id: int
 
 
+class WishlistRequest(BaseModel):
+    stripe_customer_id: str
+    inventory_id: int
+
+
+class GameFlagUpdate(BaseModel):
+    rentable_instore: Optional[int] = None
+    rentable_takehome: Optional[int] = None
+    for_sale: Optional[int] = None
+    shopify_price_cents: Optional[int] = None
+
+
 # ── GET /catalog ──────────────────────────────────────────────────
 
 @router.get("/catalog")
-async def get_catalog(venue_id: str = "shallweplay"):
-    """Return the full SWP rental catalog with availability."""
+async def get_catalog(
+    venue_id: str = "shallweplay",
+    type: str = "all",
+    stripe_customer_id: Optional[str] = None,
+):
+    """Return the SWP rental catalog with flags and wishlist info."""
     await _auto_release_expired()
 
     db = _db()
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # Base query with filters
+    where = ["i.venue_id = ?"]
+    params = [venue_id]
+    if type == "instore":
+        where.append("i.rentable_instore = 1")
+    elif type == "takehome":
+        where.append("i.rentable_takehome = 1")
+
     all_games = _rows(_INV_COLS, db.execute(
-        "SELECT * FROM rental_inventory_swp WHERE venue_id = ? ORDER BY game_title",
-        (venue_id,),
+        f"SELECT * FROM rental_inventory_swp i WHERE {' AND '.join(where)} ORDER BY i.game_title",
+        tuple(params),
     ).fetchall())
+
+    # Wishlist counts per game
+    wish_rows = db.execute(
+        "SELECT inventory_id, COUNT(*) as cnt FROM rental_wishlist_swp WHERE venue_id = ? GROUP BY inventory_id",
+        (venue_id,),
+    ).fetchall()
+    wish_map = {r[0]: r[1] for r in wish_rows}
+
+    # Current user's wishlist IDs
+    my_wishlist_ids = set()
+    if stripe_customer_id:
+        sub = db.execute(
+            "SELECT id FROM rental_subscribers_swp WHERE stripe_customer_id = ?",
+            (stripe_customer_id,),
+        ).fetchone()
+        if sub:
+            wl_rows = db.execute(
+                "SELECT inventory_id FROM rental_wishlist_swp WHERE subscriber_id = ?",
+                (sub[0],),
+            ).fetchall()
+            my_wishlist_ids = {r[0] for r in wl_rows}
+
+    # Pending take-home reservations (for dynamic availability logic)
+    pending_res = db.execute(
+        """SELECT inventory_id, pickup_deadline FROM rental_reservations_swp
+           WHERE venue_id = ? AND status = 'pending'""",
+        (venue_id,),
+    ).fetchall()
+    # Map: inventory_id -> pickup_deadline
+    pending_map = {}
+    for r in pending_res:
+        pending_map[r[0]] = r[1]
 
     available_count = sum(1 for g in all_games if g["status"] == "available")
 
+    games_out = []
+    for g in all_games:
+        eff_takehome = bool(g["rentable_takehome"])
+        eff_instore = bool(g["rentable_instore"])
+
+        # Dynamic reservation logic
+        if g["id"] in pending_map:
+            pickup_date = pending_map[g["id"]][:10]  # YYYY-MM-DD
+            eff_takehome = False  # reserved take-home → immediately unavailable
+            if today >= pickup_date:
+                eff_instore = False  # on pickup day, in-store also unavailable
+
+        games_out.append({
+            "id": g["id"],
+            "title": g["game_title"],
+            "image_url": g["image_url"],
+            "game_id": g["game_id"],
+            "status": g["status"],
+            "copies_available": g["copies_available"],
+            "rentable_instore": eff_instore,
+            "rentable_takehome": eff_takehome,
+            "for_sale": bool(g["for_sale"]),
+            "shopify_price_cents": g["shopify_price_cents"] or 0,
+            "shopify_available": g["shopify_available"] or 0,
+            "wishlist_count": wish_map.get(g["id"], 0),
+            "wishlisted": g["id"] in my_wishlist_ids,
+        })
+
     return {
-        "games": [
-            {
-                "id": g["id"],
-                "title": g["game_title"],
-                "image_url": g["image_url"],
-                "game_id": g["game_id"],
-                "status": g["status"],
-                "copies_available": g["copies_available"],
-            }
-            for g in all_games
-        ],
+        "games": games_out,
         "total": len(all_games),
         "available": available_count,
     }
@@ -756,3 +838,280 @@ async def cancel_reservation(req: CancelReservationRequest):
     )
 
     return {"status": "cancelled", "game_title": game_title}
+
+
+# ── Wishlist CRUD ────────────────────────────────────────────────
+
+def _resolve_subscriber_id(db, stripe_customer_id: str) -> int:
+    """Resolve stripe_customer_id to subscriber row id."""
+    sub = db.execute(
+        "SELECT id FROM rental_subscribers_swp WHERE stripe_customer_id = ?",
+        (stripe_customer_id,),
+    ).fetchone()
+    if not sub:
+        raise HTTPException(status_code=404, detail="Subscriber not found")
+    return sub[0]
+
+
+@router.post("/wishlist/add")
+async def wishlist_add(req: WishlistRequest):
+    """Add a game to subscriber's wishlist."""
+    db = _db()
+    sub_id = _resolve_subscriber_id(db, req.stripe_customer_id)
+
+    # Verify inventory exists
+    inv = db.execute(
+        "SELECT id FROM rental_inventory_swp WHERE id = ?", (req.inventory_id,)
+    ).fetchone()
+    if not inv:
+        raise HTTPException(status_code=404, detail="Game not found")
+
+    db.execute(
+        "INSERT OR IGNORE INTO rental_wishlist_swp (subscriber_id, inventory_id, venue_id) VALUES (?, ?, 'shallweplay')",
+        (sub_id, req.inventory_id),
+    )
+    db.commit()
+
+    count = db.execute(
+        "SELECT COUNT(*) FROM rental_wishlist_swp WHERE inventory_id = ?",
+        (req.inventory_id,),
+    ).fetchone()[0]
+    return {"status": "added", "inventory_id": req.inventory_id, "wishlist_count": count}
+
+
+@router.post("/wishlist/remove")
+async def wishlist_remove(req: WishlistRequest):
+    """Remove a game from subscriber's wishlist."""
+    db = _db()
+    sub_id = _resolve_subscriber_id(db, req.stripe_customer_id)
+
+    db.execute(
+        "DELETE FROM rental_wishlist_swp WHERE subscriber_id = ? AND inventory_id = ?",
+        (sub_id, req.inventory_id),
+    )
+    db.commit()
+
+    count = db.execute(
+        "SELECT COUNT(*) FROM rental_wishlist_swp WHERE inventory_id = ?",
+        (req.inventory_id,),
+    ).fetchone()[0]
+    return {"status": "removed", "inventory_id": req.inventory_id, "wishlist_count": count}
+
+
+@router.get("/wishlist")
+async def wishlist_list(stripe_customer_id: str):
+    """Return subscriber's wishlisted games."""
+    db = _db()
+    sub_id = _resolve_subscriber_id(db, stripe_customer_id)
+
+    rows = db.execute(
+        """SELECT w.inventory_id, i.game_title, i.image_url, i.status,
+                  i.for_sale, i.shopify_price_cents, i.rentable_takehome
+           FROM rental_wishlist_swp w
+           JOIN rental_inventory_swp i ON i.id = w.inventory_id
+           WHERE w.subscriber_id = ?
+           ORDER BY w.created_at DESC""",
+        (sub_id,),
+    ).fetchall()
+
+    games = []
+    for r in rows:
+        games.append({
+            "inventory_id": r[0],
+            "game_title": r[1],
+            "image_url": r[2],
+            "status": r[3],
+            "for_sale": bool(r[4]),
+            "shopify_price_cents": r[5] or 0,
+            "rentable_takehome": bool(r[6]),
+        })
+
+    return {"games": games}
+
+
+# ── Admin Game Flags ─────────────────────────────────────────────
+
+@router.get("/admin/game-flags")
+async def admin_game_flags(venue_id: str = "shallweplay", search: str = ""):
+    """Return all games with flags for admin management."""
+    db = _db()
+
+    where = ["i.venue_id = ?"]
+    params: list = [venue_id]
+    if search:
+        where.append("i.game_title LIKE ?")
+        params.append(f"%{search}%")
+
+    rows = db.execute(
+        f"""SELECT i.*, COALESCE(wc.cnt, 0) as wishlist_count
+            FROM rental_inventory_swp i
+            LEFT JOIN (
+                SELECT inventory_id, COUNT(*) as cnt
+                FROM rental_wishlist_swp GROUP BY inventory_id
+            ) wc ON wc.inventory_id = i.id
+            WHERE {' AND '.join(where)}
+            ORDER BY i.game_title""",
+        tuple(params),
+    ).fetchall()
+
+    games = []
+    for r in rows:
+        g = dict(zip(_INV_COLS + ["wishlist_count"], r))
+        games.append({
+            "id": g["id"],
+            "game_title": g["game_title"],
+            "image_url": g["image_url"],
+            "rentable_instore": bool(g["rentable_instore"]),
+            "rentable_takehome": bool(g["rentable_takehome"]),
+            "for_sale": bool(g["for_sale"]),
+            "shopify_title": g["shopify_title"],
+            "shopify_price_cents": g["shopify_price_cents"] or 0,
+            "shopify_available": g["shopify_available"] or 0,
+            "wishlist_count": g["wishlist_count"],
+        })
+
+    return {"games": games, "total": len(games)}
+
+
+@router.get("/admin/game-flags/export")
+async def admin_export_game_flags(venue_id: str = "shallweplay"):
+    """Export all game flags as CSV download."""
+    db = _db()
+
+    rows = db.execute(
+        """SELECT i.game_title, i.rentable_instore, i.rentable_takehome, i.for_sale,
+                  i.shopify_title, i.shopify_price_cents, i.shopify_available,
+                  COALESCE(wc.cnt, 0)
+           FROM rental_inventory_swp i
+           LEFT JOIN (
+               SELECT inventory_id, COUNT(*) as cnt
+               FROM rental_wishlist_swp GROUP BY inventory_id
+           ) wc ON wc.inventory_id = i.id
+           WHERE i.venue_id = ?
+           ORDER BY i.game_title""",
+        (venue_id,),
+    ).fetchall()
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow([
+        "game_title", "rentable_instore", "rentable_takehome", "for_sale",
+        "shopify_title", "shopify_price_cents", "shopify_available", "wishlist_count",
+    ])
+    for r in rows:
+        writer.writerow([
+            r[0],
+            "true" if r[1] else "false",
+            "true" if r[2] else "false",
+            "true" if r[3] else "false",
+            r[4] or "",
+            r[5] or 0,
+            r[6] or 0,
+            r[7],
+        ])
+
+    output.seek(0)
+    return StreamingResponse(
+        iter([output.getvalue()]),
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=game-flags-export.csv"},
+    )
+
+
+@router.post("/admin/game-flags/import")
+async def admin_import_game_flags(file: UploadFile = File(...)):
+    """Import CSV to update game flags. Matches by game_title (case-insensitive)."""
+    db = _db()
+
+    content = await file.read()
+    text = content.decode("utf-8-sig")  # handle BOM
+    reader = csv.DictReader(io.StringIO(text))
+
+    # Build lookup: lowercase game_title -> id
+    all_games = db.execute(
+        "SELECT id, game_title FROM rental_inventory_swp WHERE venue_id = 'shallweplay'"
+    ).fetchall()
+    title_to_id = {r[1].lower().strip(): r[0] for r in all_games}
+
+    updated = 0
+    not_found = 0
+    skipped = 0
+
+    def _bool(val):
+        if val is None:
+            return None
+        s = str(val).strip().lower()
+        if s in ("true", "1", "yes"):
+            return 1
+        if s in ("false", "0", "no"):
+            return 0
+        return None
+
+    for row in reader:
+        title = (row.get("game_title") or "").strip()
+        if not title:
+            skipped += 1
+            continue
+
+        gid = title_to_id.get(title.lower())
+        if not gid:
+            not_found += 1
+            continue
+
+        fields = {}
+        ri = _bool(row.get("rentable_instore"))
+        if ri is not None:
+            fields["rentable_instore"] = ri
+        rt = _bool(row.get("rentable_takehome"))
+        if rt is not None:
+            fields["rentable_takehome"] = rt
+        fs = _bool(row.get("for_sale"))
+        if fs is not None:
+            fields["for_sale"] = fs
+        sp = row.get("shopify_price_cents")
+        if sp is not None and str(sp).strip().isdigit():
+            fields["shopify_price_cents"] = int(sp)
+
+        if fields:
+            set_clause = ", ".join(f"{k} = ?" for k in fields)
+            vals = list(fields.values()) + [gid]
+            db.execute(
+                f"UPDATE rental_inventory_swp SET {set_clause} WHERE id = ?",
+                tuple(vals),
+            )
+            updated += 1
+        else:
+            skipped += 1
+
+    db.commit()
+    return {"updated": updated, "not_found": not_found, "skipped": skipped}
+
+
+@router.patch("/admin/game-flags/{game_id}")
+async def admin_update_game_flag(game_id: int, update: GameFlagUpdate):
+    """Update flags for a single game."""
+    db = _db()
+
+    # Build dynamic SET clause from non-None fields
+    fields = {}
+    if update.rentable_instore is not None:
+        fields["rentable_instore"] = update.rentable_instore
+    if update.rentable_takehome is not None:
+        fields["rentable_takehome"] = update.rentable_takehome
+    if update.for_sale is not None:
+        fields["for_sale"] = update.for_sale
+    if update.shopify_price_cents is not None:
+        fields["shopify_price_cents"] = update.shopify_price_cents
+
+    if not fields:
+        raise HTTPException(status_code=400, detail="No fields to update")
+
+    set_clause = ", ".join(f"{k} = ?" for k in fields)
+    values = list(fields.values()) + [game_id]
+
+    db.execute(
+        f"UPDATE rental_inventory_swp SET {set_clause} WHERE id = ?",
+        tuple(values),
+    )
+    db.commit()
+    return {"status": "updated", "game_id": game_id, "updated_fields": list(fields.keys())}

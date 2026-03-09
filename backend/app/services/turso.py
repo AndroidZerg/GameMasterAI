@@ -618,6 +618,34 @@ def init_swp_rental_tables():
     db.execute("CREATE INDEX IF NOT EXISTS idx_rental_res_swp_sub ON rental_reservations_swp(subscriber_id, status)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_rental_sub_swp_stripe ON rental_subscribers_swp(stripe_customer_id)")
 
+    # ── Game flags & Shopify columns (added 2026-03-09) ──────────
+    for col_sql in [
+        "ALTER TABLE rental_inventory_swp ADD COLUMN rentable_instore INTEGER NOT NULL DEFAULT 1",
+        "ALTER TABLE rental_inventory_swp ADD COLUMN rentable_takehome INTEGER NOT NULL DEFAULT 0",
+        "ALTER TABLE rental_inventory_swp ADD COLUMN for_sale INTEGER NOT NULL DEFAULT 0",
+        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_title TEXT",
+        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_price_cents INTEGER DEFAULT 0",
+        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_available INTEGER DEFAULT 0",
+    ]:
+        try:
+            db.execute(col_sql)
+        except Exception:
+            pass  # column already exists
+
+    # ── Wishlist table ───────────────────────────────────────────
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS rental_wishlist_swp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subscriber_id INTEGER NOT NULL,
+            inventory_id INTEGER NOT NULL,
+            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            UNIQUE(subscriber_id, inventory_id)
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_wishlist_swp_sub ON rental_wishlist_swp(subscriber_id)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_wishlist_swp_inv ON rental_wishlist_swp(inventory_id)")
+
     db.commit()
     logger.info("SWP rental tables initialized")
 
@@ -659,6 +687,94 @@ def seed_swp_rental_inventory():
 
     db.commit()
     logger.info("SWP rental inventory seeded: %d games from catalog", inserted)
+
+
+def match_shopify_inventory():
+    """Match rental games against Shopify CSV to set initial flags.
+
+    Only runs if >90% of shopify_title values are NULL (first time).
+    """
+    import csv as _csv
+    from difflib import SequenceMatcher
+    from pathlib import Path
+
+    db = get_swp_rental_db()
+
+    total = db.execute("SELECT COUNT(*) FROM rental_inventory_swp").fetchone()[0]
+    if total == 0:
+        return
+    matched_already = db.execute(
+        "SELECT COUNT(*) FROM rental_inventory_swp WHERE shopify_title IS NOT NULL"
+    ).fetchone()[0]
+    if matched_already > total * 0.1:
+        logger.info("Shopify matching already done (%d/%d matched), skipping", matched_already, total)
+        return
+
+    csv_path = Path(__file__).resolve().parents[3] / "content" / "swp-shopify-inventory.csv"
+    if not csv_path.exists():
+        logger.warning("Shopify CSV not found at %s — skipping match", csv_path)
+        return
+
+    # Load and de-duplicate Shopify products by title (sum available across variants)
+    shopify = {}  # lowercase title -> {title, available}
+    with open(csv_path, "r", encoding="utf-8") as f:
+        for row in _csv.DictReader(f):
+            title = row.get("Title", "").strip()
+            if not title:
+                continue
+            available = int(row.get("Available (not editable)", 0) or 0)
+            key = title.lower()
+            if key in shopify:
+                shopify[key]["available"] += available
+            else:
+                shopify[key] = {"title": title, "available": available}
+
+    logger.info("Loaded %d unique Shopify products from CSV", len(shopify))
+
+    # Load rental inventory
+    games = db.execute(
+        "SELECT id, game_title FROM rental_inventory_swp WHERE venue_id = 'shallweplay'"
+    ).fetchall()
+
+    exact_matches = 0
+    fuzzy_matches = 0
+
+    for game_row in games:
+        gid, game_title = game_row[0], game_row[1]
+        rental_key = game_title.lower().strip()
+
+        match = None
+        # Exact match
+        if rental_key in shopify:
+            match = shopify[rental_key]
+            exact_matches += 1
+        else:
+            # Fuzzy match
+            best_score = 0
+            for shopify_key, shopify_data in shopify.items():
+                score = SequenceMatcher(None, rental_key, shopify_key).ratio()
+                if score > best_score and score >= 0.85:
+                    best_score = score
+                    match = shopify_data
+            if match:
+                fuzzy_matches += 1
+
+        if match:
+            takehome = 1 if match["available"] > 0 else 0
+            for_sale = 1 if match["available"] > 0 else 0
+            db.execute(
+                """UPDATE rental_inventory_swp
+                   SET shopify_title = ?, shopify_available = ?,
+                       rentable_takehome = ?, for_sale = ?
+                   WHERE id = ?""",
+                (match["title"], match["available"], takehome, for_sale, gid),
+            )
+
+    db.commit()
+    logger.info(
+        "Shopify matching complete: %d exact, %d fuzzy, %d unmatched out of %d games",
+        exact_matches, fuzzy_matches, len(games) - exact_matches - fuzzy_matches, len(games),
+    )
 
 
 def get_next_order_number(venue_id="meetup"):
