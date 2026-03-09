@@ -334,7 +334,7 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
             elif isinstance(val, str):
                 cust_parts.append(val)
         if cust_parts:
-            line += f"\n   {' \u00b7 '.join(cust_parts)}"
+            line += "\n   " + " \u00b7 ".join(cust_parts)
 
         if it.get("notes"):
             line += f"\n   Note: {it['notes']}"
