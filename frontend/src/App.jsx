@@ -180,7 +180,8 @@ function App() {
           <Route path="/thaihouse/admin" element={<ThaiHouseAdmin />} />
           <Route path="/thaihouse/dashboard" element={<ThaiHouseDashboard />} />
           {/* SWP Rental routes — no app shell, no GMG auth */}
-          <Route path="/swp/rentals" element={<SWPRentalLanding />} />
+          <Route path="/swp/rentals-sign-up" element={<SWPRentalLanding />} />
+          <Route path="/swp/rentals" element={<Navigate to="/swp/rentals-sign-up" replace />} />
           <Route path="/swp/rentals/welcome" element={<SWPRentalWelcome />} />
           <Route path="/swp/rentals/browse" element={<SWPRentalBrowse />} />
           <Route path="/swp/rentals/profile" element={<SWPRentalProfile />} />

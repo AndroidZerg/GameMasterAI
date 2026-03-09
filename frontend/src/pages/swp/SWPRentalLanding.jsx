@@ -119,12 +119,11 @@ const SWPRentalLanding = () => {
           height: 60, display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{
-              width: 32, height: 32, borderRadius: "50%", overflow: "hidden",
-              background: "#2BA5B5", display: "flex", alignItems: "center", justifyContent: "center",
-              color: "white", fontWeight: 700, fontSize: 14,
-            }}>S</div>
-            <span style={{ fontWeight: 700, fontSize: 14 }}>Shall We Play?</span>
+            <img
+              src={`${API_BASE}/api/images/swp-logo.avif`}
+              alt="Shall We Play?"
+              style={{ height: 34, width: "auto", borderRadius: 6 }}
+            />
             <span style={{
               fontSize: 10, color: "#2BA5B5", background: "rgba(43,165,181,0.07)",
               padding: "2px 8px", borderRadius: 12, fontWeight: 600, letterSpacing: "0.3px",

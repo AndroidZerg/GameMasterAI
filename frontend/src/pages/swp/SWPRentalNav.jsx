@@ -1,18 +1,49 @@
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { THEME } from "./swpTheme";
+import { API_BASE } from "../../services/api";
 
 const STRIPE_LINK = "https://buy.stripe.com/test_4gMcMY3UhfAj6ri96S5Vu00";
+const SWP_LOGO = `${API_BASE}/api/images/swp-logo.avif`;
 
 export default function SWPRentalNav({ subscriberName }) {
   const location = useLocation();
-  const isActive = (path) => location.pathname === path;
   const isSubscriber = !!localStorage.getItem("swp_rental_customer");
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close dropdown on route change
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+
+  // Close on click outside
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
+
+  const menuItems = [];
+  if (!isSubscriber) {
+    menuItems.push({ label: "Sign Up", to: "/swp/rentals-sign-up" });
+  }
+  menuItems.push({ label: "Browse Games", to: "/swp/rentals/browse" });
+  if (isSubscriber) {
+    menuItems.push({ label: "My Rentals", to: "/swp/rentals/profile" });
+  }
+  if (!isSubscriber) {
+    menuItems.push({ label: "Subscribe", href: STRIPE_LINK });
+  }
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav style={{
       background: THEME.cardBg,
       borderBottom: `1px solid ${THEME.cardBorder}`,
-      padding: "0 24px",
+      padding: "0 16px",
       height: 56,
       display: "flex",
       alignItems: "center",
@@ -22,53 +53,113 @@ export default function SWPRentalNav({ subscriberName }) {
       top: 0,
       zIndex: 100,
     }}>
-      {/* Left: brand + badge */}
-      <Link to="/swp/rentals" style={{
+      {/* Left: logo */}
+      <Link to="/swp/rentals-sign-up" style={{
         textDecoration: "none", display: "flex", alignItems: "center", gap: 8,
         flexShrink: 0,
       }}>
-        <span style={{ fontFamily: THEME.fontHeading, fontWeight: 700, fontSize: 16, color: THEME.text }}>
-          Shall We Play?
-        </span>
-        <span style={{
-          background: THEME.primary, color: "#fff",
-          fontSize: 9, fontWeight: 700, padding: "2px 7px",
-          borderRadius: 6, letterSpacing: 0.8,
-        }}>
-          RENTALS
-        </span>
+        <img
+          src={SWP_LOGO}
+          alt="Shall We Play?"
+          style={{ height: 34, width: "auto", borderRadius: 6 }}
+        />
       </Link>
 
-      {/* Right: nav links + profile/subscribe */}
-      <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
-        <Link
-          to="/swp/rentals/browse"
+      {/* Center: dropdown menu */}
+      <div ref={menuRef} style={{ position: "relative" }}>
+        <button
+          onClick={() => setOpen(!open)}
           style={{
-            textDecoration: "none", fontWeight: 600, fontSize: 14,
-            color: isActive("/swp/rentals/browse") ? THEME.primary : THEME.textSecondary,
-            borderBottom: isActive("/swp/rentals/browse") ? `2px solid ${THEME.primary}` : "2px solid transparent",
-            paddingBottom: 2,
+            background: "none",
+            border: `1.5px solid ${open ? THEME.primary : "#ddd"}`,
+            borderRadius: 10,
+            padding: "7px 16px",
+            fontSize: 14,
+            fontWeight: 600,
+            color: open ? THEME.primary : THEME.text,
+            cursor: "pointer",
+            fontFamily: THEME.fontBody,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            transition: "all 0.15s",
           }}
         >
-          Browse
-        </Link>
-        {isSubscriber && (
-          <Link
-            to="/swp/rentals/profile"
-            style={{
-              textDecoration: "none", fontWeight: 600, fontSize: 14,
-              color: isActive("/swp/rentals/profile") ? THEME.primary : THEME.textSecondary,
-              borderBottom: isActive("/swp/rentals/profile") ? `2px solid ${THEME.primary}` : "2px solid transparent",
-              paddingBottom: 2,
-            }}
-          >
-            My Rentals
-          </Link>
+          Menu
+          <span style={{
+            fontSize: 10,
+            transition: "transform 0.2s",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            display: "inline-block",
+          }}>&#9660;</span>
+        </button>
+
+        {open && (
+          <div style={{
+            position: "absolute",
+            top: "calc(100% + 8px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "#fff",
+            border: `1px solid ${THEME.cardBorder}`,
+            borderRadius: 14,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+            minWidth: 200,
+            padding: "8px 0",
+            zIndex: 200,
+          }}>
+            {menuItems.map((item) => {
+              if (item.href) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    style={{
+                      display: "block",
+                      padding: "12px 20px",
+                      fontSize: 15,
+                      fontWeight: 600,
+                      color: THEME.primary,
+                      textDecoration: "none",
+                      transition: "background 0.1s",
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "#f5f5f5"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                  >
+                    {item.label} &rarr;
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  style={{
+                    display: "block",
+                    padding: "12px 20px",
+                    fontSize: 15,
+                    fontWeight: isActive(item.to) ? 700 : 500,
+                    color: isActive(item.to) ? THEME.primary : THEME.text,
+                    textDecoration: "none",
+                    transition: "background 0.1s",
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = "#f5f5f5"}
+                  onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
         )}
-        {isSubscriber ? (
-          <Link to="/swp/rentals/profile" style={{ textDecoration: "none", flexShrink: 0 }}>
+      </div>
+
+      {/* Right: profile icon (subscribers only) */}
+      <div style={{ width: 34, flexShrink: 0 }}>
+        {isSubscriber && (
+          <Link to="/swp/rentals/profile" style={{ textDecoration: "none" }}>
             <div style={{
-              width: 30, height: 30, borderRadius: "50%",
+              width: 32, height: 32, borderRadius: "50%",
               background: THEME.primary, color: "#fff",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: 13, fontWeight: 700,
@@ -76,14 +167,6 @@ export default function SWPRentalNav({ subscriberName }) {
               {subscriberName ? subscriberName.charAt(0).toUpperCase() : "?"}
             </div>
           </Link>
-        ) : (
-          <a href={STRIPE_LINK} style={{
-            background: THEME.primary, color: "#fff",
-            fontSize: 13, fontWeight: 700, padding: "7px 16px",
-            borderRadius: 20, textDecoration: "none", whiteSpace: "nowrap",
-          }}>
-            $9.99/mo
-          </a>
         )}
       </div>
     </nav>
