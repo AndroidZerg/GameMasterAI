@@ -15,7 +15,7 @@ export const THEME = {
   fontHeading: "'Fraunces', serif",
 };
 
-export const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_4gMcMY3UhfAj6ri96S5Vu00";
+export const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/3cI6oA4Yldsb5ne5UG5Vu01";
 
 export const FONTS_LINK = "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@400;600;700;800&display=swap";
 

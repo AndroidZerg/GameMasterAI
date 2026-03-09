@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { API_BASE } from "../../services/api";
 
-const STRIPE_LINK = "https://buy.stripe.com/test_4gMcMY3UhfAj6ri96S5Vu00";
+const STRIPE_LINK = "https://buy.stripe.com/3cI6oA4Yldsb5ne5UG5Vu01";
 
 const SWPRentalLanding = () => {
   const [scrollY, setScrollY] = useState(0);
