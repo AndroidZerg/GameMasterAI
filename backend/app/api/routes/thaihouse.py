@@ -49,6 +49,8 @@ class PublicOrderItem(BaseModel):
     customizations: Optional[dict] = None
     notes: Optional[str] = None
     is_drink_club: bool = False
+    is_free_drink: bool = False
+    original_price: Optional[float] = None
     originalPrice: Optional[float] = None
 
 
@@ -164,7 +166,7 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     # Validate drink club items
     has_drink_club_item = False
     for item in req.items:
-        if item.is_drink_club:
+        if item.is_drink_club or item.is_free_drink:
             if has_drink_club_item:
                 raise HTTPException(status_code=400, detail="Only one drink club item per order")
             has_drink_club_item = True
@@ -317,8 +319,8 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
     item_lines = []
     for it in items:
         line_total = it['price'] * it['quantity']
-        if it.get("is_drink_club"):
-            orig = it.get("originalPrice", it['price']) or 4.50
+        if it.get("is_free_drink") or it.get("is_drink_club"):
+            orig = it.get("original_price") or it.get("originalPrice") or it['price'] or 4.50
             line = f"{it['quantity']}x {it['name']} - ~${orig:.2f}~ FREE (Cha Club)"
         else:
             line = f"{it['quantity']}x {it['name']} - ${line_total:.2f}"

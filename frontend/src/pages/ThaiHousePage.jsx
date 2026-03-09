@@ -37,7 +37,7 @@ export default function ThaiHousePage() {
   const [drinkClub, setDrinkClub] = useState(null); // { found, status, redeemed_this_week, ... }
   const [drinkClubLoading, setDrinkClubLoading] = useState(false);
   const [claimedDrinkName, setClaimedDrinkName] = useState(null); // set after checkout with DC item
-  const [pendingDrinkClubClaim, setPendingDrinkClubClaim] = useState(false); // true when customizing a DC item
+  const [freeDrinkClaimActive, setFreeDrinkClaimActive] = useState(false); // mode flag: next drink added is free
 
   // Loyalty
   const [loyaltyData, setLoyaltyData] = useState(null);
@@ -104,26 +104,33 @@ export default function ThaiHousePage() {
     return up;
   }, []);
 
-  const addToCart = useCallback((item, customizations, notes, upcharge) => {
+  const addToCart = useCallback((item, customizations, notes, upcharge, isFree) => {
+    const calculatedPrice = item.price + (upcharge || 0);
+    const custKey = Object.values(customizations || {}).join("|");
+    const key = isFree ? `__free__${item.name}|${custKey}` : `${item.name}|${custKey}`;
+    console.log('FREE DRINK: addToCart called, isFree =', isFree, 'price =', calculatedPrice, 'item =', item.name);
     setCart((prev) => {
-      // Composite key from customization values
-      const custKey = Object.values(customizations || {}).join("|");
-      const key = `${item.name}|${custKey}`;
-      const existing = prev.find((c) => c._key === key);
+      // Don't allow duplicate free drink
+      if (isFree && prev.some((c) => c.is_free_drink)) return prev;
+      const existing = !isFree && prev.find((c) => c._key === key);
       if (existing) {
         return prev.map((c) =>
           c._key === key ? { ...c, quantity: c.quantity + 1 } : c
         );
       }
-      return [...prev, {
+      const cartItem = {
         _key: key,
         name: item.name,
-        price: item.price + (upcharge || 0),
+        price: isFree ? 0 : calculatedPrice,
+        original_price: calculatedPrice,
         quantity: 1,
         customizations: customizations && Object.keys(customizations).length > 0 ? customizations : null,
         notes: notes || null,
-        is_drink_club: false,
-      }];
+        is_free_drink: !!isFree,
+        is_drink_club: !!isFree,
+      };
+      console.log('FREE DRINK: Adding to cart, item =', JSON.stringify(cartItem));
+      return [...prev, cartItem];
     });
   }, []);
 
@@ -148,75 +155,24 @@ export default function ThaiHousePage() {
       setItemNotes("");
       return;
     }
-    addToCart(item, {}, null, 0);
-  }, [addToCart, getItemToggles]);
+    addToCart(item, {}, null, 0, freeDrinkClaimActive);
+    if (freeDrinkClaimActive) setFreeDrinkClaimActive(false);
+  }, [addToCart, getItemToggles, freeDrinkClaimActive]);
 
   const handleCustomizeConfirm = useCallback(() => {
     if (!customizeItem) return;
     const toggleDefs = getItemToggles(customizeItem);
     const upcharge = calcUpcharge(toggleDefs, customizeSelections);
-
-    if (pendingDrinkClubClaim) {
-      // Add as free drink club item with customizations
-      const fullPrice = customizeItem.price + (upcharge || 0);
-      const custKey = Object.values(customizeSelections || {}).join("|");
-      setCart((prev) => {
-        if (prev.some((c) => c.is_drink_club)) return prev;
-        return [...prev, {
-          _key: `__dc__${customizeItem.name}|${custKey}`,
-          name: customizeItem.name,
-          price: 0,
-          originalPrice: fullPrice,
-          quantity: 1,
-          customizations: customizeSelections && Object.keys(customizeSelections).length > 0 ? customizeSelections : null,
-          notes: itemNotes.trim() || null,
-          is_drink_club: true,
-        }];
-      });
-      setPendingDrinkClubClaim(false);
-    } else {
-      addToCart(customizeItem, customizeSelections, itemNotes.trim() || null, upcharge);
-    }
+    console.log('FREE DRINK: Confirm pressed, freeDrinkClaimActive =', freeDrinkClaimActive);
+    addToCart(customizeItem, customizeSelections, itemNotes.trim() || null, upcharge, freeDrinkClaimActive);
+    if (freeDrinkClaimActive) setFreeDrinkClaimActive(false);
     setCustomizeItem(null);
-  }, [customizeItem, customizeSelections, itemNotes, addToCart, getItemToggles, calcUpcharge, pendingDrinkClubClaim]);
+  }, [customizeItem, customizeSelections, itemNotes, addToCart, getItemToggles, calcUpcharge, freeDrinkClaimActive]);
 
-  const addDrinkClubItem = useCallback((drinkName, originalPrice, menuItem) => {
-    // If we have the full menu item, open customization modal with DC flag
-    if (menuItem && menuItem.toggles && menuItem.toggles.length > 0) {
-      setPendingDrinkClubClaim(true);
-      // Reuse the normal customization flow
-      const toggleDefs = (menuItem.toggles || [])
-        .map((tid) => menu?.toggles?.find((t) => t.id === tid))
-        .filter(Boolean);
-      const defaults = {};
-      for (const tog of toggleDefs) {
-        if (tog.multi_select) {
-          defaults[tog.id] = [];
-        } else if (tog.id === "sweetness") {
-          defaults[tog.id] = "100%";
-        } else if (tog.required && tog.options.length > 0) {
-          defaults[tog.id] = tog.options[0].name;
-        }
-      }
-      setCustomizeItem(menuItem);
-      setCustomizeSelections(defaults);
-      setItemNotes("");
-      return;
-    }
-    // Fallback: no customizations needed, add directly
-    setCart((prev) => {
-      if (prev.some((c) => c.is_drink_club)) return prev;
-      const key = `__dc__${drinkName}`;
-      return [...prev, {
-        _key: key,
-        name: drinkName,
-        price: 0,
-        originalPrice: originalPrice || 4.50,
-        quantity: 1,
-        is_drink_club: true,
-      }];
-    });
-  }, [menu]);
+  const activateFreeDrinkClaim = useCallback(() => {
+    console.log('FREE DRINK: Banner tapped, freeDrinkClaimActive = true');
+    setFreeDrinkClaimActive(true);
+  }, []);
 
   const updateQty = useCallback((key, delta) => {
     setCart((prev) =>
@@ -229,8 +185,9 @@ export default function ThaiHousePage() {
     setCart((prev) => prev.filter((c) => c._key !== key));
   }, []);
 
-  const cartTotal = cart.reduce((s, c) => s + c.price * c.quantity, 0);
+  const cartTotal = cart.reduce((s, c) => s + (c.is_free_drink ? 0 : c.price * c.quantity), 0);
   const cartCount = cart.reduce((s, c) => s + c.quantity, 0);
+  if (cart.length > 0) console.log('FREE DRINK: Subtotal =', cartTotal, 'items =', cart.map(i => ({name: i.name, price: i.price, is_free: i.is_free_drink})));
 
   const handleCheckout = async () => {
     if (!customerName.trim() || cart.length === 0 || placing) return;
@@ -370,12 +327,9 @@ export default function ThaiHousePage() {
       <DrinkClubBanner
         drinkClub={drinkClub}
         drinkClubLoading={drinkClubLoading}
-        onClaimDrink={addDrinkClubItem}
-        allDrinkItems={sections.flatMap((s) => {
-          const drinkCats = ["Traditional Thai Drinks", "Matcha", "Milk Tea", "Smoothies", "Fruit Teas", "Specialty"];
-          return drinkCats.includes(s.name) ? s.items : [];
-        })}
-        hasDrinkClubInCart={cart.some((c) => c.is_drink_club)}
+        onActivateClaim={activateFreeDrinkClaim}
+        freeDrinkClaimActive={freeDrinkClaimActive}
+        hasDrinkClubInCart={cart.some((c) => c.is_free_drink)}
       />
 
       {loading && (
@@ -511,13 +465,13 @@ export default function ThaiHousePage() {
         const upcharge = calcUpcharge(toggleDefs, customizeSelections);
         const itemTotal = customizeItem.price + upcharge;
         return (
-          <div style={styles.drawerOverlay} onClick={() => { setCustomizeItem(null); setPendingDrinkClubClaim(false); }}>
+          <div style={styles.drawerOverlay} onClick={() => setCustomizeItem(null)}>
             <div style={styles.customizeModal} onClick={(e) => e.stopPropagation()}>
               <div style={styles.drawerHeader}>
-                <h2 style={{ margin: 0, color: pendingDrinkClubClaim ? "#27ae60" : THEME.accent, fontSize: 20 }}>
-                  {pendingDrinkClubClaim ? `${customizeItem.name} (Free)` : customizeItem.name}
+                <h2 style={{ margin: 0, color: freeDrinkClaimActive ? "#27ae60" : THEME.accent, fontSize: 20 }}>
+                  {freeDrinkClaimActive ? `${customizeItem.name} (FREE)` : customizeItem.name}
                 </h2>
-                <button style={styles.closeBtn} onClick={() => { setCustomizeItem(null); setPendingDrinkClubClaim(false); }}>&times;</button>
+                <button style={styles.closeBtn} onClick={() => setCustomizeItem(null)}>&times;</button>
               </div>
 
               <div style={{ padding: "16px 20px", overflowY: "auto", flex: 1 }}>
@@ -588,9 +542,9 @@ export default function ThaiHousePage() {
               </div>
 
               <div style={{ padding: "12px 20px 20px" }}>
-                <button onClick={handleCustomizeConfirm} style={{ ...styles.primaryBtn, width: "100%" }}>
-                  {pendingDrinkClubClaim ? (
-                    <>Claim Free Drink<span style={{ textDecoration: "line-through", opacity: 0.5, marginLeft: 6, fontSize: 13 }}>${itemTotal.toFixed(2)}</span></>
+                <button onClick={handleCustomizeConfirm} style={{ ...styles.primaryBtn, width: "100%", background: freeDrinkClaimActive ? "#22c55e" : THEME.accent }}>
+                  {freeDrinkClaimActive ? (
+                    <>Claim Free Drink <span style={{ textDecoration: "line-through", opacity: 0.5, marginLeft: 4, fontSize: 13 }}>${itemTotal.toFixed(2)}</span></>
                   ) : (
                     <>Add to Order - ${itemTotal.toFixed(2)}
                     {upcharge > 0 && <span style={{ fontSize: 12, marginLeft: 4 }}>(+${upcharge.toFixed(2)})</span>}</>
@@ -708,9 +662,6 @@ export default function ThaiHousePage() {
                     <div style={{ flex: 1 }}>
                       <div style={{ color: THEME.text, fontWeight: 600 }}>
                         {item.name}
-                        {item.is_drink_club && (
-                          <span style={{ color: "#27ae60", fontSize: 12, marginLeft: 6 }}>DRINK CLUB</span>
-                        )}
                       </div>
                       {(item.customizations || item.notes) && (
                         <div style={{ color: THEME.textSecondary, fontSize: 12, marginTop: 2 }}>
@@ -725,15 +676,17 @@ export default function ThaiHousePage() {
                           ].filter(Boolean).join(" · ")}
                         </div>
                       )}
-                      <div style={{ color: THEME.textSecondary, fontSize: 13 }}>
-                        {item.is_drink_club ? (
+                      <div style={{ fontSize: 13 }}>
+                        {item.is_free_drink ? (
                           <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                            <span style={{ textDecoration: "line-through", color: THEME.textSecondary }}>
-                              ${(item.originalPrice || 4.50).toFixed(2)}
+                            <span style={{ textDecoration: "line-through", opacity: 0.5, color: THEME.textSecondary }}>
+                              ${(item.original_price || 0).toFixed(2)}
                             </span>
-                            <span style={{ color: "#4caf50", fontWeight: 700 }}>FREE</span>
+                            <span style={{ color: "#22c55e", fontWeight: 700 }}>FREE</span>
                           </span>
-                        ) : `$${(item.price * item.quantity).toFixed(2)}`}
+                        ) : (
+                          <span style={{ color: THEME.textSecondary }}>${(item.price * item.quantity).toFixed(2)}</span>
+                        )}
                       </div>
                     </div>
                     <div style={styles.qtyControls}>
@@ -787,8 +740,7 @@ export default function ThaiHousePage() {
 }
 
 /* ── Drink Club Banner Component ── */
-function DrinkClubBanner({ drinkClub, drinkClubLoading, onClaimDrink, allDrinkItems, hasDrinkClubInCart }) {
-  const [showDrinkPicker, setShowDrinkPicker] = useState(false);
+function DrinkClubBanner({ drinkClub, drinkClubLoading, onActivateClaim, freeDrinkClaimActive, hasDrinkClubInCart }) {
   const [countdown, setCountdown] = useState("");
 
   // Live countdown timer for claimed state
@@ -861,48 +813,16 @@ function DrinkClubBanner({ drinkClub, drinkClubLoading, onClaimDrink, allDrinkIt
     );
   }
 
-  // Drink picker open — show specialty drinks with prices
-  if (showDrinkPicker) {
-    // Use all drink items from menu
-    const drinkOptions = allDrinkItems.length > 0
-      ? allDrinkItems
-      : [
-          { name: "Thai Iced Tea", price: 4.50 },
-          { name: "Thai Iced Coffee", price: 4.50 },
-          { name: "Mango Smoothie", price: 5.50 },
-        ];
-
+  // Free drink mode active — prompt to pick from menu
+  if (freeDrinkClaimActive) {
     return (
-      <div style={{ ...styles.drinkBanner, borderColor: "#27ae60" }}>
-        <div style={{ fontSize: 16, fontWeight: 700, color: "#27ae60", marginBottom: 12 }}>
-          Choose Your Free Drink
+      <div style={{ ...styles.drinkBanner, borderColor: "#22c55e", background: "#22c55e18" }}>
+        <div style={{ fontSize: 18, fontWeight: 700, color: "#22c55e", marginBottom: 4 }}>
+          Pick any drink from the menu — it's FREE!
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {drinkOptions.map((drink) => (
-            <button
-              key={drink.name}
-              onClick={() => {
-                onClaimDrink(drink.name, drink.price, drink);
-                setShowDrinkPicker(false);
-              }}
-              style={styles.drinkPickCard}
-            >
-              <span style={{ color: THEME.text, fontWeight: 600, fontSize: 14 }}>{drink.name}</span>
-              <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <span style={{ textDecoration: "line-through", color: THEME.textSecondary, fontSize: 13 }}>
-                  ${drink.price.toFixed(2)}
-                </span>
-                <span style={{ color: "#4caf50", fontWeight: 700, fontSize: 14 }}>FREE</span>
-              </span>
-            </button>
-          ))}
+        <div style={{ color: THEME.textSecondary, fontSize: 13 }}>
+          Tap any drink below to add it as your free weekly drink.
         </div>
-        <button
-          onClick={() => setShowDrinkPicker(false)}
-          style={{ background: "none", border: "none", color: THEME.textSecondary, fontSize: 12, marginTop: 10, cursor: "pointer" }}
-        >
-          Cancel
-        </button>
       </div>
     );
   }
@@ -911,7 +831,7 @@ function DrinkClubBanner({ drinkClub, drinkClubLoading, onClaimDrink, allDrinkIt
   return (
     <div
       style={{ ...styles.drinkBanner, borderColor: "#27ae60", cursor: "pointer" }}
-      onClick={() => setShowDrinkPicker(true)}
+      onClick={() => { console.log('FREE DRINK: Banner clicked, calling onActivateClaim'); onActivateClaim(); }}
     >
       <div style={{ fontSize: 20, fontWeight: 700, color: "#27ae60", marginBottom: 4 }}>
         Claim Your Free Drink
