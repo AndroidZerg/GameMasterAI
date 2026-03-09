@@ -10,7 +10,7 @@ import {
   getLoyaltyRewards, createLoyaltyReward, updateLoyaltyReward, deleteLoyaltyReward,
 } from '../services/api.js';
 
-const API_BASE = import.meta.env.VITE_API_URL || '';
+import { API_BASE } from '../services/api.js';
 
 const T = {
   bg: '#1a1210', card: '#2a1f1a', accent: '#d4a843', accentDark: '#b8922e',
