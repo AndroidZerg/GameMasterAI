@@ -43,6 +43,12 @@ export default function ThaiHousePage() {
   const [loyaltyData, setLoyaltyData] = useState(null);
   const loyaltyTimerRef = useRef(null);
 
+  // Phone prompt banner
+  const [phonePromptVisible, setPhonePromptVisible] = useState(false);
+  const [phonePromptInput, setPhonePromptInput] = useState("");
+  const [phonePromptResult, setPhonePromptResult] = useState(null); // null | "found" | "new"
+  const [phonePromptChecking, setPhonePromptChecking] = useState(false);
+
   useEffect(() => {
     document.title = "Thai House Menu";
 
@@ -53,6 +59,17 @@ export default function ThaiHousePage() {
     fetchPublicMenu("thaihouse")
       .then((data) => { setMenu(data); setLoading(false); })
       .catch((err) => { setError(err.message); setLoading(false); });
+
+    // Restore saved customer info from localStorage
+    const savedName = localStorage.getItem("thaihouse_customer_name");
+    const savedPhone = localStorage.getItem("thaihouse_customer_phone");
+    if (savedName) setCustomerName(savedName);
+    if (savedPhone) setCustomerPhone(savedPhone);
+
+    // Show phone prompt only if no saved phone
+    if (!savedPhone) {
+      setPhonePromptVisible(true);
+    }
 
     // Check drink club status from stored phone
     const phone = localStorage.getItem("thaihouse_dc_phone");
@@ -77,6 +94,65 @@ export default function ThaiHousePage() {
     }, 600);
     return () => { if (loyaltyTimerRef.current) clearTimeout(loyaltyTimerRef.current); };
   }, [customerPhone]);
+
+  // "Not you?" — clear saved data and reset
+  const handleNotYou = useCallback(() => {
+    localStorage.removeItem("thaihouse_customer_name");
+    localStorage.removeItem("thaihouse_customer_phone");
+    localStorage.removeItem("thaihouse_dc_phone");
+    setCustomerName("");
+    setCustomerPhone("");
+    setLoyaltyData(null);
+    setDrinkClub(null);
+    setPhonePromptVisible(true);
+    setPhonePromptResult(null);
+    setPhonePromptInput("");
+  }, []);
+
+  // Phone prompt "Check" handler
+  const handlePhonePromptCheck = useCallback(async () => {
+    const clean = phonePromptInput.replace(/\D/g, '');
+    if (clean.length < 7) return;
+    setPhonePromptChecking(true);
+    try {
+      const data = await lookupLoyalty(clean);
+      if (data?.found) {
+        setPhonePromptResult("found");
+        setCustomerName(data.name || "");
+        setCustomerPhone(phonePromptInput);
+        setLoyaltyData(data);
+        localStorage.setItem("thaihouse_customer_name", data.name || "");
+        localStorage.setItem("thaihouse_customer_phone", phonePromptInput);
+        // Also check drink club
+        setDrinkClubLoading(true);
+        localStorage.setItem("thaihouse_dc_phone", clean);
+        verifyDrinkClub(clean)
+          .then((dc) => setDrinkClub(dc))
+          .catch(() => {})
+          .finally(() => setDrinkClubLoading(false));
+        setTimeout(() => setPhonePromptVisible(false), 1500);
+      } else {
+        setPhonePromptResult("new");
+        setCustomerPhone(phonePromptInput);
+        localStorage.setItem("thaihouse_customer_phone", phonePromptInput);
+        localStorage.setItem("thaihouse_dc_phone", clean);
+        // Check drink club too for new phone
+        setDrinkClubLoading(true);
+        verifyDrinkClub(clean)
+          .then((dc) => setDrinkClub(dc))
+          .catch(() => {})
+          .finally(() => setDrinkClubLoading(false));
+        setTimeout(() => setPhonePromptVisible(false), 2000);
+      }
+    } catch {
+      setPhonePromptResult("new");
+      setCustomerPhone(phonePromptInput);
+      localStorage.setItem("thaihouse_customer_phone", phonePromptInput);
+      setTimeout(() => setPhonePromptVisible(false), 2000);
+    } finally {
+      setPhonePromptChecking(false);
+    }
+  }, [phonePromptInput]);
 
   // Resolve toggle definitions for an item
   const getItemToggles = useCallback((item) => {
@@ -210,6 +286,9 @@ export default function ThaiHousePage() {
         // Update banner state to claimed
         setDrinkClub((prev) => prev ? { ...prev, redeemed_this_week: true, redemption: { drink_name: dcItem.name } } : prev);
       }
+      // Save customer info for next visit
+      if (customerName.trim()) localStorage.setItem("thaihouse_customer_name", customerName.trim());
+      if (customerPhone.trim()) localStorage.setItem("thaihouse_customer_phone", customerPhone.trim());
       setOrderNumber(res.order_number);
       setOrderPlaced(true);
       setCart([]);
@@ -284,9 +363,8 @@ export default function ThaiHousePage() {
             onClick={() => {
               setOrderPlaced(false);
               setOrderNumber(null);
-              setCustomerName("");
-              setCustomerPhone("");
               setClaimedDrinkName(null);
+              // Keep name/phone pre-filled for repeat orders
             }}
             style={styles.primaryBtn}
           >
@@ -321,7 +399,67 @@ export default function ThaiHousePage() {
         {tableNumber && (
           <div style={styles.tableBadge}>Table {tableNumber}</div>
         )}
+        {/* "Not you?" link for returning customers */}
+        {(customerPhone || customerName) && !phonePromptVisible && (
+          <button
+            onClick={handleNotYou}
+            style={{ background: "none", border: "none", color: THEME.textSecondary, fontSize: 12, cursor: "pointer", marginTop: 6, textDecoration: "underline" }}
+          >
+            Not you? Tap to reset
+          </button>
+        )}
       </header>
+
+      {/* Phone Prompt Banner — new customers */}
+      {phonePromptVisible && !phonePromptResult && (
+        <div style={styles.phonePromptBanner}>
+          <div style={{ fontSize: 15, fontWeight: 600, color: THEME.text, marginBottom: 10 }}>
+            &#128241; Enter your phone # for rewards &amp; free drinks
+          </div>
+          <div style={{ display: "flex", gap: 8, marginBottom: 6 }}>
+            <input
+              type="tel"
+              placeholder="(555) 123-4567"
+              value={phonePromptInput}
+              onChange={(e) => setPhonePromptInput(e.target.value)}
+              style={{ ...styles.nameInput, marginBottom: 0, flex: 1 }}
+            />
+            <button
+              onClick={handlePhonePromptCheck}
+              disabled={phonePromptInput.replace(/\D/g, '').length < 7 || phonePromptChecking}
+              style={{
+                ...styles.primaryBtn,
+                padding: "10px 20px",
+                fontSize: 14,
+                opacity: phonePromptInput.replace(/\D/g, '').length < 7 ? 0.5 : 1,
+              }}
+            >
+              {phonePromptChecking ? "..." : "Check"}
+            </button>
+          </div>
+          <button
+            onClick={() => setPhonePromptVisible(false)}
+            style={{ background: "none", border: "none", color: THEME.textSecondary, fontSize: 12, cursor: "pointer" }}
+          >
+            Skip &rsaquo;
+          </button>
+        </div>
+      )}
+      {/* Phone Prompt Result */}
+      {phonePromptVisible && phonePromptResult === "found" && (
+        <div style={{ ...styles.phonePromptBanner, borderColor: "#27ae60" }}>
+          <div style={{ color: "#27ae60", fontWeight: 700, fontSize: 15 }}>
+            Welcome back, {customerName}!
+          </div>
+        </div>
+      )}
+      {phonePromptVisible && phonePromptResult === "new" && (
+        <div style={{ ...styles.phonePromptBanner, borderColor: THEME.accent }}>
+          <div style={{ color: THEME.text, fontSize: 14 }}>
+            No account yet &mdash; you'll earn rewards on your first order!
+          </div>
+        </div>
+      )}
 
       {/* Drink Club Banner */}
       <DrinkClubBanner
@@ -564,166 +702,172 @@ export default function ThaiHousePage() {
         </button>
       )}
 
-      {/* Cart Drawer */}
+      {/* Order Modal — centered overlay */}
       {showCart && (
-        <div style={styles.drawerOverlay} onClick={() => setShowCart(false)}>
-          <div style={styles.drawer} onClick={(e) => e.stopPropagation()}>
-            <div style={styles.drawerHeader}>
-              <h2 style={{ margin: 0, color: THEME.accent, fontSize: 22 }}>Your Order</h2>
-              <button style={styles.closeBtn} onClick={() => setShowCart(false)}>&times;</button>
-            </div>
+        <div style={styles.modalOverlay} onClick={() => setShowCart(false)}>
+          <div style={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
+            <div style={{ display: "flex", flexDirection: "column", maxHeight: "85vh" }}>
+              {/* Header */}
+              <div style={styles.drawerHeader}>
+                <h2 style={{ margin: 0, color: THEME.accent, fontSize: 22 }}>Your Order</h2>
+                <button style={styles.closeBtn} onClick={() => setShowCart(false)}>&times;</button>
+              </div>
 
-            {/* Name & Phone — prominent, above cart items */}
-            <div style={{ padding: "12px 20px 0" }}>
-              <input
-                type="text"
-                placeholder="Your Name *"
-                value={customerName}
-                onChange={(e) => setCustomerName(e.target.value)}
-                style={{
-                  ...styles.nameInput,
-                  border: customerName.trim()
-                    ? `2px solid ${THEME.accent}`
-                    : `2px solid ${THEME.accent}90`,
-                  boxShadow: !customerName.trim() ? `0 0 10px ${THEME.accent}30` : 'none',
-                  fontSize: 16,
-                }}
-              />
-              <input
-                type="tel"
-                placeholder="Phone # for loyalty rewards (optional)"
-                value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
-                style={{ ...styles.nameInput, marginBottom: 4 }}
-              />
-              {/* Loyalty lookup result */}
-              {loyaltyData?.found ? (
-                <div style={{ padding: "10px 14px", background: "#27ae6015", borderRadius: 10,
-                  border: "1px solid #27ae6040", marginBottom: 10 }}>
-                  <div style={{ color: "#27ae60", fontWeight: 700, fontSize: 14 }}>
-                    Welcome back, {loyaltyData.name}!
-                  </div>
-                  <div style={{ color: THEME.text, fontSize: 13, marginTop: 2 }}>
-                    You have <strong style={{ color: THEME.accent }}>{loyaltyData.points}</strong> points
-                    &middot; {loyaltyData.visits} visit{loyaltyData.visits !== 1 ? "s" : ""}
-                  </div>
-                  {loyaltyData.all_rewards?.length > 0 && (
-                    <div style={{ marginTop: 8, display: "flex", flexWrap: "wrap", gap: 6 }}>
-                      {loyaltyData.all_rewards.map((r) => {
-                        const canRedeem = loyaltyData.points >= r.points_required;
-                        return (
-                          <button
-                            key={r.id}
-                            disabled={!canRedeem}
-                            onClick={async () => {
-                              if (!canRedeem) return;
-                              try {
-                                const res = await redeemLoyaltyPublic(customerPhone.replace(/\D/g, ''), r.id);
-                                setLoyaltyData((prev) => prev ? {
-                                  ...prev,
-                                  points: res.points_remaining,
-                                  available_rewards: prev.all_rewards.filter((rw) => rw.points_required <= res.points_remaining),
-                                } : prev);
-                                alert(`Redeemed: ${r.description}! ${res.points_remaining} points remaining.`);
-                              } catch (err) {
-                                alert("Redeem failed: " + err.message);
-                              }
-                            }}
-                            style={{
-                              padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600,
-                              cursor: canRedeem ? "pointer" : "default",
-                              border: canRedeem ? "1px solid #27ae60" : `1px solid ${THEME.textSecondary}40`,
-                              background: canRedeem ? "#27ae6015" : "transparent",
-                              color: canRedeem ? "#27ae60" : THEME.textSecondary,
-                              minHeight: 36,
-                            }}
-                          >
-                            {r.description} ({r.points_required} pts)
-                          </button>
-                        );
-                      })}
+              {/* Scrollable content */}
+              <div style={{ flex: 1, overflowY: "auto", minHeight: 0 }}>
+                {/* Name & Phone */}
+                <div style={{ padding: "12px 20px 0" }}>
+                  <input
+                    type="text"
+                    placeholder="Your Name *"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    style={{
+                      ...styles.nameInput,
+                      border: customerName.trim()
+                        ? `2px solid ${THEME.accent}`
+                        : `2px solid ${THEME.accent}90`,
+                      boxShadow: !customerName.trim() ? `0 0 10px ${THEME.accent}30` : 'none',
+                      fontSize: 16,
+                    }}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone # for loyalty rewards (optional)"
+                    value={customerPhone}
+                    onChange={(e) => setCustomerPhone(e.target.value)}
+                    style={{ ...styles.nameInput, marginBottom: 4 }}
+                  />
+                  {/* Loyalty lookup result */}
+                  {loyaltyData?.found ? (
+                    <div style={{ padding: "10px 14px", background: "#27ae6015", borderRadius: 10,
+                      border: "1px solid #27ae6040", marginBottom: 10 }}>
+                      <div style={{ color: "#27ae60", fontWeight: 700, fontSize: 14 }}>
+                        Welcome back, {loyaltyData.name}!
+                      </div>
+                      <div style={{ color: THEME.text, fontSize: 13, marginTop: 2 }}>
+                        You have <strong style={{ color: THEME.accent }}>{loyaltyData.points}</strong> points
+                        &middot; {loyaltyData.visits} visit{loyaltyData.visits !== 1 ? "s" : ""}
+                      </div>
+                      {loyaltyData.all_rewards?.length > 0 && (
+                        <div style={{ marginTop: 8, display: "flex", flexWrap: "wrap", gap: 6 }}>
+                          {loyaltyData.all_rewards.map((r) => {
+                            const canRedeem = loyaltyData.points >= r.points_required;
+                            return (
+                              <button
+                                key={r.id}
+                                disabled={!canRedeem}
+                                onClick={async () => {
+                                  if (!canRedeem) return;
+                                  try {
+                                    const res = await redeemLoyaltyPublic(customerPhone.replace(/\D/g, ''), r.id);
+                                    setLoyaltyData((prev) => prev ? {
+                                      ...prev,
+                                      points: res.points_remaining,
+                                      available_rewards: prev.all_rewards.filter((rw) => rw.points_required <= res.points_remaining),
+                                    } : prev);
+                                    alert(`Redeemed: ${r.description}! ${res.points_remaining} points remaining.`);
+                                  } catch (err) {
+                                    alert("Redeem failed: " + err.message);
+                                  }
+                                }}
+                                style={{
+                                  padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600,
+                                  cursor: canRedeem ? "pointer" : "default",
+                                  border: canRedeem ? "1px solid #27ae60" : `1px solid ${THEME.textSecondary}40`,
+                                  background: canRedeem ? "#27ae6015" : "transparent",
+                                  color: canRedeem ? "#27ae60" : THEME.textSecondary,
+                                  minHeight: 36,
+                                }}
+                              >
+                                {r.description} ({r.points_required} pts)
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div style={{ fontSize: 11, color: THEME.textSecondary, marginBottom: 8 }}>
+                      Earn 1 point per $10 spent. 10 points = free entr&#233;e or 1 month Cha Club!
                     </div>
                   )}
                 </div>
-              ) : (
-                <div style={{ fontSize: 11, color: THEME.textSecondary, marginBottom: 8 }}>
-                  Earn 1 point per $10 spent. 10 points = free entr&#233;e or 1 month Cha Club!
-                </div>
-              )}
-            </div>
 
-            {/* Cart items */}
-            {cart.length === 0 ? (
-              <p style={{ color: THEME.textSecondary, textAlign: "center", padding: 24 }}>Cart is empty</p>
-            ) : (
-              <div style={styles.cartItems}>
-                {cart.map((item) => (
-                  <div key={item._key} style={styles.cartRow}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ color: THEME.text, fontWeight: 600 }}>
-                        {item.name}
-                      </div>
-                      {(item.customizations || item.notes) && (
-                        <div style={{ color: THEME.textSecondary, fontSize: 12, marginTop: 2 }}>
-                          {[
-                            ...(item.customizations
-                              ? Object.entries(item.customizations).map(([k, v]) => {
-                                  if (Array.isArray(v)) return v.length ? v.join(", ") : null;
-                                  return v;
-                                })
-                              : []),
-                            item.notes,
-                          ].filter(Boolean).join(" · ")}
+                {/* Cart items */}
+                {cart.length === 0 ? (
+                  <p style={{ color: THEME.textSecondary, textAlign: "center", padding: 24 }}>Cart is empty</p>
+                ) : (
+                  <div style={styles.cartItems}>
+                    {cart.map((item) => (
+                      <div key={item._key} style={styles.cartRow}>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ color: THEME.text, fontWeight: 600 }}>
+                            {item.name}
+                          </div>
+                          {(item.customizations || item.notes) && (
+                            <div style={{ color: THEME.textSecondary, fontSize: 12, marginTop: 2 }}>
+                              {[
+                                ...(item.customizations
+                                  ? Object.entries(item.customizations).map(([k, v]) => {
+                                      if (Array.isArray(v)) return v.length ? v.join(", ") : null;
+                                      return v;
+                                    })
+                                  : []),
+                                item.notes,
+                              ].filter(Boolean).join(" · ")}
+                            </div>
+                          )}
+                          <div style={{ fontSize: 13 }}>
+                            {item.is_free_drink ? (
+                              <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                <span style={{ textDecoration: "line-through", opacity: 0.5, color: THEME.textSecondary }}>
+                                  ${(item.original_price || 0).toFixed(2)}
+                                </span>
+                                <span style={{ color: "#22c55e", fontWeight: 700 }}>FREE</span>
+                              </span>
+                            ) : (
+                              <span style={{ color: THEME.textSecondary }}>${(item.price * item.quantity).toFixed(2)}</span>
+                            )}
+                          </div>
                         </div>
-                      )}
-                      <div style={{ fontSize: 13 }}>
-                        {item.is_free_drink ? (
-                          <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                            <span style={{ textDecoration: "line-through", opacity: 0.5, color: THEME.textSecondary }}>
-                              ${(item.original_price || 0).toFixed(2)}
-                            </span>
-                            <span style={{ color: "#22c55e", fontWeight: 700 }}>FREE</span>
-                          </span>
-                        ) : (
-                          <span style={{ color: THEME.textSecondary }}>${(item.price * item.quantity).toFixed(2)}</span>
-                        )}
+                        <div style={styles.qtyControls}>
+                          <button style={styles.qtyBtn} onClick={() => updateQty(item._key, -1)}>-</button>
+                          <span style={{ color: THEME.text, minWidth: 20, textAlign: "center" }}>{item.quantity}</span>
+                          <button style={styles.qtyBtn} onClick={() => updateQty(item._key, 1)}>+</button>
+                        </div>
+                        <button style={styles.removeBtn} onClick={() => removeItem(item._key)}>&#10005;</button>
                       </div>
-                    </div>
-                    <div style={styles.qtyControls}>
-                      <button style={styles.qtyBtn} onClick={() => updateQty(item._key, -1)}>-</button>
-                      <span style={{ color: THEME.text, minWidth: 20, textAlign: "center" }}>{item.quantity}</span>
-                      <button style={styles.qtyBtn} onClick={() => updateQty(item._key, 1)}>+</button>
-                    </div>
-                    <button style={styles.removeBtn} onClick={() => removeItem(item._key)}>&#10005;</button>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
 
-            {/* Footer: subtotal + place order */}
-            <div style={styles.cartFooterSection}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
-                <span style={{ color: THEME.text, fontSize: 18, fontWeight: 700 }}>Subtotal</span>
-                <span style={{ color: THEME.accent, fontSize: 18, fontWeight: 700 }}>
-                  ${cartTotal.toFixed(2)}
-                </span>
+              {/* Sticky footer — always visible */}
+              <div style={styles.cartFooterSection}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+                  <span style={{ color: THEME.text, fontSize: 18, fontWeight: 700 }}>Subtotal</span>
+                  <span style={{ color: THEME.accent, fontSize: 18, fontWeight: 700 }}>
+                    ${cartTotal.toFixed(2)}
+                  </span>
+                </div>
+                <button
+                  onClick={handleCheckout}
+                  disabled={!customerName.trim() || cart.length === 0 || placing}
+                  style={{
+                    ...styles.primaryBtn,
+                    width: "100%",
+                    minHeight: 48,
+                    background: customerName.trim() ? THEME.accent : `${THEME.accent}50`,
+                    opacity: placing ? 0.7 : 1,
+                  }}
+                >
+                  {placing ? "Placing Order..."
+                    : !customerName.trim() ? "Enter your name to place order"
+                    : cartTotal === 0 ? "Place Order - Free"
+                    : `Place Order - $${cartTotal.toFixed(2)}`}
+                </button>
               </div>
-              <button
-                onClick={handleCheckout}
-                disabled={!customerName.trim() || cart.length === 0 || placing}
-                style={{
-                  ...styles.primaryBtn,
-                  width: "100%",
-                  minHeight: 48,
-                  background: customerName.trim() ? THEME.accent : `${THEME.accent}50`,
-                  opacity: placing ? 0.7 : 1,
-                }}
-              >
-                {placing ? "Placing Order..."
-                  : !customerName.trim() ? "Enter your name to place order"
-                  : cartTotal === 0 ? "Place Order - Free"
-                  : `Place Order - $${cartTotal.toFixed(2)}`}
-              </button>
             </div>
           </div>
         </div>
@@ -865,6 +1009,14 @@ const styles = {
     fontWeight: 700,
     fontSize: 14,
   },
+  phonePromptBanner: {
+    margin: "0 16px 16px",
+    padding: "16px 20px",
+    background: THEME.card,
+    borderRadius: 12,
+    border: `1.5px solid ${THEME.textSecondary}40`,
+    textAlign: "center",
+  },
   drinkBanner: {
     margin: "0 16px 16px",
     padding: "16px 20px",
@@ -872,25 +1024,6 @@ const styles = {
     borderRadius: 12,
     border: `1.5px solid ${THEME.accent}`,
     textAlign: "center",
-  },
-  drinkPickBtn: {
-    padding: "8px 14px",
-    borderRadius: 8,
-    border: `1px solid #27ae6060`,
-    background: "transparent",
-    color: THEME.text,
-    fontSize: 13,
-    cursor: "pointer",
-  },
-  drinkPickCard: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "12px 16px",
-    borderRadius: 10,
-    border: `1px solid #27ae6040`,
-    background: THEME.bg,
-    cursor: "pointer",
   },
   tabsContainer: {
     padding: "0 8px",
@@ -1068,14 +1201,27 @@ const styles = {
     alignItems: "flex-end",
     justifyContent: "center",
   },
-  drawer: {
-    background: THEME.card,
-    borderRadius: "20px 20px 0 0",
-    width: "100%",
-    maxWidth: 480,
-    maxHeight: "85vh",
+  modalOverlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.7)",
     display: "flex",
-    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    paddingTop: "5vh",
+    zIndex: 1000,
+    overflowY: "auto",
+  },
+  modalContainer: {
+    backgroundColor: THEME.card,
+    borderRadius: 16,
+    width: "90%",
+    maxWidth: 420,
+    maxHeight: "85vh",
+    overflow: "hidden",
   },
   customizeModal: {
     background: THEME.card,
