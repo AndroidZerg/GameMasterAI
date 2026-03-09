@@ -13,7 +13,7 @@ from slowapi.util import get_remote_address
 from app.core.auth import hash_password, verify_password, create_token, get_current_venue
 from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
-    get_venue_by_id, set_venue_collection, get_venue_collection,
+    get_venue_by_id, get_venue_by_username, set_venue_collection, get_venue_collection,
 )
 from app.models.game import search_games, search_limited_library
 from app.services.admin_config import get_meetup_enabled
@@ -51,6 +51,8 @@ async def login(req: LoginRequest):
     venue = get_venue_by_email(login_input)
     if not venue:
         venue = get_venue_by_id(login_input)
+    if not venue:
+        venue = get_venue_by_username(login_input)
     if not venue or not verify_password(req.password, venue["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
@@ -141,7 +143,7 @@ async def guest_auth(venue: str = Query(None, min_length=1),
     """QR code guest auth — issue a guest JWT for a venue by slug.
 
     The slug is matched against venue_ids after stripping hyphens,
-    so ``shallweplay`` resolves to venue_id ``shall-we-play``.
+    so ``shallweplay`` resolves to the correct venue.
     """
     if not venue:
         raise HTTPException(status_code=400, detail="venue parameter is required")

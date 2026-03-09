@@ -46,6 +46,7 @@ def init_venues_table():
         "trial_duration_days INTEGER DEFAULT 30",
         "source TEXT DEFAULT ''",
         "expires_at TEXT",
+        "username TEXT",
     ):
         try:
             conn.execute(f"ALTER TABLE venues ADD COLUMN {col}")
@@ -85,6 +86,13 @@ def get_venue_by_email(email: str) -> Optional[dict]:
 def get_venue_by_id(venue_id: str) -> Optional[dict]:
     conn = _get_conn()
     row = conn.execute("SELECT * FROM venues WHERE venue_id = ?", (venue_id,)).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
+def get_venue_by_username(username: str) -> Optional[dict]:
+    conn = _get_conn()
+    row = conn.execute("SELECT * FROM venues WHERE LOWER(username) = ?", (username.lower(),)).fetchone()
     conn.close()
     return dict(row) if row else None
 
@@ -235,9 +243,10 @@ _DEMO_VENUES = [
         "website": "https://littleshopofmagic.com",
     },
     {
-        "venue_id": "shall-we-play",
+        "venue_id": "shallweplay",
         "venue_name": "Shall We Play?",
         "email": "demo@shallweplay.com",
+        "username": "swp",
         "tagline": "Game Nights, Events & Community Gaming",
         "accent_color": "#2ecc71",
         "address": "Las Vegas, NV",
@@ -313,11 +322,13 @@ def seed_all_venues(password_hash: str) -> list[str]:
     conn = _get_conn()
     seeded = []
     now = datetime.now(timezone.utc).isoformat()
+    # Migrate old venue_id → new (e.g. "shall-we-play" → "shallweplay")
+    conn.execute("DELETE FROM venues WHERE venue_id = 'shall-we-play'")
     for v in _DEMO_VENUES:
         conn.execute(
             """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline,
-               accent_color, address, phone, website, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               accent_color, address, phone, website, username, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                ON CONFLICT(venue_id) DO UPDATE SET
                  venue_name = excluded.venue_name,
                  email = excluded.email,
@@ -326,10 +337,11 @@ def seed_all_venues(password_hash: str) -> list[str]:
                  accent_color = excluded.accent_color,
                  address = excluded.address,
                  phone = excluded.phone,
-                 website = excluded.website""",
+                 website = excluded.website,
+                 username = excluded.username""",
             (v["venue_id"], v["venue_name"], v["email"], password_hash, v["tagline"],
              v["accent_color"], v.get("address", ""), v.get("phone", ""),
-             v.get("website", ""), now),
+             v.get("website", ""), v.get("username"), now),
         )
         seeded.append(v["venue_id"])
     conn.commit()
