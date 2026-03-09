@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { THEME, FONTS_LINK, styles } from "./swpTheme";
 import SWPRentalNav from "./SWPRentalNav";
 import {
@@ -7,6 +7,8 @@ import {
   fetchRentalCatalog,
   createRentalReservation,
 } from "../../services/api";
+
+const STRIPE_LINK = "https://buy.stripe.com/3cI6oA4Yldsb5ne5UG5Vu01";
 
 function getDateOptions() {
   const opts = [];
@@ -20,10 +22,10 @@ function getDateOptions() {
 }
 
 export default function SWPRentalBrowse() {
-  const navigate = useNavigate();
   const customerId = localStorage.getItem("swp_rental_customer");
 
   const [profile, setProfile] = useState(null);
+  const [isSubscriber, setIsSubscriber] = useState(false);
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -31,6 +33,7 @@ export default function SWPRentalBrowse() {
   const [pickupDate, setPickupDate] = useState("");
   const [reserving, setReserving] = useState(false);
   const [reserveMsg, setReserveMsg] = useState(null);
+  const [showSubscribeModal, setShowSubscribeModal] = useState(false);
 
   useEffect(() => {
     document.title = "Browse Games | SWP Rentals";
@@ -43,30 +46,45 @@ export default function SWPRentalBrowse() {
   }, []);
 
   const loadData = useCallback(async () => {
-    if (!customerId) { navigate("/swp/rentals"); return; }
     try {
-      const [profileData, catalogData] = await Promise.all([
-        fetchRentalProfile(customerId),
-        fetchRentalCatalog("shallweplay"),
-      ]);
-      if (!profileData.subscriber || profileData.subscriber.status !== "active") {
-        localStorage.removeItem("swp_rental_customer");
-        navigate("/swp/rentals");
-        return;
-      }
-      setProfile(profileData);
+      // Always load catalog — it's public
+      const catalogData = await fetchRentalCatalog("shallweplay");
       setGames(catalogData.games || []);
+
+      // Load profile only if subscriber
+      if (customerId) {
+        try {
+          const profileData = await fetchRentalProfile(customerId);
+          if (profileData.subscriber && profileData.subscriber.status === "active") {
+            setProfile(profileData);
+            setIsSubscriber(true);
+          }
+        } catch {
+          // Not a valid subscriber — that's fine, they can still browse
+        }
+      }
     } catch {
-      localStorage.removeItem("swp_rental_customer");
-      navigate("/swp/rentals");
+      // Catalog failed — show empty
     } finally {
       setLoading(false);
     }
-  }, [customerId, navigate]);
+  }, [customerId]);
 
   useEffect(() => { loadData(); }, [loadData]);
 
   const dateOptions = getDateOptions();
+
+  const handleGameClick = (g) => {
+    if (g.status !== "available") return;
+    if (!isSubscriber) {
+      setShowSubscribeModal(true);
+      return;
+    }
+    setModalGame(g);
+    setPickupDate("");
+    setReserveMsg(null);
+    setReserving(false);
+  };
 
   const handleReserve = async () => {
     if (!pickupDate || !modalGame || !customerId) return;
@@ -113,14 +131,25 @@ export default function SWPRentalBrowse() {
         {/* Greeting */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
           <h1 style={{ fontFamily: THEME.fontHeading, fontSize: 24, fontWeight: 700, margin: 0 }}>
-            Hey {profile?.subscriber?.name?.split(" ")[0] || "there"}! &#128075;
+            {isSubscriber
+              ? <>Hey {profile?.subscriber?.name?.split(" ")[0] || "there"}! &#128075;</>
+              : "Browse Our Games"}
           </h1>
-          <Link to="/swp/rentals/profile" style={{ color: THEME.primary, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
-            My Rentals
-          </Link>
+          {isSubscriber ? (
+            <Link to="/swp/rentals/profile" style={{ color: THEME.primary, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+              My Rentals
+            </Link>
+          ) : (
+            <a href={STRIPE_LINK} style={{
+              color: "#fff", background: THEME.primary, fontSize: 13, fontWeight: 700,
+              textDecoration: "none", padding: "8px 18px", borderRadius: 20,
+            }}>
+              Subscribe — $9.99/mo
+            </a>
+          )}
         </div>
 
-        {/* Current rental banner */}
+        {/* Current rental banner (subscribers only) */}
         {hasCurrentRental && (
           <div style={{
             ...styles.card, padding: "14px 20px", marginBottom: 20,
@@ -143,7 +172,7 @@ export default function SWPRentalBrowse() {
         <div style={{ marginBottom: 20 }}>
           <input
             type="text"
-            placeholder="Search 438+ games..."
+            placeholder={`Search ${games.length}+ games...`}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{ ...styles.input, fontSize: 15 }}
@@ -158,15 +187,15 @@ export default function SWPRentalBrowse() {
         }}>
           {filtered.map((g) => {
             const isYours = hasCurrentRental && currentRental.game_title === g.title;
-            const canReserve = g.status === "available" && !isYours;
+            const isAvailable = g.status === "available" && !isYours;
 
             return (
               <div
                 key={g.id}
-                onClick={() => canReserve ? (setModalGame(g), setPickupDate(""), setReserveMsg(null), setReserving(false)) : null}
+                onClick={() => isAvailable ? handleGameClick(g) : null}
                 style={{
                   ...styles.card, padding: 0, overflow: "hidden",
-                  cursor: canReserve ? "pointer" : "default",
+                  cursor: isAvailable ? "pointer" : "default",
                   opacity: g.status !== "available" && !isYours ? 0.7 : 1,
                   transition: "transform 0.1s",
                 }}
@@ -213,7 +242,48 @@ export default function SWPRentalBrowse() {
         )}
       </div>
 
-      {/* Reservation modal */}
+      {/* Subscribe modal (non-subscribers clicking Reserve) */}
+      {showSubscribeModal && (
+        <div
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            zIndex: 1000, padding: 16,
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowSubscribeModal(false); }}
+        >
+          <div style={{ ...styles.card, maxWidth: 380, width: "100%", textAlign: "center" }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>🎲</div>
+            <h3 style={{ fontFamily: THEME.fontHeading, fontSize: 22, fontWeight: 700, margin: "0 0 8px" }}>
+              Subscribe to reserve games
+            </h3>
+            <p style={{ fontSize: 15, color: THEME.textSecondary, marginBottom: 6 }}>
+              <strong style={{ color: THEME.text }}>$9.99/month</strong> — one game at a time, swap anytime.
+            </p>
+            <p style={{ fontSize: 13, color: "#C1432E", fontWeight: 600, marginBottom: 24 }}>
+              Your $9.99 goes toward the purchase price if you buy it.
+            </p>
+            <a href={STRIPE_LINK} style={{
+              display: "block", padding: "14px 28px", background: "#C1432E", color: "#fff",
+              fontWeight: 700, fontSize: 15, borderRadius: 50, textDecoration: "none",
+              marginBottom: 12,
+            }}>
+              Subscribe Now →
+            </a>
+            <button
+              onClick={() => setShowSubscribeModal(false)}
+              style={{
+                background: "none", border: "none", color: THEME.textSecondary,
+                fontSize: 14, cursor: "pointer", padding: 8,
+              }}
+            >
+              Maybe later
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Reservation modal (subscribers) */}
       {modalGame && (
         <div
           style={{

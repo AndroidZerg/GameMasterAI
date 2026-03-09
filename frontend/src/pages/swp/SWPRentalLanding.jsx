@@ -223,7 +223,7 @@ const SWPRentalLanding = () => {
               </h2>
               <p style={{ fontSize: 14, color: "#999" }}>{totalGames} games and growing.</p>
             </div>
-            <a href={STRIPE_LINK} className="cta-ghost" style={{ fontSize: 12, padding: "8px 16px" }}>
+            <a href="/swp/rentals/browse" className="cta-ghost" style={{ fontSize: 12, padding: "8px 16px" }}>
               See all →
             </a>
           </div>
