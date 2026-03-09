@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import {
   getAdminOrders, confirmOrder, completeOrder, rejectOrder, reprintVenueOrder, getOrderStats,
   getFloorPlan, updateFloorTables, updateFloorZones, addFloorTable, deleteFloorTable, updateTableParty,
-  getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem, uploadMenuPhoto, deleteMenuPhoto,
+  getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem,
   getToggles, createToggle, updateToggle, deleteToggle,
   getItemGalleryImages, uploadGalleryImage, updateGalleryImage, deleteGalleryImage, bulkImportGalleryImages,
   getLoyaltyMembers, getLoyaltyMember, redeemReward,
@@ -592,7 +592,8 @@ function MenuTab({ pin }) {
 
   const handlePhotoUpload = (file) => {
     if (!selected || !file) return;
-    uploadMenuPhoto(selected, file, pin).then(load);
+    // Use gallery system (Turso BLOBs) so photos persist across Render deploys
+    uploadGalleryImage(selected, file, pin).then(() => { loadGallery(); load(); });
   };
 
   const handlePhotoDrop = (e) => {
@@ -606,11 +607,6 @@ function MenuTab({ pin }) {
     input.type = 'file'; input.accept = 'image/*';
     input.onchange = (e) => { if (e.target.files[0]) handlePhotoUpload(e.target.files[0]); };
     input.click();
-  };
-
-  const handlePhotoDelete = () => {
-    if (!selected) return;
-    deleteMenuPhoto(selected, pin).then(load);
   };
 
   const toggleToggle = (tid) => {
@@ -708,13 +704,6 @@ function MenuTab({ pin }) {
                   <span style={{ color: T.textDim, fontSize: 13 }}>Click or drop image</span>
                 )}
               </div>
-              {selectedItem.has_photo && (
-                <button onClick={handlePhotoDelete}
-                  style={{ width: '100%', padding: 6, background: 'transparent', color: T.red,
-                    border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer',
-                    fontSize: 12, marginBottom: 12 }}>Remove Photo</button>
-              )}
-
               {/* Image Gallery */}
               <div style={{ marginBottom: 12 }}>
                 <div onClick={() => setShowGallery(!showGallery)}
