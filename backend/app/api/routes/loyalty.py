@@ -133,3 +133,84 @@ async def redeem_reward(phone: str, req: RedeemRequest,
     )
     db.commit()
     return {"success": True, "points_remaining": row[1] - cost}
+
+
+# ── Loyalty Rewards CRUD (admin) ──────────────────────────────────
+
+class CreateRewardRequest(BaseModel):
+    points_required: int
+    description: str
+    venue_id: str = "meetup"
+
+
+class UpdateRewardRequest(BaseModel):
+    points_required: Optional[int] = None
+    description: Optional[str] = None
+    active: Optional[bool] = None
+
+
+@router.get("/loyalty/rewards")
+async def list_rewards(x_staff_pin: Optional[str] = Header(None)):
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+    rows = db.execute(
+        "SELECT id, venue_id, points_required, description, active, created_at "
+        "FROM loyalty_rewards ORDER BY points_required"
+    ).fetchall()
+    return {"rewards": [
+        {"id": r[0], "venue_id": r[1], "points_required": r[2],
+         "description": r[3], "active": bool(r[4]), "created_at": r[5]}
+        for r in rows
+    ]}
+
+
+@router.post("/loyalty/rewards")
+async def create_reward(req: CreateRewardRequest,
+                        x_staff_pin: Optional[str] = Header(None)):
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+    db.execute(
+        "INSERT INTO loyalty_rewards (venue_id, points_required, description) VALUES (?, ?, ?)",
+        (req.venue_id, req.points_required, req.description)
+    )
+    db.commit()
+    return {"success": True}
+
+
+@router.put("/loyalty/rewards/{reward_id}")
+async def update_reward(reward_id: int, req: UpdateRewardRequest,
+                        x_staff_pin: Optional[str] = Header(None)):
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+    existing = db.execute("SELECT id FROM loyalty_rewards WHERE id = ?", (reward_id,)).fetchone()
+    if not existing:
+        raise HTTPException(status_code=404, detail="Reward not found")
+
+    updates = []
+    params = []
+    if req.points_required is not None:
+        updates.append("points_required = ?")
+        params.append(req.points_required)
+    if req.description is not None:
+        updates.append("description = ?")
+        params.append(req.description)
+    if req.active is not None:
+        updates.append("active = ?")
+        params.append(1 if req.active else 0)
+    if not updates:
+        return {"success": True}
+
+    params.append(reward_id)
+    db.execute(f"UPDATE loyalty_rewards SET {', '.join(updates)} WHERE id = ?", tuple(params))
+    db.commit()
+    return {"success": True}
+
+
+@router.delete("/loyalty/rewards/{reward_id}")
+async def delete_reward(reward_id: int,
+                        x_staff_pin: Optional[str] = Header(None)):
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+    db.execute("DELETE FROM loyalty_rewards WHERE id = ?", (reward_id,))
+    db.commit()
+    return {"success": True}
