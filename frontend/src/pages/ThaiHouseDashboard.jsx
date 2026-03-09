@@ -4,6 +4,7 @@ import {
   getFloorPlan, updateFloorTables, updateFloorZones, addFloorTable, deleteFloorTable, updateTableParty,
   getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem,
   getToggles, createToggle, updateToggle, deleteToggle,
+  getCategories, createCategory, updateCategory, deleteCategory,
   getItemGalleryImages, uploadGalleryImage, updateGalleryImage, deleteGalleryImage, bulkImportGalleryImages,
   getLoyaltyMembers, getLoyaltyMember, redeemReward,
   getCRMStats, staffSearch, staffRedeem, getChaClubMembers, addChaClubMember,
@@ -455,6 +456,23 @@ function MenuTab({ pin }) {
   const [dragOver, setDragOver] = useState(false);
   const [isNewItem, setIsNewItem] = useState(false);
   const [validationErr, setValidationErr] = useState('');
+  // Settings mode
+  const [settingsMode, setSettingsMode] = useState(false);
+  const [settingsTab, setSettingsTab] = useState('categories');
+  const [catList, setCatList] = useState([]);
+  const [editingCatId, setEditingCatId] = useState(null);
+  const [catName, setCatName] = useState('');
+  const [catIcon, setCatIcon] = useState('');
+  const [catSaving, setCatSaving] = useState(false);
+  const [catError, setCatError] = useState('');
+  const [editingToggleId, setEditingToggleId] = useState(null);
+  const [togName, setTogName] = useState('');
+  const [togId, setTogId] = useState('');
+  const [togRequired, setTogRequired] = useState(true);
+  const [togMultiSelect, setTogMultiSelect] = useState(false);
+  const [togOptions, setTogOptions] = useState([]);
+  const [togSaving, setTogSaving] = useState(false);
+  const [togError, setTogError] = useState('');
   // Gallery state
   const [galleryImages, setGalleryImages] = useState([]);
   const [galleryLoading, setGalleryLoading] = useState(false);
@@ -581,6 +599,7 @@ function MenuTab({ pin }) {
   const handleStartNewItem = () => {
     setSelected(null);
     setIsNewItem(true);
+    setSettingsMode(false);
     setEditName('');
     setEditDesc('');
     setEditPrice(0);
@@ -589,6 +608,58 @@ function MenuTab({ pin }) {
     setEditCat(categories[0]?.name || '');
     setGalleryImages([]);
     setValidationErr('');
+  };
+
+  // ── Settings handlers ──
+  const loadSettings = () => {
+    getCategories(pin).then(d => setCatList(d.categories || [])).catch(() => {});
+    getToggles(pin).then(d => setTogglesList(d.toggles || [])).catch(() => {});
+  };
+
+  const startEditCategory = (cat) => {
+    setEditingCatId(cat.id); setCatName(cat.name); setCatIcon(cat.icon || ''); setCatError('');
+  };
+
+  const handleSaveCategory = () => {
+    if (!catName.trim()) { setCatError('Name required'); return; }
+    setCatSaving(true); setCatError('');
+    const promise = editingCatId === 'new'
+      ? createCategory({ name: catName.trim(), icon: catIcon.trim() }, pin)
+      : updateCategory(editingCatId, { name: catName.trim(), icon: catIcon.trim() }, pin);
+    promise.then(() => { setEditingCatId(null); loadSettings(); load(); })
+      .catch(e => setCatError(e.message))
+      .finally(() => setCatSaving(false));
+  };
+
+  const handleDeleteCategory = (id, count) => {
+    if (count > 0) { setCatError('Remove all items from this category first'); return; }
+    if (!confirm('Delete this category?')) return;
+    deleteCategory(id, pin).then(() => { loadSettings(); load(); }).catch(e => setCatError(e.message));
+  };
+
+  const startEditToggle = (tog) => {
+    setEditingToggleId(tog.id); setTogName(tog.name); setTogId(tog.id);
+    setTogRequired(tog.required); setTogMultiSelect(tog.multi_select || false);
+    setTogOptions(tog.options || []); setTogError('');
+  };
+
+  const handleSaveToggle = () => {
+    if (!togName.trim()) { setTogError('Name required'); return; }
+    const cleanOpts = togOptions.filter(o => o.name.trim());
+    if (cleanOpts.length === 0) { setTogError('At least one option required'); return; }
+    setTogSaving(true); setTogError('');
+    const data = { name: togName.trim(), required: togRequired, multi_select: togMultiSelect, options: cleanOpts };
+    const promise = editingToggleId === 'new'
+      ? createToggle({ id: togId.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-'), ...data }, pin)
+      : updateToggle(editingToggleId, data, pin);
+    promise.then(() => { setEditingToggleId(null); loadSettings(); load(); })
+      .catch(e => setTogError(e.message))
+      .finally(() => setTogSaving(false));
+  };
+
+  const handleDeleteToggle = (id) => {
+    if (!confirm(`Delete toggle "${id}"? It will be removed from all items.`)) return;
+    deleteToggle(id, pin).then(() => { loadSettings(); load(); }).catch(e => setTogError(e.message));
   };
 
   const handleSave = () => {
@@ -661,6 +732,12 @@ function MenuTab({ pin }) {
             borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: 'pointer', whiteSpace: 'nowrap' }}>
           + Add Item
         </button>
+        <button onClick={() => { setSettingsMode(!settingsMode); setSelected(null); setIsNewItem(false); if (!settingsMode) loadSettings(); }}
+          style={{ padding: '8px 14px', background: settingsMode ? T.orange : T.card, border: `1px solid ${T.border}`,
+            color: settingsMode ? '#000' : T.textDim, borderRadius: 8, fontWeight: 600, fontSize: 13,
+            cursor: 'pointer', whiteSpace: 'nowrap' }}>
+          Settings
+        </button>
         <button onClick={handleBulkImport} disabled={bulkImporting}
           style={{ padding: '8px 14px', background: T.blue, color: '#fff', border: 'none',
             borderRadius: 8, fontWeight: 600, fontSize: 12, cursor: 'pointer',
@@ -685,7 +762,7 @@ function MenuTab({ pin }) {
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 6 }}>
                 {cat.items.map(item => (
-                  <div key={item.slug} onClick={() => { setSelected(item.slug); setIsNewItem(false); setValidationErr(''); }}
+                  <div key={item.slug} onClick={() => { setSelected(item.slug); setIsNewItem(false); setValidationErr(''); setSettingsMode(false); }}
                     style={{ background: T.bg, borderRadius: 8, padding: 8, cursor: 'pointer',
                       border: selected === item.slug ? `2px solid ${T.accent}` : `1px solid ${T.border}`,
                       display: 'flex', gap: 8, alignItems: 'center', transition: 'border-color 0.15s' }}>
@@ -714,10 +791,25 @@ function MenuTab({ pin }) {
         </div>
         {/* Right: edit panel */}
         <div style={{
-          width: (selected || isNewItem) ? 320 : 0, overflow: 'hidden',
+          width: (selected || isNewItem || settingsMode) ? 320 : 0, overflow: 'hidden',
           transition: 'width 0.25s ease', flexShrink: 0,
         }}>
-          {(selectedItem || isNewItem) && (
+          {settingsMode ? (
+            <SettingsPanel pin={pin} settingsTab={settingsTab} setSettingsTab={setSettingsTab}
+              catList={catList} editingCatId={editingCatId} setEditingCatId={setEditingCatId}
+              catName={catName} setCatName={setCatName} catIcon={catIcon} setCatIcon={setCatIcon}
+              catSaving={catSaving} catError={catError} setCatError={setCatError}
+              handleSaveCategory={handleSaveCategory} handleDeleteCategory={handleDeleteCategory}
+              startEditCategory={startEditCategory}
+              togglesList={togglesList} editingToggleId={editingToggleId} setEditingToggleId={setEditingToggleId}
+              togName={togName} setTogName={setTogName} togId={togId} setTogId={setTogId}
+              togRequired={togRequired} setTogRequired={setTogRequired}
+              togMultiSelect={togMultiSelect} setTogMultiSelect={setTogMultiSelect}
+              togOptions={togOptions} setTogOptions={setTogOptions}
+              togSaving={togSaving} togError={togError} setTogError={setTogError}
+              handleSaveToggle={handleSaveToggle} handleDeleteToggle={handleDeleteToggle}
+              startEditToggle={startEditToggle} />
+          ) : (selectedItem || isNewItem) && (
             <div style={{ width: 320, background: T.card, borderRadius: 12, padding: 16,
               border: `1px solid ${T.border}`, position: 'sticky', top: 0 }}>
               {/* Photo area — only for existing items */}
@@ -933,6 +1025,191 @@ function MenuTab({ pin }) {
     </div>
   );
 }
+
+
+function SettingsPanel({ pin, settingsTab, setSettingsTab,
+  catList, editingCatId, setEditingCatId, catName, setCatName, catIcon, setCatIcon,
+  catSaving, catError, setCatError, handleSaveCategory, handleDeleteCategory, startEditCategory,
+  togglesList, editingToggleId, setEditingToggleId, togName, setTogName, togId, setTogId,
+  togRequired, setTogRequired, togMultiSelect, setTogMultiSelect,
+  togOptions, setTogOptions, togSaving, togError, setTogError,
+  handleSaveToggle, handleDeleteToggle, startEditToggle,
+}) {
+  const inputStyle = { width: '100%', padding: 8, background: T.bg, color: T.text,
+    border: `1px solid ${T.border}`, borderRadius: 6, fontSize: 13, boxSizing: 'border-box', outline: 'none' };
+
+  return (
+    <div style={{ width: 320, background: T.card, borderRadius: 12, padding: 16,
+      border: `1px solid ${T.border}`, position: 'sticky', top: 0,
+      maxHeight: 'calc(100vh - 240px)', overflowY: 'auto' }}>
+      {/* Sub-tabs */}
+      <div style={{ display: 'flex', gap: 0, marginBottom: 14, borderBottom: `1px solid ${T.border}` }}>
+        {['categories', 'toggles'].map(t => (
+          <button key={t} onClick={() => setSettingsTab(t)}
+            style={{ flex: 1, padding: '8px 0', background: 'transparent',
+              color: settingsTab === t ? T.accent : T.textDim,
+              borderBottom: settingsTab === t ? `2px solid ${T.accent}` : '2px solid transparent',
+              border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',
+              textTransform: 'capitalize' }}>
+            {t}
+          </button>
+        ))}
+      </div>
+
+      {settingsTab === 'categories' && (
+        <div>
+          {/* Inline edit form */}
+          {editingCatId !== null && (
+            <div style={{ marginBottom: 14, padding: 10, background: T.bg, borderRadius: 8 }}>
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Icon (emoji)</label>
+              <input value={catIcon} onChange={e => setCatIcon(e.target.value)}
+                style={{ ...inputStyle, marginBottom: 6 }} placeholder="🍜" />
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Name</label>
+              <input value={catName} onChange={e => setCatName(e.target.value)}
+                style={{ ...inputStyle, marginBottom: 8 }} placeholder="Category name" />
+              {catError && <div style={{ color: T.red, fontSize: 11, marginBottom: 6 }}>{catError}</div>}
+              <div style={{ display: 'flex', gap: 6 }}>
+                <button onClick={handleSaveCategory} disabled={catSaving}
+                  style={{ flex: 1, padding: 6, background: T.accent, color: '#000', border: 'none',
+                    borderRadius: 6, fontWeight: 600, fontSize: 12, cursor: 'pointer',
+                    opacity: catSaving ? 0.6 : 1 }}>
+                  {catSaving ? 'Saving...' : editingCatId === 'new' ? 'Create' : 'Save'}
+                </button>
+                <button onClick={() => { setEditingCatId(null); setCatError(''); }}
+                  style={{ padding: '6px 12px', background: 'transparent', color: T.textDim,
+                    border: `1px solid ${T.border}`, borderRadius: 6, fontSize: 12, cursor: 'pointer' }}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+          {/* Category list */}
+          {catList.map(cat => (
+            <div key={cat.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px',
+              borderBottom: `1px solid ${T.border}20` }}>
+              <span style={{ fontSize: 16, width: 24, textAlign: 'center' }}>{cat.icon || '-'}</span>
+              <span style={{ color: T.text, fontSize: 13, flex: 1 }}>{cat.name}</span>
+              <span style={{ color: T.textDim, fontSize: 11 }}>{cat.item_count}</span>
+              <button onClick={() => startEditCategory(cat)}
+                style={{ background: 'transparent', border: 'none', color: T.accent, cursor: 'pointer', fontSize: 12, padding: '2px 6px' }}>
+                Edit
+              </button>
+              <button onClick={() => handleDeleteCategory(cat.id, cat.item_count)}
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 12, padding: '2px 6px',
+                  color: cat.item_count > 0 ? T.textDim : T.red, opacity: cat.item_count > 0 ? 0.4 : 1 }}
+                title={cat.item_count > 0 ? 'Remove all items first' : 'Delete category'}>
+                Del
+              </button>
+            </div>
+          ))}
+          {editingCatId === null && (
+            <button onClick={() => { setEditingCatId('new'); setCatName(''); setCatIcon(''); setCatError(''); }}
+              style={{ marginTop: 10, width: '100%', padding: 8, background: T.accent + '20', color: T.accent,
+                border: `1px dashed ${T.accent}`, borderRadius: 6, cursor: 'pointer', fontSize: 12, fontWeight: 600 }}>
+              + Add Category
+            </button>
+          )}
+        </div>
+      )}
+
+      {settingsTab === 'toggles' && (
+        <div>
+          {/* Inline edit form */}
+          {editingToggleId !== null && (
+            <div style={{ marginBottom: 14, padding: 10, background: T.bg, borderRadius: 8 }}>
+              {editingToggleId === 'new' && (
+                <>
+                  <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>ID (lowercase, no spaces)</label>
+                  <input value={togId} onChange={e => setTogId(e.target.value)}
+                    style={{ ...inputStyle, marginBottom: 6 }} placeholder="my-toggle" />
+                </>
+              )}
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Name</label>
+              <input value={togName} onChange={e => setTogName(e.target.value)}
+                style={{ ...inputStyle, marginBottom: 6 }} placeholder="Toggle name" />
+              <div style={{ display: 'flex', gap: 12, marginBottom: 8 }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: T.text, fontSize: 12, cursor: 'pointer' }}>
+                  <input type="checkbox" checked={togRequired} onChange={e => setTogRequired(e.target.checked)} />
+                  Required
+                </label>
+                <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: T.text, fontSize: 12, cursor: 'pointer' }}>
+                  <input type="checkbox" checked={togMultiSelect} onChange={e => setTogMultiSelect(e.target.checked)} />
+                  Multi-select
+                </label>
+              </div>
+              <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 4 }}>Options</label>
+              {togOptions.map((opt, i) => (
+                <div key={i} style={{ display: 'flex', gap: 4, marginBottom: 4 }}>
+                  <input value={opt.name} onChange={e => {
+                    const next = [...togOptions]; next[i] = { ...next[i], name: e.target.value }; setTogOptions(next);
+                  }} placeholder="Option" style={{ ...inputStyle, flex: 2 }} />
+                  <input type="number" step="0.01" value={opt.upcharge} onChange={e => {
+                    const next = [...togOptions]; next[i] = { ...next[i], upcharge: parseFloat(e.target.value) || 0 }; setTogOptions(next);
+                  }} placeholder="$0" style={{ ...inputStyle, flex: 1 }} />
+                  <button onClick={() => setTogOptions(togOptions.filter((_, idx) => idx !== i))}
+                    style={{ background: 'transparent', border: 'none', color: T.red, cursor: 'pointer', fontSize: 14, padding: '0 4px' }}>
+                    &times;
+                  </button>
+                </div>
+              ))}
+              <button onClick={() => setTogOptions([...togOptions, { name: '', upcharge: 0 }])}
+                style={{ fontSize: 11, color: T.accent, background: 'transparent', border: 'none',
+                  cursor: 'pointer', marginBottom: 8, padding: 0 }}>
+                + Add Option
+              </button>
+              {togError && <div style={{ color: T.red, fontSize: 11, marginBottom: 6 }}>{togError}</div>}
+              <div style={{ display: 'flex', gap: 6 }}>
+                <button onClick={handleSaveToggle} disabled={togSaving}
+                  style={{ flex: 1, padding: 6, background: T.accent, color: '#000', border: 'none',
+                    borderRadius: 6, fontWeight: 600, fontSize: 12, cursor: 'pointer',
+                    opacity: togSaving ? 0.6 : 1 }}>
+                  {togSaving ? 'Saving...' : editingToggleId === 'new' ? 'Create' : 'Save'}
+                </button>
+                <button onClick={() => { setEditingToggleId(null); setTogError(''); }}
+                  style={{ padding: '6px 12px', background: 'transparent', color: T.textDim,
+                    border: `1px solid ${T.border}`, borderRadius: 6, fontSize: 12, cursor: 'pointer' }}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+          {/* Toggle list */}
+          {togglesList.map(tog => (
+            <div key={tog.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px',
+              borderBottom: `1px solid ${T.border}20` }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ color: T.text, fontSize: 13 }}>{tog.name}</div>
+                <div style={{ color: T.textDim, fontSize: 11 }}>
+                  {(tog.options || []).length} options{tog.required ? '' : ' · optional'}{tog.multi_select ? ' · multi' : ''}
+                  {tog.item_count > 0 ? ` · ${tog.item_count} items` : ''}
+                </div>
+              </div>
+              <button onClick={() => startEditToggle(tog)}
+                style={{ background: 'transparent', border: 'none', color: T.accent, cursor: 'pointer', fontSize: 12, padding: '2px 6px' }}>
+                Edit
+              </button>
+              <button onClick={() => handleDeleteToggle(tog.id)}
+                style={{ background: 'transparent', border: 'none', color: T.red, cursor: 'pointer', fontSize: 12, padding: '2px 6px' }}>
+                Del
+              </button>
+            </div>
+          ))}
+          {editingToggleId === null && (
+            <button onClick={() => {
+              setEditingToggleId('new'); setTogName(''); setTogId(''); setTogRequired(true);
+              setTogMultiSelect(false); setTogOptions([{ name: '', upcharge: 0 }]); setTogError('');
+            }}
+              style={{ marginTop: 10, width: '100%', padding: 8, background: T.accent + '20', color: T.accent,
+                border: `1px dashed ${T.accent}`, borderRadius: 6, cursor: 'pointer', fontSize: 12, fontWeight: 600 }}>
+              + Add Toggle
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 
 // ════════════════════════════════════════════════════════
 // CHA CLUB TAB — All Members with Filter

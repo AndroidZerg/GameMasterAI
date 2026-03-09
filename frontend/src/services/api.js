@@ -706,6 +706,30 @@ export const deleteToggle = (toggleId, pin) =>
     return r.json();
   });
 
+// ── Category Management ──
+
+export const getCategories = (pin) =>
+  fetch(`${API_BASE}/api/admin/categories`, {
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const createCategory = (data, pin) =>
+  fetch(`${API_BASE}/api/admin/categories`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Create failed'); }));
+
+export const updateCategory = (categoryId, data, pin) =>
+  fetch(`${API_BASE}/api/admin/categories/${categoryId}`, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Update failed'); }));
+
+export const deleteCategory = (categoryId, pin) =>
+  fetch(`${API_BASE}/api/admin/categories/${categoryId}`, {
+    method: 'DELETE', headers: { 'X-Staff-Pin': pin },
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Delete failed'); }));
+
 // ── Menu Image Gallery ──
 
 export const getItemGalleryImages = (slug, pin) =>

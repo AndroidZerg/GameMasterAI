@@ -550,3 +550,132 @@ async def delete_toggle(toggle_id: str,
     _sync_json_from_turso()
 
     return {"success": True, "toggle_id": toggle_id, "items_affected": items_affected}
+
+
+# ── Category Management ──────────────────────────────────────────────────────
+
+class CreateCategoryRequest(BaseModel):
+    name: str
+    icon: str = ""
+
+
+class UpdateCategoryRequest(BaseModel):
+    name: Optional[str] = None
+    icon: Optional[str] = None
+
+
+@router.get("/categories")
+async def list_categories(x_staff_pin: Optional[str] = Header(None)):
+    """List all categories with item counts."""
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+    rows = db.execute(
+        "SELECT id, name, icon, sort_order FROM menu_categories ORDER BY sort_order"
+    ).fetchall()
+    categories = []
+    for r in rows:
+        count = db.execute(
+            "SELECT COUNT(*) FROM menu_items WHERE category_id = ?", (r[0],)
+        ).fetchone()[0]
+        categories.append({
+            "id": r[0], "name": r[1], "icon": r[2] or "",
+            "sort_order": r[3], "item_count": count,
+        })
+    return {"categories": categories}
+
+
+@router.post("/categories")
+async def create_category(req: CreateCategoryRequest,
+                          x_staff_pin: Optional[str] = Header(None)):
+    """Create a new menu category."""
+    _verify_pin(x_staff_pin)
+    if not req.name.strip():
+        raise HTTPException(status_code=400, detail="Name is required")
+    db = get_menu_db()
+
+    existing = db.execute(
+        "SELECT id FROM menu_categories WHERE name = ?", (req.name.strip(),)
+    ).fetchone()
+    if existing:
+        raise HTTPException(status_code=409, detail=f"Category already exists: {req.name}")
+
+    max_sort = db.execute(
+        "SELECT COALESCE(MAX(sort_order), -1) FROM menu_categories"
+    ).fetchone()[0]
+
+    db.execute(
+        "INSERT INTO menu_categories (name, icon, sort_order) VALUES (?, ?, ?)",
+        (req.name.strip(), req.icon.strip(), max_sort + 1)
+    )
+    db.commit()
+    _sync_json_from_turso()
+
+    cat_id = db.execute("SELECT id FROM menu_categories WHERE name = ?", (req.name.strip(),)).fetchone()[0]
+    return {"success": True, "category": {"id": cat_id, "name": req.name.strip(), "icon": req.icon.strip()}}
+
+
+@router.put("/categories/{category_id}")
+async def update_category(category_id: int, req: UpdateCategoryRequest,
+                          x_staff_pin: Optional[str] = Header(None)):
+    """Update a category name and/or icon."""
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+
+    existing = db.execute(
+        "SELECT id, name, icon FROM menu_categories WHERE id = ?", (category_id,)
+    ).fetchone()
+    if not existing:
+        raise HTTPException(status_code=404, detail="Category not found")
+
+    updates = []
+    params = []
+    if req.name is not None:
+        # Check uniqueness
+        dup = db.execute(
+            "SELECT id FROM menu_categories WHERE name = ? AND id != ?",
+            (req.name.strip(), category_id)
+        ).fetchone()
+        if dup:
+            raise HTTPException(status_code=409, detail=f"Category name already taken: {req.name}")
+        updates.append("name = ?")
+        params.append(req.name.strip())
+    if req.icon is not None:
+        updates.append("icon = ?")
+        params.append(req.icon.strip())
+
+    if updates:
+        params.append(category_id)
+        db.execute(f"UPDATE menu_categories SET {', '.join(updates)} WHERE id = ?", tuple(params))
+        db.commit()
+        _sync_json_from_turso()
+
+    return {"success": True}
+
+
+@router.delete("/categories/{category_id}")
+async def delete_category(category_id: int,
+                          x_staff_pin: Optional[str] = Header(None)):
+    """Delete a category. Fails if it still contains items."""
+    _verify_pin(x_staff_pin)
+    db = get_menu_db()
+
+    existing = db.execute(
+        "SELECT id FROM menu_categories WHERE id = ?", (category_id,)
+    ).fetchone()
+    if not existing:
+        raise HTTPException(status_code=404, detail="Category not found")
+
+    count = db.execute(
+        "SELECT COUNT(*) FROM menu_items WHERE category_id = ?", (category_id,)
+    ).fetchone()[0]
+    if count > 0:
+        raise HTTPException(
+            status_code=409,
+            detail=f"Cannot delete category with {count} item(s). Move or delete items first."
+        )
+
+    db.execute("DELETE FROM menu_categories WHERE id = ?", (category_id,))
+    db.commit()
+    _sync_json_from_turso()
+
+    return {"success": True, "category_id": category_id}
