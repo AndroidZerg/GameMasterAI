@@ -325,17 +325,16 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
 
         # Customizations: handle both single-select (str) and multi-select (list)
         custs = it.get("customizations") or {}
+        cust_parts = []
         for tid, val in custs.items():
             if not val:
                 continue
-            if tid == "sweetness":
-                line += f"\n   Sweetness: {val}"
-            elif isinstance(val, list):
-                # Multi-select (toppings) — show each on its own line
-                for v in val:
-                    line += f"\n   + {v} (+$0.35)"
-            else:
-                line += f"\n   {val}"
+            if isinstance(val, list) and val:
+                cust_parts.append(", ".join(val))
+            elif isinstance(val, str):
+                cust_parts.append(val)
+        if cust_parts:
+            line += f"\n   {' \u00b7 '.join(cust_parts)}"
 
         if it.get("notes"):
             line += f"\n   Note: {it['notes']}"
