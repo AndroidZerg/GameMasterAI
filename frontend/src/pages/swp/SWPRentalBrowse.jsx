@@ -128,26 +128,12 @@ export default function SWPRentalBrowse() {
       <SWPRentalNav subscriberName={profile?.subscriber?.name} />
 
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "24px 16px" }}>
-        {/* Greeting */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-          <h1 style={{ fontFamily: THEME.fontHeading, fontSize: 24, fontWeight: 700, margin: 0 }}>
-            {isSubscriber
-              ? <>Hey {profile?.subscriber?.name?.split(" ")[0] || "there"}! &#128075;</>
-              : "Browse Our Games"}
-          </h1>
-          {isSubscriber ? (
-            <Link to="/swp/rentals/profile" style={{ color: THEME.primary, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
-              My Rentals
-            </Link>
-          ) : (
-            <a href={STRIPE_LINK} style={{
-              color: "#fff", background: THEME.primary, fontSize: 13, fontWeight: 700,
-              textDecoration: "none", padding: "8px 18px", borderRadius: 20,
-            }}>
-              Subscribe — $9.99/mo
-            </a>
-          )}
-        </div>
+        {/* Heading */}
+        <h1 style={{ fontFamily: THEME.fontHeading, fontSize: 24, fontWeight: 700, margin: "0 0 16px" }}>
+          {isSubscriber
+            ? <>Hey {profile?.subscriber?.name?.split(" ")[0] || "there"}! &#128075;</>
+            : <>{games.length} games</>}
+        </h1>
 
         {/* Current rental banner (subscribers only) */}
         {hasCurrentRental && (
