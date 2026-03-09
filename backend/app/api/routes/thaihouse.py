@@ -3,6 +3,7 @@
 import json
 import logging
 import os
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -31,6 +32,15 @@ _CONTENT_DIR = Path(__file__).resolve().parents[4] / "content" / "menus"
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
+# ── Menu response cache (TTL-based) ──
+_menu_cache = {}  # venue_slug -> {"data": ..., "ts": time.time()}
+_MENU_CACHE_TTL = 60  # seconds
+
+
+def invalidate_menu_cache():
+    """Clear the menu cache — call after any menu/image admin change."""
+    _menu_cache.clear()
+
 
 class PublicOrderItem(BaseModel):
     name: str
@@ -39,6 +49,7 @@ class PublicOrderItem(BaseModel):
     customizations: Optional[dict] = None
     notes: Optional[str] = None
     is_drink_club: bool = False
+    originalPrice: Optional[float] = None
 
 
 class PublicOrderRequest(BaseModel):
@@ -57,6 +68,11 @@ async def public_menu(venue_slug: str):
     if not venue_id:
         raise HTTPException(status_code=404, detail="Venue not found")
 
+    # Check TTL cache first
+    cached = _menu_cache.get(venue_slug)
+    if cached and (time.time() - cached["ts"]) < _MENU_CACHE_TTL:
+        return cached["data"]
+
     try:
         from app.services.turso import get_menu_db
         db = get_menu_db()
@@ -71,6 +87,17 @@ async def public_menu(venue_slug: str):
              "multi_select": bool(r[4] if len(r) > 4 else 0)}
             for r in toggle_rows
         ]
+
+        # Batch-fetch ALL active gallery images in one query (eliminates N+1)
+        active_images = {}
+        try:
+            img_rows = db.execute(
+                "SELECT item_id, id FROM menu_item_images WHERE status = 'active'"
+            ).fetchall()
+            for ir in img_rows:
+                active_images[ir[0]] = ir[1]
+        except Exception:
+            pass  # table might not exist yet on first run
 
         # Categories with items
         cat_rows = db.execute(
@@ -98,18 +125,17 @@ async def public_menu(venue_slug: str):
                     item["toggles"] = item_toggles
                 if bool(r[7]):
                     item["allows_modifications"] = True
-                # Check for active gallery image
-                active_img = db.execute(
-                    "SELECT id FROM menu_item_images WHERE item_id = ? AND status = 'active' LIMIT 1",
-                    (r[0],)
-                ).fetchone()
-                if active_img:
-                    item["gallery_image_id"] = active_img[0]
+                # Gallery image from pre-fetched map (no extra query)
+                gal_id = active_images.get(r[0])
+                if gal_id:
+                    item["gallery_image_id"] = gal_id
                 items.append(item)
             sections.append({"name": cat[1], "icon": cat[2], "items": items})
 
         if sections:
-            return {"toggles": toggles, "sections": sections}
+            result = {"toggles": toggles, "sections": sections}
+            _menu_cache[venue_slug] = {"data": result, "ts": time.time()}
+            return result
     except Exception as e:
         logger.warning(f"Turso menu read failed, falling back to JSON: {e}")
 
@@ -291,9 +317,11 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
     item_lines = []
     for it in items:
         line_total = it['price'] * it['quantity']
-        line = f"{it['quantity']}x {it['name']} - ${line_total:.2f}"
         if it.get("is_drink_club"):
-            line += " [DRINK CLUB]"
+            orig = it.get("originalPrice", it['price']) or 4.50
+            line = f"{it['quantity']}x {it['name']} - ~${orig:.2f}~ FREE (Cha Club)"
+        else:
+            line = f"{it['quantity']}x {it['name']} - ${line_total:.2f}"
 
         # Customizations: handle both single-select (str) and multi-select (list)
         custs = it.get("customizations") or {}

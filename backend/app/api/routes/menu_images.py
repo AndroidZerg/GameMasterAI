@@ -20,6 +20,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 from app.services.turso import get_menu_db
+from app.api.routes.thaihouse import invalidate_menu_cache
 
 logger = logging.getLogger(__name__)
 
@@ -271,6 +272,7 @@ async def upload_image(
 
     image_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     _auto_activate_if_first(db, item_id, image_id)
+    invalidate_menu_cache()
 
     return {"id": image_id, "status": "ok"}
 
@@ -302,6 +304,7 @@ async def import_from_url(
 
     image_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     _auto_activate_if_first(db, item_id, image_id)
+    invalidate_menu_cache()
 
     return {"id": image_id, "status": "ok"}
 
@@ -355,6 +358,7 @@ async def update_image(
         )
         db.commit()
 
+    invalidate_menu_cache()
     return {"status": "ok"}
 
 
@@ -372,6 +376,7 @@ async def delete_image(
 
     db.execute("DELETE FROM menu_item_images WHERE id = ?", (image_id,))
     db.commit()
+    invalidate_menu_cache()
     return {"status": "ok"}
 
 
@@ -439,6 +444,7 @@ async def bulk_import(x_staff_pin: Optional[str] = Header(None)):
                 logger.warning(f"Bulk import failed for {img['url']}: {e}")
 
     results["details"].append(f"Done: {results['imported']} imported, {results['skipped']} skipped, {results['failed']} failed")
+    invalidate_menu_cache()
     return results
 
 

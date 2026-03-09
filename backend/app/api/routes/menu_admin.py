@@ -16,6 +16,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 from app.services.turso import get_menu_db
+from app.api.routes.thaihouse import invalidate_menu_cache
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +46,7 @@ def _slugify(name: str) -> str:
 
 def _sync_json_from_turso():
     """Sync Turso menu state back to the JSON file as a backup."""
+    invalidate_menu_cache()
     try:
         db = get_menu_db()
         toggle_rows = db.execute(
@@ -131,27 +133,42 @@ async def list_menu_items(x_staff_pin: Optional[str] = Header(None)):
     cat_rows = db.execute(
         "SELECT id, name, icon FROM menu_categories ORDER BY sort_order"
     ).fetchall()
+
+    # Batch-fetch active gallery images (avoid N+1)
+    active_gallery = {}
+    try:
+        gal_rows = db.execute(
+            "SELECT item_id, id FROM menu_item_images WHERE status = 'active'"
+        ).fetchall()
+        for gr in gal_rows:
+            active_gallery[gr[0]] = gr[1]
+    except Exception:
+        pass
+
     categories = []
     for cat in cat_rows:
         item_rows = db.execute(
-            """SELECT slug, name, description, price, image, toggles,
+            """SELECT id, slug, name, description, price, image, toggles,
                       allows_modifications
                FROM menu_items WHERE category_id = ? ORDER BY sort_order""",
             (cat[0],)
         ).fetchall()
         items = []
         for r in item_rows:
-            slug = r[0]
-            has_photo = (_IMG_DIR / f"{slug}.jpg").exists()
+            item_id = r[0]
+            slug = r[1]
+            has_file = (_IMG_DIR / f"{slug}.jpg").exists()
+            gal_id = active_gallery.get(item_id)
             items.append({
-                "name": r[1],
-                "description": r[2] or "",
-                "price": r[3],
+                "name": r[2],
+                "description": r[3] or "",
+                "price": r[4],
                 "slug": slug,
-                "has_photo": has_photo,
-                "image": r[4],
-                "toggles": json.loads(r[5]) if r[5] else [],
-                "allows_modifications": bool(r[6]),
+                "has_photo": has_file or bool(gal_id),
+                "image": r[5],
+                "gallery_image_id": gal_id,
+                "toggles": json.loads(r[6]) if r[6] else [],
+                "allows_modifications": bool(r[7]),
             })
         categories.append({
             "name": cat[1],

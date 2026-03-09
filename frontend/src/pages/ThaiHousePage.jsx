@@ -331,7 +331,28 @@ export default function ThaiHousePage() {
         hasDrinkClubInCart={cart.some((c) => c.is_drink_club)}
       />
 
-      {loading && <div style={{ textAlign: "center", padding: 40, color: THEME.textSecondary }}>Loading menu...</div>}
+      {loading && (
+        <div style={{ padding: "16px 0" }}>
+          {/* Skeleton category tabs */}
+          <div style={{ display: "flex", gap: 8, overflowX: "auto", marginBottom: 16, padding: "0 16px" }}>
+            {[1,2,3,4,5].map(i => (
+              <div key={i} style={{ width: 80, height: 36, borderRadius: 18, background: THEME.card, flexShrink: 0 }} />
+            ))}
+          </div>
+          {/* Skeleton cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 16px" }}>
+            {[1,2,3,4].map(i => (
+              <div key={i} style={{ background: THEME.card, borderRadius: 12, overflow: "hidden" }}>
+                <div style={{ width: "100%", height: 120, background: THEME.bg }} />
+                <div style={{ padding: 10 }}>
+                  <div style={{ width: "70%", height: 14, background: THEME.bg, borderRadius: 4, marginBottom: 8 }} />
+                  <div style={{ width: "30%", height: 14, background: THEME.bg, borderRadius: 4 }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       {error && <div style={{ textAlign: "center", padding: 40, color: "#e74c3c" }}>Error: {error}</div>}
 
       {!loading && !error && (
@@ -370,6 +391,7 @@ export default function ThaiHousePage() {
                             ? `${API_BASE}/api/public/menu-images/${item.gallery_image_id}/thumb`
                             : `${API_BASE}/api/images/menu/${item.image}-thumb.jpg`}
                           alt={item.name}
+                          loading="lazy"
                           style={styles.foodImg}
                           onError={(e) => { e.target.style.display = "none"; }}
                         />
