@@ -706,6 +706,66 @@ export const deleteToggle = (toggleId, pin) =>
     return r.json();
   });
 
+// ── Menu Image Gallery ──
+
+export const getItemGalleryImages = (slug, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-images/${slug}`, {
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Failed'); });
+    return r.json();
+  });
+
+export const uploadGalleryImage = (slug, file, pin) => {
+  const form = new FormData();
+  form.append('file', file);
+  return fetch(`${API_BASE}/api/admin/menu-images/${slug}/upload`, {
+    method: 'POST',
+    headers: { 'X-Staff-Pin': pin },
+    body: form,
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Upload failed'); });
+    return r.json();
+  });
+};
+
+export const importGalleryImageUrl = (slug, url, alt, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-images/${slug}/import-url?url=${encodeURIComponent(url)}&alt=${encodeURIComponent(alt || '')}`, {
+    method: 'POST',
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Import failed'); });
+    return r.json();
+  });
+
+export const updateGalleryImage = (imageId, data, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-images/${imageId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'X-Staff-Pin': pin },
+    body: JSON.stringify(data),
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Update failed'); });
+    return r.json();
+  });
+
+export const deleteGalleryImage = (imageId, pin) =>
+  fetch(`${API_BASE}/api/admin/menu-images/${imageId}`, {
+    method: 'DELETE',
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Delete failed'); });
+    return r.json();
+  });
+
+export const bulkImportGalleryImages = (pin) =>
+  fetch(`${API_BASE}/api/admin/menu-images/bulk-import`, {
+    method: 'POST',
+    headers: { 'X-Staff-Pin': pin },
+  }).then(r => {
+    if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Import failed'); });
+    return r.json();
+  });
+
 // ── Device session endpoints (no auth required) ──
 
 export async function fetchNotes(gameId, deviceId) {
@@ -813,6 +873,41 @@ export const getLoyaltyMember = (pin, phone) =>
 export const redeemReward = (pin, phone, rewardType) =>
   fetch(`${API_BASE}/api/admin/loyalty/redeem/${encodeURIComponent(phone)}`, {
     method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify({ reward_type: rewardType }),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Dashboard: Loyalty Rewards (admin) ──
+
+export const getLoyaltyRewards = (pin) =>
+  fetch(`${API_BASE}/api/admin/loyalty/rewards`, {
+    headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const createLoyaltyReward = (pin, data) =>
+  fetch(`${API_BASE}/api/admin/loyalty/rewards`, {
+    method: 'POST', headers: _pinJsonH(pin), body: JSON.stringify(data),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const updateLoyaltyReward = (pin, id, data) =>
+  fetch(`${API_BASE}/api/admin/loyalty/rewards/${id}`, {
+    method: 'PUT', headers: _pinJsonH(pin), body: JSON.stringify(data),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+export const deleteLoyaltyReward = (pin, id) =>
+  fetch(`${API_BASE}/api/admin/loyalty/rewards/${id}`, {
+    method: 'DELETE', headers: _pinH(pin),
+  }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Public Loyalty (no auth) ──
+
+export const lookupLoyalty = (phone) =>
+  fetch(`${API_BASE}/api/public/loyalty/lookup?phone=${encodeURIComponent(phone)}`)
+    .then(r => r.json());
+
+export const redeemLoyaltyPublic = (phone, rewardId) =>
+  fetch(`${API_BASE}/api/public/loyalty/redeem`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone, reward_id: rewardId }),
   }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
 
 // ── Dashboard: CRM ──

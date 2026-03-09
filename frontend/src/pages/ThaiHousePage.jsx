@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { API_BASE, fetchPublicMenu, placePublicOrder, verifyDrinkClub } from "../services/api";
+import { API_BASE, fetchPublicMenu, placePublicOrder, verifyDrinkClub, lookupLoyalty, redeemLoyaltyPublic } from "../services/api";
 
 const THEME = {
   bg: "#1a1210",
@@ -38,6 +38,10 @@ export default function ThaiHousePage() {
   const [drinkClubLoading, setDrinkClubLoading] = useState(false);
   const [claimedDrinkName, setClaimedDrinkName] = useState(null); // set after checkout with DC item
 
+  // Loyalty
+  const [loyaltyData, setLoyaltyData] = useState(null);
+  const loyaltyTimerRef = useRef(null);
+
   useEffect(() => {
     document.title = "Thai House Menu";
 
@@ -60,6 +64,19 @@ export default function ThaiHousePage() {
     }
   }, [searchParams]);
 
+  // Debounced loyalty lookup when phone changes
+  useEffect(() => {
+    if (loyaltyTimerRef.current) clearTimeout(loyaltyTimerRef.current);
+    const clean = customerPhone.replace(/\D/g, '');
+    if (clean.length < 7) { setLoyaltyData(null); return; }
+    loyaltyTimerRef.current = setTimeout(() => {
+      lookupLoyalty(clean)
+        .then((data) => setLoyaltyData(data))
+        .catch(() => setLoyaltyData(null));
+    }, 600);
+    return () => { if (loyaltyTimerRef.current) clearTimeout(loyaltyTimerRef.current); };
+  }, [customerPhone]);
+
   // Resolve toggle definitions for an item
   const getItemToggles = useCallback((item) => {
     if (!item.toggles || !menu?.toggles) return [];
@@ -68,12 +85,17 @@ export default function ThaiHousePage() {
       .filter(Boolean);
   }, [menu]);
 
-  // Calculate upcharge for selected customizations
+  // Calculate upcharge for selected customizations (supports multi-select arrays)
   const calcUpcharge = useCallback((toggleDefs, selections) => {
     let up = 0;
     for (const tog of toggleDefs) {
       const sel = selections[tog.id];
-      if (sel) {
+      if (Array.isArray(sel)) {
+        for (const name of sel) {
+          const opt = tog.options.find((o) => o.name === name);
+          if (opt?.upcharge) up += opt.upcharge;
+        }
+      } else if (sel) {
         const opt = tog.options.find((o) => o.name === sel);
         if (opt?.upcharge) up += opt.upcharge;
       }
@@ -110,10 +132,14 @@ export default function ThaiHousePage() {
     const hasNotes = item.allows_modifications;
     if (hasToggles || hasNotes) {
       setCustomizeItem(item);
-      // Pre-select first option for each required toggle
+      // Pre-select first option for required toggles, default sweetness to 100%
       const defaults = {};
       for (const tog of toggleDefs) {
-        if (tog.required && tog.options.length > 0) {
+        if (tog.multi_select) {
+          defaults[tog.id] = []; // multi-select starts empty
+        } else if (tog.id === "sweetness") {
+          defaults[tog.id] = "100%";
+        } else if (tog.required && tog.options.length > 0) {
           defaults[tog.id] = tog.options[0].name;
         }
       }
@@ -198,8 +224,8 @@ export default function ThaiHousePage() {
   const activeSection = sections[activeCategory];
 
   // Split items into photo items and compact items
-  const photoItems = activeSection?.items.filter((i) => i.image) || [];
-  const compactItems = activeSection?.items.filter((i) => !i.image) || [];
+  const photoItems = activeSection?.items.filter((i) => i.image || i.gallery_image_id) || [];
+  const compactItems = activeSection?.items.filter((i) => !i.image && !i.gallery_image_id) || [];
 
   if (orderPlaced) {
     // Calculate next Monday for countdown
@@ -340,7 +366,9 @@ export default function ThaiHousePage() {
                     return (
                       <div key={item.name} style={styles.menuCard}>
                         <img
-                          src={`${API_BASE}/api/images/menu/${item.image}-thumb.jpg`}
+                          src={item.gallery_image_id
+                            ? `${API_BASE}/api/public/menu-images/${item.gallery_image_id}/thumb`
+                            : `${API_BASE}/api/images/menu/${item.image}-thumb.jpg`}
                           alt={item.name}
                           style={styles.foodImg}
                           onError={(e) => { e.target.style.display = "none"; }}
@@ -429,17 +457,37 @@ export default function ThaiHousePage() {
                   <div key={tog.id} style={{ marginBottom: 20 }}>
                     <div style={{ color: THEME.text, fontWeight: 700, marginBottom: 8, fontSize: 15 }}>
                       {tog.name} {tog.required && <span style={{ color: THEME.textSecondary, fontWeight: 400, fontSize: 12 }}>(required)</span>}
+                      {tog.multi_select && <span style={{ color: THEME.textSecondary, fontWeight: 400, fontSize: 12 }}> (select multiple)</span>}
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                       {tog.options.map((opt) => {
-                        const isSelected = customizeSelections[tog.id] === opt.name;
+                        const isMulti = tog.multi_select;
+                        const sel = customizeSelections[tog.id];
+                        const isSelected = isMulti
+                          ? (Array.isArray(sel) && sel.includes(opt.name))
+                          : sel === opt.name;
                         return (
                           <button
                             key={opt.name}
-                            onClick={() => setCustomizeSelections((prev) => ({ ...prev, [tog.id]: opt.name }))}
+                            onClick={() => {
+                              if (isMulti) {
+                                setCustomizeSelections((prev) => {
+                                  const arr = Array.isArray(prev[tog.id]) ? prev[tog.id] : [];
+                                  return {
+                                    ...prev,
+                                    [tog.id]: isSelected
+                                      ? arr.filter((n) => n !== opt.name)
+                                      : [...arr, opt.name],
+                                  };
+                                });
+                              } else {
+                                setCustomizeSelections((prev) => ({ ...prev, [tog.id]: opt.name }));
+                              }
+                            }}
                             style={{
                               ...styles.proteinBtn,
                               ...(isSelected ? styles.proteinBtnActive : {}),
+                              minHeight: 44,
                             }}
                           >
                             {opt.name}
@@ -497,6 +545,87 @@ export default function ThaiHousePage() {
               <h2 style={{ margin: 0, color: THEME.accent, fontSize: 22 }}>Your Order</h2>
               <button style={styles.closeBtn} onClick={() => setShowCart(false)}>&times;</button>
             </div>
+
+            {/* Name & Phone — prominent, above cart items */}
+            <div style={{ padding: "12px 20px 0" }}>
+              <input
+                type="text"
+                placeholder="Your Name *"
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                style={{
+                  ...styles.nameInput,
+                  border: customerName.trim()
+                    ? `2px solid ${THEME.accent}`
+                    : `2px solid ${THEME.accent}90`,
+                  boxShadow: !customerName.trim() ? `0 0 10px ${THEME.accent}30` : 'none',
+                  fontSize: 16,
+                }}
+              />
+              <input
+                type="tel"
+                placeholder="Phone # for loyalty rewards (optional)"
+                value={customerPhone}
+                onChange={(e) => setCustomerPhone(e.target.value)}
+                style={{ ...styles.nameInput, marginBottom: 4 }}
+              />
+              {/* Loyalty lookup result */}
+              {loyaltyData?.found ? (
+                <div style={{ padding: "10px 14px", background: "#27ae6015", borderRadius: 10,
+                  border: "1px solid #27ae6040", marginBottom: 10 }}>
+                  <div style={{ color: "#27ae60", fontWeight: 700, fontSize: 14 }}>
+                    Welcome back, {loyaltyData.name}!
+                  </div>
+                  <div style={{ color: THEME.text, fontSize: 13, marginTop: 2 }}>
+                    You have <strong style={{ color: THEME.accent }}>{loyaltyData.points}</strong> points
+                    &middot; {loyaltyData.visits} visit{loyaltyData.visits !== 1 ? "s" : ""}
+                  </div>
+                  {loyaltyData.all_rewards?.length > 0 && (
+                    <div style={{ marginTop: 8, display: "flex", flexWrap: "wrap", gap: 6 }}>
+                      {loyaltyData.all_rewards.map((r) => {
+                        const canRedeem = loyaltyData.points >= r.points_required;
+                        return (
+                          <button
+                            key={r.id}
+                            disabled={!canRedeem}
+                            onClick={async () => {
+                              if (!canRedeem) return;
+                              try {
+                                const res = await redeemLoyaltyPublic(customerPhone.replace(/\D/g, ''), r.id);
+                                setLoyaltyData((prev) => prev ? {
+                                  ...prev,
+                                  points: res.points_remaining,
+                                  available_rewards: prev.all_rewards.filter((rw) => rw.points_required <= res.points_remaining),
+                                } : prev);
+                                alert(`Redeemed: ${r.description}! ${res.points_remaining} points remaining.`);
+                              } catch (err) {
+                                alert("Redeem failed: " + err.message);
+                              }
+                            }}
+                            style={{
+                              padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600,
+                              cursor: canRedeem ? "pointer" : "default",
+                              border: canRedeem ? "1px solid #27ae60" : `1px solid ${THEME.textSecondary}40`,
+                              background: canRedeem ? "#27ae6015" : "transparent",
+                              color: canRedeem ? "#27ae60" : THEME.textSecondary,
+                              minHeight: 36,
+                            }}
+                          >
+                            {r.description} ({r.points_required} pts)
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div style={{ fontSize: 11, color: THEME.textSecondary, marginBottom: 8 }}>
+                  Earn 1 point per $10 spent. 10 points = free entr&#233;e or 1 month Cha Club!
+                </div>
+              )}
+            </div>
+
+            {/* Cart items */}
             {cart.length === 0 ? (
               <p style={{ color: THEME.textSecondary, textAlign: "center", padding: 24 }}>Cart is empty</p>
             ) : (
@@ -513,7 +642,12 @@ export default function ThaiHousePage() {
                       {(item.customizations || item.notes) && (
                         <div style={{ color: THEME.textSecondary, fontSize: 12, marginTop: 2 }}>
                           {[
-                            ...(item.customizations ? Object.values(item.customizations) : []),
+                            ...(item.customizations
+                              ? Object.entries(item.customizations).map(([k, v]) => {
+                                  if (Array.isArray(v)) return v.length ? v.join(", ") : null;
+                                  return v;
+                                })
+                              : []),
                             item.notes,
                           ].filter(Boolean).join(" · ")}
                         </div>
@@ -539,40 +673,29 @@ export default function ThaiHousePage() {
                 ))}
               </div>
             )}
+
+            {/* Footer: subtotal + place order */}
             <div style={styles.cartFooterSection}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
                 <span style={{ color: THEME.text, fontSize: 18, fontWeight: 700 }}>Subtotal</span>
                 <span style={{ color: THEME.accent, fontSize: 18, fontWeight: 700 }}>
                   ${cartTotal.toFixed(2)}
                 </span>
-              </div>
-              <input
-                type="text"
-                placeholder="Your name for the order"
-                value={customerName}
-                onChange={(e) => setCustomerName(e.target.value)}
-                style={styles.nameInput}
-              />
-              <input
-                type="tel"
-                placeholder="Phone # for loyalty rewards (optional)"
-                value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
-                style={{ ...styles.nameInput, marginBottom: 4 }}
-              />
-              <div style={{ fontSize: 11, color: THEME.textSecondary, marginBottom: 12 }}>
-                Earn 1 point per $10 spent. 10 points = free entr&#233;e or 1 month Cha Club!
               </div>
               <button
                 onClick={handleCheckout}
                 disabled={!customerName.trim() || cart.length === 0 || placing}
                 style={{
                   ...styles.primaryBtn,
-                  opacity: !customerName.trim() || cart.length === 0 || placing ? 0.5 : 1,
                   width: "100%",
+                  minHeight: 48,
+                  background: customerName.trim() ? THEME.accent : `${THEME.accent}50`,
+                  opacity: placing ? 0.7 : 1,
                 }}
               >
-                {placing ? "Placing Order..." : "Place Order"}
+                {placing ? "Placing Order..."
+                  : !customerName.trim() ? "Enter your name to place order"
+                  : `Place Order - $${cartTotal.toFixed(2)}`}
               </button>
             </div>
           </div>
@@ -794,7 +917,7 @@ const styles = {
   },
   tab: {
     flexShrink: 0,
-    padding: "8px 14px",
+    padding: "10px 16px",
     borderRadius: 20,
     border: `1px solid ${THEME.textSecondary}40`,
     background: "transparent",
@@ -802,6 +925,7 @@ const styles = {
     fontSize: 13,
     cursor: "pointer",
     whiteSpace: "nowrap",
+    minHeight: 44,
   },
   tabActive: {
     background: THEME.accent,
@@ -877,7 +1001,7 @@ const styles = {
     flexShrink: 0,
   },
   addBtn: {
-    padding: "6px 16px",
+    padding: "8px 16px",
     borderRadius: 8,
     border: `1px solid ${THEME.accent}`,
     background: "transparent",
@@ -886,6 +1010,8 @@ const styles = {
     fontSize: 13,
     cursor: "pointer",
     flexShrink: 0,
+    minHeight: 44,
+    minWidth: 44,
   },
   qtyControls: {
     display: "flex",
@@ -894,8 +1020,8 @@ const styles = {
     flexShrink: 0,
   },
   qtyBtn: {
-    width: 28,
-    height: 28,
+    width: 36,
+    height: 36,
     borderRadius: 8,
     border: `1px solid ${THEME.accent}`,
     background: "transparent",
@@ -906,6 +1032,9 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    minWidth: 44,
+    minHeight: 44,
+    padding: 0,
   },
   cartFab: {
     position: "fixed",
@@ -1001,6 +1130,11 @@ const styles = {
     fontSize: 16,
     cursor: "pointer",
     padding: 4,
+    minWidth: 44,
+    minHeight: 44,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   cartFooterSection: {
     padding: "16px 20px 24px",

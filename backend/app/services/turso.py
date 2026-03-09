@@ -236,6 +236,131 @@ def get_menu_db():
     return get_analytics_db()
 
 
+def _seed_beverage_menu(db):
+    """Migrate old Beverages category to new drink categories with toppings/sweetness."""
+    import json as _json
+    import re
+
+    # Check if migration already ran (look for new category)
+    existing = db.execute(
+        "SELECT id FROM menu_categories WHERE name = 'Traditional Thai Drinks'"
+    ).fetchone()
+    if existing:
+        return  # already migrated
+
+    logger.info("Running beverage menu migration...")
+
+    def _slugify(name):
+        s = name.lower()
+        s = re.sub(r"[^a-z0-9]+", "-", s)
+        return s.strip("-")
+
+    # 1. Create drink toggles
+    db.execute(
+        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        ("drink-temp", "Temperature", 1,
+         _json.dumps([{"name": "Iced", "upcharge": 0}, {"name": "Frappe", "upcharge": 0.70}]),
+         10, 0)
+    )
+    db.execute(
+        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        ("sweetness", "Sweetness", 0,
+         _json.dumps([
+             {"name": "25%", "upcharge": 0}, {"name": "50%", "upcharge": 0},
+             {"name": "75%", "upcharge": 0}, {"name": "100%", "upcharge": 0},
+         ]),
+         11, 0)
+    )
+    db.execute(
+        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        ("toppings", "Toppings", 0,
+         _json.dumps([
+             {"name": "Boba", "upcharge": 0.35},
+             {"name": "Lychee Jelly", "upcharge": 0.35},
+             {"name": "Fresh Strawberries", "upcharge": 0.35},
+             {"name": "Fresh Mango", "upcharge": 0.35},
+         ]),
+         12, 1)
+    )
+
+    # 2. Delete old Beverages category and its items
+    old_bev = db.execute("SELECT id FROM menu_categories WHERE name = 'Beverages'").fetchone()
+    if old_bev:
+        db.execute("DELETE FROM menu_items WHERE category_id = ?", (old_bev[0],))
+        db.execute("DELETE FROM menu_categories WHERE id = ?", (old_bev[0],))
+
+    # 3. Determine sort_order for new categories (after existing food categories)
+    max_sort = db.execute("SELECT COALESCE(MAX(sort_order), 0) FROM menu_categories").fetchone()[0]
+
+    # 4. Create new drink categories and items
+    drink_categories = [
+        ("Traditional Thai Drinks", "\U0001F375", [
+            ("Thai Iced Coffee", 5.25, ["drink-temp", "sweetness", "toppings"]),
+            ("Thai Iced Tea", 5.25, ["drink-temp", "sweetness", "toppings"]),
+            ("Black Milk Tea", 5.25, ["drink-temp", "sweetness", "toppings"]),
+        ]),
+        ("Matcha", "\U0001F35B", [
+            ("Matcha Iced", 5.50, ["sweetness", "toppings"]),
+            ("Matcha Frappe", 5.75, ["sweetness", "toppings"]),
+            ("Chocolate Chip Matcha Frappe", 5.95, ["sweetness", "toppings"]),
+            ("Matcha Milk Strawberry", 6.25, ["sweetness", "toppings"]),
+            ("Strawberry Matcha Frappe", 6.25, ["sweetness", "toppings"]),
+        ]),
+        ("Milk Tea", "\U0001F95B", [
+            ("Mango Milk Tea", 5.25, ["sweetness", "toppings"]),
+            ("Taro Milk Tea", 5.25, ["sweetness", "toppings"]),
+            ("Banana Milk Tea", 5.25, ["sweetness", "toppings"]),
+            ("Strawberry Milk Tea", 5.25, ["sweetness", "toppings"]),
+            ("Honeydew Milk Tea", 5.25, ["sweetness", "toppings"]),
+            ("Watermelon Milk Tea", 5.25, ["sweetness", "toppings"]),
+        ]),
+        ("Smoothies", "\U0001F353", [
+            ("Strawberry Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Watermelon Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Mango Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Taro Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Coconut Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Banana Smoothie", 5.25, ["sweetness", "toppings"]),
+            ("Honeydew Smoothie", 5.25, ["sweetness", "toppings"]),
+        ]),
+        ("Fruit Teas", "\U0001F34A", [
+            ("Strawberry Fruit Tea", 5.75, ["sweetness", "toppings"]),
+            ("Mango Fruit Tea", 5.75, ["sweetness", "toppings"]),
+            ("Strawberry Tajin Fruit Tea", 5.75, ["sweetness", "toppings"]),
+        ]),
+        ("Specialty", "\U00002728", [
+            ("Butterfly Lychee Soda", 5.50, ["sweetness", "toppings"]),
+        ]),
+    ]
+
+    for cat_idx, (cat_name, icon, items) in enumerate(drink_categories):
+        sort = max_sort + 1 + cat_idx
+        db.execute(
+            "INSERT INTO menu_categories (name, icon, sort_order) VALUES (?, ?, ?)",
+            (cat_name, icon, sort)
+        )
+        cat_row = db.execute("SELECT id FROM menu_categories WHERE name = ?", (cat_name,)).fetchone()
+        cat_id = cat_row[0]
+
+        for item_idx, (name, price, toggles) in enumerate(items):
+            slug = _slugify(name)
+            db.execute(
+                """INSERT OR IGNORE INTO menu_items
+                   (slug, category_id, name, description, price, image, toggles,
+                    allows_modifications, active, sort_order)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (slug, cat_id, name, "", price, None,
+                 _json.dumps(toggles), 1, 1, item_idx)
+            )
+
+    db.commit()
+    item_count = sum(len(items) for _, _, items in drink_categories)
+    logger.info(f"Beverage menu migrated: 6 categories, {item_count} items, 3 toggles (drink-temp, sweetness, toppings)")
+
+
 def init_menu_tables():
     """Create menu, floor plan, loyalty, and venue order tables in Turso."""
     db = get_menu_db()
@@ -350,8 +475,75 @@ def init_menu_tables():
     db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_created ON venue_orders(created_at)")
     db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_phone ON loyalty_members(phone)")
 
+    # multi_select support for toggles (e.g. toppings)
+    try:
+        db.execute("ALTER TABLE menu_toggles ADD COLUMN multi_select INTEGER DEFAULT 0")
+    except Exception:
+        pass  # column already exists
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS loyalty_rewards (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            venue_id TEXT DEFAULT 'meetup',
+            points_required INTEGER NOT NULL,
+            description TEXT NOT NULL,
+            active INTEGER DEFAULT 1,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS loyalty_transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            member_phone TEXT NOT NULL,
+            type TEXT NOT NULL,
+            points_change INTEGER NOT NULL,
+            reward_id INTEGER,
+            order_number INTEGER,
+            note TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_tx_phone ON loyalty_transactions(member_phone)")
+
+    # Seed default loyalty rewards
+    existing_rewards = db.execute("SELECT COUNT(*) FROM loyalty_rewards").fetchone()[0]
+    if existing_rewards == 0:
+        db.execute(
+            "INSERT INTO loyalty_rewards (venue_id, points_required, description) VALUES (?, ?, ?)",
+            ("meetup", 10, "Free Entree")
+        )
+        db.execute(
+            "INSERT INTO loyalty_rewards (venue_id, points_required, description) VALUES (?, ?, ?)",
+            ("meetup", 10, "1 Month Cha Club")
+        )
+
+    # ── Menu item images (gallery + A/B testing) ──
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS menu_item_images (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            item_id INTEGER NOT NULL,
+            image_url TEXT,
+            image_blob BLOB,
+            image_thumb_blob BLOB,
+            image_filename TEXT,
+            alt_text TEXT DEFAULT '',
+            source TEXT DEFAULT 'manual',
+            status TEXT DEFAULT 'candidate',
+            sort_order INTEGER DEFAULT 0,
+            clicks INTEGER DEFAULT 0,
+            orders INTEGER DEFAULT 0,
+            created_at TEXT DEFAULT (datetime('now')),
+            updated_at TEXT DEFAULT (datetime('now'))
+        )
+    """)
+    db.execute("CREATE INDEX IF NOT EXISTS idx_mii_item_status ON menu_item_images(item_id, status)")
+
     db.commit()
     logger.info("Menu/floor/loyalty/orders tables initialized")
+
+    # Run beverage menu migration if needed
+    _seed_beverage_menu(db)
 
 
 def get_next_order_number(venue_id="meetup"):

@@ -4,8 +4,10 @@ import {
   getFloorPlan, updateFloorTables, updateFloorZones, addFloorTable, deleteFloorTable, updateTableParty,
   getMenuItems, createMenuItem, updateMenuItem, deleteMenuItem, uploadMenuPhoto, deleteMenuPhoto,
   getToggles, createToggle, updateToggle, deleteToggle,
+  getItemGalleryImages, uploadGalleryImage, updateGalleryImage, deleteGalleryImage, bulkImportGalleryImages,
   getLoyaltyMembers, getLoyaltyMember, redeemReward,
   getCRMStats, staffSearch, staffRedeem, getChaClubMembers, addChaClubMember,
+  getLoyaltyRewards, createLoyaltyReward, updateLoyaltyReward, deleteLoyaltyReward,
 } from '../services/api.js';
 
 const API_BASE = import.meta.env.VITE_API_URL || '';
@@ -451,6 +453,16 @@ function MenuTab({ pin }) {
   const [editCat, setEditCat] = useState('');
   const [saving, setSaving] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  // Gallery state
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [galleryLoading, setGalleryLoading] = useState(false);
+  const [showGallery, setShowGallery] = useState(true);
+  const [showHidden, setShowHidden] = useState(false);
+  const [importUrl, setImportUrl] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const [bulkImporting, setBulkImporting] = useState(false);
+  const [bulkResult, setBulkResult] = useState(null);
+  const [galleryDragOver, setGalleryDragOver] = useState(false);
 
   const load = useCallback(() => {
     getMenuItems(pin).then(d => {
@@ -482,6 +494,79 @@ function MenuTab({ pin }) {
       setEditCat(selectedItem.category);
     }
   }, [selected]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Load gallery images when selection changes
+  useEffect(() => {
+    if (!selected) { setGalleryImages([]); return; }
+    setGalleryLoading(true);
+    getItemGalleryImages(selected, pin)
+      .then(d => setGalleryImages(d.images || []))
+      .catch(() => setGalleryImages([]))
+      .finally(() => setGalleryLoading(false));
+  }, [selected, pin]);
+
+  const loadGallery = () => {
+    if (!selected) return;
+    getItemGalleryImages(selected, pin)
+      .then(d => setGalleryImages(d.images || []))
+      .catch(() => {});
+  };
+
+  const handleGalleryUpload = (file) => {
+    if (!selected || !file) return;
+    setUploading(true);
+    uploadGalleryImage(selected, file, pin)
+      .then(() => loadGallery())
+      .catch(() => {})
+      .finally(() => setUploading(false));
+  };
+
+  const handleGalleryDrop = (e) => {
+    e.preventDefault(); setGalleryDragOver(false);
+    const files = Array.from(e.dataTransfer?.files || []).filter(f => f.type.startsWith('image/'));
+    files.forEach(f => handleGalleryUpload(f));
+  };
+
+  const handleGalleryUploadClick = () => {
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = 'image/*'; input.multiple = true;
+    input.onchange = (e) => {
+      Array.from(e.target.files).forEach(f => handleGalleryUpload(f));
+    };
+    input.click();
+  };
+
+  const handleSetActive = (imgId) => {
+    updateGalleryImage(imgId, { status: 'active' }, pin).then(() => loadGallery());
+  };
+
+  const handleHideImage = (imgId) => {
+    updateGalleryImage(imgId, { status: 'hidden' }, pin).then(() => loadGallery());
+  };
+
+  const handleDeleteGalleryImage = (imgId) => {
+    if (!confirm('Delete this image permanently?')) return;
+    deleteGalleryImage(imgId, pin).then(() => loadGallery());
+  };
+
+  const handleImportUrl = () => {
+    if (!selected || !importUrl.trim()) return;
+    setUploading(true);
+    // Use the slug endpoint with url param via query string
+    fetch(`${API_BASE}/api/admin/menu-images/${selected}/import-url?url=${encodeURIComponent(importUrl.trim())}`, {
+      method: 'POST', headers: { 'X-Staff-Pin': pin },
+    }).then(r => r.json()).then(() => { setImportUrl(''); loadGallery(); })
+      .catch(() => {}).finally(() => setUploading(false));
+  };
+
+  const handleBulkImport = () => {
+    if (!confirm('Import all Ranger drink photos? This may take several minutes.')) return;
+    setBulkImporting(true); setBulkResult(null);
+    bulkImportGalleryImages(pin)
+      .then(r => setBulkResult(r))
+      .catch(e => setBulkResult({ error: e.message }))
+      .finally(() => setBulkImporting(false));
+  };
 
   const filtered = categories.map(cat => ({
     ...cat,
@@ -542,6 +627,17 @@ function MenuTab({ pin }) {
         <Stat label="With Photos" value={withPhotos} color={T.green} />
         <Stat label="Categories" value={categories.length} />
         <Stat label="Toggles" value={togglesList.length} />
+        <button onClick={handleBulkImport} disabled={bulkImporting}
+          style={{ padding: '8px 14px', background: T.blue, color: '#fff', border: 'none',
+            borderRadius: 8, fontWeight: 600, fontSize: 12, cursor: 'pointer',
+            opacity: bulkImporting ? 0.6 : 1, whiteSpace: 'nowrap' }}>
+          {bulkImporting ? 'Importing...' : 'Import Ranger Photos'}
+        </button>
+        {bulkResult && (
+          <span style={{ color: bulkResult.error ? T.red : T.green, fontSize: 12, alignSelf: 'center' }}>
+            {bulkResult.error || `${bulkResult.imported} imported, ${bulkResult.skipped} skipped, ${bulkResult.failed} failed`}
+          </span>
+        )}
       </div>
       <div style={{ display: 'flex', gap: 16 }}>
         {/* Left: item grid */}
@@ -613,6 +709,111 @@ function MenuTab({ pin }) {
                     border: `1px solid ${T.red}30`, borderRadius: 6, cursor: 'pointer',
                     fontSize: 12, marginBottom: 12 }}>Remove Photo</button>
               )}
+
+              {/* Image Gallery */}
+              <div style={{ marginBottom: 12 }}>
+                <div onClick={() => setShowGallery(!showGallery)}
+                  style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', marginBottom: 8 }}>
+                  <span style={{ color: T.accent, fontSize: 12, fontWeight: 700 }}>
+                    {showGallery ? '\u25BC' : '\u25B6'} Image Gallery ({galleryImages.length})
+                  </span>
+                </div>
+                {showGallery && (
+                  <div>
+                    {galleryLoading ? (
+                      <div style={{ color: T.textDim, fontSize: 12, padding: 8 }}>Loading...</div>
+                    ) : (
+                      <>
+                        {/* Thumbnail grid */}
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 6, marginBottom: 8 }}>
+                          {galleryImages
+                            .filter(img => showHidden || img.status !== 'hidden')
+                            .map(img => (
+                            <div key={img.id} style={{
+                              position: 'relative', borderRadius: 6, overflow: 'hidden',
+                              border: img.status === 'active' ? `2px solid ${T.green}` : `1px solid ${T.border}`,
+                              opacity: img.status === 'hidden' ? 0.4 : 1,
+                              cursor: 'pointer', aspectRatio: '1',
+                            }}>
+                              <img
+                                src={`${API_BASE}/api/public/menu-images/${img.id}/thumb`}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                onClick={() => handleSetActive(img.id)}
+                                title={img.status === 'active' ? 'Active image' : 'Click to set as active'}
+                              />
+                              {img.status === 'active' && (
+                                <div style={{ position: 'absolute', top: 2, left: 2, background: T.green,
+                                  borderRadius: '50%', width: 18, height: 18, display: 'flex',
+                                  alignItems: 'center', justifyContent: 'center', fontSize: 11, color: '#fff' }}>
+                                  &#10003;
+                                </div>
+                              )}
+                              {/* Action buttons */}
+                              <div style={{ position: 'absolute', top: 2, right: 2, display: 'flex', gap: 2 }}>
+                                {img.status !== 'hidden' && (
+                                  <button onClick={(e) => { e.stopPropagation(); handleHideImage(img.id); }}
+                                    title="Hide"
+                                    style={{ background: 'rgba(0,0,0,0.6)', border: 'none', color: '#fff',
+                                      borderRadius: 3, width: 18, height: 18, fontSize: 10, cursor: 'pointer',
+                                      display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    &#128065;
+                                  </button>
+                                )}
+                                <button onClick={(e) => { e.stopPropagation(); handleDeleteGalleryImage(img.id); }}
+                                  title="Delete"
+                                  style={{ background: 'rgba(0,0,0,0.6)', border: 'none', color: T.red,
+                                    borderRadius: 3, width: 18, height: 18, fontSize: 11, cursor: 'pointer',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                  &#10005;
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Show hidden toggle */}
+                        {galleryImages.some(img => img.status === 'hidden') && (
+                          <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: T.textDim,
+                            fontSize: 11, cursor: 'pointer', marginBottom: 6 }}>
+                            <input type="checkbox" checked={showHidden} onChange={e => setShowHidden(e.target.checked)} />
+                            Show hidden ({galleryImages.filter(i => i.status === 'hidden').length})
+                          </label>
+                        )}
+
+                        {/* Upload drop zone */}
+                        <div
+                          onClick={handleGalleryUploadClick}
+                          onDragOver={e => { e.preventDefault(); setGalleryDragOver(true); }}
+                          onDragLeave={() => setGalleryDragOver(false)}
+                          onDrop={handleGalleryDrop}
+                          style={{
+                            padding: 10, borderRadius: 6, textAlign: 'center',
+                            background: galleryDragOver ? T.accent + '20' : T.bg,
+                            border: `1px dashed ${galleryDragOver ? T.accent : T.border}`,
+                            cursor: 'pointer', fontSize: 11, color: T.textDim, marginBottom: 6,
+                          }}>
+                          {uploading ? 'Uploading...' : 'Drop images or click to upload'}
+                        </div>
+
+                        {/* Import URL input */}
+                        <div style={{ display: 'flex', gap: 4 }}>
+                          <input value={importUrl} onChange={e => setImportUrl(e.target.value)}
+                            placeholder="Paste image URL..."
+                            style={{ flex: 1, padding: 6, background: T.bg, color: T.text,
+                              border: `1px solid ${T.border}`, borderRadius: 4, fontSize: 11, outline: 'none' }}
+                            onKeyDown={e => e.key === 'Enter' && handleImportUrl()} />
+                          <button onClick={handleImportUrl} disabled={!importUrl.trim() || uploading}
+                            style={{ padding: '6px 10px', background: T.accent, color: '#000', border: 'none',
+                              borderRadius: 4, fontSize: 11, fontWeight: 600, cursor: 'pointer',
+                              opacity: (!importUrl.trim() || uploading) ? 0.5 : 1 }}>
+                            Import
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
 
               {/* Name */}
               <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 3 }}>Name</label>
@@ -1084,6 +1285,186 @@ function CRMTab({ pin }) {
 }
 
 // ════════════════════════════════════════════════════════
+// REWARDS TAB
+// ════════════════════════════════════════════════════════
+function RewardsTab({ pin }) {
+  const [rewards, setRewards] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editId, setEditId] = useState(null);
+  const [editPts, setEditPts] = useState(0);
+  const [editDesc, setEditDesc] = useState('');
+  const [showAdd, setShowAdd] = useState(false);
+  const [newPts, setNewPts] = useState(10);
+  const [newDesc, setNewDesc] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState('');
+
+  const load = useCallback(() => {
+    setLoading(true);
+    getLoyaltyRewards(pin).then(d => {
+      setRewards(d.rewards || []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [pin]);
+
+  useEffect(() => { load(); }, [load]);
+
+  useEffect(() => {
+    if (!msg) return;
+    const t = setTimeout(() => setMsg(''), 3000);
+    return () => clearTimeout(t);
+  }, [msg]);
+
+  const handleAdd = () => {
+    if (!newDesc.trim()) return;
+    setSaving(true);
+    createLoyaltyReward(pin, { points_required: newPts, description: newDesc.trim() })
+      .then(() => { setShowAdd(false); setNewPts(10); setNewDesc(''); setMsg('Reward created'); load(); })
+      .catch(e => setMsg(e.message))
+      .finally(() => setSaving(false));
+  };
+
+  const handleSave = (id) => {
+    setSaving(true);
+    updateLoyaltyReward(pin, id, { points_required: editPts, description: editDesc })
+      .then(() => { setEditId(null); setMsg('Reward updated'); load(); })
+      .catch(e => setMsg(e.message))
+      .finally(() => setSaving(false));
+  };
+
+  const handleToggleActive = (r) => {
+    updateLoyaltyReward(pin, r.id, { active: !r.active })
+      .then(() => { setMsg(r.active ? 'Reward disabled' : 'Reward enabled'); load(); });
+  };
+
+  const handleDelete = (r) => {
+    if (!confirm(`Delete "${r.description}"?`)) return;
+    deleteLoyaltyReward(pin, r.id)
+      .then(() => { setMsg('Reward deleted'); load(); });
+  };
+
+  const startEdit = (r) => {
+    setEditId(r.id);
+    setEditPts(r.points_required);
+    setEditDesc(r.description);
+  };
+
+  const inputStyle = { padding: 8, background: T.bg, color: T.text,
+    border: `1px solid ${T.border}`, borderRadius: 6, fontSize: 13, outline: 'none' };
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center' }}>
+        <Stat label="Total Rewards" value={rewards.length} />
+        <Stat label="Active" value={rewards.filter(r => r.active).length} color={T.green} />
+        <button onClick={() => setShowAdd(true)}
+          style={{ marginLeft: 'auto', padding: '8px 18px', background: T.accent, color: '#000',
+            border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 700, fontSize: 14 }}>
+          + Add Reward
+        </button>
+      </div>
+
+      {msg && <div style={{ padding: 10, background: T.green + '20', color: T.green,
+        borderRadius: 8, marginBottom: 12, fontSize: 13, fontWeight: 600 }}>{msg}</div>}
+
+      {/* Add reward inline form */}
+      {showAdd && (
+        <div style={{ background: T.card, borderRadius: 10, padding: 16, marginBottom: 16,
+          border: `1px solid ${T.accent}40`, display: 'flex', gap: 12, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+          <div>
+            <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 4 }}>Points Required</label>
+            <input type="number" value={newPts} onChange={e => setNewPts(parseInt(e.target.value) || 0)}
+              style={{ ...inputStyle, width: 80 }} />
+          </div>
+          <div style={{ flex: 1 }}>
+            <label style={{ color: T.textDim, fontSize: 11, display: 'block', marginBottom: 4 }}>Description</label>
+            <input value={newDesc} onChange={e => setNewDesc(e.target.value)}
+              placeholder="e.g. Free Entree"
+              style={{ ...inputStyle, width: '100%', boxSizing: 'border-box' }} />
+          </div>
+          <button onClick={handleAdd} disabled={saving}
+            style={{ padding: '8px 16px', background: T.green, color: '#fff', border: 'none',
+              borderRadius: 6, cursor: 'pointer', fontWeight: 600, fontSize: 13,
+              opacity: saving ? 0.6 : 1 }}>
+            {saving ? 'Saving...' : 'Create'}
+          </button>
+          <button onClick={() => setShowAdd(false)}
+            style={{ padding: '8px 16px', background: 'transparent', color: T.textDim,
+              border: `1px solid ${T.border}`, borderRadius: 6, cursor: 'pointer', fontSize: 13 }}>
+            Cancel
+          </button>
+        </div>
+      )}
+
+      {loading ? (
+        <p style={{ color: T.textDim, textAlign: 'center' }}>Loading rewards...</p>
+      ) : (
+        <div style={{ background: T.bg, borderRadius: 10, border: `1px solid ${T.border}`, overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr 100px 180px', padding: '10px 14px',
+            background: T.border, fontSize: 12, color: T.textDim, fontWeight: 600 }}>
+            <div>Points</div><div>Reward</div><div>Status</div><div>Actions</div>
+          </div>
+          {rewards.map(r => (
+            <div key={r.id} style={{ display: 'grid', gridTemplateColumns: '80px 1fr 100px 180px',
+              padding: '12px 14px', borderBottom: `1px solid ${T.border}`, alignItems: 'center', fontSize: 13 }}>
+              {editId === r.id ? (
+                <>
+                  <input type="number" value={editPts} onChange={e => setEditPts(parseInt(e.target.value) || 0)}
+                    style={{ ...inputStyle, width: 60 }} />
+                  <input value={editDesc} onChange={e => setEditDesc(e.target.value)}
+                    style={{ ...inputStyle, width: '100%', boxSizing: 'border-box', marginRight: 8 }} />
+                  <div />
+                  <div style={{ display: 'flex', gap: 6 }}>
+                    <button onClick={() => handleSave(r.id)} disabled={saving}
+                      style={{ padding: '4px 10px', background: T.green, color: '#fff', border: 'none',
+                        borderRadius: 4, cursor: 'pointer', fontSize: 12 }}>Save</button>
+                    <button onClick={() => setEditId(null)}
+                      style={{ padding: '4px 10px', background: 'transparent', color: T.textDim,
+                        border: `1px solid ${T.border}`, borderRadius: 4, cursor: 'pointer', fontSize: 12 }}>Cancel</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ color: T.accent, fontWeight: 700 }}>{r.points_required}</div>
+                  <div style={{ color: T.text }}>{r.description}</div>
+                  <div>
+                    <span style={{ padding: '2px 8px', borderRadius: 10, fontSize: 11, fontWeight: 600,
+                      background: r.active ? T.green + '20' : T.red + '20',
+                      color: r.active ? T.green : T.red }}>
+                      {r.active ? 'Active' : 'Disabled'}
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', gap: 6 }}>
+                    <button onClick={() => startEdit(r)}
+                      style={{ padding: '4px 10px', background: T.accent + '20', color: T.accent,
+                        border: `1px solid ${T.accent}40`, borderRadius: 4, cursor: 'pointer', fontSize: 12 }}>Edit</button>
+                    <button onClick={() => handleToggleActive(r)}
+                      style={{ padding: '4px 10px', background: r.active ? T.orange + '20' : T.green + '20',
+                        color: r.active ? T.orange : T.green,
+                        border: `1px solid ${r.active ? T.orange : T.green}40`, borderRadius: 4,
+                        cursor: 'pointer', fontSize: 12 }}>
+                      {r.active ? 'Disable' : 'Enable'}
+                    </button>
+                    <button onClick={() => handleDelete(r)}
+                      style={{ padding: '4px 10px', background: T.red + '20', color: T.red,
+                        border: `1px solid ${T.red}40`, borderRadius: 4, cursor: 'pointer', fontSize: 12 }}>Del</button>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+          {!rewards.length && (
+            <div style={{ padding: 24, textAlign: 'center', color: T.textDim }}>
+              No rewards configured yet — add one to let customers redeem loyalty points
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════════
 // MAIN DASHBOARD
 // ════════════════════════════════════════════════════════
 export default function ThaiHouseDashboard() {
@@ -1124,6 +1505,7 @@ export default function ThaiHouseDashboard() {
             <TabBtn label="Menu" active={tab === 'menu'} onClick={() => setTab('menu')} />
             <TabBtn label="Cha Club" active={tab === 'chaclub'} onClick={() => setTab('chaclub')} />
             <TabBtn label="Loyalty" active={tab === 'loyalty'} onClick={() => setTab('loyalty')} />
+            <TabBtn label="Rewards" active={tab === 'rewards'} onClick={() => setTab('rewards')} />
             <TabBtn label="CRM" active={tab === 'crm'} onClick={() => setTab('crm')} />
           </div>
         </div>
@@ -1139,6 +1521,7 @@ export default function ThaiHouseDashboard() {
         {tab === 'menu' && <MenuTab pin={pin} />}
         {tab === 'chaclub' && <ChaClubTab pin={pin} />}
         {tab === 'loyalty' && <LoyaltyTab pin={pin} />}
+        {tab === 'rewards' && <RewardsTab pin={pin} />}
         {tab === 'crm' && <CRMTab pin={pin} />}
       </div>
     </div>

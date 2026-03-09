@@ -63,11 +63,12 @@ async def public_menu(venue_slug: str):
 
         # Toggles
         toggle_rows = db.execute(
-            "SELECT id, name, required, options FROM menu_toggles ORDER BY sort_order"
+            "SELECT id, name, required, options, multi_select FROM menu_toggles ORDER BY sort_order"
         ).fetchall()
         toggles = [
             {"id": r[0], "name": r[1], "required": bool(r[2]),
-             "options": json.loads(r[3])}
+             "options": json.loads(r[3]),
+             "multi_select": bool(r[4] if len(r) > 4 else 0)}
             for r in toggle_rows
         ]
 
@@ -78,7 +79,7 @@ async def public_menu(venue_slug: str):
         sections = []
         for cat in cat_rows:
             item_rows = db.execute(
-                """SELECT slug, name, description, price, image, toggles,
+                """SELECT id, slug, name, description, price, image, toggles,
                           allows_modifications
                    FROM menu_items
                    WHERE category_id = ? AND active = 1
@@ -87,16 +88,23 @@ async def public_menu(venue_slug: str):
             ).fetchall()
             items = []
             for r in item_rows:
-                item = {"name": r[1], "price": r[3]}
-                if r[2]:
-                    item["description"] = r[2]
-                if r[4]:
-                    item["image"] = r[4]
-                item_toggles = json.loads(r[5]) if r[5] else []
+                item = {"name": r[2], "price": r[4]}
+                if r[3]:
+                    item["description"] = r[3]
+                if r[5]:
+                    item["image"] = r[5]
+                item_toggles = json.loads(r[6]) if r[6] else []
                 if item_toggles:
                     item["toggles"] = item_toggles
-                if bool(r[6]):
+                if bool(r[7]):
                     item["allows_modifications"] = True
+                # Check for active gallery image
+                active_img = db.execute(
+                    "SELECT id FROM menu_item_images WHERE item_id = ? AND status = 'active' LIMIT 1",
+                    (r[0],)
+                ).fetchone()
+                if active_img:
+                    item["gallery_image_id"] = active_img[0]
                 items.append(item)
             sections.append({"name": cat[1], "icon": cat[2], "items": items})
 
@@ -182,25 +190,26 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
         mdb.commit()
 
         # Update loyalty if any phone provided
+        loyalty_info = None
         if loyalty_phone:
-            _update_loyalty(mdb, req.customer_name.strip(),
-                            loyalty_phone, req.total)
+            loyalty_info = _update_loyalty(
+                mdb, req.customer_name.strip(),
+                loyalty_phone, req.total, order_number)
     except Exception as e:
         logger.error(f"Turso venue_orders insert failed: {e}")
-
-    table_str = f" (Table {req.table_number})" if req.table_number else ""
+        loyalty_info = None
 
     # Telegram: GMAI Leads bot
     _send_telegram(
         TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
-        req.table_number, req.customer_phone,
+        req.table_number, req.customer_phone, loyalty_info,
     )
     # Telegram: Thai House Orders bot
     _send_telegram(
         THAI_HOUSE_BOT_TOKEN, THAI_HOUSE_CHAT_ID,
         items_list, req.total, req.customer_name.strip(), order_number,
-        req.table_number, req.customer_phone,
+        req.table_number, req.customer_phone, loyalty_info,
     )
 
     # Print queue
@@ -220,18 +229,23 @@ async def public_order(venue_slug: str, req: PublicOrderRequest, request: Reques
     return {"order_id": order_id, "order_number": order_number, "success": True}
 
 
-def _update_loyalty(db, name: str, phone: str, order_total: float):
-    """Create or update a loyalty member. Points are CUMULATIVE: floor(total_spent / 10)."""
+def _update_loyalty(db, name: str, phone: str, order_total: float, order_number: int = None):
+    """Create or update a loyalty member. Points are CUMULATIVE: floor(total_spent / 10).
+
+    Returns dict with loyalty info for Telegram, or None.
+    """
     import math
     phone = ''.join(c for c in phone if c.isdigit())
     if len(phone) < 7:
-        return
+        return None
     existing = db.execute(
-        "SELECT id, total_spent FROM loyalty_members WHERE phone = ?", (phone,)
+        "SELECT id, total_spent, points FROM loyalty_members WHERE phone = ?", (phone,)
     ).fetchone()
     if existing:
+        old_points = existing[2]
         new_spent = existing[1] + order_total
         new_points = math.floor(new_spent / 10)
+        earned = new_points - old_points
         db.execute(
             """UPDATE loyalty_members
                SET points = ?, total_spent = ?,
@@ -240,19 +254,35 @@ def _update_loyalty(db, name: str, phone: str, order_total: float):
                WHERE id = ?""",
             (new_points, new_spent, name, existing[0])
         )
+        if earned > 0:
+            db.execute(
+                "INSERT INTO loyalty_transactions (member_phone, type, points_change, order_number, note) "
+                "VALUES (?, 'earn', ?, ?, ?)",
+                (phone, earned, order_number, f"Order ${order_total:.2f}")
+            )
     else:
         initial_points = math.floor(order_total / 10)
+        earned = initial_points
+        new_points = initial_points
         db.execute(
             """INSERT INTO loyalty_members (name, phone, points, total_spent, visits, last_visit)
                VALUES (?, ?, ?, ?, 1, CURRENT_TIMESTAMP)""",
             (name, phone, initial_points, order_total)
         )
+        if earned > 0:
+            db.execute(
+                "INSERT INTO loyalty_transactions (member_phone, type, points_change, order_number, note) "
+                "VALUES (?, 'earn', ?, ?, ?)",
+                (phone, earned, order_number, f"Order ${order_total:.2f}")
+            )
     db.commit()
+    return {"points": new_points, "earned": earned}
 
 
 def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
                    customer_name: str, order_number: int,
-                   table_number: int = None, customer_phone: str = None):
+                   table_number: int = None, customer_phone: str = None,
+                   loyalty_info: dict = None):
     if not bot_token or not chat_id:
         return
     pt = timezone(timedelta(hours=-8))
@@ -260,30 +290,49 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
 
     item_lines = []
     for it in items:
-        line = f"  {it['quantity']}x {it['name']} -- ${it['price'] * it['quantity']:.2f}"
-        extras = []
-        # Toggle-based customizations
-        custs = it.get("customizations") or {}
-        for _tid, val in custs.items():
-            if val:
-                extras.append(str(val))
+        line_total = it['price'] * it['quantity']
+        line = f"{it['quantity']}x {it['name']} - ${line_total:.2f}"
         if it.get("is_drink_club"):
-            extras.append("DRINK CLUB")
-        if extras:
-            line += f"\n     > {', '.join(extras)}"
+            line += " [DRINK CLUB]"
+
+        # Customizations: handle both single-select (str) and multi-select (list)
+        custs = it.get("customizations") or {}
+        for tid, val in custs.items():
+            if not val:
+                continue
+            if tid == "sweetness":
+                line += f"\n   Sweetness: {val}"
+            elif isinstance(val, list):
+                # Multi-select (toppings) — show each on its own line
+                for v in val:
+                    line += f"\n   + {v} (+$0.35)"
+            else:
+                line += f"\n   {val}"
+
         if it.get("notes"):
-            line += f"\n     > {it['notes']}"
+            line += f"\n   Note: {it['notes']}"
         item_lines.append(line)
 
-    phone_line = f"\nPhone: {customer_phone}" if customer_phone else ""
-    table_line = f"\nTable: {table_number}" if table_number else ""
-    text = (
-        f"Thai House Menu Order #{order_number}\n"
-        f"{now_pt}\n"
-        f"Name: {customer_name}{phone_line}{table_line}\n\n"
-        f"Order:\n" + "\n".join(item_lines) + f"\n\n"
-        f"Total: ${total:.2f}"
-    )
+    # Header
+    header = f"\U0001f9cb Thai House Order #{order_number}"
+    lines = [header, ""]
+    lines.append(f"\U0001f464 Name: {customer_name}")
+    if customer_phone:
+        lines.append(f"\U0001f4f1 Phone: {customer_phone}")
+    if table_number:
+        lines.append(f"\U0001f37d Table: {table_number}")
+    if loyalty_info:
+        earned_str = f" (earned {loyalty_info['earned']} this order)" if loyalty_info.get("earned") else ""
+        lines.append(f"\u2b50 Loyalty: {loyalty_info['points']} points{earned_str}")
+    lines.append("")
+    lines.append("Order:")
+    for il in item_lines:
+        lines.append(il)
+    lines.append("")
+    lines.append(f"Subtotal: ${total:.2f}")
+    lines.append(f"\n{now_pt}")
+
+    text = "\n".join(lines)
     try:
         httpx.post(
             f"https://api.telegram.org/bot{bot_token}/sendMessage",
@@ -292,3 +341,78 @@ def _send_telegram(bot_token: str, chat_id: str, items: list, total: float,
         )
     except Exception:
         pass
+
+
+# ── Public Loyalty Endpoints ─────────────────────────────────────
+
+@router.get("/loyalty/lookup")
+async def public_loyalty_lookup(phone: str):
+    """Public loyalty lookup — returns points + available rewards."""
+    from app.services.turso import get_menu_db
+    db = get_menu_db()
+    clean_phone = ''.join(c for c in phone if c.isdigit())
+    if len(clean_phone) < 7:
+        return {"found": False}
+
+    row = db.execute(
+        "SELECT name, points, visits FROM loyalty_members WHERE phone = ?",
+        (clean_phone,)
+    ).fetchone()
+    if not row:
+        return {"found": False}
+
+    rewards = db.execute(
+        "SELECT id, points_required, description FROM loyalty_rewards WHERE active = 1 ORDER BY points_required"
+    ).fetchall()
+
+    return {
+        "found": True,
+        "name": row[0],
+        "points": row[1],
+        "visits": row[2],
+        "available_rewards": [
+            {"id": r[0], "points_required": r[1], "description": r[2]}
+            for r in rewards if r[1] <= row[1]
+        ],
+        "all_rewards": [
+            {"id": r[0], "points_required": r[1], "description": r[2]}
+            for r in rewards
+        ],
+    }
+
+
+class PublicRedeemRequest(BaseModel):
+    phone: str
+    reward_id: int
+
+
+@router.post("/loyalty/redeem")
+async def public_loyalty_redeem(req: PublicRedeemRequest):
+    """Public loyalty redemption — deducts points, logs transaction."""
+    from app.services.turso import get_menu_db
+    db = get_menu_db()
+    clean_phone = ''.join(c for c in req.phone if c.isdigit())
+
+    member = db.execute(
+        "SELECT id, points FROM loyalty_members WHERE phone = ?", (clean_phone,)
+    ).fetchone()
+    if not member:
+        raise HTTPException(status_code=404, detail="Member not found")
+
+    reward = db.execute(
+        "SELECT id, points_required, description FROM loyalty_rewards WHERE id = ? AND active = 1",
+        (req.reward_id,)
+    ).fetchone()
+    if not reward:
+        raise HTTPException(status_code=404, detail="Reward not found")
+    if member[1] < reward[1]:
+        raise HTTPException(status_code=400, detail="Not enough points")
+
+    db.execute("UPDATE loyalty_members SET points = points - ? WHERE id = ?", (reward[1], member[0]))
+    db.execute(
+        "INSERT INTO loyalty_transactions (member_phone, type, points_change, reward_id, note) "
+        "VALUES (?, 'redeem', ?, ?, ?)",
+        (clean_phone, -reward[1], reward[0], reward[2])
+    )
+    db.commit()
+    return {"success": True, "points_remaining": member[1] - reward[1]}
