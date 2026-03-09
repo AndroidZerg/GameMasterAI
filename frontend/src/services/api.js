@@ -289,6 +289,89 @@ export async function fetchMrrDashboard(venueId) {
   return handleResponse(res);
 }
 
+// ── SWP Rental Subscriptions ──
+
+export async function fetchRentalCheckoutSession(sessionId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/checkout-session?session_id=${encodeURIComponent(sessionId)}`);
+  return handleResponse(res);
+}
+
+export async function updateRentalProfile(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/profile/update`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchRentalProfile(stripeCustomerId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/profile?stripe_customer_id=${encodeURIComponent(stripeCustomerId)}`);
+  return handleResponse(res);
+}
+
+export async function fetchRentalCatalog(venueId = "shallweplay") {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/catalog?venue_id=${encodeURIComponent(venueId)}`);
+  return handleResponse(res);
+}
+
+export async function createRentalReservation(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/reserve`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function cancelRentalReservation(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/cancel-reservation`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function initiateRentalReturn(data) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/return`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchRentalBillingPortal(stripeCustomerId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/billing-portal?stripe_customer_id=${encodeURIComponent(stripeCustomerId)}`);
+  return handleResponse(res);
+}
+
+export async function fetchRentalAdminDashboard(venueId = "shallweplay") {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/dashboard?venue_id=${encodeURIComponent(venueId)}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function confirmRentalPickup(reservationId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/confirm-pickup`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({ reservation_id: reservationId }),
+  });
+  return handleResponse(res);
+}
+
+export async function confirmRentalReturn(reservationId) {
+  const res = await fetch(`${API_BASE}/api/v1/rentals/admin/confirm-return`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({ reservation_id: reservationId }),
+  });
+  return handleResponse(res);
+}
+
 // ── Orders ──
 
 export async function placeOrder(order) {

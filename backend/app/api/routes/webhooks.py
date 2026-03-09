@@ -14,6 +14,8 @@ logger = logging.getLogger(__name__)
 
 from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
 from app.models.drink_club import upsert_subscriber, update_subscriber_status
+from app.services.turso import get_swp_rental_db
+from app.services.discord_notify import send_discord_notification
 
 router = APIRouter(prefix="/api/v1/webhooks", tags=["webhooks"])
 
@@ -285,6 +287,125 @@ def _handle_subscription_deleted(subscription):
         conn.close()
 
 
+def _is_rental_checkout(metadata: dict) -> bool:
+    """Check if checkout session metadata indicates a rental subscription."""
+    return bool(
+        metadata.get("rental") or metadata.get("rental_subscription")
+        or metadata.get("product") == "game_rental"
+        or metadata.get("type") == "game_rental"
+    )
+
+
+async def _handle_rental_checkout(session):
+    """Rental checkout.session.completed — create subscriber record."""
+    email = (session.get("customer_details") or {}).get("email", "")
+    name = (session.get("customer_details") or {}).get("name", "")
+    phone = (session.get("customer_details") or {}).get("phone", "")
+    customer_id = session.get("customer", "")
+    subscription_id = session.get("subscription", "")
+    meta = session.get("metadata") or {}
+
+    if not email:
+        email = meta.get("email", "")
+    if not name:
+        name = meta.get("name", email)
+    if not phone:
+        phone = meta.get("phone", "")
+
+    if not customer_id:
+        logger.warning("[RENTAL WEBHOOK] No customer_id in checkout session")
+        return
+
+    db = get_swp_rental_db()
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
+    # Check if subscriber already exists
+    existing = db.execute(
+        "SELECT id FROM rental_subscribers_swp WHERE stripe_customer_id = ?",
+        (customer_id,),
+    ).fetchone()
+
+    if existing:
+        db.execute(
+            """UPDATE rental_subscribers_swp
+               SET stripe_subscription_id = ?, email = ?, name = ?, phone = ?,
+                   status = 'active', updated_at = ?
+               WHERE stripe_customer_id = ?""",
+            (subscription_id, email.lower(), name, phone, now, customer_id),
+        )
+    else:
+        db.execute(
+            """INSERT INTO rental_subscribers_swp
+               (stripe_customer_id, stripe_subscription_id, email, name, phone,
+                venue_id, status, credit_used, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, 'shallweplay', 'active', 0, ?, ?)""",
+            (customer_id, subscription_id, email.lower(), name, phone, now, now),
+        )
+    db.commit()
+
+    logger.info("[RENTAL WEBHOOK] Subscriber created/updated: %s (%s)", name, email)
+    await send_discord_notification(f"\U0001f389 New Subscriber: {name} ({email})")
+
+
+async def _handle_rental_subscription_deleted(subscription):
+    """Handle rental subscription cancellation."""
+    sub_id = subscription.get("id", "")
+    if not sub_id:
+        return
+
+    db = get_swp_rental_db()
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
+    sub = db.execute(
+        "SELECT * FROM rental_subscribers_swp WHERE stripe_subscription_id = ?",
+        (sub_id,),
+    ).fetchone()
+
+    if not sub:
+        return
+
+    # Get name — handle tuple or dict
+    name = sub["name"] if hasattr(sub, "keys") else sub[4]
+
+    db.execute(
+        "UPDATE rental_subscribers_swp SET status = 'cancelled', updated_at = ? WHERE stripe_subscription_id = ?",
+        (now, sub_id),
+    )
+    db.commit()
+
+    logger.info("[RENTAL WEBHOOK] Subscription cancelled: %s", name)
+    await send_discord_notification(f"\U0001f44b Subscription Cancelled: {name}")
+
+
+async def _handle_rental_payment_failed(invoice):
+    """Handle rental subscription payment failure."""
+    sub_id = invoice.get("subscription", "")
+    if not sub_id:
+        return
+
+    db = get_swp_rental_db()
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
+    sub = db.execute(
+        "SELECT * FROM rental_subscribers_swp WHERE stripe_subscription_id = ?",
+        (sub_id,),
+    ).fetchone()
+
+    if not sub:
+        return
+
+    name = sub["name"] if hasattr(sub, "keys") else sub[4]
+
+    db.execute(
+        "UPDATE rental_subscribers_swp SET status = 'past_due', updated_at = ? WHERE stripe_subscription_id = ?",
+        (now, sub_id),
+    )
+    db.commit()
+
+    logger.info("[RENTAL WEBHOOK] Payment failed: %s", name)
+    await send_discord_notification(f"\u26a0\ufe0f Payment Failed: {name}")
+
+
 def _is_drink_club_checkout(metadata: dict) -> bool:
     """Check if checkout session metadata indicates a Drink Club subscription.
 
@@ -333,11 +454,14 @@ async def stripe_webhook(request: Request):
         logger.info("[STRIPE WEBHOOK] customer_email=%s customer_name=%s",
                      customer_details.get("email"), customer_details.get("name"))
 
-        if _is_drink_club_checkout(meta):
+        if _is_rental_checkout(meta):
+            logger.info("[STRIPE WEBHOOK] Routing to rental handler")
+            await _handle_rental_checkout(data_object)
+        elif _is_drink_club_checkout(meta):
             logger.info("[STRIPE WEBHOOK] Routing to drink club handler")
             _handle_drink_club_checkout(data_object)
         else:
-            logger.warning("[STRIPE WEBHOOK] No drink_club metadata (keys: %s) — routing to venue handler",
+            logger.warning("[STRIPE WEBHOOK] No drink_club/rental metadata (keys: %s) — routing to venue handler",
                            list(meta.keys()))
             _handle_checkout_completed(data_object)
     elif event_type == "invoice.payment_succeeded":
@@ -345,11 +469,13 @@ async def stripe_webhook(request: Request):
     elif event_type == "invoice.payment_failed":
         _handle_invoice_failed(data_object)
         _handle_drink_club_sub_event(data_object, "past_due")
+        await _handle_rental_payment_failed(data_object)
     elif event_type == "customer.subscription.updated":
         _handle_drink_club_sub_update(data_object)
     elif event_type == "customer.subscription.deleted":
         _handle_subscription_deleted(data_object)
         _handle_drink_club_sub_event(data_object, "canceled")
+        await _handle_rental_subscription_deleted(data_object)
     elif event_type == "payment_intent.succeeded":
         _handle_payment_intent_succeeded(data_object)
     elif event_type == "charge.refunded":

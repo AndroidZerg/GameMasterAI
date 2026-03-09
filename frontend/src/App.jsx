@@ -39,6 +39,10 @@ import StaffPage from "./pages/StaffPage";
 import StaffRedeem from "./pages/StaffRedeem";
 import ThaiHouseAdmin from "./pages/ThaiHouseAdmin";
 import ThaiHouseDashboard from "./pages/ThaiHouseDashboard";
+import SWPRentalLanding from "./pages/swp/SWPRentalLanding";
+import SWPRentalWelcome from "./pages/swp/SWPRentalWelcome";
+import SWPRentalBrowse from "./pages/swp/SWPRentalBrowse";
+import SWPRentalProfile from "./pages/swp/SWPRentalProfile";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -175,6 +179,11 @@ function App() {
           <Route path="/thaihouse/staff/redeem" element={<StaffRedeem />} />
           <Route path="/thaihouse/admin" element={<ThaiHouseAdmin />} />
           <Route path="/thaihouse/dashboard" element={<ThaiHouseDashboard />} />
+          {/* SWP Rental routes — no app shell, no GMG auth */}
+          <Route path="/swp/rentals" element={<SWPRentalLanding />} />
+          <Route path="/swp/rentals/welcome" element={<SWPRentalWelcome />} />
+          <Route path="/swp/rentals/browse" element={<SWPRentalBrowse />} />
+          <Route path="/swp/rentals/profile" element={<SWPRentalProfile />} />
           {/* Main GMAI app */}
           <Route path="/*" element={<AppShell />} />
         </Routes>

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import HomeTab from "../components/venue/HomeTab";
 import AnalyticsDashboard from "./AnalyticsDashboard";
 import LibraryTab from "../components/venue/LibraryTab";
 import MenuTab from "../components/venue/MenuTab";
+import RentalsTab from "../components/venue/RentalsTab";
 
-const TABS = [
+const BASE_TABS = [
   { key: "home", label: "Home" },
   { key: "analytics", label: "Analytics" },
   { key: "library", label: "Library" },
@@ -24,6 +25,14 @@ const tabBar = {
 export default function VenueDashboard() {
   const [activeTab, setActiveTab] = useState("home");
   const { venueId } = useAuth();
+
+  const TABS = useMemo(() => {
+    const tabs = [...BASE_TABS];
+    if (venueId === "shallweplay") {
+      tabs.push({ key: "rentals", label: "Game Rentals" });
+    }
+    return tabs;
+  }, [venueId]);
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "20px 16px" }}>
@@ -60,6 +69,7 @@ export default function VenueDashboard() {
       {activeTab === "analytics" && <AnalyticsDashboard venueScope={venueId} />}
       {activeTab === "library" && <LibraryTab />}
       {activeTab === "menu" && <MenuTab />}
+      {activeTab === "rentals" && <RentalsTab />}
     </div>
   );
 }

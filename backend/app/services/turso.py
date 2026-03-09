@@ -546,6 +546,121 @@ def init_menu_tables():
     _seed_beverage_menu(db)
 
 
+def get_swp_rental_db():
+    """Return the shared Turso connection for SWP rental tables."""
+    return get_analytics_db()
+
+
+def init_swp_rental_tables():
+    """Create SWP rental subscription tables in Turso."""
+    db = get_swp_rental_db()
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS rental_subscribers_swp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            stripe_customer_id TEXT UNIQUE NOT NULL,
+            stripe_subscription_id TEXT UNIQUE,
+            email TEXT NOT NULL,
+            name TEXT NOT NULL,
+            phone TEXT,
+            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
+            status TEXT NOT NULL DEFAULT 'active',
+            credit_used INTEGER NOT NULL DEFAULT 0,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS rental_inventory_swp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
+            game_title TEXT NOT NULL,
+            game_id TEXT,
+            image_url TEXT,
+            copies_total INTEGER NOT NULL DEFAULT 1,
+            copies_available INTEGER NOT NULL DEFAULT 1,
+            status TEXT NOT NULL DEFAULT 'available',
+            current_renter_id INTEGER,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS rental_reservations_swp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subscriber_id INTEGER NOT NULL,
+            inventory_id INTEGER NOT NULL,
+            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
+            reservation_type TEXT NOT NULL DEFAULT 'new',
+            pickup_deadline TEXT NOT NULL,
+            return_deadline TEXT,
+            status TEXT NOT NULL DEFAULT 'pending',
+            checked_out_at TEXT,
+            returned_at TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS rental_history_swp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subscriber_id INTEGER NOT NULL,
+            inventory_id INTEGER NOT NULL,
+            game_title TEXT NOT NULL,
+            checked_out_at TEXT,
+            returned_at TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+
+    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_inv_swp_venue ON rental_inventory_swp(venue_id, status)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_res_swp_sub ON rental_reservations_swp(subscriber_id, status)")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_sub_swp_stripe ON rental_subscribers_swp(stripe_customer_id)")
+
+    db.commit()
+    logger.info("SWP rental tables initialized")
+
+
+def seed_swp_rental_inventory():
+    """Seed rental_inventory_swp from swp-rental-catalog.json if table is empty."""
+    import json as _json
+    from pathlib import Path
+
+    db = get_swp_rental_db()
+
+    count = db.execute("SELECT COUNT(*) FROM rental_inventory_swp").fetchone()[0]
+    if count > 0:
+        logger.info("SWP rental inventory already seeded (%d games), skipping", count)
+        return
+
+    catalog_path = Path(__file__).resolve().parents[3] / "content" / "swp-rental-catalog.json"
+    if not catalog_path.exists():
+        logger.warning("SWP rental catalog not found at %s — skipping seed", catalog_path)
+        return
+
+    with open(catalog_path, "r", encoding="utf-8") as f:
+        data = _json.load(f)
+
+    games = data.get("games", [])
+    inserted = 0
+    for game in games:
+        title = game.get("title", "").strip()
+        if not title:
+            continue
+        image_url = game.get("image_url", "")
+        db.execute(
+            """INSERT INTO rental_inventory_swp
+               (venue_id, game_title, image_url, copies_total, copies_available, status)
+               VALUES (?, ?, ?, 1, 1, 'available')""",
+            ("shallweplay", title, image_url),
+        )
+        inserted += 1
+
+    db.commit()
+    logger.info("SWP rental inventory seeded: %d games from catalog", inserted)
+
+
 def get_next_order_number(venue_id="meetup"):
     """Atomically increment and return the next order number (persisted in Turso)."""
     db = get_menu_db()
