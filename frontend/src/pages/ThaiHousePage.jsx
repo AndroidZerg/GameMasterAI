@@ -312,12 +312,14 @@ export default function ThaiHousePage() {
     const nextMondayCountdown = (() => {
       if (!claimedDrinkName) return null;
       const now = new Date();
-      // Next Monday 00:00 PT (UTC-8)
+      // Next Monday 10:00 AM Pacific
       const pt = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-      const daysUntilMon = (8 - pt.getDay()) % 7 || 7;
+      let daysUntilMon = (8 - pt.getDay()) % 7 || 7;
+      // If it's Monday before 10 AM, reset is today at 10 AM
+      if (pt.getDay() === 1 && pt.getHours() < 10) daysUntilMon = 0;
       const nextMon = new Date(pt);
       nextMon.setDate(pt.getDate() + daysUntilMon);
-      nextMon.setHours(0, 0, 0, 0);
+      nextMon.setHours(10, 0, 0, 0);
       const diff = nextMon - pt;
       const d = Math.floor(diff / 86400000);
       const h = Math.floor((diff % 86400000) / 3600000);
@@ -396,17 +398,13 @@ export default function ThaiHousePage() {
         <p style={{ color: THEME.textSecondary, margin: "4px 0 0", fontSize: 14 }}>
           Authentic Thai Cuisine
         </p>
+        {customerName && !phonePromptVisible && (
+          <p style={{ color: THEME.accent, margin: "6px 0 0", fontSize: 15, fontWeight: 600 }}>
+            Welcome back, {customerName}!
+          </p>
+        )}
         {tableNumber && (
           <div style={styles.tableBadge}>Table {tableNumber}</div>
-        )}
-        {/* "Not you?" link for returning customers */}
-        {(customerPhone || customerName) && !phonePromptVisible && (
-          <button
-            onClick={handleNotYou}
-            style={{ background: "none", border: "none", color: THEME.textSecondary, fontSize: 12, cursor: "pointer", marginTop: 6, textDecoration: "underline" }}
-          >
-            Not you? Tap to reset
-          </button>
         )}
       </header>
 
@@ -875,6 +873,14 @@ export default function ThaiHousePage() {
 
       {/* Footer */}
       <footer style={styles.footer}>
+        {(customerPhone || customerName) && !phonePromptVisible && (
+          <button
+            onClick={handleNotYou}
+            style={{ background: "none", border: "none", color: THEME.textSecondary, fontSize: 12, cursor: "pointer", marginBottom: 8, textDecoration: "underline" }}
+          >
+            Not you? Tap to reset
+          </button>
+        )}
         <a href="https://playgmg.com" target="_blank" rel="noopener noreferrer" style={{ color: THEME.textSecondary, textDecoration: "none", fontSize: 12 }}>
           Powered by GameMaster Guide
         </a>
@@ -890,12 +896,20 @@ function DrinkClubBanner({ drinkClub, drinkClubLoading, onActivateClaim, freeDri
   // Live countdown timer for claimed state
   useEffect(() => {
     if (!drinkClub?.redeemed_this_week || !drinkClub?.week_start) return;
-    const ws = new Date(drinkClub.week_start + "T00:00:00-08:00");
-    const nextMonday = new Date(ws.getTime() + 7 * 86400000);
+    // Next reset: following Monday at 10:00 AM Pacific
+    // Compute in Pacific time to handle any browser timezone
+    const getNextResetMs = () => {
+      const nowPt = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+      // week_start is the Monday that opened this eligibility window
+      const wsParts = drinkClub.week_start.split("-");
+      const wsMonday = new Date(+wsParts[0], +wsParts[1] - 1, +wsParts[2], 10, 0, 0);
+      // Next reset = 7 days after that Monday at 10 AM PT
+      const nextReset = new Date(wsMonday.getTime() + 7 * 86400000);
+      return nextReset - nowPt;
+    };
 
     const update = () => {
-      const now = new Date();
-      const diff = nextMonday - now;
+      const diff = getNextResetMs();
       if (diff <= 0) {
         setCountdown("");
         return;

@@ -1,12 +1,16 @@
 """Drink Club model — Turso (libsql) persistence for drink subscriptions and redemptions."""
 
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from app.services.turso import get_drink_club_db
 
-# Pacific timezone offset (PST = -8, PDT = -7). Using -8 as default.
-_PT_OFFSET = timezone(timedelta(hours=-8))
+# Pacific timezone — handles DST automatically (PST/PDT)
+_PACIFIC = ZoneInfo("America/Los_Angeles")
+
+# Weekly reset: every Monday at 10:00 AM Pacific
+_RESET_HOUR = 10
 
 
 def _db():
@@ -14,9 +18,17 @@ def _db():
 
 
 def _current_week_start() -> str:
-    """Monday 00:00 PT for the current week."""
-    now = datetime.now(_PT_OFFSET)
+    """Return the Monday date for the current eligibility window.
+
+    The week resets every Monday at 10:00 AM Pacific.
+    - Before Monday 10 AM → still previous week (use last Monday's date)
+    - After Monday 10 AM → new week (use this Monday's date)
+    """
+    now = datetime.now(_PACIFIC)
     monday = now - timedelta(days=now.weekday())
+    # If it's Monday but before the reset hour, we're still in last week
+    if now.weekday() == 0 and now.hour < _RESET_HOUR:
+        monday = monday - timedelta(days=7)
     return monday.strftime("%Y-%m-%d")
 
 

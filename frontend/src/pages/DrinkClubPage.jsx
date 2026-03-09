@@ -10,7 +10,7 @@ const DRINK_CLUB_LINK = import.meta.env.VITE_DRINK_CLUB_LINK || "https://buy.str
 
 const FAQS = [
   { q: "How does it work?", a: "Subscribe for $14.99/month. Each week (Monday-Sunday), you can redeem one specialty drink at Thai House. Just show your name or QR code to staff." },
-  { q: "When does my week reset?", a: "Every Monday at midnight Pacific Time. You get one drink per week, Monday through Sunday." },
+  { q: "When does my week reset?", a: "Every Monday at 10:00 AM Pacific Time. You get one drink per week." },
   { q: "Can I roll over unused drinks?", a: "No, each week is use-it-or-lose-it. One drink per week keeps it simple and valuable." },
   { q: "How do I cancel?", a: "You can cancel anytime through the member portal. Your subscription stays active through the end of the billing period." },
   { q: "Which drinks are included?", a: "All specialty drinks on our menu including Thai Iced Tea, Thai Iced Coffee, specialty fruit juices, and more. Ask your server for this week's featured drink!" },
