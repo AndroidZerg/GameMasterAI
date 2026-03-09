@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { THEME } from "./swpTheme";
 
-const STRIPE_LINK = "https://buy.stripe.com/3cI6oA4Yldsb5ne5UG5Vu01";
+const STRIPE_LINK = "https://buy.stripe.com/test_4gMcMY3UhfAj6ri96S5Vu00";
 
 export default function SWPRentalNav({ subscriberName }) {
   const location = useLocation();
