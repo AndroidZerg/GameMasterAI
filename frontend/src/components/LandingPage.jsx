@@ -87,8 +87,8 @@ function DemoModal({ onClose }) {
             <h3 style={{ color: "#ef4444", marginBottom: "8px" }}>Something went wrong</h3>
             <p style={{ color: "var(--text-secondary)" }}>
               Email us directly at{" "}
-              <a href="mailto:tim.minh.pham@gmail.com" style={{ color: "var(--accent)" }}>
-                tim.minh.pham@gmail.com
+              <a href="mailto:tim@playgmg.com" style={{ color: "var(--accent)" }}>
+                tim@playgmg.com
               </a>
             </p>
             <button

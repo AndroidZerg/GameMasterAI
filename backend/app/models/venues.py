@@ -55,7 +55,7 @@ def init_venues_table():
 
     # Ensure Tim's account is super_admin
     conn.execute(
-        "UPDATE venues SET role = 'super_admin' WHERE email = 'tim.minh.pham@gmail.com' OR venue_id = 'admin'"
+        "UPDATE venues SET role = 'super_admin' WHERE email = 'tim@playgmg.com' OR venue_id = 'admin'"
     )
     conn.commit()
     conn.close()

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameMaster Guide — Turn Any Venue Into a Board Game Destination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1226;
+    --navy-mid: #131D3A;
+    --navy-light: #1A2747;
+    --coral: #FF6B4A;
+    --coral-light: #FF8A70;
+    --coral-glow: rgba(255, 107, 74, 0.15);
+    --gold: #F5C542;
+    --gold-light: #FFE08A;
+    --teal: #2DD4BF;
+    --teal-dark: #14B8A6;
+    --white: #F8FAFC;
+    --gray-100: #E2E8F0;
+    --gray-300: #94A3B8;
+    --gray-500: #64748B;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11,18,38,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    color: var(--gray-300);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--coral) !important;
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 24px rgba(255,107,74,0.4);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,107,74,0.12) 0%, transparent 70%);
+    top: -100px;
+    right: -200px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-glow-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(45,212,191,0.08) 0%, transparent 70%);
+    bottom: -50px;
+    left: -150px;
+    pointer-events: none;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -20px); }
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: var(--coral-glow);
+    border: 1px solid rgba(255,107,74,0.25);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--coral-light);
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--coral);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    max-width: 900px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--coral);
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--gray-300);
+    max-width: 640px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 36px;
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255,107,74,0.35);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 36px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 48px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    z-index: 1;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--coral);
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ─── SEGMENTS ─── */
+  .segments {
+    padding: 100px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .segments-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 72px;
+  }
+  .segments-header .tag {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .segments-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .segments-header p {
+    color: var(--gray-300);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .segment-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .segment-card {
+    background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .segment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .segment-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .segment-card:hover::before { opacity: 1; }
+
+  .segment-card:nth-child(1)::before { background: var(--coral); }
+  .segment-card:nth-child(2)::before { background: var(--teal); }
+  .segment-card:nth-child(3)::before { background: var(--gold); }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+  .segment-card:nth-child(1) .card-icon { background: rgba(255,107,74,0.12); }
+  .segment-card:nth-child(2) .card-icon { background: rgba(45,212,191,0.12); }
+  .segment-card:nth-child(3) .card-icon { background: rgba(245,197,66,0.12); }
+
+  .card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .segment-card:nth-child(1) .card-label { color: var(--coral); }
+  .segment-card:nth-child(2) .card-label { color: var(--teal); }
+  .segment-card:nth-child(3) .card-label { color: var(--gold); }
+
+  .segment-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .segment-card .desc {
+    color: var(--gray-300);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 0.92rem;
+    color: var(--gray-100);
+    line-height: 1.5;
+  }
+  .feature-list .check {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    margin-top: 2px;
+  }
+  .segment-card:nth-child(1) .check { background: rgba(255,107,74,0.15); color: var(--coral); }
+  .segment-card:nth-child(2) .check { background: rgba(45,212,191,0.15); color: var(--teal); }
+  .segment-card:nth-child(3) .check { background: rgba(245,197,66,0.15); color: var(--gold); }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .segment-card:nth-child(1) .card-cta {
+    background: var(--coral);
+    color: var(--white);
+  }
+  .segment-card:nth-child(1) .card-cta:hover {
+    box-shadow: 0 4px 20px rgba(255,107,74,0.4);
+    transform: translateY(-1px);
+  }
+  .segment-card:nth-child(2) .card-cta {
+    background: var(--teal-dark);
+    color: var(--white);
+  }
+  .segment-card:nth-child(2) .card-cta:hover {
+    box-shadow: 0 4px 20px rgba(45,212,191,0.4);
+    transform: translateY(-1px);
+  }
+  .segment-card:nth-child(3) .card-cta {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .segment-card:nth-child(3) .card-cta:hover {
+    box-shadow: 0 4px 20px rgba(245,197,66,0.4);
+    transform: translateY(-1px);
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-it-works {
+    padding: 100px 24px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent, rgba(255,107,74,0.03), transparent);
+  }
+  .how-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+  }
+  .how-header .tag {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--coral-light);
+    margin-bottom: 16px;
+  }
+  .how-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .how-header p {
+    color: var(--gray-300);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .step {
+    text-align: center;
+    padding: 32px 20px;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--coral);
+    opacity: 0.25;
+    margin-bottom: 12px;
+  }
+  .step h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .step p {
+    color: var(--gray-300);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* ─── SAVINGS CALLOUT ─── */
+  .savings {
+    padding: 80px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .savings-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+    border: 1px solid rgba(255,107,74,0.2);
+    border-radius: 24px;
+    padding: 64px 56px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .savings-card::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,107,74,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .savings-left { flex: 1; }
+  .savings-left h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .savings-left p {
+    color: var(--gray-300);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .savings-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .savings-old {
+    font-size: 1rem;
+    color: var(--gray-500);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .savings-price {
+    font-family: 'Fraunces', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--coral);
+  }
+  .savings-price span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gray-300);
+  }
+  .savings-note {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+  .savings-badge {
+    margin-top: 16px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: rgba(45,212,191,0.12);
+    border: 1px solid rgba(45,212,191,0.25);
+    color: var(--teal);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing {
+    padding: 100px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .pricing-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+  }
+  .pricing-header .tag {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .pricing-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .pricing-header p {
+    color: var(--gray-300);
+    font-size: 1.05rem;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .price-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s;
+  }
+  .price-card.featured {
+    border-color: var(--coral);
+    position: relative;
+  }
+  .price-card.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--coral);
+    padding: 4px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .price-card:hover { border-color: rgba(255,255,255,0.15); }
+  .price-tier {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+  }
+  .price-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+  .price-amount span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-500);
+  }
+  .price-desc {
+    color: var(--gray-300);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .price-features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+  }
+  .price-features li {
+    font-size: 0.9rem;
+    color: var(--gray-100);
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .price-features li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+  .price-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 100px;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .price-card:not(.featured) .price-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+  }
+  .price-card:not(.featured) .price-btn:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .price-card.featured .price-btn {
+    background: var(--coral);
+    color: var(--white);
+  }
+  .price-card.featured .price-btn:hover {
+    box-shadow: 0 4px 20px rgba(255,107,74,0.4);
+    transform: translateY(-1px);
+  }
+  .founding {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(245,197,66,0.06);
+    border: 1px solid rgba(245,197,66,0.15);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .founding strong { color: var(--gold); }
+  .founding p {
+    color: var(--gray-300);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* ─── CTA SECTION ─── */
+  .final-cta {
+    padding: 100px 24px 120px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .final-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta p {
+    color: var(--gray-300);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta .hero-actions { margin-bottom: 24px; }
+  .final-contact {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+  }
+  .final-contact a {
+    color: var(--coral-light);
+    text-decoration: none;
+  }
+  .final-contact a:hover { text-decoration: underline; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer a { color: var(--gray-300); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .stats-bar { gap: 28px; flex-wrap: wrap; }
+    .stat-num { font-size: 1.8rem; }
+    .savings-card {
+      flex-direction: column;
+      padding: 40px 28px;
+      gap: 32px;
+      text-align: center;
+    }
+    .segment-cards { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">GameMaster <span>Guide</span></div>
+  <div class="nav-links">
+    <a href="#solutions">Solutions</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Now onboarding Founding Partners
+  </div>
+  <h1>Turn any table into a<br><em>game night</em></h1>
+  <p class="hero-sub">
+    AI-powered tablets that teach board games, take orders, and keep customers playing longer. Built for cafes, restaurants, and game shops.
+  </p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Start Your Free Pilot →</a>
+    <a href="#solutions" class="btn-secondary">See How It Works</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">200+</div>
+    <div class="stat-label">Games in Library</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">70%</div>
+    <div class="stat-label">Less Staff Teaching Time</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">$0</div>
+    <div class="stat-label">Setup Cost</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">92%</div>
+    <div class="stat-label">Savings vs. Dedicated Staff</div>
+  </div>
+</div>
+
+<!-- SEGMENTS -->
+<section class="segments" id="solutions">
+  <div class="segments-header">
+    <div class="tag">Built for You</div>
+    <h2>Three ways to grow with board games</h2>
+    <p>Whether you're adding games to your venue, upgrading your shop, or connecting with local businesses, GameMaster Guide has you covered.</p>
+  </div>
+
+  <div class="segment-cards">
+
+    <!-- CARD 1: Cafes & Restaurants -->
+    <div class="segment-card">
+      <div class="card-icon">☕</div>
+      <div class="card-label">Cafes & Restaurants</div>
+      <h3>Add a board game experience without the overhead</h3>
+      <p class="desc">
+        Turn empty tables into game nights. Customers learn games on AI-powered tablets while ordering food and drinks. No trained game staff needed.
+      </p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span>Voice AI teaches setup, rules, and strategy at every table</li>
+        <li><span class="check">✓</span>Built-in F&B ordering keeps revenue flowing mid-game</li>
+        <li><span class="check">✓</span>200+ game library, curated for your audience</li>
+        <li><span class="check">✓</span>Score tracking, timers, and multiplayer lobby sync</li>
+        <li><span class="check">✓</span>Custom branding with your venue's look and feel</li>
+        <li><span class="check">✓</span>No inventory expertise required. We handle the game knowledge.</li>
+      </ul>
+      <a href="#contact" class="card-cta">Start Your Pilot →</a>
+    </div>
+
+    <!-- CARD 2: Game Shops -->
+    <div class="segment-card">
+      <div class="card-icon">🎲</div>
+      <div class="card-label">Board Game Shops</div>
+      <h3>Sell more games by letting customers play first</h3>
+      <p class="desc">
+        Give every customer the confidence to buy. AI-guided demos on the sales floor, plus subscription programs and POS integration to drive recurring revenue.
+      </p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span>In-store demo tablets teach any game in your inventory</li>
+        <li><span class="check">✓</span>Monthly game subscription and rent-to-buy programs</li>
+        <li><span class="check">✓</span>POS integration to upsell accessories, expansions, and snacks</li>
+        <li><span class="check">✓</span>Game night hosting tools with multiplayer lobbies</li>
+        <li><span class="check">✓</span>Customer engagement analytics to see what sells</li>
+        <li><span class="check">✓</span>Staff freed from teaching duties to focus on selling</li>
+      </ul>
+      <a href="#contact" class="card-cta">Start Your Pilot →</a>
+    </div>
+
+    <!-- CARD 3: Suppliers -->
+    <div class="segment-card">
+      <div class="card-icon">🏪</div>
+      <div class="card-label">Game Shop Suppliers</div>
+      <h3>Connect your inventory to a growing network of venues</h3>
+      <p class="desc">
+        Local cafes and restaurants are adding board games but don't know where to source them. Become their go-to supplier through the GameMaster Guide network.
+      </p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span>Get listed as a preferred supplier for venues in your area</li>
+        <li><span class="check">✓</span>Venue owners browse and request games from your catalog</li>
+        <li><span class="check">✓</span>Real-time demand signals: see what games venues are playing most</li>
+        <li><span class="check">✓</span>Bulk order coordination for new venue game libraries</li>
+        <li><span class="check">✓</span>Cross-promotion: your shop featured in the app at partner venues</li>
+        <li><span class="check">✓</span>First-mover advantage in an untapped B2B channel</li>
+      </ul>
+      <a href="#contact" class="card-cta">Join the Network →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="how-header">
+    <div class="tag">How It Works</div>
+    <h2>Live in 30 days. No tech team required.</h2>
+    <p>We handle everything from setup to training. You just turn on the tablets.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Pick Your Games</h4>
+      <p>Choose from 200+ titles or tell us your collection. We build your custom library.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Set Up Your Menu</h4>
+      <p>Add your food and drink menu so customers can order without leaving the table.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Place the Tablets</h4>
+      <p>Tablets go on your tables. Customers tap a game and the AI walks them through it.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Watch It Work</h4>
+      <p>Track sessions, popular games, order volume, and ROI from your owner dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS CALLOUT -->
+<section class="savings">
+  <div class="savings-card">
+    <div class="savings-left">
+      <h3>A game teacher costs $2,400 to $4,800 a month</h3>
+      <p>Hiring someone to teach board games full-time is expensive, hard to staff, and doesn't scale. GameMaster Guide teaches every game in your library simultaneously, across every table, for a fraction of the cost.</p>
+      <a href="#pricing" class="btn-primary">See Pricing →</a>
+    </div>
+    <div class="savings-right">
+      <div class="savings-old">$2,400–$4,800/mo</div>
+      <div class="savings-price">$149 <span>/mo</span></div>
+      <div class="savings-note">Starting price</div>
+      <div class="savings-badge">Up to 98% savings</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header">
+    <div class="tag">Pricing</div>
+    <h2>Simple, transparent pricing</h2>
+    <p>Per location. Month-to-month. Cancel anytime.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount">$149 <span>/mo</span></div>
+      <p class="price-desc">Perfect for trying board games at your venue</p>
+      <ul class="price-features">
+        <li>50 games</li>
+        <li>1 tablet</li>
+        <li>Voice AI game teaching</li>
+        <li>Score tracking</li>
+        <li>Basic support</li>
+      </ul>
+      <a href="#contact" class="price-btn">Get Started</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-tier">Standard</div>
+      <div class="price-amount">$299 <span>/mo</span></div>
+      <p class="price-desc">Full experience for established venues</p>
+      <ul class="price-features">
+        <li>200 games</li>
+        <li>4 tablets</li>
+        <li>Custom venue branding</li>
+        <li>F&B menu ordering</li>
+        <li>Staff Picks & Game of the Day</li>
+        <li>Game sales prompts</li>
+      </ul>
+      <a href="#contact" class="price-btn">Get Started</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount">$499 <span>/mo</span></div>
+      <p class="price-desc">For venues going all-in on games</p>
+      <ul class="price-features">
+        <li>200+ games</li>
+        <li>Unlimited tablets + QR</li>
+        <li>Multiplayer lobby sync</li>
+        <li>Advanced analytics</li>
+        <li>API access</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#contact" class="price-btn">Get Started</a>
+    </div>
+  </div>
+
+  <div class="founding">
+    <p><strong>Founding Partner Program:</strong> The first 3 venues get a free 30-day pilot. No credit card. No commitment. Just results.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <h2>Ready to fill your tables?</h2>
+  <p>Book a 15-minute call or start your free pilot today. We'll have you live in under a week.</p>
+  <div class="hero-actions">
+    <a href="mailto:tim@playgmg.com?subject=GameMaster%20Guide%20—%20Interested%20in%20a%20Pilot" class="btn-primary">Book a Call →</a>
+    <a href="https://playgmg.com/signup" class="btn-secondary">Try the Demo</a>
+  </div>
+  <p class="final-contact">Or email us directly: <a href="mailto:tim@playgmg.com">tim@playgmg.com</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 GameMaster Guide. All rights reserved. &nbsp;·&nbsp; <a href="https://playgmg.com">playgmg.com</a></p>
+</footer>
+
+</body>
+</html>

@@ -12,23 +12,23 @@ if _env_file.exists():
 
 # ── LLM Configuration ────────────────────────────────────────────
 # LLM_MODE controls which LLM backend to use:
-#   "openai-direct" = Production (Render) — hits OpenAI API directly
+#   "anthropic"     = Production (Render) — hits Anthropic Messages API
 #   "gateway"       = Local dev (K2-PC) — hits OpenClaw Gateway on port 18789
-#   "anthropic"     = Anthropic Messages API (fallback)
-LLM_MODE = os.getenv("LLM_MODE", "gateway")
+#   "openai-direct" = Legacy OpenAI API fallback
+LLM_MODE = os.getenv("LLM_MODE", "anthropic")
 
-# OpenAI Direct mode (production)
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+# Anthropic mode (production default)
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", os.getenv("LLM_API_KEY", ""))
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5-20250929")
 
-# Gateway / OpenAI-compatible mode (local dev: OpenClaw Gateway, prod: OpenRouter)
+# Gateway / OpenAI-compatible mode (local dev: OpenClaw Gateway)
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://127.0.0.1:18789/v1")
 LLM_AUTH_TOKEN = os.getenv("LLM_API_KEY", os.getenv("LLM_AUTH_TOKEN", "780a902774909bb7f47b82006b91724aec59b79f795ac401"))
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-5.3-codex")
 
-# Anthropic mode (fallback)
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-haiku-4-5")
+# OpenAI Direct mode (legacy fallback)
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 # ── CORS ──────────────────────────────────────────────────────────
 CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:3100")

@@ -186,8 +186,8 @@ export default function LoginPage() {
           fontSize: "0.8rem", color: "#64748b",
         }}>
           Questions? Contact{" "}
-          <a href="mailto:tim.minh.pham@gmail.com" style={{ color: "#94a3b8", textDecoration: "underline" }}>
-            tim.minh.pham@gmail.com
+          <a href="mailto:tim@playgmg.com" style={{ color: "#94a3b8", textDecoration: "underline" }}>
+            tim@playgmg.com
           </a>
         </p>
       </div>
