@@ -43,6 +43,7 @@ import SWPRentalLanding from "./pages/swp/SWPRentalLanding";
 import SWPRentalWelcome from "./pages/swp/SWPRentalWelcome";
 import SWPRentalBrowse from "./pages/swp/SWPRentalBrowse";
 import SWPRentalProfile from "./pages/swp/SWPRentalProfile";
+import LandingPage from "./components/LandingPage";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -132,6 +133,7 @@ function AppShell() {
       {showIdlePrompt && <IdlePrompt onDismiss={dismissIdlePrompt} />}
       <Routes>
         <Route path="/" element={<RootRedirect />} />
+        <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/play" element={<PlayLanding />} />
