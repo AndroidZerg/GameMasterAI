@@ -57,6 +57,7 @@ def init_db():
         "play_time_max INTEGER DEFAULT 0",
         "public_domain INTEGER DEFAULT 0",
         "publisher_approved INTEGER DEFAULT 0",
+        "publisher_tag TEXT DEFAULT ''",
     ):
         try:
             conn.execute(f"ALTER TABLE games ADD COLUMN {col}")
@@ -90,8 +91,8 @@ def rebuild_db():
             """INSERT OR REPLACE INTO games
                (game_id, title, aliases, player_count_min, player_count_max,
                 play_time_min, play_time_max, complexity, categories,
-                public_domain, publisher_approved)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                public_domain, publisher_approved, publisher_tag)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 g.get("game_id", ""),
                 g.get("title", ""),
@@ -104,6 +105,7 @@ def rebuild_db():
                 json.dumps(g.get("categories", [])),
                 1 if g.get("public_domain") else 0,
                 1 if g.get("publisher_approved") else 0,
+                g.get("publisher_tag", ""),
             ),
         )
     conn.commit()
@@ -253,6 +255,28 @@ def get_quick_games(max_time: int = 30) -> list[dict]:
         (max_time,),
     ).fetchall()
     conn.close()
+    return [_row_to_dict(row) for row in rows]
+
+
+def search_by_publisher_tag(tag: str, search: Optional[str] = None, complexity: Optional[str] = None) -> list[dict]:
+    """Return only games with a specific publisher_tag (e.g. 'stonemaier')."""
+    conn = _get_conn()
+    query = "SELECT * FROM games WHERE publisher_tag = ?"
+    params: list = [tag]
+
+    if search:
+        query += " AND (title LIKE ? OR aliases LIKE ?)"
+        term = f"%{search}%"
+        params.extend([term, term])
+
+    if complexity:
+        query += " AND complexity = ?"
+        params.append(complexity)
+
+    query += " ORDER BY title"
+    rows = conn.execute(query, params).fetchall()
+    conn.close()
+
     return [_row_to_dict(row) for row in rows]
 
 

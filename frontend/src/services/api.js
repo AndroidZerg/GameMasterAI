@@ -92,6 +92,15 @@ export async function signupConvention(email, trial = false) {
   return handleResponse(res);
 }
 
+export async function signupStonemaier(firstName, email) {
+  const res = await fetch(`${API_BASE}/api/auth/signup/stonemaier`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ first_name: firstName, email }),
+  });
+  return handleResponse(res);
+}
+
 export async function guestAuth(venueSlug, table) {
   const params = new URLSearchParams({ venue: venueSlug });
   if (table != null) params.set("table", table);

@@ -10,6 +10,7 @@ from pydantic import BaseModel
 
 from app.core.auth import get_current_venue
 from app.models.venues import update_venue_config, get_venue_by_id, set_venue_collection, get_venue_collection, get_all_venues
+from app.services.turso import get_all_signups
 from app.services.admin_config import (
     get_meetup_enabled, set_meetup_enabled,
     get_featured, set_featured, get_staff_picks, set_staff_picks,
@@ -214,3 +215,13 @@ async def clear_recent_games(venue: dict = Depends(get_current_venue)):
     if not success:
         raise HTTPException(status_code=500, detail="Failed to persist clear timestamp")
     return {"status": "ok", "clear_recent_ts": get_clear_recent_ts()}
+
+
+# ── Signups List (super_admin only) ───────────────────────────────
+
+@router.get("/signups")
+async def list_signups(venue: dict = Depends(get_current_venue)):
+    """Return all signups from Turso. Super admin only."""
+    _require_super_admin(venue)
+    signups = get_all_signups()
+    return {"signups": signups, "count": len(signups)}

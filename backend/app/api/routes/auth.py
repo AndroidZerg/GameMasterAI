@@ -1,10 +1,15 @@
-"""Auth endpoints — login, verify, logout, register, convention signup."""
+"""Auth endpoints — login, verify, logout, register, convention signup, Stonemaier signup."""
 
+import logging
+import os
 import re
 import hashlib
+import secrets
+import uuid
 from datetime import datetime, timezone
 from typing import Optional
 
+import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel
 from slowapi import Limiter
@@ -15,8 +20,15 @@ from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
     get_venue_by_id, get_venue_by_username, set_venue_collection, get_venue_collection,
 )
-from app.models.game import search_games, search_limited_library
+from app.models.game import search_games, search_limited_library, search_by_publisher_tag
 from app.services.admin_config import get_meetup_enabled
+from app.services.turso import insert_signup
+
+logger = logging.getLogger(__name__)
+
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 limiter = Limiter(key_func=get_remote_address)
@@ -318,4 +330,172 @@ async def convention_signup(req: SignupRequest, request: Request,
         "venue_name": "Dice Tower West Attendee",
         "role": role,
         "expires_at": expires_at,
+    }
+
+
+# ── Stonemaier / Dice Tower signup ──────────────────────────────
+
+
+class StonemaierSignupRequest(BaseModel):
+    first_name: str
+    email: str
+
+
+def _generate_password(length: int = 8) -> str:
+    """Generate a random alphanumeric password."""
+    alphabet = "abcdefghjkmnpqrstuvwxyz23456789"  # no ambiguous chars
+    return "".join(secrets.choice(alphabet) for _ in range(length))
+
+
+def _send_signup_telegram(first_name: str, email: str, password: str):
+    """Fire-and-forget Telegram notification for new signup."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    now_pacific = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    text = (
+        f"\U0001F3AE New Dice Tower Signup\n"
+        f"\U0001F464 {first_name}\n"
+        f"\U0001F4E7 {email}\n"
+        f"\U0001F550 {now_pacific}\n"
+        f"\U0001F511 Password: {password}\n"
+        f"\U0001F4CD Source: dicetower2026"
+    )
+    try:
+        httpx.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": text},
+            timeout=10,
+        )
+    except Exception:
+        pass
+
+
+def _send_signup_email(first_name: str, email: str, password: str):
+    """Send welcome email via Resend. Logs content if API key not set."""
+    subject = "You're in \u2014 GameMaster Guide"
+    html_body = f"""<div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 24px;">
+<p>Hi {first_name},</p>
+<p>You now have access to <strong>GameMaster Guide</strong> \u2014 the AI that teaches board games by voice.</p>
+<p><strong>Log in here:</strong> <a href="https://playgmg.com">https://playgmg.com</a><br/>
+<strong>Email:</strong> {email}<br/>
+<strong>Password:</strong> {password}</p>
+<p>You'll see the full Stonemaier Games collection: Wingspan, Wyrmspan, Scythe, Tapestry, Viticulture, and more.</p>
+<p>See you at Dice Tower.<br/>
+\u2014 Tim, GameMaster Guide<br/>
+<a href="mailto:tim@playgmg.com">tim@playgmg.com</a> | <a href="https://playgmg.com">playgmg.com</a></p>
+</div>"""
+    text_body = (
+        f"Hi {first_name},\n\n"
+        f"You now have access to GameMaster Guide \u2014 the AI that teaches board games by voice.\n\n"
+        f"Log in here: https://playgmg.com\n"
+        f"Email: {email}\n"
+        f"Password: {password}\n\n"
+        f"You'll see the full Stonemaier Games collection: Wingspan, Wyrmspan, Scythe, Tapestry, Viticulture, and more.\n\n"
+        f"See you at Dice Tower.\n"
+        f"\u2014 Tim, GameMaster Guide\n"
+        f"tim@playgmg.com | playgmg.com"
+    )
+
+    if not RESEND_API_KEY:
+        logger.info(f"[EMAIL FALLBACK] Would send to {email}:\nSubject: {subject}\n{text_body}")
+        return
+
+    try:
+        httpx.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {RESEND_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "from": "Tim at GameMaster Guide <tim@playgmg.com>",
+                "to": [email],
+                "subject": subject,
+                "html": html_body,
+                "text": text_body,
+            },
+            timeout=10,
+        )
+    except Exception as e:
+        logger.warning(f"Resend email failed for {email}: {e}")
+
+
+@router.post("/signup/stonemaier")
+@limiter.limit("10/hour")
+async def stonemaier_signup(req: StonemaierSignupRequest, request: Request):
+    """Stonemaier / Dice Tower signup — first_name + email, instant access."""
+    if not req.first_name or not req.first_name.strip():
+        raise HTTPException(status_code=400, detail="First name is required")
+    if not req.email or not req.email.strip():
+        raise HTTPException(status_code=400, detail="Email is required")
+
+    first_name = req.first_name.strip()
+    email = req.email.strip().lower()
+
+    # Check if email already registered — if so, log them in
+    existing = get_venue_by_email(email)
+    if existing:
+        role = existing.get("role", "stonemaier")
+        token = create_token(existing["venue_id"], existing["venue_name"], role=role)
+        update_venue_login(existing["venue_id"])
+        return {
+            "token": token,
+            "venue_id": existing["venue_id"],
+            "venue_name": existing["venue_name"],
+            "role": role,
+            "first_name": first_name,
+        }
+
+    # Generate venue_id
+    email_prefix = email.split("@")[0]
+    venue_id = re.sub(r"[^a-z0-9]+", "-", email_prefix.lower()).strip("-")
+    venue_id = f"sm-{venue_id}"
+    if get_venue_by_id(venue_id):
+        venue_id = f"{venue_id}-{abs(hash(email)) % 10000}"
+
+    # Generate password
+    raw_password = _generate_password()
+    pw_hash = hash_password(raw_password)
+
+    # Create venue account
+    create_venue(
+        venue_id=venue_id,
+        venue_name=first_name,
+        email=email,
+        password_hash=pw_hash,
+        role="stonemaier",
+        source="dicetower2026",
+    )
+
+    # Set collection to Stonemaier games
+    sm_games = search_by_publisher_tag("stonemaier")
+    sm_ids = [g["game_id"] for g in sm_games]
+    if sm_ids:
+        set_venue_collection(venue_id, sm_ids)
+
+    # Store in Turso signups table
+    ip_address = request.headers.get("x-forwarded-for", request.client.host if request.client else "unknown")
+    insert_signup(
+        signup_id=str(uuid.uuid4()),
+        first_name=first_name,
+        email=email,
+        source="dicetower2026",
+        role="stonemaier",
+        signed_up_at=datetime.now(timezone.utc).isoformat(),
+        ip_address=ip_address,
+        password_hash=pw_hash,
+        raw_password=raw_password,
+    )
+
+    # Fire-and-forget: Telegram + Email
+    _send_signup_telegram(first_name, email, raw_password)
+    _send_signup_email(first_name, email, raw_password)
+
+    token = create_token(venue_id, first_name, role="stonemaier")
+    return {
+        "token": token,
+        "venue_id": venue_id,
+        "venue_name": first_name,
+        "role": "stonemaier",
+        "first_name": first_name,
     }

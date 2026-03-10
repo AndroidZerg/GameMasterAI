@@ -271,6 +271,7 @@ export default function LandingPage() {
       {/* ── Hero ── */}
       <section className="lp-hero-split">
         <div className="lp-hero-text">
+          <img src="/images/gmg-logo.png" alt="GameMaster Guide" style={{ height: "36px", width: "auto", marginBottom: "20px" }} />
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.5rem)", fontWeight: 800, marginBottom: "16px", lineHeight: 1.2 }}>
             Turn Any Table Into a Game Night
           </h1>

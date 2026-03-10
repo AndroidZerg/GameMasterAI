@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { signupConvention } from "../services/api";
+import { signupStonemaier } from "../services/api";
 
 export default function SignupPage() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
   const { isLoggedIn, login } = useAuth();
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const isTrial = searchParams.get("trial") === "true";
+  const [toast, setToast] = useState("");
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -25,14 +24,27 @@ export default function SignupPage() {
     setLoading(true);
 
     try {
-      const data = await signupConvention(email, isTrial);
-      login(data.token, data.venue_id, data.venue_name, data.role, "convention");
-      navigate("/games", { replace: true });
+      const data = await signupStonemaier(firstName, email);
+      login(data.token, data.venue_id, data.venue_name, data.role, "active");
+      setToast(`Welcome, ${data.first_name || firstName}! You're in. \uD83C\uDFAE`);
+      setTimeout(() => navigate("/games", { replace: true }), 1200);
     } catch (err) {
       setError(err.message || "Signup failed. Please try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "12px 14px",
+    borderRadius: "10px",
+    border: "1px solid #334155",
+    background: "#0f172a",
+    color: "#fff",
+    fontSize: "1rem",
+    outline: "none",
+    boxSizing: "border-box",
   };
 
   return (
@@ -41,24 +53,29 @@ export default function SignupPage() {
       minHeight: "100vh", padding: "20px",
       background: "#0f172a",
     }}>
-      <div style={{ width: "100%", maxWidth: "400px" }}>
+      <div style={{ width: "100%", maxWidth: "420px" }}>
+        {/* Toast */}
+        {toast && (
+          <div style={{
+            position: "fixed", top: "20px", left: "50%", transform: "translateX(-50%)",
+            background: "#166534", color: "#fff", padding: "12px 24px",
+            borderRadius: "12px", fontSize: "1rem", fontWeight: 600,
+            zIndex: 9999, boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+          }}>
+            {toast}
+          </div>
+        )}
+
         {/* Logo & heading */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <div style={{
-            width: "64px", height: "64px", borderRadius: "16px",
-            background: "var(--accent, #e94560)", margin: "0 auto 16px",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: "1.8rem",
-          }}>
-            {"\uD83C\uDFB2"}
-          </div>
-          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", margin: "0 0 6px" }}>
-            {isTrial ? "Start Your Free Trial" : "Try GameMaster Guide Free"}
+          <img src="/images/gmg-logo.png" alt="GameMaster Guide" style={{ height: "64px", width: "auto", marginBottom: "24px" }} />
+          <h1 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>
+            Try it free at Dice Tower
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: "0.9rem", margin: 0 }}>
-            {isTrial
-              ? "Start your free 30-day trial"
-              : "Enter your email to get instant access"}
+          <p style={{ color: "#94a3b8", fontSize: "0.95rem", margin: 0, lineHeight: 1.5 }}>
+            Get instant access to the Stonemaier Games collection.
+            <br />
+            No credit card. No commitment.
           </p>
         </div>
 
@@ -85,9 +102,25 @@ export default function SignupPage() {
           padding: "28px",
           border: "1px solid #334155",
         }}>
+          <div style={{ marginBottom: "16px" }}>
+            <label style={{ display: "block", marginBottom: "6px", fontSize: "0.9rem", color: "#94a3b8" }}>
+              First Name
+            </label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              autoComplete="given-name"
+              placeholder="Your first name"
+              aria-label="First name"
+              style={inputStyle}
+            />
+          </div>
+
           <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "6px", fontSize: "0.9rem", color: "#94a3b8" }}>
-              Email Address
+              Email
             </label>
             <input
               type="email"
@@ -97,17 +130,7 @@ export default function SignupPage() {
               autoComplete="email"
               placeholder="you@example.com"
               aria-label="Email address"
-              style={{
-                width: "100%",
-                padding: "12px 14px",
-                borderRadius: "10px",
-                border: "1px solid #334155",
-                background: "#0f172a",
-                color: "#fff",
-                fontSize: "1rem",
-                outline: "none",
-                boxSizing: "border-box",
-              }}
+              style={inputStyle}
             />
           </div>
 
@@ -118,7 +141,7 @@ export default function SignupPage() {
               width: "100%",
               padding: "14px",
               borderRadius: "12px",
-              background: loading ? "#334155" : "var(--accent, #e94560)",
+              background: loading ? "#334155" : "#e94560",
               color: "#fff",
               border: "none",
               fontSize: "1.05rem",
@@ -131,27 +154,26 @@ export default function SignupPage() {
             }}
           >
             {loading && <div style={{ width: "16px", height: "16px", border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#fff", borderRadius: "50%", animation: "spinnerRotate 0.6s linear infinite" }} />}
-            {loading ? "Getting your access..." : (isTrial ? "Start Free Trial \u2192" : "Play Now \u2192")}
+            {loading ? "Getting your access..." : "Get Instant Access \u2192"}
           </button>
         </form>
 
         {/* Footer */}
         <p style={{
-          textAlign: "center", marginTop: "24px",
+          textAlign: "center", marginTop: "20px",
+          fontSize: "0.75rem", color: "#64748b", lineHeight: 1.5,
+        }}>
+          By signing up you agree to receive product updates from GameMaster Guide.
+        </p>
+
+        <p style={{
+          textAlign: "center", marginTop: "8px",
           fontSize: "0.8rem", color: "#64748b",
         }}>
-          {isTrial ? (
-            <>{"Cancel anytime. No credit card required."}</>
-          ) : (
-            <>
-              {"No password needed. Access expires March 22, 2026."}
-              <br />
-              {"Already have an account? "}
-              <a href="/" style={{ color: "#94a3b8", textDecoration: "underline" }}>
-                Sign in
-              </a>
-            </>
-          )}
+          Already have an account?{" "}
+          <a href="/login" style={{ color: "#94a3b8", textDecoration: "underline" }}>
+            Sign in
+          </a>
         </p>
       </div>
     </div>

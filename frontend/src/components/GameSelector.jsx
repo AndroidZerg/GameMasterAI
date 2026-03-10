@@ -1070,6 +1070,22 @@ export default function GameSelector() {
         )}
       </div>
 
+      {/* Stonemaier partner banner */}
+      {role === "stonemaier" && (
+        <div style={{
+          background: "linear-gradient(135deg, #0d4f4f 0%, #1a6b6b 100%)",
+          borderRadius: "12px",
+          padding: "10px 16px",
+          marginBottom: "16px",
+          textAlign: "center",
+          fontSize: "0.9rem",
+          color: "#b2dfdb",
+          fontWeight: 500,
+        }}>
+          Stonemaier Games Collection &mdash; Powered by GameMaster Guide
+        </div>
+      )}
+
       {/* Rental Banner — SWP venues only */}
       {rentalsEnabled && !rentalBannerDismissed && role !== "rental_subscriber" && (
         <RentalBanner onDismiss={dismissRentalBanner} />

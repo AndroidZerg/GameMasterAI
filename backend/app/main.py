@@ -74,7 +74,7 @@ from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table
 
 
 @asynccontextmanager
@@ -99,6 +99,7 @@ async def lifespan(app: FastAPI):
     init_drink_club_tables()
     init_menu_tables()
     init_swp_rental_tables()
+    init_signups_table()
     seed_swp_rental_inventory()
     match_shopify_inventory()
 

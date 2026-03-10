@@ -61,7 +61,7 @@ export default function LoginPage() {
       <div style={{ width: "100%", maxWidth: "400px" }}>
         {/* Logo & heading */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <img src="/gmg-logo.svg" alt="GameMaster Guide" style={{ width: "100px", margin: "0 auto 16px", display: "block" }} />
+          <img src="/images/gmg-logo.png" alt="GameMaster Guide" style={{ height: "64px", width: "auto", marginBottom: "24px", display: "block", margin: "0 auto 24px" }} />
           <h1 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", margin: "0 0 6px" }}>
             Welcome to GameMaster Guide
           </h1>

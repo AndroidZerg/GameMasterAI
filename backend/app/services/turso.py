@@ -850,3 +850,55 @@ def seed_menu_from_json():
     cats = db.execute("SELECT COUNT(*) FROM menu_categories").fetchone()[0]
     toggles = db.execute("SELECT COUNT(*) FROM menu_toggles").fetchone()[0]
     logger.info(f"Menu seeded from JSON: {cats} categories, {count} items, {toggles} toggles")
+
+
+# ── Signups table (Dice Tower lead gen) ─────────────────────────
+
+def init_signups_table():
+    """Create the signups table in Turso for persistent lead tracking."""
+    db = get_analytics_db()
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS signups (
+            id TEXT PRIMARY KEY,
+            first_name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            source TEXT DEFAULT 'organic',
+            role TEXT DEFAULT 'convention',
+            signed_up_at TEXT NOT NULL,
+            ip_address TEXT,
+            password_hash TEXT,
+            raw_password TEXT
+        )
+    """)
+    db.commit()
+    logger.info("Signups table initialized")
+
+
+def insert_signup(signup_id: str, first_name: str, email: str, source: str,
+                  role: str, signed_up_at: str, ip_address: str,
+                  password_hash: str, raw_password: str):
+    """Insert a signup record into Turso. Silently skips if email already exists."""
+    db = get_analytics_db()
+    try:
+        db.execute(
+            """INSERT OR IGNORE INTO signups
+               (id, first_name, email, source, role, signed_up_at, ip_address, password_hash, raw_password)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (signup_id, first_name, email, source, role, signed_up_at, ip_address, password_hash, raw_password),
+        )
+        db.commit()
+    except Exception as e:
+        logger.warning(f"Failed to insert signup for {email}: {e}")
+
+
+def get_all_signups() -> list[dict]:
+    """Return all signups sorted by signed_up_at DESC."""
+    db = get_analytics_db()
+    cols = ("id", "first_name", "email", "source", "role", "signed_up_at",
+            "ip_address", "password_hash", "raw_password")
+    try:
+        rows = db.execute("SELECT id, first_name, email, source, role, signed_up_at, ip_address, password_hash, raw_password FROM signups ORDER BY signed_up_at DESC").fetchall()
+        return [dict(zip(cols, row)) for row in rows]
+    except Exception as e:
+        logger.warning(f"Failed to fetch signups: {e}")
+        return []
