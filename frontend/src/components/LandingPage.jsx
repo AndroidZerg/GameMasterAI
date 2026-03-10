@@ -1,3 +1,4 @@
+// Landing page v2 - Thai House case study - 2026-03-10
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
