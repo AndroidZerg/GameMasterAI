@@ -53,6 +53,7 @@ from app.api.routes.loyalty import router as loyalty_router
 from app.api.routes.floor import router as floor_router
 from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.api.routes.menu_images import router as menu_images_router
+from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -223,6 +224,7 @@ app.include_router(loyalty_router)
 app.include_router(floor_router)
 app.include_router(thaihouse_crm_router)
 app.include_router(menu_images_router)
+app.include_router(seed_thaihouse_router)
 
 # --- Venue Platform (v1) ---
 app.include_router(onboarding_router)

@@ -310,6 +310,14 @@ _DICETOWER_ACCOUNTS = [
         "role": "super_admin",
         "tagline": "Meetup Admin Account",
     },
+    {
+        "venue_id": "thaihouse",
+        "venue_name": "Thai House",
+        "email": "demo@thaihouse.com",
+        "password": "gmai2026",
+        "role": "venue_admin",
+        "tagline": "Authentic Thai Cuisine & Board Games",
+    },
 ]
 
 
