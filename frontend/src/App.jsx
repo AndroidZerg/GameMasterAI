@@ -44,6 +44,7 @@ import SWPRentalWelcome from "./pages/swp/SWPRentalWelcome";
 import SWPRentalBrowse from "./pages/swp/SWPRentalBrowse";
 import SWPRentalProfile from "./pages/swp/SWPRentalProfile";
 import LandingPage from "./components/LandingPage";
+import CoverArtManager from "./pages/CoverArtManager";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -154,6 +155,7 @@ function AppShell() {
         <Route path="/admin/customize" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><CustomizeHomePage /></ProtectedRoute>} />
         <Route path="/admin/feedback" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><AdminFeedbackPage /></ProtectedRoute>} />
         <Route path="/admin/dashboard" element={<ProtectedRoute allowedRoles={ADMIN_ROLES}><AdminDashboard /></ProtectedRoute>} />
+        <Route path="/admin/cover-art" element={<ProtectedRoute allowedRoles={["super_admin"]}><CoverArtManager /></ProtectedRoute>} />
         <Route path="/admin/crm" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/admin/analytics" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/venue/dashboard" element={<Navigate to="/admin/dashboard" replace />} />

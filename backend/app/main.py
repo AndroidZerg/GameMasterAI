@@ -54,6 +54,7 @@ from app.api.routes.floor import router as floor_router
 from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.api.routes.menu_images import router as menu_images_router
 from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
+from app.api.routes.cover_art import router as cover_art_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -74,7 +75,7 @@ from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_admin_config_tables
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_admin_config_tables, init_cover_art_tables
 
 
 @asynccontextmanager
@@ -101,6 +102,7 @@ async def lifespan(app: FastAPI):
     init_swp_rental_tables()
     init_signups_table()
     init_admin_config_tables()
+    init_cover_art_tables()
     seed_swp_rental_inventory()
     match_shopify_inventory()
 
@@ -247,6 +249,9 @@ app.include_router(device_sessions_router)
 app.include_router(dashboard_router)
 app.include_router(query_router)
 app.include_router(images_router)
+
+# --- Cover Art Admin ---
+app.include_router(cover_art_router)
 
 
 @app.get("/health", tags=["system"])

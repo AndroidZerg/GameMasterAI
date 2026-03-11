@@ -1090,3 +1090,32 @@ export const getCRMStats = (pin) =>
   fetch(`${API_BASE}/api/admin/crm/dashboard`, {
     headers: _pinH(pin),
   }).then(r => r.ok ? r.json() : r.json().then(e => { throw new Error(e.detail || 'Failed'); }));
+
+// ── Cover Art Admin ──
+
+export async function fetchCoverArtOverrides() {
+  const res = await fetch(`${API_BASE}/api/v1/admin/cover-art`, { headers: getAuthHeaders() });
+  return handleResponse(res);
+}
+
+export async function fetchCoverArtStatus() {
+  const res = await fetch(`${API_BASE}/api/v1/admin/cover-art/status`, { headers: getAuthHeaders() });
+  return handleResponse(res);
+}
+
+export async function saveCoverArtOverride(gameId, imageUrl) {
+  const res = await fetch(`${API_BASE}/api/v1/admin/cover-art/${gameId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify({ image_url: imageUrl }),
+  });
+  return handleResponse(res);
+}
+
+export async function deleteCoverArtOverride(gameId) {
+  const res = await fetch(`${API_BASE}/api/v1/admin/cover-art/${gameId}`, {
+    method: "DELETE",
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}

@@ -17,6 +17,7 @@ const ADMIN_ITEMS = [
   { path: "/admin/collection", label: "Game Collection", icon: "\u{1F3AE}" },
   { path: "/admin/customize", label: "Customize Home", icon: "\u2728", superOnly: true },
   { path: "/admin/feedback", label: "Feedback", icon: "\u{1F4DD}" },
+  { path: "/admin/cover-art", label: "Cover Art", icon: "\u{1F5BC}\uFE0F", superOnly: true },
 ];
 
 export default function NavMenu() {

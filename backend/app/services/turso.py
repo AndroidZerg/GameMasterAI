@@ -1005,6 +1005,82 @@ def delete_turso_venue_config(venue_key: str):
         logger.warning(f"Failed to delete config for {venue_key}: {e}")
 
 
+
+# ── Cover art overrides ──────────────────────────────────────────
+
+def init_cover_art_tables():
+    """Create game_image_overrides table in Turso."""
+    db = get_analytics_db()
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS game_image_overrides (
+            game_id TEXT PRIMARY KEY,
+            image_url TEXT NOT NULL,
+            updated_at TEXT DEFAULT (datetime('now'))
+        )
+    """)
+    db.commit()
+    logger.info("Cover art overrides table initialized")
+
+
+def get_all_cover_art_overrides() -> list[dict]:
+    """Return all cover art overrides."""
+    db = get_analytics_db()
+    try:
+        rows = db.execute(
+            "SELECT game_id, image_url, updated_at FROM game_image_overrides ORDER BY updated_at DESC"
+        ).fetchall()
+        return [{"game_id": r[0], "image_url": r[1], "updated_at": r[2]} for r in rows]
+    except Exception as e:
+        logger.warning(f"Failed to get cover art overrides: {e}")
+        return []
+
+
+def get_cover_art_override(game_id: str) -> str | None:
+    """Return the override URL for a single game, or None."""
+    db = get_analytics_db()
+    try:
+        row = db.execute(
+            "SELECT image_url FROM game_image_overrides WHERE game_id = ?",
+            (game_id,)
+        ).fetchone()
+        return row[0] if row else None
+    except Exception as e:
+        logger.warning(f"Failed to get cover art override for {game_id}: {e}")
+        return None
+
+
+def upsert_cover_art_override(game_id: str, image_url: str):
+    """Insert or replace a cover art override."""
+    db = get_analytics_db()
+    db.execute(
+        """INSERT INTO game_image_overrides (game_id, image_url, updated_at)
+           VALUES (?, ?, datetime('now'))
+           ON CONFLICT(game_id) DO UPDATE SET
+             image_url = excluded.image_url,
+             updated_at = datetime('now')""",
+        (game_id, image_url)
+    )
+    db.commit()
+
+
+def delete_cover_art_override(game_id: str):
+    """Remove a cover art override."""
+    db = get_analytics_db()
+    db.execute("DELETE FROM game_image_overrides WHERE game_id = ?", (game_id,))
+    db.commit()
+
+
+def get_cover_art_status() -> dict[str, bool]:
+    """Return {game_id: True} for every game with an override."""
+    db = get_analytics_db()
+    try:
+        rows = db.execute("SELECT game_id FROM game_image_overrides").fetchall()
+        return {r[0]: True for r in rows}
+    except Exception as e:
+        logger.warning(f"Failed to get cover art status: {e}")
+        return {}
+
+
 def has_turso_venue_config(venue_key: str) -> bool:
     """Check if a venue has custom config in Turso."""
     db = get_analytics_db()

@@ -14,6 +14,7 @@ from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection, get_staff_picks
 from app.services.knowledge import load_game
+from app.services.turso import get_cover_art_status
 
 _CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
 _EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
@@ -75,10 +76,13 @@ async def list_games(
 
     # Attach average ratings
     ratings = get_all_game_ratings()
+    # Batch-fetch cover art override status (single query, not N+1)
+    override_status = get_cover_art_status()
     for g in results:
         avg = ratings.get(g["game_id"])
         if avg is not None:
             g["average_rating"] = avg
+        g["has_image_override"] = g["game_id"] in override_status
 
     return results
 

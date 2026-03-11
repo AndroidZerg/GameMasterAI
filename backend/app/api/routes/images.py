@@ -1,15 +1,38 @@
 """Static image serving for game covers and venue logos."""
 
+import time
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 
 router = APIRouter(prefix="/api", tags=["images"])
 
 _IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images"
 _VENUE_LOGOS_DIR = Path(__file__).resolve().parents[4] / "content" / "venue-logos"
 _MENU_IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images" / "menu"
+
+# In-memory cache for cover art overrides: {game_id: (url, fetched_at)}
+_override_cache: dict[str, tuple[str, float]] = {}
+_cache_ttl = 60  # seconds
+
+
+def _get_override_url(game_id: str) -> str | None:
+    """Check Turso for an image override, with 60s in-memory cache."""
+    now = time.time()
+    cached = _override_cache.get(game_id)
+    if cached and (now - cached[1]) < _cache_ttl:
+        return cached[0] if cached[0] else None
+
+    from app.services.turso import get_cover_art_override
+    url = get_cover_art_override(game_id)
+    _override_cache[game_id] = (url or "", now)
+    return url
+
+
+def invalidate_override_cache(game_id: str):
+    """Called after upsert/delete to bust the cache for a game."""
+    _override_cache.pop(game_id, None)
 
 
 @router.get("/images/venue-logos/{filename}")
@@ -56,9 +79,18 @@ async def get_step_image(game_id: str, filename: str):
 
 @router.get("/images/{filename}")
 async def get_image(filename: str):
-    """Serve game cover images."""
+    """Serve game cover images — checks Turso overrides first, then local file."""
     if ".." in filename or "/" in filename or "\\" in filename:
         raise HTTPException(status_code=400, detail="Invalid filename")
+
+    # Derive game_id from filename (e.g. "scythe.webp" → "scythe")
+    game_id = Path(filename).stem
+
+    # Check for a Turso override
+    override_url = _get_override_url(game_id)
+    if override_url:
+        return RedirectResponse(url=override_url, status_code=302)
+
     filepath = _IMAGES_DIR / filename
     if not filepath.exists():
         raise HTTPException(status_code=404, detail="Image not found")
