@@ -10,17 +10,9 @@ def run_migrations():
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    # --- ALTER venues table: add new columns ---
-    _add_column(cur, "venues", "address", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "city", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "state", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "zip_code", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "hours_json", "TEXT DEFAULT '{}'")
-    _add_column(cur, "venues", "contact_name", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "phone", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "logo_filename", "TEXT DEFAULT ''")
-    _add_column(cur, "venues", "onboarding_step", "INTEGER DEFAULT 0")
-    _add_column(cur, "venues", "onboarding_completed_at", "TEXT DEFAULT NULL")
+    # --- venues table columns now managed in Turso (init_turso_venues_table) ---
+    # These ALTER TABLE calls are no longer needed since venues lives in Turso
+    # and init_turso_venues_table() creates the table with all columns.
 
     # --- NEW TABLE: venue_logos ---
     cur.execute("""

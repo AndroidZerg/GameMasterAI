@@ -24,7 +24,14 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 AUTO_REFUND_MINUTES = 1440
 
 
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
+
+
 def _get_conn() -> sqlite3.Connection:
+    """Local SQLite for game_purchases, venue_game_inventory, etc."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -115,21 +122,24 @@ def _auto_refund_stale(conn, venue_id: str):
 @router.get("/{venue_id}/shop")
 async def get_shop_catalog(venue_id: str):
     """Return all games available for purchase at this venue."""
+    # Venue data from Turso
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+    if not venue["purchases_enabled"]:
+        raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
+
+    lgs_id = venue["lgs_id"]
+    if not lgs_id:
+        return {"venue_name": venue["venue_name"], "purchases_enabled": True, "games": []}
+
+    # Game catalog from local SQLite
     conn = _get_conn()
     try:
-        venue = conn.execute(
-            "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
-        if not venue["purchases_enabled"]:
-            raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
-
-        lgs_id = venue["lgs_id"]
-        if not lgs_id:
-            return {"venue_name": venue["venue_name"], "purchases_enabled": True, "games": []}
-
         rows = conn.execute(
             """SELECT vg.game_id,
                       COALESCE(g.title, vg.game_id) as title,
@@ -181,21 +191,23 @@ class PurchaseRequest(BaseModel):
 @router.post("/{venue_id}/shop/purchase")
 async def create_purchase(venue_id: str, req: PurchaseRequest):
     """Create a Stripe PaymentIntent for a game purchase (guest checkout)."""
+    # Venue data from Turso
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+    if not venue["purchases_enabled"]:
+        raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
+
+    lgs_id = venue["lgs_id"]
+    if not lgs_id:
+        raise HTTPException(status_code=503, detail="Purchases temporarily unavailable")
+
     conn = _get_conn()
     try:
-        venue = conn.execute(
-            "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
-        if not venue["purchases_enabled"]:
-            raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
-
-        lgs_id = venue["lgs_id"]
-        if not lgs_id:
-            raise HTTPException(status_code=503, detail="Purchases temporarily unavailable")
-
         # Check stock
         inv = conn.execute(
             "SELECT stock_count FROM venue_game_inventory WHERE venue_id = ? AND game_id = ?",
@@ -398,8 +410,9 @@ async def fulfillment_failed(venue_id: str, req: FulfillmentRequest,
         )
         conn.commit()
 
-        # Get venue name for notification
-        venue = conn.execute(
+        # Get venue name for notification (Turso)
+        vconn2 = _get_venues_conn()
+        venue = vconn2.execute(
             "SELECT venue_name FROM venues WHERE venue_id = ?", (venue_id,)
         ).fetchone()
         venue_name = venue["venue_name"] if venue else venue_id

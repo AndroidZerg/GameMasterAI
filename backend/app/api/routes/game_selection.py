@@ -18,7 +18,14 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
+
+
 def _get_conn() -> sqlite3.Connection:
+    """Local SQLite for venue_games, games, lgs_partners, etc."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -53,18 +60,19 @@ async def get_game_selection(venue_id: str, user: dict = Depends(get_current_ven
     """Get venue's active games with seat info for the game selection UI."""
     _check_venue_access(user, venue_id)
 
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT subscription_tier, game_seat_limit FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+
+    tier = venue["subscription_tier"] or "starter"
+    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+
     conn = _get_conn()
     try:
-        venue = conn.execute(
-            "SELECT subscription_tier, game_seat_limit FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
-
-        tier = venue["subscription_tier"] or "starter"
-        seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
-
         # Get active games with metadata
         rows = conn.execute(
             """SELECT vg.game_id, COALESCE(g.title, vg.game_id) as title,
@@ -113,17 +121,18 @@ async def activate_game(venue_id: str, req: GameActionRequest,
     """Activate a game for a venue, enforcing seat limits."""
     _check_venue_access(user, venue_id)
 
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id, venue_name, game_seat_limit, lgs_id FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+
+    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+
     conn = _get_conn()
     try:
-        venue = conn.execute(
-            "SELECT venue_id, venue_name, game_seat_limit, lgs_id FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
-
-        seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
-
         # Count currently active games
         active_count = conn.execute(
             "SELECT COUNT(*) as cnt FROM venue_games WHERE venue_id = ? AND is_active = 1",
@@ -198,18 +207,19 @@ async def deactivate_game(venue_id: str, req: GameActionRequest,
     """Deactivate a game for a venue."""
     _check_venue_access(user, venue_id)
 
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT game_seat_limit FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+
+    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+    now = datetime.now(timezone.utc).isoformat()
+
     conn = _get_conn()
     try:
-        venue = conn.execute(
-            "SELECT game_seat_limit FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
-
-        seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
-        now = datetime.now(timezone.utc).isoformat()
-
         conn.execute(
             """UPDATE venue_games
                SET is_active = 0, deactivated_at = ?

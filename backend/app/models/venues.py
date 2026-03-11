@@ -1,79 +1,29 @@
-"""SQLite venue accounts model."""
+"""Venue accounts model — backed by Turso (persistent across redeploys)."""
 
 import json
-import sqlite3
 from datetime import datetime, timezone
 from typing import Optional
 
-from app.core.config import DB_PATH
 
-
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Return the Turso-backed venues DB connection (dict-row enabled)."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
 
 
 def init_venues_table():
+    """Post-init fixups. Table creation handled by init_turso_venues_table()."""
     conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS venues (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT UNIQUE NOT NULL,
-            venue_name TEXT NOT NULL,
-            email TEXT UNIQUE NOT NULL,
-            password_hash TEXT NOT NULL,
-            accent_color TEXT DEFAULT '#e94560',
-            logo_url TEXT,
-            tagline TEXT,
-            address TEXT,
-            phone TEXT,
-            website TEXT,
-            default_theme TEXT DEFAULT 'dark',
-            created_at TIMESTAMP NOT NULL,
-            last_login TIMESTAMP
-        )
-    """)
-    # Add columns if upgrading from old schema
-    for col in (
-        "address TEXT",
-        "phone TEXT",
-        "website TEXT",
-        "staff_picks TEXT DEFAULT '[]'",
-        "role TEXT NOT NULL DEFAULT 'venue_admin'",
-        "status TEXT NOT NULL DEFAULT 'prospect'",
-        "trial_start_date TEXT",
-        "trial_duration_days INTEGER DEFAULT 30",
-        "source TEXT DEFAULT ''",
-        "expires_at TEXT",
-        "username TEXT",
-    ):
-        try:
-            conn.execute(f"ALTER TABLE venues ADD COLUMN {col}")
-        except sqlite3.OperationalError:
-            pass
-
     # Ensure Tim's account is super_admin
     conn.execute(
         "UPDATE venues SET role = 'super_admin' WHERE email = 'tim@playgmg.com' OR venue_id = 'admin'"
     )
     conn.commit()
-    conn.close()
 
 
 def init_venue_collections_table():
-    conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS venue_collections (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL,
-            game_id TEXT NOT NULL,
-            added_at TIMESTAMP NOT NULL,
-            UNIQUE(venue_id, game_id)
-        )
-    """)
-    conn.commit()
-    conn.close()
+    """No-op — venue_collections table created by init_turso_venues_table()."""
+    pass
 
 
 def get_venue_by_email(email: str) -> Optional[dict]:

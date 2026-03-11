@@ -29,7 +29,14 @@ TIER_CONFIG = {
 }
 
 
-def _get_conn() -> sqlite3.Connection:
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
+
+
+def _get_local_conn() -> sqlite3.Connection:
+    """Local SQLite for venue_games and other non-venue tables."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -62,93 +69,91 @@ async def subscribe_venue(venue_id: str, req: SubscribeRequest,
     tier_info = TIER_CONFIG[tier]
     new_seat_limit = tier_info["seat_limit"]
 
-    conn = _get_conn()
-    try:
-        venue = conn.execute(
-            "SELECT venue_id, venue_name, email, lgs_id, stripe_customer_id, "
-            "stripe_subscription_id, subscription_tier, game_seat_limit FROM venues WHERE venue_id = ?",
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id, venue_name, email, lgs_id, stripe_customer_id, "
+        "stripe_subscription_id, subscription_tier, game_seat_limit FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
+
+    # --- Downgrade check (venue_games in local SQLite) ---
+    current_limit = venue["game_seat_limit"] or 10
+    if new_seat_limit != -1 and new_seat_limit < current_limit:
+        local = _get_local_conn()
+        active_count = local.execute(
+            "SELECT COUNT(*) as cnt FROM venue_games WHERE venue_id = ? AND is_active = 1",
             (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
+        ).fetchone()["cnt"]
+        local.close()
+        if active_count > new_seat_limit:
+            raise HTTPException(status_code=409, detail={
+                "error": "Cannot downgrade. Deactivate games first.",
+                "seats_used": active_count,
+                "new_limit": new_seat_limit,
+                "must_deactivate": active_count - new_seat_limit,
+            })
 
-        # --- Downgrade check ---
-        current_limit = venue["game_seat_limit"] or 10
-        if new_seat_limit != -1 and new_seat_limit < current_limit:
-            active_count = conn.execute(
-                "SELECT COUNT(*) as cnt FROM venue_games WHERE venue_id = ? AND is_active = 1",
-                (venue_id,),
-            ).fetchone()["cnt"]
-            if active_count > new_seat_limit:
-                raise HTTPException(status_code=409, detail={
-                    "error": "Cannot downgrade. Deactivate games first.",
-                    "seats_used": active_count,
-                    "new_limit": new_seat_limit,
-                    "must_deactivate": active_count - new_seat_limit,
-                })
+    # --- Find or create Stripe Customer ---
+    stripe_customer_id = venue["stripe_customer_id"]
+    if not stripe_customer_id:
+        customer = stripe.Customer.create(
+            email=venue["email"],
+            name=venue["venue_name"],
+            metadata={"gmg_venue_id": venue_id},
+        )
+        stripe_customer_id = customer.id
+        vconn.execute(
+            "UPDATE venues SET stripe_customer_id = ? WHERE venue_id = ?",
+            (stripe_customer_id, venue_id),
+        )
+        vconn.commit()
 
-        # --- Find or create Stripe Customer ---
-        stripe_customer_id = venue["stripe_customer_id"]
-        if not stripe_customer_id:
-            customer = stripe.Customer.create(
-                email=venue["email"],
-                name=venue["venue_name"],
-                metadata={"gmg_venue_id": venue_id},
-            )
-            stripe_customer_id = customer.id
-            conn.execute(
-                "UPDATE venues SET stripe_customer_id = ? WHERE venue_id = ?",
-                (stripe_customer_id, venue_id),
-            )
-            conn.commit()
-
-        # --- New subscription (Stripe Checkout) ---
-        if not venue["stripe_subscription_id"]:
-            session = stripe.checkout.Session.create(
-                customer=stripe_customer_id,
-                line_items=[{"price": tier_info["price_id"], "quantity": 1}],
-                mode="subscription",
-                subscription_data={
-                    "trial_period_days": 14,
-                    "metadata": {
-                        "gmg_venue_id": venue_id,
-                        "tier": tier,
-                        "lgs_id": venue["lgs_id"] or "",
-                    },
+    # --- New subscription (Stripe Checkout) ---
+    if not venue["stripe_subscription_id"]:
+        session = stripe.checkout.Session.create(
+            customer=stripe_customer_id,
+            line_items=[{"price": tier_info["price_id"], "quantity": 1}],
+            mode="subscription",
+            subscription_data={
+                "trial_period_days": 14,
+                "metadata": {
+                    "gmg_venue_id": venue_id,
+                    "tier": tier,
+                    "lgs_id": venue["lgs_id"] or "",
                 },
-                success_url="https://playgmg.com/admin/dashboard?subscribed=true",
-                cancel_url="https://playgmg.com/admin/dashboard?cancelled=true",
-                metadata={"gmg_venue_id": venue_id, "tier": tier},
-            )
-            return {"checkout_url": session.url, "session_id": session.id}
-
-        # --- Upgrade existing subscription ---
-        sub = stripe.Subscription.retrieve(venue["stripe_subscription_id"])
-        stripe.Subscription.modify(
-            sub.id,
-            items=[{
-                "id": sub["items"]["data"][0].id,
-                "price": tier_info["price_id"],
-            }],
-            proration_behavior="create_prorations",
-            metadata={
-                "gmg_venue_id": venue_id,
-                "tier": tier,
-                "lgs_id": venue["lgs_id"] or "",
             },
+            success_url="https://playgmg.com/admin/dashboard?subscribed=true",
+            cancel_url="https://playgmg.com/admin/dashboard?cancelled=true",
+            metadata={"gmg_venue_id": venue_id, "tier": tier},
         )
+        return {"checkout_url": session.url, "session_id": session.id}
 
-        now = datetime.now(timezone.utc).isoformat()
-        conn.execute(
-            "UPDATE venues SET subscription_tier = ?, game_seat_limit = ?, updated_at = ? WHERE venue_id = ?",
-            (tier, new_seat_limit, now, venue_id),
-        )
-        conn.commit()
+    # --- Upgrade existing subscription ---
+    sub = stripe.Subscription.retrieve(venue["stripe_subscription_id"])
+    stripe.Subscription.modify(
+        sub.id,
+        items=[{
+            "id": sub["items"]["data"][0].id,
+            "price": tier_info["price_id"],
+        }],
+        proration_behavior="create_prorations",
+        metadata={
+            "gmg_venue_id": venue_id,
+            "tier": tier,
+            "lgs_id": venue["lgs_id"] or "",
+        },
+    )
 
-        return {"upgraded": True, "new_tier": tier, "new_seat_limit": new_seat_limit}
+    now = datetime.now(timezone.utc).isoformat()
+    vconn.execute(
+        "UPDATE venues SET subscription_tier = ?, game_seat_limit = ?, updated_at = ? WHERE venue_id = ?",
+        (tier, new_seat_limit, now, venue_id),
+    )
+    vconn.commit()
 
-    finally:
-        conn.close()
+    return {"upgraded": True, "new_tier": tier, "new_seat_limit": new_seat_limit}
 
 
 @router.get("/{venue_id}/subscription-status")
@@ -157,46 +162,46 @@ async def subscription_status(venue_id: str, user: dict = Depends(get_current_ve
     if user.get("role") != "super_admin" and user.get("venue_id") != venue_id:
         raise HTTPException(status_code=403, detail="Not authorized for this venue")
 
-    conn = _get_conn()
-    try:
-        venue = conn.execute(
-            "SELECT subscription_tier, game_seat_limit, subscription_status, "
-            "current_period_end, stripe_subscription_id FROM venues WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        if not venue:
-            raise HTTPException(status_code=404, detail="Venue not found")
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT subscription_tier, game_seat_limit, subscription_status, "
+        "current_period_end, stripe_subscription_id FROM venues WHERE venue_id = ?",
+        (venue_id,),
+    ).fetchone()
+    if not venue:
+        raise HTTPException(status_code=404, detail="Venue not found")
 
-        seats_used = conn.execute(
-            "SELECT COUNT(*) as cnt FROM venue_games WHERE venue_id = ? AND is_active = 1",
-            (venue_id,),
-        ).fetchone()["cnt"]
+    # venue_games in local SQLite
+    local = _get_local_conn()
+    seats_used = local.execute(
+        "SELECT COUNT(*) as cnt FROM venue_games WHERE venue_id = ? AND is_active = 1",
+        (venue_id,),
+    ).fetchone()["cnt"]
+    local.close()
 
-        tier = venue["subscription_tier"] or "starter"
-        seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
-        seats_remaining = -1 if seat_limit == -1 else max(0, seat_limit - seats_used)
+    tier = venue["subscription_tier"] or "starter"
+    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+    seats_remaining = -1 if seat_limit == -1 else max(0, seat_limit - seats_used)
 
-        # Try to get trial info from Stripe if we have a subscription
-        trial_ends_at = None
-        if venue["stripe_subscription_id"] and STRIPE_SECRET_KEY:
-            try:
-                sub = stripe.Subscription.retrieve(venue["stripe_subscription_id"])
-                if sub.trial_end:
-                    trial_ends_at = datetime.fromtimestamp(
-                        sub.trial_end, tz=timezone.utc
-                    ).isoformat()
-            except Exception:
-                pass
+    # Try to get trial info from Stripe if we have a subscription
+    trial_ends_at = None
+    if venue["stripe_subscription_id"] and STRIPE_SECRET_KEY:
+        try:
+            sub = stripe.Subscription.retrieve(venue["stripe_subscription_id"])
+            if sub.trial_end:
+                trial_ends_at = datetime.fromtimestamp(
+                    sub.trial_end, tz=timezone.utc
+                ).isoformat()
+        except Exception:
+            pass
 
-        return {
-            "tier": tier,
-            "seat_limit": seat_limit,
-            "seats_used": seats_used,
-            "seats_remaining": seats_remaining,
-            "subscription_status": venue["subscription_status"] or "trialing",
-            "current_period_end": venue["current_period_end"],
-            "trial_ends_at": trial_ends_at,
-            "tier_config": TIER_CONFIG,
-        }
-    finally:
-        conn.close()
+    return {
+        "tier": tier,
+        "seat_limit": seat_limit,
+        "seats_used": seats_used,
+        "seats_remaining": seats_remaining,
+        "subscription_status": venue["subscription_status"] or "trialing",
+        "current_period_end": venue["current_period_end"],
+        "trial_ends_at": trial_ends_at,
+        "tier_config": TIER_CONFIG,
+    }

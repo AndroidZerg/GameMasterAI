@@ -8,10 +8,17 @@ from typing import Optional
 from app.core.config import DB_PATH
 
 
-def _get_conn() -> sqlite3.Connection:
+def _get_local_conn() -> sqlite3.Connection:
+    """Local SQLite for non-venue tables (logos, venue_games, menus, etc.)."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
 
 
 # ── Step 1: Venue Info ────────────────────────────────────────────
@@ -28,7 +35,7 @@ def save_venue_info(
     hours_json: dict,
 ) -> dict:
     """Update venue info and advance onboarding_step to at least 1."""
-    conn = _get_conn()
+    conn = _get_venues_conn()
     conn.execute(
         """UPDATE venues
            SET venue_name = ?, address = ?, city = ?, state = ?, zip_code = ?,
@@ -39,17 +46,17 @@ def save_venue_info(
          json.dumps(hours_json), venue_id),
     )
     conn.commit()
-    conn.close()
     return {"success": True, "venue_id": venue_id}
 
 
 # ── Step 2: Logo Upload ──────────────────────────────────────────
 
 def save_logo(venue_id: str, logo_data: bytes, content_type: str) -> dict:
-    """Store logo blob in venue_logos table."""
-    conn = _get_conn()
+    """Store logo blob in venue_logos table (local) + update onboarding step (Turso)."""
     now = datetime.now(timezone.utc).isoformat()
-    conn.execute(
+    # Logo blob stays in local SQLite
+    local = _get_local_conn()
+    local.execute(
         """INSERT INTO venue_logos (venue_id, logo_data, content_type, uploaded_at)
            VALUES (?, ?, ?, ?)
            ON CONFLICT(venue_id) DO UPDATE SET
@@ -58,14 +65,17 @@ def save_logo(venue_id: str, logo_data: bytes, content_type: str) -> dict:
              uploaded_at = excluded.uploaded_at""",
         (venue_id, logo_data, content_type, now),
     )
-    conn.execute(
+    local.commit()
+    local.close()
+    # Onboarding step in Turso
+    vconn = _get_venues_conn()
+    vconn.execute(
         """UPDATE venues
            SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 2)
            WHERE venue_id = ?""",
         (venue_id,),
     )
-    conn.commit()
-    conn.close()
+    vconn.commit()
     return {
         "success": True,
         "logo_url": f"/api/v1/venues/{venue_id}/logo",
@@ -73,8 +83,8 @@ def save_logo(venue_id: str, logo_data: bytes, content_type: str) -> dict:
 
 
 def get_logo(venue_id: str) -> Optional[dict]:
-    """Retrieve logo blob + content_type for a venue."""
-    conn = _get_conn()
+    """Retrieve logo blob + content_type for a venue (local SQLite)."""
+    conn = _get_local_conn()
     row = conn.execute(
         "SELECT logo_data, content_type FROM venue_logos WHERE venue_id = ?",
         (venue_id,),
@@ -88,8 +98,8 @@ def get_logo(venue_id: str) -> Optional[dict]:
 # ── Step 3: Game Collection ───────────────────────────────────────
 
 def get_game_catalog() -> list[dict]:
-    """Return all games for the onboarding game picker."""
-    conn = _get_conn()
+    """Return all games for the onboarding game picker (local SQLite)."""
+    conn = _get_local_conn()
     rows = conn.execute(
         "SELECT game_id, title, complexity FROM games ORDER BY title"
     ).fetchall()
@@ -110,36 +120,39 @@ def save_game_collection(
     priority_game_ids: list[str],
 ) -> dict:
     """Save owned games + priority selections for the venue."""
-    conn = _get_conn()
     now = datetime.now(timezone.utc).isoformat()
 
-    # Clear existing venue_games for this venue, then re-insert
-    conn.execute("DELETE FROM venue_games WHERE venue_id = ?", (venue_id,))
+    # venue_games stays in local SQLite
+    local = _get_local_conn()
+    local.execute("DELETE FROM venue_games WHERE venue_id = ?", (venue_id,))
     for gid in owned_game_ids:
         is_priority = 1 if gid in priority_game_ids else 0
-        conn.execute(
+        local.execute(
             """INSERT INTO venue_games (venue_id, game_id, is_active, is_priority, added_at)
                VALUES (?, ?, 1, ?, ?)""",
             (venue_id, gid, is_priority, now),
         )
+    local.commit()
+    local.close()
 
-    # Also update venue_collections for compatibility
-    conn.execute("DELETE FROM venue_collections WHERE venue_id = ?", (venue_id,))
+    # venue_collections in Turso (persistent)
+    vconn = _get_venues_conn()
+    vconn.execute("DELETE FROM venue_collections WHERE venue_id = ?", (venue_id,))
     for gid in owned_game_ids:
-        conn.execute(
+        vconn.execute(
             """INSERT OR IGNORE INTO venue_collections (venue_id, game_id, added_at)
                VALUES (?, ?, ?)""",
             (venue_id, gid, now),
         )
 
-    conn.execute(
+    # Onboarding step in Turso
+    vconn.execute(
         """UPDATE venues
            SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 3)
            WHERE venue_id = ?""",
         (venue_id,),
     )
-    conn.commit()
-    conn.close()
+    vconn.commit()
 
     # Auto-set GOTD to first priority game
     if priority_game_ids:
@@ -156,21 +169,20 @@ def save_game_collection(
 
 def save_menu(venue_id: str, categories: list[dict]) -> dict:
     """Save menu categories and items. Replaces existing menu."""
-    conn = _get_conn()
-
-    # Clear existing menu for this venue
-    conn.execute(
-        "DELETE FROM venue_menu_items WHERE venue_id = ?", (venue_id,)
-    )
-    conn.execute(
-        "DELETE FROM venue_menu_categories WHERE venue_id = ?", (venue_id,)
-    )
-
     now = datetime.now(timezone.utc).isoformat()
     total_items = 0
 
+    # Menu tables stay in local SQLite
+    local = _get_local_conn()
+    local.execute(
+        "DELETE FROM venue_menu_items WHERE venue_id = ?", (venue_id,)
+    )
+    local.execute(
+        "DELETE FROM venue_menu_categories WHERE venue_id = ?", (venue_id,)
+    )
+
     for sort_order, cat in enumerate(categories):
-        cur = conn.execute(
+        cur = local.execute(
             """INSERT INTO venue_menu_categories (venue_id, name, sort_order, is_active, created_at)
                VALUES (?, ?, ?, 1, ?)""",
             (venue_id, cat["name"], sort_order, now),
@@ -181,7 +193,7 @@ def save_menu(venue_id: str, categories: list[dict]) -> dict:
             price_dollars = item.get("price_dollars", 0)
             price_cents = int(round(float(price_dollars) * 100))
             is_available = 1 if item.get("is_available", True) else 0
-            conn.execute(
+            local.execute(
                 """INSERT INTO venue_menu_items
                    (venue_id, category_id, name, description, price_cents,
                     is_available, sort_order, created_at, updated_at)
@@ -191,22 +203,26 @@ def save_menu(venue_id: str, categories: list[dict]) -> dict:
             )
             total_items += 1
 
-    conn.execute(
+    local.commit()
+    local.close()
+
+    # Onboarding step in Turso
+    vconn = _get_venues_conn()
+    vconn.execute(
         """UPDATE venues
            SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 4)
            WHERE venue_id = ?""",
         (venue_id,),
     )
-    conn.commit()
-    conn.close()
+    vconn.commit()
     return {"success": True, "saved": total_items}
 
 
 # ── Step 5: Complete ──────────────────────────────────────────────
 
 def complete_onboarding(venue_id: str) -> dict:
-    """Mark onboarding as complete."""
-    conn = _get_conn()
+    """Mark onboarding as complete (Turso)."""
+    conn = _get_venues_conn()
     now = datetime.now(timezone.utc).isoformat()
     conn.execute(
         """UPDATE venues
@@ -217,15 +233,14 @@ def complete_onboarding(venue_id: str) -> dict:
         (now, venue_id),
     )
     conn.commit()
-    conn.close()
     return {"success": True, "completed": True, "completed_at": now}
 
 
 # ── Progress ──────────────────────────────────────────────────────
 
 def get_onboarding_progress(venue_id: str) -> dict:
-    """Get current onboarding step and venue info for resume logic."""
-    conn = _get_conn()
+    """Get current onboarding step and venue info for resume logic (Turso)."""
+    conn = _get_venues_conn()
     row = conn.execute(
         """SELECT venue_id, venue_name, address, city, state, zip_code,
                   phone, contact_name, hours_json, onboarding_step,
@@ -233,7 +248,6 @@ def get_onboarding_progress(venue_id: str) -> dict:
            FROM venues WHERE venue_id = ?""",
         (venue_id,),
     ).fetchone()
-    conn.close()
     if not row:
         return {"onboarding_step": 0}
     return {
@@ -252,8 +266,8 @@ def get_onboarding_progress(venue_id: str) -> dict:
 
 
 def get_venue_games(venue_id: str) -> dict:
-    """Get owned + priority game IDs for a venue."""
-    conn = _get_conn()
+    """Get owned + priority game IDs for a venue (local SQLite)."""
+    conn = _get_local_conn()
     rows = conn.execute(
         "SELECT game_id, is_priority FROM venue_games WHERE venue_id = ? AND is_active = 1",
         (venue_id,),
@@ -265,8 +279,8 @@ def get_venue_games(venue_id: str) -> dict:
 
 
 def get_venue_menu(venue_id: str) -> list[dict]:
-    """Get menu categories + items for a venue."""
-    conn = _get_conn()
+    """Get menu categories + items for a venue (local SQLite)."""
+    conn = _get_local_conn()
     cats = conn.execute(
         "SELECT * FROM venue_menu_categories WHERE venue_id = ? ORDER BY sort_order",
         (venue_id,),

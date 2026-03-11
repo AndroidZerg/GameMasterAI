@@ -6,10 +6,17 @@ from datetime import datetime, timezone, timedelta
 from app.core.config import DB_PATH
 
 
-def _get_conn() -> sqlite3.Connection:
+def _get_local_conn() -> sqlite3.Connection:
+    """Local SQLite for analytics/game stats tables."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
 
 
 def _compute_trial_days_remaining(venue: dict) -> int | None:
@@ -32,42 +39,37 @@ def _compute_trial_days_remaining(venue: dict) -> int | None:
         return None
 
 
-def _build_venue_row(venue: dict, conn: sqlite3.Connection) -> dict:
-    """Build a single CRM venue row with computed fields."""
+def _build_venue_row(venue: dict, local_conn: sqlite3.Connection) -> dict:
+    """Build a single CRM venue row with computed fields.
+
+    venue dict comes from Turso; local_conn is for analytics/game stats.
+    """
     vid = venue.get("venue_id", "")
 
-    # sessions this week
+    # sessions this week (local SQLite)
     week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
-    row = conn.execute(
+    row = local_conn.execute(
         "SELECT COALESCE(SUM(sessions_count), 0) FROM venue_analytics_daily WHERE venue_id = ? AND date >= ?",
         (vid, week_ago),
     ).fetchone()
     sessions_this_week = row[0] if row else 0
 
-    # top game (by sessions)
-    row = conn.execute(
+    # top game (local SQLite)
+    row = local_conn.execute(
         "SELECT game_id FROM venue_game_stats WHERE venue_id = ? ORDER BY sessions_count DESC LIMIT 1",
         (vid,),
     ).fetchone()
     top_game = row[0] if row else None
 
-    # games count
-    row = conn.execute(
+    # games count (local SQLite)
+    row = local_conn.execute(
         "SELECT COUNT(*) FROM venue_games WHERE venue_id = ?",
         (vid,),
     ).fetchone()
     games_count = row[0] if row else 0
 
-    # onboarding step
-    onboarding_step = 0
-    try:
-        row = conn.execute(
-            "SELECT onboarding_step FROM venues WHERE venue_id = ?", (vid,)
-        ).fetchone()
-        if row and row[0] is not None:
-            onboarding_step = row[0]
-    except Exception:
-        pass
+    # onboarding step comes from the venue dict (Turso)
+    onboarding_step = venue.get("onboarding_step") or 0
 
     return {
         "venue_id": vid,
@@ -75,6 +77,7 @@ def _build_venue_row(venue: dict, conn: sqlite3.Connection) -> dict:
         "email": venue.get("email", ""),
         "status": venue.get("status", "prospect"),
         "role": venue.get("role", "venue_admin"),
+        "source": venue.get("source", ""),
         "trial_days_remaining": _compute_trial_days_remaining(venue),
         "last_active": venue.get("last_login"),
         "sessions_this_week": sessions_this_week,
@@ -87,54 +90,55 @@ def _build_venue_row(venue: dict, conn: sqlite3.Connection) -> dict:
 
 def get_all_crm_venues() -> list[dict]:
     """Return all venues with CRM computed fields."""
-    conn = _get_conn()
-    rows = conn.execute("SELECT * FROM venues ORDER BY venue_name").fetchall()
+    vconn = _get_venues_conn()
+    rows = vconn.execute("SELECT * FROM venues ORDER BY venue_name").fetchall()
     venues = [dict(r) for r in rows]
-    result = [_build_venue_row(v, conn) for v in venues]
-    conn.close()
+    local_conn = _get_local_conn()
+    result = [_build_venue_row(v, local_conn) for v in venues]
+    local_conn.close()
     return result
 
 
 def get_crm_venue_detail(venue_id: str) -> dict | None:
     """Return one venue with CRM fields + 30-day daily analytics."""
-    conn = _get_conn()
-    row = conn.execute("SELECT * FROM venues WHERE venue_id = ?", (venue_id,)).fetchone()
+    vconn = _get_venues_conn()
+    row = vconn.execute("SELECT * FROM venues WHERE venue_id = ?", (venue_id,)).fetchone()
     if not row:
-        conn.close()
         return None
 
     venue = dict(row)
-    result = _build_venue_row(venue, conn)
+    local_conn = _get_local_conn()
+    result = _build_venue_row(venue, local_conn)
 
-    # last 30 days daily analytics
+    # last 30 days daily analytics (local SQLite)
     thirty_ago = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
-    daily_rows = conn.execute(
+    daily_rows = local_conn.execute(
         "SELECT date, sessions_count, questions_count, orders_count FROM venue_analytics_daily "
         "WHERE venue_id = ? AND date >= ? ORDER BY date",
         (venue_id, thirty_ago),
     ).fetchall()
     result["daily_analytics"] = [dict(r) for r in daily_rows]
 
-    # top 5 games
-    top_games = conn.execute(
+    # top 5 games (local SQLite)
+    top_games = local_conn.execute(
         "SELECT game_id, sessions_count FROM venue_game_stats WHERE venue_id = ? ORDER BY sessions_count DESC LIMIT 5",
         (venue_id,),
     ).fetchall()
     result["top_games"] = [{"game_id": r[0], "sessions": r[1]} for r in top_games]
 
-    # extra contact info
+    # extra contact info (from Turso venue dict)
     result["address"] = venue.get("address", "")
     result["phone"] = venue.get("phone", "")
     result["website"] = venue.get("website", "")
 
-    conn.close()
+    local_conn.close()
     return result
 
 
 def export_venues_csv() -> str:
     """Return CSV string of all venues for download."""
     venues = get_all_crm_venues()
-    lines = ["venue_id,venue_name,email,status,trial_days_remaining,last_active,sessions_this_week,top_game,games_count,created_at"]
+    lines = ["venue_id,venue_name,email,status,role,source,trial_days_remaining,last_active,sessions_this_week,top_game,games_count,created_at"]
     for v in venues:
         def esc(val):
             s = str(val) if val is not None else ""
@@ -146,6 +150,8 @@ def export_venues_csv() -> str:
             esc(v["venue_name"]),
             esc(v["email"]),
             esc(v["status"]),
+            esc(v["role"]),
+            esc(v["source"]),
             esc(v["trial_days_remaining"]),
             esc(v["last_active"]),
             esc(v["sessions_this_week"]),

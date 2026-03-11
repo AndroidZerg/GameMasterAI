@@ -27,7 +27,14 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 TIER_SEATS = {"starter": 10, "standard": 25, "premium": -1}
 
 
-def _get_conn() -> sqlite3.Connection:
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
+
+
+def _get_local_conn() -> sqlite3.Connection:
+    """Local SQLite for non-venue tables (game_purchases, lgs_partners, etc.)."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -66,21 +73,18 @@ def _handle_checkout_completed(session):
     subscription_id = session.get("subscription")
     now = datetime.now(timezone.utc).isoformat()
 
-    conn = _get_conn()
-    try:
-        conn.execute(
-            """UPDATE venues SET
-                subscription_tier = ?,
-                game_seat_limit = ?,
-                stripe_subscription_id = ?,
-                subscription_status = 'trialing',
-                updated_at = ?
-            WHERE venue_id = ?""",
-            (tier, seat_limit, subscription_id, now, venue_id),
-        )
-        conn.commit()
-    finally:
-        conn.close()
+    vconn = _get_venues_conn()
+    vconn.execute(
+        """UPDATE venues SET
+            subscription_tier = ?,
+            game_seat_limit = ?,
+            stripe_subscription_id = ?,
+            subscription_status = 'trialing',
+            updated_at = ?
+        WHERE venue_id = ?""",
+        (tier, seat_limit, subscription_id, now, venue_id),
+    )
+    vconn.commit()
 
     _telegram_notify(f"New venue subscription: {venue_id} on {tier} tier")
 
@@ -109,21 +113,23 @@ def _handle_invoice_succeeded(invoice):
     if period_end:
         period_end_iso = datetime.fromtimestamp(period_end, tz=timezone.utc).isoformat()
 
-    conn = _get_conn()
-    try:
-        conn.execute(
-            """UPDATE venues SET
-                subscription_status = 'active',
-                current_period_end = ?,
-                updated_at = ?
-            WHERE venue_id = ?""",
-            (period_end_iso, now, venue_id),
-        )
-        conn.commit()
+    # Update venue subscription status in Turso
+    vconn = _get_venues_conn()
+    vconn.execute(
+        """UPDATE venues SET
+            subscription_status = 'active',
+            current_period_end = ?,
+            updated_at = ?
+        WHERE venue_id = ?""",
+        (period_end_iso, now, venue_id),
+    )
+    vconn.commit()
 
-        # Transfer 80% to LGS if paired
-        if lgs_id:
-            lgs = conn.execute(
+    # Transfer 80% to LGS if paired (lgs_partners in local SQLite)
+    if lgs_id:
+        local = _get_local_conn()
+        try:
+            lgs = local.execute(
                 "SELECT id, stripe_account_id, stripe_onboarding_complete FROM lgs_partners WHERE id = ?",
                 (lgs_id,),
             ).fetchone()
@@ -145,7 +151,7 @@ def _handle_invoice_succeeded(invoice):
                             "type": "subscription_split",
                         },
                     )
-                    conn.execute(
+                    local.execute(
                         """INSERT INTO lgs_transfer_log
                             (id, lgs_id, transfer_type, source_id, amount_cents,
                              stripe_transfer_id, stripe_invoice_id, status, created_at)
@@ -153,15 +159,15 @@ def _handle_invoice_succeeded(invoice):
                         (_generate_id(), lgs_id, venue_id, transfer_amount,
                          transfer.id, invoice_id, now),
                     )
-                    conn.commit()
+                    local.commit()
                 except Exception as e:
                     _telegram_notify(f"Transfer failed for venue {venue_id}: {e}")
             elif lgs_id:
                 _telegram_notify(
                     f"LGS transfer skipped — Stripe onboarding incomplete for {lgs_id}"
                 )
-    finally:
-        conn.close()
+        finally:
+            local.close()
 
 
 def _handle_invoice_failed(invoice):
@@ -171,24 +177,21 @@ def _handle_invoice_failed(invoice):
         return
 
     now = datetime.now(timezone.utc).isoformat()
-    conn = _get_conn()
-    try:
-        venue = conn.execute(
-            "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
-            (subscription_id,),
-        ).fetchone()
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
+        (subscription_id,),
+    ).fetchone()
 
-        conn.execute(
-            "UPDATE venues SET subscription_status = 'past_due', updated_at = ? "
-            "WHERE stripe_subscription_id = ?",
-            (now, subscription_id),
-        )
-        conn.commit()
+    vconn.execute(
+        "UPDATE venues SET subscription_status = 'past_due', updated_at = ? "
+        "WHERE stripe_subscription_id = ?",
+        (now, subscription_id),
+    )
+    vconn.commit()
 
-        venue_id = venue["venue_id"] if venue else "unknown"
-        _telegram_notify(f"Venue payment failed: {venue_id}")
-    finally:
-        conn.close()
+    venue_id = venue["venue_id"] if venue else "unknown"
+    _telegram_notify(f"Venue payment failed: {venue_id}")
 
 
 def _handle_payment_intent_succeeded(payment_intent):
@@ -197,9 +200,9 @@ def _handle_payment_intent_succeeded(payment_intent):
     if not pi_id:
         return
 
-    conn = _get_conn()
+    local = _get_local_conn()
     try:
-        purchase = conn.execute(
+        purchase = local.execute(
             """SELECT id, venue_id, game_title, customer_name, customer_email,
                       fulfillment_status
                FROM game_purchases WHERE stripe_payment_intent_id = ?""",
@@ -209,7 +212,9 @@ def _handle_payment_intent_succeeded(payment_intent):
             return
 
         customer = purchase["customer_name"] or purchase["customer_email"]
-        venue = conn.execute(
+        # Venue name from Turso
+        vconn = _get_venues_conn()
+        venue = vconn.execute(
             "SELECT venue_name FROM venues WHERE venue_id = ?",
             (purchase["venue_id"],),
         ).fetchone()
@@ -220,7 +225,7 @@ def _handle_payment_intent_succeeded(payment_intent):
             f"— please hand to customer ({customer})"
         )
     finally:
-        conn.close()
+        local.close()
 
 
 def _handle_charge_refunded(charge):
@@ -229,9 +234,9 @@ def _handle_charge_refunded(charge):
     if not pi_id:
         return
 
-    conn = _get_conn()
+    local = _get_local_conn()
     try:
-        purchase = conn.execute(
+        purchase = local.execute(
             """SELECT id, venue_id, game_id, fulfillment_status
                FROM game_purchases WHERE stripe_payment_intent_id = ?""",
             (pi_id,),
@@ -243,21 +248,21 @@ def _handle_charge_refunded(charge):
             return
 
         now = datetime.now(timezone.utc).isoformat()
-        conn.execute(
+        local.execute(
             """UPDATE game_purchases
                SET fulfillment_status = 'refunded', refunded_at = ?
                WHERE id = ?""",
             (now, purchase["id"]),
         )
-        conn.execute(
+        local.execute(
             """UPDATE venue_game_inventory
                SET stock_count = stock_count + 1, updated_at = ?
                WHERE venue_id = ? AND game_id = ?""",
             (now, purchase["venue_id"], purchase["game_id"]),
         )
-        conn.commit()
+        local.commit()
     finally:
-        conn.close()
+        local.close()
 
 
 def _handle_subscription_deleted(subscription):
@@ -267,24 +272,21 @@ def _handle_subscription_deleted(subscription):
         return
 
     now = datetime.now(timezone.utc).isoformat()
-    conn = _get_conn()
-    try:
-        venue = conn.execute(
-            "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
-            (sub_id,),
-        ).fetchone()
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
+        "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
+        (sub_id,),
+    ).fetchone()
 
-        conn.execute(
-            "UPDATE venues SET subscription_status = 'canceled', updated_at = ? "
-            "WHERE stripe_subscription_id = ?",
-            (now, sub_id),
-        )
-        conn.commit()
+    vconn.execute(
+        "UPDATE venues SET subscription_status = 'canceled', updated_at = ? "
+        "WHERE stripe_subscription_id = ?",
+        (now, sub_id),
+    )
+    vconn.commit()
 
-        venue_id = venue["venue_id"] if venue else "unknown"
-        _telegram_notify(f"Venue subscription canceled: {venue_id}")
-    finally:
-        conn.close()
+    venue_id = venue["venue_id"] if venue else "unknown"
+    _telegram_notify(f"Venue subscription canceled: {venue_id}")
 
 
 def _is_rental_checkout(metadata: dict) -> bool:

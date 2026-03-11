@@ -71,6 +71,7 @@ from app.models.house_rules import init_house_rules_table
 from app.models.orders import init_orders_table, init_print_queue_tables
 from app.services.turso import init_analytics_tables as init_turso_analytics
 from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory, match_shopify_inventory
+from app.services.turso import init_turso_venues_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
@@ -85,8 +86,6 @@ async def lifespan(app: FastAPI):
     init_sessions_table()
     init_feedback_table()
     init_contacts_table()
-    init_venues_table()
-    init_venue_collections_table()
     init_analytics_table()
     init_score_history_table()
     init_house_rules_table()
@@ -97,6 +96,11 @@ async def lifespan(app: FastAPI):
     init_device_session_tables()
     run_venue_platform_migrations()
     init_marketplace_tables()
+
+    # Venues table lives in Turso (persistent across redeploys)
+    init_turso_venues_table()
+    init_venues_table()
+    init_venue_collections_table()
     init_drink_club_tables()
     init_menu_tables()
     init_swp_rental_tables()

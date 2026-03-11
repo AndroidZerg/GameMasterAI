@@ -14,7 +14,14 @@ from app.core.config import DB_PATH
 router = APIRouter(prefix="/api/v1/lgs", tags=["lgs-dashboard"])
 
 
+def _get_venues_conn():
+    """Turso-backed connection for the venues table."""
+    from app.services.turso import get_venues_db
+    return get_venues_db()
+
+
 def _get_conn() -> sqlite3.Connection:
+    """Local SQLite for non-venue tables."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -36,9 +43,10 @@ def _check_lgs_access(user: dict, lgs_id: str):
         raise HTTPException(status_code=403, detail="Not authorized for this LGS")
 
 
-def _check_venue_belongs_to_lgs(conn, venue_id: str, lgs_id: str):
-    """Verify venue is paired with this LGS."""
-    venue = conn.execute(
+def _check_venue_belongs_to_lgs(conn_unused, venue_id: str, lgs_id: str):
+    """Verify venue is paired with this LGS. Reads from Turso."""
+    vconn = _get_venues_conn()
+    venue = vconn.execute(
         "SELECT lgs_id FROM venues WHERE venue_id = ?", (venue_id,)
     ).fetchone()
     if not venue:
@@ -94,8 +102,9 @@ async def lgs_dashboard(lgs_id: str, user: dict = Depends(get_current_lgs_admin)
             (lgs_id, month_start),
         ).fetchone()["total"]
 
-        # Paired venues
-        venues = conn.execute(
+        # Paired venues (from Turso)
+        vconn = _get_venues_conn()
+        venues = vconn.execute(
             "SELECT venue_id, venue_name, subscription_tier, game_seat_limit, subscription_status "
             "FROM venues WHERE lgs_id = ?",
             (lgs_id,),
@@ -179,9 +188,10 @@ async def get_venue_inventory(lgs_id: str, venue_id: str,
 
     conn = _get_conn()
     try:
-        _check_venue_belongs_to_lgs(conn, venue_id, lgs_id)
+        _check_venue_belongs_to_lgs(None, venue_id, lgs_id)
 
-        venue = conn.execute(
+        vconn2 = _get_venues_conn()
+        venue = vconn2.execute(
             "SELECT venue_name FROM venues WHERE venue_id = ?", (venue_id,)
         ).fetchone()
 
@@ -263,7 +273,7 @@ async def update_inventory(lgs_id: str, req: InventoryUpdateRequest,
 
     conn = _get_conn()
     try:
-        _check_venue_belongs_to_lgs(conn, req.venue_id, lgs_id)
+        _check_venue_belongs_to_lgs(None, req.venue_id, lgs_id)
 
         now = datetime.now(timezone.utc).isoformat()
         existing = conn.execute(
@@ -304,7 +314,7 @@ async def set_threshold(lgs_id: str, req: ThresholdUpdateRequest,
 
     conn = _get_conn()
     try:
-        _check_venue_belongs_to_lgs(conn, req.venue_id, lgs_id)
+        _check_venue_belongs_to_lgs(None, req.venue_id, lgs_id)
 
         now = datetime.now(timezone.utc).isoformat()
         existing = conn.execute(
@@ -424,8 +434,8 @@ async def get_alerts(lgs_id: str, user: dict = Depends(get_current_lgs_admin)):
     try:
         alerts = []
 
-        # Venues paired with this LGS
-        venues = conn.execute(
+        # Venues paired with this LGS (Turso)
+        venues = _get_venues_conn().execute(
             "SELECT venue_id, venue_name FROM venues WHERE lgs_id = ?", (lgs_id,)
         ).fetchall()
         venue_map = {v["venue_id"]: v["venue_name"] for v in venues}
@@ -565,7 +575,7 @@ async def get_transactions(
         for r in rows:
             desc = r["source_id"]
             if r["transfer_type"] == "subscription_split":
-                venue = conn.execute(
+                venue = _get_venues_conn().execute(
                     "SELECT venue_name FROM venues WHERE venue_id = ?",
                     (r["source_id"],),
                 ).fetchone()
@@ -577,7 +587,7 @@ async def get_transactions(
                     (r["source_id"],),
                 ).fetchone()
                 if purchase:
-                    venue = conn.execute(
+                    venue = _get_venues_conn().execute(
                         "SELECT venue_name FROM venues WHERE venue_id = ?",
                         (purchase["venue_id"],),
                     ).fetchone()

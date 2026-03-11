@@ -939,8 +939,11 @@ def get_turso_staff_picks(venue_key: str) -> list[str]:
             "SELECT game_id FROM venue_staff_picks WHERE venue_key = ? ORDER BY position",
             (venue_key,)
         ).fetchall()
-        return [row[0] for row in rows]
+        result = [row[0] for row in rows]
+        print(f"[TURSO-DEBUG] get_staff_picks: venue_key={venue_key}, result={result}")
+        return result
     except Exception as e:
+        print(f"[TURSO-DEBUG] get_staff_picks FAILED: venue_key={venue_key}, error={e}")
         logger.warning(f"Failed to get staff picks for {venue_key}: {e}")
         return []
 
@@ -949,6 +952,7 @@ def set_turso_staff_picks(venue_key: str, game_ids: list[str]):
     """Set staff picks for a venue key in Turso."""
     db = get_analytics_db()
     try:
+        print(f"[TURSO-DEBUG] set_staff_picks: venue_key={venue_key}, game_ids={game_ids}")
         db.execute("DELETE FROM venue_staff_picks WHERE venue_key = ?", (venue_key,))
         for i, gid in enumerate(game_ids):
             db.execute(
@@ -956,7 +960,14 @@ def set_turso_staff_picks(venue_key: str, game_ids: list[str]):
                 (venue_key, gid, i + 1)
             )
         db.commit()
+        # Verify write landed
+        rows = db.execute(
+            "SELECT game_id, position FROM venue_staff_picks WHERE venue_key = ? ORDER BY position",
+            (venue_key,)
+        ).fetchall()
+        print(f"[TURSO-DEBUG] set_staff_picks VERIFY: venue_key={venue_key}, rows={[(r[0], r[1]) for r in rows]}")
     except Exception as e:
+        print(f"[TURSO-DEBUG] set_staff_picks FAILED: venue_key={venue_key}, error={e}")
         logger.warning(f"Failed to set staff picks for {venue_key}: {e}")
 
 
@@ -980,6 +991,7 @@ def set_turso_gotd(venue_key: str, game_id: str, mode: str = "manual"):
     """Set GOTD for a venue key in Turso."""
     db = get_analytics_db()
     try:
+        print(f"[TURSO-DEBUG] set_gotd: venue_key={venue_key}, game_id={game_id}, mode={mode}")
         db.execute(
             """INSERT INTO venue_gotd (venue_key, game_id, mode, updated_at)
                VALUES (?, ?, ?, datetime('now'))
@@ -990,7 +1002,14 @@ def set_turso_gotd(venue_key: str, game_id: str, mode: str = "manual"):
             (venue_key, game_id, mode)
         )
         db.commit()
+        # Verify write landed
+        row = db.execute(
+            "SELECT game_id, mode FROM venue_gotd WHERE venue_key = ?",
+            (venue_key,)
+        ).fetchone()
+        print(f"[TURSO-DEBUG] set_gotd VERIFY: venue_key={venue_key}, row={row}")
     except Exception as e:
+        print(f"[TURSO-DEBUG] set_gotd FAILED: venue_key={venue_key}, error={e}")
         logger.warning(f"Failed to set GOTD for {venue_key}: {e}")
 
 
@@ -1098,3 +1117,151 @@ def has_turso_venue_config(venue_key: str) -> bool:
         return bool(row and row[0] > 0)
     except Exception:
         return False
+
+
+# ── Venues DB (persistent accounts — survives redeploys) ────────
+
+
+class _DictRow(dict):
+    """Dict-like row that supports both key and integer index access (like sqlite3.Row)."""
+
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return list(self.values())[key]
+        return super().__getitem__(key)
+
+
+class _DictCursorWrapper:
+    """Wraps a DB-API cursor to return _DictRow objects."""
+
+    def __init__(self, cursor):
+        self._cursor = cursor
+
+    @property
+    def lastrowid(self):
+        return self._cursor.lastrowid
+
+    @property
+    def rowcount(self):
+        return self._cursor.rowcount
+
+    def _cols(self):
+        desc = self._cursor.description
+        if not desc:
+            return []
+        return [d[0] if isinstance(d, (tuple, list)) else str(d) for d in desc]
+
+    def fetchone(self):
+        row = self._cursor.fetchone()
+        if row is None:
+            return None
+        cols = self._cols()
+        if cols:
+            return _DictRow(zip(cols, row))
+        return row
+
+    def fetchall(self):
+        rows = self._cursor.fetchall()
+        cols = self._cols()
+        if cols:
+            return [_DictRow(zip(cols, r)) for r in rows]
+        return rows
+
+
+class _VenuesDB:
+    """Wrapper around a connection that returns dict-like rows.
+
+    close() is a no-op since the underlying connection is shared/singleton.
+    """
+
+    def __init__(self, conn):
+        self._conn = conn
+
+    def execute(self, sql, params=()):
+        cursor = self._conn.execute(sql, tuple(params) if params else ())
+        return _DictCursorWrapper(cursor)
+
+    def commit(self):
+        self._conn.commit()
+
+    def close(self):
+        pass  # Shared connection — don't actually close
+
+
+_venues_db = None
+
+
+def get_venues_db():
+    """Get a dict-row-returning wrapper around the Turso connection for venues.
+
+    Reuses the same Turso database as analytics. In local dev without Turso
+    credentials, falls back to data/analytics.db (same as analytics fallback).
+    """
+    global _venues_db
+    if _venues_db is not None:
+        return _venues_db
+    _venues_db = _VenuesDB(get_analytics_db())
+    return _venues_db
+
+
+def init_turso_venues_table():
+    """Create venues and venue_collections tables in Turso.
+
+    This makes user accounts persist across Render redeploys.
+    Uses the full schema including all columns added via ALTER TABLE migrations.
+    """
+    db = get_analytics_db()
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS venues (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            venue_id TEXT UNIQUE NOT NULL,
+            venue_name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            password_hash TEXT NOT NULL,
+            accent_color TEXT DEFAULT '#e94560',
+            logo_url TEXT,
+            tagline TEXT,
+            address TEXT DEFAULT '',
+            phone TEXT DEFAULT '',
+            website TEXT DEFAULT '',
+            default_theme TEXT DEFAULT 'dark',
+            created_at TEXT NOT NULL,
+            last_login TEXT,
+            staff_picks TEXT DEFAULT '[]',
+            role TEXT NOT NULL DEFAULT 'venue_admin',
+            status TEXT NOT NULL DEFAULT 'prospect',
+            trial_start_date TEXT,
+            trial_duration_days INTEGER DEFAULT 30,
+            source TEXT DEFAULT '',
+            expires_at TEXT,
+            username TEXT,
+            city TEXT DEFAULT '',
+            state TEXT DEFAULT '',
+            zip_code TEXT DEFAULT '',
+            hours_json TEXT DEFAULT '{}',
+            contact_name TEXT DEFAULT '',
+            logo_filename TEXT DEFAULT '',
+            onboarding_step INTEGER DEFAULT 0,
+            onboarding_completed_at TEXT,
+            stripe_customer_id TEXT,
+            stripe_subscription_id TEXT,
+            subscription_tier TEXT,
+            game_seat_limit INTEGER,
+            subscription_status TEXT,
+            updated_at TEXT,
+            purchases_enabled INTEGER DEFAULT 0,
+            lgs_id TEXT,
+            current_period_end TEXT
+        )
+    """)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS venue_collections (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            venue_id TEXT NOT NULL,
+            game_id TEXT NOT NULL,
+            added_at TEXT NOT NULL,
+            UNIQUE(venue_id, game_id)
+        )
+    """)
+    db.commit()
+    logger.info("Turso venues + venue_collections tables initialized")

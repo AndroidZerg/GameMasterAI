@@ -762,19 +762,15 @@ async def venues_list(
     user: dict = Depends(get_current_venue_admin),
 ):
     """Return lightweight venue list for dropdown. Super admins see all, venue admins see own."""
-    from app.core.config import DB_PATH
-    import sqlite3
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    from app.services.turso import get_venues_db
+    vconn = get_venues_db()
 
     if user.get("role") == "super_admin":
-        rows = conn.execute("SELECT venue_id, venue_name FROM venues ORDER BY venue_name").fetchall()
+        rows = vconn.execute("SELECT venue_id, venue_name FROM venues ORDER BY venue_name").fetchall()
     else:
-        rows = conn.execute("SELECT venue_id, venue_name FROM venues WHERE venue_id = ?", (user["venue_id"],)).fetchall()
+        rows = vconn.execute("SELECT venue_id, venue_name FROM venues WHERE venue_id = ?", (user["venue_id"],)).fetchall()
 
-    result = [{"venue_id": r["venue_id"], "venue_name": r["venue_name"]} for r in rows]
-    conn.close()
-    return result
+    return [{"venue_id": r["venue_id"], "venue_name": r["venue_name"]} for r in rows]
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1101,12 +1097,10 @@ async def convention_signups(
     if user.get("role") != "super_admin":
         return {"signups": []}
 
-    from app.core.config import DB_PATH
-    import sqlite3
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    from app.services.turso import get_venues_db
+    vconn = get_venues_db()
 
-    rows = conn.execute("""
+    rows = vconn.execute("""
         SELECT email, created_at, venue_id, expires_at
         FROM venues WHERE role = 'convention'
         ORDER BY created_at DESC
@@ -1125,6 +1119,4 @@ async def convention_signups(
             "last_active": last_row[0] if last_row and last_row[0] else "",
             "expires": r["expires_at"] or "",
         })
-
-    conn.close()
     return {"signups": signups}
