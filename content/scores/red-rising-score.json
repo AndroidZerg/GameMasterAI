@@ -1,0 +1,11 @@
+{
+  "game_id": "red-rising",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "hand_value", "label": "Hand Card Values", "points_each": 1, "type": "manual", "description": "Sum of base point values on cards in your hand"},
+    {"id": "combo_bonus", "label": "Combo Bonuses", "points_each": 1, "type": "manual", "description": "Points from card combo conditions met"},
+    {"id": "fleet_track", "label": "Fleet Track", "points_each": 1, "type": "manual", "description": "Points from your position on the fleet track"},
+    {"id": "sovereign", "label": "Sovereign Token", "points_each": 10, "type": "count", "description": "10 points if you hold the Sovereign token"},
+    {"id": "helium", "label": "Helium", "points_each": 1, "type": "count", "description": "1 point per helium remaining"}
+  ]
+}

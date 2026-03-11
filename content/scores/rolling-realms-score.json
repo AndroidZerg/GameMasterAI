@@ -1,0 +1,10 @@
+{
+  "game_id": "rolling-realms",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "round_1_stars", "label": "Round 1 Stars", "points_each": 1, "type": "count", "description": "Stars earned from first set of 3 realms"},
+    {"id": "round_2_stars", "label": "Round 2 Stars", "points_each": 1, "type": "count", "description": "Stars earned from second set of 3 realms"},
+    {"id": "round_3_stars", "label": "Round 3 Stars", "points_each": 1, "type": "count", "description": "Stars earned from third set of 3 realms"}
+  ],
+  "win_condition": "Most total stars across all 3 rounds"
+}

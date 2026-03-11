@@ -1,0 +1,11 @@
+{
+  "game_id": "charterstone",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "building_vp", "label": "Building Victory Points", "points_each": 1, "type": "manual", "description": "Total VP printed on buildings you constructed"},
+    {"id": "reputation", "label": "Reputation Track", "points_each": 1, "type": "manual", "description": "VP from your position on the reputation track"},
+    {"id": "guidepost", "label": "Guidepost Bonuses", "points_each": 1, "type": "manual", "description": "VP from completed guidepost objectives"},
+    {"id": "coins", "label": "Coins", "points_each": 1, "type": "count", "description": "1 VP per 3 coins (round down)"},
+    {"id": "influence", "label": "Influence Stars", "points_each": 1, "type": "manual", "description": "VP from influence tokens and minions"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "game_id": "my-little-scythe",
+  "scoring_type": "trophy_race",
+  "categories": [
+    {"id": "trophies", "label": "Trophies Earned", "type": "count", "description": "Total trophies placed on the trophy track (4 to win)"},
+    {"id": "friendship", "label": "Friendship Track", "points_each": 1, "type": "manual", "description": "Position on friendship track (tiebreaker)"},
+    {"id": "pies", "label": "Pies Remaining", "points_each": 1, "type": "count", "description": "Pies in hand (second tiebreaker)"}
+  ],
+  "win_condition": "First player to place 4th trophy"
+}

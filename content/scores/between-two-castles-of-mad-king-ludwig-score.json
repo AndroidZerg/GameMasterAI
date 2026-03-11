@@ -1,0 +1,10 @@
+{
+  "game_id": "between-two-castles-of-mad-king-ludwig",
+  "scoring_type": "calculator",
+  "note": "Your final score is the LOWER of your two castle scores",
+  "categories": [
+    {"id": "left_castle", "label": "Left Castle Score", "points_each": 1, "type": "manual", "description": "Total VP of the castle shared with your left neighbor"},
+    {"id": "right_castle", "label": "Right Castle Score", "points_each": 1, "type": "manual", "description": "Total VP of the castle shared with your right neighbor"}
+  ],
+  "win_condition": "Highest minimum castle score"
+}

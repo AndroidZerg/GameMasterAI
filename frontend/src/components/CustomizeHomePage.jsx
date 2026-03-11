@@ -137,7 +137,7 @@ export default function CustomizeHomePage() {
 
     // Any remaining venues not in the lists above
     const listed = new Set(["global", ...SPECIAL_ACCOUNTS.map((s) => s.venue_id), ...DEMO_VENUE_ORDER]);
-    const extras = venues.filter((v) => !listed.has(v.venue_id) && !["admin", "meetup-admin", "demo-dicetower", "playgmai-demo"].includes(v.venue_id));
+    const extras = venues.filter((v) => !listed.has(v.venue_id) && !["admin", "meetup-admin", "demo-dicetower", "playgmai-demo"].includes(v.venue_id) && v.role !== "super_admin");
     for (const v of extras) {
       options.push({ value: v.venue_id, label: v.venue_name, group: "other" });
     }
