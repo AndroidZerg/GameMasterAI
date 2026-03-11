@@ -61,17 +61,21 @@ TAB_DISPLAY_NAMES = {
     "setup": "Setup",
     "rules": "Rules",
     "strategy": "Strategy",
+    "walkthrough": "First-Game Walkthrough",
+    "advanced_strategy": "Advanced Strategy",
 }
+
+_TAB_ORDER = ["setup", "rules", "strategy", "walkthrough", "advanced_strategy"]
 
 
 def build_knowledge_text(game: dict) -> str:
     """Flatten all tabs/subtopics into a Markdown string for the LLM system prompt.
 
-    Schema v2.0: tabs.{setup,rules,strategy}.subtopics[].{title, content}
+    Schema v2.1: tabs.{setup,rules,strategy,walkthrough,advanced_strategy}.subtopics[].{title, content}
     """
     tabs = game.get("tabs", {})
     parts = []
-    for tab_key in ["setup", "rules", "strategy"]:
+    for tab_key in _TAB_ORDER:
         tab = tabs.get(tab_key)
         if not tab:
             continue
