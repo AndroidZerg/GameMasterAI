@@ -45,13 +45,20 @@ router = APIRouter(prefix="/api", tags=["games"])
 async def list_games(
     search: Optional[str] = Query(None, description="Filter by title (case-insensitive)"),
     complexity: Optional[str] = Query(None, description="Filter by complexity value"),
-    venue: Optional[bool] = Query(None, description="If true, filter to venue's collection"),
     current_venue: Optional[dict] = Depends(get_optional_venue),
 ):
-    """List games. Role-based filtering: demo/convention see limited library only."""
-    # Role-based library filtering
+    """List games. Per-venue collection takes priority; role-based filtering is fallback."""
+    venue_id = current_venue.get("venue_id") if current_venue else None
     role = current_venue.get("role", "venue_admin") if current_venue else None
-    if role == "stonemaier":
+
+    # Check venue_collections first — if the venue has a curated collection, use it
+    collection = get_venue_collection(venue_id) if venue_id else []
+    if collection:
+        coll_set = set(collection)
+        # Get full catalog then filter to collection
+        results = search_games(search=search, complexity=complexity)
+        results = [g for g in results if g["game_id"] in coll_set]
+    elif role == "stonemaier":
         results = search_by_publisher_tag("stonemaier", search=search, complexity=complexity)
     elif role == "convention":
         results = search_convention_library(search=search, complexity=complexity)
@@ -59,12 +66,6 @@ async def list_games(
         results = search_limited_library(search=search, complexity=complexity)
     else:
         results = search_games(search=search, complexity=complexity)
-
-    if venue and current_venue:
-        collection = get_venue_collection(current_venue["venue_id"])
-        if collection:
-            coll_set = set(collection)
-            results = [g for g in results if g["game_id"] in coll_set]
 
     # Attach average ratings
     ratings = get_all_game_ratings()

@@ -64,8 +64,9 @@ export async function fetchVenueConfig() {
   return handleResponse(res);
 }
 
-export async function fetchVenueCollection() {
-  const res = await fetch(`${API_BASE}/api/venue/collection`, {
+export async function fetchVenueCollection(venueId) {
+  const params = venueId ? `?venue_id=${encodeURIComponent(venueId)}` : "";
+  const res = await fetch(`${API_BASE}/api/admin/collection${params}`, {
     headers: getAuthHeaders(),
   });
   return handleResponse(res);
@@ -197,8 +198,9 @@ export async function saveVenueSettings(settings) {
   return handleResponse(res);
 }
 
-export async function saveVenueCollection(gameIds) {
-  const res = await fetch(`${API_BASE}/api/admin/collection`, {
+export async function saveVenueCollection(gameIds, venueId) {
+  const params = venueId ? `?venue_id=${encodeURIComponent(venueId)}` : "";
+  const res = await fetch(`${API_BASE}/api/admin/collection${params}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", ...getAuthHeaders() },
     body: JSON.stringify({ game_ids: gameIds }),

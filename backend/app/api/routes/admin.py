@@ -3,7 +3,7 @@
 import re
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
 from app.core.auth import get_current_venue
@@ -89,24 +89,34 @@ async def update_venue_config_endpoint(
 @router.post("/collection")
 async def update_collection(
     req: CollectionUpdateRequest,
+    target_venue_id: Optional[str] = Query(None, alias="venue_id", description="Target venue (super_admin only)"),
     venue: dict = Depends(get_current_venue),
 ):
-    """Replace the entire game collection for this venue. Requires auth."""
+    """Replace the entire game collection for a venue. Super admins can target any venue."""
     _require_admin(venue)
+    vid = venue["venue_id"]
+    if target_venue_id:
+        _require_super_admin(venue)
+        vid = target_venue_id
     if not req.game_ids:
         raise HTTPException(status_code=400, detail="game_ids cannot be empty")
-    set_venue_collection(venue["venue_id"], req.game_ids)
-    return {"status": "ok", "game_count": len(req.game_ids)}
+    set_venue_collection(vid, req.game_ids)
+    return {"status": "ok", "venue_id": vid, "game_count": len(req.game_ids)}
 
 
 @router.get("/collection")
 async def get_collection(
+    target_venue_id: Optional[str] = Query(None, alias="venue_id", description="Target venue (super_admin only)"),
     venue: dict = Depends(get_current_venue),
 ):
-    """Get this venue's game collection. Requires auth."""
+    """Get a venue's game collection. Super admins can query any venue."""
     _require_admin(venue)
-    game_ids = get_venue_collection(venue["venue_id"])
-    return {"venue_id": venue["venue_id"], "game_ids": game_ids, "game_count": len(game_ids)}
+    vid = venue["venue_id"]
+    if target_venue_id:
+        _require_super_admin(venue)
+        vid = target_venue_id
+    game_ids = get_venue_collection(vid)
+    return {"venue_id": vid, "game_ids": game_ids, "game_count": len(game_ids)}
 
 
 # ── Meetup Toggle (super_admin only) ──────────────────────────────

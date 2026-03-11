@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchGames, fetchVenueCollection, saveVenueCollection } from "../services/api";
+import { fetchGames, fetchVenueCollection, saveVenueCollection, fetchAllVenues } from "../services/api";
+import { useAuth } from "../contexts/AuthContext";
 import Breadcrumb from "./Breadcrumb";
 
 export default function CollectionManagerPage() {
   const navigate = useNavigate();
+  const { role, venueId: myVenueId } = useAuth();
+  const isSuperAdmin = role === "super_admin";
+
   const [allGames, setAllGames] = useState([]);
   const [selected, setSelected] = useState(new Set());
   const [search, setSearch] = useState("");
@@ -12,25 +16,49 @@ export default function CollectionManagerPage() {
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState("");
 
+  // Venue selector state (super_admin only)
+  const [venues, setVenues] = useState([]);
+  const [selectedVenueId, setSelectedVenueId] = useState("");
+
+  // Load venues list for super_admin
+  useEffect(() => {
+    if (!isSuperAdmin) return;
+    fetchAllVenues()
+      .then((list) => {
+        setVenues(list);
+        // Default to own venue
+        if (myVenueId) setSelectedVenueId(myVenueId);
+      })
+      .catch(() => {});
+  }, [isSuperAdmin, myVenueId]);
+
+  // The venue_id to operate on
+  const targetVenueId = isSuperAdmin ? selectedVenueId : myVenueId;
+
+  const loadCollection = useCallback(async (games) => {
+    const gameList = games || allGames;
+    try {
+      const collection = await fetchVenueCollection(isSuperAdmin ? targetVenueId : undefined);
+      if (collection.game_ids && collection.game_ids.length > 0) {
+        setSelected(new Set(collection.game_ids));
+      } else {
+        // No collection yet — select all by default
+        setSelected(new Set(gameList.map((g) => g.game_id)));
+      }
+    } catch {
+      setSelected(new Set(gameList.map((g) => g.game_id)));
+    }
+  }, [allGames, isSuperAdmin, targetVenueId]);
+
+  // Load games + collection on mount
   useEffect(() => {
     const load = async () => {
+      setLoading(true);
       try {
         const games = await fetchGames();
         setAllGames(games);
-        try {
-          const collection = await fetchVenueCollection();
-          if (collection.game_ids) {
-            setSelected(new Set(collection.game_ids));
-          } else {
-            // Default: select all
-            setSelected(new Set(games.map((g) => g.game_id)));
-          }
-        } catch {
-          // No collection yet — select all by default
-          setSelected(new Set(games.map((g) => g.game_id)));
-        }
+        await loadCollection(games);
       } catch {
-        // Use cached games
         try {
           const cached = JSON.parse(localStorage.getItem("gmai_games_cache") || "[]");
           setAllGames(cached);
@@ -40,7 +68,15 @@ export default function CollectionManagerPage() {
       setLoading(false);
     };
     load();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Reload collection when venue selector changes
+  useEffect(() => {
+    if (!isSuperAdmin || !targetVenueId || allGames.length === 0) return;
+    loadCollection(allGames);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targetVenueId]);
 
   const toggleGame = (gameId) => {
     setSelected((prev) => {
@@ -57,10 +93,10 @@ export default function CollectionManagerPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      await saveVenueCollection([...selected]);
-      setToast("Collection saved!");
+      await saveVenueCollection([...selected], isSuperAdmin ? targetVenueId : undefined);
+      const venueName = venues.find((v) => v.venue_id === targetVenueId)?.venue_name;
+      setToast(venueName ? `Collection saved for ${venueName}!` : "Collection saved!");
     } catch {
-      // Save locally
       try {
         localStorage.setItem("gmai_venue_collection", JSON.stringify([...selected]));
       } catch {}
@@ -102,6 +138,31 @@ export default function CollectionManagerPage() {
           {selected.size} of {allGames.length} games selected
         </span>
       </div>
+
+      {/* Venue selector — super_admin only */}
+      {isSuperAdmin && venues.length > 0 && (
+        <div style={{ marginBottom: "16px" }}>
+          <label style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "6px", display: "block" }}>
+            Editing collection for:
+          </label>
+          <select
+            value={selectedVenueId}
+            onChange={(e) => setSelectedVenueId(e.target.value)}
+            style={{
+              width: "100%", padding: "10px 14px", borderRadius: "10px",
+              border: "1px solid var(--border)", background: "var(--bg-primary)",
+              color: "var(--text-primary)", fontSize: "1rem",
+            }}
+          >
+            <option value="">— Select venue —</option>
+            {venues.map((v) => (
+              <option key={v.venue_id} value={v.venue_id}>
+                {v.venue_name} {v.role && v.role !== "venue_admin" ? `(${v.role})` : ""}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       {/* Toast */}
       {toast && (
@@ -185,11 +246,12 @@ export default function CollectionManagerPage() {
         })}
       </div>
 
-      <button onClick={handleSave} disabled={saving}
+      <button onClick={handleSave} disabled={saving || (isSuperAdmin && !selectedVenueId)}
         style={{
           width: "100%", padding: "14px", borderRadius: "12px",
-          background: saving ? "var(--border)" : "var(--accent)",
-          color: "#fff", border: "none", fontSize: "1.05rem", fontWeight: 700, cursor: saving ? "not-allowed" : "pointer",
+          background: (saving || (isSuperAdmin && !selectedVenueId)) ? "var(--border)" : "var(--accent)",
+          color: "#fff", border: "none", fontSize: "1.05rem", fontWeight: 700,
+          cursor: (saving || (isSuperAdmin && !selectedVenueId)) ? "not-allowed" : "pointer",
         }}>
         {saving ? "Saving..." : `Save Collection (${selected.size} games)`}
       </button>
