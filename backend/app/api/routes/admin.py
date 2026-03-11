@@ -181,3 +181,43 @@ async def list_signups(venue: dict = Depends(get_current_venue)):
     _require_super_admin(venue)
     signups = get_all_signups()
     return {"signups": signups, "count": len(signups)}
+
+
+# ── Venue Cleanup (super_admin only) ────────────────────────────
+
+KEEP_VENUE_IDS = {
+    "thaihouse", "shallweplay", "dicetowerwest",
+    "admin", "demo-dicetower", "meetup", "meetup-admin", "playgmai-demo",
+}
+
+
+@router.post("/cleanup-venues")
+async def cleanup_stale_venues(venue: dict = Depends(get_current_venue)):
+    """Delete all venues except the 3 real ones + system accounts. Super admin only."""
+    _require_super_admin(venue)
+    from app.services.turso import get_venues_db
+    db = get_venues_db()
+
+    rows = db.execute("SELECT venue_id, venue_name, role, email FROM venues").fetchall()
+    before_count = len(rows)
+
+    deleted = []
+    for r in rows:
+        vid = dict(r)["venue_id"]
+        if vid not in KEEP_VENUE_IDS:
+            db.execute("DELETE FROM venue_collections WHERE venue_id = ?", (vid,))
+            db.execute("DELETE FROM venues WHERE venue_id = ?", (vid,))
+            deleted.append({"venue_id": vid, "venue_name": dict(r)["venue_name"], "role": dict(r).get("role", "")})
+
+    db.commit()
+
+    remaining = db.execute("SELECT venue_id, venue_name, role FROM venues ORDER BY venue_name").fetchall()
+    after = [dict(r) for r in remaining]
+
+    return {
+        "before_count": before_count,
+        "deleted_count": len(deleted),
+        "deleted": deleted,
+        "after_count": len(after),
+        "remaining": after,
+    }
