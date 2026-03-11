@@ -242,13 +242,13 @@ TESTS = [
     {
         "game_id": "red-rising",
         "question": "What triggers the end of the game?",
-        "correct": "Triggered when a player reaches helium threshold on sovereign track OR card draw pile is exhausted.",
+        "correct": "All 3 conditions met by any combo OR 2 by same player: 7+ helium, 7+ influence, 7+ fleet.",
         "source": "Red Rising rulebook"
     },
     {
         "game_id": "red-rising",
         "question": "How does the Sovereign track work?",
-        "correct": "Represents political influence. Advance by deploying certain cards. Furthest player scores bonus. Also an end-game trigger.",
+        "correct": "Sovereign is a TOKEN worth 10 VP, not a track.",
         "source": "Red Rising rulebook"
     },
     # BETWEEN TWO CASTLES (3)
@@ -280,13 +280,13 @@ TESTS = [
     {
         "game_id": "expeditions",
         "question": "What are the main actions I can take on my turn?",
-        "correct": "Either PLAY (place cards for effects) or GATHER (move mech, collect from locations, refresh hand).",
+        "correct": "4 actions: Move, Play, Gather, Refresh.",
         "source": "Expeditions rulebook"
     },
     {
         "game_id": "expeditions",
         "question": "How does corruption work?",
-        "correct": "Corruption tokens are negative VP. Gained from powerful actions. Can be removed through quests.",
+        "correct": "Corruption is vanquished and collected — 7+ corruption is a glory condition (positive).",
         "source": "Expeditions rulebook"
     },
     {
@@ -349,7 +349,7 @@ TESTS = [
     {
         "game_id": "pendulum",
         "question": "What's the difference between the green, purple, and black timer areas?",
-        "correct": "Green (45s) = quick small actions. Purple (2min) = medium. Black (3min) = most powerful but slowest.",
+        "correct": "SKIP — needs physical rulebook verification.",
         "source": "Pendulum rulebook"
     },
     {
