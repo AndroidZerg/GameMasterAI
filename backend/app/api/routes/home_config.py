@@ -44,8 +44,10 @@ def _resolve_venue_key(venue: dict | None) -> str:
     role = venue.get("role")
     if role == "super_admin":
         return "global"
-    if role in ("convention", "stonemaier", "meetup"):
-        return role
+    if role in ("convention", "stonemaier"):
+        return "convention"
+    if role == "meetup":
+        return "meetup"
     venue_id = venue.get("venue_id")
     return venue_id if venue_id else "global"
 
