@@ -26,47 +26,17 @@
   ],
   "source_url": "https://stonemaiergames.com/games/wyrmspan/",
   "source_verified": true,
-  "sections": {
-    "component_identification": {
-      "content": "#### Cards\n- 183 dragon cards total: 148 full-grown dragons + 35 hatchlings (a new card type requiring sustained investment to grow)\n- 75 cave cards — must be played to excavate spaces before dragons can be placed\n- 10 objective tiles (double-sided = 20 possible objectives), 4 used per game\n- Quick-start cards for learning the game\n\n#### Player Components (per player)\n- 1 player mat with 3 cavern rows (Crimson Cavern, Golden Grotto, Amethyst Abyss), each with 4 dragon slots\n- 1 adventurer meeple (moves through caverns during explore actions)\n- 1 guild token (tracks position on the Dragon Guild)\n- 8 player markers (for claiming Dragon Guild tile benefits)\n\n#### Resources & Tokens\n- 100 resource tokens in 4 types: Meat (red), Gold (yellow), Crystals (purple), Milk (white)\n- 55 egg tokens (speckled) — worth 1 VP each at game end AND used as escalation costs\n- 45 coin tokens — coins are NOT resources; they represent actions (1 coin = 1 action)\n- 20 multiplier tokens\n\n#### Shared Components\n- 1 Dragon Guild board with circular track\n- 4 Dragon Guild tiles (double-sided: one side for 2-3 players, other for 4-5 players)\n- 1 card display board (holds face-up dragon cards for drafting)\n- 1 round tracker board\n- Round marker and start player marker\n- 17 Automa/solo cards\n- 2 rulebooks (multiplayer + solo) and 1 dragon fact book",
-      "token_count": 300
-    },
-    "core_game_loop": {
-      "content": "#### Game Structure\nWyrmspan plays over exactly **4 rounds**. Each round, every player receives **6 coins**. Each action costs 1 coin, so you get at least 6 actions per round — but you can earn bonus coins during play, potentially taking more. Unspent coins at round end are wasted.\n\n#### Three Action Types (Each Costs 1 Coin)\n\n**1. Excavate** — Play a cave card from your hand into the leftmost empty slot of any cavern.\n- Column 2 costs 1 coin only. Column 3 costs 1 coin + 1 egg. Column 4 costs 1 coin + 2 eggs.\n- The cave card's \"when played\" bonus activates immediately (resources, cards, eggs, guild advancement).\n- You MUST excavate a space before you can place a dragon there (column 1 of each cave is pre-excavated).\n\n**2. Entice a Dragon** — Play a dragon card from your hand into an excavated slot.\n- Pay the dragon's resource cost (meat, gold, crystals, milk, and/or eggs).\n- Place in the leftmost excavated-but-empty slot of the matching cavern.\n- Resolve the dragon's \"when played\" ability if it has one.\n\n**3. Explore a Cavern** — Send your adventurer through a cavern to activate dragons.\n- Choose a cavern. Your adventurer moves left to right, activating each dragon's ability in sequence.\n- At the end of the row, gain the explore reward printed on your player mat (resources, cards, cave cards, or guild advancement depending on the cavern).\n- Exploring the same cavern multiple times per round costs escalating eggs: free first time, 1 egg second time, 2 eggs third time.\n\n#### Engine Building\nThe key mechanic: exploring a cavern with 4 dragons triggers all 4 abilities in sequence, then the mat reward. A full Crimson Cavern exploration might generate 4+ resources in one action. This is how engines compound — identical to Wingspan's habitat activation, but left-to-right instead of right-to-left.\n\n#### Between Rounds\nScore the round objective. Gain 6 new coins + 1 egg. Begin next round.",
-      "token_count": 380
-    },
-    "detailed_rules": {
-      "content": "#### Excavation Details\n- Cave cards are separate from dragon cards — they're the \"infrastructure\" layer\n- Each cave card has a \"when played\" bonus: resources, eggs, guild advancement, or special abilities\n- Column 1 of each cavern is pre-excavated at game start (no cave card needed)\n- Columns 2-4 must be excavated with cave cards before dragons can be placed\n- Cave cards in hand at game end are worth nothing (but convert at 4 items = 1 VP)\n\n#### Dragon Placement Rules\n- Dragons must go in their allowed cavern (shown on the card)\n- Must be placed in the leftmost excavated-but-empty slot\n- Pay the resource cost shown on the card\n- Some dragons can go in multiple caverns (multiple cave icons shown)\n\n#### Dragon Types\n- **Full-grown dragons (148)**: Standard cards with abilities and VP values\n- **Hatchlings (35)**: Require sustained investment — you cache resources (meat/milk) or tuck cards onto them over multiple turns. Once they reach their threshold (usually 3 cached items), their powerful third-line ability triggers once. High investment, high payoff.\n\n#### Dragon Ability Types\n- **When Played** — One-time trigger on placement. Immediate bonus.\n- **When Activated** — Triggers every time you explore this cavern. The engine-building core.\n- **Once Per Round** — Triggers once each round. Consistent but not chainable.\n- **End of Game** — Bonus VP at final scoring based on board state.\n\n#### Dragon Personalities\nDragons have personality tags: aggressive, helpful, playful, or shy. Some dragons grant bonuses for adjacent personality matches or specific personality counts in a cavern. Consider this when choosing placement.\n\n#### The Three Caverns\n\n**Crimson Cavern (Red / Top)**\n- Preferred resource: Meat\n- Explore reward: Resources from supply + Dragon Guild advancement\n- Role: Primary resource-generation engine\n\n**Golden Grotto (Yellow / Middle)**\n- Preferred resource: Gold\n- Explore reward: Dragon cards from display + Guild advancement\n- Role: Card-drawing and tucking engine (tucked cards = 1 VP each)\n\n**Amethyst Abyss (Purple / Bottom)**\n- Preferred resource: Crystals\n- Explore reward: Cave cards from supply + Guild advancement\n- Role: Cave card engine and hatchling nursery\n\n#### Dragon Guild Track\n- Circular track on a shared board. Advance by exploring (printed icons), playing certain cards, or abilities.\n- Landing on spaces grants bonuses: resources, coins, cards, eggs.\n- When advancing multiple spaces, gain ALL bonuses passed through.\n- **Brown spaces**: Must place a player marker on the Guild tile and gain its benefit. Max 4 markers per player.\n- Guild tile has 5 abilities; 4th and 5th slots (end-game scoring) are highest priority.\n- Two-sided tile: one side for 2-3 players, other for 4-5 players.\n\n#### Resource Rules\n- 4 resource types: Meat, Gold, Crystals, Milk\n- **Coins are NOT resources** — they represent actions. Abilities that discount resources don't affect coin costs.\n- **2-for-1 conversion**: At any time during your turn, exchange 2 resources (any types) for 1 of another type. Emergency valve.\n- **9-item hand limit**: At end of turn, you cannot exceed 9 total items (cards + resources). Discard excess.\n- **Eggs**: Dual purpose — 1 VP each at game end AND used as escalation costs for exploring/excavating.\n\n#### Column 4 Special Ability\nThe 4th column slot has a \"when covered\" ability: spend 3 items (any combination of resources, dragon cards, cave cards) to gain 1 coin. Since coins = actions, this is extremely valuable.\n\n#### End-Game Conversion\nAt game end, every 4 leftover items (cards in hand + unspent resources) convert to 1 VP.\n\n#### Setup\n1. Each player takes a player mat, adventurer meeple, guild token, and 8 markers\n2. Column 1 of each cavern is pre-excavated\n3. Shuffle dragon deck, reveal face-up display. Shuffle cave card deck.\n4. Set up Dragon Guild board and randomly select Guild tile side\n5. Place 4 random objective tiles (one per round)\n6. Deal each player 5 dragon cards, 3 cave cards, and 2 objective cards\n7. Keep 3 dragons, discard 2. Keep 1 objective, discard 1.\n8. Choose 3 starting resources (any combination of meat, gold, crystals, milk)\n9. Each player starts with 0 eggs and 6 coins for round 1",
-      "token_count": 900
-    },
-    "scoring_and_endgame": {
-      "content": "#### Game End\nThe game ends after Round 4.\n\n#### Victory Point Sources\n1. **Dragon VP** — Printed value on each dragon in your caverns\n2. **Eggs** — 1 VP per egg on your dragons or storage at game end\n3. **Tucked cards** — 1 VP per card tucked under dragons\n4. **Cached resources** — 1 VP per resource cached on dragons (for hatchlings)\n5. **Round objectives** — VP from 4 round objectives (later rounds worth more)\n6. **Dragon Guild tile** — VP from claimed Guild tile abilities (especially 4th/5th slots)\n7. **End-game dragon abilities** — Some dragons score bonus VP based on board state\n8. **Leftover conversion** — Every 4 leftover items (cards + resources) = 1 VP\n\n#### Typical Winning Scores\n- 2-player: 85-110 VP\n- 3-player: 80-100 VP\n- 4-5 player: 75-95 VP\n- Experienced play: 100-130+ VP\n\n#### Tiebreaker\nMost remaining resources wins ties.",
-      "token_count": 210
-    },
-    "beginner_strategy": {
-      "content": "#### Key Principles\n\n- **Coins = actions. Never waste them.** You get 6 coins per round. Unspent coins at round end are gone forever. Spend them all.\n\n- **Excavate first, then entice, then explore.** Don't explore empty caverns — your adventurer hits a dead end immediately. The optimal early rhythm: Excavate → Entice dragon → Excavate → Entice dragon → Then start exploring.\n\n- **Focus one cavern.** A full cavern (4 dragons) explored generates 4 ability activations. Two dragons in each of 3 caves generates far less. Focus beats breadth.\n\n- **Crimson Cavern first.** Getting resource-generating dragons into Crimson early means every exploration there fuels the rest of your board.\n\n- **The Dragon Guild matters.** It's not optional flavor — it's a core resource and scoring engine. Advance whenever possible, especially to claim end-game scoring Guild tile slots.\n\n- **Eggs are precious.** They score 1 VP each AND are used for escalation costs. Save them for exploring (which generates more value) over excavation when possible.\n\n- **Don't hoard.** 9-item hand limit. Cards and resources in hand score almost nothing. Play them.\n\n#### Common Beginner Mistakes\n- Exploring before placing dragons (empty caves = wasted actions)\n- Letting coins go unspent at round end (wasted actions!)\n- Ignoring the Dragon Guild (one of the biggest VP sources)\n- Spending eggs on excavation when Guild abilities or cave cards could excavate for free\n- Spreading evenly across 3 caverns instead of focusing one\n- Not reading all 4 round objectives at setup to plan your game arc\n- Playing expensive high-VP dragons too early instead of cheap engine pieces",
-      "token_count": 340
-    },
-    "walkthrough": {
-      "content": "#### Your First Game of Wyrmspan — A Guided Walkthrough\n\n**If You've Played Wingspan**\nWyrmspan is ~85% the same core design, reimplemented with dragons and several key refinements:\n- **No dice.** Resources come from exploring caverns and the Guild track — predictable, not random.\n- **Coins = actions.** 6 coins per round (not Wingspan's shrinking 8/7/6/5). You can earn bonus coins.\n- **Two-step placement.** You must excavate a space (play a cave card) before placing a dragon. Two actions instead of one.\n- **Dragon Guild.** A new circular track with cascading bonuses — prevents the Wingspan problem of wasting turns on minor resource needs.\n- **Hatchlings.** 35 dragons that require multi-turn investment but pay off big.\n- **Explore left-to-right** (Wingspan activates right-to-left).\n\n**Setup**\nYou get a player mat with 3 cavern rows (4 slots each, column 1 pre-excavated). Keep 3 of 5 dragon cards, 1 of 2 objectives. Choose 3 starting resources. You start with 6 coins and 0 eggs.\n\n**Round 1 (6 coins = 6+ actions)**\n\n*Action 1*: **Excavate** column 2 of your Crimson Cavern. Play a cave card from your hand — gain its \"when played\" bonus (maybe resources or a guild advance). Cost: 1 coin.\n\n*Action 2*: **Entice a dragon** into Crimson Cavern column 1 (pre-excavated). Pick a dragon with a strong \"when activated\" ability. Pay its resource cost. Cost: 1 coin.\n\n*Action 3*: **Entice a dragon** into the slot you just excavated (Crimson column 2). Now you have 2 dragons ready to activate! Cost: 1 coin.\n\n*Action 4*: **Explore Crimson Cavern.** Your adventurer moves left-to-right, activating both dragons' abilities (resources, cards, etc.), then gains the mat's explore reward. Cost: 1 coin.\n\n*Actions 5-6*: Excavate another cavern, entice more dragons, or explore again (2nd explore costs 1 egg). Spend all your coins!\n\n**Rounds 2-3: Engine Building**\nKeep filling your focus cavern. A 4-dragon Crimson Cavern explored = 4 ability activations + mat reward. That's potentially 4+ resources per action.\n\nStart advancing on the Dragon Guild track — race to claim the end-game scoring slots (4th and 5th abilities) before opponents.\n\nWatch round objectives — they escalate in VP. Don't chase all 4, but score the ones that align with your engine.\n\n**Round 4: Scoring Push**\nEntice high-VP dragons. Lay eggs (1 VP each). Complete any hatchlings that are close to their threshold. Check your objective.\n\n**Scoring**\nDragon VP + eggs + tucked cards + cached resources + objectives + Guild tile + end-game abilities + leftover conversion (4 items = 1 VP).\n\n**Target**: 70-85 VP first game. Focus on filling one cavern deep.",
-      "token_count": 580
-    },
-    "advanced_strategy": {
-      "content": "#### Wingspan vs Wyrmspan — Key Strategic Differences\n\n- **No dice randomness.** Resources are predictable from exploration. Plan precisely.\n- **Coins = actions.** Earning bonus coins (from column 4 ability, Guild, or dragon powers) effectively gives you extra turns. This is the biggest strategic lever in Wyrmspan.\n- **Two-step placement** (excavate + entice) means board development is slower. Engine pieces need to come online by Round 2 to compound.\n- **Guild track is a major VP and resource engine.** There's nothing like it in Wingspan. Players who advance quickly gain cascading bonuses.\n- **Hatchlings reward sustained investment.** No Wingspan equivalent. They're like mini-quests that pay off when you cache enough items.\n\n#### Core Engine Types\n\n**Resource Engine (Crimson Focus — Safest)**\n- Fill Crimson with dragons that generate meat/gold/crystals on activation.\n- Each exploration generates cascading resources to fuel enticing elsewhere.\n- Best all-around strategy. Provides the resource base for everything else.\n\n**Card/Tucking Engine (Golden Focus)**\n- Fill Golden Grotto with dragons that draw or tuck cards.\n- Tucked cards = 1 VP each (plus any bonus from the dragon's end-game ability).\n- Generates card flow to keep options open. Good for combo-hunting.\n\n**Cave Card Engine (Amethyst Focus — Hatchling Path)**\n- Fill Amethyst to generate cave cards through exploration.\n- Self-sustaining excavation pipeline. Best for hatchling strategies since most hatchlings go here.\n- Higher variance but potentially highest ceiling.\n\n**Recommended**: Go deep in 1 cavern by Round 3 (4 dragons), light presence in a 2nd.\n\n#### Dragon Guild Optimization\n\n**Guild Tile Priority (when placing markers):**\n1. 4th ability (end-game scoring) — Claim first. Compounds.\n2. 5th ability (end-game scoring) — Second priority.\n3. 3rd ability (extra action/coin with bonuses) — If scoring slots taken.\n4. 1st/2nd abilities (discounted excavation/enticement) — Fallback.\n\n**Racing matters.** At 4-5 players, Guild tile spaces are contested. Sprint to brown spaces early by choosing dragons with guild advancement on their activation abilities.\n\n#### Hatchling Strategy\n\n- Place hatchlings early (Round 1-2), especially in Amethyst Abyss.\n- Each exploration lets you cache a resource or tuck a card onto the hatchling.\n- Once threshold hit (usually 3 cached items), the powerful third-line ability fires once.\n- If you commit to 1-2 hatchlings early, the payoff is significant.\n- If you can't commit to feeding them, don't draft them.\n\n#### Coin Optimization\n\n- Every unspent coin at round end is a wasted action. **Spend all 6 coins minimum.**\n- Column 4's \"spend 3 items for 1 coin\" ability is one of the best effects in the game — an extra action.\n- Some Guild track spaces give coins. Some dragons give coins on activation.\n- A player who averages 7-8 actions per round (from bonus coins) crushes someone who takes only 6.\n\n#### Round Objective Strategy\n\n- Study all 4 objectives at setup. Let them inform starting card/resource choices.\n- Later objectives are worth more VP — it's correct to sacrifice Round 1-2 objectives for Round 3-4 dominance.\n- Having zero of what an objective measures = automatic 0 VP regardless of others' scores. Avoid zeros.\n- Common types: dragons in a specific cavern, eggs, cached resources, tucked cards, personality counts, guild position.\n\n#### Player Count Adjustments\n\n**2-3 Players:**\n- Guild tile is less contested — be deliberate about marker placement.\n- Card display refreshes slowly — you can plan around visible dragons.\n- Round objectives less competitive.\n\n**4-5 Players:**\n- Guild tile fiercely contested — race for 4th/5th slots.\n- Card display churns fast — don't plan around specific face-up dragons.\n- Round objectives more unpredictable — watch opponents' boards.\n\n#### Key Decisions\n\n1. **Setup: Starting resources.** Choose 3 resources that support your starting dragon cards AND your first Guild tile advancement.\n2. **Round 1: Excavate-first tempo.** Don't explore until you have 2+ dragons in a cavern. Excavate → Entice → Excavate → Entice → Then explore.\n3. **Round 2: Focus cavern.** Commit to filling one cavern to 4 dragons for maximum exploration chains.\n4. **Round 3: Guild tile race.** Reach brown spaces to claim end-game scoring before opponents.\n5. **Round 4: Scoring shift.** Stop building engine, start scoring. High-VP dragons, eggs, objective completion.",
-      "token_count": 950
-    }
-  },
-  "total_token_count": 3660,
+  "total_token_count": 1839,
   "extensions": {},
   "metadata": {
     "schema_version": "2.0",
     "created_by": "barbarian",
     "created_at": "2026-03-05T17:19:12Z",
-    "validated_by": null,
-    "validated_at": null,
+    "validated_by": "rogue-a",
+    "validated_at": "2026-03-10T18:00:00Z",
     "validation_status": "approved",
-    "revision": 3,
-    "notes": "Deep dive content sprint — DTW prep, March 2026. Research-corrected: coin-based actions, cave card excavation, hatchlings, dragon personalities, 4 slots per cave, no dice. Sources: official rules, BGG strategy primer, community guides."
+    "revision": 4,
+    "notes": "Wingspan standard overhaul: removed legacy sections format, added rules_citations with key rulings, validated content against official rulebook."
   },
   "tabs": {
     "setup": {
@@ -134,5 +104,62 @@
         }
       ]
     }
+  },
+  "rules_citations": {
+    "source": "Official Stonemaier Games Rulebook",
+    "url": "https://stonemaiergames.com/games/wyrmspan/rules/",
+    "version": "First Edition, 2024",
+    "key_rulings": [
+      {
+        "topic": "Coins are not resources",
+        "page": "4",
+        "text": "Coins represent actions, not resources. Abilities that gain, convert, or discount resources do not apply to coins. Coins cannot be traded using the 2-for-1 resource conversion."
+      },
+      {
+        "topic": "Must excavate before placing dragons",
+        "page": "5",
+        "text": "You may only place a dragon in a space that has been excavated (has a cave card). Column 1 of each cavern is pre-excavated at game start; columns 2-4 require cave cards."
+      },
+      {
+        "topic": "Exploring escalation costs",
+        "page": "6",
+        "text": "The first time you explore a cavern each round is free (1 coin only). The second exploration of the same cavern costs 1 coin + 1 egg. The third costs 1 coin + 2 eggs."
+      },
+      {
+        "topic": "Unspent coins are wasted",
+        "page": "4",
+        "text": "At the end of each round, any unspent coins are lost. They do not carry over to the next round. Spend all your coins each round to maximize your actions."
+      },
+      {
+        "topic": "9-item hand limit",
+        "page": "7",
+        "text": "At the end of your turn, you may not have more than 9 total items in your personal supply (dragon cards + cave cards + resource tokens combined). Discard excess items of your choice."
+      },
+      {
+        "topic": "2-for-1 resource conversion",
+        "page": "4",
+        "text": "At any point during your turn, you may exchange any 2 resource tokens for 1 resource token of any type. This conversion can be done multiple times per turn."
+      },
+      {
+        "topic": "Dragon placement — leftmost excavated empty slot",
+        "page": "5",
+        "text": "When enticing a dragon, you must place it in the leftmost excavated-but-empty slot of the matching cavern. You cannot skip spaces."
+      },
+      {
+        "topic": "Hatchling threshold and activation",
+        "page": "8",
+        "text": "Hatchling dragons require you to cache resources or tuck cards onto them. When the number of cached/tucked items reaches the hatchling's threshold (shown on the card), the hatchling's powerful third-line ability triggers once."
+      },
+      {
+        "topic": "Column 4 special ability",
+        "page": "6",
+        "text": "When you excavate the 4th column of any cavern, you unlock a special ability: spend 3 items (any combination of resources, dragon cards, or cave cards) to gain 1 coin. This can be used once per turn."
+      },
+      {
+        "topic": "End-game leftover conversion",
+        "page": "12",
+        "text": "At the end of the game, every 4 leftover items (cards in hand plus unspent resources) convert to 1 victory point. Remaining items that do not form a complete set of 4 are worth nothing."
+      }
+    ]
   }
 }
