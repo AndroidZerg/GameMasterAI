@@ -90,8 +90,8 @@
 <header class="relative pt-40 pb-24 px-6 overflow-hidden">
   <div class="hero-bg-glow"></div>
   <div class="max-w-6xl mx-auto mb-16 px-6">
-    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10 cursor-pointer" onclick="openHeroLightbox()">
-      <img alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg"/>
+    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10 cursor-pointer">
+      <img id="hero-img" alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg" style="cursor:pointer;"/>
     </div>
   </div>
   <div class="max-w-5xl mx-auto text-center">
@@ -193,14 +193,17 @@
   <div class="relative max-w-7xl mx-auto">
     <div class="overflow-hidden rounded-2xl">
       <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
-        <div class="min-w-full cursor-pointer" onclick="openLightbox(0)">
-          <img src="./venue-1.jpg" alt="Guests playing board games" class="w-full h-auto rounded-2xl"/>
+        <div class="min-w-full">
+          <img id="gallery-img-0" src="./venue-1.jpg" alt="Guests playing board games" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
         </div>
-        <div class="min-w-full cursor-pointer" onclick="openLightbox(1)">
-          <img src="./venue-2.jpg" alt="Game library shelf" class="w-full h-auto rounded-2xl"/>
+        <div class="min-w-full">
+          <img id="gallery-img-1" src="./venue-2.jpg" alt="Game library shelf" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
         </div>
-        <div class="min-w-full cursor-pointer" onclick="openLightbox(2)">
-          <img src="./venue-3.jpg" alt="Dining tables set up for game night" class="w-full h-auto rounded-2xl"/>
+        <div class="min-w-full">
+          <img id="gallery-img-2" src="./venue-3.jpg" alt="Dining room setup" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
+        </div>
+        <div class="min-w-full">
+          <img id="gallery-img-3" src="./hero.jpg" alt="Three tables of players" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
         </div>
       </div>
     </div>
@@ -212,35 +215,13 @@
 
     <!-- Dots -->
     <div class="flex justify-center gap-2 mt-6">
-      <button onclick="goToSlide(0)" id="dot-0" class="w-2 h-2 rounded-full bg-teal transition"></button>
-      <button onclick="goToSlide(1)" id="dot-1" class="w-2 h-2 rounded-full bg-white/30 transition"></button>
-      <button onclick="goToSlide(2)" id="dot-2" class="w-2 h-2 rounded-full bg-white/30 transition"></button>
+      <button onclick="goToSlide(0)" id="dot-0" style="width:8px;height:8px;border-radius:50%;background:#2DD4BF;border:none;cursor:pointer;"></button>
+      <button onclick="goToSlide(1)" id="dot-1" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;"></button>
+      <button onclick="goToSlide(2)" id="dot-2" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;"></button>
+      <button onclick="goToSlide(3)" id="dot-3" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;"></button>
     </div>
   </div>
 
-  <!-- Early Access Modal -->
-  <div id="ea-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9998; align-items:center; justify-content:center; padding:1rem;" onclick="closeEarlyAccess()">
-    <div style="background:#111C36; border:1px solid rgba(255,255,255,0.08); border-radius:1.5rem; padding:2.5rem; width:100%; max-width:480px; position:relative;" onclick="event.stopPropagation()">
-      <button onclick="closeEarlyAccess()" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.75rem; cursor:pointer; line-height:1;">×</button>
-      <h3 style="font-family:'Fraunces',serif; font-size:1.75rem; font-weight:700; margin-bottom:0.5rem; color:#F8FAFC;">Get Early Access</h3>
-      <p style="color:#94a3b8; margin-bottom:1.75rem; font-size:0.95rem;">Tell us about your venue and we'll be in touch within 24 hours.</p>
-      <form onsubmit="submitEarlyAccess(event)" style="display:flex; flex-direction:column; gap:1rem;">
-        <input type="text" placeholder="Your name" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
-        <input type="email" placeholder="Email address" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
-        <input type="tel" placeholder="Phone number" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
-        <textarea placeholder="Tell us about your venue" rows="3" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%; resize:none;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"></textarea>
-        <button id="ea-submit" type="submit" style="background:#FF6B4A; color:white; border:none; border-radius:9999px; padding:1rem; font-family:'Outfit',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:opacity 0.2s; margin-top:0.5rem;">Send Message</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; align-items:center; justify-content:center; padding:1rem;" onclick="closeLightbox()">
-    <button style="position:absolute; top:1.5rem; right:1.5rem; color:white; font-size:2.5rem; font-weight:300; line-height:1; background:none; border:none; cursor:pointer; z-index:10;" onclick="closeLightbox()">×</button>
-    <button style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.15); color:white; border:none; border-radius:50%; width:3.5rem; height:3.5rem; font-size:1.5rem; cursor:pointer; z-index:10;" onclick="event.stopPropagation(); lightboxMove(-1)">‹</button>
-    <img id="lightbox-img" src="" alt="" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:0.75rem;" onclick="event.stopPropagation()"/>
-    <button style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.15); color:white; border:none; border-radius:50%; width:3.5rem; height:3.5rem; font-size:1.5rem; cursor:pointer; z-index:10;" onclick="event.stopPropagation(); lightboxMove(1)">›</button>
-  </div>
 </section>
 
 <!-- Rotation Section -->
@@ -388,98 +369,257 @@
   </div>
 </footer>
 
-<script>
-  const images = ['./venue-1.jpg', './venue-2.jpg', './venue-3.jpg'];
-  const heroImage = './hero.jpg';
-  let carouselIndex = 0;
-  let lightboxIndex = 0;
+<!-- Early Access Modal -->
+<div id="ea-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9998; align-items:center; justify-content:center; padding:1rem;" onclick="closeEarlyAccess()">
+  <div style="background:#111C36; border:1px solid rgba(255,255,255,0.08); border-radius:1.5rem; padding:2.5rem; width:100%; max-width:480px; position:relative;" onclick="event.stopPropagation()">
+    <button onclick="closeEarlyAccess()" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.75rem; cursor:pointer; line-height:1;">×</button>
+    <h3 style="font-family:'Fraunces',serif; font-size:1.75rem; font-weight:700; margin-bottom:0.5rem; color:#F8FAFC;">Get Early Access</h3>
+    <p style="color:#94a3b8; margin-bottom:1.75rem; font-size:0.95rem;">Tell us about your venue and we'll be in touch within 24 hours.</p>
+    <form onsubmit="submitEarlyAccess(event)" style="display:flex; flex-direction:column; gap:1rem;">
+      <input type="text" placeholder="Your name" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+      <input type="email" placeholder="Email address" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+      <input type="tel" placeholder="Phone number" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+      <textarea placeholder="Tell us about your venue" rows="3" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%; resize:none;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"></textarea>
+      <button id="ea-submit" type="submit" style="background:#FF6B4A; color:white; border:none; border-radius:9999px; padding:1rem; font-family:'Outfit',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:opacity 0.2s; margin-top:0.5rem;">Send Message</button>
+    </form>
+  </div>
+</div>
 
-  function moveCarousel(dir) {
-    carouselIndex = (carouselIndex + dir + images.length) % images.length;
-    updateCarousel();
+<!-- Lightbox overlay -->
+<div id="gmg-lb" style="
+  display:none;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.96);
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+">
+  <img id="gmg-lb-img" src="" alt="" style="
+    max-width:95vw;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
+    display:block;
+  "/>
+  <button id="gmg-lb-close" style="
+    position:fixed;
+    top:1.25rem;
+    right:1.25rem;
+    background:rgba(255,255,255,0.15);
+    border:none;
+    color:white;
+    font-size:2rem;
+    line-height:1;
+    width:3rem;
+    height:3rem;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:100000;
+    touch-action:manipulation;
+  ">×</button>
+  <button id="gmg-lb-prev" style="
+    position:fixed;
+    left:1rem;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(255,255,255,0.15);
+    border:none;
+    color:white;
+    font-size:1.75rem;
+    width:3rem;
+    height:3rem;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:100000;
+    touch-action:manipulation;
+  ">‹</button>
+  <button id="gmg-lb-next" style="
+    position:fixed;
+    right:1rem;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(255,255,255,0.15);
+    border:none;
+    color:white;
+    font-size:1.75rem;
+    width:3rem;
+    height:3rem;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:100000;
+    touch-action:manipulation;
+  ">›</button>
+</div>
+
+<script>
+(function() {
+  // ── Gallery images (carousel + lightbox) ──────────────────────
+  var galleryImages = [
+    { src: './venue-1.jpg', alt: 'Guests playing board games' },
+    { src: './venue-2.jpg', alt: 'Game library shelf' },
+    { src: './venue-3.jpg', alt: 'Empty dining room setup' },
+    { src: './hero.jpg',   alt: 'Three tables of players' }
+  ];
+  var heroSrc = './hero.jpg';
+  var carouselIndex = 0;
+  var lbIndex = 0;
+  var lbIsHero = false;
+
+  // ── Helper: attach both click and touchend ─────────────────────
+  function addTap(el, fn) {
+    if (!el) return;
+    el.addEventListener('click', fn);
+    el.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      fn(e);
+    }, { passive: false });
   }
 
-  function goToSlide(i) {
+  // ── Carousel ──────────────────────────────────────────────────
+  function updateCarousel() {
+    var track = document.getElementById('carousel-track');
+    if (track) track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+    for (var i = 0; i < galleryImages.length; i++) {
+      var dot = document.getElementById('dot-' + i);
+      if (dot) dot.style.background = i === carouselIndex ? '#2DD4BF' : 'rgba(255,255,255,0.3)';
+    }
+  }
+
+  window.moveCarousel = function(dir) {
+    carouselIndex = (carouselIndex + dir + galleryImages.length) % galleryImages.length;
+    updateCarousel();
+  };
+
+  window.goToSlide = function(i) {
     carouselIndex = i;
     updateCarousel();
-  }
+  };
 
-  function updateCarousel() {
-    document.getElementById('carousel-track').style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
-    for (let i = 0; i < images.length; i++) {
-      document.getElementById('dot-' + i).style.background = i === carouselIndex ? '#2DD4BF' : 'rgba(255,255,255,0.3)';
-    }
-  }
+  // ── Lightbox ──────────────────────────────────────────────────
+  var lb = document.getElementById('gmg-lb');
+  var lbImg = document.getElementById('gmg-lb-img');
 
-  function openLightbox(index) {
-    lightboxIndex = index;
-    const lb = document.getElementById('lightbox');
-    document.getElementById('lightbox-img').src = images[index];
+  function showLightbox(src) {
+    lbImg.src = src;
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('landscape').catch(() => {});
-    }
+  }
+
+  function hideLightbox() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function openGalleryLightbox(index) {
+    lbIndex = index;
+    lbIsHero = false;
+    showLightbox(galleryImages[index].src);
   }
 
   function openHeroLightbox() {
-    lightboxIndex = -1;
-    const lb = document.getElementById('lightbox');
-    document.getElementById('lightbox-img').src = heroImage;
-    lb.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('landscape').catch(() => {});
-    }
+    lbIsHero = true;
+    showLightbox(heroSrc);
   }
 
-  function closeLightbox() {
-    const lb = document.getElementById('lightbox');
-    lb.style.display = 'none';
-    document.body.style.overflow = '';
-    if (screen.orientation && screen.orientation.unlock) {
-      screen.orientation.unlock();
-    }
-  }
-
-  function lightboxMove(dir) {
-    if (lightboxIndex === -1) return;
-    lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
-    document.getElementById('lightbox-img').src = images[lightboxIndex];
-  }
-
-  document.addEventListener('keydown', function(e) {
-    const lb = document.getElementById('lightbox');
-    if (lb.style.display === 'none') return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') lightboxMove(1);
-    if (e.key === 'ArrowLeft') lightboxMove(-1);
+  // Close button
+  addTap(document.getElementById('gmg-lb-close'), function(e) {
+    e.stopPropagation();
+    hideLightbox();
   });
 
-  // Early Access modal
-  function openEarlyAccess() {
-    document.getElementById('ea-modal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  // Prev/Next
+  addTap(document.getElementById('gmg-lb-prev'), function(e) {
+    e.stopPropagation();
+    if (lbIsHero) return;
+    lbIndex = (lbIndex - 1 + galleryImages.length) % galleryImages.length;
+    lbImg.src = galleryImages[lbIndex].src;
+  });
+
+  addTap(document.getElementById('gmg-lb-next'), function(e) {
+    e.stopPropagation();
+    if (lbIsHero) return;
+    lbIndex = (lbIndex + 1) % galleryImages.length;
+    lbImg.src = galleryImages[lbIndex].src;
+  });
+
+  // Click overlay background to close
+  addTap(lb, function(e) {
+    if (e.target === lb) hideLightbox();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', function(e) {
+    if (lb.style.display === 'none') return;
+    if (e.key === 'Escape') hideLightbox();
+    if (e.key === 'ArrowRight' && !lbIsHero) {
+      lbIndex = (lbIndex + 1) % galleryImages.length;
+      lbImg.src = galleryImages[lbIndex].src;
+    }
+    if (e.key === 'ArrowLeft' && !lbIsHero) {
+      lbIndex = (lbIndex - 1 + galleryImages.length) % galleryImages.length;
+      lbImg.src = galleryImages[lbIndex].src;
+    }
+  });
+
+  // ── Wire up hero image ─────────────────────────────────────────
+  var heroEl = document.getElementById('hero-img');
+  if (heroEl) {
+    heroEl.style.cursor = 'pointer';
+    addTap(heroEl, function(e) { openHeroLightbox(); });
   }
 
-  function closeEarlyAccess() {
-    document.getElementById('ea-modal').style.display = 'none';
-    document.body.style.overflow = '';
+  // ── Wire up gallery slides ─────────────────────────────────────
+  for (var i = 0; i < galleryImages.length; i++) {
+    (function(idx) {
+      var el = document.getElementById('gallery-img-' + idx);
+      if (el) {
+        el.style.cursor = 'pointer';
+        addTap(el, function(e) { openGalleryLightbox(idx); });
+      }
+    })(i);
   }
 
-  function submitEarlyAccess(e) {
+  // ── Early Access modal ─────────────────────────────────────────
+  var eaModal = document.getElementById('ea-modal');
+
+  window.openEarlyAccess = function() {
+    if (eaModal) {
+      eaModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeEarlyAccess = function() {
+    if (eaModal) {
+      eaModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.submitEarlyAccess = function(e) {
     e.preventDefault();
-    const btn = document.getElementById('ea-submit');
+    var btn = document.getElementById('ea-submit');
     btn.textContent = 'Sent!';
     btn.style.background = '#2DD4BF';
     btn.style.color = '#0B1226';
-    setTimeout(() => {
+    setTimeout(function() {
       closeEarlyAccess();
       btn.textContent = 'Send Message';
-      btn.style.background = '';
-      btn.style.color = '';
+      btn.style.background = '#FF6B4A';
+      btn.style.color = 'white';
     }, 2000);
+  };
+
+  if (eaModal) {
+    addTap(eaModal, function(e) {
+      if (e.target === eaModal) closeEarlyAccess();
+    });
   }
+
+  updateCarousel();
+})();
 </script>
 
 </body>
