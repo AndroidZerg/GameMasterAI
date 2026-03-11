@@ -148,26 +148,29 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"[GMAI] Menu auto-seed skipped: {e}")
 
-    # Seed all Las Vegas demo venues
+    # Seed venue accounts (Shall We Play? + system accounts)
     pw_hash = hash_password("gmg2026")
     seeded = seed_all_venues(pw_hash)
     all_games = search_games()
     game_ids = [g["game_id"] for g in all_games]
     if seeded:
-        # Give all venues the full game collection
         for vid in seeded:
             set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded {len(seeded)} venue(s): {', '.join(seeded)}")
 
-    # Seed Dice Tower West accounts (admin, demo, meetup)
+    # Seed Dice Tower West accounts (admin, dicetowerwest, demo, meetup, thaihouse)
     dt_seeded = seed_dicetower_accounts()
     if dt_seeded:
-        # admin + meetup get full library; demo gets limited library
         limited_games = search_limited_library()
         limited_ids = [g["game_id"] for g in limited_games]
+        convention_games = search_convention_library()
+        convention_ids = [g["game_id"] for g in convention_games]
         for vid in dt_seeded:
             if vid == "demo-dicetower":
                 set_venue_collection(vid, limited_ids)
+            elif vid == "dicetowerwest":
+                # Convention users share this venue — give them convention library
+                set_venue_collection(vid, convention_ids)
             else:
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")

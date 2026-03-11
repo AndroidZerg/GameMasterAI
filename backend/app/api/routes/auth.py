@@ -3,7 +3,6 @@
 import logging
 import os
 import re
-import hashlib
 import secrets
 import uuid
 from datetime import datetime, timezone
@@ -18,11 +17,11 @@ from slowapi.util import get_remote_address
 from app.core.auth import hash_password, verify_password, create_token, get_current_venue
 from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
-    get_venue_by_id, get_venue_by_username, set_venue_collection, get_venue_collection,
+    get_venue_by_id, get_venue_by_username, set_venue_collection,
 )
-from app.models.game import search_games, search_limited_library, search_convention_library, search_by_publisher_tag
+from app.models.game import search_games
 from app.services.admin_config import get_meetup_enabled
-from app.services.turso import insert_signup
+from app.services.turso import insert_signup, get_signup_by_email
 
 logger = logging.getLogger(__name__)
 
@@ -65,6 +64,23 @@ async def login(req: LoginRequest):
         venue = get_venue_by_id(login_input)
     if not venue:
         venue = get_venue_by_username(login_input)
+
+    # Fallback: check signups table (convention / stonemaier users)
+    if not venue:
+        signup = get_signup_by_email(login_input)
+        if signup and signup.get("password_hash") and verify_password(req.password, signup["password_hash"]):
+            dtw = get_venue_by_id("dicetowerwest")
+            venue_display = dtw["venue_name"] if dtw else "Dice Tower West"
+            token = create_token("dicetowerwest", venue_display, role="convention")
+            return {
+                "token": token,
+                "venue_id": "dicetowerwest",
+                "venue_name": venue_display,
+                "role": "convention",
+                "status": "active",
+                "expires_at": CONVENTION_EXPIRY,
+            }
+
     if not venue or not verify_password(req.password, venue["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
@@ -210,8 +226,13 @@ async def logout():
 
 @router.post("/register")
 @limiter.limit("5/hour")
-async def register(req: RegisterRequest, request: Request):
-    """Register a new venue account."""
+async def register(req: RegisterRequest, request: Request,
+                   venue: dict = Depends(get_current_venue)):
+    """Register a new venue account. Super admin only."""
+    # Only super_admin can create venues
+    if venue.get("role") != "super_admin":
+        raise HTTPException(status_code=403, detail="Only super_admin can create venues")
+
     if not req.venue_name or not req.venue_name.strip():
         raise HTTPException(status_code=400, detail="venue_name is required")
     if not req.email or not req.email.strip():
@@ -261,13 +282,21 @@ async def register(req: RegisterRequest, request: Request):
 @limiter.limit("10/hour")
 async def convention_signup(req: SignupRequest, request: Request,
                             trial: Optional[bool] = Query(None)):
-    """Email-only signup for Dice Tower West convention floor attendees."""
+    """Email-only signup for Dice Tower West convention floor attendees.
+
+    All signups share the single 'dicetowerwest' venue. No new venue is created.
+    Individual emails are tracked in the signups table (Turso).
+    """
     if not req.email or not req.email.strip():
         raise HTTPException(status_code=400, detail="Email is required")
 
     email = req.email.strip().lower()
+    venue_id = "dicetowerwest"
+    venue_display = "Dice Tower West"
+    role = "convention"
+    expires_at = CONVENTION_EXPIRY if not trial else None
 
-    # Check if email already registered — if so, log them in
+    # Check if email already registered in venues table (legacy) — log them in
     existing = get_venue_by_email(email)
     if existing:
         role = existing.get("role", "convention")
@@ -281,49 +310,33 @@ async def convention_signup(req: SignupRequest, request: Request,
             "expires_at": existing.get("expires_at"),
         }
 
-    # Generate venue_id from email
-    email_prefix = email.split("@")[0]
-    venue_id = re.sub(r"[^a-z0-9]+", "-", email_prefix.lower()).strip("-")
-    venue_id = f"conv-{venue_id}"
-    if get_venue_by_id(venue_id):
-        venue_id = f"{venue_id}-{abs(hash(email)) % 10000}"
+    # Check if already in signups table — return token for shared venue
+    existing_signup = get_signup_by_email(email)
+    if existing_signup:
+        token = create_token(venue_id, venue_display, role=role)
+        return {
+            "token": token,
+            "venue_id": venue_id,
+            "venue_name": venue_display,
+            "role": role,
+            "expires_at": expires_at,
+        }
 
-    # No password for convention accounts — generate a random hash
-    pw_hash = hashlib.sha256(f"conv-{email}-{datetime.now(timezone.utc).isoformat()}".encode()).hexdigest()
+    # New signup — record in signups table, do NOT create a venue
+    source = "dicetower2026-trial" if trial else "dicetower2026"
+    ip_address = request.headers.get("x-forwarded-for", request.client.host if request.client else "unknown")
+    insert_signup(
+        signup_id=str(uuid.uuid4()),
+        first_name="",
+        email=email,
+        source=source,
+        role=role,
+        signed_up_at=datetime.now(timezone.utc).isoformat(),
+        ip_address=ip_address,
+        password_hash="",
+        raw_password="",
+    )
 
-    if trial:
-        # Trial account — no expiry, trial_start_date set
-        role = "convention"
-        create_venue(
-            venue_id=venue_id,
-            venue_name="GameMaster Guide User",
-            email=email,
-            password_hash=pw_hash,
-            role=role,
-            source="dicetower2026-trial",
-            trial_start_date=datetime.now(timezone.utc).isoformat(),
-        )
-        expires_at = None
-    else:
-        # Convention demo account — expires March 22
-        role = "convention"
-        create_venue(
-            venue_id=venue_id,
-            venue_name="Dice Tower West Demo",
-            email=email,
-            password_hash=pw_hash,
-            role=role,
-            source="dicetower2026",
-            expires_at=CONVENTION_EXPIRY,
-        )
-        expires_at = CONVENTION_EXPIRY
-
-    # Give convention/trial users only publisher_approved games
-    convention_games = search_convention_library()
-    convention_ids = [g["game_id"] for g in convention_games]
-    set_venue_collection(venue_id, convention_ids)
-
-    venue_display = "Dice Tower West Demo"
     token = create_token(venue_id, venue_display, role=role)
     return {
         "token": token,
@@ -424,7 +437,11 @@ def _send_signup_email(first_name: str, email: str, password: str):
 @router.post("/signup/stonemaier")
 @limiter.limit("10/hour")
 async def stonemaier_signup(req: StonemaierSignupRequest, request: Request):
-    """Stonemaier / Dice Tower signup — first_name + email, instant access."""
+    """Stonemaier / Dice Tower signup — first_name + email, instant access.
+
+    All signups share the single 'dicetowerwest' venue. No new venue is created.
+    Individual emails are tracked in the signups table (Turso).
+    """
     if not req.first_name or not req.first_name.strip():
         raise HTTPException(status_code=400, detail="First name is required")
     if not req.email or not req.email.strip():
@@ -432,56 +449,48 @@ async def stonemaier_signup(req: StonemaierSignupRequest, request: Request):
 
     first_name = req.first_name.strip()
     email = req.email.strip().lower()
+    venue_id = "dicetowerwest"
+    venue_display = "Dice Tower West"
+    role = "convention"
 
-    # Check if email already registered — if so, log them in
+    # Check if email already registered in venues table (legacy) — log them in
     existing = get_venue_by_email(email)
     if existing:
-        role = existing.get("role", "stonemaier")
-        token = create_token(existing["venue_id"], existing["venue_name"], role=role)
+        existing_role = existing.get("role", "convention")
+        token = create_token(existing["venue_id"], existing["venue_name"], role=existing_role)
         update_venue_login(existing["venue_id"])
         return {
             "token": token,
             "venue_id": existing["venue_id"],
             "venue_name": existing["venue_name"],
+            "role": existing_role,
+            "first_name": first_name,
+        }
+
+    # Check if already in signups table — return token for shared venue
+    existing_signup = get_signup_by_email(email)
+    if existing_signup:
+        token = create_token(venue_id, venue_display, role=role)
+        return {
+            "token": token,
+            "venue_id": venue_id,
+            "venue_name": venue_display,
             "role": role,
             "first_name": first_name,
         }
 
-    # Generate venue_id
-    email_prefix = email.split("@")[0]
-    venue_id = re.sub(r"[^a-z0-9]+", "-", email_prefix.lower()).strip("-")
-    venue_id = f"sm-{venue_id}"
-    if get_venue_by_id(venue_id):
-        venue_id = f"{venue_id}-{abs(hash(email)) % 10000}"
-
-    # Generate password
+    # Generate password for welcome email
     raw_password = _generate_password()
     pw_hash = hash_password(raw_password)
 
-    # Create venue account
-    create_venue(
-        venue_id=venue_id,
-        venue_name=first_name,
-        email=email,
-        password_hash=pw_hash,
-        role="stonemaier",
-        source="dicetower2026",
-    )
-
-    # Set collection to Stonemaier games
-    sm_games = search_by_publisher_tag("stonemaier")
-    sm_ids = [g["game_id"] for g in sm_games]
-    if sm_ids:
-        set_venue_collection(venue_id, sm_ids)
-
-    # Store in Turso signups table
+    # Store in Turso signups table — do NOT create a venue
     ip_address = request.headers.get("x-forwarded-for", request.client.host if request.client else "unknown")
     insert_signup(
         signup_id=str(uuid.uuid4()),
         first_name=first_name,
         email=email,
         source="dicetower2026",
-        role="stonemaier",
+        role=role,
         signed_up_at=datetime.now(timezone.utc).isoformat(),
         ip_address=ip_address,
         password_hash=pw_hash,
@@ -492,11 +501,11 @@ async def stonemaier_signup(req: StonemaierSignupRequest, request: Request):
     _send_signup_telegram(first_name, email, raw_password)
     _send_signup_email(first_name, email, raw_password)
 
-    token = create_token(venue_id, first_name, role="stonemaier")
+    token = create_token(venue_id, venue_display, role=role)
     return {
         "token": token,
         "venue_id": venue_id,
-        "venue_name": first_name,
-        "role": "stonemaier",
+        "venue_name": venue_display,
+        "role": role,
         "first_name": first_name,
     }

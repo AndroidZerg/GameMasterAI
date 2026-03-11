@@ -891,6 +891,22 @@ def insert_signup(signup_id: str, first_name: str, email: str, source: str,
         logger.warning(f"Failed to insert signup for {email}: {e}")
 
 
+def get_signup_by_email(email: str) -> dict | None:
+    """Look up a signup by email. Returns dict or None."""
+    db = get_analytics_db()
+    cols = ("id", "first_name", "email", "source", "role", "signed_up_at",
+            "ip_address", "password_hash", "raw_password")
+    try:
+        row = db.execute(
+            "SELECT id, first_name, email, source, role, signed_up_at, ip_address, password_hash, raw_password FROM signups WHERE email = ?",
+            (email,),
+        ).fetchone()
+        return dict(zip(cols, row)) if row else None
+    except Exception as e:
+        logger.warning(f"Failed to look up signup for {email}: {e}")
+        return None
+
+
 def get_all_signups() -> list[dict]:
     """Return all signups sorted by signed_up_at DESC."""
     db = get_analytics_db()

@@ -16,12 +16,9 @@ const SPECIAL_ACCOUNTS = [
 ];
 
 const DEMO_VENUE_ORDER = [
-  "meepleville",
-  "knight-and-day",
-  "little-shop-of-magic",
-  "shall-we-play",
-  "grouchy-johns",
-  "natural-twenty",
+  "thaihouse",
+  "shallweplay",
+  "dicetowerwest",
 ];
 
 export default function CustomizeHomePage() {

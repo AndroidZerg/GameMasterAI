@@ -290,28 +290,8 @@ async def submit_rental_request(req: RentalRequest):
         active_count = 1
         mrr_total = 1000
 
-    # Create a GMG venue account so subscriber can log in
-    if not is_returning:
-        try:
-            from app.models.venues import get_venue_by_email, create_venue, set_venue_collection
-            from app.models.game import search_games
-
-            if not get_venue_by_email(email):
-                sub_venue_id = f"rental-{subscriber_id}"
-                create_venue(
-                    venue_id=sub_venue_id,
-                    venue_name=name,
-                    email=email,
-                    password_hash=pw_hash,
-                    role="rental_subscriber",
-                    source=f"rental-{venue_id}",
-                )
-                # Give them the full game library for browsing
-                all_games = search_games()
-                game_ids = [g["game_id"] for g in all_games]
-                set_venue_collection(sub_venue_id, game_ids)
-        except Exception as e:
-            logger.error(f"Failed to create venue account for rental subscriber: {e}")
+    # NOTE: Rental subscribers no longer auto-create venue accounts.
+    # Venue creation is restricted to super_admin only.
 
     # Telegram
     _send_telegram_new_subscriber(

@@ -3,7 +3,7 @@ import { fetchVenueMenu } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 
 const MOCK_MENU = {
-  venue_name: "Meepleville",
+  venue_name: "Dice Tower West",
   categories: [
     {
       name: "Hot Drinks",

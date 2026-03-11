@@ -153,46 +153,6 @@ def set_venue_collection(venue_id: str, game_ids: list[str]):
 
 _DEMO_VENUES = [
     {
-        "venue_id": "playgmai-demo",
-        "venue_name": "GameMaster Guide Demo",
-        "email": "demo@playgmg.com",
-        "tagline": "AI-Powered Board Game Teaching",
-        "accent_color": "#e94560",
-        "address": "",
-        "phone": "",
-        "website": "https://playgmg.com",
-    },
-    {
-        "venue_id": "meepleville",
-        "venue_name": "Meepleville Board Game Cafe",
-        "email": "demo@meepleville.com",
-        "tagline": "Las Vegas's First Board Game Cafe — 2,600+ Games",
-        "accent_color": "#e94560",
-        "address": "4704 W Sahara Ave, Las Vegas, NV 89102",
-        "phone": "702-444-4540",
-        "website": "https://meepleville.com",
-    },
-    {
-        "venue_id": "knight-and-day",
-        "venue_name": "Knight & Day Games",
-        "email": "demo@knightanddaygames.com",
-        "tagline": "Board Games, Card Games & Community in Town Square",
-        "accent_color": "#4a90d9",
-        "address": "6521 Las Vegas Blvd South Ste. C-105, Las Vegas, NV 89119",
-        "phone": "",
-        "website": "https://knightanddaygames.com",
-    },
-    {
-        "venue_id": "little-shop-of-magic",
-        "venue_name": "Little Shop of Magic",
-        "email": "demo@littleshopofmagic.com",
-        "tagline": "Vegas's Oldest Game Store Since 1994",
-        "accent_color": "#7b2d8e",
-        "address": "750 Dorrell Lane, Suite 150, North Las Vegas, NV",
-        "phone": "",
-        "website": "https://littleshopofmagic.com",
-    },
-    {
         "venue_id": "shallweplay",
         "venue_name": "Shall We Play?",
         "email": "demo@shallweplay.com",
@@ -200,26 +160,6 @@ _DEMO_VENUES = [
         "tagline": "Game Nights, Events & Community Gaming",
         "accent_color": "#2ecc71",
         "address": "Las Vegas, NV",
-        "phone": "",
-        "website": "",
-    },
-    {
-        "venue_id": "grouchy-johns",
-        "venue_name": "Grouchy John's Coffee",
-        "email": "demo@grouchyjohns.com",
-        "tagline": "Coffee & Board Games — Two Locations",
-        "accent_color": "#d4a574",
-        "address": "8520 S Maryland Pkwy, Las Vegas, NV",
-        "phone": "",
-        "website": "https://grouchyjohns.com",
-    },
-    {
-        "venue_id": "natural-twenty",
-        "venue_name": "Natural Twenty Games",
-        "email": "demo@naturaltwentygames.com",
-        "tagline": "Tabletop Gaming in Henderson",
-        "accent_color": "#e67e22",
-        "address": "4136 Sunset Rd, Henderson, NV",
         "phone": "",
         "website": "",
     },
@@ -235,6 +175,14 @@ _DICETOWER_ACCOUNTS = [
         "password": "watress2",
         "role": "super_admin",
         "tagline": "Admin Account",
+    },
+    {
+        "venue_id": "dicetowerwest",
+        "venue_name": "Dice Tower West",
+        "email": "dicetowerwest@playgmg.com",
+        "password": "watress2",
+        "role": "convention",
+        "tagline": "Dice Tower West 2026 — Convention Demo",
     },
     {
         "venue_id": "demo-dicetower",
@@ -280,8 +228,14 @@ def seed_all_venues(password_hash: str) -> list[str]:
     conn = _get_conn()
     seeded = []
     now = datetime.now(timezone.utc).isoformat()
-    # Migrate old venue_id → new (e.g. "shall-we-play" → "shallweplay")
-    conn.execute("DELETE FROM venues WHERE venue_id = 'shall-we-play'")
+    # Clean up legacy demo venues that no longer exist
+    legacy_venues = [
+        'shall-we-play', 'playgmai-demo', 'meepleville', 'knight-and-day',
+        'little-shop-of-magic', 'grouchy-johns', 'natural-twenty',
+    ]
+    for lv in legacy_venues:
+        conn.execute("DELETE FROM venues WHERE venue_id = ?", (lv,))
+        conn.execute("DELETE FROM venue_collections WHERE venue_id = ?", (lv,))
     for v in _DEMO_VENUES:
         conn.execute(
             """INSERT INTO venues (venue_id, venue_name, email, password_hash, tagline,

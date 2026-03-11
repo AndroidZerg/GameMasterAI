@@ -870,8 +870,8 @@ export default function GameTeacher() {
   const [gameError, setGameError] = useState(null);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const [venueConfig, setVenueConfig] = useState({
-    venue_name: "Meepleville",
-    venue_tagline: "Las Vegas Board Game Cafe",
+    venue_name: "Dice Tower West",
+    venue_tagline: "AI-Powered Board Game Teaching",
     accent_color: "#e94560",
   });
   const [showTimerModal, setShowTimerModal] = useState(false);
