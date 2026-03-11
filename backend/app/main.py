@@ -1,4 +1,5 @@
 """GameMaster Guide — Backend API server for board game cafe management."""
+# Force redeploy — 2026-03-11
 
 import os
 import subprocess
