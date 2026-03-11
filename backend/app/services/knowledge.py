@@ -1,10 +1,13 @@
 """Game knowledge base loader — reads JSON files from the content directory."""
 
 import json
+import logging
 from pathlib import Path
 from typing import Optional
 
 from app.core.config import CONTENT_DIR
+
+logger = logging.getLogger(__name__)
 
 
 def get_games_dir() -> Path:
@@ -23,10 +26,50 @@ def scan_game_files() -> list[dict]:
             continue
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
+            _validate_game_format(data, f.name)
             games.append(data)
         except Exception:
             continue
     return games
+
+
+_REQUIRED_TABS = {"setup", "rules", "strategy"}
+
+
+def _validate_game_format(data: dict, filename: str):
+    """Log warnings for games that don't match the tabs content format."""
+    game_id = data.get("game_id", filename)
+    has_sections = bool(data.get("sections"))
+    has_tabs = bool(data.get("tabs"))
+
+    if has_sections and not has_tabs:
+        logger.warning(
+            "Game %s is in old format — missing tabs. "
+            "Will appear empty in Teaching Mode.",
+            game_id,
+        )
+        return
+
+    if has_tabs:
+        tabs = data["tabs"]
+        missing = _REQUIRED_TABS - set(tabs.keys())
+        if missing:
+            logger.warning(
+                "Game %s has tabs but is missing required tab(s): %s. "
+                "Will appear empty in Teaching Mode.",
+                game_id,
+                ", ".join(sorted(missing)),
+            )
+        # Check for empty walkthrough content
+        for tab_key, tab in tabs.items():
+            for subtopic in tab.get("subtopics", []):
+                if not subtopic.get("content", "").strip():
+                    logger.warning(
+                        "Game %s tab '%s' subtopic '%s' has empty content.",
+                        game_id,
+                        tab_key,
+                        subtopic.get("id", "unknown"),
+                    )
 
 
 def load_game(game_id: str) -> Optional[dict]:

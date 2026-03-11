@@ -1,0 +1,33 @@
+{
+  "game_id": "expeditions",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP when corruption threshold reached",
+  "tiebreaker": "Most coins remaining",
+  "categories": [
+    {
+      "id": "card_vp",
+      "label": "Card VP",
+      "type": "manual",
+      "description": "Total VP printed on played cards (items, quests, meteorites)"
+    },
+    {
+      "id": "glory_tokens",
+      "label": "Glory Tokens",
+      "type": "count",
+      "points_each": 1,
+      "description": "1 VP per glory token earned"
+    },
+    {
+      "id": "coins",
+      "label": "Coins",
+      "type": "manual",
+      "description": "Points from remaining coins (varies by amount)"
+    },
+    {
+      "id": "corruption",
+      "label": "Corruption Bonus",
+      "type": "manual",
+      "description": "VP bonus from corruption track position"
+    }
+  ]
+}

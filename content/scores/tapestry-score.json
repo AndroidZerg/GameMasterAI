@@ -1,0 +1,38 @@
+{
+  "game_id": "tapestry",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP at end of income turn 5",
+  "tiebreaker": "Most resources remaining",
+  "categories": [
+    {
+      "id": "income_track_vp",
+      "label": "Income Track VP",
+      "type": "manual",
+      "description": "Points scored from income mat VP icons"
+    },
+    {
+      "id": "advancement_vp",
+      "label": "Advancement VP",
+      "type": "manual",
+      "description": "Points from advancing on the 4 technology tracks"
+    },
+    {
+      "id": "territory_vp",
+      "label": "Territory & Buildings",
+      "type": "manual",
+      "description": "Points from completed rows/columns and landmark buildings on capital city mat"
+    },
+    {
+      "id": "tapestry_cards",
+      "label": "Tapestry Card VP",
+      "type": "manual",
+      "description": "Points from played tapestry cards"
+    },
+    {
+      "id": "technology_cards",
+      "label": "Technology Card VP",
+      "type": "manual",
+      "description": "Points from upgraded technology cards"
+    }
+  ]
+}

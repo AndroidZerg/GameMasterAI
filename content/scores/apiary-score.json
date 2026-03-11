@@ -1,0 +1,45 @@
+{
+  "game_id": "apiary",
+  "scoring_type": "calculator",
+  "win_condition": "Most VP after final winter",
+  "tiebreaker": "Most resources remaining",
+  "categories": [
+    {
+      "id": "hive_frames",
+      "label": "Hive Frame VP",
+      "type": "manual",
+      "description": "Points from completed hive frames"
+    },
+    {
+      "id": "carved_tiles",
+      "label": "Carved Tiles",
+      "type": "manual",
+      "description": "Points from placed carved tiles in your hive"
+    },
+    {
+      "id": "queen_bonus",
+      "label": "Queen Bonus",
+      "type": "manual",
+      "description": "Points from your queen's end-game scoring condition"
+    },
+    {
+      "id": "seed_cards",
+      "label": "Seed Card VP",
+      "type": "manual",
+      "description": "Points from collected seed cards"
+    },
+    {
+      "id": "resources",
+      "label": "Remaining Resources",
+      "type": "manual",
+      "description": "Points from leftover resources (fiber, pollen, water, honey)"
+    },
+    {
+      "id": "dance_tokens",
+      "label": "Dance Tokens",
+      "type": "count",
+      "points_each": 1,
+      "description": "1 VP per dance token"
+    }
+  ]
+}
