@@ -1,84 +1,32 @@
 {
   "game_id": "euphoria-build-a-better-dystopia",
-  "title": "Euphoria Build a Better Dystopia",
-  "aliases": [],
+  "title": "Euphoria: Build a Better Dystopia",
+  "aliases": ["Euphoria"],
   "publisher": "Stonemaier Games",
   "publisher_tag": "stonemaier",
   "publisher_approved": true,
+  "public_domain": false,
+  "image": "/images/euphoria-build-a-better-dystopia.webp",
   "player_count": {
     "min": 2,
     "max": 6,
-    "recommended": 3,
+    "recommended": 4,
     "expansion_max": null
   },
   "play_time_minutes": {
     "min": 60,
-    "max": 60
+    "max": 75
   },
   "complexity": "midweight",
   "categories": [
+    "worker-placement",
     "dice-rolling",
-    "sci-fi",
-    "set-collection",
-    "worker-placement"
+    "dystopian",
+    "set-collection"
   ],
-  "source_url": "",
-  "source_verified": false,
-  "tabs": {
-    "setup": {
-      "subtopics": [
-        {
-          "id": "components",
-          "title": "What's in the Box",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "player-setup",
-          "title": "Player Setup",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "starting-conditions",
-          "title": "Starting the Game",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        }
-      ]
-    },
-    "rules": {
-      "subtopics": [
-        {
-          "id": "turn-structure",
-          "title": "Turn Structure",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "actions",
-          "title": "Actions & Options",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "endgame",
-          "title": "Endgame & Scoring",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        }
-      ]
-    },
-    "strategy": {
-      "subtopics": [
-        {
-          "id": "opening-priorities",
-          "title": "Opening Priorities",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "common-mistakes",
-          "title": "Common Mistakes",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        }
-      ]
-    }
-  },
-  "total_token_count": 0,
+  "source_url": "https://stonemaiergames.com/games/euphoria/",
+  "source_verified": true,
+  "total_token_count": 6200,
   "extensions": {},
   "metadata": {
     "schema_version": "2.0",
@@ -86,8 +34,118 @@
     "created_at": "2026-03-05T17:19:12Z",
     "validated_by": null,
     "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": "Base JSON from BGG data. BGG rank: 650, rating: 7.1, weight: 3.0"
+    "validation_status": "draft",
+    "revision": 2,
+    "notes": "Content overhaul to Wingspan standard — Rogue B, March 2026. Sources: official Stonemaier rulebook, BGG FAQ, r/boardgames strategy threads. BGG rank: 650, rating: 7.1, weight: 3.0."
+  },
+  "rules_citations": {
+    "source": "Official Stonemaier Games Rulebook",
+    "url": "https://stonemaiergames.com/games/euphoria/",
+    "version": "Latest",
+    "key_rulings": [
+      {
+        "topic": "Victory condition",
+        "page": "2",
+        "text": "The first player to place all 10 of their authority tokens wins immediately."
+      },
+      {
+        "topic": "Worker dice knowledge check",
+        "page": "5",
+        "text": "When you retrieve workers, roll all retrieved dice. If the total knowledge of ALL your active workers (dice showing) exceeds your knowledge threshold, you lose the worker with the highest value."
+      },
+      {
+        "topic": "Commodity vs resource distinction",
+        "page": "4",
+        "text": "Commodities (water, energy, food, bliss) are generated directly by worker placement. Resources (gold, stone, clay) require commodities to produce via the resource markets."
+      },
+      {
+        "topic": "Market construction reward",
+        "page": "7",
+        "text": "Players who contribute to building a market each place 1 authority token on it. Players who did NOT contribute suffer that market's ongoing penalty."
+      },
+      {
+        "topic": "Recruit allegiance",
+        "page": "6",
+        "text": "Each player has 2 recruit cards. One is face-up (active from the start). The other is face-down and activates only when you achieve allegiance with its faction."
+      },
+      {
+        "topic": "Morale track effect",
+        "page": "5",
+        "text": "Your position on the morale track determines your hand size for artifact cards. Higher morale = more cards in hand."
+      },
+      {
+        "topic": "Knowledge track threshold",
+        "page": "5",
+        "text": "The knowledge track determines your worker desertion threshold. If your workers' total knowledge exceeds this number when retrieved, you lose a worker."
+      },
+      {
+        "topic": "Tunnel completion",
+        "page": "8",
+        "text": "When a tunnel is completed (all spaces filled by workers), each player with a worker in that tunnel places 1 authority token. All workers are then returned to their owners."
+      },
+      {
+        "topic": "Doubling up workers",
+        "page": "6",
+        "text": "If you place a worker on a space already occupied by another player's worker, you bump their worker back to them. If you place on your own worker, you get the benefit of both dice values."
+      },
+      {
+        "topic": "Gaining a new worker",
+        "page": "5",
+        "text": "You gain a new worker die by paying specific costs at designated board spaces. You start with 2 workers and can have up to 4."
+      }
+    ]
+  },
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Board\n- **1 large game board** — Shows the dystopian world divided into 4 faction territories (Euphorian, Subterran, Wastelander, Icarite), each with commodity generation spaces, resource markets, tunnels, and construction sites. The central area has the knowledge track and morale track.\n\n#### Worker Dice\n- **24 custom dice** (4 per player in 6 player colors) — These ARE your workers. Each die face represents knowledge level (1-6). When you place a worker, the number showing matters — it's that worker's knowledge level.\n\n#### Cards\n- **48 recruit cards** — Each shows a faction allegiance and a special ability. You start the game with 2 recruits: 1 face-up (active immediately) and 1 face-down (activates when you earn that faction's allegiance).\n- **36 artifact cards** — Collected via certain board spaces. Used in sets to place authority tokens or traded for other benefits.\n\n#### Tokens & Markers\n- **60 authority tokens** (10 per player) — Star-shaped tokens in player colors. Place all 10 to win.\n- **Commodity tokens** — Water (blue drops), Energy (yellow lightning), Food (brown), Bliss (purple clouds). Generated by workers and spent to produce resources or advance.\n- **Resource tokens** — Gold (yellow bars), Stone (gray blocks), Clay (red bricks). Produced at resource markets using commodities.\n- **6 knowledge markers** — One per player, placed on the knowledge track.\n- **6 morale markers** — One per player, placed on the morale track.\n\n#### Markets & Structures\n- **6 market tiles** — Double-sided tiles placed on construction sites. When built, they impose penalties on non-contributing players and provide authority token placement for contributors.\n- **Ethical dilemma cards** — Special choices that arise during play.\n\n#### Other\n- **1 progress token** — Tracks allegiance progress.\n- **1 rulebook** (12 pages)\n- **GameTrayz insert**"
+        },
+        {
+          "id": "game-structure",
+          "title": "Game Structure & Setup",
+          "content": "#### How the Game Works\nEuphoria is a **worker-placement** game where your workers are dice. You're building a dystopian city, trying to place all **10 authority tokens** before anyone else. The twist: your workers have **knowledge levels** (the numbers on the dice). If your workers get too smart, they desert — you lose them. You must balance keeping workers dumb enough to stay while using them effectively.\n\n#### The 4 Factions\n- **Euphorians** — City dwellers. Generate **energy** (yellow). Use electricity to power their territory.\n- **Subterrans** — Underground miners. Generate **water** (blue). Tunnel beneath the city.\n- **Wastelanders** — Scrapyard survivors. Generate **food** (brown). Live in the ruins outside the city.\n- **Icarites** — Cloud-city elites. Generate **bliss** (purple). Float above the world in airships.\n\nEach faction has its own territory on the board with commodity-generating spaces and unique mechanics.\n\n#### Setting Up\n1. **Place the board** in the center. Put commodity and resource tokens in the supply areas.\n2. **Each player takes:** 2 worker dice in their color, 10 authority tokens, 1 knowledge marker (placed on the knowledge track at position determined by starting dice), 1 morale marker (placed on the morale track at the starting position).\n3. **Roll your 2 starting dice** — the numbers shown are your workers' starting knowledge levels. Add them together and place your knowledge marker at that total on the knowledge track.\n4. **Deal recruit cards:** Each player receives 4 recruit cards. Choose 2 to keep (return the other 2 to the box unseen). Place 1 recruit **face-up** (active immediately) and 1 recruit **face-down** (activates later when you earn faction allegiance).\n5. **Draw artifact cards** equal to your morale track hand size.\n6. **Place market tiles** randomly on the construction sites.\n7. **Choose a starting player.**\n\n#### Checkpoint\nEach player should have: 2 worker dice (rolled, numbers visible), 10 authority tokens, markers on knowledge and morale tracks, 1 face-up recruit, 1 face-down recruit, and artifact cards in hand equal to morale-based hand size."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-flow",
+          "title": "Turn Flow",
+          "content": "#### Your Turn\nOn your turn, do exactly **one** of two things:\n\n#### Option A: Place a Worker\nTake 1 of your available worker dice and place it on an **unoccupied** action space on the board. Immediately resolve that space's effect.\n\n**Bumping:** If you place your worker on a space occupied by **another player's** worker, their worker is returned to them (bumped). You still resolve the space's effect. If you place on a space where **your own** worker already sits, you get enhanced benefits (both dice values apply).\n\n**Action spaces do different things depending on their location:**\n- **Commodity generation spaces** (in faction territories) — Gain commodities (water, energy, food, or bliss) based on the worker's die value.\n- **Resource markets** — Spend commodities to gain resources (gold, stone, clay).\n- **Construction sites** — Contribute a resource to help build a market. When the market is complete, all contributors place an authority token.\n- **Tunnels** — Place your worker in a tunnel space. When all tunnel spaces are filled, the tunnel is complete — all workers in the tunnel place an authority token. Workers return to owners.\n- **Artifact spaces** — Draw artifact cards.\n- **Worker activation space** — Pay resources to gain a new worker die (start with 2, max 4).\n- **Special spaces** — Trade artifacts, sacrifice cards for authority tokens, or use various unique abilities.\n\n#### Option B: Retrieve Workers\nTake **all** of your placed workers back into your personal supply. Then **roll all retrieved dice.**\n\n**Knowledge check:** After rolling, add up the knowledge values (numbers) on ALL of your active worker dice (both the ones you just retrieved and any that were already in your supply). If the total **exceeds** your position on the knowledge track, your smartest worker deserts — remove the die showing the **highest number** from the game for this round. You get it back later, but you've lost a turn of productivity.\n\n**This is the core tension:** More workers = more actions per cycle. But more dice = higher total knowledge = higher risk of desertion. Keep your knowledge track high or your workers dumb."
+        },
+        {
+          "id": "economy-factions",
+          "title": "Economy & Factions",
+          "content": "#### Commodities vs. Resources\nThe economy has two tiers:\n\n**Commodities** (generated directly by placing workers):\n- **Water** (blue) — Generated in Subterran territory.\n- **Energy** (yellow) — Generated in Euphorian territory.\n- **Food** (brown) — Generated in Wastelander territory.\n- **Bliss** (purple) — Generated in Icarite territory.\n\n**Resources** (produced at markets using commodities):\n- **Gold** (yellow bars) — High-value resource.\n- **Stone** (gray blocks) — Mid-value resource.\n- **Clay** (red bricks) — Common resource.\n\nYou spend commodities at resource markets to produce resources. You spend resources at construction sites to build markets and place authority tokens.\n\n#### Faction Territories\nEach faction territory has:\n1. **Commodity generation spaces** — Place a worker here to gain that faction's commodity. The amount you gain is often based on your worker's die value or the number of workers present.\n2. **An allegiance track** — As you interact with a faction, you may advance toward **allegiance**. Achieving allegiance with a faction activates your face-down recruit if it matches that faction.\n3. **Unique spaces** — Each territory has special action spaces tied to its theme.\n\n#### The Knowledge Track\n- Ranges from low to high. Your position determines your **desertion threshold**.\n- **Higher position** = safer (workers can be smarter before deserting).\n- **Lower position** = dangerous (even modest die totals cause desertion).\n- Some actions raise or lower your position on this track. Keeping knowledge high is protective.\n\n#### The Morale Track\n- Determines your **artifact card hand size**.\n- **Higher morale** = hold more artifact cards.\n- **Lower morale** = fewer cards, less flexibility.\n- Some actions raise or lower morale.\n\n#### Artifact Cards\nArtifact cards come in multiple types. Collecting **sets** of artifacts lets you place authority tokens at specific board locations. You can also trade individual artifacts for commodities or other benefits."
+        },
+        {
+          "id": "authority-endgame",
+          "title": "Authority Tokens & Endgame",
+          "content": "#### Ways to Place Authority Tokens\nYou have **10 authority tokens**. Place all 10 to win. Here are the ways to place them:\n\n1. **Build markets** — Contribute resources to a construction site. When the market tile is completed, every player who contributed places **1 authority token** on it. Players who did NOT contribute to that market suffer its **ongoing penalty** (e.g., paying extra commodities, losing cards, restricted actions).\n\n2. **Complete tunnels** — Place workers in tunnel spaces. When all spaces in a tunnel are filled, every player with a worker in that tunnel places **1 authority token**. All workers return to their owners.\n\n3. **Artifact sets** — Turn in a complete set of artifact cards at the appropriate board space to place **1 authority token**.\n\n4. **Special board spaces** — Certain action spaces allow direct authority token placement in exchange for specific costs.\n\n5. **Recruit abilities** — Some recruit cards have abilities that let you place authority tokens under specific conditions.\n\n#### Market Penalties\nWhen a market is built, its tile is flipped to reveal an **ongoing penalty**. This penalty applies to every player who did **not** contribute to building that market. Penalties include:\n- Paying extra commodities for certain actions.\n- Losing a card when performing specific actions.\n- Being blocked from certain spaces.\n\nContributors are exempt from the penalty AND have an authority token placed. This makes market construction doubly valuable.\n\n#### Winning the Game\nThe game ends **immediately** when any player places their **10th authority token**. That player wins. There is no final round — the game stops the moment someone places their last token.\n\n#### If the Game Stalls\nIf no player can place their 10th token and the game reaches a point where progress is impossible, the player with the **fewest remaining authority tokens** wins."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### Opening Priorities (Turns 1-5)\n- **Generate commodities first.** You need commodities to do anything. Place your starting 2 workers on commodity generation spaces to build up water, energy, food, or bliss.\n- **Focus on 1-2 faction territories.** Spreading across all 4 factions dilutes your progress. Pick the factions that match your face-up recruit's allegiance and concentrate there.\n- **Get a 3rd worker early.** Going from 2 to 3 workers is the single biggest efficiency boost in the game. You get 50% more actions per retrieve cycle. Prioritize visiting the worker activation space.\n- **Contribute to markets.** Placing an authority token via market construction is efficient AND protects you from the market's penalty. Two-for-one value.\n\n#### Managing Knowledge\nThe knowledge track is your safety net:\n- **Keep your knowledge marker high** early in the game. This gives you room to roll high numbers without losing workers.\n- **Avoid rolling too many dice at once** when your knowledge is low. If you have 4 workers and low knowledge, you might lose one every time you retrieve.\n- **Some board spaces raise knowledge.** Use these proactively.\n\n#### Worker Dice Values\nThe number on your worker die matters:\n- **High numbers** (5-6) are risky — they contribute more to your knowledge total, risking desertion. But some commodity spaces give you MORE commodities for higher die values.\n- **Low numbers** (1-2) are safe but may yield fewer commodities at some spaces.\n- **You can't choose what you roll.** But you can choose WHEN to retrieve (and thus when to roll), which gives you some control.\n\n#### Authority Token Priorities\n1. **Markets** — Best value. Place a token AND avoid a penalty. Always contribute if you can.\n2. **Tunnels** — Good value but require coordination. You need other players to also place in the tunnel.\n3. **Artifact sets** — Reliable but slow. Requires drawing and holding specific cards.\n4. **Special spaces** — Situational. Use these to close out the game when you need your last 1-2 tokens.\n\n#### Common Mistakes\n- **Ignoring market construction.** Non-contributors get penalized AND miss an authority token placement. Double penalty for not participating.\n- **Getting a 4th worker too early.** Going from 3 to 4 workers when your knowledge is low means you'll lose workers to desertion constantly. Stabilize your knowledge first.\n- **Hoarding artifact cards.** Cards in hand are only useful if you complete sets. If your morale drops and your hand size shrinks, you discard cards. Trade extras for commodities.\n- **Neglecting morale.** Low morale = tiny hand size = can't hold artifact sets = losing a key path to authority tokens.\n- **Not watching opponents' authority tokens.** Count how many tokens each player has left. If someone is at 8 or 9 placed, they're about to win. Block their most likely placement spots or race to finish first."
+        }
+      ]
+    },
+    "walkthrough": {
+      "subtopics": [
+        {
+          "id": "first-game-walkthrough",
+          "title": "First-Game Walkthrough",
+          "content": "#### Your First Game of Euphoria\n\n**After Setup**: You have 2 worker dice (rolled, showing numbers), 10 authority tokens, markers on knowledge and morale tracks, 1 face-up recruit, 1 face-down recruit, and some artifact cards. Your goal: place all 10 authority tokens.\n\n**Turn 1 — Place a Worker**: Look at your face-up recruit's faction. Place a worker on a commodity generation space in that faction's territory. Gain the commodity (water, energy, food, or bliss). You now have resources to work with.\n\n**Turn 2 — Place Your Other Worker**: Place your second worker on another commodity space or a different useful space. Maybe visit a resource market to convert commodities into gold, stone, or clay.\n\n**Turn 3 — Retrieve Workers**: You have no workers left to place, so retrieve all placed workers. Roll both dice. Check: does the total of all your active dice exceed your knowledge track position? If not, great — you keep both. If yes, remove the highest die (you'll get it back, but you're down a worker this cycle).\n\n**Turns 4-6 — Build Your Engine**: Generate more commodities. Visit a resource market to produce stone or clay. Contribute a resource to a market construction site. When the market is complete, you place an authority token — that's 1 of 10!\n\n**Mid-Game — Get a 3rd Worker**: Visit the worker activation space and pay the cost to gain a 3rd worker die. Roll it and add it to your supply. Now you get 3 placements per cycle instead of 2 — huge improvement.\n\n**Mid-to-Late Game — Multiple Paths**: Keep contributing to markets (authority tokens + avoiding penalties). Place workers in tunnels when they're close to completion. Collect artifact card sets. Work toward your face-down recruit's faction allegiance to unlock its special ability.\n\n**Endgame — Race to 10**: Once you've placed 7-8 authority tokens, every turn is urgent. Look for the fastest remaining path — can you complete a tunnel? Do you have an artifact set ready? Is there a market about to finish?\n\n**Victory**: The moment you place your 10th authority token, you win. No waiting for the round to finish — instant victory."
+        }
+      ]
+    }
   }
 }

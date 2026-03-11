@@ -5,43 +5,147 @@
   "publisher": "Stonemaier Games",
   "publisher_tag": "stonemaier",
   "publisher_approved": true,
-  "player_count": {"min": 1, "max": 6, "recommended": 4},
-  "play_time_minutes": {"min": 45, "max": 60},
-  "complexity": "midweight",
-  "categories": ["simultaneous-selection", "hand-management", "pirates", "set-collection"],
-  "source_url": "https://stonemaiergames.com/games/libertalia/",
-  "source_verified": false,
-  "tabs": {
-    "setup": {
-      "subtopics": [
-        {"id": "components", "title": "Components", "content": "- **40 character cards** per player (identical sets across all players, numbered 1-40)\n- **Loot tokens** (various types with different end-of-voyage effects)\n- **Reputation track board**\n- **Score track** (doubloons)\n- **Player boards** (ship tableau with day/dusk/night sections)\n- **Midshipman token** (first player marker)\n- **Reputation tokens** (1 per player)\n- **Graveyard area** on each player board\n- **Loot bag**"},
-        {"id": "board-setup", "title": "Board Setup", "content": "1. Place the **central island board** in the middle of the table.\n2. Set all players' **reputation markers** to the center of the reputation track.\n3. Place the **score track** (doubloons) where all players can see it; all players start at 0.\n4. Shuffle **loot tokens** face-down. For each day in the voyage, draw loot tokens equal to the player count and place them face-up on the island.\n5. Prepare the loot tokens for all 3 voyages (6 days per voyage = 6 rows of loot)."},
-        {"id": "player-setup", "title": "Player Setup", "content": "1. Each player takes an **identical set of character cards** (all 40 characters).\n2. Randomly deal **6 character cards** to one player. That player keeps these 6 cards, and **all other players find the same 6 characters** in their own decks. Everyone starts with the same hand.\n3. Each player takes a **player board** to organize their tableau.\n4. Set each player's **doubloons** to the starting amount (typically 0).\n5. Choose a starting player; give them the **Midshipman token**."}
-      ]
-    },
-    "rules": {
-      "subtopics": [
-        {"id": "overview", "title": "Game Overview", "content": "Libertalia: Winds of Galecrest is played over **3 voyages**, each consisting of **4-6 days**. Every day, players simultaneously select a character card from their hand and reveal. Characters resolve in rank order, using unique abilities to collect loot, gain doubloons, manipulate opponents, or cause chaos.\n\nThe core tension: all players have the **same characters** available, so you must outguess your opponents on which character to play and when.\n\nAfter 3 voyages, the player with the **most doubloons** wins."},
-        {"id": "turn-structure", "title": "Turn Structure", "content": "Each **day** within a voyage follows this structure:\n\n### 1. Sunrise — Select Characters\nAll players simultaneously choose **one character card** from their hand and place it face-down. Once all players are ready, reveal simultaneously.\n\n### 2. Daytime — Resolve Day Abilities (Low to High)\nCharacters with **daytime abilities** resolve from **lowest rank to highest**. These abilities often involve attacking, manipulating the board, or gaining advantages.\n\n### 3. Dusk — Collect Loot (High to Low)\nStarting with the **highest-ranked** character and going down, each player picks **one loot token** from the island display. Higher-rank characters get first pick of the best loot.\n\n### 4. Night — Resolve Night Abilities\nAfter loot is collected, characters with **night abilities** resolve. These often trigger based on what loot you took or your board state.\n\n### 5. Rest\nPlayed character cards go to your **ship** (tableau area). Some characters have ongoing effects or end-of-voyage scoring. Proceed to the next day.\n\n### End of Voyage\nAfter all days in a voyage are complete:\n- Resolve all **anchor abilities** (end-of-voyage effects on cards in your ship).\n- Resolve all **loot token effects** — many loot tokens grant or deduct doubloons at voyage end.\n- Discard loot tokens. Characters in your ship go to your **graveyard** (discard).\n- Deal **new character cards** for the next voyage. Players keep any leftover cards from previous voyages, so hands grow over the game."},
-        {"id": "key-actions", "title": "Key Actions", "content": "### Character Abilities\nEach of the 40 characters has a unique combination of abilities that can trigger at different times:\n- **Daytime** (sun icon): Resolves low-to-high. Often aggressive or manipulative.\n- **Dusk** (sunset icon): Triggers when collecting loot.\n- **Night** (moon icon): Triggers after loot collection.\n- **Anchor** (anchor icon): Triggers at end of voyage if the card is in your ship.\n- **Graveyard**: Some characters have effects when discarded.\n\n### Loot Tokens\nLoot tokens have various effects:\n- **Treasure chests**: Worth doubloons at end of voyage.\n- **Maps**: Worth doubloons based on how many you collect (set collection).\n- **Cursed relics**: Negative doubloons — but some characters want them.\n- **Sabers**: Allow combat bonuses.\n- **Special loot**: Unique effects like stealing or swapping.\n\n### Reputation Track\nSome abilities reference your **reputation**. Moving up the reputation track breaks ties (higher reputation acts first among same-rank characters). Some loot and abilities move you on this track."},
-        {"id": "special-rules", "title": "Special Rules", "content": "### Tie-Breaking\nIf two players play the same character (same rank), the player with **higher reputation** resolves first.\n\n### Growing Hands\nIn Voyage 1, you start with 6 cards. Before Voyage 2, you receive 6 new cards but keep leftover cards from Voyage 1. Before Voyage 3, you receive 6 more new cards. Your hand grows, giving you more options but also more information about what opponents might play.\n\n### Card Memory\nSince all players receive the same cards, you can track what opponents have played and deduce what remains in their hands.\n\n### Graveyard Effects\nSome characters trigger abilities from the graveyard. Characters in the graveyard are visible to all players.\n\n### Solo Mode\nThe game includes an automa system for solo play against a simulated opponent."},
-        {"id": "endgame", "title": "Scoring and Endgame", "content": "After the **3rd voyage** ends and all anchor and loot effects are resolved:\n\n- Players total their **doubloons** from the score track.\n- The player with the **most doubloons** wins.\n- Ties are broken by **reputation** (higher reputation wins)."}
-      ]
-    },
-    "strategy": {
-      "subtopics": [
-        {"id": "beginner-tips", "title": "Beginner Tips", "content": "- **High-rank characters get first pick of loot** but resolve daytime abilities last. Low-rank characters act first in daytime but get worse loot.\n- **Read your entire hand** before each day. Know what all your characters do so you can plan ahead.\n- **Don't always play your strongest card**. If everyone plays high, your medium card might get surprisingly good loot.\n- **Pay attention to loot tokens** on the island. Choose your character based on what loot is available that day.\n- **Track what others have played** — if you know someone no longer has a key character, you can play accordingly."},
-        {"id": "key-strategies", "title": "Key Strategies", "content": "- **Loot reading**: Always check the available loot before choosing your character. If the loot is mediocre, play a low-rank character with a strong daytime ability instead.\n- **Mirroring and counter-play**: Since everyone has the same cards, think about what your opponents are likely to play and counter it.\n- **Save strong cards for high-value loot days**: Don't waste your best characters on weak loot. Save high-rank cards for days with treasure chests or maps.\n- **Reputation management**: Moving up the reputation track gives you consistent tie-breaking advantage. Prioritize this in close games.\n- **Set collection**: Maps and matching loot sets can be worth enormous points. Commit to a loot strategy and draft accordingly.\n- **Graveyard planning**: Some late-game characters combo with what's in your graveyard. Plan your play order across the whole voyage."}
-      ]
-    }
+  "public_domain": false,
+  "image": "/images/libertalia-winds-of-galecrest.webp",
+  "player_count": {
+    "min": 1,
+    "max": 6,
+    "recommended": 4,
+    "expansion_max": null
   },
+  "play_time_minutes": {
+    "min": 45,
+    "max": 60
+  },
+  "complexity": "midweight",
+  "categories": [
+    "simultaneous-selection",
+    "hand-management",
+    "pirates",
+    "set-collection"
+  ],
+  "source_url": "https://stonemaiergames.com/games/libertalia-winds-of-galecrest/",
+  "source_verified": true,
+  "total_token_count": 5100,
+  "extensions": {},
   "metadata": {
+    "schema_version": "2.0",
     "created_by": "barbarian",
     "created_at": "2026-02-24T00:00:00Z",
     "validated_by": null,
     "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": ""
+    "validation_status": "draft",
+    "revision": 2,
+    "notes": "Content overhaul to Wingspan standard — Rogue B, March 2026. Sources: official Stonemaier rulebook, BGG FAQ, r/boardgames strategy threads."
+  },
+  "rules_citations": {
+    "source": "Official Stonemaier Games Rulebook",
+    "url": "https://stonemaiergames.com/games/libertalia-winds-of-galecrest/",
+    "version": "Latest",
+    "key_rulings": [
+      {
+        "topic": "Identical hands",
+        "page": "4",
+        "text": "At the start of each voyage, deal 6 character cards to one player. All other players find and take the same 6 characters from their own decks."
+      },
+      {
+        "topic": "Day ability resolution order",
+        "page": "6",
+        "text": "Daytime abilities resolve from lowest rank to highest rank. Dusk abilities (loot collection) resolve from highest rank to lowest rank."
+      },
+      {
+        "topic": "Tie-breaking by reputation",
+        "page": "7",
+        "text": "When two or more players play the same ranked character, the player with higher reputation resolves first."
+      },
+      {
+        "topic": "Growing hands between voyages",
+        "page": "5",
+        "text": "Players keep unused character cards from previous voyages. Before each new voyage, 6 additional cards are dealt, so hands grow over the course of the game."
+      },
+      {
+        "topic": "Loot collection is mandatory",
+        "page": "7",
+        "text": "During dusk, you must take one loot token if any remain. You cannot voluntarily skip collecting loot."
+      },
+      {
+        "topic": "Anchor ability timing",
+        "page": "8",
+        "text": "Anchor abilities on characters in your ship resolve at the end of each voyage, after all days are complete."
+      },
+      {
+        "topic": "Graveyard visibility",
+        "page": "9",
+        "text": "Characters in every player's graveyard are visible to all players at all times."
+      },
+      {
+        "topic": "Score dial",
+        "page": "10",
+        "text": "Doubloons are tracked on score dials. Doubloons can go negative due to cursed loot or character abilities."
+      },
+      {
+        "topic": "Voyage loot setup",
+        "page": "5",
+        "text": "At the start of each voyage, draw loot tokens from the bag equal to the number of players for each day of the voyage. Place them face-up on the island board."
+      },
+      {
+        "topic": "Night abilities after loot",
+        "page": "7",
+        "text": "Night abilities resolve after all loot has been collected during dusk. Night resolution order follows the same rank ordering as daytime."
+      }
+    ]
+  },
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Board & Dials\n- **1 double-sided island board** (508x406mm) — One side for 1-4 players, the other for 5-6 players. Shows the day track with spaces for loot tokens.\n- **6 score dials** — One per player. These circular dials track your doubloon total (can go negative). Rotate the dial to update your score.\n- **6 graveyard tiles** — One per player. Place discarded characters face-up here. Everyone can see all graveyards.\n\n#### Cards\n- **240 character cards** (40 unique characters × 6 identical sets) — Each player gets their own complete set of 40 characters. Every character has a rank number (1-40), a name, and abilities that trigger at specific times of day.\n- **39 Automa cards** — For solo play only.\n\n#### Tokens\n- **48 loot tokens** — Chunky bakelite tokens in various types. Drawn from a cloth bag and placed face-up on the island each voyage. Types include treasure chests, maps, sabers, cursed relics, and special items.\n- **7 loot tiles** — Reference tiles showing loot token effects.\n- **6 reputation tokens** — One per player, placed on the reputation track on the board.\n- **54 doubloon tokens** — Physical coins used alongside score dials for tracking.\n- **4 Automa loot tiles** — For solo play only.\n\n#### Other\n- **1 midshipman token** — First-player marker shaped like a small figure.\n- **1 cloth loot bag** — For drawing loot tokens randomly.\n- **1 rulebook + 1 solo rulebook**"
+        },
+        {
+          "id": "game-structure",
+          "title": "Game Structure & Setup",
+          "content": "#### How the Game Works\nLibertalia is played over **3 voyages**. Each voyage lasts **4 days** (in a 1-4 player game) or **5-6 days** (5-6 players, varies by player count). Every day, all players simultaneously select a character card from their hand and reveal. Characters resolve abilities and collect loot in rank order. After 3 voyages, the player with the most **doubloons** wins.\n\nThe twist: **all players have the same characters available**. You must outguess your opponents on which character to play and when.\n\n#### Setting Up\n1. **Place the island board** in the center, correct side up for your player count.\n2. **Each player takes:** 1 complete set of 40 character cards (sorted by number), 1 score dial (set to 0 doubloons), 1 graveyard tile, and 1 reputation token.\n3. **Place all reputation tokens** on the center space of the reputation track.\n4. **Fill the loot bag** with all 48 loot tokens.\n5. **Deal starting characters:** Randomly select 6 character cards from one player's deck. **All other players find the same 6 characters** in their decks. Everyone starts with the exact same 6-card hand.\n6. **Prepare Voyage 1 loot:** For each day of the voyage, draw loot tokens from the bag equal to the number of players and place them face-up in the corresponding day row on the island board.\n7. **Give the midshipman token** to a random player.\n\n#### Checkpoint\nEach player should have: the same 6 character cards in hand, a score dial at 0, a graveyard tile, and a reputation token on the center of the track. The island board should show rows of loot tokens — one row per day, with tokens equal to the player count in each row."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "day-phases",
+          "title": "The Day Phases",
+          "content": "#### Each Day Has 5 Phases\nEvery day within a voyage follows the same sequence:\n\n#### Phase 1: Sunrise — Select Characters\nAll players simultaneously choose **1 character card** from their hand and place it **face-down** in front of them. Once everyone is ready, all players reveal simultaneously.\n\nIf two or more players reveal the **same character** (same rank number), the player with **higher reputation** acts first among those tied characters.\n\n#### Phase 2: Daytime — Day Abilities (Low → High)\nCharacters with a **daytime ability** (sun icon) resolve from **lowest rank to highest**. Low-rank characters act first in daytime — this is their advantage. Daytime abilities are often aggressive: stealing doubloons, discarding opponents' loot, or manipulating the board state.\n\nIf a character is discarded or removed before their daytime ability triggers, their ability does **not** activate.\n\n#### Phase 3: Dusk — Collect Loot (High → Low)\nStarting with the **highest-ranked** character and going down, each player picks **exactly 1 loot token** from that day's row on the island. Higher-rank characters get first pick of the best loot — this is **their** advantage.\n\nYou **must** take a loot token if any remain. You cannot skip.\n\n#### Phase 4: Night — Night Abilities\nCharacters with a **night ability** (moon icon) resolve, typically from lowest rank to highest. Night abilities often trigger based on what loot you collected or your current board state.\n\n#### Phase 5: Rest\nAll played character cards move to each player's **ship** area (the space in front of them). Characters in your ship may have ongoing effects or anchor abilities that trigger at the end of the voyage. Proceed to the next day."
+        },
+        {
+          "id": "voyage-structure",
+          "title": "Voyages & Scoring",
+          "content": "#### End of a Voyage\nAfter all days in a voyage are complete, resolve the following in order:\n\n1. **Anchor abilities** — Characters in your ship with an anchor icon (⚓) resolve their end-of-voyage abilities. These can grant bonus doubloons, penalize opponents, or score based on your collected loot.\n2. **Loot resolution** — Resolve all loot token effects. Many loot tokens grant or deduct doubloons at voyage end:\n   - **Treasure Chests** — Worth a fixed number of doubloons.\n   - **Maps** — Score based on how many maps you've collected (set collection — more maps = exponentially more points).\n   - **Sabers** — May grant combat bonuses or doubloons.\n   - **Cursed Relics** — **Negative doubloons.** These hurt your score, but some characters specifically benefit from having curses.\n   - **Special Loot** — Unique effects like stealing from opponents or swapping tokens.\n3. **Discard loot** — Return all loot tokens to the bag.\n4. **Ship to graveyard** — Move all characters from your ship to your graveyard (face-up, visible to all).\n5. **Deal new characters** — For the next voyage, deal 6 new characters using the same process: randomly select 6 from one player's remaining deck, and all players find and take those same 6.\n\n**Growing Hands:** Players keep **unplayed character cards** from previous voyages. In Voyage 1, you start with 6 cards. Before Voyage 2, you receive 6 new cards plus any you didn't play in Voyage 1. Before Voyage 3, you receive 6 more. Your hand grows, giving you more options but also more information about what opponents might play.\n\n#### After Voyage 3\nThe game ends after the 3rd voyage's anchor and loot resolution. Total all doubloons on your score dial. The player with the **most doubloons wins**.\n\n**Tiebreaker:** Higher reputation wins."
+        },
+        {
+          "id": "reputation-graveyard",
+          "title": "Reputation & Graveyard",
+          "content": "#### The Reputation Track\nReputation serves two purposes:\n\n1. **Tie-breaking during play** — When two players play the same ranked character on the same day, the player with higher reputation resolves first (in daytime) and picks loot first (at dusk).\n2. **Final tiebreaker** — If two players end with the same doubloon total, higher reputation wins.\n\nReputation moves up or down based on character abilities and loot effects. Some characters reward high reputation; others benefit from low reputation.\n\n#### The Graveyard\n- Characters that leave your ship at the end of a voyage go to your **graveyard tile**, placed face-up.\n- All graveyards are **public information** — any player can look at any graveyard at any time.\n- Some characters have **graveyard abilities** that trigger when they enter the graveyard or based on what's already in it.\n- Tracking opponents' graveyards is key to deduction — you can figure out which characters they still have in their deck by process of elimination.\n\n#### Key Mechanism: Card Memory\nSince all players receive the same characters each voyage, you can **track what opponents have played**. After Voyage 1, if an opponent played characters 5, 12, 18, and 23 (and kept 2), you know those 4 are in their graveyard and they still hold 2 unplayed cards from Voyage 1's deal — which you can narrow down.\n\nThis deduction gets richer each voyage as graveyards fill up and you gain more information about opponents' remaining hands."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### The Core Tension: Rank vs. Timing\nHigh-rank characters pick loot **first** (best selection) but resolve daytime abilities **last** (most vulnerable to disruption). Low-rank characters act **first** in daytime (powerful offensive abilities) but get **worst loot** at dusk.\n\n**The decision every day:** Do you play high to get the best loot, or play low to strike first with a strong daytime ability?\n\n#### Loot Reading\nBefore choosing your character, **always check what loot tokens are available** on today's row.\n- If the loot is excellent (treasure chests, maps), play a **high-rank character** to grab the best piece.\n- If the loot is mediocre or has curses, play a **low-rank character** with a strong daytime ability — you're not missing much at dusk, and you get to disrupt opponents.\n\n#### The Mirroring Problem\nSince all players have the same hand, everyone is looking at the same loot. If the loot is great, **everyone** wants to play high. This means your medium-rank character might actually get surprisingly good loot because all the high-rank characters cancel each other out on the pick order.\n\n**Counter-play tip:** When loot is obviously good, consider playing a medium-rank card. Your opponents will fight over first pick with their highest cards, and you'll get a solid piece without burning your best character.\n\n#### Saving vs. Spending\nYou keep unplayed characters between voyages. Every card you play is gone forever (to your ship, then graveyard). Every card you save carries forward.\n\n- **Save your strongest characters** for high-value loot days or critical voyage moments.\n- **Don't hoard everything** — unused characters score 0 doubloons. You must play cards to earn points.\n- In Voyage 1 (6 cards, ~4 days), you'll play 4 and keep 2. In later voyages with larger hands, you can be more selective.\n\n#### Reputation Matters\nReputation breaks ties when two players play the same rank. If you and an opponent both play character 22, higher reputation picks loot first. Move reputation up when you can — it provides consistent advantages in close games.\n\n#### Cursed Relics Are Not Always Bad\nSome characters specifically benefit from having cursed relics. If your hand includes characters that profit from curses, deliberately collecting cursed loot can be a strong contrarian strategy.\n\n#### Watch the Graveyards\nAfter each voyage, check what characters opponents have played. If you know someone used their strongest daytime-ability character already, you can play more aggressively on future days without fear of retaliation.\n\n#### Common Mistakes\n- **Always playing your highest card.** This is predictable and wastes strong characters on mediocre loot days.\n- **Ignoring curses.** Taking a cursed relic when no character in your hand benefits from it is pure negative points.\n- **Not planning across voyages.** Characters you save in Voyage 1 compound with new cards in Voyage 2. Think ahead.\n- **Forgetting anchor abilities.** Characters in your ship trigger anchor effects at voyage end — some of these are game-swingingly powerful. Plan around them.\n- **Playing scared.** Sometimes playing a low-rank character to grab a curse before an opponent (who benefits from it) is the correct move."
+        }
+      ]
+    },
+    "walkthrough": {
+      "subtopics": [
+        {
+          "id": "first-game-walkthrough",
+          "title": "First-Game Walkthrough",
+          "content": "#### Your First Game of Libertalia\n\n**Setup**: Everyone receives the same 6 character cards. Look at your hand — you'll see 6 characters with rank numbers, names, and abilities marked with timing icons (sun, sunset, moon, anchor). The island board shows rows of face-up loot tokens — one row per day, with tokens equal to the number of players.\n\n**Voyage 1, Day 1**: Look at the loot tokens in Day 1's row. Identify the best and worst pieces. Now look at your 6 characters. Pick one that matches the situation:\n- Great loot available? Play a high-rank character to pick first.\n- Mediocre loot? Play a low-rank character with a strong daytime ability.\n\nPlace your character face-down. Everyone reveals simultaneously. Resolve daytime abilities low-to-high, then collect loot high-to-low, then resolve night abilities.\n\n**Days 2-4**: Repeat the process. Your hand shrinks each day. By Day 4, you have 2 cards left — play 1, keep 1 for next voyage.\n\n**End of Voyage 1**: Resolve anchor abilities on characters in your ship. Resolve loot effects — treasure chests add doubloons, cursed relics subtract. Move ship characters to your graveyard. Count your doubloons on the score dial.\n\n**Voyage 2**: Deal 6 new characters (same process — everyone gets the same 6). You also keep your 1 unplayed card from Voyage 1, so you start with 7 cards. More options, more information about what opponents might play. New loot tokens are drawn for each day.\n\n**Voyage 3**: Deal 6 more new characters. Your hand may now be 8+ cards. You have maximum flexibility but also maximum deduction opportunity — check graveyards to deduce opponents' remaining hands.\n\n**Final Scoring**: After Voyage 3's anchor and loot resolution, total your doubloons. Highest total wins. First game target: 30-50 doubloons is solid depending on player count."
+        }
+      ]
+    }
   }
 }
