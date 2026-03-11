@@ -163,14 +163,22 @@ async def lifespan(app: FastAPI):
     if dt_seeded:
         limited_games = search_limited_library()
         limited_ids = [g["game_id"] for g in limited_games]
-        convention_games = search_convention_library()
-        convention_ids = [g["game_id"] for g in convention_games]
+        # DTW demo: only the 7 polished Stonemaier games
+        dtw_demo_ids = [
+            "wingspan",
+            "scythe",
+            "viticulture",
+            "wyrmspan",
+            "euphoria-build-a-better-dystopia",
+            "libertalia-winds-of-galecrest",
+            "expeditions",
+        ]
         for vid in dt_seeded:
             if vid == "demo-dicetower":
                 set_venue_collection(vid, limited_ids)
             elif vid == "dicetowerwest":
-                # Convention users share this venue — give them convention library
-                set_venue_collection(vid, convention_ids)
+                # Convention demo — only polished games
+                set_venue_collection(vid, dtw_demo_ids)
             else:
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
