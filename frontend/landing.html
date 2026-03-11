@@ -1,24 +1,346 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#1a1a2e" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="GameMaster Guide" />
-    <meta name="application-name" content="GameMaster Guide" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>GameMaster Guide</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GameMaster Guide | Turn Any Venue Into a Board Game Destination</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0B1226;
+      --navy-mid: #111C36;
+      --navy-light: #182745;
+      --teal: #2DD4BF;
+      --coral: #FF6B4A;
+      --gold: #F5C542;
+      --white: #F8FAFC;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      body { font-size: 18px; }
+      .accordion-content p, .accordion-content li {
+        font-size: 18px !important;
+        line-height: 1.6 !important;
+      }
+    }
+    h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
+    .glass-card {
+      background: rgba(24, 39, 69, 0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+    }
+    .accordion-summary::-webkit-details-marker { display: none; }
+    .hero-bg-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      z-index: -1;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B1226',
+            'navy-mid': '#111C36',
+            'navy-light': '#182745',
+            teal: '#2DD4BF',
+            coral: '#FF6B4A',
+            gold: '#F5C542',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-navy/80 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="text-xl font-bold italic">Game<span class="text-teal">Master</span> Guide</div>
+    <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+      <a class="hover:text-teal transition" href="#results">Results</a>
+      <a class="hover:text-teal transition" href="#why">Why It Works</a>
+      <a class="hover:text-teal transition" href="#how">Process</a>
+    </div>
+    <a class="bg-coral hover:bg-coral/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition shadow-lg shadow-coral/20" href="#cta">
+      Early Access
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative pt-40 pb-24 px-6 overflow-hidden">
+  <div class="hero-bg-glow"></div>
+  <div class="max-w-6xl mx-auto mb-16 px-6">
+    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10">
+      <img alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg"/>
+    </div>
+  </div>
+  <div class="max-w-5xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 px-4 py-1.5 rounded-full mb-8">
+      <span class="w-2 h-2 bg-teal rounded-full animate-pulse"></span>
+      <span class="text-teal text-xs font-bold tracking-widest uppercase">Expanding 2026</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.1]">
+      Turn any table into a <span class="italic text-teal underline decoration-teal/30">game night</span>
+    </h1>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+      A voice-interactive game teacher that runs on any device. Guests play longer, order more, and come back for what's new.
+    </p>
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a class="bg-teal text-navy px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform" href="#cta">
+        Get Early Access Now
+      </a>
+      <a class="border border-white/20 hover:bg-white/5 px-8 py-4 rounded-full font-bold text-lg transition" href="#why">
+        See How It Works
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Proof of Concept Results -->
+<section class="py-24 px-6 bg-navy-mid/30" id="results">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="text-teal font-bold tracking-widest text-sm uppercase block mb-4">Proof of Concept</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Real Results From Real Venues</h2>
+      <p class="text-slate-400 text-lg max-w-2xl">Four events. One app. Measurable impact on orders and guest experience.</p>
+    </div>
+
+    <!-- Stats Grid — 8 metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Total Guests</p>
+        <p class="text-3xl font-black text-white">104</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Return Rate</p>
+        <p class="text-3xl font-black text-teal">28.6%</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Session</p>
+        <p class="text-3xl font-black text-white">39m 6s</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Orders Placed</p>
+        <p class="text-3xl font-black text-white">63</p>
+      </div>
+      <div class="glass-card p-6 text-center col-span-2 md:col-span-1">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Revenue Generated</p>
+        <p class="text-3xl font-black text-gold">$921.74</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Time to Order</p>
+        <p class="text-3xl font-black text-white">7.9 min</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Unique Games Played</p>
+        <p class="text-3xl font-black text-white">34</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg MRR Increase</p>
+        <p class="text-3xl font-black text-coral">+$29.98</p>
+        <p class="text-xs text-slate-500 mt-1">per event</p>
+      </div>
+    </div>
+
+    <!-- Narrative -->
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="space-y-6">
+        <div class="w-12 h-1 bg-teal"></div>
+        <h3 class="text-2xl font-bold">Engagement</h3>
+        <p class="text-slate-400 leading-relaxed">
+          Across 4 events, guests averaged 39 minutes per session. 63 orders came through the app in under 8 minutes on average, generating $921.74 in net new revenue.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <div class="w-12 h-1 bg-coral"></div>
+        <h3 class="text-2xl font-bold">Retention</h3>
+        <p class="text-slate-400 leading-relaxed">
+          28.6% of guests returned for a second or third event.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Venue Gallery — real photos -->
+<section class="py-24 px-6 overflow-hidden" id="gallery">
+  <div class="max-w-7xl mx-auto mb-12">
+    <h2 class="text-3xl font-bold mb-4">Venue Layout &amp; Atmosphere</h2>
+    <p class="text-slate-400">A look at the space where it all happened.</p>
+  </div>
+  <div class="flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar">
+    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
+      <img alt="Guests playing board games at the venue" class="w-full h-auto" src="./venue-1.jpg"/>
+    </div>
+    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
+      <img alt="Game library shelf stocked with titles" class="w-full h-auto" src="./venue-2.jpg"/>
+    </div>
+    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
+      <img alt="Dining tables set up for a game night event" class="w-full h-auto" src="./venue-3.jpg"/>
+    </div>
+  </div>
+</section>
+
+<!-- Rotation Section -->
+<section class="py-24 bg-navy-light">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="glass-card p-12 rounded-3xl grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-serif text-4xl font-bold mb-6">The library rotates.<br/><em class="not-italic text-teal">The urgency is real.</em></h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          New games arrive each month. When a title rotates out, it's gone from the venue.
+          Customers who love a game can buy their own copy through the app — before it disappears.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <div class="opacity-40 p-5 rounded-xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase text-gray-500 tracking-widest block mb-1">January</span>
+            <span class="text-sm font-medium">Catan · Wingspan · Azul</span>
+          </div>
+        </div>
+        <div class="opacity-40 p-5 rounded-xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase text-gray-500 tracking-widest block mb-1">February</span>
+            <span class="text-sm font-medium">Ticket to Ride · Everdell · Coup</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border-2 border-teal bg-teal/5 flex items-center justify-between shadow-2xl shadow-teal/5">
+          <div>
+            <span class="text-xs font-bold uppercase text-teal tracking-widest block mb-1">March</span>
+            <span class="text-sm font-bold">Root · Splendor · Dixit</span>
+          </div>
+          <span class="bg-teal text-navy text-[10px] font-black px-3 py-1 rounded-full">LIVE</span>
+        </div>
+        <div class="opacity-60 p-5 rounded-xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase text-gray-500 tracking-widest block mb-1">April</span>
+            <span class="text-sm font-medium">Cascadia · Pandemic · Quacks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accordions -->
+<section class="py-12 bg-navy px-6" id="why">
+  <div class="max-w-5xl mx-auto space-y-6">
+    <details class="group glass-card overflow-hidden">
+      <summary class="accordion-summary flex items-center justify-between p-8 cursor-pointer list-none">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold">Why It Works: Board games make tables earn more</h2>
+        <span class="text-teal transition-transform group-open:rotate-180">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="p-8 pt-0 border-t border-white/5 accordion-content">
+        <div class="grid md:grid-cols-3 gap-8 mt-8">
+          <div class="space-y-4">
+            <div class="text-3xl">⏱️</div>
+            <h4 class="font-bold text-teal uppercase tracking-widest text-lg">Longer Sessions</h4>
+            <p class="text-slate-300 text-base leading-relaxed">Average sessions hit 39 minutes with guests ordering food in under 8 minutes. Longer tables, more revenue.</p>
+          </div>
+          <div class="space-y-4">
+            <div class="text-3xl">🔄</div>
+            <h4 class="font-bold text-coral uppercase tracking-widest text-lg">Repeat Visits</h4>
+            <p class="text-slate-300 text-base leading-relaxed">The library rotates monthly, creating urgency to visit before games disappear and a purchase trigger.</p>
+          </div>
+          <div class="space-y-4">
+            <div class="text-3xl">📊</div>
+            <h4 class="font-bold text-gold uppercase tracking-widest text-lg">Zero Overhead</h4>
+            <p class="text-slate-300 text-base leading-relaxed">Guests scan a QR code and the app handles everything — no extra staff, no hardware to buy.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="group glass-card overflow-hidden" id="how">
+      <summary class="accordion-summary flex items-center justify-between p-8 cursor-pointer list-none">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold">How It Works: Live in 30 days. Zero overhead.</h2>
+        <span class="text-teal transition-transform group-open:rotate-180">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="p-8 pt-0 border-t border-white/5 accordion-content">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+          <div class="text-center">
+            <div class="font-serif text-teal text-3xl opacity-30 mb-2">01</div>
+            <h5 class="font-bold mb-1 text-base">Scan QR</h5>
+            <p class="text-slate-300 text-sm">No download needed.</p>
+          </div>
+          <div class="text-center">
+            <div class="font-serif text-teal text-3xl opacity-30 mb-2">02</div>
+            <h5 class="font-bold mb-1 text-base">Pick Game</h5>
+            <p class="text-slate-300 text-sm">Rotating library.</p>
+          </div>
+          <div class="text-center">
+            <div class="font-serif text-teal text-3xl opacity-30 mb-2">03</div>
+            <h5 class="font-bold mb-1 text-base">App Teaches</h5>
+            <p class="text-slate-300 text-sm">Voice setup &amp; rules.</p>
+          </div>
+          <div class="text-center">
+            <div class="font-serif text-teal text-3xl opacity-30 mb-2">04</div>
+            <h5 class="font-bold mb-1 text-base">Order F&amp;B</h5>
+            <p class="text-slate-300 text-sm">Integrated menu.</p>
+          </div>
+          <div class="text-center">
+            <div class="font-serif text-teal text-3xl opacity-30 mb-2">05</div>
+            <h5 class="font-bold mb-1 text-base">Buy Game</h5>
+            <p class="text-slate-300 text-sm">Own a copy.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 text-center" id="cta">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to elevate your venue?</h2>
+    <a class="inline-block bg-coral hover:bg-coral/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-coral/30 transition-all hover:-translate-y-1" href="mailto:tim@playgmg.com?subject=Early%20Access">
+      Request Early Access
+    </a>
+  </div>
+</section>
+
+<footer class="py-16 bg-navy border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="text-center md:text-left">
+      <div class="font-serif font-extrabold text-lg text-white mb-2">GameMaster Guide</div>
+      <p class="text-gray-500 text-sm">Turn any table into a game night.</p>
+    </div>
+    <div class="flex items-center gap-8">
+      <a class="text-sm text-gray-400 hover:text-white transition-colors" href="mailto:tim@playgmg.com">Contact</a>
+      <a class="text-sm text-gray-400 hover:text-white transition-colors" href="https://playgmg.com">playgmg.com</a>
+    </div>
+    <div class="text-gray-600 text-xs">© 2026 GameMaster Guide. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
 </html>
