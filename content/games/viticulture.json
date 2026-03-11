@@ -66,7 +66,7 @@
         {
           "id": "actions",
           "title": "Actions & Worker Placement",
-          "content": "#### Core Worker Rules\n- Place exactly 1 worker per turn\n- Workers are single-use per year (summer OR winter, not both)\n- Passing locks you out of that season\n- Grande Worker bypasses full action spaces\n\n#### Summer Actions\n- **Draw vine card** (bonus: +1 card)\n- **Plant vine** (bonus: +1 vine)\n- **Give tour** — Gain 2 lira (bonus: +1 lira)\n- **Build structure** — Pay cost (bonus: +1 lira)\n- **Play summer visitor** (bonus: +1 visitor)\n- **Sell grapes/buy-sell field** (bonus: +1 VP)\n- **Gain 1 lira** (cart — unlimited)\n\n#### Winter Actions\n- **Draw wine order** (bonus: +1 card)\n- **Harvest field** — Move grapes to crush pad (bonus: +1 field)\n- **Make wine** — Combine grapes into wine, up to 2 (bonus: +1 wine)\n- **Fill wine order** — Spend wines for VP (bonus: +1 order)\n- **Train worker** — Pay 4 lira (bonus: 3 lira)\n- **Play winter visitor** (bonus: +1 visitor)\n- **Gain 1 lira** (cart — unlimited)"
+          "content": "#### Core Worker Rules\n- Place exactly 1 worker per turn\n- Workers are single-use per year (summer OR winter, not both)\n- Passing locks you out of that season\n- Grande Worker ignores ALL placement restrictions — it can be placed on any action space even if completely full, including spaces where you already have your own regular worker. This allows you to take the same action twice in one season.\n\n#### Summer Actions\n- **Draw vine card** (bonus: +1 card)\n- **Plant vine** (bonus: +1 vine)\n- **Give tour** — Gain 2 lira (bonus: +1 lira)\n- **Build structure** — Pay cost (bonus: +1 lira)\n- **Play summer visitor** (bonus: +1 visitor)\n- **Sell grapes/buy-sell field** (bonus: +1 VP) — You may only sell a field that is empty (no vines planted). To sell a planted field, first uproot the vines (uprooting is free — just remove the vine card at any time on your turn).\n- **Gain 1 lira** (cart — unlimited)\n\n#### Winter Actions\n- **Draw wine order** (bonus: +1 card)\n- **Harvest field** — Move grapes to crush pad (bonus: +1 field)\n- **Make wine** — Combine grapes into wine, up to 2 (bonus: +1 wine)\n- **Fill wine order** — Spend wines for VP (bonus: +1 order)\n- **Train worker** — Pay 4 lira (bonus: 3 lira)\n- **Play winter visitor** (bonus: +1 visitor)\n- **Gain 1 lira** (cart — unlimited)"
         },
         {
           "id": "wine-making",
@@ -121,7 +121,7 @@
       {
         "topic": "Grande Worker placement",
         "page": "5",
-        "text": "Your grande worker may be placed on an action space even if it is already fully occupied by other workers. The grande worker only receives a bonus if placed on the actual bonus action space."
+        "text": "The grande worker may be placed on an action even if that action is completely full (it does not need the bonus slot). This includes spaces where you already have your own regular worker — the grande worker ignores ALL occupancy limits, allowing you to take the same action twice in one season."
       },
       {
         "topic": "Workers are single-use per year",
@@ -162,6 +162,11 @@
         "topic": "Passing locks you out",
         "page": "4",
         "text": "Once you pass in a season (summer or winter), you may not place any more workers during that season. You are locked out for the remainder of that season."
+      },
+      {
+        "topic": "Selling fields with vines",
+        "page": "6",
+        "text": "You may only sell a field that does not have a vine on it. To sell a planted field, first uproot the vines — uprooting is a free action (just remove the vine card from the field at any time on your turn). It does NOT require a worker or the Harvest action."
       },
       {
         "topic": "Wine order filling — wines must meet or exceed",
