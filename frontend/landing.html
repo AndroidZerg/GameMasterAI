@@ -80,7 +80,7 @@
       <a class="hover:text-teal transition" href="#why">Why It Works</a>
       <a class="hover:text-teal transition" href="#how">Process</a>
     </div>
-    <a class="bg-coral hover:bg-coral/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition shadow-lg shadow-coral/20" href="#cta">
+    <a onclick="openEarlyAccess(); return false;" href="#" class="bg-coral hover:bg-coral/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition shadow-lg shadow-coral/20 cursor-pointer">
       Early Access
     </a>
   </div>
@@ -106,7 +106,7 @@
       A voice-interactive game teacher that runs on any device. Guests play longer, order more, and come back for what's new.
     </p>
     <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <a class="bg-teal text-navy px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform" href="#cta">
+      <a onclick="openEarlyAccess(); return false;" href="#" class="bg-teal text-navy px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform cursor-pointer">
         Get Early Access Now
       </a>
       <a class="border border-white/20 hover:bg-white/5 px-8 py-4 rounded-full font-bold text-lg transition" href="#why">
@@ -127,14 +127,10 @@
 
     <!-- Stats Grid — 8 metrics -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-
-      <!-- Row 1: Revenue Generated spans full width on mobile (col-span-2), spans 2 on md -->
-      <div class="glass-card p-6 text-center col-span-2">
+      <div class="glass-card p-6 text-center col-span-2 md:col-span-1">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Revenue Generated</p>
         <p class="text-3xl font-black text-gold">$921.74</p>
       </div>
-
-      <!-- Row 2: Avg Time to Order | Orders Placed -->
       <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Time to Order</p>
         <p class="text-3xl font-black text-white">7.9 min</p>
@@ -143,14 +139,10 @@
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Orders Placed</p>
         <p class="text-3xl font-black text-white">63</p>
       </div>
-
-      <!-- Row 3: Return Rate spans 2 -->
-      <div class="glass-card p-6 text-center col-span-2">
-        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Return Rate</p>
+      <div class="glass-card p-6 text-center col-span-2 md:col-span-1">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Guest Return Rate</p>
         <p class="text-3xl font-black text-teal">28.6%</p>
       </div>
-
-      <!-- Row 4: Total Guests | Unique Games Played -->
       <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Total Guests</p>
         <p class="text-3xl font-black text-white">104</p>
@@ -159,8 +151,6 @@
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Unique Games Played</p>
         <p class="text-3xl font-black text-white">34</p>
       </div>
-
-      <!-- Row 5: Avg Session | Avg MRR Increase -->
       <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Session</p>
         <p class="text-3xl font-black text-white">39m 6s</p>
@@ -170,7 +160,6 @@
         <p class="text-3xl font-black text-coral">+$29.98</p>
         <p class="text-xs text-slate-500 mt-1">per event</p>
       </div>
-
     </div>
 
     <!-- Narrative -->
@@ -186,7 +175,7 @@
         <div class="w-12 h-1 bg-coral"></div>
         <h3 class="text-2xl font-bold">Retention</h3>
         <p class="text-slate-400 leading-relaxed">
-          28.6% of guests returned for a second or third event.
+          Guest Return Rate of 28.6% — guests came back for a second or third event.
         </p>
       </div>
     </div>
@@ -229,77 +218,30 @@
     </div>
   </div>
 
+  <!-- Early Access Modal -->
+  <div id="ea-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9998; align-items:center; justify-content:center; padding:1rem;" onclick="closeEarlyAccess()">
+    <div style="background:#111C36; border:1px solid rgba(255,255,255,0.08); border-radius:1.5rem; padding:2.5rem; width:100%; max-width:480px; position:relative;" onclick="event.stopPropagation()">
+      <button onclick="closeEarlyAccess()" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.75rem; cursor:pointer; line-height:1;">×</button>
+      <h3 style="font-family:'Fraunces',serif; font-size:1.75rem; font-weight:700; margin-bottom:0.5rem; color:#F8FAFC;">Get Early Access</h3>
+      <p style="color:#94a3b8; margin-bottom:1.75rem; font-size:0.95rem;">Tell us about your venue and we'll be in touch within 24 hours.</p>
+      <form onsubmit="submitEarlyAccess(event)" style="display:flex; flex-direction:column; gap:1rem;">
+        <input type="text" placeholder="Your name" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+        <input type="email" placeholder="Email address" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+        <input type="tel" placeholder="Phone number" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"/>
+        <textarea placeholder="Tell us about your venue" rows="3" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.75rem; padding:0.85rem 1rem; color:#F8FAFC; font-family:'Outfit',sans-serif; font-size:1rem; outline:none; width:100%; resize:none;" onfocus="this.style.borderColor='#2DD4BF'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"></textarea>
+        <button id="ea-submit" type="submit" style="background:#FF6B4A; color:white; border:none; border-radius:9999px; padding:1rem; font-family:'Outfit',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:opacity 0.2s; margin-top:0.5rem;">Send Message</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
-    <button class="absolute top-6 right-6 text-white text-4xl font-light leading-none z-10" onclick="closeLightbox()">&times;</button>
-    <button class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl transition z-10" onclick="event.stopPropagation(); lightboxMove(-1)">&#8249;</button>
-    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl" onclick="event.stopPropagation()"/>
-    <button class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl transition z-10" onclick="event.stopPropagation(); lightboxMove(1)">&#8250;</button>
+  <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; align-items:center; justify-content:center; padding:1rem;" onclick="closeLightbox()">
+    <button style="position:absolute; top:1.5rem; right:1.5rem; color:white; font-size:2.5rem; font-weight:300; line-height:1; background:none; border:none; cursor:pointer; z-index:10;" onclick="closeLightbox()">×</button>
+    <button style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.15); color:white; border:none; border-radius:50%; width:3.5rem; height:3.5rem; font-size:1.5rem; cursor:pointer; z-index:10;" onclick="event.stopPropagation(); lightboxMove(-1)">‹</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:0.75rem;" onclick="event.stopPropagation()"/>
+    <button style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.15); color:white; border:none; border-radius:50%; width:3.5rem; height:3.5rem; font-size:1.5rem; cursor:pointer; z-index:10;" onclick="event.stopPropagation(); lightboxMove(1)">›</button>
   </div>
 </section>
-
-<script>
-  const images = ['./venue-1.jpg', './venue-2.jpg', './venue-3.jpg'];
-  const heroImage = './hero.jpg';
-  let carouselIndex = 0;
-  let lightboxIndex = 0;
-
-  function moveCarousel(dir) {
-    carouselIndex = (carouselIndex + dir + images.length) % images.length;
-    updateCarousel();
-  }
-
-  function goToSlide(i) {
-    carouselIndex = i;
-    updateCarousel();
-  }
-
-  function updateCarousel() {
-    document.getElementById('carousel-track').style.transform = `translateX(-${carouselIndex * 100}%)`;
-    for (let i = 0; i < images.length; i++) {
-      document.getElementById('dot-' + i).className = 'w-2 h-2 rounded-full transition ' + (i === carouselIndex ? 'bg-teal' : 'bg-white/30');
-    }
-  }
-
-  function openLightbox(index) {
-    lightboxIndex = index;
-    document.getElementById('lightbox-img').src = images[index];
-    const lb = document.getElementById('lightbox');
-    lb.classList.remove('hidden');
-    lb.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function openHeroLightbox() {
-    document.getElementById('lightbox-img').src = heroImage;
-    lightboxIndex = -1;
-    const lb = document.getElementById('lightbox');
-    lb.classList.remove('hidden');
-    lb.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    const lb = document.getElementById('lightbox');
-    lb.classList.add('hidden');
-    lb.classList.remove('flex');
-    document.body.style.overflow = '';
-  }
-
-  function lightboxMove(dir) {
-    if (lightboxIndex === -1) return;
-    lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
-    document.getElementById('lightbox-img').src = images[lightboxIndex];
-  }
-
-  document.addEventListener('keydown', (e) => {
-    const lb = document.getElementById('lightbox');
-    if (lb.classList.contains('hidden')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') lightboxMove(1);
-    if (e.key === 'ArrowLeft') lightboxMove(-1);
-  });
-</script>
 
 <!-- Rotation Section -->
 <section class="py-24 bg-navy-light">
@@ -426,7 +368,7 @@
 <section class="py-24 px-6 text-center" id="cta">
   <div class="max-w-3xl mx-auto">
     <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to elevate your venue?</h2>
-    <a class="inline-block bg-coral hover:bg-coral/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-coral/30 transition-all hover:-translate-y-1" href="mailto:tim@playgmg.com?subject=Early%20Access">
+    <a onclick="openEarlyAccess(); return false;" href="#" class="inline-block bg-coral hover:bg-coral/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-coral/30 transition-all hover:-translate-y-1 cursor-pointer">
       Request Early Access
     </a>
   </div>
@@ -445,6 +387,100 @@
     <div class="text-gray-600 text-xs">© 2026 GameMaster Guide. All rights reserved.</div>
   </div>
 </footer>
+
+<script>
+  const images = ['./venue-1.jpg', './venue-2.jpg', './venue-3.jpg'];
+  const heroImage = './hero.jpg';
+  let carouselIndex = 0;
+  let lightboxIndex = 0;
+
+  function moveCarousel(dir) {
+    carouselIndex = (carouselIndex + dir + images.length) % images.length;
+    updateCarousel();
+  }
+
+  function goToSlide(i) {
+    carouselIndex = i;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    document.getElementById('carousel-track').style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+    for (let i = 0; i < images.length; i++) {
+      document.getElementById('dot-' + i).style.background = i === carouselIndex ? '#2DD4BF' : 'rgba(255,255,255,0.3)';
+    }
+  }
+
+  function openLightbox(index) {
+    lightboxIndex = index;
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = images[index];
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape').catch(() => {});
+    }
+  }
+
+  function openHeroLightbox() {
+    lightboxIndex = -1;
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = heroImage;
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape').catch(() => {});
+    }
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    if (screen.orientation && screen.orientation.unlock) {
+      screen.orientation.unlock();
+    }
+  }
+
+  function lightboxMove(dir) {
+    if (lightboxIndex === -1) return;
+    lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
+    document.getElementById('lightbox-img').src = images[lightboxIndex];
+  }
+
+  document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('lightbox');
+    if (lb.style.display === 'none') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') lightboxMove(1);
+    if (e.key === 'ArrowLeft') lightboxMove(-1);
+  });
+
+  // Early Access modal
+  function openEarlyAccess() {
+    document.getElementById('ea-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeEarlyAccess() {
+    document.getElementById('ea-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function submitEarlyAccess(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ea-submit');
+    btn.textContent = 'Sent!';
+    btn.style.background = '#2DD4BF';
+    btn.style.color = '#0B1226';
+    setTimeout(() => {
+      closeEarlyAccess();
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  }
+</script>
 
 </body>
 </html>
