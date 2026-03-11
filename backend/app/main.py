@@ -1,6 +1,9 @@
 """GameMaster Guide — Backend API server for board game cafe management."""
 
+import os
+import subprocess
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -55,7 +58,6 @@ from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.api.routes.menu_images import router as menu_images_router
 from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
 from app.api.routes.cover_art import router as cover_art_router
-from app.api.routes.venue_config import router as venue_config_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -64,7 +66,7 @@ from app.models.venues import (
     init_venues_table, init_venue_collections_table,
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
 )
-from app.models.game import search_limited_library, search_convention_library
+from app.models.game import search_limited_library, search_convention_library, search_by_publisher_tag
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
@@ -76,7 +78,27 @@ from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_admin_config_tables, init_cover_art_tables
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_cover_art_tables
+
+# ── Deploy metadata (set once at module load) ───────────────────
+def _get_commit_hash() -> str:
+    """Get git commit hash from env (Render) or subprocess (local)."""
+    env_hash = os.environ.get("RENDER_GIT_COMMIT", "")
+    if env_hash:
+        return env_hash[:7]
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except Exception:
+        return "unknown"
+
+DEPLOY_COMMIT = _get_commit_hash()
+DEPLOY_TIMESTAMP = datetime.now(timezone.utc).isoformat(timespec="seconds")
+GAMES_LOADED: int = 0
+STONEMAIER_COUNT: int = 0
 
 
 @asynccontextmanager
@@ -105,7 +127,6 @@ async def lifespan(app: FastAPI):
     init_menu_tables()
     init_swp_rental_tables()
     init_signups_table()
-    init_admin_config_tables()
     init_cover_art_tables()
     seed_swp_rental_inventory()
     match_shopify_inventory()
@@ -143,43 +164,17 @@ async def lifespan(app: FastAPI):
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
 
-    # Seed GOTD + Staff Picks into Turso if not already set
-    from app.services.turso import has_turso_venue_config, set_turso_staff_picks, set_turso_gotd
-
-    # Global defaults
-    if not has_turso_venue_config("global"):
-        global_picks = [
-            "above-and-below", "carcassonne", "ark-nova", "dune-imperium",
-            "blood-on-the-clocktower", "brass-birmingham", "gloomhaven",
-            "twilight-imperium-4th-edition", "terraforming-mars", "castles-of-burgundy",
-        ]
-        set_turso_staff_picks("global", global_picks)
-        set_turso_gotd("global", "wingspan", "manual")
-        print("[GMAI] Seeded global staff picks + GOTD in Turso")
-
-    # Convention defaults
-    if not has_turso_venue_config("convention"):
-        convention_picks = ["wingspan", "wyrmspan", "tapestry", "viticulture", "scythe", "tokaido"]
-        set_turso_staff_picks("convention", convention_picks)
-        set_turso_gotd("convention", "wingspan", "manual")
-        print("[GMAI] Seeded convention staff picks + GOTD in Turso")
-
-    # Migrate _default → global if _default exists but global doesn't
-    if has_turso_venue_config("_default") and not has_turso_venue_config("global"):
-        from app.services.turso import get_turso_staff_picks, get_turso_gotd
-        old_picks = get_turso_staff_picks("_default")
-        old_gotd = get_turso_gotd("_default")
-        if old_picks:
-            set_turso_staff_picks("global", old_picks)
-        if old_gotd:
-            set_turso_gotd("global", old_gotd["game_id"], old_gotd["mode"])
-        print("[GMAI] Migrated _default config to global in Turso")
-
     # Load system config (meetup toggle, clear-recent)
     from app.services.admin_config import load_all as _load_admin_config
     _load_admin_config()
 
-    print(f"[GMAI] Loaded {count} game(s) into SQLite")
+    # Track game counts for deploy-status endpoint
+    global GAMES_LOADED, STONEMAIER_COUNT
+    GAMES_LOADED = count
+    all_sm = search_by_publisher_tag("stonemaier")
+    STONEMAIER_COUNT = len(all_sm)
+
+    print(f"[GMAI] Loaded {count} game(s) into SQLite (commit={DEPLOY_COMMIT})")
     yield
 
 
@@ -281,11 +276,19 @@ app.include_router(images_router)
 # --- Cover Art Admin ---
 app.include_router(cover_art_router)
 
-# --- Venue Config (GOTD + Staff Picks) ---
-app.include_router(venue_config_router)
-
 
 @app.get("/health", tags=["system"])
 async def health():
     """Health check endpoint."""
-    return {"status": "ok"}
+    return {"status": "ok", "commit": DEPLOY_COMMIT, "deployed_at": DEPLOY_TIMESTAMP}
+
+
+@app.get("/api/v1/deploy-status", tags=["system"])
+async def deploy_status():
+    """Deploy verification endpoint — shows commit, game counts."""
+    return {
+        "commit": DEPLOY_COMMIT,
+        "deployed_at": DEPLOY_TIMESTAMP,
+        "games_loaded": GAMES_LOADED,
+        "stonemaier_games": STONEMAIER_COUNT,
+    }

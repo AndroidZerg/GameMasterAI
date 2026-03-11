@@ -48,10 +48,6 @@ export default function ConfigSection({ venueId, token, isSuperAdmin, refreshKey
         }}>{msg}</div>
       )}
 
-      <div style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: 16 }}>
-        Game of the Day and Staff Picks have moved to{" "}
-        <a href="/admin/customize" style={{ color: "#60a5fa" }}>Customize Home</a>.
-      </div>
 
       {/* Meetup Toggle (super_admin only) */}
       {isSuperAdmin && (

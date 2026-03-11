@@ -150,34 +150,6 @@ export async function fetchAllVenues() {
   return handleResponse(res);
 }
 
-// ── Venue Config (new Turso-backed endpoints) ──
-
-export async function fetchVenueHomeConfig(venueKey) {
-  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}/full`, {
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
-
-export async function saveVenueHomeConfig(venueKey, { featured, staffPicks }) {
-  const body = {};
-  if (featured !== undefined) body.featured = featured;
-  if (staffPicks !== undefined) body.staff_picks = staffPicks;
-  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}/full`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-    body: JSON.stringify(body),
-  });
-  return handleResponse(res);
-}
-
-export async function resetVenueHomeConfig(venueKey) {
-  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}`, {
-    method: "DELETE",
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
 
 // ── Admin endpoints (auth required) ──
 
@@ -221,19 +193,6 @@ export async function fetchVenueMenu() {
   return handleResponse(res);
 }
 
-export async function fetchFeaturedGame() {
-  const res = await fetch(`${API_BASE}/api/games/featured`, {
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
-
-export async function fetchStaffPicks() {
-  const res = await fetch(`${API_BASE}/api/games/staff-picks`, {
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
 
 export async function fetchHouseRules() {
   const res = await fetch(`${API_BASE}/api/venue/house-rules`);

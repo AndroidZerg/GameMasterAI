@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchFeaturedGame, fetchStaffPicks, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -89,17 +89,6 @@ const PLAYER_COUNT_OPTIONS = [
 ];
 
 // Legacy trackEvent removed — all analytics now go through EventTracker
-
-// Staff picks — fallback curated list of game IDs
-const STAFF_PICKS_FALLBACK = ["wingspan", "azul", "codenames", "root", "the-crew", "patchwork", "7-wonders", "quacks-of-quedlinburg"];
-
-// Deterministic "Game of the Day" based on date (client-side fallback)
-function getGameOfTheDayFallback(games) {
-  if (!games || games.length === 0) return null;
-  const today = new Date();
-  const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-  return games[daysSinceEpoch % games.length];
-}
 
 function GameOfTheDay({ game, onClick }) {
   if (!game) return null;
@@ -928,30 +917,7 @@ export default function GameSelector() {
         } catch {}
       });
 
-    // Fetch featured game and staff picks from API (sends auth for per-venue config)
-    fetchFeaturedGame()
-      .then((data) => { if (mounted && data?.game_id) setApiFeatured(data); })
-      .catch(() => {});
-
-    fetchStaffPicks()
-      .then((data) => { if (mounted && Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
-      .catch(() => {});
-
     return () => { mounted = false; };
-  }, []);
-
-  // Re-fetch GOTD + staff picks when admin saves config (no full reload needed)
-  useEffect(() => {
-    const handler = () => {
-      fetchFeaturedGame()
-        .then((data) => { if (data?.game_id) setApiFeatured(data); })
-        .catch(() => {});
-      fetchStaffPicks()
-        .then((data) => { if (Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
-        .catch(() => {});
-    };
-    window.addEventListener("venue-config-updated", handler);
-    return () => window.removeEventListener("venue-config-updated", handler);
   }, []);
 
   useEffect(() => {
@@ -1085,14 +1051,10 @@ export default function GameSelector() {
     sessionStorage.setItem("gmai_rental_banner_dismissed", "1");
   };
 
-  // Game of the Day + Staff Picks (prefer API, fallback to client-side)
+  // Game of the Day + Staff Picks — from /api/home-config/me
   const allBaseGames = collection ? games.filter((g) => collection.has(g.game_id)) : games;
-  const gameOfTheDay = !search && !hasActiveFilters
-    ? (apiFeatured || getGameOfTheDayFallback(allBaseGames))
-    : null;
-  const staffPickGames = !search && !hasActiveFilters
-    ? (apiStaffPicks || STAFF_PICKS_FALLBACK.map((id) => allBaseGames.find((g) => g.game_id === id)).filter(Boolean))
-    : [];
+  const gameOfTheDay = !search && !hasActiveFilters ? apiFeatured : null;
+  const staffPickGames = !search && !hasActiveFilters && apiStaffPicks ? apiStaffPicks : [];
 
   // Deterministic daily shuffle — same order all day, refreshes at midnight
   const dailyShuffle = (arr) => {

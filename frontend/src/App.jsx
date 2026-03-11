@@ -122,6 +122,8 @@ function AppShell() {
     const venueId = localStorage.getItem('gmai_venue_id');
     if (venueId) EventTracker.setVenue(venueId);
     EventTracker.start();
+    console.log('[GMG] Build:', __COMMIT_HASH__);
+    document.querySelector('meta[name="gmg-version"]')?.setAttribute('content', __COMMIT_HASH__);
     return () => EventTracker.stop();
   }, []);
 

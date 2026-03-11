@@ -42,14 +42,6 @@ async def venue_home(venue: dict = Depends(get_current_venue)):
     _require_venue_role(venue)
     venue_id = venue["venue_id"]
     stats = get_home_stats(venue_id)
-
-    # Get GOTD and staff picks from venue config (Turso)
-    from app.services.venue_config import get_gotd, get_staff_picks as vc_get_staff_picks
-    featured = get_gotd(venue_id)
-    gotd = featured.get("game_id") if featured and featured.get("mode") == "manual" else None
-    picks = vc_get_staff_picks(venue_id)
-    stats["gotd"] = gotd
-    stats["staff_picks"] = [p["game_id"] for p in picks]
     return stats
 
 

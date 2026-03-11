@@ -1,8 +1,6 @@
 """Game listing, search, detail, price, categories, filter, expansions, featured, and reload endpoints."""
 
-import hashlib
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -15,10 +13,6 @@ from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection
 from app.services.knowledge import load_game
 from app.services.turso import get_cover_art_status
-from app.services.venue_config import (
-    get_gotd as vc_get_gotd,
-    get_staff_picks as vc_get_staff_picks,
-)
 
 _CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
 _EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
@@ -117,79 +111,6 @@ async def quick_games(
 ):
     """Return games with max play time <= threshold. Default 30 minutes."""
     return get_quick_games(max_time=max_time)
-
-
-@router.get("/games/staff-picks")
-async def staff_picks_games(
-    venue: Optional[dict] = Depends(get_optional_venue),
-):
-    """Return full game data for staff-picked games. Turso venue config with global fallback."""
-    # Determine venue_key: use role for special accounts, venue_id otherwise
-    venue_key = "global"
-    if venue:
-        role = venue.get("role")
-        if role in ("convention", "stonemaier", "meetup"):
-            venue_key = role
-        elif venue.get("venue_id"):
-            venue_key = venue["venue_id"]
-
-    pick_records = vc_get_staff_picks(venue_key)
-    pick_ids = [p["game_id"] for p in pick_records]
-
-    if not pick_ids:
-        all_games = search_games()
-        return all_games[:8]
-
-    all_games = search_games()
-    games_map = {g["game_id"]: g for g in all_games}
-    return [games_map[gid] for gid in pick_ids if gid in games_map]
-
-
-@router.get("/games/featured")
-async def featured_game(
-    venue: Optional[dict] = Depends(get_optional_venue),
-):
-    """Game of the Day — per-venue Turso config with global fallback."""
-    if not _HIGHLIGHTS:
-        _load_highlights()
-
-    games = search_games()
-    if not games:
-        return {"error": "No games available"}
-
-    games_map = {g["game_id"]: g for g in games}
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-
-    # Determine venue_key: use role for special accounts, venue_id otherwise
-    venue_key = "global"
-    if venue:
-        role = venue.get("role")
-        if role in ("convention", "stonemaier", "meetup"):
-            venue_key = role
-        elif venue.get("venue_id"):
-            venue_key = venue["venue_id"]
-
-    featured_cfg = vc_get_gotd(venue_key)
-    if featured_cfg.get("mode") == "manual" and featured_cfg.get("game_id"):
-        manual_id = featured_cfg["game_id"]
-        if manual_id in games_map:
-            game = games_map[manual_id]
-            why_play = _HIGHLIGHTS.get(manual_id, f"{game['title']} is a great game to try today.")
-            return {**game, "why_play": why_play, "featured_date": today, "featured_mode": "manual"}
-
-    # Auto mode — hash today's date to pick a consistent game
-    idx = int(hashlib.md5(today.encode()).hexdigest(), 16) % len(games)
-    game = games[idx]
-    game_id = game["game_id"]
-
-    why_play = _HIGHLIGHTS.get(game_id, f"{game['title']} is a great game to try today.")
-
-    return {
-        **game,
-        "why_play": why_play,
-        "featured_date": today,
-        "featured_mode": "auto",
-    }
 
 
 @router.get("/games/{game_id}")

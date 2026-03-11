@@ -49,36 +49,6 @@ export default function HomeTab() {
         ))}
       </div>
 
-      {/* GOTD & Staff Picks */}
-      <div style={{ ...card, textAlign: "left" }}>
-        <h3 style={{ margin: "0 0 8px", fontSize: 16, color: "var(--text-primary, #e0e0e0)" }}>Game of the Day</h3>
-        <p style={{ color: "var(--text-secondary, #a0a0a0)", margin: 0 }}>
-          {data.gotd || "Not set"}
-        </p>
-      </div>
-
-      {data.staff_picks && data.staff_picks.length > 0 && (
-        <div style={{ ...card, textAlign: "left" }}>
-          <h3 style={{ margin: "0 0 8px", fontSize: 16, color: "var(--text-primary, #e0e0e0)" }}>Staff Picks</h3>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {data.staff_picks.map((gid) => (
-              <span
-                key={gid}
-                style={{
-                  background: "var(--bg-secondary, #16213e)",
-                  padding: "4px 10px",
-                  borderRadius: 6,
-                  fontSize: 13,
-                  color: "var(--text-primary, #e0e0e0)",
-                }}
-              >
-                {gid}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Games Playing Now */}
       {data.games_playing_now && data.games_playing_now.length > 0 && (
         <div style={{ ...card, textAlign: "left" }}>
