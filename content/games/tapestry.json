@@ -4,21 +4,90 @@
   "aliases": [],
   "publisher": "Stonemaier Games",
   "publisher_tag": "stonemaier",
-  "publisher_approved": false,
+  "publisher_approved": true,
   "image": "/images/tapestry.webp",
   "complexity": "midweight",
-  "player_count": {"min": 1, "max": 5},
-  "play_time_minutes": {"min": 90, "max": 120},
-  "categories": ["civilization", "engine-building", "tableau"],
+  "player_count": {
+    "min": 1,
+    "max": 5
+  },
+  "play_time_minutes": {
+    "min": 90,
+    "max": 120
+  },
+  "categories": [
+    "civilization",
+    "engine-building",
+    "tableau"
+  ],
   "sections": {
-    "component_identification": {"content": "Coming soon.", "token_count": 3},
-    "core_game_loop": {"content": "Coming soon.", "token_count": 3},
-    "detailed_rules": {"content": "Coming soon.", "token_count": 3},
-    "scoring_and_endgame": {"content": "Coming soon.", "token_count": 3},
-    "beginner_strategy": {"content": "Coming soon.", "token_count": 3}
+    "component_identification": {
+      "content": "Coming soon.",
+      "token_count": 3
+    },
+    "core_game_loop": {
+      "content": "Coming soon.",
+      "token_count": 3
+    },
+    "detailed_rules": {
+      "content": "Coming soon.",
+      "token_count": 3
+    },
+    "scoring_and_endgame": {
+      "content": "Coming soon.",
+      "token_count": 3
+    },
+    "beginner_strategy": {
+      "content": "Coming soon.",
+      "token_count": 3
+    }
   },
   "metadata": {
     "created_by": "stub",
     "validation_status": "pending"
+  },
+  "tabs": {
+    "setup": {
+      "subtopics": [
+        {
+          "id": "components",
+          "title": "Components",
+          "content": "#### Key Components\n- **1 Game Board** with 4 advancement tracks (Science, Technology, Exploration, Military)\n- **16 Civilization Mats** — each with a unique ability\n- **5 Income Mats** (one per player)\n- **5 Capital City Mats** with a 9×9 grid\n- **18 Landmark Miniatures** — 3D buildings that fit on your capital city\n- **43 Tapestry Cards** — played at the start of each income turn for ongoing benefits\n- **48 Territory Tiles** — hexagonal tiles gained through Exploration\n- **33 Tech Cards** — upgrades gained through the Science track\n- **65 Income Buildings** (5 types, gained by completing track rows)\n- **Resource tokens**: Food, Workers, Gold, Culture (coin-shaped)\n- **Victory Point tokens** and player markers"
+        },
+        {
+          "id": "initial-setup",
+          "title": "Initial Setup",
+          "content": "#### Setup Steps\n1. Place the **game board** in the center\n2. Place **landmark miniatures** on their designated spaces on the advancement tracks\n3. Shuffle and deal **2 Civilization Mats** to each player — choose one, return the other\n4. Each player takes an **Income Mat** and a **Capital City Mat**\n5. Each player places their **player token** at the start of each of the 4 advancement tracks\n6. Deal each player **3 Tapestry Cards** and **3 Tech Cards** (kept hidden)\n7. Give each player starting resources based on your civilization's setup ability\n8. Place **income buildings** in supply sorted by type\n9. Shuffle **territory tiles** face-down in a supply\n\n#### First Income Turn\nAll players simultaneously take their first income turn before the game begins (gain resources from the leftmost exposed column on your Income Mat)."
+        }
+      ]
+    },
+    "rules": {
+      "subtopics": [
+        {
+          "id": "turn-structure",
+          "title": "Turn Structure",
+          "content": "#### Two Types of Turns\nOn your turn you do **one** of two things:\n\n**1. Advance Turn** — Pay resources to move up one space on any advancement track:\n- Pay the cost shown on the next space (usually resources or VP)\n- Gain the benefit of that space (landmarks, territory tiles, tech cards, etc.)\n- If you reach a landmark space, take that miniature and place it on your Capital City Mat\n- You may advance on any of the 4 tracks in any order\n\n**2. Income Turn** — When you cannot or choose not to advance:\n- **Play a Tapestry Card** from your hand (optional but important — gives ongoing bonuses)\n- **Activate your Civilization ability** (some trigger on income turns)\n- **Gain income** from all exposed symbols on your Income Mat\n- You expose symbols by placing income buildings on your Income Mat\n\n#### Important\n- Players take turns independently — you might take your 3rd income turn while others are still advancing\n- The game ends when ALL players have taken their **5th income turn**\n- Each income turn, the income column you gain from moves right, giving more resources"
+        },
+        {
+          "id": "advancement-tracks",
+          "title": "The Four Tracks",
+          "content": "#### Science Track\n- **Benefits**: Gain Tech Cards, upgrade Tech Cards for powerful abilities\n- **Key landmark**: Research Lab\n- Tech Cards have two sides — basic and upgraded (flip when you hit certain spaces)\n\n#### Technology Track\n- **Benefits**: Gain income buildings to place on your Income Mat (exposing income symbols)\n- **Key landmark**: Tech Building\n- Income buildings come in 5 types matching the 5 income columns\n\n#### Exploration Track\n- **Benefits**: Gain Territory Tiles to place on the main board, claim resources\n- **Key landmark**: Landmark from exploration\n- Territory tiles expand the map and can earn you control bonuses\n\n#### Military Track\n- **Benefits**: Conquer territories (flip opponent tiles), place outposts\n- **Key landmark**: Armory\n- Conquering lets you topple opponent territories adjacent to yours"
+        },
+        {
+          "id": "endgame",
+          "title": "Scoring & End Game",
+          "content": "#### When Does the Game End?\nThe game ends when **all players** have taken their 5th and final income turn.\n\n#### Victory Point Sources\n1. **VP tokens** earned during the game (from track spaces, tapestry cards, etc.)\n2. **Landmark placement** — Score points for completed rows and columns on your Capital City Mat\n3. **Capital City scoring** — Each completed row/column of your 9×9 grid scores points\n4. **Tech Card bonuses** — Some upgraded tech cards give end-game VP\n5. **Tapestry Card bonuses** — Some cards give VP based on game state\n6. **Territory control** — Points for controlled territories on the main board\n\n#### Winner\nThe player with the most VP wins. Ties broken by most resources remaining."
+        }
+      ]
+    },
+    "strategy": {
+      "subtopics": [
+        {
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### Key Strategic Principles\n\n- **Don't spread too thin.** Focus on 2 advancement tracks rather than advancing equally on all 4. Going deep on fewer tracks earns better rewards.\n- **Income buildings are crucial.** The Technology track gives you income buildings that dramatically increase your income each turn. Prioritize getting these early.\n- **Tapestry cards are powerful.** Save strong tapestry cards for later income turns when they'll have more impact. Some tapestry cards are worth 10+ VP.\n- **Fill your Capital City.** Landmarks and income buildings placed on your Capital City Mat score VP for completed rows and columns. Plan your placement carefully.\n- **Watch your opponents' tracks.** Landmarks on the tracks are first-come, first-served. If someone is racing you on a track, decide if it's worth competing.\n- **Use your Civilization ability.** Each civilization has a unique power — build your strategy around it rather than ignoring it.\n- **Resource management matters.** Don't burn all resources early. You need them for all 5 eras. Gold is wild — save it for when you're short on a specific resource.\n\n#### Common Mistakes\n- Taking income turns too early (you lose potential advancement turns)\n- Ignoring the Technology track (income buildings compound your gains)\n- Not placing landmarks strategically on Capital City grid"
+        }
+      ]
+    }
   }
 }

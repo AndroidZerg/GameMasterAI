@@ -20,7 +20,7 @@ from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
     get_venue_by_id, get_venue_by_username, set_venue_collection, get_venue_collection,
 )
-from app.models.game import search_games, search_limited_library, search_by_publisher_tag
+from app.models.game import search_games, search_limited_library, search_convention_library, search_by_publisher_tag
 from app.services.admin_config import get_meetup_enabled
 from app.services.turso import insert_signup
 
@@ -309,7 +309,7 @@ async def convention_signup(req: SignupRequest, request: Request,
         role = "convention"
         create_venue(
             venue_id=venue_id,
-            venue_name="Dice Tower West Attendee",
+            venue_name="Dice Tower West Demo",
             email=email,
             password_hash=pw_hash,
             role=role,
@@ -318,16 +318,17 @@ async def convention_signup(req: SignupRequest, request: Request,
         )
         expires_at = CONVENTION_EXPIRY
 
-    # Give convention/trial users the limited library
-    limited = search_limited_library()
-    limited_ids = [g["game_id"] for g in limited]
-    set_venue_collection(venue_id, limited_ids)
+    # Give convention/trial users only publisher_approved games
+    convention_games = search_convention_library()
+    convention_ids = [g["game_id"] for g in convention_games]
+    set_venue_collection(venue_id, convention_ids)
 
-    token = create_token(venue_id, "Dice Tower West Attendee", role=role)
+    venue_display = "Dice Tower West Demo"
+    token = create_token(venue_id, venue_display, role=role)
     return {
         "token": token,
         "venue_id": venue_id,
-        "venue_name": "Dice Tower West Attendee",
+        "venue_name": venue_display,
         "role": role,
         "expires_at": expires_at,
     }

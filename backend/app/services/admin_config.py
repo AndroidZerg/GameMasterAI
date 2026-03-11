@@ -1,27 +1,21 @@
 """
-Admin config persistence — three-layer storage:
-  1. In-memory cache (fastest, lost on restart)
-  2. Local file (content/admin-config.json — survives restart)
-  3. GitHub API (survives redeploy, the durable source of truth)
-Every save writes to all three. On startup, load from GitHub → local file → hardcoded.
-"""
-import os
-import json
-import base64
-import logging
-from pathlib import Path
-from datetime import datetime, timezone
+Admin config persistence — Turso-backed with in-memory TTL cache.
 
-import httpx
+Storage layers:
+  1. In-memory cache (fastest, 60-second TTL)
+  2. Turso database (durable, survives redeploy)
+  3. Local file seed (content/admin-config.json — one-time migration source)
+"""
+import json
+import logging
+import time
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_REPO = "AndroidZerg/GameMasterAI"
-CONFIG_PATH = "content/admin-config.json"
 _LOCAL_CONFIG_PATH = Path(__file__).resolve().parents[3] / "content" / "admin-config.json"
 
-# Hardcoded defaults — these are the FALLBACK if both GitHub and local file are unreachable
+# Hardcoded defaults — fallback if Turso is empty and no local file
 HARDCODED_DEFAULTS = {
     "_default": {
         "featured": {"mode": "manual", "game_id": "wingspan"},
@@ -32,205 +26,217 @@ HARDCODED_DEFAULTS = {
     }
 }
 
-# In-memory cache — survives for the lifetime of the process
-_cache: dict = {}
-_cache_loaded: bool = False
-_github_sha: str = ""
+# ── In-memory cache with 60-second TTL ──────────────────────────
+_cache: dict = {}  # venue_key -> {"featured": {...}, "staff_picks": [...]}
+_cache_ts: dict = {}  # venue_key -> timestamp of last load
+_CACHE_TTL = 60  # seconds
+_system_cache: dict = {}  # system-level settings (meetup_enabled, clear_recent_ts)
+_initial_load_done: bool = False
 
 
-def _github_headers():
-    """Return auth headers. Tries both token formats for compatibility."""
+def _is_cache_valid(venue_key: str) -> bool:
+    return venue_key in _cache and (time.time() - _cache_ts.get(venue_key, 0)) < _CACHE_TTL
+
+
+def _cache_set(venue_key: str, config: dict):
+    _cache[venue_key] = config
+    _cache_ts[venue_key] = time.time()
+
+
+def _cache_invalidate(venue_key: str):
+    _cache.pop(venue_key, None)
+    _cache_ts.pop(venue_key, None)
+
+
+# ── Turso operations (lazy import to avoid circular deps) ────────
+
+def _turso():
+    from app.services.turso import (
+        get_turso_staff_picks, set_turso_staff_picks,
+        get_turso_gotd, set_turso_gotd,
+        delete_turso_venue_config, has_turso_venue_config,
+    )
     return {
-        "Authorization": f"token {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3+json",
+        "get_picks": get_turso_staff_picks,
+        "set_picks": set_turso_staff_picks,
+        "get_gotd": get_turso_gotd,
+        "set_gotd": set_turso_gotd,
+        "delete": delete_turso_venue_config,
+        "has_config": has_turso_venue_config,
     }
 
 
-def _local_file_read():
-    """Read admin-config.json from the local filesystem. Returns config dict or None."""
+def _load_venue_from_turso(venue_key: str) -> dict | None:
+    """Load a venue's config from Turso. Returns None if no config exists."""
+    t = _turso()
+    picks = t["get_picks"](venue_key)
+    gotd = t["get_gotd"](venue_key)
+    if not picks and not gotd:
+        return None
+    config = {}
+    if picks:
+        config["staff_picks"] = picks
+    if gotd:
+        config["featured"] = gotd
+    else:
+        config["featured"] = {"mode": "manual", "game_id": "wingspan"}
+    return config
+
+
+def _seed_from_local_file():
+    """One-time migration: seed Turso from admin-config.json if Turso tables are empty."""
+    t = _turso()
+    # Check if Turso already has data for _default
+    if t["has_config"]("_default"):
+        logger.info("Turso admin config already seeded, skipping migration")
+        return
+
+    # Try reading local file
+    config = None
     try:
         if _LOCAL_CONFIG_PATH.exists():
             content = _LOCAL_CONFIG_PATH.read_text(encoding="utf-8")
             config = json.loads(content)
-            return config
+            logger.info(f"Read admin-config.json for migration: {len(config)} key(s)")
     except Exception as e:
-        logger.error(f"Local config file read exception: {e}")
-    return None
+        logger.warning(f"Could not read admin-config.json for migration: {e}")
+
+    if not config:
+        config = HARDCODED_DEFAULTS
+
+    # Seed each venue key into Turso
+    for venue_key, venue_cfg in config.items():
+        if venue_key.startswith("_system"):
+            continue
+        picks = venue_cfg.get("staff_picks", [])
+        featured = venue_cfg.get("featured", {})
+        if picks:
+            t["set_picks"](venue_key, picks)
+        if featured.get("game_id"):
+            t["set_gotd"](venue_key, featured["game_id"], featured.get("mode", "manual"))
+        elif featured.get("mode") == "auto":
+            t["set_gotd"](venue_key, "", "auto")
+
+    # Also migrate system settings to the system cache
+    system_cfg = config.get("_system", {})
+    if system_cfg:
+        _system_cache.update(system_cfg)
+
+    logger.info("Turso admin config seeded from local file / defaults")
 
 
-def _local_file_write(config):
-    """Write admin-config.json to the local filesystem. Returns True on success."""
-    try:
-        _LOCAL_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        _LOCAL_CONFIG_PATH.write_text(
-            json.dumps(config, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-        logger.info("Local config file write SUCCESS")
-        return True
-    except Exception as e:
-        logger.error(f"Local config file write FAILED: {e}")
-        return False
-
-
-def _github_read():
-    """Read admin-config.json from GitHub. Returns (config_dict, sha) or (None, None)."""
-    global _github_sha
-    if not GITHUB_TOKEN:
-        logger.warning("GITHUB_TOKEN not set — using hardcoded defaults")
-        return None, None
-    try:
-        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{CONFIG_PATH}"
-        resp = httpx.get(url, headers=_github_headers(), timeout=15)
-        logger.info(f"GitHub config read: status={resp.status_code}")
-        if resp.status_code == 200:
-            data = resp.json()
-            content = base64.b64decode(data["content"]).decode("utf-8")
-            _github_sha = data.get("sha", "")
-            config = json.loads(content)
-            logger.info(f"GitHub config loaded OK: {len(config)} venue(s), sha={_github_sha[:8]}")
-            return config, _github_sha
-        elif resp.status_code == 404:
-            logger.info("GitHub config file not found — will create on first save")
-            return None, None
-        else:
-            logger.error(f"GitHub config read FAILED: {resp.status_code} {resp.text[:200]}")
-            return None, None
-    except Exception as e:
-        logger.error(f"GitHub config read exception: {e}")
-        return None, None
-
-
-def _github_write(config):
-    """Write admin-config.json to GitHub."""
-    global _github_sha
-    if not GITHUB_TOKEN:
-        logger.warning("GITHUB_TOKEN not set — cannot persist config")
-        return False
-    try:
-        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{CONFIG_PATH}"
-        hdrs = _github_headers()
-
-        # Always get fresh SHA to avoid conflicts
-        resp = httpx.get(url, headers=hdrs, timeout=10)
-        sha = ""
-        if resp.status_code == 200:
-            sha = resp.json().get("sha", "")
-
-        content_b64 = base64.b64encode(
-            json.dumps(config, indent=2, ensure_ascii=False).encode("utf-8")
-        ).decode("utf-8")
-
-        body = {
-            "message": f"Admin config update {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC",
-            "content": content_b64,
-        }
-        if sha:
-            body["sha"] = sha
-
-        resp = httpx.put(url, json=body, headers=hdrs, timeout=20)
-
-        if resp.status_code in (200, 201):
-            _github_sha = resp.json().get("content", {}).get("sha", "")
-            logger.info(f"GitHub config write SUCCESS — new sha={_github_sha[:8] if _github_sha else '?'}")
-            return True
-        else:
-            logger.error(f"GitHub config write FAILED: {resp.status_code} {resp.text[:300]}")
-            return False
-    except Exception as e:
-        logger.error(f"GitHub config write exception: {e}")
-        return False
-
+# ── Public API (same contract as before) ─────────────────────────
 
 def load_all():
-    """Load config into memory cache. Tries GitHub → local file → hardcoded defaults."""
-    global _cache, _cache_loaded
+    """Load config on startup. Seeds Turso from local file if needed. Returns cache dict."""
+    global _initial_load_done
 
-    # 1. Try GitHub (the durable source of truth)
-    config, _sha = _github_read()
-    if config:
-        venue_count = len([k for k in config if k not in ("_system",)])
-        logger.info(f"Admin config loaded from GitHub API ({venue_count} venue(s) configured)")
-        _cache = config
-        _cache_loaded = True
-        # Sync local file to match GitHub
-        _local_file_write(config)
-        return _cache
+    # Initialize Turso tables
+    from app.services.turso import init_admin_config_tables
+    init_admin_config_tables()
 
-    # 2. Try local file (survives restart even if GitHub is down)
-    config = _local_file_read()
-    if config:
-        venue_count = len([k for k in config if k not in ("_system",)])
-        logger.warning(f"GitHub API unavailable, loaded admin config from local file ({venue_count} venue(s) configured)")
-        _cache = config
-        _cache_loaded = True
-        return _cache
+    # One-time seed from local file
+    _seed_from_local_file()
 
-    # 3. Hardcoded fallback
-    logger.warning("Both GitHub and local file unavailable, using hardcoded fallback")
-    _cache = json.loads(json.dumps(HARDCODED_DEFAULTS))
-    _cache_loaded = True
-    return _cache
+    # Load system settings from local file (meetup_enabled, clear_recent_ts)
+    try:
+        if _LOCAL_CONFIG_PATH.exists():
+            content = _LOCAL_CONFIG_PATH.read_text(encoding="utf-8")
+            config = json.loads(content)
+            sys_cfg = config.get("_system", {})
+            _system_cache.update(sys_cfg)
+    except Exception:
+        pass
+
+    # Pre-load _default into cache
+    default_cfg = _load_venue_from_turso("_default")
+    if default_cfg:
+        _cache_set("_default", default_cfg)
+    else:
+        _cache_set("_default", HARDCODED_DEFAULTS["_default"])
+
+    _initial_load_done = True
+    logger.info("Admin config loaded from Turso")
+    return {"_default": _cache.get("_default", {})}
 
 
 def get_venue_config(venue_id=None, role=None):
     """Get config for a venue. Falls back to role-based key, then _default."""
-    if not _cache_loaded:
+    if not _initial_load_done:
         load_all()
 
     # 1. Exact venue_id match
-    if venue_id and venue_id in _cache:
-        return _cache[venue_id]
-    # 2. Role-based fallback (e.g. convention accounts with conv-xxx IDs)
-    if role and role in _cache:
-        return _cache[role]
-    return _cache.get("_default", HARDCODED_DEFAULTS["_default"])
+    if venue_id:
+        key = venue_id
+        if _is_cache_valid(key):
+            return _cache[key]
+        cfg = _load_venue_from_turso(key)
+        if cfg:
+            _cache_set(key, cfg)
+            return cfg
+
+    # 2. Role-based fallback
+    if role:
+        key = role
+        if _is_cache_valid(key):
+            return _cache[key]
+        cfg = _load_venue_from_turso(key)
+        if cfg:
+            _cache_set(key, cfg)
+            return cfg
+
+    # 3. _default fallback
+    if _is_cache_valid("_default"):
+        return _cache["_default"]
+    cfg = _load_venue_from_turso("_default")
+    if cfg:
+        _cache_set("_default", cfg)
+        return cfg
+    return HARDCODED_DEFAULTS["_default"]
 
 
 def has_custom_config(venue_id):
     """Check if a venue has its own custom config (not using defaults)."""
-    if not _cache_loaded:
+    if not _initial_load_done:
         load_all()
-    return venue_id in _cache and venue_id not in ("_default", "_system")
+    if venue_id in ("_default", "_system"):
+        return False
+    t = _turso()
+    return t["has_config"](venue_id)
 
 
 def delete_venue_config(venue_id):
-    """Remove custom config for a venue, reverting to defaults. Returns sync_status dict."""
-    global _cache_loaded
-    if not _cache_loaded:
+    """Remove custom config for a venue, reverting to defaults."""
+    if not _initial_load_done:
         load_all()
 
-    if venue_id in _cache and venue_id not in ("_default", "_system"):
-        del _cache[venue_id]
-
-        local_ok = _local_file_write(_cache)
-        github_ok = _github_write(_cache)
-        if not github_ok:
-            logger.error(f"FAILED to persist config deletion for '{venue_id}' to GitHub")
-
-        return {"deleted": True, "sync_status": {"memory": True, "local_file": local_ok, "github": github_ok}}
-    return {"deleted": False, "sync_status": {"memory": True, "local_file": True, "github": True}}
+    t = _turso()
+    t["delete"](venue_id)
+    _cache_invalidate(venue_id)
+    return {"deleted": True, "sync_status": {"memory": True, "turso": True}}
 
 
 def save_venue_config(venue_id, config):
-    """Save config for a venue to all three storage layers. Returns sync_status dict."""
-    global _cache_loaded
-    if not _cache_loaded:
+    """Save config for a venue to Turso + cache."""
+    if not _initial_load_done:
         load_all()
 
-    # 1. In-memory cache (always succeeds)
-    _cache[venue_id] = config
-    memory_ok = True
+    key = venue_id if venue_id else "_default"
+    t = _turso()
 
-    # 2. Local file — write the FULL config
-    local_ok = _local_file_write(_cache)
+    picks = config.get("staff_picks")
+    featured = config.get("featured")
 
-    # 3. GitHub — write the FULL config
-    github_ok = _github_write(_cache)
-    if not github_ok:
-        logger.error(f"FAILED to persist config for venue '{venue_id}' to GitHub!")
+    if picks is not None:
+        t["set_picks"](key, picks)
+    if featured is not None:
+        game_id = featured.get("game_id", "")
+        mode = featured.get("mode", "manual")
+        if game_id or mode == "auto":
+            t["set_gotd"](key, game_id, mode)
 
-    return {"memory": memory_ok, "local_file": local_ok, "github": github_ok}
+    _cache_invalidate(key)
+    return {"memory": True, "turso": True}
 
 
 def get_featured(venue_id=None, role=None):
@@ -239,13 +245,15 @@ def get_featured(venue_id=None, role=None):
 
 
 def set_featured(venue_id, featured_config):
+    key = venue_id if venue_id else "_default"
+    # Get existing config to preserve staff_picks
     cfg = get_venue_config(venue_id)
     if isinstance(cfg, dict):
         cfg = cfg.copy()
     else:
         cfg = {}
     cfg["featured"] = featured_config
-    return save_venue_config(venue_id if venue_id else "_default", cfg)
+    return save_venue_config(key, cfg)
 
 
 def get_staff_picks(venue_id=None, role=None):
@@ -254,39 +262,28 @@ def get_staff_picks(venue_id=None, role=None):
 
 
 def set_staff_picks(venue_id, picks):
+    key = venue_id if venue_id else "_default"
+    # Get existing config to preserve featured
     cfg = get_venue_config(venue_id)
     if isinstance(cfg, dict):
         cfg = cfg.copy()
     else:
         cfg = {}
     cfg["staff_picks"] = picks
-    return save_venue_config(venue_id if venue_id else "_default", cfg)
+    return save_venue_config(key, cfg)
 
 
 # ── Meetup Toggle ─────────────────────────────────────────────────
 
 def get_meetup_enabled() -> bool:
     """Check if the meetup account is currently enabled. Defaults to False."""
-    if not _cache_loaded:
-        load_all()
-    return _cache.get("_system", {}).get("meetup_enabled", False)
+    return _system_cache.get("meetup_enabled", False)
 
 
 def set_meetup_enabled(enabled: bool) -> bool:
-    """Set the meetup toggle. Persists to local file + GitHub."""
-    global _cache_loaded
-    if not _cache_loaded:
-        load_all()
-
-    system_cfg = _cache.get("_system", {})
-    system_cfg["meetup_enabled"] = enabled
-    _cache["_system"] = system_cfg
-
-    _local_file_write(_cache)
-    success = _github_write(_cache)
-    if not success:
-        logger.error("FAILED to persist meetup toggle to GitHub — in-memory + local file only")
-    # Always return True — in-memory state is updated even if GitHub write fails
+    """Set the meetup toggle. Persists to local file."""
+    _system_cache["meetup_enabled"] = enabled
+    _persist_system_cache()
     return True
 
 
@@ -294,23 +291,29 @@ def set_meetup_enabled(enabled: bool) -> bool:
 
 def get_clear_recent_ts():
     """Get the timestamp when recently-played was last cleared. Returns str or None."""
-    if not _cache_loaded:
-        load_all()
-    return _cache.get("_system", {}).get("clear_recent_ts")
+    return _system_cache.get("clear_recent_ts")
 
 
 def trigger_clear_recent() -> bool:
     """Set a timestamp to signal all clients to clear their recently-played list."""
-    global _cache_loaded
-    if not _cache_loaded:
-        load_all()
-
-    system_cfg = _cache.get("_system", {})
-    system_cfg["clear_recent_ts"] = datetime.now(timezone.utc).isoformat()
-    _cache["_system"] = system_cfg
-
-    _local_file_write(_cache)
-    success = _github_write(_cache)
-    if not success:
-        logger.error("FAILED to persist clear_recent_ts to GitHub — in-memory + local file only")
+    from datetime import datetime, timezone
+    _system_cache["clear_recent_ts"] = datetime.now(timezone.utc).isoformat()
+    _persist_system_cache()
     return True
+
+
+def _persist_system_cache():
+    """Write system cache to local file for persistence across restarts."""
+    try:
+        config = {}
+        if _LOCAL_CONFIG_PATH.exists():
+            content = _LOCAL_CONFIG_PATH.read_text(encoding="utf-8")
+            config = json.loads(content)
+        config["_system"] = _system_cache
+        _LOCAL_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _LOCAL_CONFIG_PATH.write_text(
+            json.dumps(config, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    except Exception as e:
+        logger.error(f"Failed to persist system cache: {e}")

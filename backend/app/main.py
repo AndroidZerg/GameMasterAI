@@ -62,7 +62,7 @@ from app.models.venues import (
     init_venues_table, init_venue_collections_table,
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
 )
-from app.models.game import search_limited_library
+from app.models.game import search_limited_library, search_convention_library
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
@@ -74,7 +74,7 @@ from app.core.config import CORS_ORIGIN
 from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_admin_config_tables
 
 
 @asynccontextmanager
@@ -100,6 +100,7 @@ async def lifespan(app: FastAPI):
     init_menu_tables()
     init_swp_rental_tables()
     init_signups_table()
+    init_admin_config_tables()
     seed_swp_rental_inventory()
     match_shopify_inventory()
 
@@ -136,9 +137,17 @@ async def lifespan(app: FastAPI):
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
 
-    # Load admin config (GitHub API → hardcoded defaults)
+    # Load admin config (Turso → local file → hardcoded defaults)
     admin_cfg = _load_admin_config()
     print(f"[GMAI] Startup: loaded admin config for venues: {list(admin_cfg.keys())}")
+
+    # Seed convention staff picks + GOTD if not already set
+    from app.services.turso import has_turso_venue_config, set_turso_staff_picks, set_turso_gotd
+    if not has_turso_venue_config("convention"):
+        convention_picks = ["wingspan", "wyrmspan", "tapestry", "viticulture", "scythe", "tokaido"]
+        set_turso_staff_picks("convention", convention_picks)
+        set_turso_gotd("convention", "wingspan", "manual")
+        print("[GMAI] Seeded convention staff picks + GOTD in Turso")
 
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield

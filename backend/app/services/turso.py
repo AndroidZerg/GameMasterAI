@@ -902,3 +902,123 @@ def get_all_signups() -> list[dict]:
     except Exception as e:
         logger.warning(f"Failed to fetch signups: {e}")
         return []
+
+
+# ── Admin config tables (Staff Picks + GOTD) ────────────────────
+
+def init_admin_config_tables():
+    """Create venue_staff_picks and venue_gotd tables in Turso."""
+    db = get_analytics_db()
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS venue_staff_picks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            venue_key TEXT NOT NULL,
+            game_id TEXT NOT NULL,
+            position INTEGER NOT NULL,
+            updated_at TEXT DEFAULT (datetime('now')),
+            UNIQUE(venue_key, game_id)
+        )
+    """)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS venue_gotd (
+            venue_key TEXT PRIMARY KEY,
+            game_id TEXT NOT NULL,
+            mode TEXT NOT NULL DEFAULT 'manual',
+            updated_at TEXT DEFAULT (datetime('now'))
+        )
+    """)
+    db.commit()
+    logger.info("Admin config tables (staff_picks, gotd) initialized")
+
+
+def get_turso_staff_picks(venue_key: str) -> list[str]:
+    """Get staff picks for a venue key from Turso, ordered by position."""
+    db = get_analytics_db()
+    try:
+        rows = db.execute(
+            "SELECT game_id FROM venue_staff_picks WHERE venue_key = ? ORDER BY position",
+            (venue_key,)
+        ).fetchall()
+        return [row[0] for row in rows]
+    except Exception as e:
+        logger.warning(f"Failed to get staff picks for {venue_key}: {e}")
+        return []
+
+
+def set_turso_staff_picks(venue_key: str, game_ids: list[str]):
+    """Set staff picks for a venue key in Turso."""
+    db = get_analytics_db()
+    try:
+        db.execute("DELETE FROM venue_staff_picks WHERE venue_key = ?", (venue_key,))
+        for i, gid in enumerate(game_ids):
+            db.execute(
+                "INSERT INTO venue_staff_picks (venue_key, game_id, position) VALUES (?, ?, ?)",
+                (venue_key, gid, i + 1)
+            )
+        db.commit()
+    except Exception as e:
+        logger.warning(f"Failed to set staff picks for {venue_key}: {e}")
+
+
+def get_turso_gotd(venue_key: str) -> dict | None:
+    """Get GOTD config for a venue key from Turso."""
+    db = get_analytics_db()
+    try:
+        row = db.execute(
+            "SELECT game_id, mode FROM venue_gotd WHERE venue_key = ?",
+            (venue_key,)
+        ).fetchone()
+        if row:
+            return {"game_id": row[0], "mode": row[1]}
+        return None
+    except Exception as e:
+        logger.warning(f"Failed to get GOTD for {venue_key}: {e}")
+        return None
+
+
+def set_turso_gotd(venue_key: str, game_id: str, mode: str = "manual"):
+    """Set GOTD for a venue key in Turso."""
+    db = get_analytics_db()
+    try:
+        db.execute(
+            """INSERT INTO venue_gotd (venue_key, game_id, mode, updated_at)
+               VALUES (?, ?, ?, datetime('now'))
+               ON CONFLICT(venue_key) DO UPDATE SET
+                 game_id = excluded.game_id,
+                 mode = excluded.mode,
+                 updated_at = datetime('now')""",
+            (venue_key, game_id, mode)
+        )
+        db.commit()
+    except Exception as e:
+        logger.warning(f"Failed to set GOTD for {venue_key}: {e}")
+
+
+def delete_turso_venue_config(venue_key: str):
+    """Remove all staff picks and GOTD for a venue key."""
+    db = get_analytics_db()
+    try:
+        db.execute("DELETE FROM venue_staff_picks WHERE venue_key = ?", (venue_key,))
+        db.execute("DELETE FROM venue_gotd WHERE venue_key = ?", (venue_key,))
+        db.commit()
+    except Exception as e:
+        logger.warning(f"Failed to delete config for {venue_key}: {e}")
+
+
+def has_turso_venue_config(venue_key: str) -> bool:
+    """Check if a venue has custom config in Turso."""
+    db = get_analytics_db()
+    try:
+        row = db.execute(
+            "SELECT COUNT(*) FROM venue_staff_picks WHERE venue_key = ?",
+            (venue_key,)
+        ).fetchone()
+        if row and row[0] > 0:
+            return True
+        row = db.execute(
+            "SELECT COUNT(*) FROM venue_gotd WHERE venue_key = ?",
+            (venue_key,)
+        ).fetchone()
+        return bool(row and row[0] > 0)
+    except Exception:
+        return False

@@ -358,6 +358,14 @@ const PLAY_TIME_OPTIONS = [
 const BEST_FOR_OPTIONS = ["Any", "Solo", "Great for 2", "Family", "Party", "Date Night", "Campaign"];
 
 function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, playTime, setPlayTime, bestFor, setBestFor }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const pillStyle = (active, color) => ({
     padding: "6px 12px", borderRadius: "999px", fontSize: "0.8rem",
     fontWeight: active ? 700 : 400,
@@ -368,6 +376,58 @@ function FilterBar({ complexity, setComplexity, playerCount, setPlayerCount, pla
   });
   const rowStyle = { display: "flex", flexWrap: "wrap", width: "100%", gap: "4px", alignItems: "center", marginBottom: "8px" };
   const labelStyle = { fontSize: "0.8rem", color: "var(--text-secondary)", marginRight: "4px", whiteSpace: "nowrap" };
+
+  const selectStyle = {
+    flex: 1, padding: "8px 12px", borderRadius: "10px", fontSize: "0.85rem",
+    background: "var(--bg-secondary)", color: "var(--text-primary)",
+    border: "1px solid var(--border)", outline: "none",
+    appearance: "auto", cursor: "pointer",
+  };
+  const mobileRowStyle = {
+    display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px",
+  };
+  const mobileLabelStyle = {
+    fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap", minWidth: "60px",
+  };
+
+  if (isMobile) {
+    return (
+      <div style={{ marginBottom: "16px" }}>
+        <div style={mobileRowStyle}>
+          <span style={mobileLabelStyle}>Best for:</span>
+          <select value={bestFor} onChange={(e) => setBestFor(e.target.value)} style={selectStyle}>
+            {BEST_FOR_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+        <div style={mobileRowStyle}>
+          <span style={mobileLabelStyle}>Players:</span>
+          <select value={playerCount} onChange={(e) => setPlayerCount(parseInt(e.target.value))} style={selectStyle}>
+            {PLAYER_COUNT_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </div>
+        <div style={mobileRowStyle}>
+          <span style={mobileLabelStyle}>Time:</span>
+          <select value={playTime} onChange={(e) => setPlayTime(parseInt(e.target.value))} style={selectStyle}>
+            {PLAY_TIME_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </div>
+        <div style={mobileRowStyle}>
+          <span style={mobileLabelStyle}>Difficulty:</span>
+          <select value={complexity} onChange={(e) => setComplexity(e.target.value)} style={selectStyle}>
+            {COMPLEXITY_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt === "all" ? "All" : opt.charAt(0).toUpperCase() + opt.slice(1)}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ marginBottom: "16px" }}>
@@ -1060,18 +1120,15 @@ export default function GameSelector() {
             at {isLoggedIn ? venueName : venueConfig.venue_name}
           </p>
         )}
-        <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", marginBottom: "0" }}>
-          {venueConfig?.venue_tagline || venueConfig?.tagline || "Tap a game to start learning"}
-        </p>
         {displayGames.length > 0 && (
-          <p style={{ color: "var(--text-secondary)", fontSize: "0.75rem", marginTop: "4px" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.75rem", marginTop: "4px", marginBottom: "0" }}>
             {displayGames.length} game{displayGames.length !== 1 ? "s" : ""} {hasActiveFilters ? "matching" : "available"}
           </p>
         )}
       </div>
 
-      {/* Stonemaier partner banner */}
-      {role === "stonemaier" && (
+      {/* Stonemaier partner banner — convention and stonemaier accounts only */}
+      {(role === "stonemaier" || role === "convention") && (
         <div style={{
           background: "linear-gradient(135deg, #0d4f4f 0%, #1a6b6b 100%)",
           borderRadius: "12px",

@@ -281,9 +281,31 @@ def search_by_publisher_tag(tag: str, search: Optional[str] = None, complexity: 
 
 
 def search_limited_library(search: Optional[str] = None, complexity: Optional[str] = None) -> list[dict]:
-    """Return only games tagged public_domain or publisher_approved (for demo/convention roles)."""
+    """Return only games tagged public_domain or publisher_approved (for demo roles)."""
     conn = _get_conn()
     query = "SELECT * FROM games WHERE (public_domain = 1 OR publisher_approved = 1)"
+    params = []
+
+    if search:
+        query += " AND (title LIKE ? OR aliases LIKE ?)"
+        term = f"%{search}%"
+        params.extend([term, term])
+
+    if complexity:
+        query += " AND complexity = ?"
+        params.append(complexity)
+
+    query += " ORDER BY title"
+    rows = conn.execute(query, params).fetchall()
+    conn.close()
+
+    return [_row_to_dict(row) for row in rows]
+
+
+def search_convention_library(search: Optional[str] = None, complexity: Optional[str] = None) -> list[dict]:
+    """Return only publisher_approved games (for convention/signup roles). No public_domain games."""
+    conn = _get_conn()
+    query = "SELECT * FROM games WHERE publisher_approved = 1"
     params = []
 
     if search:
