@@ -58,6 +58,7 @@ from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.api.routes.menu_images import router as menu_images_router
 from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
 from app.api.routes.cover_art import router as cover_art_router
+from app.api.routes.home_config import router as home_config_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -128,6 +129,12 @@ async def lifespan(app: FastAPI):
     init_swp_rental_tables()
     init_signups_table()
     init_cover_art_tables()
+
+    # Home config (GOTD + Staff Picks) — new Turso tables
+    from app.services.home_config import init_home_config_tables, seed_if_empty
+    init_home_config_tables()
+    seed_if_empty()
+
     seed_swp_rental_inventory()
     match_shopify_inventory()
 
@@ -275,6 +282,9 @@ app.include_router(images_router)
 
 # --- Cover Art Admin ---
 app.include_router(cover_art_router)
+
+# --- Home Config (GOTD + Staff Picks) ---
+app.include_router(home_config_router)
 
 
 @app.get("/health", tags=["system"])

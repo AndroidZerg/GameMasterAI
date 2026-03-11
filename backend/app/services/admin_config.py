@@ -1,7 +1,7 @@
 """
 Admin config — system-level settings (meetup toggle, clear-recent).
 
-GOTD and Staff Picks have moved to venue_config.py (Turso-backed).
+GOTD and Staff Picks are in home_config.py (Turso-backed).
 This file only handles system-level settings persisted to local JSON.
 """
 

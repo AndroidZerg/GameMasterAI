@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchMyHomeConfig, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -917,7 +917,34 @@ export default function GameSelector() {
         } catch {}
       });
 
+    // Fetch GOTD + staff picks from new home-config endpoint
+    fetchMyHomeConfig()
+      .then((data) => {
+        if (!mounted) return;
+        if (data?.gotd) setApiFeatured(data.gotd);
+        if (Array.isArray(data?.staff_picks) && data.staff_picks.length > 0) setApiStaffPicks(data.staff_picks);
+      })
+      .catch(() => {});
+
     return () => { mounted = false; };
+  }, []);
+
+  // Re-fetch GOTD + staff picks when admin saves config
+  useEffect(() => {
+    const handler = () => {
+      fetchMyHomeConfig()
+        .then((data) => {
+          if (data?.gotd) setApiFeatured(data.gotd);
+          if (Array.isArray(data?.staff_picks) && data.staff_picks.length > 0) {
+            setApiStaffPicks(data.staff_picks);
+          } else {
+            setApiStaffPicks(null);
+          }
+        })
+        .catch(() => {});
+    };
+    window.addEventListener("venue-config-updated", handler);
+    return () => window.removeEventListener("venue-config-updated", handler);
   }, []);
 
   useEffect(() => {

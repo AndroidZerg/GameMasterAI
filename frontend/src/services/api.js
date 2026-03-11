@@ -150,6 +150,41 @@ export async function fetchAllVenues() {
   return handleResponse(res);
 }
 
+// ── Home Config (GOTD + Staff Picks — new Turso endpoints) ──
+
+export async function fetchMyHomeConfig() {
+  const res = await fetch(`${API_BASE}/api/home-config/me`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchVenueHomeConfig(venueKey) {
+  const res = await fetch(`${API_BASE}/api/home-config/${encodeURIComponent(venueKey)}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
+
+export async function saveVenueHomeConfig(venueKey, { featured, staffPicks }) {
+  const body = {};
+  if (featured !== undefined) body.featured = featured;
+  if (staffPicks !== undefined) body.staff_picks = staffPicks;
+  const res = await fetch(`${API_BASE}/api/home-config/${encodeURIComponent(venueKey)}/full`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+    body: JSON.stringify(body),
+  });
+  return handleResponse(res);
+}
+
+export async function resetVenueHomeConfig(venueKey) {
+  const res = await fetch(`${API_BASE}/api/home-config/${encodeURIComponent(venueKey)}`, {
+    method: "DELETE",
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}
 
 // ── Admin endpoints (auth required) ──
 

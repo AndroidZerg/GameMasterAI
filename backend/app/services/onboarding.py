@@ -157,7 +157,7 @@ def save_game_collection(
     # Auto-set GOTD to first priority game
     if priority_game_ids:
         try:
-            from app.services.venue_config import set_gotd
+            from app.services.home_config import set_gotd
             set_gotd(venue_id, priority_game_ids[0], "manual")
         except Exception:
             pass  # Non-critical — don't fail onboarding
