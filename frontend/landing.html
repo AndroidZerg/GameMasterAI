@@ -90,7 +90,7 @@
 <header class="relative pt-40 pb-24 px-6 overflow-hidden">
   <div class="hero-bg-glow"></div>
   <div class="max-w-6xl mx-auto mb-16 px-6">
-    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10">
+    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10 cursor-pointer" onclick="openHeroLightbox()">
       <img alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg"/>
     </div>
   </div>
@@ -127,39 +127,50 @@
 
     <!-- Stats Grid — 8 metrics -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-      <div class="glass-card p-6 text-center">
-        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Total Guests</p>
-        <p class="text-3xl font-black text-white">104</p>
-      </div>
-      <div class="glass-card p-6 text-center">
-        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Return Rate</p>
-        <p class="text-3xl font-black text-teal">28.6%</p>
-      </div>
-      <div class="glass-card p-6 text-center">
-        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Session</p>
-        <p class="text-3xl font-black text-white">39m 6s</p>
-      </div>
-      <div class="glass-card p-6 text-center">
-        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Orders Placed</p>
-        <p class="text-3xl font-black text-white">63</p>
-      </div>
-      <div class="glass-card p-6 text-center col-span-2 md:col-span-1">
+
+      <!-- Row 1: Revenue Generated spans full width on mobile (col-span-2), spans 2 on md -->
+      <div class="glass-card p-6 text-center col-span-2">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Revenue Generated</p>
         <p class="text-3xl font-black text-gold">$921.74</p>
       </div>
+
+      <!-- Row 2: Avg Time to Order | Orders Placed -->
       <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Time to Order</p>
         <p class="text-3xl font-black text-white">7.9 min</p>
       </div>
       <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Orders Placed</p>
+        <p class="text-3xl font-black text-white">63</p>
+      </div>
+
+      <!-- Row 3: Return Rate spans 2 -->
+      <div class="glass-card p-6 text-center col-span-2">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Return Rate</p>
+        <p class="text-3xl font-black text-teal">28.6%</p>
+      </div>
+
+      <!-- Row 4: Total Guests | Unique Games Played -->
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Total Guests</p>
+        <p class="text-3xl font-black text-white">104</p>
+      </div>
+      <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Unique Games Played</p>
         <p class="text-3xl font-black text-white">34</p>
+      </div>
+
+      <!-- Row 5: Avg Session | Avg MRR Increase -->
+      <div class="glass-card p-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg Session</p>
+        <p class="text-3xl font-black text-white">39m 6s</p>
       </div>
       <div class="glass-card p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-2">Avg MRR Increase</p>
         <p class="text-3xl font-black text-coral">+$29.98</p>
         <p class="text-xs text-slate-500 mt-1">per event</p>
       </div>
+
     </div>
 
     <!-- Narrative -->
@@ -182,24 +193,113 @@
   </div>
 </section>
 
-<!-- Venue Gallery — real photos -->
-<section class="py-24 px-6 overflow-hidden" id="gallery">
+<!-- Venue Gallery — carousel + lightbox -->
+<section class="py-24 px-6" id="gallery">
   <div class="max-w-7xl mx-auto mb-12">
     <h2 class="text-3xl font-bold mb-4">Venue Layout &amp; Atmosphere</h2>
     <p class="text-slate-400">A look at the space where it all happened.</p>
   </div>
-  <div class="flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar">
-    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
-      <img alt="Guests playing board games at the venue" class="w-full h-auto" src="./venue-1.jpg"/>
+
+  <!-- Carousel -->
+  <div class="relative max-w-7xl mx-auto">
+    <div class="overflow-hidden rounded-2xl">
+      <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+        <div class="min-w-full cursor-pointer" onclick="openLightbox(0)">
+          <img src="./venue-1.jpg" alt="Guests playing board games" class="w-full h-auto rounded-2xl"/>
+        </div>
+        <div class="min-w-full cursor-pointer" onclick="openLightbox(1)">
+          <img src="./venue-2.jpg" alt="Game library shelf" class="w-full h-auto rounded-2xl"/>
+        </div>
+        <div class="min-w-full cursor-pointer" onclick="openLightbox(2)">
+          <img src="./venue-3.jpg" alt="Dining tables set up for game night" class="w-full h-auto rounded-2xl"/>
+        </div>
+      </div>
     </div>
-    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
-      <img alt="Game library shelf stocked with titles" class="w-full h-auto" src="./venue-2.jpg"/>
-    </div>
-    <div class="min-w-[70vw] md:min-w-[40vw] snap-center rounded-2xl overflow-hidden glass-card flex-shrink-0">
-      <img alt="Dining tables set up for a game night event" class="w-full h-auto" src="./venue-3.jpg"/>
+
+    <!-- Prev button -->
+    <button onclick="moveCarousel(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-navy/80 hover:bg-navy border border-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl transition backdrop-blur-sm z-10">&#8249;</button>
+    <!-- Next button -->
+    <button onclick="moveCarousel(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-navy/80 hover:bg-navy border border-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl transition backdrop-blur-sm z-10">&#8250;</button>
+
+    <!-- Dots -->
+    <div class="flex justify-center gap-2 mt-6">
+      <button onclick="goToSlide(0)" id="dot-0" class="w-2 h-2 rounded-full bg-teal transition"></button>
+      <button onclick="goToSlide(1)" id="dot-1" class="w-2 h-2 rounded-full bg-white/30 transition"></button>
+      <button onclick="goToSlide(2)" id="dot-2" class="w-2 h-2 rounded-full bg-white/30 transition"></button>
     </div>
   </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-white text-4xl font-light leading-none z-10" onclick="closeLightbox()">&times;</button>
+    <button class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl transition z-10" onclick="event.stopPropagation(); lightboxMove(-1)">&#8249;</button>
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl" onclick="event.stopPropagation()"/>
+    <button class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl transition z-10" onclick="event.stopPropagation(); lightboxMove(1)">&#8250;</button>
+  </div>
 </section>
+
+<script>
+  const images = ['./venue-1.jpg', './venue-2.jpg', './venue-3.jpg'];
+  const heroImage = './hero.jpg';
+  let carouselIndex = 0;
+  let lightboxIndex = 0;
+
+  function moveCarousel(dir) {
+    carouselIndex = (carouselIndex + dir + images.length) % images.length;
+    updateCarousel();
+  }
+
+  function goToSlide(i) {
+    carouselIndex = i;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    document.getElementById('carousel-track').style.transform = `translateX(-${carouselIndex * 100}%)`;
+    for (let i = 0; i < images.length; i++) {
+      document.getElementById('dot-' + i).className = 'w-2 h-2 rounded-full transition ' + (i === carouselIndex ? 'bg-teal' : 'bg-white/30');
+    }
+  }
+
+  function openLightbox(index) {
+    lightboxIndex = index;
+    document.getElementById('lightbox-img').src = images[index];
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openHeroLightbox() {
+    document.getElementById('lightbox-img').src = heroImage;
+    lightboxIndex = -1;
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('hidden');
+    lb.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function lightboxMove(dir) {
+    if (lightboxIndex === -1) return;
+    lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
+    document.getElementById('lightbox-img').src = images[lightboxIndex];
+  }
+
+  document.addEventListener('keydown', (e) => {
+    const lb = document.getElementById('lightbox');
+    if (lb.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') lightboxMove(1);
+    if (e.key === 'ArrowLeft') lightboxMove(-1);
+  });
+</script>
 
 <!-- Rotation Section -->
 <section class="py-24 bg-navy-light">
@@ -248,7 +348,9 @@
   <div class="max-w-5xl mx-auto space-y-6">
     <details class="group glass-card overflow-hidden">
       <summary class="accordion-summary flex items-center justify-between p-8 cursor-pointer list-none">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold">Why It Works: Board games make tables earn more</h2>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold">
+          <span class="text-teal">Why It Works:</span> Board games make tables earn more
+        </h2>
         <span class="text-teal transition-transform group-open:rotate-180">
           <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
@@ -278,7 +380,9 @@
 
     <details class="group glass-card overflow-hidden" id="how">
       <summary class="accordion-summary flex items-center justify-between p-8 cursor-pointer list-none">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold">How It Works: Live in 30 days. Zero overhead.</h2>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold">
+          <span class="text-teal">How It Works:</span> Live in 30 days. Zero overhead.
+        </h2>
         <span class="text-teal transition-transform group-open:rotate-180">
           <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
