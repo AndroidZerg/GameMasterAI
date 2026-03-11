@@ -33,6 +33,7 @@ const ALL_TABS = [
   { key: "rules", label: "Rules", alwaysVisible: true },
   { key: "practice", label: "Practice Tutorial", alwaysVisible: false },
   { key: "general_tips", label: "General Tips", alwaysVisible: true },
+  { key: "walkthrough", label: "Walkthrough", alwaysVisible: false },
   { key: "advanced_strategies", label: "Advanced Strategies", alwaysVisible: false },
   { key: "appendix", label: "Appendix", alwaysVisible: true },
   { key: "qa", label: "Q&A and Notes", alwaysVisible: true },
@@ -889,6 +890,9 @@ export default function GameTeacher() {
   // Detect available content
   const hasPracticeTutorial = !!(teaching.practice_tutorial?.walkthrough?.length || teaching.practice_tutorial?.scenarios?.length);
   const hasAdvancedStrategies = !!(teaching.advanced_strategies?.walkthrough?.length);
+  const tabs = gameData?.tabs || {};
+  const hasWalkthroughTab = !!(tabs.walkthrough?.subtopics?.length);
+  const hasAdvancedStrategyTab = !!(tabs.advanced_strategy?.subtopics?.length);
 
   // Build visible tabs for TabNavigator
   const visibleTabs = ALL_TABS.map((t) => ({
@@ -896,7 +900,8 @@ export default function GameTeacher() {
     label: t.label,
     visible: t.alwaysVisible
       || (t.key === "practice" && hasPracticeTutorial)
-      || (t.key === "advanced_strategies" && hasAdvancedStrategies),
+      || (t.key === "walkthrough" && hasWalkthroughTab)
+      || (t.key === "advanced_strategies" && (hasAdvancedStrategies || hasAdvancedStrategyTab)),
   }));
 
   // Resolve teaching section for current tab
@@ -1025,8 +1030,8 @@ export default function GameTeacher() {
     }
   }, [activeTab]);
 
-  const tabs = gameData?.tabs || {};
-  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy" || activeTab === "practice" || activeTab === "general_tips" || activeTab === "advanced_strategies";
+  // tabs already defined above in visibility detection
+  const isTeachingTab = activeTab === "setup" || activeTab === "rules" || activeTab === "strategy" || activeTab === "practice" || activeTab === "general_tips" || activeTab === "walkthrough" || activeTab === "advanced_strategies";
 
   return (
     <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100vh", maxWidth: "800px", margin: "0 auto", padding: "16px", paddingTop: "60px" }}>
@@ -1146,7 +1151,7 @@ export default function GameTeacher() {
               <SummaryStep step={tm.currentStepData} gameId={gameId} />
             )}
             {isTeachingTab && !hasTeachingContent && activeTab !== "practice" && (
-              <AccordionPanel subtopics={(tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null))?.subtopics} ttsState={tm.ttsState} />
+              <AccordionPanel subtopics={(tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null) || (activeTab === "advanced_strategies" ? tabs.advanced_strategy : null))?.subtopics} ttsState={tm.ttsState} />
             )}
             {activeTab === "appendix" && (
               <AppendixTab entries={teaching.appendix?.entries} />
@@ -1197,7 +1202,7 @@ export default function GameTeacher() {
               ttsStartRef.current = Date.now();
               tm.onPlayPause();
             } else {
-              const subtopics = (tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null))?.subtopics;
+              const subtopics = (tabs[activeTab] || (activeTab === "general_tips" ? tabs.strategy : null) || (activeTab === "advanced_strategies" ? tabs.advanced_strategy : null))?.subtopics;
               if (subtopics?.length) {
                 const fullText = subtopics.map((s) => `${s.title}. ${s.content}`).join("\n\n");
                 EventTracker.track('tts_played', gameId, { tab: activeTab, content_type: activeTab });

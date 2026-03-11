@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useMemo } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, useEffect, useRef } from "react";
 
 const AuthContext = createContext(null);
 
@@ -16,6 +16,19 @@ const STORAGE_KEYS = {
 // Convention accounts expire March 22, 2026 at 11:59:59 PM Pacific
 const CONVENTION_EXPIRY = "2026-03-22T23:59:59-08:00";
 
+/** Decode a JWT payload without verification (client-side expiry check). */
+function getTokenExp(jwt) {
+  if (!jwt) return null;
+  try {
+    const parts = jwt.split(".");
+    if (parts.length !== 3) return null;
+    const payload = JSON.parse(atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")));
+    return payload.exp ? payload.exp * 1000 : null; // convert to ms
+  } catch {
+    return null;
+  }
+}
+
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem(STORAGE_KEYS.token));
   const [venueId, setVenueId] = useState(() => localStorage.getItem(STORAGE_KEYS.venueId));
@@ -25,7 +38,15 @@ export function AuthProvider({ children }) {
   const [expiresAt, setExpiresAt] = useState(() => localStorage.getItem(STORAGE_KEYS.expiresAt));
   const [lgsId, setLgsId] = useState(() => localStorage.getItem(STORAGE_KEYS.lgsId));
 
-  const isLoggedIn = !!token;
+  // Check if JWT token itself has expired (separate from convention account expiry)
+  const isTokenValid = useCallback(() => {
+    if (!token) return false;
+    const exp = getTokenExp(token);
+    if (!exp) return true; // no exp claim — treat as valid
+    return Date.now() < exp;
+  }, [token]);
+
+  const isLoggedIn = !!token && isTokenValid();
 
   const login = useCallback((tokenValue, venueIdValue, venueNameValue, roleValue, statusValue, expiresAtValue, lgsIdValue) => {
     localStorage.setItem(STORAGE_KEYS.token, tokenValue);
@@ -65,6 +86,21 @@ export function AuthProvider({ children }) {
     setExpiresAt(null);
     setLgsId(null);
   }, []);
+
+  // Auto-logout when JWT token expires (check every 60s)
+  const logoutRef = useRef(logout);
+  logoutRef.current = logout;
+  useEffect(() => {
+    if (!token) return;
+    const exp = getTokenExp(token);
+    if (!exp) return;
+    const check = () => {
+      if (Date.now() >= exp) logoutRef.current(true);
+    };
+    check(); // immediate check on mount / token change
+    const id = setInterval(check, 60_000);
+    return () => clearInterval(id);
+  }, [token]);
 
   const getSessionExpired = useCallback(() => {
     const val = localStorage.getItem(STORAGE_KEYS.sessionExpired);
