@@ -65,8 +65,8 @@
     "validated_by": "paladin",
     "validated_at": "2026-03-10T12:30:00Z",
     "validation_status": "approved",
-    "revision": 5,
-    "notes": "Deep dive content sprint — DTW prep, March 2026. Added walkthrough and advanced strategy sections. Sources: official rulebook, BGG strategy forums, r/wingspan, strategy blogs."
+    "revision": 6,
+    "notes": "Content overhaul — enhanced strategy tab with card tier lists, engine archetypes, action economy framework. Added rules_citations with 10 key rulings. Sources: official rulebook, Stonemaier FAQ, BGG official rulings list, Wingsplain strategy guides, r/wingspan."
   },
   "tabs": {
     "setup": {
@@ -102,7 +102,7 @@
         {
           "id": "beginner-strategy",
           "title": "Beginner Strategy",
-          "content": "#### Opening Hand Strategy\n- **Keep 1–2 birds, maximize food.** Keeping 4-5 birds leaves you food-starved. Ideal: keep 1 cheap bird + 4 food.\n- **Prioritize brown-power birds in your opening.** Early brown powers activate 6-8+ times.\n- **Play a Forest bird first if possible.** Early food generation snowballs your engine.\n\n#### The Power 4\n- **Common Raven / Chihuahuan Raven** — Egg → food conversion. Game-breakingly strong in Grasslands.\n- **Franklin's Gull / Killdeer** — Egg → 2 cards. Massive card flow.\nPlace in Grasslands for self-sustaining engine.\n\n#### Key Synergies\n- Ravens + Tucking Birds (Barn Swallow, Cedar Waxwing): Lay Eggs generates eggs + food + tucked VP.\n- Mockingbird + Strong Brown Power: Doubles your best engine bird's output.\n- Play-Another-Bird + High-VP Birds: Free 7-point bird placements.\n\n#### Habitat Tempo\n- Rounds 1-2: Forest focus (food engine)\n- Rounds 2-3: Wetland support (card flow)\n- Rounds 3-4: Grassland push (egg VP)\n- Focus 1-2 habitats, not all three.\n\n#### Common Mistakes\n- Action ping-pong (rotate all 4 instead of repeating best)\n- Ignoring shrinking actions (8→7→6→5)\n- Hoarding cards (hand = 0 VP)\n- Chasing bonus cards (5-7 VP in an 80+ game)\n- Over-relying on pink powers (unreliable)"
+          "content": "#### Opening Hand Strategy\n- **Keep 1–2 birds, maximize food.** Keeping 4-5 birds leaves you food-starved. Ideal: keep 1 cheap bird + 4 food tokens.\n- **Prioritize brown-power birds.** A brown power played turn 1 may activate 15+ times across the game. The same bird played turn 20 activates once.\n- **Play a Forest bird first if possible.** Early food generation snowballs your engine — aim for 2 food per Gain Food action by mid-Round 1.\n\n#### The Power 4 — Game-Defining Cards\nThese four cards warp games around them. If you see them, take them:\n- **Chihuahuan Raven / Common Raven** — Discard 1 egg for 2 wild food. In Grasslands, every Lay Eggs action also becomes a Gain Food action. Self-sustaining engine.\n- **Franklin's Gull / Killdeer** — Discard 1 egg to draw 2 cards. Massive card flow that feeds tucking engines.\n- **Optimal sequence**: Play Killdeer first in Grasslands → lay eggs to activate draw → gain food → play Raven in same habitat → continuous cycles of eggs, food, and cards.\n\n#### Card Tier Guide\n- **God Tier**: Bonelli's Eagle, Eastern Imperial Eagle — tuck-to-play birds that generate 9-11 VP per activation by playing free high-point birds.\n- **Tier 0**: Black Redstart, Lesser Whitethroat (mass egg layers), Galah, Noisy Miner, Maned Duck — game-shaping engines.\n- **Tier 1**: Osprey, Common Swift, Ruff, American Crow, Anna's Hummingbird — efficient and effective.\n- **Predators are generally weak** — dice-rolling predators succeed at most 50% of the time. Avoid as primary strategy.\n\n#### Three Scoring Engines\n\n**1. Tucking Engine (Highest Ceiling)**\nBuild around tucking birds: Barn Swallow, House Finch, Purple Martin, Red-Winged Blackbird. Each tucked card = 1 VP. Tuck/lay birds (tuck then lay egg) generate 2+ VP per activation. Maned Duck paired with tuck/lay birds outperforms Raven-based engines.\n\n**2. Egg Spam (Most Reliable)**\nFill Grassland with high-egg-capacity birds (Bobolink, Inca Dove, Malleefowl). Repeat Lay Eggs in Rounds 3-4. Simple, consistent, but lower ceiling than tucking.\n\n**3. Big Bird Points (Most Consistent)**\nPlay many high-VP birds (5-9 points). Forest for food, Wetland for draws. Target: 40-60 bird card points. Less card-dependent than engine strategies.\n\n#### Key Synergies\n- **Ravens + Tucking Birds**: Lay Eggs generates eggs + food (via Ravens) + tucked VP. The Grassland mega-engine.\n- **Mockingbird + Any Strong Brown Power**: Doubles your best engine bird's output in the same habitat.\n- **Play-Another-Bird + High-VP Birds**: Yellowhammer, Moltoni's Warbler (European) let you play a bird for free — a 7-point bird played for free is a 7 VP swing.\n- **Galah + Tucking Birds**: Galah generates food AND points alongside tucking.\n\n#### Habitat Tempo\n- **Rounds 1-2**: Forest focus (food engine). Even 1-2 cheap Forest birds boost income dramatically.\n- **Rounds 2-3**: Wetland support (card flow feeds tucking/playing). Aim for 2 cards per Draw action.\n- **Rounds 3-4**: Grassland push (egg VP + engine finisher). Eggs are the most reliable VP per action.\n- **Focus 1-2 habitats**, not all three. Spreading equally dilutes your engine.\n\n#### Action Economy\nYou get exactly **26 activations** across the game (8+7+6+5). Every action must count.\n- Continuous mid-level activation outscores waiting for perfect plays.\n- Round 4: pure scoring. Lay eggs 3-4 times. NO card drawing in Round 4.\n- A big-point bird play is often better than repeatedly activating a low-point engine.\n\n#### Common Mistakes\n- **Action ping-pong** — Rotating all 4 actions instead of repeating your best habitat row.\n- **Ignoring shrinking actions** (8→7→6→5). Engine must be built by Round 3.\n- **Hoarding cards** — Cards in hand = 0 VP. Play them or tuck them.\n- **Chasing bonus cards** — Typically 5-7 VP in an 80+ game. Use to break ties, not as primary strategy.\n- **Over-relying on pink powers** — Opponent-dependent. Strong at 4-5 players, weak at 2.\n- **Overdrawing cards** — A fistful of cards without food or tucking powers scores nothing.\n- **Sharing resources unwisely** — Don't use shared-resource powers unless you gain substantially more than opponents."
         }
       ]
     },
@@ -124,5 +124,20 @@
         }
       ]
     }
+  },
+  "rules_citations": {
+    "source_url": "https://stonemaiergames.com/games/wingspan/rules/",
+    "rulings": [
+      "Choose food dice one at a time from the birdfeeder — you can trigger a reroll between picks if all remaining dice show the same face after your selection.",
+      "Birdfeeder reroll when all dice show the same face is optional (you MAY reroll). An empty birdfeeder reset IS automatic.",
+      "The 2-for-1 food substitution (trade 2 food for 1 of any type) ONLY applies when paying bird card costs — not during Gain Food or other effects.",
+      "Brown powers activate right-to-left in fixed order across the row. Each activation is optional, but order cannot be changed.",
+      "A pink power can fire at most once between each of your turns, regardless of how many opponents trigger it. Pink powers DO activate one final time after your last turn.",
+      "Food and egg tokens are unlimited — if physical tokens run out, use substitutes.",
+      "Wild (star) nest birds count toward ANY nest-type bonus or end-of-round goal in the base game.",
+      "When drawing multiple cards, draw one at a time — you can look at a deck draw, then decide deck or face-up for subsequent draws.",
+      "'Repeat a power' birds can copy ANY activated bird in that habitat row (including birds to their right), not just birds to their left.",
+      "Players may always decline benefits (lay fewer eggs, gain less food). Costs are mandatory — if you activate a power, you must pay its cost. You CAN choose not to activate entirely."
+    ]
   }
 }

@@ -5,6 +5,7 @@
   "publisher": "Stonemaier Games",
   "publisher_tag": "stonemaier",
   "publisher_approved": true,
+  "image": "/images/expeditions.webp",
   "player_count": {
     "min": 1,
     "max": 5,
@@ -18,74 +19,85 @@
   "complexity": "midweight",
   "categories": [
     "engine-building",
-    "hand-management"
+    "hand-management",
+    "exploration",
+    "card-play"
   ],
-  "source_url": "",
-  "source_verified": false,
+  "source_url": "https://stonemaiergames.com/games/expeditions/rules-faq/",
+  "source_verified": true,
+  "total_token_count": 5500,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "2.0",
+    "created_by": "elf",
+    "created_at": "2026-03-10T12:00:00Z",
+    "validated_by": "paladin",
+    "validated_at": "2026-03-10T14:00:00Z",
+    "validation_status": "approved",
+    "revision": 2,
+    "notes": "Content overhaul — Wingspan teaching standard. Sources: official rulebook, Stonemaier FAQ, Dized interactive rules, BGG forums, community strategy guides."
+  },
   "tabs": {
     "setup": {
       "subtopics": [
         {
           "id": "components",
-          "title": "What's in the Box",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "title": "Components",
+          "content": "#### Boards & Mats\n- 1 Basecamp board (central display with card slots and glory track)\n- 20 hexagonal location tiles in 3 regions: 6 South, 7 Central, 7 North\n- 1 mech mat per player (tracks power, guile, workers, and the action token)\n\n#### Cards\n- 123 uniquely illustrated cards in a single shuffled deck, comprising 3 types:\n  - **Item cards** — have an instant benefit and an ongoing ability; can be upgraded\n  - **Meteorite cards** — have a meld ability; tuck under your mech mat for cascading bonuses\n  - **Quest cards** — have a solve ability; require your mech at the matching location\n- 1 character card + 1 companion card per player (starting hand)\n\n#### Miniatures & Tokens\n- 1 large mech miniature per player (snaps onto silicone base)\n- 4 glory tokens (stars) per player\n- 1 action token (cube) per player\n- Power and guile tracking tokens per player\n- 50 worker meeples in 5 colors\n- 36 corruption tiles + 1 cloth bag\n- Map tokens, coins (limited supply)\n\n#### Other Components\n- 14 Automa cards (solo mode)\n- 2 player aid cards per player\n- Custom insert with setup tray"
         },
         {
-          "id": "player-setup",
-          "title": "Player Setup",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "starting-conditions",
-          "title": "Starting the Game",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "game-structure",
+          "title": "Game Structure & Core Loop",
+          "content": "#### Overview\nExpeditions is a standalone sequel to Scythe, set in an alternate 1920s. A meteorite has crashed near the Tunguska River, awakening ancient corruption. Players pilot mechs into the wilderness to explore locations, play cards to build engines, gather resources, and vanquish corruption.\n\n#### The Action Token System\nYour mech mat has 3 action spaces — **Move**, **Play**, and **Gather** — plus a **Refresh** space. The action token covers one space; you perform the uncovered actions.\n\n**After a Refresh**: Action token sits on Refresh. Shift it left — all 3 actions (Move, Play, Gather) are uncovered. Perform all 3 in any order.\n\n**Subsequent turns**: Move the action token into the Move/Play/Gather area, covering exactly 1 action. Perform the other 2 in any order. Each turn, shift the token to cover a different action.\n\n**Refresh turn**: Instead of normal actions, return all active row cards to your hand and all workers to your mat. Place the action token on Refresh. Next turn you get all 3 actions again.\n\n#### The Card Engine\nCards move between 3 zones:\n- **Hand** (left of mech mat) — cards you can play\n- **Active row** (right of mech mat) — cards in play, generating abilities\n- **Tucked** (under mech mat edges) — upgraded items, melded meteorites, solved quests (permanent scoring)\n\n#### Game End\nWhen any player places their **4th glory token** via Boast, the endgame triggers. Every player (including the triggering player) takes exactly 1 final turn. Most money wins."
         }
       ]
     },
     "rules": {
       "subtopics": [
         {
-          "id": "turn-structure",
-          "title": "Turn Structure",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
-        {
-          "id": "actions",
-          "title": "Actions & Options",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "detailed-rules",
+          "title": "Detailed Rules",
+          "content": "#### Setup\n1. Place Basecamp board centrally. Arrange the 6 South location tiles face-up per the layout diagram.\n2. Shuffle Central (7) and North (7) tiles face-down in their spots. Place 1 map token on each face-down tile.\n3. Shuffle all item, meteorite, and quest cards into one deck. Deal 5 cards face-up onto the Basecamp display.\n4. Fill the corruption bag with all tokens except the 20-value token (set aside for Location 20).\n5. Each player takes: mech mat + mech miniature, character card + companion card (into hand), 4 glory tokens, 1 action token (on Refresh space), power/guile tokens at zero.\n6. Place all mechs adjacent to Basecamp. Randomly select first player.\n\n#### The Four Actions\n\n**MOVE** — Move your mech 1-3 spaces (Marsh Strider: 1-4). You cannot end on an occupied space but may move through them. You cannot return to Basecamp after your first move.\n- **Revealing tiles**: When you move onto a face-down tile, movement ends immediately. Gain the map token on it. Flip the tile face-up. Draw corruption tokens from the bag until their total value meets or exceeds the location's printed value — stack them on the location.\n\n**PLAY** — Play exactly 1 card from hand to the rightmost position in your active row. Then in any order:\n- Gain the **core value** (number in upper-left) — advance power or guile (max 10).\n- **Activate the ability** — place a matching-color worker from your mat onto the card. Items have instant + ongoing benefits. Quests have a Solve ability. Meteorites have a Meld ability.\n- Worker color must match the card's requirement. Max 1 worker per card. Each card's ability activates at most once per turn.\n\n**GATHER** — Gain all exposed benefits at your mech's current location. Corruption tokens cover benefits until vanquished. You must gain all exposed benefits if possible.\n- Benefits include: gain a face-up card, sweep the display, gain a worker, gain a map token, play a card, upgrade an item, meld a meteorite, boast, and others.\n\n**REFRESH** — Return all active row cards to hand and all workers to mat. Place action token on Refresh. Next turn: all 3 actions.\n\n#### Vanquish (via card abilities, not a standalone action)\n- Pay the cost on the topmost corruption token at your mech's location using power and/or guile.\n- Take the token — it scores $2 at game end.\n- May repeat to vanquish additional tokens at the same location.\n- When the final corruption is removed, the hidden benefit underneath becomes available.\n- **Location 20**: Requires BOTH 10 power AND 10 guile (not either/or). Still only worth $2.\n\n#### Solve (Quests)\n- Mech must be at the location matching the quest card.\n- Pay the power/guile cost shown. Gain the benefit.\n- Tuck the quest under the top edge of your mech mat. Max 4 solved quests.\n\n#### Upgrade (Items)\n- Tuck an item from hand or active row under the right edge of your mech mat.\n- The ongoing ability becomes permanently active (no worker needed).\n- Max 4 upgraded items. The coin value on the item scores at game end.\n\n#### Meld (Meteorites)\n- Tuck a meteorite under the bottom edge of your mech mat.\n- Immediately gain the meld bonus of ALL currently melded meteorites (cascading). Each successive meld is more powerful.\n- Max 4 melded meteorites.\n\n#### Boast (Placing Glory Stars)\n- Choose 1 glory category on the Basecamp board that you've achieved.\n- Place your glory star. Multiple players can have stars on the same category.\n- 7 categories: Quests (4 solved), Meteorites (4 melded), Items (4 upgraded), Location 20 (vanquished), Corruption (7+ tokens), Cards (8+ controlled), Workers/Maps (7+ workers OR 5+ map tokens).\n- You need only 4 of 7 categories to trigger endgame.\n\n#### Mech Abilities\n- **Tatanka**: 5 slots for quests/melds/upgrades (instead of 4)\n- **Marsh Strider**: Movement range 1-4 (instead of 1-3)\n- **Lumberjack**: Reduce first corruption cost per color by 1\n- **Highlander**: Gain cards to hand instead of active row\n- **Odin's Wrath**: Trash a map token for 1 power, 1 guile, or $1"
         },
         {
           "id": "endgame",
-          "title": "Endgame & Scoring",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "title": "Scoring & End Game",
+          "content": "#### Game End Trigger\nWhen any player places their **4th glory token** via Boast, the endgame triggers. Every player (including the triggering player) takes exactly **1 final turn**.\n\n#### Final Scoring (All Money)\nAll scoring converts to money. Most money wins.\n\n| Source | Value |\n|--------|-------|\n| Coins | Face value |\n| Upgraded items | Coin value printed on card |\n| Corruption tokens | $2 each (including the 20-value token) |\n| Glory stars | Variable — scales with quests solved |\n\n**Glory Star Value by Quests Solved:**\n- 0 quests: $5 per star\n- 1 quest: $6 per star\n- 2 quests: $8 per star\n- 3+ quests: **$10 per star**\n\nWith 4 stars and 3 solved quests, stars alone = $40. With 0 quests, stars = $20. Solving quests is the single biggest scoring multiplier.\n\n#### Tiebreaker\n1. Sum of all glory category values (totals across every category, including those without stars).\n2. If still tied: shared victory.\n\n#### Typical Score Ranges\n- First game: $35-50\n- Experienced play: $55-75\n- Highly optimized: $80+"
         }
       ]
     },
     "strategy": {
       "subtopics": [
         {
-          "id": "opening-priorities",
-          "title": "Opening Priorities",
-          "content": "PENDING — Awaiting rulebook sourcing."
-        },
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### Minimize Refresh Turns\nRefreshing is essentially a lost turn — you produce nothing. The best players time refreshes to extract maximum value from each Move/Play/Gather cycle. Every unnecessary Refresh is a turn your opponents are advancing.\n\n#### Solve 3 Quests as a Priority\nThis is the single biggest scoring multiplier in the game. It raises each glory star from $5 to $10 — meaning 4 stars go from $20 total to $40 total, a $20 swing. Even solving 2 quests ($8/star) is a significant improvement over 0.\n\n#### Plan Multiple Turns Ahead\nSolving a quest requires 4 conditions simultaneously: (a) you control a quest card, (b) your mech is at the matching location, (c) you have enough power/guile, (d) you have a card with a Solve ability to play. This requires careful multi-turn setup.\n\n#### Meld Meteorites for Cascading Value\nEach time you meld, you gain the meld bonus of ALL previously melded meteorites plus the new one. The 4th meld triggers all 4 bonuses at once. Melding gets progressively more powerful.\n\n#### Leverage Your Mech's Ability\n- **Tatanka**: Go wide — 5 slots for quests/melds/upgrades.\n- **Marsh Strider**: Extra movement range for positional advantage.\n- **Highlander**: Cards to hand gives flexibility on timing.\n- **Lumberjack**: Lean into vanquishing corruption with discount costs.\n- **Odin's Wrath**: Convert excess map tokens into flexible resources.\n\n#### Choose Your 4 Glory Paths Adaptively\nYou need only 4 of 7 categories. Read the board state, your cards, and opponents' progress. Pick the 4 categories most efficient for your current engine.\n\n#### Watch the Endgame Trigger\nThe game ends when anyone places their 4th star. Be aware of opponents approaching that threshold — you may need to accelerate or trigger the end at an advantageous moment.\n\n#### Common Mistakes\n- **Refreshing too often** — Every Refresh is a lost turn. Build bigger active rows before resetting.\n- **Ignoring quests** — 0 solved quests means your 4 stars are worth only $20 instead of $40. Quests are not optional.\n- **Spreading too thin** — Focus on 4 achievable glory categories rather than chasing all 7.\n- **Forgetting worker color matching** — Workers must match the card's color requirement.\n- **Not gathering all exposed benefits** — You MUST gain all exposed benefits when Gathering. Plan your position accordingly."
+        }
+      ]
+    },
+    "walkthrough": {
+      "subtopics": [
         {
-          "id": "common-mistakes",
-          "title": "Common Mistakes",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "first-game-walkthrough",
+          "title": "First-Game Walkthrough",
+          "content": "#### Your First Game of Expeditions\n\n**Setup**: You start with your mech at Basecamp, a character card and companion card in hand, action token on Refresh, and power/guile at zero. The 6 South locations are face-up; Central and North tiles are face-down with map tokens.\n\n**Turn 1 (All 3 actions)**: Your action token is on Refresh, so shift it left — you get Move, Play, and Gather. Move your mech to a nearby South location. Play your character card to your active row — gain its core value (advance power or guile) and activate its ability by placing a matching worker. Gather at your location to pick up an exposed benefit (maybe a face-up card or a worker).\n\n**Turn 2 (2 actions)**: Shift your action token to cover one of the three actions. If you cover Move, you stay put and Play + Gather. If you cover Gather, you Move + Play. Choose based on what benefits your current location and hand.\n\n**Turns 3-5**: Build your active row with item and meteorite cards. Move to face-down tiles to explore — flip them, gain map tokens, and spawn corruption. Start building power and guile toward vanquishing corruption or solving quests.\n\n**Mid-game**: Your active row should have 3-4 cards generating abilities. When it feels cluttered or your workers are all placed, take a Refresh turn — return everything to hand and reset. Next turn you get all 3 actions again.\n\n**Quest Solving**: When you have a quest card, position your mech at the matching location, build enough power/guile, and play a card with a Solve ability. The quest tucks under your mat permanently. Aim for at least 2-3 solved quests — the scoring multiplier is enormous.\n\n**Endgame Push**: Once you've completed enough for 4 glory categories (e.g., 4 solved quests, 4 upgraded items, 7+ corruption tokens, 8+ cards controlled), find Boast benefits and place your 4 stars. The game ends after everyone takes 1 final turn.\n\n**Scoring**: Add up coins + upgraded item values + $2 per corruption token + glory star values (scaled by quests solved). First game target: $40-55 is solid."
         }
       ]
     }
   },
-  "total_token_count": 0,
-  "extensions": {},
-  "metadata": {
-    "schema_version": "2.0",
-    "created_by": "barbarian",
-    "created_at": "2026-03-05T17:19:12Z",
-    "validated_by": null,
-    "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": "Base JSON from BGG data. BGG rank: 280, rating: 7.5, weight: 2.8"
+  "rules_citations": {
+    "source_url": "https://stonemaiergames.com/games/expeditions/rules-faq/",
+    "rulings": [
+      "The action token stays in the Move/Play/Gather box once placed there. You must Refresh to return to all-3-actions mode.",
+      "'Gain 1 location benefit' means exactly 1 benefit icon, even if the location shows multiple icons.",
+      "A card's ability may only activate once per turn unless the card specifically states otherwise.",
+      "Adjacency is always relative to the mech's physical position on the map, not to cards in your active row.",
+      "'Gain the core value of all solved quests' includes the quest being solved in the same action.",
+      "You must gain ALL exposed benefits when Gathering if possible. You cannot selectively skip them.",
+      "Power and guile cap at 10. Effects that would push above 10 stop at the cap.",
+      "The 20-value corruption requires BOTH 10 power AND 10 guile (not either/or). It is still only worth $2 at game end.",
+      "Worker color must match the card's color requirement to activate an ability.",
+      "Gaining a Refresh benefit from a card is NOT the same as taking the Refresh action — your action token does NOT move to the Refresh space."
+    ]
   }
 }
