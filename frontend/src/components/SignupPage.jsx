@@ -73,9 +73,7 @@ export default function SignupPage() {
             Try it free at Dice Tower
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "0.95rem", margin: 0, lineHeight: 1.5 }}>
-            Get instant access to the Stonemaier Games collection.
-            <br />
-            No credit card. No commitment.
+            Get instant access to our board game collection. No credit card. No commitment.
           </p>
         </div>
 
