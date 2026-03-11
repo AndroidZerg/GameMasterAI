@@ -940,6 +940,20 @@ export default function GameSelector() {
     return () => { mounted = false; };
   }, []);
 
+  // Re-fetch GOTD + staff picks when admin saves config (no full reload needed)
+  useEffect(() => {
+    const handler = () => {
+      fetchFeaturedGame()
+        .then((data) => { if (data?.game_id) setApiFeatured(data); })
+        .catch(() => {});
+      fetchStaffPicks()
+        .then((data) => { if (Array.isArray(data) && data.length > 0) setApiStaffPicks(data); })
+        .catch(() => {});
+    };
+    window.addEventListener("venue-config-updated", handler);
+    return () => window.removeEventListener("venue-config-updated", handler);
+  }, []);
+
   useEffect(() => {
     let mounted = true;
     const timer = setTimeout(() => {

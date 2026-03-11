@@ -153,8 +153,12 @@ export default function CustomizeHomePage() {
         ? { mode: "auto" }
         : { mode: "manual", game_id: featuredGameId };
       await saveVenueHomeConfig(selectedVenue, { featured, staffPicks });
+      // Refetch from Turso to confirm what was actually stored
+      await loadVenueConfig(selectedVenue);
       setIsCustom(selectedVenue !== "global");
       showToast(`Saved for ${selectedVenueName()}!`);
+      // Signal GameSelector to refetch without full page reload
+      window.dispatchEvent(new CustomEvent("venue-config-updated"));
     } catch {
       showToast("Failed to save");
     }

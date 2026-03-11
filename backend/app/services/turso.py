@@ -939,11 +939,8 @@ def get_turso_staff_picks(venue_key: str) -> list[str]:
             "SELECT game_id FROM venue_staff_picks WHERE venue_key = ? ORDER BY position",
             (venue_key,)
         ).fetchall()
-        result = [row[0] for row in rows]
-        print(f"[TURSO-DEBUG] get_staff_picks: venue_key={venue_key}, result={result}")
-        return result
+        return [row[0] for row in rows]
     except Exception as e:
-        print(f"[TURSO-DEBUG] get_staff_picks FAILED: venue_key={venue_key}, error={e}")
         logger.warning(f"Failed to get staff picks for {venue_key}: {e}")
         return []
 
@@ -952,7 +949,6 @@ def set_turso_staff_picks(venue_key: str, game_ids: list[str]):
     """Set staff picks for a venue key in Turso."""
     db = get_analytics_db()
     try:
-        print(f"[TURSO-DEBUG] set_staff_picks: venue_key={venue_key}, game_ids={game_ids}")
         db.execute("DELETE FROM venue_staff_picks WHERE venue_key = ?", (venue_key,))
         for i, gid in enumerate(game_ids):
             db.execute(
@@ -960,15 +956,9 @@ def set_turso_staff_picks(venue_key: str, game_ids: list[str]):
                 (venue_key, gid, i + 1)
             )
         db.commit()
-        # Verify write landed
-        rows = db.execute(
-            "SELECT game_id, position FROM venue_staff_picks WHERE venue_key = ? ORDER BY position",
-            (venue_key,)
-        ).fetchall()
-        print(f"[TURSO-DEBUG] set_staff_picks VERIFY: venue_key={venue_key}, rows={[(r[0], r[1]) for r in rows]}")
     except Exception as e:
-        print(f"[TURSO-DEBUG] set_staff_picks FAILED: venue_key={venue_key}, error={e}")
-        logger.warning(f"Failed to set staff picks for {venue_key}: {e}")
+        logger.error(f"Failed to set staff picks for {venue_key}: {e}")
+        raise
 
 
 def get_turso_gotd(venue_key: str) -> dict | None:
@@ -991,7 +981,6 @@ def set_turso_gotd(venue_key: str, game_id: str, mode: str = "manual"):
     """Set GOTD for a venue key in Turso."""
     db = get_analytics_db()
     try:
-        print(f"[TURSO-DEBUG] set_gotd: venue_key={venue_key}, game_id={game_id}, mode={mode}")
         db.execute(
             """INSERT INTO venue_gotd (venue_key, game_id, mode, updated_at)
                VALUES (?, ?, ?, datetime('now'))
@@ -1002,15 +991,9 @@ def set_turso_gotd(venue_key: str, game_id: str, mode: str = "manual"):
             (venue_key, game_id, mode)
         )
         db.commit()
-        # Verify write landed
-        row = db.execute(
-            "SELECT game_id, mode FROM venue_gotd WHERE venue_key = ?",
-            (venue_key,)
-        ).fetchone()
-        print(f"[TURSO-DEBUG] set_gotd VERIFY: venue_key={venue_key}, row={row}")
     except Exception as e:
-        print(f"[TURSO-DEBUG] set_gotd FAILED: venue_key={venue_key}, error={e}")
-        logger.warning(f"Failed to set GOTD for {venue_key}: {e}")
+        logger.error(f"Failed to set GOTD for {venue_key}: {e}")
+        raise
 
 
 def delete_turso_venue_config(venue_key: str):
