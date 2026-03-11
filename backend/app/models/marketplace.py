@@ -13,10 +13,16 @@ def _get_conn() -> sqlite3.Connection:
 
 def _add_column(cur, table: str, column: str, col_type: str):
     """Add a column to a table if it doesn't already exist."""
-    cur.execute(f"PRAGMA table_info({table})")
-    existing = [row[1] for row in cur.fetchall()]
-    if column not in existing:
+    try:
+        cur.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+            (table,)
+        )
+        if not cur.fetchone():
+            return
         cur.execute(f"ALTER TABLE {table} ADD COLUMN {column} {col_type}")
+    except Exception:
+        pass
 
 
 def init_marketplace_tables():
