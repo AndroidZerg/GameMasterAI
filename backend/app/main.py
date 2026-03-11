@@ -1,5 +1,5 @@
 """GameMaster Guide — Backend API server for board game cafe management."""
-# Force redeploy — 2026-03-11 rules hotfix
+# Force redeploy — 2026-03-11 Stonemaier voice rewrite (all 16 games)
 
 import os
 import subprocess
