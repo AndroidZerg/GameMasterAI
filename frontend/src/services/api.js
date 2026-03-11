@@ -150,27 +150,29 @@ export async function fetchAllVenues() {
   return handleResponse(res);
 }
 
-export async function fetchVenueHomeConfig(venueId) {
-  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
+// ── Venue Config (new Turso-backed endpoints) ──
+
+export async function fetchVenueHomeConfig(venueKey) {
+  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}/full`, {
     headers: getAuthHeaders(),
   });
   return handleResponse(res);
 }
 
-export async function saveVenueHomeConfig(venueId, { featured, staffPicks }) {
+export async function saveVenueHomeConfig(venueKey, { featured, staffPicks }) {
   const body = {};
   if (featured !== undefined) body.featured = featured;
   if (staffPicks !== undefined) body.staff_picks = staffPicks;
-  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
-    method: "POST",
+  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}/full`, {
+    method: "PUT",
     headers: { "Content-Type": "application/json", ...getAuthHeaders() },
     body: JSON.stringify(body),
   });
   return handleResponse(res);
 }
 
-export async function resetVenueHomeConfig(venueId) {
-  const res = await fetch(`${API_BASE}/api/admin/home-config/${encodeURIComponent(venueId)}`, {
+export async function resetVenueHomeConfig(venueKey) {
+  const res = await fetch(`${API_BASE}/api/v1/venue-config/${encodeURIComponent(venueKey)}`, {
     method: "DELETE",
     headers: getAuthHeaders(),
   });
@@ -238,39 +240,6 @@ export async function fetchHouseRules() {
   return handleResponse(res);
 }
 
-// ── Admin: Featured & Staff Picks ──
-
-export async function fetchAdminFeatured() {
-  const res = await fetch(`${API_BASE}/api/admin/featured`, {
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
-
-export async function saveAdminFeatured(body) {
-  const res = await fetch(`${API_BASE}/api/admin/featured`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-    body: JSON.stringify(body),
-  });
-  return handleResponse(res);
-}
-
-export async function fetchAdminStaffPicks() {
-  const res = await fetch(`${API_BASE}/api/admin/staff-picks`, {
-    headers: getAuthHeaders(),
-  });
-  return handleResponse(res);
-}
-
-export async function saveAdminStaffPicks(gameIds) {
-  const res = await fetch(`${API_BASE}/api/admin/staff-picks`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-    body: JSON.stringify({ game_ids: gameIds }),
-  });
-  return handleResponse(res);
-}
 
 // ── Rentals ──
 

@@ -6,27 +6,25 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Request
+from fastapi import APIRouter, Depends, HTTPException, Query
 
-from app.core.auth import get_optional_venue, get_current_venue
+from app.core.auth import get_optional_venue
 from app.models.game import search_games, search_limited_library, search_convention_library, search_by_publisher_tag, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
-from app.models.venues import get_venue_collection, get_staff_picks
+from app.models.venues import get_venue_collection
 from app.services.knowledge import load_game
 from app.services.turso import get_cover_art_status
+from app.services.venue_config import (
+    get_gotd as vc_get_gotd,
+    get_staff_picks as vc_get_staff_picks,
+)
 
 _CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
 _EXPANSIONS_PATH = _CONTENT_ROOT / "expansions.json"
 _EXPANSIONS: dict[str, list] = {}
 _HIGHLIGHTS_PATH = _CONTENT_ROOT / "game-highlights.json"
 _HIGHLIGHTS: dict[str, str] = {}
-from app.services.admin_config import (
-    get_featured,
-    set_featured,
-    get_staff_picks as get_admin_staff_picks,
-    set_staff_picks,
-)
 
 
 def _load_expansions():
@@ -125,32 +123,33 @@ async def quick_games(
 async def staff_picks_games(
     venue: Optional[dict] = Depends(get_optional_venue),
 ):
-    """Return full game data for staff-picked games. Per-venue admin config -> venue DB -> default."""
-    venue_id = venue["venue_id"] if venue else None
-    venue_role = venue.get("role") if venue else None
+    """Return full game data for staff-picked games. Turso venue config with global fallback."""
+    # Determine venue_key: use role for special accounts, venue_id otherwise
+    venue_key = "global"
+    if venue:
+        role = venue.get("role")
+        if role in ("convention", "stonemaier", "meetup"):
+            venue_key = role
+        elif venue.get("venue_id"):
+            venue_key = venue["venue_id"]
 
-    # 1. Check admin config for this venue (or _default), with role-based fallback
-    picks = get_admin_staff_picks(venue_id, role=venue_role)
+    pick_records = vc_get_staff_picks(venue_key)
+    pick_ids = [p["game_id"] for p in pick_records]
 
-    # 2. Fall back to venue-specific DB picks
-    if not picks and venue_id:
-        picks = get_staff_picks(venue_id)
-
-    # 3. Fall back to top games
-    if not picks:
+    if not pick_ids:
         all_games = search_games()
         return all_games[:8]
 
     all_games = search_games()
     games_map = {g["game_id"]: g for g in all_games}
-    return [games_map[gid] for gid in picks if gid in games_map]
+    return [games_map[gid] for gid in pick_ids if gid in games_map]
 
 
 @router.get("/games/featured")
 async def featured_game(
     venue: Optional[dict] = Depends(get_optional_venue),
 ):
-    """Game of the Day — per-venue admin manual pick or deterministic auto-rotation."""
+    """Game of the Day — per-venue Turso config with global fallback."""
     if not _HIGHLIGHTS:
         _load_highlights()
 
@@ -160,11 +159,17 @@ async def featured_game(
 
     games_map = {g["game_id"]: g for g in games}
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    venue_id = venue["venue_id"] if venue else None
-    venue_role = venue.get("role") if venue else None
 
-    # Check per-venue admin config for manual override (with role-based fallback)
-    featured_cfg = get_featured(venue_id, role=venue_role)
+    # Determine venue_key: use role for special accounts, venue_id otherwise
+    venue_key = "global"
+    if venue:
+        role = venue.get("role")
+        if role in ("convention", "stonemaier", "meetup"):
+            venue_key = role
+        elif venue.get("venue_id"):
+            venue_key = venue["venue_id"]
+
+    featured_cfg = vc_get_gotd(venue_key)
     if featured_cfg.get("mode") == "manual" and featured_cfg.get("game_id"):
         manual_id = featured_cfg["game_id"]
         if manual_id in games_map:
@@ -252,52 +257,3 @@ async def reload_games():
     """Re-scan the games directory and rebuild the SQLite database."""
     count = rebuild_db()
     return {"status": "ok", "games_loaded": count}
-
-
-# ── Admin: Featured Game ──────────────────────────────────────────
-
-@router.get("/admin/featured")
-async def get_admin_featured(venue: dict = Depends(get_current_venue)):
-    """Get current featured game config for this venue."""
-    return get_featured(venue["venue_id"])
-
-
-@router.post("/admin/featured")
-async def set_admin_featured(request: Request, venue: dict = Depends(get_current_venue)):
-    """Set featured game for this venue. Body: {game_id: "pandemic"} or {auto: true}"""
-    body = await request.json()
-    venue_id = venue["venue_id"]
-
-    if body.get("auto"):
-        featured_cfg = {"mode": "auto"}
-    elif body.get("game_id"):
-        featured_cfg = {"mode": "manual", "game_id": body["game_id"]}
-    else:
-        raise HTTPException(status_code=400, detail="Provide game_id or auto: true")
-
-    set_featured(venue_id, featured_cfg)
-    return {"status": "ok", "featured": featured_cfg}
-
-
-# ── Admin: Staff Picks ────────────────────────────────────────────
-
-@router.get("/admin/staff-picks")
-async def admin_staff_picks_get(venue: dict = Depends(get_current_venue)):
-    """Get current staff picks list for this venue."""
-    return {"staff_picks": get_admin_staff_picks(venue["venue_id"])}
-
-
-@router.post("/admin/staff-picks")
-async def admin_staff_picks_set(request: Request, venue: dict = Depends(get_current_venue)):
-    """Set staff picks for this venue. Body: {game_ids: ["wingspan", "azul", ...]}"""
-    body = await request.json()
-    game_ids = body.get("game_ids", [])
-    venue_id = venue["venue_id"]
-
-    if not isinstance(game_ids, list):
-        raise HTTPException(status_code=400, detail="game_ids must be an array")
-    if len(game_ids) > 10:
-        raise HTTPException(status_code=400, detail="Maximum 10 staff picks allowed")
-
-    set_staff_picks(venue_id, game_ids)
-    return {"status": "ok", "staff_picks": game_ids}

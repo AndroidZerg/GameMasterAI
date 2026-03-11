@@ -8,7 +8,8 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_current_venue, get_optional_venue
 from app.models.house_rules import set_house_rules, get_all_house_rules
-from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues, get_staff_picks
+from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues
+from app.services.venue_config import get_staff_picks as vc_get_staff_picks
 from app.models.game import search_games
 
 router = APIRouter(prefix="/api", tags=["venue"])
@@ -33,7 +34,7 @@ async def get_venue_config(
         v = get_venue_by_id(venue["venue_id"])
         if v:
             coll = get_venue_collection(venue["venue_id"])
-            picks = get_staff_picks(venue["venue_id"])
+            picks = [p["game_id"] for p in vc_get_staff_picks(venue["venue_id"])]
             return {
                 "venue_id": v["venue_id"],
                 "venue_name": v["venue_name"],

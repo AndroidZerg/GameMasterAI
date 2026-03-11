@@ -43,20 +43,13 @@ async def venue_home(venue: dict = Depends(get_current_venue)):
     venue_id = venue["venue_id"]
     stats = get_home_stats(venue_id)
 
-    # Get GOTD and staff picks from venue config
-    from app.models.venues import get_venue_by_id, get_staff_picks
-    venue_data = get_venue_by_id(venue_id)
-    # Try admin_config for GOTD
-    try:
-        from app.services.admin_config import get_featured
-        featured = get_featured(venue_id)
-        gotd = featured.get("game_id") if featured and featured.get("mode") == "manual" else None
-    except Exception:
-        gotd = None
-
-    picks = get_staff_picks(venue_id)
+    # Get GOTD and staff picks from venue config (Turso)
+    from app.services.venue_config import get_gotd, get_staff_picks as vc_get_staff_picks
+    featured = get_gotd(venue_id)
+    gotd = featured.get("game_id") if featured and featured.get("mode") == "manual" else None
+    picks = vc_get_staff_picks(venue_id)
     stats["gotd"] = gotd
-    stats["staff_picks"] = picks
+    stats["staff_picks"] = [p["game_id"] for p in picks]
     return stats
 
 

@@ -31,7 +31,7 @@ export default function CustomizeHomePage() {
   const [toast, setToast] = useState("");
 
   // Venue selector
-  const [selectedVenue, setSelectedVenue] = useState("_default");
+  const [selectedVenue, setSelectedVenue] = useState("global");
   const [isCustom, setIsCustom] = useState(false);
   const [configLoading, setConfigLoading] = useState(false);
 
@@ -114,7 +114,7 @@ export default function CustomizeHomePage() {
   // Build ordered dropdown options
   const buildVenueOptions = () => {
     const options = [
-      { value: "_default", label: "Global Defaults", group: null },
+      { value: "global", label: "Global Defaults", group: null },
     ];
 
     // Special accounts
@@ -136,7 +136,7 @@ export default function CustomizeHomePage() {
     }
 
     // Any remaining venues not in the lists above
-    const listed = new Set(["_default", ...SPECIAL_ACCOUNTS.map((s) => s.venue_id), ...DEMO_VENUE_ORDER]);
+    const listed = new Set(["global", ...SPECIAL_ACCOUNTS.map((s) => s.venue_id), ...DEMO_VENUE_ORDER]);
     const extras = venues.filter((v) => !listed.has(v.venue_id) && !["admin", "meetup-admin", "demo-dicetower", "playgmai-demo"].includes(v.venue_id));
     for (const v of extras) {
       options.push({ value: v.venue_id, label: v.venue_name, group: "other" });
@@ -153,7 +153,7 @@ export default function CustomizeHomePage() {
         ? { mode: "auto" }
         : { mode: "manual", game_id: featuredGameId };
       await saveVenueHomeConfig(selectedVenue, { featured, staffPicks });
-      setIsCustom(selectedVenue !== "_default");
+      setIsCustom(selectedVenue !== "global");
       showToast(`Saved for ${selectedVenueName()}!`);
     } catch {
       showToast("Failed to save");
@@ -175,7 +175,7 @@ export default function CustomizeHomePage() {
   };
 
   const selectedVenueName = () => {
-    if (selectedVenue === "_default") return "Global Defaults";
+    if (selectedVenue === "global") return "Global Defaults";
     const match = venues.find((v) => v.venue_id === selectedVenue);
     return match?.venue_name || selectedVenue;
   };
@@ -325,7 +325,7 @@ export default function CustomizeHomePage() {
         </select>
 
         {/* Defaults indicator + reset button */}
-        {selectedVenue !== "_default" && (
+        {selectedVenue !== "global" && (
           <div style={{ marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <span style={{
               fontSize: "0.82rem",
@@ -602,7 +602,7 @@ export default function CustomizeHomePage() {
             disabled={saving || (featuredMode === "manual" && !featuredGameId)}
             style={btnStyle(saving || (featuredMode === "manual" && !featuredGameId))}
           >
-            {saving ? "Saving..." : `Save ${selectedVenue === "_default" ? "Global Defaults" : selectedVenueName()}`}
+            {saving ? "Saving..." : `Save ${selectedVenue === "global" ? "Global Defaults" : selectedVenueName()}`}
           </button>
         </>
       )}

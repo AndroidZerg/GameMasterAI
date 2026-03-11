@@ -1,8 +1,6 @@
 """Admin endpoints — venue config update. Requires auth + role check."""
 
-import json
 import re
-from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -13,8 +11,6 @@ from app.models.venues import update_venue_config, get_venue_by_id, set_venue_co
 from app.services.turso import get_all_signups
 from app.services.admin_config import (
     get_meetup_enabled, set_meetup_enabled,
-    get_featured, set_featured, get_staff_picks, set_staff_picks,
-    has_custom_config, delete_venue_config,
     get_clear_recent_ts, trigger_clear_recent,
 )
 
@@ -36,7 +32,6 @@ def _require_super_admin(venue: dict):
     if venue.get("role") != "super_admin":
         raise HTTPException(status_code=403, detail="Super admin access required")
 
-_VENUE_CONFIG_PATH = Path(__file__).resolve().parents[4] / "content" / "venue-config.json"
 _HEX_COLOR_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 
 
@@ -148,55 +143,6 @@ async def list_venues(venue: dict = Depends(get_current_venue)):
         {"venue_id": v["venue_id"], "venue_name": v["venue_name"], "role": v.get("role", "venue_admin")}
         for v in all_v
     ]
-
-
-# ── Per-venue home config (super_admin only) ────────────────────
-
-class HomeConfigRequest(BaseModel):
-    featured: Optional[dict] = None
-    staff_picks: Optional[list[str]] = None
-
-
-@router.get("/home-config/{target_venue_id}")
-async def get_home_config(target_venue_id: str, venue: dict = Depends(get_current_venue)):
-    """Get featured + staff_picks config for a specific venue. Super admin only."""
-    _require_super_admin(venue)
-    # Use _default key for global defaults
-    lookup_id = None if target_venue_id == "_default" else target_venue_id
-    featured = get_featured(lookup_id)
-    picks = get_staff_picks(lookup_id)
-    is_custom = has_custom_config(target_venue_id)
-    return {
-        "venue_id": target_venue_id,
-        "featured": featured,
-        "staff_picks": picks,
-        "is_custom": is_custom,
-    }
-
-
-@router.post("/home-config/{target_venue_id}")
-async def save_home_config(target_venue_id: str, req: HomeConfigRequest, venue: dict = Depends(get_current_venue)):
-    """Save featured + staff_picks for a specific venue. Super admin only."""
-    _require_super_admin(venue)
-    venue_key = target_venue_id if target_venue_id != "_default" else None
-    sync_status = {"memory": True, "local_file": True, "github": True}
-    if req.featured is not None:
-        sync_status = set_featured(venue_key, req.featured)
-    if req.staff_picks is not None:
-        if len(req.staff_picks) > 10:
-            raise HTTPException(status_code=400, detail="Maximum 10 staff picks allowed")
-        sync_status = set_staff_picks(venue_key, req.staff_picks)
-    return {"success": True, "venue_id": target_venue_id, "sync_status": sync_status}
-
-
-@router.delete("/home-config/{target_venue_id}")
-async def reset_home_config(target_venue_id: str, venue: dict = Depends(get_current_venue)):
-    """Remove custom config for a venue, reverting to global defaults. Super admin only."""
-    _require_super_admin(venue)
-    if target_venue_id == "_default":
-        raise HTTPException(status_code=400, detail="Cannot reset global defaults")
-    result = delete_venue_config(target_venue_id)
-    return {"success": True, "deleted": result["deleted"], "sync_status": result["sync_status"]}
 
 
 # ── Clear Recently Played (super_admin only) ─────────────────────

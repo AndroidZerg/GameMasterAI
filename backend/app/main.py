@@ -55,6 +55,7 @@ from app.api.routes.thaihouse_crm import router as thaihouse_crm_router
 from app.api.routes.menu_images import router as menu_images_router
 from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
 from app.api.routes.cover_art import router as cover_art_router
+from app.api.routes.venue_config import router as venue_config_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -72,7 +73,6 @@ from app.services.turso import init_analytics_tables as init_turso_analytics
 from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory, match_shopify_inventory
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
-from app.services.admin_config import load_all as _load_admin_config
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
 from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_admin_config_tables, init_cover_art_tables
@@ -139,17 +139,41 @@ async def lifespan(app: FastAPI):
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
 
-    # Load admin config (Turso → local file → hardcoded defaults)
-    admin_cfg = _load_admin_config()
-    print(f"[GMAI] Startup: loaded admin config for venues: {list(admin_cfg.keys())}")
-
-    # Seed convention staff picks + GOTD if not already set
+    # Seed GOTD + Staff Picks into Turso if not already set
     from app.services.turso import has_turso_venue_config, set_turso_staff_picks, set_turso_gotd
+
+    # Global defaults
+    if not has_turso_venue_config("global"):
+        global_picks = [
+            "above-and-below", "carcassonne", "ark-nova", "dune-imperium",
+            "blood-on-the-clocktower", "brass-birmingham", "gloomhaven",
+            "twilight-imperium-4th-edition", "terraforming-mars", "castles-of-burgundy",
+        ]
+        set_turso_staff_picks("global", global_picks)
+        set_turso_gotd("global", "wingspan", "manual")
+        print("[GMAI] Seeded global staff picks + GOTD in Turso")
+
+    # Convention defaults
     if not has_turso_venue_config("convention"):
         convention_picks = ["wingspan", "wyrmspan", "tapestry", "viticulture", "scythe", "tokaido"]
         set_turso_staff_picks("convention", convention_picks)
         set_turso_gotd("convention", "wingspan", "manual")
         print("[GMAI] Seeded convention staff picks + GOTD in Turso")
+
+    # Migrate _default → global if _default exists but global doesn't
+    if has_turso_venue_config("_default") and not has_turso_venue_config("global"):
+        from app.services.turso import get_turso_staff_picks, get_turso_gotd
+        old_picks = get_turso_staff_picks("_default")
+        old_gotd = get_turso_gotd("_default")
+        if old_picks:
+            set_turso_staff_picks("global", old_picks)
+        if old_gotd:
+            set_turso_gotd("global", old_gotd["game_id"], old_gotd["mode"])
+        print("[GMAI] Migrated _default config to global in Turso")
+
+    # Load system config (meetup toggle, clear-recent)
+    from app.services.admin_config import load_all as _load_admin_config
+    _load_admin_config()
 
     print(f"[GMAI] Loaded {count} game(s) into SQLite")
     yield
@@ -252,6 +276,9 @@ app.include_router(images_router)
 
 # --- Cover Art Admin ---
 app.include_router(cover_art_router)
+
+# --- Venue Config (GOTD + Staff Picks) ---
+app.include_router(venue_config_router)
 
 
 @app.get("/health", tags=["system"])
