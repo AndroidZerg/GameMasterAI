@@ -90,8 +90,8 @@
 <header class="relative pt-40 pb-24 px-6 overflow-hidden">
   <div class="hero-bg-glow"></div>
   <div class="max-w-6xl mx-auto mb-16 px-6">
-    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10 cursor-pointer">
-      <img id="hero-img" alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg" style="cursor:pointer;"/>
+    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-teal/20 border border-white/10">
+      <img alt="Board game night in action — guests playing at tables" class="w-full h-auto" src="./hero.jpg"/>
     </div>
   </div>
   <div class="max-w-5xl mx-auto text-center">
@@ -182,7 +182,7 @@
   </div>
 </section>
 
-<!-- Venue Gallery — carousel + lightbox -->
+<!-- Venue Gallery -->
 <section class="py-24 px-6" id="gallery">
   <div class="max-w-7xl mx-auto mb-12">
     <h2 class="text-3xl font-bold mb-4">Venue Layout &amp; Atmosphere</h2>
@@ -194,16 +194,16 @@
     <div class="overflow-hidden rounded-2xl">
       <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
         <div class="min-w-full">
-          <img id="gallery-img-0" src="./venue-1.jpg" alt="Guests playing board games" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
+          <img src="./venue-1.jpg" alt="Guests playing board games" class="w-full h-auto rounded-2xl"/>
         </div>
         <div class="min-w-full">
-          <img id="gallery-img-1" src="./venue-2.jpg" alt="Game library shelf" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
+          <img src="./venue-2.jpg" alt="Game library shelf" class="w-full h-auto rounded-2xl"/>
         </div>
         <div class="min-w-full">
-          <img id="gallery-img-2" src="./venue-3.jpg" alt="Dining room setup" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
+          <img src="./venue-3.jpg" alt="Dining room setup" class="w-full h-auto rounded-2xl"/>
         </div>
         <div class="min-w-full">
-          <img id="gallery-img-3" src="./hero.jpg" alt="Three tables of players" class="w-full h-auto rounded-2xl" style="cursor:pointer;"/>
+          <img src="./hero.jpg" alt="Three tables of players" class="w-full h-auto rounded-2xl"/>
         </div>
       </div>
     </div>
@@ -385,110 +385,22 @@
   </div>
 </div>
 
-<!-- Lightbox overlay -->
-<div id="gmg-lb" style="
-  display:none;
-  position:fixed;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.96);
-  z-index:99999;
-  align-items:center;
-  justify-content:center;
-  touch-action:manipulation;
-">
-  <img id="gmg-lb-img" src="" alt="" style="
-    max-width:95vw;
-    max-height:90vh;
-    object-fit:contain;
-    border-radius:8px;
-    display:block;
-  "/>
-  <button id="gmg-lb-close" style="
-    position:fixed;
-    top:1.25rem;
-    right:1.25rem;
-    background:rgba(255,255,255,0.15);
-    border:none;
-    color:white;
-    font-size:2rem;
-    line-height:1;
-    width:3rem;
-    height:3rem;
-    border-radius:50%;
-    cursor:pointer;
-    z-index:100000;
-    touch-action:manipulation;
-  ">×</button>
-  <button id="gmg-lb-prev" style="
-    position:fixed;
-    left:1rem;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(255,255,255,0.15);
-    border:none;
-    color:white;
-    font-size:1.75rem;
-    width:3rem;
-    height:3rem;
-    border-radius:50%;
-    cursor:pointer;
-    z-index:100000;
-    touch-action:manipulation;
-  ">‹</button>
-  <button id="gmg-lb-next" style="
-    position:fixed;
-    right:1rem;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(255,255,255,0.15);
-    border:none;
-    color:white;
-    font-size:1.75rem;
-    width:3rem;
-    height:3rem;
-    border-radius:50%;
-    cursor:pointer;
-    z-index:100000;
-    touch-action:manipulation;
-  ">›</button>
-</div>
-
 <script>
 (function() {
-  // ── Gallery images (carousel + lightbox) ──────────────────────
-  var galleryImages = [
-    { src: './venue-1.jpg', alt: 'Guests playing board games' },
-    { src: './venue-2.jpg', alt: 'Game library shelf' },
-    { src: './venue-3.jpg', alt: 'Empty dining room setup' },
-    { src: './hero.jpg',   alt: 'Three tables of players' }
-  ];
-  var heroSrc = './hero.jpg';
+  var slideCount = 4;
   var carouselIndex = 0;
-  var lbIndex = 0;
-  var lbIsHero = false;
 
-  // ── Helper: attach both click and touchend ─────────────────────
-  function addTap(el, fn) {
-    if (!el) return;
-    el.addEventListener('click', fn);
-    el.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      fn(e);
-    }, { passive: false });
-  }
-
-  // ── Carousel ──────────────────────────────────────────────────
   function updateCarousel() {
     var track = document.getElementById('carousel-track');
     if (track) track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
-    for (var i = 0; i < galleryImages.length; i++) {
+    for (var i = 0; i < slideCount; i++) {
       var dot = document.getElementById('dot-' + i);
       if (dot) dot.style.background = i === carouselIndex ? '#2DD4BF' : 'rgba(255,255,255,0.3)';
     }
   }
 
   window.moveCarousel = function(dir) {
-    carouselIndex = (carouselIndex + dir + galleryImages.length) % galleryImages.length;
+    carouselIndex = (carouselIndex + dir + slideCount) % slideCount;
     updateCarousel();
   };
 
@@ -496,90 +408,6 @@
     carouselIndex = i;
     updateCarousel();
   };
-
-  // ── Lightbox ──────────────────────────────────────────────────
-  var lb = document.getElementById('gmg-lb');
-  var lbImg = document.getElementById('gmg-lb-img');
-
-  function showLightbox(src) {
-    lbImg.src = src;
-    lb.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function hideLightbox() {
-    lb.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  function openGalleryLightbox(index) {
-    lbIndex = index;
-    lbIsHero = false;
-    showLightbox(galleryImages[index].src);
-  }
-
-  function openHeroLightbox() {
-    lbIsHero = true;
-    showLightbox(heroSrc);
-  }
-
-  // Close button
-  addTap(document.getElementById('gmg-lb-close'), function(e) {
-    e.stopPropagation();
-    hideLightbox();
-  });
-
-  // Prev/Next
-  addTap(document.getElementById('gmg-lb-prev'), function(e) {
-    e.stopPropagation();
-    if (lbIsHero) return;
-    lbIndex = (lbIndex - 1 + galleryImages.length) % galleryImages.length;
-    lbImg.src = galleryImages[lbIndex].src;
-  });
-
-  addTap(document.getElementById('gmg-lb-next'), function(e) {
-    e.stopPropagation();
-    if (lbIsHero) return;
-    lbIndex = (lbIndex + 1) % galleryImages.length;
-    lbImg.src = galleryImages[lbIndex].src;
-  });
-
-  // Click overlay background to close
-  addTap(lb, function(e) {
-    if (e.target === lb) hideLightbox();
-  });
-
-  // Keyboard
-  document.addEventListener('keydown', function(e) {
-    if (lb.style.display === 'none') return;
-    if (e.key === 'Escape') hideLightbox();
-    if (e.key === 'ArrowRight' && !lbIsHero) {
-      lbIndex = (lbIndex + 1) % galleryImages.length;
-      lbImg.src = galleryImages[lbIndex].src;
-    }
-    if (e.key === 'ArrowLeft' && !lbIsHero) {
-      lbIndex = (lbIndex - 1 + galleryImages.length) % galleryImages.length;
-      lbImg.src = galleryImages[lbIndex].src;
-    }
-  });
-
-  // ── Wire up hero image ─────────────────────────────────────────
-  var heroEl = document.getElementById('hero-img');
-  if (heroEl) {
-    heroEl.style.cursor = 'pointer';
-    addTap(heroEl, function(e) { openHeroLightbox(); });
-  }
-
-  // ── Wire up gallery slides ─────────────────────────────────────
-  for (var i = 0; i < galleryImages.length; i++) {
-    (function(idx) {
-      var el = document.getElementById('gallery-img-' + idx);
-      if (el) {
-        el.style.cursor = 'pointer';
-        addTap(el, function(e) { openGalleryLightbox(idx); });
-      }
-    })(i);
-  }
 
   // ── Early Access modal ─────────────────────────────────────────
   var eaModal = document.getElementById('ea-modal');
@@ -611,12 +439,6 @@
       btn.style.color = 'white';
     }, 2000);
   };
-
-  if (eaModal) {
-    addTap(eaModal, function(e) {
-      if (e.target === eaModal) closeEarlyAccess();
-    });
-  }
 
   updateCarousel();
 })();
