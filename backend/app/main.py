@@ -1,5 +1,5 @@
 """GameMaster Guide — Backend API server for board game cafe management."""
-# Force redeploy — 2026-03-11 Stonemaier format standardization (Wingspan format, all 16 games)
+# Force redeploy — 2026-03-13 Publisher landing page + lead capture
 
 import os
 import subprocess
