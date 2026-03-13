@@ -60,10 +60,12 @@ from app.api.routes.menu_images import router as menu_images_router
 from app.api.routes.seed_thaihouse import router as seed_thaihouse_router
 from app.api.routes.cover_art import router as cover_art_router
 from app.api.routes.home_config import router as home_config_router
+from app.api.routes.publisher_leads import router as publisher_leads_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
+from app.models.publisher_leads import init_publisher_leads_table
 from app.models.venues import (
     init_venues_table, init_venue_collections_table,
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
@@ -110,6 +112,7 @@ async def lifespan(app: FastAPI):
     init_sessions_table()
     init_feedback_table()
     init_contacts_table()
+    init_publisher_leads_table()
     init_analytics_table()
     init_score_history_table()
     init_house_rules_table()
@@ -297,6 +300,9 @@ app.include_router(cover_art_router)
 
 # --- Home Config (GOTD + Staff Picks) ---
 app.include_router(home_config_router)
+
+# --- Publisher Leads ---
+app.include_router(publisher_leads_router)
 
 
 @app.get("/health", tags=["system"])

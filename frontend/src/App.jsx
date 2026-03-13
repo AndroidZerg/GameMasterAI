@@ -39,6 +39,7 @@ import StaffPage from "./pages/StaffPage";
 import StaffRedeem from "./pages/StaffRedeem";
 import ThaiHouseAdmin from "./pages/ThaiHouseAdmin";
 import ThaiHouseDashboard from "./pages/ThaiHouseDashboard";
+import PublisherLandingPage from "./pages/PublisherLandingPage";
 import SWPRentalLanding from "./pages/swp/SWPRentalLanding";
 import SWPRentalWelcome from "./pages/swp/SWPRentalWelcome";
 import SWPRentalBrowse from "./pages/swp/SWPRentalBrowse";
@@ -185,6 +186,8 @@ function App() {
           <Route path="/thaihouse/staff/redeem" element={<StaffRedeem />} />
           <Route path="/thaihouse/admin" element={<ThaiHouseAdmin />} />
           <Route path="/thaihouse/dashboard" element={<ThaiHouseDashboard />} />
+          {/* Publisher landing — no app shell, no auth */}
+          <Route path="/publishers" element={<PublisherLandingPage />} />
           {/* SWP Rental routes — no app shell, no GMG auth */}
           <Route path="/swp/rentals-sign-up" element={<SWPRentalLanding />} />
           <Route path="/swp/rentals" element={<Navigate to="/swp/rentals-sign-up" replace />} />
