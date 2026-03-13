@@ -20,13 +20,14 @@ _TG_CHAT_ID = "6236947695"
 
 
 def _send_telegram(first_name: str, last_name: str, company: str, games: str, email: str, message: str):
+    msg_display = message or "\u2014"
     text = (
         "\U0001f4ec New Publisher Lead\n\n"
         f"Name: {first_name} {last_name}\n"
         f"Company: {company}\n"
         f"Games: {games}\n"
         f"Email: {email}\n"
-        f"Message: {message or '\u2014'}"
+        f"Message: {msg_display}"
     )
     try:
         httpx.post(
