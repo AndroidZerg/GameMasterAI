@@ -1,0 +1,55 @@
+{
+  "game_id": "dune-imperium-uprising",
+  "scoring_type": "calculator",
+  "categories": [
+    {
+      "id": "conflict_vp",
+      "label": "Conflict Victories",
+      "points_each": 1,
+      "type": "manual",
+      "description": "VP earned from winning Conflicts (1st place rewards)"
+    },
+    {
+      "id": "battle_icons",
+      "label": "Battle Icon Pairs",
+      "points_each": 1,
+      "type": "manual",
+      "description": "1 VP per matched pair of battle icons on won Conflict cards and Objectives"
+    },
+    {
+      "id": "faction_influence",
+      "label": "Faction Influence",
+      "points_each": 1,
+      "type": "manual",
+      "description": "1 VP for each faction where you reached level 2 or higher"
+    },
+    {
+      "id": "alliance_tokens",
+      "label": "Alliance Tokens",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per Alliance token held at game end"
+    },
+    {
+      "id": "spice_must_flow",
+      "label": "The Spice Must Flow",
+      "points_each": 1,
+      "type": "count",
+      "description": "1 VP per The Spice Must Flow card purchased"
+    },
+    {
+      "id": "endgame_intrigue",
+      "label": "Endgame Intrigue Cards",
+      "points_each": 1,
+      "type": "manual",
+      "description": "VP from Endgame Intrigue cards played after the final round"
+    },
+    {
+      "id": "other_vp",
+      "label": "Other VP",
+      "points_each": 1,
+      "type": "manual",
+      "description": "VP from card effects, Control bonuses, or other sources"
+    }
+  ]
+}
