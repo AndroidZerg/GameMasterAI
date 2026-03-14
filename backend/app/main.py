@@ -166,7 +166,7 @@ async def lifespan(app: FastAPI):
     if dt_seeded:
         limited_games = search_limited_library()
         limited_ids = [g["game_id"] for g in limited_games]
-        # DTW demo: only the 7 polished Stonemaier games
+        # DTW convention: polished publisher-approved games
         dtw_demo_ids = [
             "wingspan",
             "scythe",
@@ -175,6 +175,8 @@ async def lifespan(app: FastAPI):
             "euphoria-build-a-better-dystopia",
             "libertalia-winds-of-galecrest",
             "expeditions",
+            "hasty-baker",
+            "house-hounds",
         ]
         for vid in dt_seeded:
             if vid == "demo-dicetower":
