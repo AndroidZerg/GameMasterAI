@@ -3,7 +3,9 @@
   "title": "Hasty Baker",
   "aliases": [],
   "publisher": "GoChuckle LLC",
+  "publisher_tag": "gochuckle",
   "publisher_approved": true,
+  "image": "/images/hasty-baker.jpg",
   "player_count": {
     "min": 2,
     "max": 6,
@@ -21,93 +23,117 @@
     "take-that"
   ],
   "bgg_id": 290565,
-  "image": null,
   "source_url": "https://gochuckle.com/products/hasty-baker",
   "source_verified": true,
+  "total_token_count": 2800,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "3.0",
+    "created_by": "barbarian",
+    "created_at": "2026-03-14T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Publisher-approved game guide for GoChuckle's Hasty Baker. Sources: official rulebook (Rules4panel.pdf), BGG page, GoChuckle website, community reviews."
+  },
   "tabs": {
     "setup": {
-      "label": "Setup",
       "subtopics": [
         {
           "title": "What's in the Box",
-          "content": "Let's get everything out of the box and sorted. You'll find two types of cards in here.\n\nFirst, the blue-backed cards — this is your main deck. It's a big stack of about 110 cards, and it's a mix of ingredient cards and strategy cards. The ingredient cards have fun cartoon characters on them — you'll see Flour, Frosting, Butter, Eggs, Sugar, Chocolate, Milk, Berries, and a Wild Ingredient card that can stand in for anything. The strategy cards are the sneaky ones — they let you mess with other players or give yourself a boost.\n\nSecond, the red-backed recipe cards — there are 24 of these. Each recipe shows a delicious dessert and lists the four ingredients you need to bake it. Recipes include things like Chocolate Cake, Blueberry Pie, Cupcakes, and Donuts.\n\nGo ahead and separate the blue cards from the red cards. You'll need both piles for setup."
+          "content": "Let's get everything out of the box and sorted. You'll find two types of cards in here.\n\nFirst, the blue-backed cards — this is your main deck. It's a big stack of about 110 cards, and it's a mix of ingredient cards and strategy cards. The ingredient cards have fun cartoon characters on them — you'll see Flour, Frosting, Butter, Eggs, Sugar, Chocolate, Milk, Berries, and a Wild Ingredient card that can stand in for anything. The strategy cards are the sneaky ones — they let you mess with other players or give yourself a boost.\n\nSecond, the red-backed recipe cards — there are 24 of these. Each recipe shows a delicious dessert and lists the four ingredients you need to bake it. Recipes include things like Chocolate Cake, Blueberry Pie, Cupcakes, and Donuts.\n\nGo ahead and separate the blue cards from the red cards. You'll need both piles for setup.",
+          "id": "whats-in-the-box"
         },
         {
           "title": "Deal the Cards",
-          "content": "Take the big stack of blue cards and give it a good shuffle. Now deal 7 cards face-down to each player. These are the cards in your hand — take a peek at them, but keep them secret from everyone else.\n\nPlace the remaining blue cards face-down in the center of the table. That's your draw pile.\n\nLeave a spot right next to the draw pile for a discard pile — cards will go here face-up throughout the game, but it starts empty."
+          "content": "Take the big stack of blue cards and give it a good shuffle. Now deal 7 cards face-down to each player. These are the cards in your hand — take a peek at them, but keep them secret from everyone else.\n\nPlace the remaining blue cards face-down in the center of the table. That's your draw pile.\n\nLeave a spot right next to the draw pile for a discard pile — cards will go here face-up throughout the game, but it starts empty.",
+          "id": "deal-the-cards"
         },
         {
           "title": "Set Up the Recipes",
-          "content": "Now grab the red recipe cards and shuffle those separately. Deal one recipe card face-up to each player. Place it on the table in front of you so everyone can see what you're baking.\n\nThe rest of the recipe cards go face-down in their own pile off to the side — that's the recipe draw pile. You'll grab a new recipe from here every time you finish one.\n\nLeave some space above your recipe card. That's where you'll place your ingredient cards as you collect them — think of it as your baking station."
+          "content": "Now grab the red recipe cards and shuffle those separately. Deal one recipe card face-up to each player. Place it on the table in front of you so everyone can see what you're baking.\n\nThe rest of the recipe cards go face-down in their own pile off to the side — that's the recipe draw pile. You'll grab a new recipe from here every time you finish one.\n\nLeave some space above your recipe card. That's where you'll place your ingredient cards as you collect them — think of it as your baking station.",
+          "id": "set-up-the-recipes"
         },
         {
           "title": "Ready to Bake",
-          "content": "Take a quick look around the table. Each player should have 7 blue cards in their hand, one recipe card face-up in front of them, and an empty baking station above the recipe. The blue draw pile and an empty discard pile sit in the center, and the red recipe draw pile is off to the side.\n\nThe player to the left of the dealer goes first, and play moves clockwise. You're all set — let's start baking!"
+          "content": "Take a quick look around the table. Each player should have 7 blue cards in their hand, one recipe card face-up in front of them, and an empty baking station above the recipe. The blue draw pile and an empty discard pile sit in the center, and the red recipe draw pile is off to the side.\n\nThe player to the left of the dealer goes first, and play moves clockwise. You're all set — let's start baking!",
+          "id": "ready-to-bake"
         }
       ]
     },
     "rules": {
-      "label": "Rules",
       "subtopics": [
         {
           "title": "Your Turn — Two Actions",
-          "content": "On your turn, you get to perform exactly 2 actions. Each action can be any one of these three things — and you can even do the same type of action twice if you want.\n\nYour three options are: play an ingredient card, play a strategy card, or replace a card from your hand. Let's walk through each one."
+          "content": "On your turn, you get to perform exactly 2 actions. Each action can be any one of these three things — and you can even do the same type of action twice if you want.\n\nYour three options are: play an ingredient card, play a strategy card, or replace a card from your hand. Let's walk through each one.",
+          "id": "your-turn-—-two-actions"
         },
         {
           "title": "Playing an Ingredient",
-          "content": "Look at your recipe card — it lists four ingredients you need to collect. If you have one of those ingredients in your hand, you can place it face-up above your recipe card as one of your actions.\n\nYou only need one of each ingredient unless someone plays a Double Batch card on you — but we'll get to that in a moment.\n\nThe Wild Ingredient card is your best friend here. It can stand in for any ingredient on your recipe, and you never have to say which one it's replacing. Just play it and it counts."
+          "content": "Look at your recipe card — it lists four ingredients you need to collect. If you have one of those ingredients in your hand, you can place it face-up above your recipe card as one of your actions.\n\nYou only need one of each ingredient unless someone plays a Double Batch card on you — but we'll get to that in a moment.\n\nThe Wild Ingredient card is your best friend here. It can stand in for any ingredient on your recipe, and you never have to say which one it's replacing. Just play it and it counts.",
+          "id": "playing-an-ingredient"
         },
         {
           "title": "Playing a Strategy Card",
-          "content": "Strategy cards are the spicy part of this game. Here's what each one does.\n\nSteal Ingredient lets you grab any ingredient card that another player has in play and immediately put it in play for your recipe. The catch — it has to be an ingredient your recipe actually needs, and it goes straight to your baking station, not your hand. Wild Ingredients can be stolen, but Blue Ribbon and Double Batch cards cannot.\n\nSpoiled Ingredient is a big move. Call out any ingredient name — say \"Eggs are spoiled!\" — and every player who has that ingredient in play, including you, has to discard it. Cards in your hand are safe, and Wild Ingredients cannot be spoiled.\n\nTake 2 From Hand lets you randomly grab two cards from another player's hand and add them to yours. Playing any card you took is a separate action though.\n\nNew Hand makes a player discard their entire hand and draw 7 fresh cards. You can play it on yourself or on another player. Again, playing a card from the new hand costs a separate action.\n\nBroken Timer is the nuclear option. Pick any player — even yourself — and they have to discard their current recipe and all the ingredients they've played. They draw a brand new recipe and start over from scratch. The discarded recipe goes to the bottom of the recipe pile.\n\nDouble Batch gets placed next to any player's unfinished recipe. Now that player needs two of each ingredient instead of one to complete the recipe. Only one Double Batch per recipe, and when the recipe is finished, the Double Batch card goes into the completed recipe pile as an extra point.\n\nBlue Ribbon also gets placed next to your own unfinished recipe. When you finish that recipe, the Blue Ribbon card counts as an extra point in your completed pile. Only one per recipe.\n\nHeads up — except for Double Batch and Blue Ribbon, all strategy cards go to the discard pile after you play them."
+          "content": "Strategy cards are the spicy part of this game. Here's what each one does.\n\nSteal Ingredient lets you grab any ingredient card that another player has in play and immediately put it in play for your recipe. The catch — it has to be an ingredient your recipe actually needs, and it goes straight to your baking station, not your hand. Wild Ingredients can be stolen, but Blue Ribbon and Double Batch cards cannot.\n\nSpoiled Ingredient is a big move. Call out any ingredient name — say \"Eggs are spoiled!\" — and every player who has that ingredient in play, including you, has to discard it. Cards in your hand are safe, and Wild Ingredients cannot be spoiled.\n\nTake 2 From Hand lets you randomly grab two cards from another player's hand and add them to yours. Playing any card you took is a separate action though.\n\nNew Hand makes a player discard their entire hand and draw 7 fresh cards. You can play it on yourself or on another player. Again, playing a card from the new hand costs a separate action.\n\nBroken Timer is the nuclear option. Pick any player — even yourself — and they have to discard their current recipe and all the ingredients they've played. They draw a brand new recipe and start over from scratch. The discarded recipe goes to the bottom of the recipe pile.\n\nDouble Batch gets placed next to any player's unfinished recipe. Now that player needs two of each ingredient instead of one to complete the recipe. Only one Double Batch per recipe, and when the recipe is finished, the Double Batch card goes into the completed recipe pile as an extra point.\n\nBlue Ribbon also gets placed next to your own unfinished recipe. When you finish that recipe, the Blue Ribbon card counts as an extra point in your completed pile. Only one per recipe.\n\nHeads up — except for Double Batch and Blue Ribbon, all strategy cards go to the discard pile after you play them.",
+          "id": "playing-a-strategy-card"
         },
         {
           "title": "Replacing a Card",
-          "content": "If your hand is full of cards you don't need right now, you can spend one action to discard a card from your hand and draw a new one from the draw pile.\n\nImportant — playing the new card you just drew is a separate action. So if you replace a card with your first action and draw something perfect, you can play it as your second action."
+          "content": "If your hand is full of cards you don't need right now, you can spend one action to discard a card from your hand and draw a new one from the draw pile.\n\nImportant — playing the new card you just drew is a separate action. So if you replace a card with your first action and draw something perfect, you can play it as your second action.",
+          "id": "replacing-a-card"
         },
         {
           "title": "End of Your Turn",
-          "content": "After you've taken your 2 actions, check your hand size. If you have fewer than 7 cards, draw from the draw pile until you're back to 7. If you have more than 7, discard down to 7.\n\nQuick heads up — if you ever run out of cards in your hand completely during the game, immediately draw 7 new cards. And if the draw pile runs out, shuffle the discard pile to make a new draw pile."
+          "content": "After you've taken your 2 actions, check your hand size. If you have fewer than 7 cards, draw from the draw pile until you're back to 7. If you have more than 7, discard down to 7.\n\nQuick heads up — if you ever run out of cards in your hand completely during the game, immediately draw 7 new cards. And if the draw pile runs out, shuffle the discard pile to make a new draw pile.",
+          "id": "end-of-your-turn"
         },
         {
           "title": "Completing a Recipe",
-          "content": "Once you've played all four ingredients your recipe needs — or all eight if someone hit you with a Double Batch — your recipe is complete! Discard the ingredient cards, then move the recipe card to your completed recipe pile. If you had a Blue Ribbon or Double Batch attached, those go into the completed pile too as extra points.\n\nImmediately draw a new recipe from the recipe pile and place it face-up in front of you.\n\nHere's a key timing rule — if you complete a recipe on your first action, draw your new recipe before taking your second action. You might be able to start working on the next one right away."
+          "content": "Once you've played all four ingredients your recipe needs — or all eight if someone hit you with a Double Batch — your recipe is complete! Discard the ingredient cards, then move the recipe card to your completed recipe pile. If you had a Blue Ribbon or Double Batch attached, those go into the completed pile too as extra points.\n\nImmediately draw a new recipe from the recipe pile and place it face-up in front of you.\n\nHere's a key timing rule — if you complete a recipe on your first action, draw your new recipe before taking your second action. You might be able to start working on the next one right away.",
+          "id": "completing-a-recipe"
         },
         {
           "title": "Winning the Game",
-          "content": "Each completed recipe is worth 1 point. Each Blue Ribbon card in your completed pile is worth 1 point. Each Double Batch card in your completed pile is also worth 1 point.\n\nThe first player to reach 5 points wins the game! Count up your completed recipes plus any bonus cards in that pile."
+          "content": "Each completed recipe is worth 1 point. Each Blue Ribbon card in your completed pile is worth 1 point. Each Double Batch card in your completed pile is also worth 1 point.\n\nThe first player to reach 5 points wins the game! Count up your completed recipes plus any bonus cards in that pile.",
+          "id": "winning-the-game"
         }
       ]
     },
     "strategy": {
-      "label": "Strategy",
       "subtopics": [
         {
           "title": "Protect Your Wild Ingredients",
-          "content": "Here's the biggest first-game trap: playing your Wild Ingredient card early. It feels great to slap it down and get one step closer to finishing your recipe, but the moment it's on the table, everyone with a Steal Ingredient card is eyeing it. Wild Ingredients are the most valuable cards in the game because they work for any recipe.\n\nThe smart play is to hold your Wild Ingredient until you can finish the recipe in the same turn. If you have three ingredients already played and a Wild in your hand, you can complete the whole recipe before anyone has a chance to steal it."
+          "content": "Here's the biggest first-game trap: playing your Wild Ingredient card early. It feels great to slap it down and get one step closer to finishing your recipe, but the moment it's on the table, everyone with a Steal Ingredient card is eyeing it. Wild Ingredients are the most valuable cards in the game because they work for any recipe.\n\nThe smart play is to hold your Wild Ingredient until you can finish the recipe in the same turn. If you have three ingredients already played and a Wild in your hand, you can complete the whole recipe before anyone has a chance to steal it.",
+          "id": "protect-your-wild-ingredients"
         },
         {
           "title": "Blue Ribbon Timing",
-          "content": "Blue Ribbon is a free extra point, but it paints a target on your back. If you play it with only one ingredient down, opponents have plenty of turns to hit you with a Broken Timer and wipe everything out — including that Blue Ribbon.\n\nThe power move is to hold Blue Ribbon until you're about to finish. Play it as your first action, then play your final ingredient as your second action. Recipe complete, Blue Ribbon secured, no chance for sabotage."
+          "content": "Blue Ribbon is a free extra point, but it paints a target on your back. If you play it with only one ingredient down, opponents have plenty of turns to hit you with a Broken Timer and wipe everything out — including that Blue Ribbon.\n\nThe power move is to hold Blue Ribbon until you're about to finish. Play it as your first action, then play your final ingredient as your second action. Recipe complete, Blue Ribbon secured, no chance for sabotage.",
+          "id": "blue-ribbon-timing"
         },
         {
           "title": "Double Batch as a Weapon",
-          "content": "Double Batch is one of the sneakiest cards in the game. When someone is at 4 points and about to win, slapping a Double Batch on their recipe forces them to collect double the ingredients — buying the whole table extra time.\n\nBut here's the twist — the player who finishes a Double Batch recipe gets an extra point from it. So if you play it too early, you might actually help them. Save it for when someone is about to close out the game and you need to slow them down."
+          "content": "Double Batch is one of the sneakiest cards in the game. When someone is at 4 points and about to win, slapping a Double Batch on their recipe forces them to collect double the ingredients — buying the whole table extra time.\n\nBut here's the twist — the player who finishes a Double Batch recipe gets an extra point from it. So if you play it too early, you might actually help them. Save it for when someone is about to close out the game and you need to slow them down.",
+          "id": "double-batch-as-a-weapon"
         },
         {
           "title": "When to Use Broken Timer",
-          "content": "There's only one Broken Timer card in the entire deck, so when you draw it, think carefully. It's devastating — it nukes a player's recipe and all their ingredients in play, forcing them to start over.\n\nThe best time to play it is when an opponent has three or four ingredients on the table and is about to finish. That's maximum disruption. Using it when someone only has one ingredient down is a waste of the most powerful card in the game."
+          "content": "There's only one Broken Timer card in the entire deck, so when you draw it, think carefully. It's devastating — it nukes a player's recipe and all their ingredients in play, forcing them to start over.\n\nThe best time to play it is when an opponent has three or four ingredients on the table and is about to finish. That's maximum disruption. Using it when someone only has one ingredient down is a waste of the most powerful card in the game.",
+          "id": "when-to-use-broken-timer"
         },
         {
           "title": "Watch Your Opponents' Recipes",
-          "content": "This game rewards paying attention. Look at what ingredients your opponents need and think about what's likely in their hands. If you see someone collecting Flour and Eggs, and your Spoiled Ingredient card could knock out Flour for the whole table — that might be worth the play even if you lose your own Flour in the process.\n\nAlso keep an eye on completed recipe counts. When someone hits 3 or 4 points, the whole table should shift into defense mode. That's when Steal Ingredient, Double Batch, and Broken Timer become more valuable than playing your own ingredients."
+          "content": "This game rewards paying attention. Look at what ingredients your opponents need and think about what's likely in their hands. If you see someone collecting Flour and Eggs, and your Spoiled Ingredient card could knock out Flour for the whole table — that might be worth the play even if you lose your own Flour in the process.\n\nAlso keep an eye on completed recipe counts. When someone hits 3 or 4 points, the whole table should shift into defense mode. That's when Steal Ingredient, Double Batch, and Broken Timer become more valuable than playing your own ingredients.",
+          "id": "watch-your-opponents-recipes"
         }
       ]
     }
   },
   "rules_citations": {
     "source_url": "https://gochuckle.com/products/hasty-baker",
-    "key_rulings": [
+    "rulings": [
       {
         "topic": "Wild Ingredient and Spoiled Ingredient",
         "ruling": "Wild Ingredient cards cannot be spoiled. Only named ingredients can be called with the Spoiled Ingredient card.",
@@ -144,16 +170,5 @@
         "source": "Official Rulebook"
       }
     ]
-  },
-  "total_token_count": 2800,
-  "metadata": {
-    "schema_version": "3.0",
-    "created_by": "barbarian",
-    "created_at": "2026-03-14T00:00:00Z",
-    "validated_by": null,
-    "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": "Publisher-approved game guide for GoChuckle's Hasty Baker. Sources: official rulebook (Rules4panel.pdf), BGG page, GoChuckle website, community reviews."
   }
 }

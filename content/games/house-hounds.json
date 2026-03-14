@@ -3,7 +3,9 @@
   "title": "House Hounds",
   "aliases": [],
   "publisher": "GoChuckle LLC",
+  "publisher_tag": "gochuckle",
   "publisher_approved": true,
+  "image": "/images/house-hounds.jpg",
   "player_count": {
     "min": 2,
     "max": 4,
@@ -22,101 +24,127 @@
     "trading"
   ],
   "bgg_id": 417425,
-  "image": null,
   "source_url": "https://gochuckle.com/products/house-hounds",
   "source_verified": true,
+  "total_token_count": 2900,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "3.0",
+    "created_by": "barbarian",
+    "created_at": "2026-03-14T00:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 1,
+    "notes": "Publisher-approved game guide for GoChuckle's House Hounds. Sources: official rulebook (HouseHounds_Rulebook.pdf), BGG page, GoChuckle website."
+  },
   "tabs": {
     "setup": {
-      "label": "Setup",
       "subtopics": [
         {
           "title": "What's in the Box",
-          "content": "Let's open up House Hounds and see what you're working with. There are two separate decks in here.\n\nThe Worker Deck is the big one — 108 Worker cards plus 8 Boss cards. The Worker cards come in three types: Carpenters, Plumbers, and Electricians. Each Worker card has a number on it — 1, 2, or 3 — which represents how skilled they are. You'll also spot the Boss cards mixed in — these have a special orange border and let you pull off some sneaky moves.\n\nThe House Deck has 24 House cards and 6 Inspection cards shuffled together. Each House card shows a property with a silly name — like Fortune Falls or Trainquility Retreat — along with its point value and the worker costs needed to fix it up. Inspection cards are surprise costs that make houses more expensive to claim."
+          "content": "Let's open up House Hounds and see what you're working with. There are two separate decks in here.\n\nThe Worker Deck is the big one — 108 Worker cards plus 8 Boss cards. The Worker cards come in three types: Carpenters, Plumbers, and Electricians. Each Worker card has a number on it — 1, 2, or 3 — which represents how skilled they are. You'll also spot the Boss cards mixed in — these have a special orange border and let you pull off some sneaky moves.\n\nThe House Deck has 24 House cards and 6 Inspection cards shuffled together. Each House card shows a property with a silly name — like Fortune Falls or Trainquility Retreat — along with its point value and the worker costs needed to fix it up. Inspection cards are surprise costs that make houses more expensive to claim.",
+          "id": "whats-in-the-box"
         },
         {
           "title": "Prepare the Decks",
-          "content": "Shuffle the Worker Deck — that's all 108 Worker cards and 8 Boss cards together — and place it face-down in the middle of the table. Leave a spot next to it for a discard pile.\n\nNow shuffle the House Deck — the 24 House cards and 6 Inspection cards — and place it face-down near the Worker Deck."
+          "content": "Shuffle the Worker Deck — that's all 108 Worker cards and 8 Boss cards together — and place it face-down in the middle of the table. Leave a spot next to it for a discard pile.\n\nNow shuffle the House Deck — the 24 House cards and 6 Inspection cards — and place it face-down near the Worker Deck.",
+          "id": "prepare-the-decks"
         },
         {
           "title": "Set Up the Market",
-          "content": "Flip House cards one at a time from the House Deck and lay them face-up in a row. You need exactly three House cards showing — this row is called the Market.\n\nHere's the thing — if you flip an Inspection card instead of a House, don't put it in the Market. Place it face-up in a separate pile next to the Market called the Inspection Pile, then keep flipping until you've got three actual Houses showing.\n\nThe Market is where everyone will be shopping for properties throughout the game."
+          "content": "Flip House cards one at a time from the House Deck and lay them face-up in a row. You need exactly three House cards showing — this row is called the Market.\n\nHere's the thing — if you flip an Inspection card instead of a House, don't put it in the Market. Place it face-up in a separate pile next to the Market called the Inspection Pile, then keep flipping until you've got three actual Houses showing.\n\nThe Market is where everyone will be shopping for properties throughout the game.",
+          "id": "set-up-the-market"
         },
         {
           "title": "Deal and Build Your Crews",
-          "content": "Deal 9 Worker cards face-down to each player. Pick up your hand and look through it.\n\nNow here's the important part — choose 4 non-Boss Worker cards from your hand and place them face-up in four separate piles in front of you. Each pile gets exactly one card for now. These four piles are your Crew piles, and they represent the teams of workers you'll send out to fix up houses.\n\nThe remaining 5 cards stay in your hand.\n\nTake a second to look at your Crew piles. You want a mix of Carpenters, Plumbers, and Electricians if you can manage it, since different houses need different types of workers. But don't stress too much — you'll be adding to these piles throughout the game."
+          "content": "Deal 9 Worker cards face-down to each player. Pick up your hand and look through it.\n\nNow here's the important part — choose 4 non-Boss Worker cards from your hand and place them face-up in four separate piles in front of you. Each pile gets exactly one card for now. These four piles are your Crew piles, and they represent the teams of workers you'll send out to fix up houses.\n\nThe remaining 5 cards stay in your hand.\n\nTake a second to look at your Crew piles. You want a mix of Carpenters, Plumbers, and Electricians if you can manage it, since different houses need different types of workers. But don't stress too much — you'll be adding to these piles throughout the game.",
+          "id": "deal-and-build-your-crews"
         },
         {
           "title": "Ready to Build",
-          "content": "Check the table — you should see the Worker Deck and discard pile in the center, the House Deck nearby, three House cards face-up in the Market, and possibly an Inspection Pile. Each player has 4 Crew piles in front of them and 5 cards in hand.\n\nThe player who most recently built or fixed something in real life goes first. Play moves clockwise from there. Time to start flipping houses!"
+          "content": "Check the table — you should see the Worker Deck and discard pile in the center, the House Deck nearby, three House cards face-up in the Market, and possibly an Inspection Pile. Each player has 4 Crew piles in front of them and 5 cards in hand.\n\nThe player who most recently built or fixed something in real life goes first. Play moves clockwise from there. Time to start flipping houses!",
+          "id": "ready-to-build"
         }
       ]
     },
     "rules": {
-      "label": "Rules",
       "subtopics": [
         {
           "title": "Your Turn — Three Steps",
-          "content": "Every turn follows the same three steps, always in this order: Place, Claim, Draw. Let's walk through each one."
+          "content": "Every turn follows the same three steps, always in this order: Place, Claim, Draw. Let's walk through each one.",
+          "id": "your-turn-—-three-steps"
         },
         {
           "title": "Step 1 — Place",
-          "content": "Pick a Worker card from your hand and play it face-up on top of one of your four Crew piles. That's it — one card, one pile.\n\nYou're building up your crews this way. The key thing to understand is that only the top card of each Crew pile matters when you're claiming a house, so think about which pile you're stacking onto.\n\nDon't have a Worker you want to play? You have two alternatives. You can discard a Worker card from your hand instead — it goes to the Worker discard pile. Or, if you're holding a Boss card, you can play that instead of a regular Worker."
+          "content": "Pick a Worker card from your hand and play it face-up on top of one of your four Crew piles. That's it — one card, one pile.\n\nYou're building up your crews this way. The key thing to understand is that only the top card of each Crew pile matters when you're claiming a house, so think about which pile you're stacking onto.\n\nDon't have a Worker you want to play? You have two alternatives. You can discard a Worker card from your hand instead — it goes to the Worker discard pile. Or, if you're holding a Boss card, you can play that instead of a regular Worker.",
+          "id": "step-1-—-place"
         },
         {
           "title": "Boss Cards",
-          "content": "Boss cards are your power plays. When you play one, you choose one of two abilities.\n\nFirst option — ignore Inspections this turn. If there's an Inspection card sitting on the Inspection pile, you can claim a House without paying that extra cost, and you don't have to take the Inspection card either.\n\nSecond option — swap a crew member. Take the top card from one of your Crew piles and exchange it for the top card of another player's Crew pile. That player can discard a Boss card from their hand to block the swap. But here's where it gets spicy — you can then discard another Boss card to override their block, and they can counter again, back and forth until someone decides to stop.\n\nAfter you've used the Boss card's ability, discard it."
+          "content": "Boss cards are your power plays. When you play one, you choose one of two abilities.\n\nFirst option — ignore Inspections this turn. If there's an Inspection card sitting on the Inspection pile, you can claim a House without paying that extra cost, and you don't have to take the Inspection card either.\n\nSecond option — swap a crew member. Take the top card from one of your Crew piles and exchange it for the top card of another player's Crew pile. That player can discard a Boss card from their hand to block the swap. But here's where it gets spicy — you can then discard another Boss card to override their block, and they can counter again, back and forth until someone decides to stop.\n\nAfter you've used the Boss card's ability, discard it.",
+          "id": "boss-cards"
         },
         {
           "title": "Step 2 — Claim",
-          "content": "Now you get a chance to buy a House from the Market. Look at the three Houses available and check their costs. Each House lists what workers it needs — something like 3 Carpenters, 2 Plumbers, and 1 Electrician.\n\nTo claim a House, you spend Worker cards from the tops of your Crew piles. Only the top card of each pile can be used. The numbers on your Workers need to add up to meet or exceed each worker type the House requires.\n\nFor example, if a House needs 3 Carpenters, you could spend a 1 Carpenter and a 2 Carpenter from the tops of two different Crew piles. All spent Workers get discarded.\n\nOnce you claim a House, keep it next to you — it's part of your portfolio now. Then flip new House cards from the House Deck until there are three Houses in the Market again. If an Inspection card comes up, it goes to the Inspection Pile, and you keep flipping.\n\nYou don't have to claim a House on your turn. Sometimes it's smarter to keep building up your crews."
+          "content": "Now you get a chance to buy a House from the Market. Look at the three Houses available and check their costs. Each House lists what workers it needs — something like 3 Carpenters, 2 Plumbers, and 1 Electrician.\n\nTo claim a House, you spend Worker cards from the tops of your Crew piles. Only the top card of each pile can be used. The numbers on your Workers need to add up to meet or exceed each worker type the House requires.\n\nFor example, if a House needs 3 Carpenters, you could spend a 1 Carpenter and a 2 Carpenter from the tops of two different Crew piles. All spent Workers get discarded.\n\nOnce you claim a House, keep it next to you — it's part of your portfolio now. Then flip new House cards from the House Deck until there are three Houses in the Market again. If an Inspection card comes up, it goes to the Inspection Pile, and you keep flipping.\n\nYou don't have to claim a House on your turn. Sometimes it's smarter to keep building up your crews.",
+          "id": "step-2-—-claim"
         },
         {
           "title": "Inspection Cards",
-          "content": "Inspection cards add surprise costs to house purchases. Whenever one gets flipped from the House Deck, it goes face-up on the Inspection Pile next to the Market.\n\nHere's how they work — the top Inspection card in the pile adds its worker cost to the next House anyone claims. So if the Inspection card shows 1 Electrician and you want to claim a House that already needs 2 Electricians, you'd need to pay 3 Electricians total.\n\nWhen you claim a House with an Inspection card attached, you take the Inspection card too. Keep it with your claimed Houses — Inspection cards are worth points at the end of the game.\n\nHeads up — Inspection costs can stack. If multiple Inspection cards come up before anyone claims a House, only the top one applies to the next purchase. But that top card might already represent a hefty additional cost."
+          "content": "Inspection cards add surprise costs to house purchases. Whenever one gets flipped from the House Deck, it goes face-up on the Inspection Pile next to the Market.\n\nHere's how they work — the top Inspection card in the pile adds its worker cost to the next House anyone claims. So if the Inspection card shows 1 Electrician and you want to claim a House that already needs 2 Electricians, you'd need to pay 3 Electricians total.\n\nWhen you claim a House with an Inspection card attached, you take the Inspection card too. Keep it with your claimed Houses — Inspection cards are worth points at the end of the game.\n\nHeads up — Inspection costs can stack. If multiple Inspection cards come up before anyone claims a House, only the top one applies to the next purchase. But that top card might already represent a hefty additional cost.",
+          "id": "inspection-cards"
         },
         {
           "title": "Step 3 — Draw",
-          "content": "After placing and optionally claiming, draw Worker cards from the deck until you have 5 cards in your hand.\n\nIf the Worker Deck runs out, shuffle the discard pile to make a new deck.\n\nThat's it — your turn is done. The player to your left goes next."
+          "content": "After placing and optionally claiming, draw Worker cards from the deck until you have 5 cards in your hand.\n\nIf the Worker Deck runs out, shuffle the discard pile to make a new deck.\n\nThat's it — your turn is done. The player to your left goes next.",
+          "id": "step-3-—-draw"
         },
         {
           "title": "Trading Workers",
-          "content": "Once per turn, on your turn only, you can offer to trade exactly one Worker card from your hand for exactly one Worker card from another player's hand. You can negotiate openly — \"I'll trade you a 2 Electrician for a 1 Carpenter!\" The other player can accept or decline.\n\nTrading is optional and there are no restrictions on what you offer, but it's always exactly one card for one card."
+          "content": "Once per turn, on your turn only, you can offer to trade exactly one Worker card from your hand for exactly one Worker card from another player's hand. You can negotiate openly — \"I'll trade you a 2 Electrician for a 1 Carpenter!\" The other player can accept or decline.\n\nTrading is optional and there are no restrictions on what you offer, but it's always exactly one card for one card.",
+          "id": "trading-workers"
         },
         {
           "title": "Ending the Game and Scoring",
-          "content": "The game ends when the last House in the Market has been claimed and no more Houses can be flipped.\n\nNow count up your points. Every House card and Inspection card you've claimed has a point value printed on it. Add them all up.\n\nBut here's the big bonus — the player with the most 5-point House and Inspection cards gets a bonus 20 points. That's huge. If two or more players are tied for the most 5-point cards, nobody gets the bonus.\n\nThe player with the most total points wins!"
+          "content": "The game ends when the last House in the Market has been claimed and no more Houses can be flipped.\n\nNow count up your points. Every House card and Inspection card you've claimed has a point value printed on it. Add them all up.\n\nBut here's the big bonus — the player with the most 5-point House and Inspection cards gets a bonus 20 points. That's huge. If two or more players are tied for the most 5-point cards, nobody gets the bonus.\n\nThe player with the most total points wins!",
+          "id": "ending-the-game-and-scoring"
         }
       ]
     },
     "strategy": {
-      "label": "Strategy",
       "subtopics": [
         {
           "title": "Stack Your Crews Wisely",
-          "content": "The most common beginner mistake is spreading your workers too thin across all four Crew piles. Remember, only the top card of each pile matters when you're claiming a House. A pile with a 3 Carpenter on top is far more useful than two piles with 1 Carpenters on top — the first pile gives you 3 Carpenters worth of value from a single pile, leaving your other piles free for other worker types.\n\nWhen you're placing Workers, think about what the Market needs right now. If the best House requires 3 Carpenters and 2 Plumbers, build toward that. Don't spread evenly — stack toward the House you want."
+          "content": "The most common beginner mistake is spreading your workers too thin across all four Crew piles. Remember, only the top card of each pile matters when you're claiming a House. A pile with a 3 Carpenter on top is far more useful than two piles with 1 Carpenters on top — the first pile gives you 3 Carpenters worth of value from a single pile, leaving your other piles free for other worker types.\n\nWhen you're placing Workers, think about what the Market needs right now. If the best House requires 3 Carpenters and 2 Plumbers, build toward that. Don't spread evenly — stack toward the House you want.",
+          "id": "stack-your-crews-wisely"
         },
         {
           "title": "The 5-Point Card Race",
-          "content": "The 20-point bonus for having the most 5-point cards is the single biggest swing in the game. A player with three 5-point Houses and the bonus scores 35 points from those cards alone — that's often enough to win.\n\nKeep count of how many 5-point cards each player has claimed. If you're tied, neither of you gets the bonus. Sometimes it's worth claiming a smaller House just to deny someone else a 5-pointer.\n\nInspection cards can be 5 points too. Picking up an expensive House with an Inspection card might hurt in the short term, but two 5-point cards in one purchase is a massive swing."
+          "content": "The 20-point bonus for having the most 5-point cards is the single biggest swing in the game. A player with three 5-point Houses and the bonus scores 35 points from those cards alone — that's often enough to win.\n\nKeep count of how many 5-point cards each player has claimed. If you're tied, neither of you gets the bonus. Sometimes it's worth claiming a smaller House just to deny someone else a 5-pointer.\n\nInspection cards can be 5 points too. Picking up an expensive House with an Inspection card might hurt in the short term, but two 5-point cards in one purchase is a massive swing.",
+          "id": "the-5-point-card-race"
         },
         {
           "title": "Boss Card Timing",
-          "content": "Don't waste Boss cards early. The ignore-Inspections ability is most powerful when the Inspection pile has stacked up with a heavy cost — letting you grab a great House while everyone else is scared off by the extra expense.\n\nThe crew-swap ability shines when an opponent has built up a perfect top card on one of their piles — a 3 Plumber they've been saving for a big House. Swapping your 1 Plumber for their 3 Plumber right before they can claim is devastating.\n\nSave at least one Boss card for defense too. If someone tries to swap your best crew member, having a Boss card to block them is crucial in the late game."
+          "content": "Don't waste Boss cards early. The ignore-Inspections ability is most powerful when the Inspection pile has stacked up with a heavy cost — letting you grab a great House while everyone else is scared off by the extra expense.\n\nThe crew-swap ability shines when an opponent has built up a perfect top card on one of their piles — a 3 Plumber they've been saving for a big House. Swapping your 1 Plumber for their 3 Plumber right before they can claim is devastating.\n\nSave at least one Boss card for defense too. If someone tries to swap your best crew member, having a Boss card to block them is crucial in the late game.",
+          "id": "boss-card-timing"
         },
         {
           "title": "Watch the Market",
-          "content": "Before you place a Worker, look at what's available in the Market. If there's a House that perfectly matches the workers you already have on top of your piles, claim it this turn instead of building up further.\n\nAlso pay attention to the House Deck. When it starts getting thin, the game is almost over. That's when you should stop stockpiling and start spending — having the best crews in the game doesn't matter if there are no more Houses to claim."
+          "content": "Before you place a Worker, look at what's available in the Market. If there's a House that perfectly matches the workers you already have on top of your piles, claim it this turn instead of building up further.\n\nAlso pay attention to the House Deck. When it starts getting thin, the game is almost over. That's when you should stop stockpiling and start spending — having the best crews in the game doesn't matter if there are no more Houses to claim.",
+          "id": "watch-the-market"
         },
         {
           "title": "Trading is Underrated",
-          "content": "New players often forget they can trade once per turn. Trading a surplus Worker for one you actually need is essentially a free upgrade. If your hand is full of Electricians but you need Carpenters, offer a trade.\n\nBe strategic about it though — don't trade away exactly the Worker type your opponent is collecting. Pay attention to what they're building and what Houses they're eyeing in the Market."
+          "content": "New players often forget they can trade once per turn. Trading a surplus Worker for one you actually need is essentially a free upgrade. If your hand is full of Electricians but you need Carpenters, offer a trade.\n\nBe strategic about it though — don't trade away exactly the Worker type your opponent is collecting. Pay attention to what they're building and what Houses they're eyeing in the Market.",
+          "id": "trading-is-underrated"
         }
       ]
     }
   },
   "rules_citations": {
     "source_url": "https://gochuckle.com/products/house-hounds",
-    "key_rulings": [
+    "rulings": [
       {
         "topic": "Crew Pile Setup",
         "ruling": "During setup, the 4 cards placed into Crew piles must be non-Boss Worker cards. Boss cards must remain in your hand.",
@@ -153,16 +181,5 @@
         "source": "Official Rulebook"
       }
     ]
-  },
-  "total_token_count": 2900,
-  "metadata": {
-    "schema_version": "3.0",
-    "created_by": "barbarian",
-    "created_at": "2026-03-14T00:00:00Z",
-    "validated_by": null,
-    "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": "Publisher-approved game guide for GoChuckle's House Hounds. Sources: official rulebook (HouseHounds_Rulebook.pdf), BGG page, GoChuckle website."
   }
 }
