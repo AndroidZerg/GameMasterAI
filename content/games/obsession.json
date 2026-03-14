@@ -1,92 +1,159 @@
 {
   "game_id": "obsession",
   "title": "Obsession",
-  "aliases": [],
+  "aliases": ["Obsession Board Game", "Obsession 2nd Edition", "Obsession 2E"],
   "publisher": "Kayenta Games",
+  "publisher_tag": "kayenta",
+  "publisher_approved": false,
+  "image": "/images/obsession.jpg",
   "player_count": {
     "min": 1,
     "max": 4,
     "recommended": 3,
-    "expansion_max": null
+    "expansion_max": 6
   },
   "play_time_minutes": {
     "min": 30,
     "max": 90
   },
   "complexity": "midweight",
-  "categories": [
-    "deck-building",
-    "economic",
-    "hand-management",
-    "tile-placement",
-    "worker-placement"
-  ],
-  "source_url": "",
-  "source_verified": false,
+  "categories": ["engine-building", "hand-management", "tile-placement", "worker-placement", "victorian"],
+  "source_url": "https://edp.org/Games/Obsession.pdf",
+  "source_verified": true,
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "3.0",
+    "created_by": "barbarian",
+    "created_at": "2026-03-14T19:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 2,
+    "notes": "Covers base game + Upstairs Downstairs + Wessex expansions. Expansion content clearly marked. Source: official condensed rules (edp.org) verified against BGG rulebook files. BGG ID: 231733, weight: 3.1."
+  },
   "tabs": {
     "setup": {
       "subtopics": [
         {
           "id": "components",
-          "title": "What's in the Box",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "title": "Components",
+          "content": "#### Boards\n- 1 Alderley Hall Board (double-sided: 16-round standard / 20-round extended)\n- 1 Derbyshire Board (Builders' Market, guest decks, servant supply, money)\n- 4 Player Boards (each with reputation wheel, servant areas, activity space, tableau)\n\n#### Tiles\n- 5 Start Improvement Tiles per family (Private Study, Butler's Room, Main Gazebo, Front Parlour, Bowling Green)\n- Improvement Tiles in cloth bag (various prestige levels, categories, and types)\n- Monument Tiles (high-VP tiles added based on player count)\n- Star House, Key House tiles with special abilities\n\n#### Cards\n- 4-5 Family Member Cards per family (husband, wife, son, daughter; Asquith adds Maud)\n- 15 Start Guest Cards (prestige 1, 0 VP, crown symbol)\n- 35 Casual Guest Cards (prestige 1-2, varied VP)\n- 25 Prestige Guest Cards (prestige 3-6, 2-6 VP)\n- 2 Fairchild Guest Cards (purple-framed crest, courtship prizes)\n- 30 Victory Point Cards\n- 10 Theme Cards (determine courtship scoring categories)\n- 30 Objective Cards (secret end-game scoring goals)\n- 4 sets of Reference Cards\n\n#### Servants\n- Starting servants per player: Butler, Housekeeper, Valet, Lady's Maid, Footman\n- Servants For Hire (per player): 1 Valet, 1 Lady's Maid, 2 Footmen\n- 2 Underbutlers (gained with Butler's Pantry)\n\n#### Other\n- Coins (silver £100, gold £500 — unlimited supply)\n- 1 White Round Marker Pawn\n- 1 Purple First-Player Pawn\n- Reminder Tokens (1 per player)\n- Reputation Wheel Counters and Markers\n- 1 Cloth Tile Bag"
         },
         {
-          "id": "player-setup",
-          "title": "Player Setup",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "game-structure",
+          "title": "Game Structure",
+          "content": "#### Overview\nObsession plays over 4 seasons of Victorian social life. Standard play has 16 rounds; extended play has 20. Each season has several ordinary rounds followed by one courtship round.\n\n#### Turn Flow\nEach ordinary round, players take one turn clockwise. You either host an activity (standard turn) or pass. Hosting means choosing a room tile, inviting gentry guests, assigning servants, and collecting rewards. Passing resets your servants and refills your hand.\n\n#### The Servant Engine\nServants cycle through three areas on your player board:\n- **Available Service** — ready to assign\n- **Expended Service** — just used, resting\n- **Servants' Quarters** — recovering, will be available next turn\n\nThis 2-turn cooldown is the core constraint. You never have enough servants, and managing who is available when is the entire puzzle.\n\n#### Reputation\nTracked on a wheel with a main level (1-Max) and an orbiting increment marker. Reputation gates which tiles you can host and which guests you can invite. It also scores VP at game end (escalating: level 1 = 1 VP up to Max = 28+ VP).\n\n#### Courtship\nAt the end of each season, players compete for Fairchild guest cards by having the highest VP in tiles matching the revealed theme category. The final courtship counts all 4 theme categories.\n\n#### Winning\nAfter the final courtship, score: tile VP + gentry VP + objective VP + reputation VP + 2 VP per servant + 1 VP per £200 + VP cards. Most points wins."
         },
         {
-          "id": "starting-conditions",
-          "title": "Starting the Game",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "expansion-components",
+          "title": "Expansion Components",
+          "content": "#### Upstairs, Downstairs Expansion\n**New Family:** Howard (starts with a Cook servant)\n\n**New Servant Types (4):**\n- **Cook** — Central to the Howard family; provides unique hosting options\n- **Hall Boy** — Flexible male servant with supplemental service abilities\n- **Head Housemaid** — Can deputise for any female servant\n- **Useful Man** — Versatile servant adding depth to service decisions\n\n**New Content:**\n- 49 additional guest cards (expanding all guest decks)\n- 5 new improvement tiles (including Business Room, alternate West Terrace)\n- Milestones system\n- Larger courtship cards\n- 3 new game modes: Solo Estate Challenge, Tableau Obsession, Cooperative Obsession\n\n**Player Count:** Enables 5th player; combined with Wessex enables 6th player\n\n**Key New Rules:**\n- Supplemental Service — new servants can provide supplemental service on activities\n- Hiring While Passing — new option to recruit servants when you pass your turn\n- New servant abilities expand the service options and substitute rules\n\n#### Wessex Expansion\n**New Family:** Wessex — starts with a choice between Breakfast Room and Tennis Court (level 2 improvements), giving a larger starting estate\n\n**New Content:**\n- 5 additional Starter Guests\n- 6 additional Casual Guests\n- 5 additional Prestige Guests\n- 6 new solo opponents\n- 2 new improvement tiles (2nd edition): Morning Room, Retiring Room\n\n**Player Count:** Does not enable 5 players alone; requires Upstairs, Downstairs for 5-6 players (Wessex family board needed for 6th player)"
         }
       ]
     },
     "rules": {
       "subtopics": [
         {
-          "id": "turn-structure",
-          "title": "Turn Structure",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "detailed-rules",
+          "title": "Detailed Rules",
+          "content": "#### Standard Turn Flow\n\n**1. Start of Turn Housekeeping**\n- Move servants from Servants' Quarters → Available Service\n- Move servants from Expended Service → Servants' Quarters\n- Process round bonuses (Village Fair, Objective Cards, Monuments, Servants' Hall)\n\n**2. Host Activity**\nChoose an improvement tile with an activity from your tableau. Move it to your Activity space. Your reputation level must ≥ tile's prestige (waived during National Holiday).\n\n**3. Invite Guests**\nPlay gentry cards from your active hand matching the tile's requirements. Your reputation must ≥ each guest's prestige. Family members and Fairchilds are exempt.\n\n**4. Provide Service**\nAssign required servants from Available Service to the tile and cards. Substitutions allowed: Housekeeper for Lady's Maid, Underbutler for Butler/Valet/Footman, Footman for Valet (with Brushing Room).\n\n**5. Enjoy Favors**\nCollect rewards: money, reputation (lion rampant icons), draw guests (fleur-de-lis icons), VP cards, gossip attacks, hire servants (Butler's Room), dismiss guests (optional).\n\n**6. Buy from Builders' Market**\nOptionally buy 1 tile at market price + modifier. Place in proper tableau column. Slide remaining tiles left, draw replacements, sort new tiles by sorting number.\n\n**7. Clear Player Board**\nServants → Expended Service. Tile returns to tableau (black rose: flip to rose; hybrid: flip each use). Gentry → discard pile.\n\n#### Passing\nAll servants → Available (full reset). Discard pile returns to active hand. Gain £200 OR free market refresh. You may still buy tiles.\n\n#### Special Actions (Anytime During Your Turn)\n- Gain £100 for •2 reputation (repeatable)\n- Refresh 1 servant for •3 reputation (repeatable)\n- Refresh Builders' Market for •4 reputation (once per turn)\n- Cannot drop below reputation level 1\n\n#### Courtship\n- Seasons 1-3: highest VP in tiles of current theme category wins → Fairchild card + VP card\n- Ties: no Fairchild awarded\n- Final courtship: VP from all 4 theme categories; ties broken by reputation\n- First-player pawn passes counterclockwise after courtships 1-3\n\n#### Between Seasons\n- Each player discards 1 objective card\n- After courtship 1: Service tiles move to reserve\n- After courtship 2: Prestige-1 tiles move to reserve\n- Refill market after each"
         },
         {
-          "id": "actions",
-          "title": "Actions & Options",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "upstairs-downstairs",
+          "title": "Upstairs, Downstairs Expansion",
+          "content": "#### New Servant Types\nThe expansion adds 4 new servant types with unique abilities:\n\n- **Cook** — Starting servant for the Howard family. Central to many new improvement tile activities. Provides unique service options unavailable to base game servants.\n- **Hall Boy** — A flexible male servant who can provide supplemental service. Adds depth to service assignment decisions.\n- **Head Housemaid** — Can deputise (substitute) for any female servant type. Extremely flexible for activities requiring Lady's Maids or other female staff.\n- **Useful Man** — A versatile servant that expands service options. His flexibility comes with specific rules about when and how he can be deployed.\n\n#### Supplemental Service\nNew tiles and activities may require or allow supplemental service. The new servant types can provide this supplemental service, expanding what you can do during an activity beyond base game requirements.\n\n#### Hiring While Passing\nWhen you pass your turn, you may now hire servants from the Servants For Hire supply. This gives passing an additional strategic dimension beyond the base game's reset + £200/market refresh.\n\n#### New Game Modes\n- **Solo Estate Challenge** — Enhanced solo play variant\n- **Tableau Obsession** — Alternative scoring and play focus\n- **Cooperative Obsession** — Work together against the game\n\n#### Additional Content\n49 new guest cards across all guest types, 5 new improvement tiles, milestone achievements, and larger courtship cards. The Howard family starts with a Cook servant, giving them unique access to Cook-required activities early."
+        },
+        {
+          "id": "wessex",
+          "title": "Wessex Expansion",
+          "content": "#### The Wessex Family\nWessex adds a fifth playable family with a unique advantage: at the start of the game, the Wessex player chooses between a Breakfast Room and a Tennis Court as an additional starting improvement tile. Both are level 2 improvements that other families would need to purchase from the Builders' Market.\n\nThis head start means the Wessex player begins with 6 starting tiles instead of 5, and their extra tile is higher quality than any other family's starting improvements. This advantage is balanced by the other families' unique abilities (Cavendish's higher starting reputation, York's extra servants, Ponsonby's extra money, Asquith's 5th family member, Howard's Cook).\n\n#### Additional Content\n- 5 Starter Guests, 6 Casual Guests, 5 Prestige Guests — expanding the guest decks\n- 6 new solo opponents for extended solo play\n- Morning Room and Retiring Room improvement tiles (2nd edition)\n\n#### Player Count Impact\nWessex alone does not increase the maximum player count. Combined with Upstairs, Downstairs, it enables 6-player games (the Wessex family board is required for the 6th player slot)."
         },
         {
           "id": "endgame",
-          "title": "Endgame & Scoring",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "title": "End of Game & Scoring",
+          "content": "#### Game End\nThe game ends after the Final Courtship (end of season 4). Move the white pawn to the wedding bells icon.\n\n#### Scoring Categories\n\n1. **Tile VP** — White numbers in wreaths at bottom right of each improvement tile in your tableau.\n\n2. **Gentry VP** — Number at top right of each gentry card in your collection (active hand + discard pile).\n\n3. **Objective VP** — Points from completed objective cards meeting their conditions.\n\n4. **Reputation VP** — Based on your reputation level:\n\n| Level | 1 | 2 | 3 | 4 | 5 | 6 | Max |\n|-------|---|---|---|---|---|---|-----|\n| Standard VP | 1 | 3 | 6 | 10 | 15 | 21 | 28 |\n| Extended VP | 1 | 3 | 6 | 10 | 15 | 21 | 28-45 |\n\n5. **Servant VP** — 2 VP per servant, regardless of type.\n\n6. **Money VP** — 1 VP per £200, rounded down.\n\n7. **VP Cards** — Points from held victory point cards.\n\n#### Tiebreakers\n1. Holder of a Fairchild card wins\n2. Highest reputation\n3. Shared victory"
         }
       ]
     },
     "strategy": {
       "subtopics": [
         {
-          "id": "opening-priorities",
-          "title": "Opening Priorities",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### The Servant Economy Is Everything\nObsession's central tension is servant management. With a 2-turn cooldown, you can only use each servant every third turn. Your Butler and Housekeeper are your most critical servants — nearly every activity needs one of them. Prioritize getting more servants early through Butler's Room and Butler's Pantry.\n\n#### Early Game Priorities\n- **Butler's Pantry** should be your top purchase target. It gives you an Underbutler (substitutes for Butler, Valet, or Footman) and is worth VP.\n- **Bowling Green** is your money engine. Use it whenever you need funds for tile purchases.\n- **Main Gazebo** attracts Prestige Guests — your best VP generators at 2-6 VP each.\n- Flip your black rose tiles early. Each tile with a black rose flips once when first used, unlocking its permanent front side.\n\n#### Reputation Timing\nReputation VP scales dramatically: level 3 = 6 VP, level 5 = 15 VP, Max = 28 VP. Climbing reputation is worth it, but don't sacrifice servant availability or tile purchases to gain increments. The best reputation gains come naturally from hosting activities, not from spending actions specifically to climb.\n\n#### Courtship Approach\n- Watch the theme cards closely. Each season's courtship scores tiles in one category.\n- Build tiles in the current theme category to win Fairchild cards (8 VP each at final courtship).\n- Elizabeth Fairchild is generally the stronger choice — she provides access to Prestige Guests.\n\n#### Passing Strategically\nPassing is not a sign of weakness. It resets ALL your servants to Available, returns your discard pile to hand, and gives you £200 or a free market refresh. Time your passes to set up powerful hosting turns.\n\n#### Common Beginner Mistakes\n- Not buying tiles every round — each tile adds VP and capabilities\n- Spending 3 reputation to refresh servants when you could pass instead\n- Ignoring objective cards — they can swing 5-15 VP\n- Hoarding money instead of investing in tiles that score VP\n- Not planning servant assignments 2 turns ahead"
         },
         {
-          "id": "common-mistakes",
-          "title": "Common Mistakes",
-          "content": "PENDING — Awaiting rulebook sourcing."
+          "id": "expansion-strategy",
+          "title": "Expansion Strategy",
+          "content": "#### Upstairs, Downstairs Strategy\nThe new servants change the calculus significantly:\n- **Head Housemaid** is arguably the most powerful new servant — substituting for any female servant eliminates the Lady's Maid bottleneck that constrains base game play.\n- **Hiring while passing** means passing becomes even more strategic. You can reset servants AND hire new ones.\n- The expanded guest deck means more variety in draws — adjust your hosting strategy to the guests you actually receive.\n- With more servant flexibility, you can host more demanding activities earlier in the game.\n\n#### Wessex Family Strategy\nThe Wessex family's extra starting tile (Breakfast Room or Tennis Court) is a genuine advantage:\n- **Breakfast Room** gives early access to hosting activities that would normally require a market purchase.\n- **Tennis Court** similarly opens activity options from turn 1.\n- This head start should be used aggressively — host activities with your bonus tile early before other families catch up with tile purchases.\n\n#### Which Expansion to Add First\nThe community generally recommends **Upstairs, Downstairs first**. It adds the most mechanically (new servant types, supplemental service, hiring while passing) and deepens the core servant management puzzle. Wessex is a simpler addition that just adds a new family and more cards — good for variety but less transformative."
         }
       ]
     }
   },
-  "total_token_count": 0,
-  "extensions": {},
-  "metadata": {
-    "schema_version": "2.0",
-    "created_by": "barbarian",
-    "created_at": "2026-03-05T17:19:12Z",
-    "validated_by": null,
-    "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": "Base JSON from BGG data. BGG rank: 200, rating: 7.7, weight: 3.1"
+  "rules_citations": {
+    "source_url": "https://edp.org/Games/Obsession.pdf",
+    "rulings": [
+      {
+        "topic": "Servant Substitution Rules",
+        "ruling": "When no Lady's Maid is available, a Housekeeper may substitute. For Butler, Valet, or Footman, an Underbutler may substitute. With Brushing Room tile, a Footman may substitute for a Valet.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Reputation and Special Actions",
+        "ruling": "A special action that would decrease your reputation level below 1 is not allowed. You may never go below main level 1, increment 1.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Passing and Market Refresh",
+        "ruling": "When passing, you may refresh the Builders' Market for free (instead of gaining £200). You must refresh for your opportunity to buy, not to eliminate options for other players.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Courtship Ties",
+        "ruling": "In seasons 1-3, if players tie for highest VP in the theme category, nobody takes a Fairchild card. In the final courtship, ties are broken by reputation. If still tied, nobody gets the Fairchild.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Guest Dismissal Timing",
+        "ruling": "Dismissal occurs when clearing your player board, after all other favors are taken. Any guest may be dismissed except family members. You may gain and use multiple dismissal favors on a single turn.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Black Rose vs Hybrid Tiles",
+        "ruling": "Black rose tiles flip once when first used (to their permanent front side). Hybrid tiles (white flower) flip each time they are used, changing their tableau category. Both tile types exist to add variety.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "National Holiday Rounds",
+        "ruling": "During a National Holiday round, reputation does not limit players in their choices of activities and guests. All prestige requirements are waived.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Builders' Holiday Rounds",
+        "ruling": "During a Builders' Holiday round, you may buy as many tiles from the Builders' Market as you can afford, not just one.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Butler's Room: Hiring vs Poaching",
+        "ruling": "With Butler's Room unflipped, take 2 Valets, Lady's Maids, or Footmen from Servants for Hire. With Butler's Room flipped, you may instead take 1 of those types from anywhere on another player's board.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Between-Season Reserve Creation",
+        "ruling": "After courtship 1, all Service tiles move from the market to the Service Tile Reserve. After courtship 2, all prestige-1 tiles move to the PR1 Tile Reserve. Reserves remain available for purchase.",
+        "source": "Official Rulebook"
+      },
+      {
+        "topic": "Upstairs Downstairs: Hiring While Passing",
+        "ruling": "With the Upstairs, Downstairs expansion, when you pass your turn, you may also hire servants from the Servants For Hire supply in addition to the base game passing benefits.",
+        "source": "Upstairs, Downstairs Expansion Rules"
+      },
+      {
+        "topic": "Upstairs Downstairs: Head Housemaid",
+        "ruling": "The Head Housemaid can deputise (substitute) for any female servant type. This makes her extremely flexible for activities requiring Lady's Maids or other female staff.",
+        "source": "Upstairs, Downstairs Expansion Rules"
+      }
+    ]
   }
 }
