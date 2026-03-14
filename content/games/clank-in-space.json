@@ -6,7 +6,10 @@
     "Clank Space",
     "CIS"
   ],
-  "publisher": "Renegade Game Studios",
+  "publisher": "Dire Wolf Digital",
+  "publisher_tag": "dire-wolf",
+  "publisher_approved": false,
+  "image": "/images/clank-in-space.jpg",
   "player_count": {
     "min": 2,
     "max": 4,
@@ -15,95 +18,121 @@
   },
   "play_time_minutes": {
     "min": 60,
-    "max": 90
+    "max": 120
   },
   "complexity": "midweight",
   "categories": [
     "deck-building",
+    "push-your-luck",
     "adventure",
-    "push-your-luck"
+    "science-fiction"
   ],
-  "source_url": "",
-  "source_verified": false,
+  "source_url": "https://cdn.1j1ju.com/medias/4e/e4/76-clank-in-space-rulebook.pdf",
+  "source_verified": true,
+  "total_token_count": 0,
+  "extensions": {},
+  "metadata": {
+    "schema_version": "3.0",
+    "created_by": "barbarian",
+    "created_at": "2026-03-14T22:00:00Z",
+    "validated_by": null,
+    "validated_at": null,
+    "validation_status": "pending",
+    "revision": 2,
+    "notes": "Standalone space-themed Clank. Modular board (6 modules, 3 mandatory + 3 variable double-sided), 3 factions (Outlaw, Resistance, Science), data cube hacking, Lord Eradikus rage track, market items, contraband."
+  },
   "tabs": {
     "setup": {
       "subtopics": [
         {
           "id": "components",
-          "title": "What's in the Box",
-          "content": "#### Board & Modules\n- **1** modular game board (Lord Eradikus's spaceship) — double-sided module tiles that connect together\n- **Command module** (starting area)\n- **Multiple ship modules** with rooms, corridors, and data ports\n\n#### Cards\n- **Starting deck cards** — 10 per player (basic movement, attack, and Stumble cards)\n- **Dungeon/Market deck** — large deck of purchasable cards\n- **Reserve cards** — always available for purchase (basic upgrades)\n- **Boss attack cards** — Lord Eradikus events\n\n#### Tokens & Cubes\n- **Clank cubes** — 30+ per player in their color\n- **Dragon bag** — black cloth bag for Clank resolution\n- **Black Clank cubes** — added to bag, harmless when drawn\n- **Artifact tokens** — worth varying VP\n- **Secret tokens** — face-down bonus VP scattered on the board\n- **Credit tokens** — currency for purchasing cards\n- **Health cubes** — track player damage\n- **Hack tokens** — required to hack command posts\n- **Key tokens** — open locked passages\n\n#### Player Components\n- **Player pawns** — 1 per player\n- **Backpack boards** — optional, for organizing tokens"
+          "title": "Components",
+          "content": "#### Board & Modules\n- **6 modular board pieces** — 3 mandatory (Cargo Bay, Command Module, Corridor) + 3 variable double-sided modules\n- Board assembles differently each game for unique layouts\n\n#### Cards\n- **4 starting decks** of 10 cards each (6 Hack, 1 Access, 2 Stumble, 1 Scramble)\n- **100 adventure cards** — the main deck for market row purchases and enemies\n- **Reserve cards** — 3 always-available piles: Boldly Go, Memory Core, Fazerblade\n\n#### Tokens & Cubes\n- **120 Clank cubes** — 30 per player in 4 colors\n- **24 black cubes** — neutral cubes for the boss bag\n- **Boss bag** — black cloth bag for Clank resolution\n- **8 data cubes** — 2 per player in matching colors\n- **6 artifact tokens** — worth 5 to 30 VP\n- **11 major secrets** and **28 minor secrets** — face-down bonus tokens\n- **Command code tokens** — earned by hacking both data ports\n- **Bounty hunter cubes** — placed on rage track\n- **Blockade token** — blocks hyperlift access when Eradikus reaches final rage\n\n#### Market Board\n- **4 market item types** — Master Key, TelePass, Med Kit, Contraband (7 credits each)\n- 2 of each for 3-4 players, 1 of each for 2 players\n\n#### Player Components\n- **1 pawn** per player\n- **Health track** on player board — 10 health points\n- **Boss marker** — tracks Lord Eradikus's rage level"
         },
         {
-          "id": "board-layout",
-          "title": "Board Layout",
-          "content": "1. **Assemble the ship** — Connect module tiles as shown in the scenario setup. The command module is at the top.\n2. **Place artifacts** — Put artifact tokens on designated spaces throughout the ship. Higher-value artifacts are deeper in the ship.\n3. **Place secrets** — Put face-down secret tokens on marked spaces.\n4. **Market row** — Deal 6 cards from the dungeon deck face-up as the market row.\n5. **Reserve cards** — Place always-available reserve piles nearby.\n6. **Dragon bag** — Put 24 black cubes in the dragon bag.\n7. **Data ports** — Mark the hackable command post locations on the board.\n8. **Escape pods** — Located near the command module. You must reach one to escape.\n9. **Bounty hunter track** — Lord Eradikus's threat track along the side."
-        },
-        {
-          "id": "player-setup",
-          "title": "Player Setup",
-          "content": "#### Each Player Receives\n- **10 starting deck cards** — 6 basic cards, 2 Stumble cards (generate Clank), and 2 other starter cards\n- **30 Clank cubes** in their player color\n- **1 player pawn** — place in the starting area (command module cargo bay)\n- **Hack token** — start with 0\n\n#### Starting Area\n- All players begin in the cargo bay area of the command module.\n- No artifacts or secrets are accessible from the start — you must venture deeper into the ship.\n\n#### Shuffle & Draw\n- Shuffle your 10-card starting deck and draw 5 cards as your opening hand."
-        },
-        {
-          "id": "starting-conditions",
-          "title": "Starting the Game",
-          "content": "- **Starting hand** — Draw 5 cards from your shuffled deck.\n- **Objective** — Steal an artifact from deep in the ship and escape via an escape pod.\n- **No Clank at start** — Your Clank area starts empty.\n- **Market available** — 6 market cards plus reserve piles are ready for purchase.\n- **Lord Eradikus** — The boss has not attacked yet. Boss attacks occur when specific cards appear in the market row.\n- **First player** — Chosen randomly. Play proceeds clockwise."
+          "id": "game-structure",
+          "title": "Game Structure",
+          "content": "#### Overview\nClank! In! Space! is a deck-building adventure where 2-4 players sneak aboard Lord Eradikus's spaceship to steal valuable artifacts. You build your deck by purchasing cards, navigate a modular board, hack data ports, and race to escape before Lord Eradikus catches you.\n\n#### Core Loop\nEach turn you play 5 cards from your hand, generating four resources: **Skill** (buy cards), **Swords** (fight enemies), **Boots** (move through the ship), and **Clank** (noise that endangers you). After spending resources, discard and draw 5 new cards.\n\n#### Win Condition\nSteal an artifact from the Command Module, hack both data ports to earn a command code, and escape via an escape pod in the Cargo Bay. The player with the most victory points from artifacts, secrets, credits, cards, and the 20-point escape bonus wins.\n\n#### Key Differences from Original Clank!\n- **Modular board** — ship layout changes every game\n- **3 factions** — Outlaw, Resistance, Science with combo card effects\n- **Data cube hacking** — place your cubes on data ports for bonuses and command codes\n- **Market items** — Master Key, TelePass, Med Kit, Contraband purchased with credits\n- **Hyperlifts and Telepads** — additional movement options with restrictions\n- **Bounty hunters and blockade** — escalation on the rage track"
         }
       ]
     },
     "rules": {
       "subtopics": [
         {
-          "id": "turn-structure",
-          "title": "Turn Structure",
-          "content": "On your turn:\n\n1. **Play cards** — Play all 5 cards from your hand (or choose not to play some).\n2. **Generate resources** — Cards produce **Skill** (currency to buy cards), **Swords** (attack), **Boots** (movement), and sometimes **Clank** (noise).\n3. **Add Clank** — For each Clank symbol on played cards, add one of your colored cubes to the Clank area on the board.\n4. **Spend resources** — Use Boots to move through the ship, Swords to fight enemies on the board, Skill to buy cards from the market.\n5. **Collect tokens** — Pick up artifacts, secrets, credits, or hack tokens from your current room.\n6. **Refill market** — Replace purchased cards from the dungeon deck.\n7. **Boss attacks** — If a Boss attack card is revealed when refilling the market, resolve an attack.\n8. **Discard & Draw** — Discard all played cards and draw 5 new cards."
-        },
-        {
-          "id": "actions",
-          "title": "Actions & Options",
-          "content": "#### Movement\n- Spend **Boot icons** to move between connected rooms.\n- Some passages are **locked** — require a Key token.\n- Some passages are **one-way** or require hacking a data port first.\n- **Teleport pads** — Some rooms have teleporters for quick travel.\n\n#### Combat\n- Some rooms contain **enemies** blocking the path.\n- Spend **Sword icons** equal to the enemy's strength to defeat them and gain rewards.\n\n#### Buying Cards\n- Spend **Skill** to purchase cards from the market row or reserve piles.\n- Purchased cards go to your discard pile (available next shuffle).\n- Better cards provide more resources, less Clank, and special abilities.\n\n#### Hacking\n- **Command posts** on the board must be hacked to progress through certain areas.\n- You must hack at least **2 command posts** before you can enter the escape pod area.\n- Hacking requires being on the data port space and spending a hack action.\n\n#### Artifacts\n- Artifacts are the primary objective. Each has a VP value.\n- You can only carry **1 artifact**.\n- Artifacts deeper in the ship are worth more VP but are harder to reach and escape from."
-        },
-        {
-          "id": "special-mechanics",
-          "title": "Special Mechanics",
-          "content": "#### Clank Mechanic\n- Cards with Clank icons force you to add your colored cubes to the **Clank area**.\n- When a **Boss Attack** triggers, all cubes in the Clank area are dumped into the **dragon bag** along with new black cubes.\n- Cubes are drawn from the bag: **your color = 1 damage per cube drawn**. Black cubes are safe.\n- If you take **too much damage**, you are knocked out.\n\n#### Boss Attacks (Lord Eradikus)\n- Triggered when certain cards appear in the market row.\n- The attack intensity **escalates** as players pick up artifacts.\n- More cubes are drawn as the game progresses.\n- After the first player escapes, Eradikus attacks become automatic each round.\n\n#### Knocked Out\n- If you are knocked out **inside the escape pod area**, you still score (rescued by allies).\n- If knocked out **deep in the ship**, you score nothing — your artifact and secrets are lost.\n- This is the core push-your-luck tension: go deeper for better artifacts but risk not escaping.\n\n#### Escape Pods\n- To win, you must grab an artifact, hack at least 2 data ports, and reach an escape pod.\n- Once you escape, you are safe from further boss attacks.\n- The first player to escape triggers accelerated boss attacks for remaining players."
+          "id": "detailed-rules",
+          "title": "Detailed Rules",
+          "content": "#### Turn Structure\n1. **Play cards** — Play all 5 cards from your hand, generating Skill, Swords, Boots, and Clank\n2. **Add Clank** — Place Clank cubes from personal supply to Clank area on board\n3. **Spend resources** — Use Boots to move, Swords to fight, Skill to buy cards\n4. **Collect tokens** — Pick up artifacts, secrets, or credits from your space\n5. **Refill market** — Replace bought/defeated cards; boss attack symbols trigger attacks\n6. **Discard and draw** — Discard hand, draw 5 new cards\n\n#### Movement\n- Each Boot moves 1 connection between spaces\n- **Footprint icons** — require 2 Boots to cross\n- **Sword paths** — require spending a Sword to pass through\n- **Locked passages** — require a Master Key (market item, 7 credits)\n- **Security checkpoints** — force you to stop movement\n- **Hyperlifts** — connect central ship spaces; using one causes dizziness (no more Boots that turn)\n- **Telepads** — require TelePass token (market item); using one causes dizziness\n\n#### Buying Cards\n- Spend Skill equal to card cost to add it to your discard pile\n- Buy from the 6-card market row or 3 reserve piles (Boldly Go, Memory Core, Fazerblade)\n- Multiple purchases allowed per turn\n- Reserve piles never run out\n\n#### Combat\n- **Market enemies** (red banner) — spend Swords equal to strength, gain reward, enemy leaves game\n- Enemies do NOT enter your deck\n\n#### Hacking Data Ports\n- 2 data ports exist in different ship modules\n- When on a data port space, place 1 of your 2 data cubes on it\n- Receive the bonus or penalty shown on the space\n- After placing both data cubes, receive a **command code token**\n- Command code is required to enter the Command Module (where artifacts are)\n- Hacking advances the Boss Marker on the rage track\n\n#### Faction System\n- 3 factions: **Outlaw**, **Resistance**, **Science**\n- Cards may have faction icons\n- Playing a card with a faction icon activates faction bonus text on other cards of that faction played the same turn\n- Example: Monkey Bot 30000 normally adds 3 Clank, but with a Science faction combo gets -3 Clank instead\n\n#### Market Items (7 credits each)\n- **Master Key** — opens locked passages permanently\n- **TelePass** — allows use of telepads\n- **Med Kit** — immediately heal 2 damage\n- **Contraband** — worth VP at end of game\n- May buy multiple items per turn (but not more than 1 of the same item)\n\n#### Secrets\n- **Major secrets** — spaceship plans (7 VP), sixth crystal (3 VP per power crystal), sonic grenades (opponents add 3 Clank each), health boosts, credit chips, brilliance flashes\n- **Minor secrets** — speed boosts, combat boosts, multipass (activates all faction text), vaporizer (trash a card), archives (3 VP but advance boss marker)\n- Picking up a secret does not end your movement"
         },
         {
           "id": "endgame",
-          "title": "Endgame & Scoring",
-          "content": "#### Triggering the End\n- The game ends when **all players** have either escaped or been knocked out.\n- After the first escape, remaining players face increasingly dangerous boss attacks.\n\n#### Final Scoring (only if you escaped or were knocked out in the escape area)\n- **Artifact** — VP value of your artifact (5-35 VP range).\n- **Secret tokens** — Flip and score face-down secrets collected.\n- **Credits** — Remaining credits convert to VP.\n- **Market cards** — Many purchased cards have VP printed on them.\n\n#### Eliminated Players\n- If knocked out deep in the ship (not near escape pods), you score **0 points**.\n\n#### Winner\nHighest total VP wins. Tiebreaker: player who escaped first."
+          "title": "End of Game & Scoring",
+          "content": "#### Clank & Boss Attacks\n- Cards with Clank icons add your colored cubes to the Clank area\n- **Boss attacks trigger** when adventure row refill reveals a boss attack symbol\n- All Clank area cubes dump into the boss bag\n- Draw cubes equal to current rage track position — your color = 1 damage\n- Black cubes are safe and returned to the bag\n\n#### Rage Track Escalation\n- Boss Marker advances when players hack data ports and steal artifacts\n- When Boss Marker reaches **bounty hunter cubes**, they are dispatched to the Clank area as red cubes that deal damage to ALL players each attack\n- When Boss Marker reaches the **final red zone**, the blockade token blocks hyperlift access to the Cargo Bay\n\n#### Escape\n- Requirements: carrying an artifact + command code token + reach escape pod in Cargo Bay\n- Escaping earns **20 bonus VP**\n- First escape or knockout triggers accelerated attacks — 4 cubes pulled per eliminated/escaped player each turn\n\n#### Knocked Out\n- 10 total damage = knocked out\n- **In the Cargo Bay with an artifact** — rescued by allies, score points (no 20 VP escape bonus)\n- **Deep in the ship or without artifact** — score **0 points**, everything lost\n\n#### Final Scoring (escaped or rescued only)\n- Artifact VP (5-30)\n- Secret token VP\n- Credits (1 VP each)\n- Card VP from purchased cards in your deck\n- Escape bonus (20 VP if escaped via pod)\n- **Tiebreaker:** most valuable artifact"
         }
       ]
     },
     "strategy": {
       "subtopics": [
         {
-          "id": "opening-priorities",
-          "title": "Opening Priorities",
-          "content": "- **Buy efficient cards early** — Cards that give Boots and Skill with no Clank are premium purchases.\n- **Thin your deck** — Remove or avoid playing Stumble cards. Trashing weak cards makes your deck more consistent.\n- **Plan your route** — Look at artifact placement and plan which data ports to hack on the way.\n- **Don't rush too deep** — Build your deck for 3-4 turns before venturing into dangerous territory."
-        },
-        {
-          "id": "common-mistakes",
-          "title": "Common Mistakes",
-          "content": "- **Going too deep without an escape plan** — The deepest artifacts are worth more, but if you can't escape, you score 0.\n- **Ignoring Clank management** — Every Clank cube in the bag is a chance to take damage. Minimize unnecessary noise.\n- **Not hacking enough** — You must hack 2 data ports minimum. Don't forget this requirement.\n- **Buying too many expensive cards** — Expensive cards clog your deck if you don't have enough skill generation.\n- **Waiting too long to grab an artifact** — Once someone escapes, attacks accelerate. Have your artifact before that happens."
-        },
-        {
-          "id": "key-decisions",
-          "title": "Key Decisions",
-          "content": "- **Which artifact to target** — Higher value = deeper and more dangerous. Balance risk and reward.\n- **When to turn back** — Every turn deeper makes escape harder. Know when to pivot.\n- **Card purchasing** — Movement cards vs. attack cards vs. VP cards vs. Clank-free cards.\n- **Secret token collection** — Worth detouring for secrets? They can be very valuable or mediocre.\n- **Timing your escape** — Escaping first triggers pressure on opponents, which is strategically powerful."
+          "id": "beginner-strategy",
+          "title": "Beginner Strategy",
+          "content": "#### Route Planning\nBefore your first move, scan the board for three things: where the 2 data ports are, where the artifacts are in the Command Module, and where the escape pods are in the Cargo Bay. Plan a rough loop that hits both data ports on the way to the artifacts and passes near an escape pod on the way back. Teleport pads and hyperlifts are shortcuts — factor them into your route.\n\n#### When to Turn Back\nThis is the most important decision in the game. A good rule: grab your artifact when you still have at least 5 health remaining. Below 5 health, head for an escape pod immediately. A 20-point artifact you escape with is worth more than a 30-point artifact that gets you knocked out (which scores 0). Watch other players — if someone is close to escaping, the countdown is about to start.\n\n#### Card Priorities\n- **Boldly Go** (reserve) — Boots + Skill in one card, excellent early buy\n- **Boot cards** — movement is king; you need Boots to reach data ports, artifacts, and escape\n- **Trash effects** — removing Stumble cards improves every future draw\n- **Faction combos** — cards like Monkey Bot 30000 flip from liability to asset with the right faction pairing\n- **Avoid** buying expensive cards late that won't cycle into your hand before the game ends\n\n#### Clank Management\nMinimize Clank in the early game when the bag has few cubes and yours will be drawn often. Your 2 Stumble cards are pure liability — trash them whenever possible. In the late game near an escape pod, generating Clank matters less since you're about to leave. Time your noisiest turns for right before you escape.\n\n#### Hacking Strategy\nHack data ports on the way in, not on the way back. Backtracking to hack ports wastes precious turns while boss attacks keep coming. Each hack gives you a bonus or penalty and advances the Boss Marker, so be aware of the rage track position before you hack.\n\n#### Market Items\nMaster Key opens locked shortcuts. TelePass enables telepads for fast movement. Med Kit heals 2 damage, potentially saving you from knockout. Contraband is pure VP. Prioritize Master Key and TelePass early if your planned route needs them; Med Kit is great insurance mid-game.\n\n#### Common Mistakes\n- Diving deep without hacking data ports first (forces backtracking)\n- Ignoring the Boss Marker position on the rage track\n- Buying cards you don't need just because you have Skill\n- Forgetting that first escape triggers accelerated attacks for everyone\n- Not buying movement cards early enough"
         }
       ]
     }
   },
-  "total_token_count": 0,
-  "extensions": {},
-  "metadata": {
-    "schema_version": "2.0",
-    "created_by": "barbarian",
-    "created_at": "2026-02-24T00:00:00Z",
-    "validated_by": null,
-    "validated_at": null,
-    "validation_status": "pending",
-    "revision": 1,
-    "notes": ""
+  "rules_citations": {
+    "source_url": "https://cdn.1j1ju.com/medias/4e/e4/76-clank-in-space-rulebook.pdf",
+    "rulings": [
+      {
+        "topic": "Picking Up Secrets and Movement",
+        "ruling": "Picking up a secret token does not end your movement for the turn. If you still have Boots or teleport ability, you may keep moving after collecting a secret.",
+        "source": "Official FAQ"
+      },
+      {
+        "topic": "Dizziness from Telepads and Hyperlifts",
+        "ruling": "Using either a Telepad or a Hyperlift causes dizziness — you cannot use any Boots for the remainder of that turn after teleporting or using a hyperlift.",
+        "source": "Official FAQ"
+      },
+      {
+        "topic": "Market Item Purchases",
+        "ruling": "Buying from the Market is an action. You may buy more than one item per turn if you have the credits, but not more than one of the same item type in a single turn.",
+        "source": "Official FAQ"
+      },
+      {
+        "topic": "Command Code Requirement",
+        "ruling": "You must hack both data ports and receive a command code token before you can enter the Command Module where artifacts are located. Without a command code, you cannot access artifacts.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Faction Card Activation",
+        "ruling": "Playing a card with a faction icon (Outlaw, Resistance, Science) activates the faction bonus text on other cards of that same faction played during the same turn. Each faction bonus activates at most once per turn.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Knocked Out Location Matters",
+        "ruling": "If knocked out in the Cargo Bay with an artifact, you are rescued and still score your points (but no 20 VP escape bonus). If knocked out anywhere else or without an artifact, you score 0 points for the entire game.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Bounty Hunters on Rage Track",
+        "ruling": "Bounty hunter cubes sit on the rage track. When the Boss Marker reaches them, they are dispatched to the Clank area as red cubes. Once in the bag, red bounty hunter cubes deal 1 damage to ALL players (not just one) each time they are drawn.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Blockade Token",
+        "ruling": "When the Boss Marker reaches the final red zone on the rage track, the blockade token is placed on the hyperlift connecting to the Cargo Bay, blocking that route. Players must find alternate paths to escape.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Escape Pod Bonus",
+        "ruling": "A player who reaches an escape pod in the Cargo Bay while carrying an artifact and holding a command code earns 20 bonus victory points in addition to all other scoring.",
+        "source": "Rulebook"
+      },
+      {
+        "topic": "Data Cube Placement",
+        "ruling": "Each player receives 2 data cubes. You place one data cube per data port space when you are on that space. You receive the bonus or penalty shown immediately. After placing both cubes, you receive a command code token.",
+        "source": "Rulebook"
+      }
+    ]
   }
 }
