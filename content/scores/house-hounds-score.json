@@ -1,0 +1,9 @@
+{
+  "game_id": "house-hounds",
+  "scoring_type": "calculator",
+  "categories": [
+    {"id": "house_points", "label": "House Card Points", "points_each": 1, "type": "manual", "description": "Sum of point values on all claimed House cards"},
+    {"id": "inspection_points", "label": "Inspection Card Points", "points_each": 1, "type": "manual", "description": "Sum of point values on all claimed Inspection cards"},
+    {"id": "five_point_bonus", "label": "5-Point Card Bonus", "points_each": 20, "type": "count", "description": "20 points if you have the most 5-point House and Inspection cards (0 if tied)"}
+  ]
+}
