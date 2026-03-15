@@ -322,7 +322,7 @@ Separate from step images. Goes at `content/images/{game_id}.jpg` (not in subdir
 
 ---
 
-## 5. SCORE CONFIGS — `content/scores/{game_id}.json`
+## 5. SCORE CONFIGS — `content/scores/{game_id}-score.json`
 
 Every score config must include the calculator scoring type, win condition, tiebreaker, and detailed scoring categories with point values and calculation types.
 

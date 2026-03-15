@@ -232,7 +232,7 @@ This is the main content effort. Create `content/teaching/{GAME_ID}.json`:
 
 ## PHASE 7: CREATE SCORE CONFIG
 
-Create `content/scores/{GAME_ID}.json` with calculator scoring. Read the rulebook's endgame scoring section and create one category per scoring method.
+Create `content/scores/{GAME_ID}-score.json` with calculator scoring. Read the rulebook's endgame scoring section and create one category per scoring method.
 
 ```json
 {{
