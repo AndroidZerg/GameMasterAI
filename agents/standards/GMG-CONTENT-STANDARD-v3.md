@@ -1,4 +1,4 @@
-# GAMEMASTER GUIDE — Content Standard v3.0
+# GAMEMASTER GUIDE — Content Standard v3.1
 ## The Wingspan Standard
 ## Last Updated: March 14, 2026
 
@@ -324,15 +324,115 @@ Separate from step images. Goes at `content/images/{game_id}.jpg` (not in subdir
 
 ## 5. SCORE CONFIGS — `content/scores/{game_id}.json`
 
+Every score config must include the calculator scoring type, win condition, tiebreaker, and detailed scoring categories with point values and calculation types.
+
+### Full Format
+
+```json
+{
+  "game_id": "obsession",
+  "title": "Obsession",
+  "scoring_type": "calculator",
+  "win_condition": "Highest total VP wins",
+  "tiebreaker": "Most remaining money breaks ties",
+  "categories": [
+    {
+      "id": "tile-vp",
+      "label": "Tile VP",
+      "type": "manual",
+      "description": "Sum VP values printed on all tiles in your estate"
+    },
+    {
+      "id": "servant-vp",
+      "label": "Servant VP",
+      "type": "count",
+      "points_each": 2,
+      "description": "2 VP per servant in your service"
+    },
+    {
+      "id": "money-vp",
+      "label": "Money VP",
+      "type": "count",
+      "points_each": 1,
+      "description": "1 VP per £1 remaining"
+    },
+    {
+      "id": "reputation-vp",
+      "label": "Reputation VP",
+      "type": "lookup",
+      "lookup_table": "Lvl 1→1 · 2→3 · 3→6 · 4→10 · 5→15 · 6→21 · Max→28",
+      "description": "VP based on reputation track position"
+    },
+    {
+      "id": "objective-vp",
+      "label": "Objective VP",
+      "type": "manual",
+      "description": "VP from completed objective cards"
+    }
+  ],
+  "min_players": 1,
+  "max_players": 4,
+  "default_players": 3
+}
+```
+
+### Score Type Categories
+
+Every `categories` entry must have `id`, `label`, `type`, and `description`. Additional fields depend on the type:
+
+| Type | What It Does | Required Fields | Frontend Behavior |
+|------|-------------|-----------------|-------------------|
+| `manual` | Player enters their VP total directly | `description` | Text input, description shown as helper |
+| `count` | Player enters a COUNT, app multiplies by points_each | `points_each`, `description` | Shows "x{N} pts each", displays calculated VP below input |
+| `lookup` | Player looks up their position on a reference table | `lookup_table`, `description` | Shows the lookup table as helper text |
+
+### Calculator Features (Built Into ScoreTab.jsx)
+
+The frontend supports math expressions in all score cells:
+- Type `3+5+2+1` → evaluates to `11` on blur
+- Supports `+`, `-`, `*`, `/`, and parentheses
+- For `count` types: enter the count (e.g., `7` servants), the app shows `= 14 VP` below
+
+### Rules for Writing Score Configs
+
+1. **Use the game's actual endgame scoring breakdown.** Read the rulebook's scoring section and create one category per scoring category.
+2. **Always set `scoring_type: "calculator"`** and include `win_condition` and `tiebreaker`.
+3. **Use `count` type whenever there's a per-unit multiplier** (2 VP per worker, 1 VP per coin, 3 VP per completed set). Set `points_each` to the multiplier.
+4. **Use `lookup` type for non-linear scoring** (reputation tracks, area majority tables). Include the full lookup table as a string.
+5. **Use `manual` type for variable VP** (tiles with printed values, cards with different VP amounts). The description should explain what to sum.
+6. **Include ALL scoring categories.** Don't combine "tiles + cards" into one field. Players need to enter each category separately for the calculator to work.
+7. **Description text appears as helper** — write it as a quick reference for the player at the table: "2 VP per servant in your service" not "Points from servants."
+
+### Example: Gateway Game (Simpler)
+
 ```json
 {
   "game_id": "hasty-baker",
   "title": "Hasty Baker",
-  "score_types": [
+  "scoring_type": "calculator",
+  "win_condition": "Most points wins",
+  "tiebreaker": "Player with fewer remaining cards wins",
+  "categories": [
     {
       "id": "recipes",
       "label": "Completed Recipes",
+      "type": "count",
+      "points_each": 1,
       "description": "1 point per completed recipe card"
+    },
+    {
+      "id": "blue-ribbons",
+      "label": "Blue Ribbon Cards",
+      "type": "count",
+      "points_each": 1,
+      "description": "1 point per blue ribbon card earned"
+    },
+    {
+      "id": "double-batch",
+      "label": "Double Batch Cards",
+      "type": "count",
+      "points_each": 1,
+      "description": "1 point per double batch card"
     }
   ],
   "min_players": 2,
@@ -404,7 +504,7 @@ Final setup step confirms what their area should look like.
 | 16 | TTS-friendly | No abbreviations or markdown in walkthrough text |
 | 17 | Summary concise | Bullets action-oriented, no filler |
 | 18 | Rules citations | `rulings` array with 5+ entries |
-| 19 | Score config exists | Matches game's actual scoring |
+| 19 | Score config complete | Has `scoring_type: "calculator"`, `win_condition`, `tiebreaker`, and `categories` array with correct `type` and `points_each` where applicable |
 | 20 | No invented rules | Traces to official rulebook |
 | 21 | Images referenced correctly | Filenames in teaching JSON exist on disk |
 | 22 | Cover art exists | `content/images/{game_id}.jpg` present |

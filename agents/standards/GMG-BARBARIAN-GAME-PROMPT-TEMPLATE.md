@@ -232,14 +232,35 @@ This is the main content effort. Create `content/teaching/{GAME_ID}.json`:
 
 ## PHASE 7: CREATE SCORE CONFIG
 
-Create `content/scores/{GAME_ID}.json`:
+Create `content/scores/{GAME_ID}.json` with calculator scoring. Read the rulebook's endgame scoring section and create one category per scoring method.
 
 ```json
 {{
   "game_id": "{GAME_ID}",
   "title": "{GAME_TITLE}",
-  "score_types": [
-    {{ "id": "category-id", "label": "Display Label", "description": "What this scores" }}
+  "scoring_type": "calculator",
+  "win_condition": "Most victory points wins",
+  "tiebreaker": "Describe the tiebreaker rule from the rulebook",
+  "categories": [
+    {{
+      "id": "example-manual",
+      "label": "Tile VP",
+      "type": "manual",
+      "description": "Sum VP printed on each tile you own"
+    }},
+    {{
+      "id": "example-count",
+      "label": "Worker VP",
+      "type": "count",
+      "points_each": 2,
+      "description": "2 pts per worker"
+    }},
+    {{
+      "id": "example-lookup",
+      "label": "Reputation VP",
+      "type": "manual",
+      "description": "Lvl 1→1 · 2→3 · 3→6 · 4→10 · 5→15"
+    }}
   ],
   "min_players": N,
   "max_players": N,
@@ -247,7 +268,18 @@ Create `content/scores/{GAME_ID}.json`:
 }}
 ```
 
-Match the game's actual endgame scoring categories from the rulebook.
+### Category Type Rules
+
+| Type | When to Use | Required Fields |
+|------|-------------|-----------------|
+| `manual` | Variable VP (tiles, cards with different values) | `description` explains what to sum |
+| `count` | Per-unit multiplier (2 VP per worker, 1 VP per coin) | `points_each` — the multiplier |
+
+- **Use `count`** whenever the rulebook says "X points per Y" — set `points_each` to X. The frontend auto-multiplies and shows "= N VP" below the input.
+- **Use `manual`** for variable VP or lookup tables. Put the lookup table in `description` (e.g., "Lvl 1→1 · 2→3 · 3→6").
+- **Include ALL scoring categories separately.** Don't combine "tiles + cards" into one field.
+- **`description` is shown as helper text** at the table — write it as quick reference: "2 pts per servant" not "Points from servants."
+- The frontend supports math expressions in all cells (e.g., type `3+5+2+1` → evaluates to `11`).
 
 ---
 
