@@ -10,6 +10,19 @@ const PLAYER_COLORS = [
 ];
 const STICKY_BG = "#1a1a2e";
 
+/* ── Safe math expression evaluator ──────────────────────── */
+function evalMath(str) {
+  const s = String(str).replace(/[^0-9+\-*/.() ]/g, "").trim();
+  if (!s || !/\d/.test(s)) return NaN;
+  try {
+    // eslint-disable-next-line no-new-func
+    const r = new Function('"use strict"; return (' + s + ")")();
+    return typeof r === "number" && isFinite(r) ? Math.round(r) : NaN;
+  } catch {
+    return NaN;
+  }
+}
+
 /* ── localStorage helpers ──────────────────────────────────── */
 function loadSaved(key) {
   try { return JSON.parse(localStorage.getItem(key)); } catch { return null; }
@@ -252,6 +265,7 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
   const [rows, setRows] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [scores, setScores] = useState({});
+  const [rawInputs, setRawInputs] = useState({});
   const [showTotal, setShowTotal] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [showEndConfirm, setShowEndConfirm] = useState(false);
@@ -424,8 +438,15 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
 
   const getTotal = (pid) => {
     let total = 0;
+    const cats = scoreConfig?.categories;
     for (let i = 0; i < rows.length; i++) {
-      total += Number((scores[`row_${i}`] || {})[pid]) || 0;
+      const raw = Number((scores[`row_${i}`] || {})[pid]) || 0;
+      const cat = cats?.[i];
+      if (cat?.type === "count" && cat?.points_each) {
+        total += raw * cat.points_each;
+      } else {
+        total += raw;
+      }
     }
     return total;
   };
@@ -495,6 +516,34 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
       const rowIdx = rows.indexOf(rowKey);
       EventTracker.track('score_updated', gameId, { player_count: players.length, round_number: rowIdx >= 0 ? rowIdx + 1 : rows.length });
     }, 2000);
+  };
+
+  /* ── Calculator input helpers ────────────────────────────── */
+  const handleCalcChange = (rowKey, pid, text) => {
+    setRawInputs((prev) => ({
+      ...prev,
+      [rowKey]: { ...(prev[rowKey] || {}), [pid]: text },
+    }));
+    const num = evalMath(text);
+    if (!isNaN(num)) {
+      handleScoreChange(rowKey, pid, num);
+    } else if (text === "" || text === "-") {
+      handleScoreChange(rowKey, pid, "");
+    }
+  };
+
+  const handleCalcBlur = (rowKey, pid) => {
+    const raw = rawInputs?.[rowKey]?.[pid];
+    if (raw !== undefined && raw !== "") {
+      const num = evalMath(raw);
+      if (!isNaN(num)) {
+        setRawInputs((prev) => ({
+          ...prev,
+          [rowKey]: { ...(prev[rowKey] || {}), [pid]: String(num) },
+        }));
+        handleScoreChange(rowKey, pid, num);
+      }
+    }
   };
 
   /* ── Row management ──────────────────────────────────────── */
@@ -841,6 +890,8 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
           <tbody>
             {rows.map((rowLabel, rIdx) => {
               const rowKey = `row_${rIdx}`;
+              const cat = scoreConfig?.categories?.[rIdx];
+              const isCount = cat?.type === "count" && cat?.points_each;
               return (
                 <tr key={rIdx}>
                   <td
@@ -866,16 +917,32 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
                           borderRadius: "6px", padding: "4px 8px", color: "var(--text-primary)", outline: "none",
                         }}
                       />
-                    ) : rowLabel}
+                    ) : (
+                      <>
+                        {rowLabel}
+                        {cat?.description && (
+                          <div style={{
+                            fontSize: "0.65rem", color: isCount ? "var(--accent)" : "var(--text-secondary)",
+                            fontWeight: 400, marginTop: "2px", lineHeight: 1.3,
+                          }}>
+                            {isCount ? `\u00d7${cat.points_each} pts each` : cat.description}
+                          </div>
+                        )}
+                      </>
+                    )}
                   </td>
                   {players.map((player) => {
                     const val = (scores[rowKey] || {})[player.id];
+                    const numVal = Number(val) || 0;
+                    const displayVal = rawInputs?.[rowKey]?.[player.id] ?? (val === undefined || val === "" ? "" : String(val));
                     return (
                       <td key={player.id} style={{ padding: "6px 4px", borderBottom: "1px solid var(--border)", textAlign: "center" }}>
                         <input
-                          type="number" inputMode="numeric" pattern="[0-9]*"
-                          value={val === undefined || val === "" ? "" : val}
-                          onChange={(e) => handleScoreChange(rowKey, player.id, e.target.value)}
+                          type="text" inputMode="numeric"
+                          value={displayVal}
+                          onChange={(e) => handleCalcChange(rowKey, player.id, e.target.value)}
+                          onBlur={() => handleCalcBlur(rowKey, player.id)}
+                          placeholder={isCount ? "#" : ""}
                           autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
                           data-form-type="other" data-lpignore="true"
                           style={{
@@ -885,6 +952,14 @@ export default function ScoreTab({ gameId, gameTitle, playerCount, timerRunning,
                             background: "var(--bg-primary)", color: "var(--text-primary)", outline: "none",
                           }}
                         />
+                        {isCount && numVal > 0 && (
+                          <div style={{
+                            fontSize: "0.65rem", color: "var(--accent)",
+                            marginTop: "2px", fontFamily: "monospace",
+                          }}>
+                            = {numVal * cat.points_each}
+                          </div>
+                        )}
                       </td>
                     );
                   })}
