@@ -52,6 +52,44 @@ class SignupRequest(BaseModel):
     email: str
 
 
+@router.get("/diag")
+async def auth_diag():
+    """Temporary diagnostic endpoint — returns Turso/venues health."""
+    results = {}
+    # Step 1: raw analytics db
+    try:
+        from app.services.turso import get_analytics_db
+        db = get_analytics_db()
+        row = db.execute("SELECT COUNT(*) FROM venues").fetchone()
+        results["raw_venues_count"] = row[0] if row else "no row"
+    except Exception as e:
+        results["raw_venues_error"] = f"{type(e).__name__}: {e}"
+    # Step 2: venues db wrapper
+    try:
+        from app.services.turso import get_venues_db
+        vdb = get_venues_db()
+        row2 = vdb.execute("SELECT venue_id, email, role FROM venues WHERE venue_id = 'admin'").fetchone()
+        results["venues_db_admin"] = dict(row2) if row2 else "not found"
+    except Exception as e:
+        results["venues_db_error"] = f"{type(e).__name__}: {e}"
+    # Step 3: model layer
+    try:
+        v = get_venue_by_id("admin")
+        results["model_admin"] = {"venue_id": v["venue_id"], "role": v.get("role")} if v else "not found"
+    except Exception as e:
+        results["model_error"] = f"{type(e).__name__}: {e}"
+    # Step 4: password verify
+    try:
+        v = get_venue_by_id("admin")
+        if v:
+            results["password_ok"] = verify_password("watress2", v["password_hash"])
+        else:
+            results["password_ok"] = "no admin venue"
+    except Exception as e:
+        results["password_error"] = f"{type(e).__name__}: {e}"
+    return results
+
+
 @router.post("/login")
 async def login(req: LoginRequest):
     """Authenticate with email/password. Returns JWT token."""
