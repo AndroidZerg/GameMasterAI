@@ -11,8 +11,7 @@ from typing import Optional
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel
-from slowapi import Limiter
-from slowapi.util import get_remote_address
+from app.core.limiter import limiter
 
 from app.core.auth import hash_password, verify_password, create_token, get_current_venue
 from app.models.venues import (
@@ -30,7 +29,6 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
-limiter = Limiter(key_func=get_remote_address)
 
 # Convention accounts expire March 22, 2026 at 11:59:59 PM Pacific
 CONVENTION_EXPIRY = "2026-03-22T23:59:59-08:00"
@@ -50,44 +48,6 @@ class RegisterRequest(BaseModel):
 
 class SignupRequest(BaseModel):
     email: str
-
-
-@router.get("/diag")
-async def auth_diag():
-    """Temporary diagnostic endpoint — returns Turso/venues health."""
-    results = {}
-    # Step 1: raw analytics db
-    try:
-        from app.services.turso import get_analytics_db
-        db = get_analytics_db()
-        row = db.execute("SELECT COUNT(*) FROM venues").fetchone()
-        results["raw_venues_count"] = row[0] if row else "no row"
-    except Exception as e:
-        results["raw_venues_error"] = f"{type(e).__name__}: {e}"
-    # Step 2: venues db wrapper
-    try:
-        from app.services.turso import get_venues_db
-        vdb = get_venues_db()
-        row2 = vdb.execute("SELECT venue_id, email, role FROM venues WHERE venue_id = 'admin'").fetchone()
-        results["venues_db_admin"] = dict(row2) if row2 else "not found"
-    except Exception as e:
-        results["venues_db_error"] = f"{type(e).__name__}: {e}"
-    # Step 3: model layer
-    try:
-        v = get_venue_by_id("admin")
-        results["model_admin"] = {"venue_id": v["venue_id"], "role": v.get("role")} if v else "not found"
-    except Exception as e:
-        results["model_error"] = f"{type(e).__name__}: {e}"
-    # Step 4: password verify
-    try:
-        v = get_venue_by_id("admin")
-        if v:
-            results["password_ok"] = verify_password("watress2", v["password_hash"])
-        else:
-            results["password_ok"] = "no admin venue"
-    except Exception as e:
-        results["password_error"] = f"{type(e).__name__}: {e}"
-    return results
 
 
 @router.post("/login")

@@ -8,20 +8,42 @@ _connection = None
 
 
 class _LibsqlCompat:
-    """Thin wrapper around a libsql connection that auto-converts params to tuples.
+    """Thin wrapper around a libsql connection that auto-converts params to tuples
+    and auto-reconnects on stale connections.
 
     libsql_experimental requires parameters as tuples, but sqlite3 accepts both
     lists and tuples. This wrapper normalises params so callers don't need to care.
     """
 
-    def __init__(self, conn):
+    def __init__(self, conn, url=None, token=None):
         self._conn = conn
+        self._url = url
+        self._token = token
+
+    def _reconnect(self):
+        if self._url and self._token:
+            import libsql_experimental as libsql
+            self._conn = libsql.connect(self._url, auth_token=self._token)
+            logger.warning("Turso connection re-established after stale connection")
 
     def execute(self, sql, params=()):
-        return self._conn.execute(sql, tuple(params) if params else ())
+        try:
+            return self._conn.execute(sql, tuple(params) if params else ())
+        except Exception:
+            if not self._url:
+                raise  # Local SQLite — don't retry
+            logger.warning(f"Turso execute failed, reconnecting...")
+            self._reconnect()
+            return self._conn.execute(sql, tuple(params) if params else ())
 
     def commit(self):
-        return self._conn.commit()
+        try:
+            return self._conn.commit()
+        except Exception:
+            if not self._url:
+                raise
+            self._reconnect()
+            return self._conn.commit()
 
     def close(self):
         return self._conn.close()
@@ -41,7 +63,7 @@ def get_analytics_db():
     if url and token:
         import libsql_experimental as libsql
         raw = libsql.connect(url, auth_token=token)
-        _connection = _LibsqlCompat(raw)
+        _connection = _LibsqlCompat(raw, url=url, token=token)
         logger.info(f"Connected to Turso: {url[:40]}...")
     else:
         # Local fallback — regular SQLite file
