@@ -70,7 +70,7 @@ from app.models.venues import (
     init_venues_table, init_venue_collections_table,
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
 )
-from app.models.game import search_limited_library, search_convention_library, search_by_publisher_tag
+from app.models.game import search_limited_library, search_by_publisher_tag
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
