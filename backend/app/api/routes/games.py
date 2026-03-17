@@ -1,4 +1,4 @@
-"""Game listing, search, detail, price, categories, filter, expansions, featured, and reload endpoints."""
+"""Game listing, search, detail, price, categories, filter, expansions, featured, reload endpoints."""
 
 import json
 from pathlib import Path
