@@ -1131,7 +1131,7 @@ export default function GameSelector() {
       </div>
 
       {/* Stonemaier partner banner — convention and stonemaier accounts only */}
-      {(role === "stonemaier" || role === "convention") && (
+      {role === "stonemaier" && (
         <div style={{
           background: "linear-gradient(135deg, #0d4f4f 0%, #1a6b6b 100%)",
           borderRadius: "12px",

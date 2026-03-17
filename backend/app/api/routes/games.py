@@ -7,7 +7,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.auth import get_optional_venue
-from app.models.game import search_games, search_limited_library, search_convention_library, search_by_publisher_tag, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
+from app.models.game import search_games, search_limited_library, search_by_publisher_tag, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection
@@ -60,8 +60,6 @@ async def list_games(
         results = [g for g in results if g["game_id"] in coll_set]
     elif role == "stonemaier":
         results = search_by_publisher_tag("stonemaier", search=search, complexity=complexity)
-    elif role == "convention":
-        results = search_convention_library(search=search, complexity=complexity)
     elif role == "demo":
         results = search_limited_library(search=search, complexity=complexity)
     else:
