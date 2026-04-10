@@ -43,7 +43,8 @@ async def get_venue_logo(filename: str):
     filepath = _VENUE_LOGOS_DIR / filename
     if not filepath.exists():
         raise HTTPException(status_code=404, detail="Logo not found")
-    return FileResponse(filepath, media_type="image/png")
+    return FileResponse(filepath, media_type="image/png",
+                        headers={"Cache-Control": "public, max-age=86400, stale-while-revalidate=3600"})
 
 
 @router.get("/images/menu/{filename}")
@@ -58,7 +59,7 @@ async def get_menu_image(filename: str):
     media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
              "webp": "image/webp"}.get(suffix.lstrip("."), "image/jpeg")
     return FileResponse(filepath, media_type=media,
-                        headers={"Cache-Control": "public, max-age=86400"})
+                        headers={"Cache-Control": "public, max-age=86400, stale-while-revalidate=3600"})
 
 
 @router.get("/images/{game_id}/{filename}")
@@ -74,7 +75,8 @@ async def get_step_image(game_id: str, filename: str):
     suffix = filepath.suffix.lower()
     media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
              "webp": "image/webp", "gif": "image/gif"}.get(suffix.lstrip("."), "image/jpeg")
-    return FileResponse(filepath, media_type=media)
+    return FileResponse(filepath, media_type=media,
+                        headers={"Cache-Control": "public, max-age=86400, stale-while-revalidate=3600"})
 
 
 @router.get("/images/{filename}")
@@ -97,4 +99,5 @@ async def get_image(filename: str):
     suffix = filepath.suffix.lower()
     media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
              "webp": "image/webp", "gif": "image/gif", "avif": "image/avif"}.get(suffix.lstrip("."), "image/jpeg")
-    return FileResponse(filepath, media_type=media)
+    return FileResponse(filepath, media_type=media,
+                        headers={"Cache-Control": "public, max-age=86400, stale-while-revalidate=3600"})

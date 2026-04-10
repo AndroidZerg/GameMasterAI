@@ -1013,6 +1013,53 @@ export default function GameTeacher() {
     };
   }, [gameId]);
 
+  // Preload ALL teaching step images + cover art in the background so that
+  // when the user clicks "Start from beginning" every step shows instantly.
+  // Browser caches the images (24h Cache-Control), so revisits are instant too.
+  useEffect(() => {
+    if (!gameData) return;
+    const gid = gameData.game_id || gameId;
+    if (!gid) return;
+
+    // Cover art
+    const coverImg = new Image();
+    coverImg.src = `${API_BASE}/api/images/${gid}.jpg`;
+
+    // All step images across every teaching section
+    const teachingSections = gameData.teaching || {};
+    const stepImages = [];
+    for (const section of Object.values(teachingSections)) {
+      if (!section) continue;
+      const walkthrough = section.walkthrough;
+      if (Array.isArray(walkthrough)) {
+        for (const step of walkthrough) {
+          if (step?.image) {
+            stepImages.push(`${API_BASE}/api/images/${gid}/${step.image}`);
+          }
+        }
+      }
+      // Practice-tutorial legacy scenarios format
+      if (Array.isArray(section.scenarios)) {
+        for (const scenario of section.scenarios) {
+          if (Array.isArray(scenario?.walkthrough)) {
+            for (const step of scenario.walkthrough) {
+              if (step?.image) {
+                stepImages.push(`${API_BASE}/api/images/${gid}/${step.image}`);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Kick off preload via Image() constructor — browser fetches and caches,
+    // without rendering. Safe to unmount mid-load; browser finishes the fetch.
+    for (const src of stepImages) {
+      const img = new Image();
+      img.src = src;
+    }
+  }, [gameData, gameId]);
+
   // Timer interval
   useEffect(() => {
     if (timerRunning) {

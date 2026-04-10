@@ -133,6 +133,7 @@ function GameOfTheDay({ game, onClick }) {
         {!imgError && (
           <img
             src={imgSrc} alt={game.title} onError={handleImgError}
+            decoding="async"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         )}
@@ -268,6 +269,10 @@ function GameCard({ game, onClick, small }) {
             <img
               src={imgSrc}
               alt=""
+              loading="lazy"
+              decoding="async"
+              width={200}
+              height={200}
               style={{
                 position: "absolute",
                 top: 0, left: 0,
@@ -282,6 +287,10 @@ function GameCard({ game, onClick, small }) {
             <img
               src={imgSrc}
               alt={game.title}
+              loading="lazy"
+              decoding="async"
+              width={200}
+              height={200}
               onError={handleImgError}
               onLoad={() => setImgLoading(false)}
               style={{
@@ -781,6 +790,10 @@ function RentalModal({ game, onClose }) {
               <img
                 src={`${API_BASE}/api/images/${game.game_id}.jpg`}
                 alt={game.title}
+                loading="lazy"
+                decoding="async"
+                width={64}
+                height={64}
                 onError={(e) => { e.target.style.display = "none"; }}
                 style={{
                   width: "64px", height: "64px", borderRadius: "10px",
