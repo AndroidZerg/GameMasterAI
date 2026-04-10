@@ -78,13 +78,10 @@ from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
 from app.models.orders import init_orders_table, init_print_queue_tables
-from app.services.turso import init_analytics_tables as init_turso_analytics
-from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory, match_shopify_inventory
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_cover_art_tables
 
 # ── Deploy metadata (set once at module load) ───────────────────
 def _get_commit_hash() -> str:
@@ -126,35 +123,17 @@ async def lifespan(app: FastAPI):
     init_orders_table()
     init_print_queue_tables()
     init_rental_tables()
-    init_turso_analytics()
     init_device_session_tables()
     run_venue_platform_migrations()
     init_marketplace_tables()
 
-    # Venues + signups + home_config + admin_config are canonical in Supabase
-    # (Wave 1 + Wave 1.5). All venue reads/writes go through venue_service.py;
-    # the legacy Turso ``venues`` / ``venue_collections`` tables have been
-    # fully retired. Turso is still used for Wave-2 operational tables:
-    # drink_club, menus, SWP rentals, cover art, analytics events.
-    init_drink_club_tables()
-    init_menu_tables()
-    init_swp_rental_tables()
-    init_cover_art_tables()
+    # Wave 2 (2026-04-10): Turso retired. All operational tables
+    # (analytics, drink_club, menus, SWP rentals, cover art, Thai House orders)
+    # now live in Supabase Postgres via the supabase_pg_shim compat layer.
+    # Routes import from app.services.turso unchanged — it re-exports the shim.
 
     # Home config (GOTD + Staff Picks) — Supabase admin_config
     seed_home_config_if_empty()
-
-    seed_swp_rental_inventory()
-    match_shopify_inventory()
-
-    # Auto-seed menu from JSON if tables are empty
-    try:
-        _mdb = get_menu_db()
-        _menu_count = _mdb.execute("SELECT COUNT(*) FROM menu_items").fetchone()[0]
-        if _menu_count == 0:
-            seed_menu_from_json()
-    except Exception as e:
-        print(f"[GMAI] Menu auto-seed skipped: {e}")
 
     # Seed venue accounts (Shall We Play? + system accounts)
     pw_hash = hash_password("gmg2026")

@@ -1,1011 +1,114 @@
-"""Turso (libsql) connection manager for analytics and drink club."""
-import os
+"""Legacy Turso module — now a thin delegator over the Supabase PG shim.
+
+Wave 2 of the Turso→Supabase consolidation (2026-04-10) removed libsql from
+the backend entirely. Every helper in this module now routes through
+``app.services.supabase_pg_shim``, which speaks sqlite3's cursor API on top
+of a single Supabase ``exec_sql`` RPC.
+
+Callers that still import ``get_analytics_db`` / ``get_drink_club_db`` /
+``get_menu_db`` / ``get_swp_rental_db`` keep working unchanged — they just
+get a Postgres-backed connection instead of a libsql one.
+
+The ``init_*`` and ``seed_*`` functions are kept as no-ops so existing
+``main.py`` lifespan calls don't need to be removed in lockstep.
+"""
+
+from __future__ import annotations
+
 import logging
+from typing import Any
+
+from app.services.supabase_pg_shim import (
+    SupabasePGShim,
+    get_pg_db,
+    get_next_order_number_rpc,
+)
 
 logger = logging.getLogger(__name__)
 
-_connection = None
+
+# ── Connection getters (all share the same singleton shim) ──────
+
+def get_analytics_db() -> SupabasePGShim:
+    return get_pg_db()
 
 
-class _LibsqlCompat:
-    """Thin wrapper around a libsql connection that auto-converts params to tuples
-    and auto-reconnects on stale connections.
+def get_drink_club_db() -> SupabasePGShim:
+    return get_pg_db()
 
-    libsql_experimental requires parameters as tuples, but sqlite3 accepts both
-    lists and tuples. This wrapper normalises params so callers don't need to care.
+
+def get_menu_db() -> SupabasePGShim:
+    return get_pg_db()
+
+
+def get_swp_rental_db() -> SupabasePGShim:
+    return get_pg_db()
+
+
+# ── Order counter (atomic via dedicated RPC) ────────────────────
+
+def get_next_order_number(venue_id: str = "meetup") -> int:
+    """Atomically increment and return the next order number for a venue.
+
+    Backed by the ``increment_order_number(text)`` RPC on Supabase — safe
+    across concurrent web workers because the increment happens inside the
+    database, not in application code.
     """
+    return get_next_order_number_rpc(venue_id)
 
-    def __init__(self, conn, url=None, token=None):
-        self._conn = conn
-        self._url = url
-        self._token = token
 
-    def _reconnect(self):
-        if self._url and self._token:
-            import libsql_experimental as libsql
-            self._conn = libsql.connect(self._url, auth_token=self._token)
-            logger.warning("Turso connection re-established after stale connection")
-
-    def execute(self, sql, params=()):
-        try:
-            return self._conn.execute(sql, tuple(params) if params else ())
-        except Exception:
-            if not self._url:
-                raise  # Local SQLite — don't retry
-            logger.warning(f"Turso execute failed, reconnecting...")
-            self._reconnect()
-            return self._conn.execute(sql, tuple(params) if params else ())
-
-    def commit(self):
-        try:
-            return self._conn.commit()
-        except Exception:
-            if not self._url:
-                raise
-            self._reconnect()
-            return self._conn.commit()
-
-    def close(self):
-        return self._conn.close()
-
-    def __getattr__(self, name):
-        return getattr(self._conn, name)
-
-
-def get_analytics_db():
-    global _connection
-    if _connection is not None:
-        return _connection
-
-    url = os.getenv("TURSO_DATABASE_URL", "")
-    token = os.getenv("TURSO_AUTH_TOKEN", "")
-
-    if url and token:
-        import libsql_experimental as libsql
-        raw = libsql.connect(url, auth_token=token)
-        _connection = _LibsqlCompat(raw, url=url, token=token)
-        logger.info(f"Connected to Turso: {url[:40]}...")
-    else:
-        # Local fallback — regular SQLite file
-        import sqlite3
-        os.makedirs("data", exist_ok=True)
-        _connection = sqlite3.connect("data/analytics.db", check_same_thread=False)
-        logger.warning("No Turso credentials — using local SQLite for analytics")
-
-    return _connection
-
-
-def init_analytics_tables():
-    db = get_analytics_db()
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_type TEXT NOT NULL,
-            venue_id TEXT NOT NULL DEFAULT 'demo',
-            device_id TEXT NOT NULL,
-            session_id TEXT,
-            game_id TEXT,
-            timestamp TEXT NOT NULL,
-            payload TEXT NOT NULL DEFAULT '{}'
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_events_venue_date ON events(venue_id, timestamp)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_events_session ON events(session_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_events_type_venue ON events(event_type, venue_id, timestamp)")
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS feedback (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            session_id TEXT NOT NULL,
-            venue_id TEXT NOT NULL,
-            device_id TEXT NOT NULL,
-            game_id TEXT NOT NULL,
-            player_name TEXT,
-            game_rating INTEGER NOT NULL,
-            ai_helpfulness_overall INTEGER NOT NULL,
-            would_use_again BOOLEAN NOT NULL,
-            played_before BOOLEAN,
-            helpful_setup INTEGER,
-            helpful_rules INTEGER,
-            helpful_strategy INTEGER,
-            helpful_scoring INTEGER,
-            feedback_text TEXT,
-            submitted_at TEXT NOT NULL
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_feedback_venue ON feedback(venue_id, submitted_at)")
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS daily_rollups (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL,
-            date TEXT NOT NULL,
-            total_sessions INTEGER DEFAULT 0,
-            unique_devices INTEGER DEFAULT 0,
-            total_questions INTEGER DEFAULT 0,
-            avg_game_rating REAL,
-            avg_ai_rating REAL,
-            top_game_id TEXT,
-            top_game_sessions INTEGER DEFAULT 0,
-            completion_rate REAL,
-            error_count INTEGER DEFAULT 0
-        )
-    """)
-    db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_rollups_venue_date ON daily_rollups(venue_id, date)")
-
-    # ── Device tracking ──
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS devices (
-            device_id TEXT PRIMARY KEY,
-            device_name TEXT,
-            platform TEXT,
-            screen_resolution TEXT,
-            user_agent TEXT,
-            venue_id TEXT,
-            first_seen_at TEXT,
-            last_seen_at TEXT,
-            visit_count INTEGER DEFAULT 1,
-            total_sessions INTEGER DEFAULT 0,
-            total_events INTEGER DEFAULT 0
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_devices_venue ON devices(venue_id)")
-
-    # ── Session tracking ──
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS sessions (
-            session_id TEXT PRIMARY KEY,
-            device_id TEXT NOT NULL,
-            venue_id TEXT,
-            started_at TEXT,
-            ended_at TEXT,
-            duration_seconds INTEGER,
-            games_viewed INTEGER DEFAULT 0,
-            games_played INTEGER DEFAULT 0,
-            questions_asked INTEGER DEFAULT 0,
-            orders_placed INTEGER DEFAULT 0,
-            tts_uses INTEGER DEFAULT 0,
-            voice_inputs INTEGER DEFAULT 0,
-            pages_visited TEXT
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_sessions_device ON sessions(device_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_sessions_venue ON sessions(venue_id)")
-
-    # ── Device names (player names associated with devices) ──
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS device_names (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            device_id TEXT NOT NULL,
-            name TEXT NOT NULL,
-            session_id TEXT,
-            seen_at TEXT
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_device_names_device ON device_names(device_id)")
-
-    # ── Additional indexes on events table ──
-    db.execute("CREATE INDEX IF NOT EXISTS idx_events_device ON events(device_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_events_game ON events(game_id)")
-
-    db.commit()
-    logger.info("Analytics tables initialized")
-
-
-def get_drink_club_db():
-    """Return the shared Turso connection for drink club tables.
-
-    Reuses the same Turso database as analytics — no need for a separate DB.
-    """
-    return get_analytics_db()
-
-
-def init_drink_club_tables():
-    """Create drink_subscribers and drink_redemptions tables in Turso."""
-    db = get_drink_club_db()
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS drink_subscribers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL UNIQUE,
-            phone TEXT,
-            stripe_customer_id TEXT,
-            stripe_subscription_id TEXT,
-            subscription_status TEXT DEFAULT 'inactive',
-            qr_code TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS drink_redemptions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subscriber_id INTEGER NOT NULL,
-            redeemed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            redeemed_by TEXT,
-            drink_name TEXT,
-            week_start TEXT NOT NULL,
-            FOREIGN KEY (subscriber_id) REFERENCES drink_subscribers(id),
-            UNIQUE(subscriber_id, week_start)
-        )
-    """)
-    db.execute("""
-        CREATE INDEX IF NOT EXISTS idx_drink_subscribers_phone
-        ON drink_subscribers(phone)
-    """)
-    db.commit()
-
-    # Seed Gershon as manual subscriber if not already present
-    existing = db.execute(
-        "SELECT id FROM drink_subscribers WHERE phone = '7029185658'"
-    ).fetchone()
-    if not existing:
-        import secrets
-        db.execute(
-            """INSERT INTO drink_subscribers
-               (name, email, phone, stripe_customer_id, subscription_status, qr_code, created_at, updated_at)
-               VALUES (?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))""",
-            ("Gershon", "", "7029185658", "manual_entry", "active", secrets.token_urlsafe(16)),
-        )
-        db.commit()
-        logger.info("Seeded Gershon as drink club subscriber")
-
-    logger.info("Drink club tables initialized")
-
-
-def get_menu_db():
-    """Return the shared Turso connection for menu/floor/loyalty/orders tables."""
-    return get_analytics_db()
-
-
-def _seed_beverage_menu(db):
-    """Migrate old Beverages category to new drink categories with toppings/sweetness."""
-    import json as _json
-    import re
-
-    # Check if migration already ran (look for new category)
-    existing = db.execute(
-        "SELECT id FROM menu_categories WHERE name = 'Traditional Thai Drinks'"
-    ).fetchone()
-    if existing:
-        return  # already migrated
-
-    logger.info("Running beverage menu migration...")
-
-    def _slugify(name):
-        s = name.lower()
-        s = re.sub(r"[^a-z0-9]+", "-", s)
-        return s.strip("-")
-
-    # 1. Create drink toggles
-    db.execute(
-        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
-        ("drink-temp", "Temperature", 1,
-         _json.dumps([{"name": "Iced", "upcharge": 0}, {"name": "Frappe", "upcharge": 0.70}]),
-         10, 0)
-    )
-    db.execute(
-        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
-        ("sweetness", "Sweetness", 0,
-         _json.dumps([
-             {"name": "25%", "upcharge": 0}, {"name": "50%", "upcharge": 0},
-             {"name": "75%", "upcharge": 0}, {"name": "100%", "upcharge": 0},
-         ]),
-         11, 0)
-    )
-    db.execute(
-        "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order, multi_select) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
-        ("toppings", "Toppings", 0,
-         _json.dumps([
-             {"name": "Boba", "upcharge": 0.35},
-             {"name": "Lychee Jelly", "upcharge": 0.35},
-             {"name": "Fresh Strawberries", "upcharge": 0.35},
-             {"name": "Fresh Mango", "upcharge": 0.35},
-         ]),
-         12, 1)
-    )
-
-    # 2. Delete old Beverages category and its items
-    old_bev = db.execute("SELECT id FROM menu_categories WHERE name = 'Beverages'").fetchone()
-    if old_bev:
-        db.execute("DELETE FROM menu_items WHERE category_id = ?", (old_bev[0],))
-        db.execute("DELETE FROM menu_categories WHERE id = ?", (old_bev[0],))
-
-    # 3. Determine sort_order for new categories (after existing food categories)
-    max_sort = db.execute("SELECT COALESCE(MAX(sort_order), 0) FROM menu_categories").fetchone()[0]
-
-    # 4. Create new drink categories and items
-    drink_categories = [
-        ("Traditional Thai Drinks", "\U0001F375", [
-            ("Thai Iced Coffee", 5.25, ["drink-temp", "sweetness", "toppings"]),
-            ("Thai Iced Tea", 5.25, ["drink-temp", "sweetness", "toppings"]),
-            ("Black Milk Tea", 5.25, ["drink-temp", "sweetness", "toppings"]),
-        ]),
-        ("Matcha", "\U0001F35B", [
-            ("Matcha Iced", 5.50, ["sweetness", "toppings"]),
-            ("Matcha Frappe", 5.75, ["sweetness", "toppings"]),
-            ("Chocolate Chip Matcha Frappe", 5.95, ["sweetness", "toppings"]),
-            ("Matcha Milk Strawberry", 6.25, ["sweetness", "toppings"]),
-            ("Strawberry Matcha Frappe", 6.25, ["sweetness", "toppings"]),
-        ]),
-        ("Milk Tea", "\U0001F95B", [
-            ("Mango Milk Tea", 5.25, ["sweetness", "toppings"]),
-            ("Taro Milk Tea", 5.25, ["sweetness", "toppings"]),
-            ("Banana Milk Tea", 5.25, ["sweetness", "toppings"]),
-            ("Strawberry Milk Tea", 5.25, ["sweetness", "toppings"]),
-            ("Honeydew Milk Tea", 5.25, ["sweetness", "toppings"]),
-            ("Watermelon Milk Tea", 5.25, ["sweetness", "toppings"]),
-        ]),
-        ("Smoothies", "\U0001F353", [
-            ("Strawberry Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Watermelon Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Mango Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Taro Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Coconut Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Banana Smoothie", 5.25, ["sweetness", "toppings"]),
-            ("Honeydew Smoothie", 5.25, ["sweetness", "toppings"]),
-        ]),
-        ("Fruit Teas", "\U0001F34A", [
-            ("Strawberry Fruit Tea", 5.75, ["sweetness", "toppings"]),
-            ("Mango Fruit Tea", 5.75, ["sweetness", "toppings"]),
-            ("Strawberry Tajin Fruit Tea", 5.75, ["sweetness", "toppings"]),
-        ]),
-        ("Specialty", "\U00002728", [
-            ("Butterfly Lychee Soda", 5.50, ["sweetness", "toppings"]),
-        ]),
-    ]
-
-    for cat_idx, (cat_name, icon, items) in enumerate(drink_categories):
-        sort = max_sort + 1 + cat_idx
-        db.execute(
-            "INSERT INTO menu_categories (name, icon, sort_order) VALUES (?, ?, ?)",
-            (cat_name, icon, sort)
-        )
-        cat_row = db.execute("SELECT id FROM menu_categories WHERE name = ?", (cat_name,)).fetchone()
-        cat_id = cat_row[0]
-
-        for item_idx, (name, price, toggles) in enumerate(items):
-            slug = _slugify(name)
-            db.execute(
-                """INSERT OR IGNORE INTO menu_items
-                   (slug, category_id, name, description, price, image, toggles,
-                    allows_modifications, active, sort_order)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (slug, cat_id, name, "", price, None,
-                 _json.dumps(toggles), 1, 1, item_idx)
-            )
-
-    db.commit()
-    item_count = sum(len(items) for _, _, items in drink_categories)
-    logger.info(f"Beverage menu migrated: 6 categories, {item_count} items, 3 toggles (drink-temp, sweetness, toppings)")
-
-
-def init_menu_tables():
-    """Create menu, floor plan, loyalty, and venue order tables in Turso."""
-    db = get_menu_db()
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS menu_toggles (
-            id TEXT PRIMARY KEY,
-            name TEXT NOT NULL,
-            required INTEGER DEFAULT 1,
-            options TEXT NOT NULL,
-            sort_order INTEGER DEFAULT 0
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS menu_categories (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL UNIQUE,
-            icon TEXT DEFAULT '',
-            sort_order INTEGER DEFAULT 0
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS menu_items (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            slug TEXT NOT NULL UNIQUE,
-            category_id INTEGER NOT NULL,
-            name TEXT NOT NULL,
-            description TEXT DEFAULT '',
-            price REAL NOT NULL,
-            image TEXT,
-            toggles TEXT DEFAULT '[]',
-            allows_modifications INTEGER DEFAULT 1,
-            active INTEGER DEFAULT 1,
-            sort_order INTEGER DEFAULT 0,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (category_id) REFERENCES menu_categories(id)
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS floor_tables (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            num INTEGER NOT NULL,
-            x REAL NOT NULL,
-            y REAL NOT NULL,
-            w REAL DEFAULT 90,
-            h REAL DEFAULT 50,
-            type TEXT DEFAULT 'table',
-            seats INTEGER DEFAULT 4,
-            label TEXT DEFAULT 'Table',
-            zone TEXT DEFAULT ''
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS floor_zones (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            label TEXT NOT NULL,
-            x REAL NOT NULL,
-            y REAL NOT NULL,
-            w REAL NOT NULL,
-            h REAL NOT NULL,
-            color TEXT DEFAULT '#2a3025',
-            is_entrance INTEGER DEFAULT 0
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS loyalty_members (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            phone TEXT UNIQUE,
-            email TEXT,
-            points INTEGER DEFAULT 0,
-            total_spent REAL DEFAULT 0,
-            visits INTEGER DEFAULT 0,
-            last_visit TIMESTAMP,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS venue_orders (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            order_number INTEGER NOT NULL,
-            source TEXT DEFAULT 'in_house',
-            table_number INTEGER,
-            customer_name TEXT NOT NULL,
-            customer_phone TEXT,
-            items TEXT NOT NULL,
-            total REAL NOT NULL,
-            order_status TEXT DEFAULT 'new',
-            print_status TEXT DEFAULT 'pending',
-            drink_club_phone TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            confirmed_at TIMESTAMP,
-            completed_at TIMESTAMP,
-            rejected_reason TEXT
-        )
-    """)
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS order_counters (
-            venue_id TEXT PRIMARY KEY,
-            last_number INTEGER DEFAULT 0
-        )
-    """)
-
-    db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_status ON venue_orders(order_status)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_venue_orders_created ON venue_orders(created_at)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_phone ON loyalty_members(phone)")
-
-    # multi_select support for toggles (e.g. toppings)
-    try:
-        db.execute("ALTER TABLE menu_toggles ADD COLUMN multi_select INTEGER DEFAULT 0")
-    except Exception:
-        pass  # column already exists
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS loyalty_rewards (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT DEFAULT 'meetup',
-            points_required INTEGER NOT NULL,
-            description TEXT NOT NULL,
-            active INTEGER DEFAULT 1,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS loyalty_transactions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            member_phone TEXT NOT NULL,
-            type TEXT NOT NULL,
-            points_change INTEGER NOT NULL,
-            reward_id INTEGER,
-            order_number INTEGER,
-            note TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_loyalty_tx_phone ON loyalty_transactions(member_phone)")
-
-    # Seed default loyalty rewards
-    existing_rewards = db.execute("SELECT COUNT(*) FROM loyalty_rewards").fetchone()[0]
-    if existing_rewards == 0:
-        db.execute(
-            "INSERT INTO loyalty_rewards (venue_id, points_required, description) VALUES (?, ?, ?)",
-            ("meetup", 10, "Free Entree")
-        )
-        db.execute(
-            "INSERT INTO loyalty_rewards (venue_id, points_required, description) VALUES (?, ?, ?)",
-            ("meetup", 10, "1 Month Cha Club")
-        )
-
-    # ── Menu item images (gallery + A/B testing) ──
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS menu_item_images (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            item_id INTEGER NOT NULL,
-            image_url TEXT,
-            image_blob BLOB,
-            image_thumb_blob BLOB,
-            image_filename TEXT,
-            alt_text TEXT DEFAULT '',
-            source TEXT DEFAULT 'manual',
-            status TEXT DEFAULT 'candidate',
-            sort_order INTEGER DEFAULT 0,
-            clicks INTEGER DEFAULT 0,
-            orders INTEGER DEFAULT 0,
-            created_at TEXT DEFAULT (datetime('now')),
-            updated_at TEXT DEFAULT (datetime('now'))
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_mii_item_status ON menu_item_images(item_id, status)")
-
-    db.commit()
-    logger.info("Menu/floor/loyalty/orders tables initialized")
-
-    # Run beverage menu migration if needed
-    _seed_beverage_menu(db)
-
-
-def get_swp_rental_db():
-    """Return the shared Turso connection for SWP rental tables."""
-    return get_analytics_db()
-
-
-def init_swp_rental_tables():
-    """Create SWP rental subscription tables in Turso."""
-    db = get_swp_rental_db()
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS rental_subscribers_swp (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            stripe_customer_id TEXT UNIQUE NOT NULL,
-            stripe_subscription_id TEXT UNIQUE,
-            email TEXT NOT NULL,
-            name TEXT NOT NULL,
-            phone TEXT,
-            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
-            status TEXT NOT NULL DEFAULT 'active',
-            credit_used INTEGER NOT NULL DEFAULT 0,
-            created_at TEXT NOT NULL DEFAULT (datetime('now')),
-            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS rental_inventory_swp (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
-            game_title TEXT NOT NULL,
-            game_id TEXT,
-            image_url TEXT,
-            copies_total INTEGER NOT NULL DEFAULT 1,
-            copies_available INTEGER NOT NULL DEFAULT 1,
-            status TEXT NOT NULL DEFAULT 'available',
-            current_renter_id INTEGER,
-            created_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS rental_reservations_swp (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subscriber_id INTEGER NOT NULL,
-            inventory_id INTEGER NOT NULL,
-            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
-            reservation_type TEXT NOT NULL DEFAULT 'new',
-            pickup_deadline TEXT NOT NULL,
-            return_deadline TEXT,
-            status TEXT NOT NULL DEFAULT 'pending',
-            checked_out_at TEXT,
-            returned_at TEXT,
-            created_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )
-    """)
-
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS rental_history_swp (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subscriber_id INTEGER NOT NULL,
-            inventory_id INTEGER NOT NULL,
-            game_title TEXT NOT NULL,
-            checked_out_at TEXT,
-            returned_at TEXT,
-            created_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )
-    """)
-
-    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_inv_swp_venue ON rental_inventory_swp(venue_id, status)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_res_swp_sub ON rental_reservations_swp(subscriber_id, status)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_rental_sub_swp_stripe ON rental_subscribers_swp(stripe_customer_id)")
-
-    # ── Game flags & Shopify columns (added 2026-03-09) ──────────
-    for col_sql in [
-        "ALTER TABLE rental_inventory_swp ADD COLUMN rentable_instore INTEGER NOT NULL DEFAULT 1",
-        "ALTER TABLE rental_inventory_swp ADD COLUMN rentable_takehome INTEGER NOT NULL DEFAULT 0",
-        "ALTER TABLE rental_inventory_swp ADD COLUMN for_sale INTEGER NOT NULL DEFAULT 0",
-        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_title TEXT",
-        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_price_cents INTEGER DEFAULT 0",
-        "ALTER TABLE rental_inventory_swp ADD COLUMN shopify_available INTEGER DEFAULT 0",
-    ]:
-        try:
-            db.execute(col_sql)
-        except Exception:
-            pass  # column already exists
-
-    # ── Wishlist table ───────────────────────────────────────────
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS rental_wishlist_swp (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subscriber_id INTEGER NOT NULL,
-            inventory_id INTEGER NOT NULL,
-            venue_id TEXT NOT NULL DEFAULT 'shallweplay',
-            created_at TEXT NOT NULL DEFAULT (datetime('now')),
-            UNIQUE(subscriber_id, inventory_id)
-        )
-    """)
-    db.execute("CREATE INDEX IF NOT EXISTS idx_wishlist_swp_sub ON rental_wishlist_swp(subscriber_id)")
-    db.execute("CREATE INDEX IF NOT EXISTS idx_wishlist_swp_inv ON rental_wishlist_swp(inventory_id)")
-
-    db.commit()
-    logger.info("SWP rental tables initialized")
-
-
-def seed_swp_rental_inventory():
-    """Seed rental_inventory_swp from swp-rental-catalog.json if table is empty."""
-    import json as _json
-    from pathlib import Path
-
-    db = get_swp_rental_db()
-
-    count = db.execute("SELECT COUNT(*) FROM rental_inventory_swp").fetchone()[0]
-    if count > 0:
-        logger.info("SWP rental inventory already seeded (%d games), skipping", count)
-        return
-
-    catalog_path = Path(__file__).resolve().parents[3] / "content" / "swp-rental-catalog.json"
-    if not catalog_path.exists():
-        logger.warning("SWP rental catalog not found at %s — skipping seed", catalog_path)
-        return
-
-    with open(catalog_path, "r", encoding="utf-8") as f:
-        data = _json.load(f)
-
-    games = data.get("games", [])
-    inserted = 0
-    for game in games:
-        title = game.get("title", "").strip()
-        if not title:
-            continue
-        image_url = game.get("image_url", "")
-        db.execute(
-            """INSERT INTO rental_inventory_swp
-               (venue_id, game_title, image_url, copies_total, copies_available, status)
-               VALUES (?, ?, ?, 1, 1, 'available')""",
-            ("shallweplay", title, image_url),
-        )
-        inserted += 1
-
-    db.commit()
-    logger.info("SWP rental inventory seeded: %d games from catalog", inserted)
-
-
-def match_shopify_inventory():
-    """Match rental games against Shopify CSV to set initial flags.
-
-    Only runs if >90% of shopify_title values are NULL (first time).
-    """
-    import csv as _csv
-    from difflib import SequenceMatcher
-    from pathlib import Path
-
-    db = get_swp_rental_db()
-
-    total = db.execute("SELECT COUNT(*) FROM rental_inventory_swp").fetchone()[0]
-    if total == 0:
-        return
-    matched_already = db.execute(
-        "SELECT COUNT(*) FROM rental_inventory_swp WHERE shopify_title IS NOT NULL"
-    ).fetchone()[0]
-    if matched_already > total * 0.1:
-        logger.info("Shopify matching already done (%d/%d matched), skipping", matched_already, total)
-        return
-
-    csv_path = Path(__file__).resolve().parents[3] / "content" / "swp-shopify-inventory.csv"
-    if not csv_path.exists():
-        logger.warning("Shopify CSV not found at %s — skipping match", csv_path)
-        return
-
-    # Load and de-duplicate Shopify products by title (sum available across variants)
-    shopify = {}  # lowercase title -> {title, available}
-    with open(csv_path, "r", encoding="utf-8") as f:
-        for row in _csv.DictReader(f):
-            title = row.get("Title", "").strip()
-            if not title:
-                continue
-            available = int(row.get("Available (not editable)", 0) or 0)
-            key = title.lower()
-            if key in shopify:
-                shopify[key]["available"] += available
-            else:
-                shopify[key] = {"title": title, "available": available}
-
-    logger.info("Loaded %d unique Shopify products from CSV", len(shopify))
-
-    # Load rental inventory
-    games = db.execute(
-        "SELECT id, game_title FROM rental_inventory_swp WHERE venue_id = 'shallweplay'"
-    ).fetchall()
-
-    exact_matches = 0
-    fuzzy_matches = 0
-
-    for game_row in games:
-        gid, game_title = game_row[0], game_row[1]
-        rental_key = game_title.lower().strip()
-
-        match = None
-        # Exact match
-        if rental_key in shopify:
-            match = shopify[rental_key]
-            exact_matches += 1
-        else:
-            # Fuzzy match
-            best_score = 0
-            for shopify_key, shopify_data in shopify.items():
-                score = SequenceMatcher(None, rental_key, shopify_key).ratio()
-                if score > best_score and score >= 0.85:
-                    best_score = score
-                    match = shopify_data
-            if match:
-                fuzzy_matches += 1
-
-        if match:
-            takehome = 1 if match["available"] > 0 else 0
-            for_sale = 1 if match["available"] > 0 else 0
-            db.execute(
-                """UPDATE rental_inventory_swp
-                   SET shopify_title = ?, shopify_available = ?,
-                       rentable_takehome = ?, for_sale = ?
-                   WHERE id = ?""",
-                (match["title"], match["available"], takehome, for_sale, gid),
-            )
-
-    db.commit()
-    logger.info(
-        "Shopify matching complete: %d exact, %d fuzzy, %d unmatched out of %d games",
-        exact_matches, fuzzy_matches, len(games) - exact_matches - fuzzy_matches, len(games),
-    )
-
-
-def get_next_order_number(venue_id="meetup"):
-    """Atomically increment and return the next order number (persisted in Turso)."""
-    db = get_menu_db()
-    db.execute(
-        "INSERT INTO order_counters (venue_id, last_number) VALUES (?, 1) "
-        "ON CONFLICT(venue_id) DO UPDATE SET last_number = last_number + 1",
-        (venue_id,)
-    )
-    db.commit()
-    row = db.execute(
-        "SELECT last_number FROM order_counters WHERE venue_id = ?",
-        (venue_id,)
-    ).fetchone()
-    return row[0]
-
-
-def seed_menu_from_json():
-    """One-time seed: load content/menus/meetup.json into Turso menu tables."""
-    import json as _json
-    from pathlib import Path
-
-    menu_path = Path(__file__).resolve().parents[3] / "content" / "menus" / "meetup.json"
-    if not menu_path.exists():
-        logger.warning(f"Menu JSON not found at {menu_path} — skipping seed")
-        return
-
-    db = get_menu_db()
-    with open(menu_path, "r", encoding="utf-8") as f:
-        data = _json.load(f)
-
-    # Seed toggles
-    for t in data.get("toggles", []):
-        db.execute(
-            "INSERT OR REPLACE INTO menu_toggles (id, name, required, options, sort_order) VALUES (?, ?, ?, ?, ?)",
-            (t["id"], t["name"], 1 if t.get("required", True) else 0, _json.dumps(t["options"]), 0)
-        )
-
-    # Seed categories + items
-    import re
-    def _slugify(name):
-        s = name.lower()
-        s = re.sub(r"\([^)]*\)", "", s).strip()
-        s = re.sub(r"[&]", "and", s)
-        s = re.sub(r"[^a-z0-9]+", "-", s)
-        return s.strip("-")
-
-    for idx, section in enumerate(data.get("sections", [])):
-        db.execute(
-            "INSERT OR IGNORE INTO menu_categories (name, icon, sort_order) VALUES (?, ?, ?)",
-            (section["name"], section.get("icon", ""), idx)
-        )
-        cat_row = db.execute("SELECT id FROM menu_categories WHERE name = ?", (section["name"],)).fetchone()
-        cat_id = cat_row[0]
-
-        for item_idx, item in enumerate(section["items"]):
-            slug = item.get("image") or _slugify(item["name"])
-            db.execute(
-                """INSERT OR REPLACE INTO menu_items
-                (slug, category_id, name, description, price, image, toggles,
-                 allows_modifications, active, sort_order)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (slug, cat_id, item["name"], item.get("description", ""),
-                 item["price"], item.get("image"),
-                 _json.dumps(item.get("toggles", [])),
-                 1 if item.get("allows_modifications", True) else 0,
-                 1 if item.get("active", True) else 0, item_idx)
-            )
-
-    db.commit()
-    count = db.execute("SELECT COUNT(*) FROM menu_items").fetchone()[0]
-    cats = db.execute("SELECT COUNT(*) FROM menu_categories").fetchone()[0]
-    toggles = db.execute("SELECT COUNT(*) FROM menu_toggles").fetchone()[0]
-    logger.info(f"Menu seeded from JSON: {cats} categories, {count} items, {toggles} toggles")
-
-
-# NOTE: Signups (insert_signup / get_signup_by_email / get_all_signups /
-# init_signups_table) used to live here on Turso. They moved to Supabase in
-# Wave 1 of the Turso→Supabase consolidation — see app.services.venue_service.
-
-
-
-# ── Cover art overrides ──────────────────────────────────────────
-
-def init_cover_art_tables():
-    """Create game_image_overrides table in Turso."""
-    db = get_analytics_db()
-    db.execute("""
-        CREATE TABLE IF NOT EXISTS game_image_overrides (
-            game_id TEXT PRIMARY KEY,
-            image_url TEXT NOT NULL,
-            updated_at TEXT DEFAULT (datetime('now'))
-        )
-    """)
-    db.commit()
-    logger.info("Cover art overrides table initialized")
-
+# ── Cover art override helpers ──────────────────────────────────
 
 def get_all_cover_art_overrides() -> list[dict]:
-    """Return all cover art overrides."""
-    db = get_analytics_db()
+    db = get_pg_db()
     try:
         rows = db.execute(
             "SELECT game_id, image_url, updated_at FROM game_image_overrides ORDER BY updated_at DESC"
         ).fetchall()
-        return [{"game_id": r[0], "image_url": r[1], "updated_at": r[2]} for r in rows]
-    except Exception as e:
-        logger.warning(f"Failed to get cover art overrides: {e}")
+        return [
+            {"game_id": r["game_id"], "image_url": r["image_url"], "updated_at": r["updated_at"]}
+            for r in rows
+        ]
+    except Exception as exc:
+        logger.warning("Failed to get cover art overrides: %s", exc)
         return []
 
 
 def get_cover_art_override(game_id: str) -> str | None:
-    """Return the override URL for a single game, or None."""
-    db = get_analytics_db()
+    db = get_pg_db()
     try:
         row = db.execute(
             "SELECT image_url FROM game_image_overrides WHERE game_id = ?",
-            (game_id,)
+            (game_id,),
         ).fetchone()
-        return row[0] if row else None
-    except Exception as e:
-        logger.warning(f"Failed to get cover art override for {game_id}: {e}")
+        return row["image_url"] if row else None
+    except Exception as exc:
+        logger.warning("Failed to get cover art override for %s: %s", game_id, exc)
         return None
 
 
-def upsert_cover_art_override(game_id: str, image_url: str):
-    """Insert or replace a cover art override."""
-    db = get_analytics_db()
+def upsert_cover_art_override(game_id: str, image_url: str) -> None:
+    db = get_pg_db()
     db.execute(
         """INSERT INTO game_image_overrides (game_id, image_url, updated_at)
-           VALUES (?, ?, datetime('now'))
+           VALUES (?, ?, now())
            ON CONFLICT(game_id) DO UPDATE SET
              image_url = excluded.image_url,
-             updated_at = datetime('now')""",
-        (game_id, image_url)
+             updated_at = now()""",
+        (game_id, image_url),
     )
-    db.commit()
 
 
-def delete_cover_art_override(game_id: str):
-    """Remove a cover art override."""
-    db = get_analytics_db()
+def delete_cover_art_override(game_id: str) -> None:
+    db = get_pg_db()
     db.execute("DELETE FROM game_image_overrides WHERE game_id = ?", (game_id,))
-    db.commit()
 
 
 def get_cover_art_status() -> dict[str, bool]:
-    """Return {game_id: True} for every game with an override."""
-    db = get_analytics_db()
+    db = get_pg_db()
     try:
         rows = db.execute("SELECT game_id FROM game_image_overrides").fetchall()
-        return {r[0]: True for r in rows}
-    except Exception as e:
-        logger.warning(f"Failed to get cover art status: {e}")
+        return {r["game_id"]: True for r in rows}
+    except Exception as exc:
+        logger.warning("Failed to get cover art status: %s", exc)
         return {}
-
-
-
-
-# ── Venues DB (persistent accounts — survives redeploys) ────────
-
-
-class _DictRow(dict):
-    """Dict-like row that supports both key and integer index access (like sqlite3.Row)."""
-
-    def __getitem__(self, key):
-        if isinstance(key, int):
-            return list(self.values())[key]
-        return super().__getitem__(key)
-
-
-class _DictCursorWrapper:
-    """Wraps a DB-API cursor to return _DictRow objects."""
-
-    def __init__(self, cursor):
-        self._cursor = cursor
-
-    @property
-    def lastrowid(self):
-        return self._cursor.lastrowid
-
-    @property
-    def rowcount(self):
-        return self._cursor.rowcount
-
-    def _cols(self):
-        desc = self._cursor.description
-        if not desc:
-            return []
-        return [d[0] if isinstance(d, (tuple, list)) else str(d) for d in desc]
-
-    def fetchone(self):
-        row = self._cursor.fetchone()
-        if row is None:
-            return None
-        cols = self._cols()
-        if cols:
-            return _DictRow(zip(cols, row))
-        return row
-
-    def fetchall(self):
-        rows = self._cursor.fetchall()
-        cols = self._cols()
-        if cols:
-            return [_DictRow(zip(cols, r)) for r in rows]
-        return rows
-
-
-# Legacy _VenuesDB / get_venues_db / init_turso_venues_table removed in
-# Wave 1.5 (2026-04-10). Venues + venue_collections are now canonical in
-# Supabase — see app.services.venue_service for the replacement API.
