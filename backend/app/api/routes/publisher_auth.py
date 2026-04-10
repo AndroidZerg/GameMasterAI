@@ -3,7 +3,6 @@
 from datetime import datetime, timezone
 
 import httpx
-import jwt
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 from typing import Optional
@@ -11,7 +10,6 @@ from typing import Optional
 from app.services.supabase_client import (
     get_admin_client,
     get_anon_client,
-    SUPABASE_JWT_SECRET,
 )
 
 router = APIRouter(tags=["publisher-auth"])
@@ -35,32 +33,26 @@ def _send_telegram(text: str):
 # ── Helpers ─────────────────────────────────────────────────────
 
 async def get_current_publisher(request: Request) -> dict:
-    """Extract and verify publisher from Supabase JWT. Use as FastAPI Depends()."""
+    """Extract and verify publisher from Supabase JWT. Use as FastAPI Depends().
+
+    Uses Supabase's own auth.get_user() which handles ECC P-256 and HS256 signing
+    automatically — no need to manage SUPABASE_JWT_SECRET ourselves.
+    """
     auth_header = request.headers.get("Authorization", "")
     if not auth_header.startswith("Bearer "):
-        raise HTTPException(401, "Missing authorization token")
+        raise HTTPException(status_code=401, detail="Missing authorization token")
     token = auth_header.split(" ", 1)[1]
 
-    if not SUPABASE_JWT_SECRET:
-        raise HTTPException(500, "Server misconfigured: JWT secret not set")
-
     try:
-        payload = jwt.decode(
-            token,
-            SUPABASE_JWT_SECRET,
-            algorithms=["HS256"],
-            audience="authenticated",
-        )
-        user_id = payload["sub"]
-    except jwt.ExpiredSignatureError:
-        raise HTTPException(401, "Token expired")
-    except jwt.InvalidTokenError:
-        raise HTTPException(401, "Invalid token")
+        admin = get_admin_client()
+        user_response = admin.auth.get_user(token)
+        user_id = user_response.user.id
+    except Exception as e:
+        raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
 
-    admin = get_admin_client()
-    result = admin.table("publishers").select("*").eq("user_id", user_id).execute()
+    result = admin.table("publishers").select("*").eq("user_id", str(user_id)).execute()
     if not result.data:
-        raise HTTPException(403, "No publisher account found")
+        raise HTTPException(status_code=403, detail="No publisher account found")
     return result.data[0]
 
 
