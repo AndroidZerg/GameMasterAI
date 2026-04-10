@@ -15,7 +15,7 @@ _DEFAULT_POPULAR = [
 
 
 def _get_conn():
-    """Supabase PG shim — backs the sessions table."""
+    """Supabase PG shim — backs game_sessions."""
     return get_analytics_db()
 
 
@@ -27,7 +27,7 @@ async def get_popular_games():
     # Try session-based popularity
     rows = conn.execute("""
         SELECT s.game_id, COUNT(*) as session_count
-        FROM sessions s
+        FROM game_sessions s
         GROUP BY s.game_id
         ORDER BY session_count DESC
         LIMIT 10

@@ -51,7 +51,7 @@ def _session_stats(conn, since: str | None = None,
         SELECT COUNT(*) as sessions,
                COALESCE(SUM(questions_asked), 0) as questions,
                COALESCE(AVG(duration_seconds), 0) as avg_duration_sec
-        FROM sessions {where}
+        FROM game_sessions {where}
     """, params).fetchone()
 
     s_conditions = []
@@ -67,7 +67,7 @@ def _session_stats(conn, since: str | None = None,
     top_games = conn.execute(f"""
         SELECT s.game_id, COUNT(*) as cnt,
                COALESCE(AVG(s.duration_seconds), 0) as avg_dur
-        FROM sessions s
+        FROM game_sessions s
         {s_where}
         GROUP BY s.game_id
         ORDER BY cnt DESC
@@ -92,16 +92,15 @@ def _feedback_stats(conn, venue_id: str | None = None) -> dict:
             SELECT COUNT(*) as total,
                    COALESCE(SUM(CASE WHEN f.rating = 1 THEN 1 ELSE 0 END), 0) as positive,
                    COALESCE(SUM(CASE WHEN f.rating = -1 THEN 1 ELSE 0 END), 0) as negative
-            FROM feedback f
-            LEFT JOIN sessions s ON f.session_id = s.id
-            WHERE s.venue_id = ? OR f.session_id IS NULL
+            FROM game_feedback f
+            WHERE f.venue_id = ?
         """, (venue_id,)).fetchone()
     else:
         row = conn.execute("""
             SELECT COUNT(*) as total,
                    COALESCE(SUM(CASE WHEN rating = 1 THEN 1 ELSE 0 END), 0) as positive,
                    COALESCE(SUM(CASE WHEN rating = -1 THEN 1 ELSE 0 END), 0) as negative
-            FROM feedback
+            FROM game_feedback
         """).fetchone()
     total = row["total"]
     return {
@@ -123,20 +122,20 @@ def _enhanced_stats(conn, venue_id: str | None = None) -> dict:
                COALESCE(SUM(questions_asked), 0) as total_questions,
                COALESCE(SUM(CASE WHEN score_tracked = TRUE THEN 1 ELSE 0 END), 0) as total_scores,
                COALESCE(AVG(duration_seconds), 0) as avg_dur
-        FROM sessions {vid_clause}
+        FROM game_sessions {vid_clause}
     """, vid_params).fetchone()
 
     # Busiest hour
     busiest_hour = conn.execute(f"""
         SELECT EXTRACT(HOUR FROM started_at)::int as hour, COUNT(*) as cnt
-        FROM sessions {vid_clause}
+        FROM game_sessions {vid_clause}
         GROUP BY hour ORDER BY cnt DESC LIMIT 1
     """, vid_params).fetchone()
 
     # Busiest day of week
     busiest_day = conn.execute(f"""
         SELECT EXTRACT(DOW FROM started_at)::int as dow, COUNT(*) as cnt
-        FROM sessions {vid_clause}
+        FROM game_sessions {vid_clause}
         GROUP BY dow ORDER BY cnt DESC LIMIT 1
     """, vid_params).fetchone()
 
@@ -145,7 +144,7 @@ def _enhanced_stats(conn, venue_id: str | None = None) -> dict:
     # Recent sessions
     recent = conn.execute(f"""
         SELECT s.id, s.game_id, s.duration_seconds, s.started_at, s.table_number
-        FROM sessions s
+        FROM game_sessions s
         {"WHERE s.venue_id = ?" if venue_id else ""}
         ORDER BY s.started_at DESC LIMIT 10
     """, vid_params).fetchall()

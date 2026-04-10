@@ -37,7 +37,7 @@ async def export_sessions(
         SELECT s.id, s.game_id, COALESCE(g.title, s.game_id) as game_title,
                s.table_number, s.started_at, s.ended_at, s.duration_seconds,
                s.questions_asked, s.score_tracked, s.venue_id
-        FROM sessions s
+        FROM game_sessions s
         LEFT JOIN games g ON s.game_id = g.game_id
         WHERE s.venue_id = ?
         ORDER BY s.started_at DESC
@@ -62,14 +62,13 @@ async def export_feedback(
 ):
     """Export feedback as CSV for the authenticated venue."""
     conn = _get_conn()
-    # Filter feedback by sessions belonging to this venue
+    # game_feedback carries venue_id directly, so no join on game_sessions needed
     rows = conn.execute("""
         SELECT f.id, f.session_id, f.game_id, COALESCE(g.title, f.game_id) as game_title,
                f.question, f.response, f.rating, f.created_at
-        FROM feedback f
+        FROM game_feedback f
         LEFT JOIN games g ON f.game_id = g.game_id
-        LEFT JOIN sessions s ON f.session_id = s.id
-        WHERE s.venue_id = ? OR f.session_id IS NULL
+        WHERE f.venue_id = ?
         ORDER BY f.created_at DESC
     """, (venue["venue_id"],)).fetchall()
     conn.close()
