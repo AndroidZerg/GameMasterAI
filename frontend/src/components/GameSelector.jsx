@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchMyHomeConfig, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE, prefetchGame, prefetchGamesBulk } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchMyHomeConfig, fetchClearRecentTs, submitRentalRequest, fetchMyRental, prefetchGame, prefetchGamesBulk } from "../services/api";
+import { getGameImageUrl, getGameImageUrlPng } from "../services/imageUrl";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -92,13 +93,13 @@ const PLAYER_COUNT_OPTIONS = [
 
 function GameOfTheDay({ game, onClick }) {
   if (!game) return null;
-  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
+  const [imgSrc, setImgSrc] = useState(getGameImageUrl(game.game_id));
   const [imgError, setImgError] = useState(false);
   const triedPng = useRef(false);
 
   // Reset image state when game changes
   useEffect(() => {
-    setImgSrc(`${API_BASE}/api/images/${game.game_id}.jpg`);
+    setImgSrc(getGameImageUrl(game.game_id));
     setImgError(false);
     triedPng.current = false;
   }, [game.game_id]);
@@ -106,7 +107,7 @@ function GameOfTheDay({ game, onClick }) {
   const handleImgError = () => {
     if (!triedPng.current) {
       triedPng.current = true;
-      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+      setImgSrc(getGameImageUrlPng(game.game_id));
     } else {
       setImgError(true);
     }
@@ -189,7 +190,7 @@ function SkeletonCard({ small }) {
 }
 
 function GameCard({ game, onClick, small }) {
-  const [imgSrc, setImgSrc] = useState(`${API_BASE}/api/images/${game.game_id}.jpg`);
+  const [imgSrc, setImgSrc] = useState(getGameImageUrl(game.game_id));
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
   const triedPng = useRef(false);
@@ -200,7 +201,7 @@ function GameCard({ game, onClick, small }) {
   const handleImgError = () => {
     if (!triedPng.current) {
       triedPng.current = true;
-      setImgSrc(`${API_BASE}/api/images/${game.game_id}.png`);
+      setImgSrc(getGameImageUrlPng(game.game_id));
     } else {
       setImgError(true);
       setImgLoading(false);
@@ -788,7 +789,7 @@ function RentalModal({ game, onClose }) {
               border: "1px solid var(--border)", marginBottom: "16px",
             }}>
               <img
-                src={`${API_BASE}/api/images/${game.game_id}.jpg`}
+                src={getGameImageUrl(game.game_id)}
                 alt={game.title}
                 loading="lazy"
                 decoding="async"

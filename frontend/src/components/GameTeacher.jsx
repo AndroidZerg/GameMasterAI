@@ -12,6 +12,7 @@ import {
 } from "./ResponseDisplay";
 
 import { API_BASE } from "../services/api";
+import { getGameImageUrl, getGameImageUrlPng } from "../services/imageUrl";
 import OrderPanel, { CountdownTimer } from "./OrderPanel";
 import EventTracker from "../services/EventTracker";
 import useTeachingMode from "../hooks/useTeachingMode";
@@ -834,7 +835,7 @@ function GameTimer({ running, elapsed, onToggle }) {
 
 /* ── Game Cover Thumbnail ─────────────────────────────────────── */
 function GameCoverThumb({ gameId }) {
-  const [src, setSrc] = useState(`${API_BASE}/api/images/${gameId}.jpg`);
+  const [src, setSrc] = useState(getGameImageUrl(gameId));
   const [error, setError] = useState(false);
   const triedPng = useRef(false);
   if (error) return null;
@@ -845,7 +846,7 @@ function GameCoverThumb({ gameId }) {
       onError={() => {
         if (!triedPng.current) {
           triedPng.current = true;
-          setSrc(`${API_BASE}/api/images/${gameId}.png`);
+          setSrc(getGameImageUrlPng(gameId));
         } else {
           setError(true);
         }
@@ -1023,7 +1024,7 @@ export default function GameTeacher() {
 
     // Cover art
     const coverImg = new Image();
-    coverImg.src = `${API_BASE}/api/images/${gid}.jpg`;
+    coverImg.src = getGameImageUrl(gid);
 
     // All step images across every teaching section
     const teachingSections = gameData.teaching || {};
@@ -1092,7 +1093,7 @@ export default function GameTeacher() {
           height: "100%",
           zIndex: 0,
           pointerEvents: "none",
-          backgroundImage: `url(${API_BASE}/api/images/${gameId}.jpg)`,
+          backgroundImage: `url(${getGameImageUrl(gameId)})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.08,

@@ -5,8 +5,8 @@ import {
   fetchVenueHomeConfig,
   saveVenueHomeConfig,
   resetVenueHomeConfig,
-  API_BASE,
 } from "../services/api";
+import { getGameImageUrl } from "../services/imageUrl";
 import Breadcrumb from "./Breadcrumb";
 
 // Ordered venue options for the dropdown
@@ -432,7 +432,7 @@ export default function CustomizeHomePage() {
                     marginBottom: "10px",
                   }}>
                     <img
-                      src={`${API_BASE}/api/images/${featuredGameId}.jpg`}
+                      src={getGameImageUrl(featuredGameId)}
                       alt=""
                       style={{ width: "36px", height: "36px", borderRadius: "6px", objectFit: "cover" }}
                       onError={(e) => { e.target.style.display = "none"; }}
@@ -473,7 +473,7 @@ export default function CustomizeHomePage() {
                         onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                       >
                         <img
-                          src={`${API_BASE}/api/images/${g.game_id}.jpg`}
+                          src={getGameImageUrl(g.game_id)}
                           alt=""
                           style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "cover" }}
                           onError={(e) => { e.target.style.display = "none"; }}
@@ -523,7 +523,7 @@ export default function CustomizeHomePage() {
                       {idx + 1}
                     </span>
                     <img
-                      src={`${API_BASE}/api/images/${gameId}.jpg`}
+                      src={getGameImageUrl(gameId)}
                       alt=""
                       style={{ width: "36px", height: "36px", borderRadius: "6px", objectFit: "cover" }}
                       onError={(e) => { e.target.style.display = "none"; }}
@@ -587,7 +587,7 @@ export default function CustomizeHomePage() {
                         onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                       >
                         <img
-                          src={`${API_BASE}/api/images/${g.game_id}.jpg`}
+                          src={getGameImageUrl(g.game_id)}
                           alt=""
                           style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "cover" }}
                           onError={(e) => { e.target.style.display = "none"; }}

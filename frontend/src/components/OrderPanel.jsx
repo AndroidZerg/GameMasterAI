@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchVenueMenu, placeOrder, API_BASE, fetchExpansions } from "../services/api";
+import { fetchVenueMenu, placeOrder, fetchExpansions } from "../services/api";
+import { getGameImageUrl } from "../services/imageUrl";
 import EventTracker from "../services/EventTracker";
 
 const MOCK_MENU = {
@@ -461,7 +462,7 @@ export default function OrderPanel({ open, onClose, gameId, gameTitle, gamePrice
                     border: "1px solid var(--border)", marginBottom: "20px",
                   }}>
                     <img
-                      src={`${API_BASE}/api/images/${gameId}.jpg`}
+                      src={getGameImageUrl(gameId)}
                       alt={gameTitle}
                       onError={(e) => { e.target.style.display = "none"; }}
                       style={{

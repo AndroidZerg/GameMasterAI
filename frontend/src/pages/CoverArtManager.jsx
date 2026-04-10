@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { API_BASE, fetchGames, fetchCoverArtOverrides, saveCoverArtOverride, deleteCoverArtOverride } from "../services/api";
+import { fetchGames, fetchCoverArtOverrides, saveCoverArtOverride, deleteCoverArtOverride } from "../services/api";
+import { getGameImageUrl, getGameImageUrlPng } from "../services/imageUrl";
 
 const FILTERS = ["All", "Needs Art", "Custom"];
 
@@ -148,7 +149,7 @@ export default function CoverArtManager() {
               <div style={styles.imgCol}>
                 <div style={styles.imgLabel}>Current</div>
                 <img
-                  src={overrides[selected.game_id] || `${API_BASE}/api/images/${selected.game_id}.jpg`}
+                  src={overrides[selected.game_id] || getGameImageUrl(selected.game_id)}
                   alt="Current"
                   style={styles.previewImg}
                   onError={e => { e.target.src = ""; e.target.alt = "No image"; }}
@@ -190,16 +191,16 @@ export default function CoverArtManager() {
 }
 
 function GameThumb({ gameId, overrideUrl }) {
-  const [src, setSrc] = useState(overrideUrl || `${API_BASE}/api/images/${gameId}.jpg`);
+  const [src, setSrc] = useState(overrideUrl || getGameImageUrl(gameId));
   useEffect(() => {
-    setSrc(overrideUrl || `${API_BASE}/api/images/${gameId}.jpg`);
+    setSrc(overrideUrl || getGameImageUrl(gameId));
   }, [overrideUrl, gameId]);
   return (
     <img
       src={src}
       alt={gameId}
       style={styles.thumb}
-      onError={() => setSrc(`${API_BASE}/api/images/${gameId}.png`)}
+      onError={() => setSrc(getGameImageUrlPng(gameId))}
     />
   );
 }
