@@ -1,5 +1,5 @@
 """
-Venue & auth service — Supabase-backed (canonical) with Turso dual-write.
+Venue & auth service — Supabase-backed (canonical).
 
 Replaces the Turso-based reads/writes that previously lived in:
     - app.models.venues               (venues, venue_collections)
@@ -13,19 +13,7 @@ Supabase tables used (canonical):
     venue_games     — venue → game collections (replaces venue_collections)
     admin_config    — KV store for home config + system config (jsonb)
 
-Turso dual-write (transitional):
-    The auth path (login/register/signup/verify) reads exclusively from
-    Supabase. However, several Wave-2 callers still issue raw SQL JOIN
-    queries against Turso's ``venues`` and ``venue_collections`` tables
-    (LGS marketplace, shop, Stripe webhooks/subscriptions, CRM, analytics
-    dashboard, etc.). To keep them functional without a 30-file refactor,
-    every write helper here mirrors its change into Turso best-effort.
-    Failures to mirror are logged but never break the canonical Supabase
-    write. A follow-up ticket (Wave 1.5) should migrate those callers to
-    use venue_service / Supabase joins, after which the Turso mirror can
-    be removed.
-
-All venue rows returned by reads are plain dicts. The legacy Turso column
+All venue rows returned by reads are plain dicts. The legacy column
 ``last_login`` is exposed under both ``last_login`` and ``last_login_at``
 so callers that expect either name keep working.
 """
@@ -55,111 +43,6 @@ def _normalize_venue(row: dict | None) -> dict | None:
     if "last_login_at" in row and "last_login" not in row:
         row["last_login"] = row["last_login_at"]
     return row
-
-
-# ── Turso mirror (best-effort) ───────────────────────────────────
-#
-# These helpers write the same change into the legacy Turso ``venues``
-# and ``venue_collections`` tables so the LGS/shop/webhooks/CRM/analytics
-# code paths that still issue raw SQL via ``get_venues_db()`` keep seeing
-# fresh data. Any failure is logged and swallowed.
-
-
-def _turso_db():
-    try:
-        from app.services.turso import get_venues_db
-        return get_venues_db()
-    except Exception as e:
-        logger.debug(f"Turso mirror unavailable: {e}")
-        return None
-
-
-def _turso_mirror_venue_upsert(payload: dict) -> None:
-    db = _turso_db()
-    if db is None:
-        return
-    try:
-        cols = [
-            "venue_id", "venue_name", "email", "password_hash", "tagline",
-            "accent_color", "logo_url", "address", "phone", "website",
-            "default_theme", "role", "status", "source", "username",
-            "expires_at", "trial_start_date", "created_at", "last_login",
-            "stripe_customer_id", "stripe_subscription_id", "subscription_tier",
-            "game_seat_limit", "subscription_status", "purchases_enabled",
-            "lgs_id", "current_period_end", "logo_filename",
-        ]
-        # Map Supabase last_login_at -> Turso last_login
-        row = {k: payload.get(k) for k in cols}
-        if "last_login_at" in payload and not row.get("last_login"):
-            row["last_login"] = payload["last_login_at"]
-        # Booleans → ints for SQLite
-        if isinstance(row.get("purchases_enabled"), bool):
-            row["purchases_enabled"] = 1 if row["purchases_enabled"] else 0
-        non_null = {k: v for k, v in row.items() if v is not None}
-        if "venue_id" not in non_null:
-            return
-        col_list = ", ".join(non_null.keys())
-        placeholders = ", ".join(["?"] * len(non_null))
-        update_clause = ", ".join(f"{k} = excluded.{k}" for k in non_null if k != "venue_id")
-        sql = (
-            f"INSERT INTO venues ({col_list}) VALUES ({placeholders}) "
-            f"ON CONFLICT(venue_id) DO UPDATE SET {update_clause}"
-        )
-        db.execute(sql, tuple(non_null.values()))
-        db.commit()
-    except Exception as e:
-        logger.debug(f"Turso venue mirror failed for {payload.get('venue_id')}: {e}")
-
-
-def _turso_mirror_venue_update(venue_id: str, fields: dict) -> None:
-    db = _turso_db()
-    if db is None or not fields:
-        return
-    try:
-        # Map Supabase last_login_at → Turso last_login
-        mapped = dict(fields)
-        if "last_login_at" in mapped:
-            mapped["last_login"] = mapped.pop("last_login_at")
-        if isinstance(mapped.get("purchases_enabled"), bool):
-            mapped["purchases_enabled"] = 1 if mapped["purchases_enabled"] else 0
-        sets = ", ".join(f"{k} = ?" for k in mapped.keys())
-        params = list(mapped.values()) + [venue_id]
-        db.execute(f"UPDATE venues SET {sets} WHERE venue_id = ?", tuple(params))
-        db.commit()
-    except Exception as e:
-        logger.debug(f"Turso venue update mirror failed for {venue_id}: {e}")
-
-
-def _turso_mirror_venue_delete(venue_id: str) -> None:
-    db = _turso_db()
-    if db is None:
-        return
-    try:
-        db.execute("DELETE FROM venues WHERE venue_id = ?", (venue_id,))
-        db.execute("DELETE FROM venue_collections WHERE venue_id = ?", (venue_id,))
-        db.commit()
-    except Exception as e:
-        logger.debug(f"Turso venue delete mirror failed for {venue_id}: {e}")
-
-
-def _turso_mirror_collection(venue_id: str, game_ids: list[str]) -> None:
-    db = _turso_db()
-    if db is None:
-        return
-    try:
-        db.execute("DELETE FROM venue_collections WHERE venue_id = ?", (venue_id,))
-        if not game_ids:
-            db.commit()
-            return
-        now = _now_iso()
-        for gid in game_ids:
-            db.execute(
-                "INSERT OR IGNORE INTO venue_collections (venue_id, game_id, added_at) VALUES (?, ?, ?)",
-                (venue_id, gid, now),
-            )
-        db.commit()
-    except Exception as e:
-        logger.debug(f"Turso collection mirror failed for {venue_id}: {e}")
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -235,7 +118,6 @@ def create_venue(
         "created_at": _now_iso(),
     }
     admin.table("venues").insert(payload).execute()
-    _turso_mirror_venue_upsert(payload)
     return venue_id
 
 
@@ -246,7 +128,108 @@ def update_venue_login(venue_id: str) -> None:
     admin.table("venues").update({"last_login_at": now}).eq(
         "venue_id", venue_id
     ).execute()
-    _turso_mirror_venue_update(venue_id, {"last_login_at": now})
+
+
+def update_venue_fields(venue_id: str, fields: dict) -> None:
+    """Generic field update — used by onboarding, subscriptions, webhooks, LGS pairing.
+
+    Unlike ``update_venue_config`` this does not enforce an allow-list; callers
+    are trusted to pass valid Supabase column names. Always stamps ``updated_at``.
+    """
+    if not venue_id or not fields:
+        return
+    payload = {**fields, "updated_at": _now_iso()}
+    admin = get_admin_client()
+    admin.table("venues").update(payload).eq("venue_id", venue_id).execute()
+
+
+def update_venue_by_subscription_id(sub_id: str, fields: dict) -> Optional[dict]:
+    """Update venue(s) matching a Stripe subscription_id. Returns first matching venue."""
+    if not sub_id or not fields:
+        return None
+    payload = {**fields, "updated_at": _now_iso()}
+    admin = get_admin_client()
+    admin.table("venues").update(payload).eq("stripe_subscription_id", sub_id).execute()
+    res = (
+        admin.table("venues")
+        .select("*")
+        .eq("stripe_subscription_id", sub_id)
+        .limit(1)
+        .execute()
+    )
+    rows = res.data or []
+    return _normalize_venue(rows[0]) if rows else None
+
+
+def get_venue_by_subscription_id(sub_id: str) -> Optional[dict]:
+    if not sub_id:
+        return None
+    admin = get_admin_client()
+    res = (
+        admin.table("venues")
+        .select("*")
+        .eq("stripe_subscription_id", sub_id)
+        .limit(1)
+        .execute()
+    )
+    rows = res.data or []
+    return _normalize_venue(rows[0]) if rows else None
+
+
+def get_venues_by_lgs(lgs_id: str) -> list[dict]:
+    """Return all venues paired with the given LGS."""
+    if not lgs_id:
+        return []
+    admin = get_admin_client()
+    res = admin.table("venues").select("*").eq("lgs_id", lgs_id).execute()
+    return [_normalize_venue(r) for r in (res.data or [])]
+
+
+def count_venues_by_lgs(lgs_id: str) -> int:
+    if not lgs_id:
+        return 0
+    admin = get_admin_client()
+    res = (
+        admin.table("venues")
+        .select("venue_id", count="exact")
+        .eq("lgs_id", lgs_id)
+        .execute()
+    )
+    return res.count or 0
+
+
+def list_convention_venues() -> list[dict]:
+    """Return convention-role venues with signup analytics fields."""
+    admin = get_admin_client()
+    res = (
+        admin.table("venues")
+        .select("email,created_at,venue_id,expires_at")
+        .eq("role", "convention")
+        .order("created_at", desc=True)
+        .execute()
+    )
+    return res.data or []
+
+
+def list_venues_lightweight() -> list[dict]:
+    """Return just venue_id + venue_name for dropdown pickers."""
+    admin = get_admin_client()
+    res = (
+        admin.table("venues")
+        .select("venue_id,venue_name")
+        .order("venue_name")
+        .execute()
+    )
+    return res.data or []
+
+
+def delete_venue(venue_id: str) -> None:
+    """Hard-delete a venue and its venue_games rows."""
+    if not venue_id:
+        return
+    admin = get_admin_client()
+    admin.table("venue_games").delete().eq("venue_id", venue_id).execute()
+    admin.table("venues").delete().eq("venue_id", venue_id).execute()
 
 
 def update_venue_config(venue_id: str, **kwargs) -> Optional[dict]:
@@ -268,12 +251,6 @@ def update_venue_config(venue_id: str, **kwargs) -> Optional[dict]:
     payload["updated_at"] = _now_iso()
     admin = get_admin_client()
     admin.table("venues").update(payload).eq("venue_id", venue_id).execute()
-    # staff_picks is jsonb in Supabase but TEXT in Turso — JSON-encode for mirror
-    mirror_payload = dict(payload)
-    if "staff_picks" in mirror_payload and not isinstance(mirror_payload["staff_picks"], str):
-        import json as _json
-        mirror_payload["staff_picks"] = _json.dumps(mirror_payload["staff_picks"])
-    _turso_mirror_venue_update(venue_id, mirror_payload)
     return get_venue_by_id(venue_id)
 
 
@@ -384,7 +361,6 @@ def set_venue_collection(venue_id: str, game_ids: list[str]) -> None:
         BATCH = 500
         for i in range(0, len(rows), BATCH):
             admin.table("venue_games").insert(rows[i : i + BATCH]).execute()
-    _turso_mirror_collection(venue_id, game_ids)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -671,7 +647,6 @@ def seed_all_venues(password_hash: str) -> list[str]:
             "updated_at": now,
         }
         admin.table("venues").upsert(payload, on_conflict="venue_id").execute()
-        _turso_mirror_venue_upsert(payload)
         seeded.append(v["venue_id"])
     return seeded
 
@@ -699,6 +674,5 @@ def seed_dicetower_accounts() -> list[str]:
             "updated_at": now,
         }
         admin.table("venues").upsert(payload, on_conflict="venue_id").execute()
-        _turso_mirror_venue_upsert(payload)
         seeded.append(acct["venue_id"])
     return seeded

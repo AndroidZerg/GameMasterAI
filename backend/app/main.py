@@ -80,7 +80,6 @@ from app.models.house_rules import init_house_rules_table
 from app.models.orders import init_orders_table, init_print_queue_tables
 from app.services.turso import init_analytics_tables as init_turso_analytics
 from app.services.turso import init_swp_rental_tables, seed_swp_rental_inventory, match_shopify_inventory
-from app.services.turso import init_turso_venues_table
 from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
@@ -132,13 +131,11 @@ async def lifespan(app: FastAPI):
     run_venue_platform_migrations()
     init_marketplace_tables()
 
-    # Venues + signups + home_config + admin_config moved to Supabase (Wave 1).
-    # The legacy Turso ``venues`` / ``venue_collections`` tables remain as a
-    # read-mirror for LGS / shop / Stripe webhooks / CRM / analytics dashboard
-    # callers that still issue raw SQL via get_venues_db(). venue_service writes
-    # canonical data to Supabase AND mirrors into Turso best-effort. Wave 1.5
-    # follow-up should migrate those callers and remove this mirror.
-    init_turso_venues_table()
+    # Venues + signups + home_config + admin_config are canonical in Supabase
+    # (Wave 1 + Wave 1.5). All venue reads/writes go through venue_service.py;
+    # the legacy Turso ``venues`` / ``venue_collections`` tables have been
+    # fully retired. Turso is still used for Wave-2 operational tables:
+    # drink_club, menus, SWP rentals, cover art, analytics events.
     init_drink_club_tables()
     init_menu_tables()
     init_swp_rental_tables()

@@ -6,6 +6,12 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from app.core.config import DB_PATH
+from app.services.venue_service import (
+    get_venue_by_id,
+    set_venue_collection,
+    set_gotd,
+    update_venue_fields,
+)
 
 
 def _get_local_conn() -> sqlite3.Connection:
@@ -15,10 +21,10 @@ def _get_local_conn() -> sqlite3.Connection:
     return conn
 
 
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
+def _current_onboarding_step(venue_id: str) -> int:
+    """Read current onboarding_step from Supabase (0 if missing)."""
+    row = get_venue_by_id(venue_id) or {}
+    return int(row.get("onboarding_step") or 0)
 
 
 # ── Step 1: Venue Info ────────────────────────────────────────────
@@ -35,17 +41,17 @@ def save_venue_info(
     hours_json: dict,
 ) -> dict:
     """Update venue info and advance onboarding_step to at least 1."""
-    conn = _get_venues_conn()
-    conn.execute(
-        """UPDATE venues
-           SET venue_name = ?, address = ?, city = ?, state = ?, zip_code = ?,
-               phone = ?, contact_name = ?, hours_json = ?,
-               onboarding_step = MAX(COALESCE(onboarding_step, 0), 1)
-           WHERE venue_id = ?""",
-        (venue_name, address, city, state, zip_code, phone, contact_name,
-         json.dumps(hours_json), venue_id),
-    )
-    conn.commit()
+    update_venue_fields(venue_id, {
+        "venue_name": venue_name,
+        "address": address,
+        "city": city,
+        "state": state,
+        "zip_code": zip_code,
+        "phone": phone,
+        "contact_name": contact_name,
+        "hours_json": hours_json,
+        "onboarding_step": max(_current_onboarding_step(venue_id), 1),
+    })
     return {"success": True, "venue_id": venue_id}
 
 
@@ -67,15 +73,10 @@ def save_logo(venue_id: str, logo_data: bytes, content_type: str) -> dict:
     )
     local.commit()
     local.close()
-    # Onboarding step in Turso
-    vconn = _get_venues_conn()
-    vconn.execute(
-        """UPDATE venues
-           SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 2)
-           WHERE venue_id = ?""",
-        (venue_id,),
-    )
-    vconn.commit()
+    # Advance onboarding step (Supabase)
+    update_venue_fields(venue_id, {
+        "onboarding_step": max(_current_onboarding_step(venue_id), 2),
+    })
     return {
         "success": True,
         "logo_url": f"/api/v1/venues/{venue_id}/logo",
@@ -135,29 +136,20 @@ def save_game_collection(
     local.commit()
     local.close()
 
-    # venue_collections in Turso (persistent)
-    vconn = _get_venues_conn()
-    vconn.execute("DELETE FROM venue_collections WHERE venue_id = ?", (venue_id,))
-    for gid in owned_game_ids:
-        vconn.execute(
-            """INSERT OR IGNORE INTO venue_collections (venue_id, game_id, added_at)
-               VALUES (?, ?, ?)""",
-            (venue_id, gid, now),
-        )
+    # Canonical venue_games in Supabase (persistent)
+    try:
+        set_venue_collection(venue_id, owned_game_ids)
+    except Exception:
+        pass  # Non-critical — local SQLite still has the record
 
-    # Onboarding step in Turso
-    vconn.execute(
-        """UPDATE venues
-           SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 3)
-           WHERE venue_id = ?""",
-        (venue_id,),
-    )
-    vconn.commit()
+    # Advance onboarding step (Supabase)
+    update_venue_fields(venue_id, {
+        "onboarding_step": max(_current_onboarding_step(venue_id), 3),
+    })
 
     # Auto-set GOTD to first priority game
     if priority_game_ids:
         try:
-            from app.services.venue_service import set_gotd
             set_gotd(venue_id, priority_game_ids[0], "manual")
         except Exception:
             pass  # Non-critical — don't fail onboarding
@@ -206,62 +198,56 @@ def save_menu(venue_id: str, categories: list[dict]) -> dict:
     local.commit()
     local.close()
 
-    # Onboarding step in Turso
-    vconn = _get_venues_conn()
-    vconn.execute(
-        """UPDATE venues
-           SET onboarding_step = MAX(COALESCE(onboarding_step, 0), 4)
-           WHERE venue_id = ?""",
-        (venue_id,),
-    )
-    vconn.commit()
+    # Advance onboarding step (Supabase)
+    update_venue_fields(venue_id, {
+        "onboarding_step": max(_current_onboarding_step(venue_id), 4),
+    })
     return {"success": True, "saved": total_items}
 
 
 # ── Step 5: Complete ──────────────────────────────────────────────
 
 def complete_onboarding(venue_id: str) -> dict:
-    """Mark onboarding as complete (Turso)."""
-    conn = _get_venues_conn()
+    """Mark onboarding as complete (Supabase)."""
     now = datetime.now(timezone.utc).isoformat()
-    conn.execute(
-        """UPDATE venues
-           SET onboarding_step = 6,
-               onboarding_completed_at = ?,
-               status = CASE WHEN status = 'prospect' THEN 'active' ELSE status END
-           WHERE venue_id = ?""",
-        (now, venue_id),
-    )
-    conn.commit()
+    current = get_venue_by_id(venue_id) or {}
+    fields = {
+        "onboarding_step": 6,
+        "onboarding_completed_at": now,
+    }
+    if current.get("status") == "prospect":
+        fields["status"] = "active"
+    update_venue_fields(venue_id, fields)
     return {"success": True, "completed": True, "completed_at": now}
 
 
 # ── Progress ──────────────────────────────────────────────────────
 
 def get_onboarding_progress(venue_id: str) -> dict:
-    """Get current onboarding step and venue info for resume logic (Turso)."""
-    conn = _get_venues_conn()
-    row = conn.execute(
-        """SELECT venue_id, venue_name, address, city, state, zip_code,
-                  phone, contact_name, hours_json, onboarding_step,
-                  onboarding_completed_at
-           FROM venues WHERE venue_id = ?""",
-        (venue_id,),
-    ).fetchone()
+    """Get current onboarding step and venue info for resume logic (Supabase)."""
+    row = get_venue_by_id(venue_id)
     if not row:
         return {"onboarding_step": 0}
+    hours = row.get("hours_json")
+    if isinstance(hours, str):
+        try:
+            hours = json.loads(hours)
+        except Exception:
+            hours = {}
+    elif hours is None:
+        hours = {}
     return {
-        "venue_id": row["venue_id"],
-        "venue_name": row["venue_name"],
-        "address": row["address"] or "",
-        "city": row["city"] or "",
-        "state": row["state"] or "",
-        "zip_code": row["zip_code"] or "",
-        "phone": row["phone"] or "",
-        "contact_name": row["contact_name"] or "",
-        "hours_json": json.loads(row["hours_json"]) if row["hours_json"] else {},
-        "onboarding_step": row["onboarding_step"] or 0,
-        "onboarding_completed_at": row["onboarding_completed_at"],
+        "venue_id": row.get("venue_id"),
+        "venue_name": row.get("venue_name"),
+        "address": row.get("address") or "",
+        "city": row.get("city") or "",
+        "state": row.get("state") or "",
+        "zip_code": row.get("zip_code") or "",
+        "phone": row.get("phone") or "",
+        "contact_name": row.get("contact_name") or "",
+        "hours_json": hours,
+        "onboarding_step": row.get("onboarding_step") or 0,
+        "onboarding_completed_at": row.get("onboarding_completed_at"),
     }
 
 

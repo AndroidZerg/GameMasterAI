@@ -12,6 +12,7 @@ from app.services.venue_service import (
     get_venue_collection, get_all_venues, get_all_signups,
     get_meetup_enabled, set_meetup_enabled,
     get_clear_recent_ts, trigger_clear_recent,
+    delete_venue,
 )
 from app.services import game_service
 
@@ -299,24 +300,26 @@ KEEP_VENUE_IDS = {
 async def cleanup_stale_venues(venue: dict = Depends(get_current_venue)):
     """Delete all venues except the 3 real ones + system accounts. Super admin only."""
     _require_super_admin(venue)
-    from app.services.turso import get_venues_db
-    db = get_venues_db()
 
-    rows = db.execute("SELECT venue_id, venue_name, role, email FROM venues").fetchall()
-    before_count = len(rows)
+    all_v = get_all_venues()
+    before_count = len(all_v)
 
     deleted = []
-    for r in rows:
-        vid = dict(r)["venue_id"]
-        if vid not in KEEP_VENUE_IDS:
-            db.execute("DELETE FROM venue_collections WHERE venue_id = ?", (vid,))
-            db.execute("DELETE FROM venues WHERE venue_id = ?", (vid,))
-            deleted.append({"venue_id": vid, "venue_name": dict(r)["venue_name"], "role": dict(r).get("role", "")})
+    for v in all_v:
+        vid = v.get("venue_id", "")
+        if vid and vid not in KEEP_VENUE_IDS:
+            delete_venue(vid)
+            deleted.append({
+                "venue_id": vid,
+                "venue_name": v.get("venue_name", ""),
+                "role": v.get("role", ""),
+            })
 
-    db.commit()
-
-    remaining = db.execute("SELECT venue_id, venue_name, role FROM venues ORDER BY venue_name").fetchall()
-    after = [dict(r) for r in remaining]
+    remaining = get_all_venues()
+    after = [
+        {"venue_id": v.get("venue_id", ""), "venue_name": v.get("venue_name", ""), "role": v.get("role", "")}
+        for v in remaining
+    ]
 
     return {
         "before_count": before_count,

@@ -1,6 +1,7 @@
-"""Cleanup stale venues from Turso — keep only the 3 real venues + system accounts.
+"""Cleanup stale venues from Supabase — keep only the real venues + system accounts.
 
-Run once after deploy to purge convention-created venue rows (conv-*, sm-*, rental-*).
+Run once to purge convention-created venue rows (conv-*, sm-*, rental-*).
+Equivalent to the /api/v1/admin/cleanup-stale-venues endpoint.
 """
 
 import sys
@@ -8,7 +9,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from app.services.turso import get_venues_db
+from app.services.venue_service import get_all_venues, delete_venue
 
 # Venue IDs to KEEP
 KEEP_VENUE_IDS = {
@@ -26,18 +27,15 @@ KEEP_VENUE_IDS = {
 
 
 def cleanup():
-    db = get_venues_db()
-
-    # List all venues
-    rows = db.execute("SELECT venue_id, venue_name, role, email FROM venues").fetchall()
-    print(f"Total venues in Turso: {len(rows)}")
+    rows = get_all_venues()
+    print(f"Total venues in Supabase: {len(rows)}")
 
     to_delete = []
     for r in rows:
-        vid = r[0] if isinstance(r, (list, tuple)) else r["venue_id"]
-        vname = r[1] if isinstance(r, (list, tuple)) else r["venue_name"]
-        role = r[2] if isinstance(r, (list, tuple)) else r["role"]
-        email = r[3] if isinstance(r, (list, tuple)) else r["email"]
+        vid = r.get("venue_id")
+        vname = r.get("venue_name")
+        role = r.get("role")
+        email = r.get("email")
         if vid not in KEEP_VENUE_IDS:
             to_delete.append((vid, vname, role, email))
             print(f"  DELETE: {vid} ({vname}, role={role}, email={email})")
@@ -49,22 +47,16 @@ def cleanup():
         return
 
     print(f"\nDeleting {len(to_delete)} stale venues...")
+    for vid, _vname, _role, _email in to_delete:
+        delete_venue(vid)
 
-    for vid, vname, role, email in to_delete:
-        # Delete venue collections
-        db.execute("DELETE FROM venue_collections WHERE venue_id = ?", (vid,))
-        # Delete the venue itself
-        db.execute("DELETE FROM venues WHERE venue_id = ?", (vid,))
-
-    db.commit()
-    print("Done. Stale venues purged from Turso.")
+    print("Done. Stale venues purged from Supabase.")
 
     # Verify
-    remaining = db.execute("SELECT venue_id FROM venues").fetchall()
+    remaining = get_all_venues()
     print(f"\nRemaining venues: {len(remaining)}")
     for r in remaining:
-        vid = r[0] if isinstance(r, (list, tuple)) else r["venue_id"]
-        print(f"  {vid}")
+        print(f"  {r.get('venue_id')}")
 
 
 if __name__ == "__main__":

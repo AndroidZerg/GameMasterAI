@@ -11,17 +11,12 @@ from pydantic import BaseModel
 
 from app.api.deps import get_current_venue_admin
 from app.core.config import DB_PATH
+from app.services.venue_service import get_venue_by_id
 
 router = APIRouter(prefix="/api/v1/venues", tags=["game-selection"])
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-
-
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -60,16 +55,12 @@ async def get_game_selection(venue_id: str, user: dict = Depends(get_current_ven
     """Get venue's active games with seat info for the game selection UI."""
     _check_venue_access(user, venue_id)
 
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT subscription_tier, game_seat_limit FROM venues WHERE venue_id = ?",
-        (venue_id,),
-    ).fetchone()
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
 
-    tier = venue["subscription_tier"] or "starter"
-    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+    tier = venue.get("subscription_tier") or "starter"
+    seat_limit = venue["game_seat_limit"] if venue.get("game_seat_limit") is not None else 10
 
     conn = _get_conn()
     try:
@@ -121,15 +112,11 @@ async def activate_game(venue_id: str, req: GameActionRequest,
     """Activate a game for a venue, enforcing seat limits."""
     _check_venue_access(user, venue_id)
 
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT venue_id, venue_name, game_seat_limit, lgs_id FROM venues WHERE venue_id = ?",
-        (venue_id,),
-    ).fetchone()
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
 
-    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+    seat_limit = venue["game_seat_limit"] if venue.get("game_seat_limit") is not None else 10
 
     conn = _get_conn()
     try:
@@ -180,7 +167,7 @@ async def activate_game(venue_id: str, req: GameActionRequest,
         seats_remaining = -1 if seat_limit == -1 else max(0, seat_limit - new_seats_used)
 
         # Telegram notify paired LGS
-        if venue["lgs_id"]:
+        if venue.get("lgs_id"):
             lgs = conn.execute(
                 "SELECT telegram_chat_id FROM lgs_partners WHERE id = ?",
                 (venue["lgs_id"],),
@@ -207,15 +194,11 @@ async def deactivate_game(venue_id: str, req: GameActionRequest,
     """Deactivate a game for a venue."""
     _check_venue_access(user, venue_id)
 
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT game_seat_limit FROM venues WHERE venue_id = ?",
-        (venue_id,),
-    ).fetchone()
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
 
-    seat_limit = venue["game_seat_limit"] if venue["game_seat_limit"] is not None else 10
+    seat_limit = venue["game_seat_limit"] if venue.get("game_seat_limit") is not None else 10
     now = datetime.now(timezone.utc).isoformat()
 
     conn = _get_conn()

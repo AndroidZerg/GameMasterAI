@@ -12,6 +12,7 @@ from pydantic import BaseModel
 
 from app.api.deps import get_current_venue_admin
 from app.core.config import DB_PATH, STRIPE_SECRET_KEY
+from app.services.venue_service import get_venue_by_id
 
 router = APIRouter(prefix="/api/v1/venues", tags=["shop"])
 
@@ -22,12 +23,6 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # 24 hours in minutes — auto-refund threshold
 AUTO_REFUND_MINUTES = 1440
-
-
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -122,18 +117,14 @@ def _auto_refund_stale(conn, venue_id: str):
 @router.get("/{venue_id}/shop")
 async def get_shop_catalog(venue_id: str):
     """Return all games available for purchase at this venue."""
-    # Venue data from Turso
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
-        (venue_id,),
-    ).fetchone()
+    # Venue data from Supabase
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
-    if not venue["purchases_enabled"]:
+    if not venue.get("purchases_enabled"):
         raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
 
-    lgs_id = venue["lgs_id"]
+    lgs_id = venue.get("lgs_id")
     if not lgs_id:
         return {"venue_name": venue["venue_name"], "purchases_enabled": True, "games": []}
 
@@ -191,18 +182,14 @@ class PurchaseRequest(BaseModel):
 @router.post("/{venue_id}/shop/purchase")
 async def create_purchase(venue_id: str, req: PurchaseRequest):
     """Create a Stripe PaymentIntent for a game purchase (guest checkout)."""
-    # Venue data from Turso
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT venue_id, venue_name, purchases_enabled, lgs_id FROM venues WHERE venue_id = ?",
-        (venue_id,),
-    ).fetchone()
+    # Venue data from Supabase
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
-    if not venue["purchases_enabled"]:
+    if not venue.get("purchases_enabled"):
         raise HTTPException(status_code=403, detail="Purchases not enabled at this venue")
 
-    lgs_id = venue["lgs_id"]
+    lgs_id = venue.get("lgs_id")
     if not lgs_id:
         raise HTTPException(status_code=503, detail="Purchases temporarily unavailable")
 
@@ -410,11 +397,8 @@ async def fulfillment_failed(venue_id: str, req: FulfillmentRequest,
         )
         conn.commit()
 
-        # Get venue name for notification (Turso)
-        vconn2 = _get_venues_conn()
-        venue = vconn2.execute(
-            "SELECT venue_name FROM venues WHERE venue_id = ?", (venue_id,)
-        ).fetchone()
+        # Get venue name for notification (Supabase)
+        venue = get_venue_by_id(venue_id)
         venue_name = venue["venue_name"] if venue else venue_id
 
         _telegram_notify(

@@ -10,14 +10,9 @@ from pydantic import BaseModel
 
 from app.api.deps import get_current_lgs_admin
 from app.core.config import DB_PATH
+from app.services.venue_service import get_venue_by_id, get_venues_by_lgs
 
 router = APIRouter(prefix="/api/v1/lgs", tags=["lgs-dashboard"])
-
-
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -44,14 +39,11 @@ def _check_lgs_access(user: dict, lgs_id: str):
 
 
 def _check_venue_belongs_to_lgs(conn_unused, venue_id: str, lgs_id: str):
-    """Verify venue is paired with this LGS. Reads from Turso."""
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT lgs_id FROM venues WHERE venue_id = ?", (venue_id,)
-    ).fetchone()
+    """Verify venue is paired with this LGS. Reads from Supabase."""
+    venue = get_venue_by_id(venue_id)
     if not venue:
         raise HTTPException(status_code=404, detail="Venue not found")
-    if venue["lgs_id"] != lgs_id:
+    if venue.get("lgs_id") != lgs_id:
         raise HTTPException(status_code=403, detail="Venue not paired with this LGS")
 
 
@@ -102,13 +94,8 @@ async def lgs_dashboard(lgs_id: str, user: dict = Depends(get_current_lgs_admin)
             (lgs_id, month_start),
         ).fetchone()["total"]
 
-        # Paired venues (from Turso)
-        vconn = _get_venues_conn()
-        venues = vconn.execute(
-            "SELECT venue_id, venue_name, subscription_tier, game_seat_limit, subscription_status "
-            "FROM venues WHERE lgs_id = ?",
-            (lgs_id,),
-        ).fetchall()
+        # Paired venues (from Supabase)
+        venues = get_venues_by_lgs(lgs_id)
 
         venue_list = []
         total_restock = 0
@@ -128,10 +115,10 @@ async def lgs_dashboard(lgs_id: str, user: dict = Depends(get_current_lgs_admin)
             venue_list.append({
                 "venue_id": v["venue_id"],
                 "venue_name": v["venue_name"],
-                "tier": v["subscription_tier"] or "starter",
-                "seat_limit": v["game_seat_limit"] if v["game_seat_limit"] is not None else 10,
+                "tier": v.get("subscription_tier") or "starter",
+                "seat_limit": v["game_seat_limit"] if v.get("game_seat_limit") is not None else 10,
                 "active_games": active,
-                "subscription_status": v["subscription_status"] or "trialing",
+                "subscription_status": v.get("subscription_status") or "trialing",
                 "low_stock_count": low_stock,
             })
 
@@ -190,10 +177,7 @@ async def get_venue_inventory(lgs_id: str, venue_id: str,
     try:
         _check_venue_belongs_to_lgs(None, venue_id, lgs_id)
 
-        vconn2 = _get_venues_conn()
-        venue = vconn2.execute(
-            "SELECT venue_name FROM venues WHERE venue_id = ?", (venue_id,)
-        ).fetchone()
+        venue = get_venue_by_id(venue_id)
 
         # Get all games that are either active at venue OR have inventory
         rows = conn.execute(
@@ -258,7 +242,7 @@ async def get_venue_inventory(lgs_id: str, venue_id: str,
             })
 
         return {
-            "venue_name": venue["venue_name"] if venue else venue_id,
+            "venue_name": venue.get("venue_name") if venue else venue_id,
             "inventory": inventory,
         }
     finally:
@@ -434,10 +418,8 @@ async def get_alerts(lgs_id: str, user: dict = Depends(get_current_lgs_admin)):
     try:
         alerts = []
 
-        # Venues paired with this LGS (Turso)
-        venues = _get_venues_conn().execute(
-            "SELECT venue_id, venue_name FROM venues WHERE lgs_id = ?", (lgs_id,)
-        ).fetchall()
+        # Venues paired with this LGS (Supabase)
+        venues = get_venues_by_lgs(lgs_id)
         venue_map = {v["venue_id"]: v["venue_name"] for v in venues}
         venue_ids = list(venue_map.keys())
 
@@ -575,10 +557,7 @@ async def get_transactions(
         for r in rows:
             desc = r["source_id"]
             if r["transfer_type"] == "subscription_split":
-                venue = _get_venues_conn().execute(
-                    "SELECT venue_name FROM venues WHERE venue_id = ?",
-                    (r["source_id"],),
-                ).fetchone()
+                venue = get_venue_by_id(r["source_id"])
                 if venue:
                     desc = f"{venue['venue_name']} subscription — {period}"
             elif r["transfer_type"] == "game_sale_payout":
@@ -587,10 +566,7 @@ async def get_transactions(
                     (r["source_id"],),
                 ).fetchone()
                 if purchase:
-                    venue = _get_venues_conn().execute(
-                        "SELECT venue_name FROM venues WHERE venue_id = ?",
-                        (purchase["venue_id"],),
-                    ).fetchone()
+                    venue = get_venue_by_id(purchase["venue_id"])
                     venue_name = venue["venue_name"] if venue else purchase["venue_id"]
                     desc = f"{purchase['game_title']} sale at {venue_name}"
 

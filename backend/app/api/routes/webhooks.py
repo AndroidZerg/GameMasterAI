@@ -16,6 +16,12 @@ from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
 from app.models.drink_club import upsert_subscriber, update_subscriber_status
 from app.services.turso import get_swp_rental_db
 from app.services.discord_notify import send_discord_notification
+from app.services.venue_service import (
+    get_venue_by_id,
+    update_venue_fields,
+    get_venue_by_subscription_id,
+    update_venue_by_subscription_id,
+)
 
 router = APIRouter(prefix="/api/v1/webhooks", tags=["webhooks"])
 
@@ -25,12 +31,6 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 TIER_SEATS = {"starter": 10, "standard": 25, "premium": -1}
-
-
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
 
 
 def _get_local_conn() -> sqlite3.Connection:
@@ -71,20 +71,13 @@ def _handle_checkout_completed(session):
     tier = (session.get("metadata") or {}).get("tier", "starter")
     seat_limit = TIER_SEATS.get(tier, 10)
     subscription_id = session.get("subscription")
-    now = datetime.now(timezone.utc).isoformat()
 
-    vconn = _get_venues_conn()
-    vconn.execute(
-        """UPDATE venues SET
-            subscription_tier = ?,
-            game_seat_limit = ?,
-            stripe_subscription_id = ?,
-            subscription_status = 'trialing',
-            updated_at = ?
-        WHERE venue_id = ?""",
-        (tier, seat_limit, subscription_id, now, venue_id),
-    )
-    vconn.commit()
+    update_venue_fields(venue_id, {
+        "subscription_tier": tier,
+        "game_seat_limit": seat_limit,
+        "stripe_subscription_id": subscription_id,
+        "subscription_status": "trialing",
+    })
 
     _telegram_notify(f"New venue subscription: {venue_id} on {tier} tier")
 
@@ -113,17 +106,11 @@ def _handle_invoice_succeeded(invoice):
     if period_end:
         period_end_iso = datetime.fromtimestamp(period_end, tz=timezone.utc).isoformat()
 
-    # Update venue subscription status in Turso
-    vconn = _get_venues_conn()
-    vconn.execute(
-        """UPDATE venues SET
-            subscription_status = 'active',
-            current_period_end = ?,
-            updated_at = ?
-        WHERE venue_id = ?""",
-        (period_end_iso, now, venue_id),
-    )
-    vconn.commit()
+    # Update venue subscription status in Supabase
+    update_venue_fields(venue_id, {
+        "subscription_status": "active",
+        "current_period_end": period_end_iso,
+    })
 
     # Transfer 80% to LGS if paired (lgs_partners in local SQLite)
     if lgs_id:
@@ -176,21 +163,10 @@ def _handle_invoice_failed(invoice):
     if not subscription_id:
         return
 
-    now = datetime.now(timezone.utc).isoformat()
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
-        (subscription_id,),
-    ).fetchone()
-
-    vconn.execute(
-        "UPDATE venues SET subscription_status = 'past_due', updated_at = ? "
-        "WHERE stripe_subscription_id = ?",
-        (now, subscription_id),
+    venue = update_venue_by_subscription_id(
+        subscription_id, {"subscription_status": "past_due"}
     )
-    vconn.commit()
-
-    venue_id = venue["venue_id"] if venue else "unknown"
+    venue_id = venue.get("venue_id") if venue else "unknown"
     _telegram_notify(f"Venue payment failed: {venue_id}")
 
 
@@ -212,12 +188,8 @@ def _handle_payment_intent_succeeded(payment_intent):
             return
 
         customer = purchase["customer_name"] or purchase["customer_email"]
-        # Venue name from Turso
-        vconn = _get_venues_conn()
-        venue = vconn.execute(
-            "SELECT venue_name FROM venues WHERE venue_id = ?",
-            (purchase["venue_id"],),
-        ).fetchone()
+        # Venue name from Supabase
+        venue = get_venue_by_id(purchase["venue_id"])
         venue_name = venue["venue_name"] if venue else purchase["venue_id"]
 
         _telegram_notify(
@@ -271,21 +243,10 @@ def _handle_subscription_deleted(subscription):
     if not sub_id:
         return
 
-    now = datetime.now(timezone.utc).isoformat()
-    vconn = _get_venues_conn()
-    venue = vconn.execute(
-        "SELECT venue_id FROM venues WHERE stripe_subscription_id = ?",
-        (sub_id,),
-    ).fetchone()
-
-    vconn.execute(
-        "UPDATE venues SET subscription_status = 'canceled', updated_at = ? "
-        "WHERE stripe_subscription_id = ?",
-        (now, sub_id),
+    venue = update_venue_by_subscription_id(
+        sub_id, {"subscription_status": "canceled"}
     )
-    vconn.commit()
-
-    venue_id = venue["venue_id"] if venue else "unknown"
+    venue_id = venue.get("venue_id") if venue else "unknown"
     _telegram_notify(f"Venue subscription canceled: {venue_id}")
 
 

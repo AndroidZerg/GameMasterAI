@@ -762,15 +762,15 @@ async def venues_list(
     user: dict = Depends(get_current_venue_admin),
 ):
     """Return lightweight venue list for dropdown. Super admins see all, venue admins see own."""
-    from app.services.turso import get_venues_db
-    vconn = get_venues_db()
+    from app.services.venue_service import list_venues_lightweight, get_venue_by_id
 
     if user.get("role") == "super_admin":
-        rows = vconn.execute("SELECT venue_id, venue_name FROM venues ORDER BY venue_name").fetchall()
-    else:
-        rows = vconn.execute("SELECT venue_id, venue_name FROM venues WHERE venue_id = ?", (user["venue_id"],)).fetchall()
+        return list_venues_lightweight()
 
-    return [{"venue_id": r["venue_id"], "venue_name": r["venue_name"]} for r in rows]
+    v = get_venue_by_id(user["venue_id"])
+    if not v:
+        return []
+    return [{"venue_id": v["venue_id"], "venue_name": v["venue_name"]}]
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1097,26 +1097,20 @@ async def convention_signups(
     if user.get("role") != "super_admin":
         return {"signups": []}
 
-    from app.services.turso import get_venues_db
-    vconn = get_venues_db()
-
-    rows = vconn.execute("""
-        SELECT email, created_at, venue_id, expires_at
-        FROM venues WHERE role = 'convention'
-        ORDER BY created_at DESC
-    """).fetchall()
+    from app.services.venue_service import list_convention_venues
+    rows = list_convention_venues()
 
     db = get_analytics_db()
     signups = []
     for r in rows:
-        vid = r["venue_id"]
+        vid = r.get("venue_id")
         sess_row = db.execute("SELECT COUNT(*) FROM sessions WHERE venue_id = ?", (vid,)).fetchone()
         last_row = db.execute("SELECT MAX(timestamp) FROM events WHERE venue_id = ?", (vid,)).fetchone()
         signups.append({
-            "email": r["email"],
-            "signup_date": r["created_at"] or "",
+            "email": r.get("email") or "",
+            "signup_date": r.get("created_at") or "",
             "sessions": sess_row[0] if sess_row else 0,
             "last_active": last_row[0] if last_row and last_row[0] else "",
-            "expires": r["expires_at"] or "",
+            "expires": r.get("expires_at") or "",
         })
     return {"signups": signups}

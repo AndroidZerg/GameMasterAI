@@ -10,9 +10,8 @@ def run_migrations():
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    # --- venues table columns now managed in Turso (init_turso_venues_table) ---
-    # These ALTER TABLE calls are no longer needed since venues lives in Turso
-    # and init_turso_venues_table() creates the table with all columns.
+    # --- venues table is now canonical in Supabase (Wave 1.5) ---
+    # venue_service.py handles all venues reads/writes; no local schema needed.
 
     # --- NEW TABLE: venue_logos ---
     cur.execute("""

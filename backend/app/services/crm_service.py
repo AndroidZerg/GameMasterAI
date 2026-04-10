@@ -4,6 +4,7 @@ import sqlite3
 from datetime import datetime, timezone, timedelta
 
 from app.core.config import DB_PATH
+from app.services.venue_service import get_all_venues, get_venue_by_id
 
 
 def _get_local_conn() -> sqlite3.Connection:
@@ -11,12 +12,6 @@ def _get_local_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
-
-
-def _get_venues_conn():
-    """Turso-backed connection for the venues table."""
-    from app.services.turso import get_venues_db
-    return get_venues_db()
 
 
 def _compute_trial_days_remaining(venue: dict) -> int | None:
@@ -90,9 +85,7 @@ def _build_venue_row(venue: dict, local_conn: sqlite3.Connection) -> dict:
 
 def get_all_crm_venues() -> list[dict]:
     """Return all venues with CRM computed fields."""
-    vconn = _get_venues_conn()
-    rows = vconn.execute("SELECT * FROM venues ORDER BY venue_name").fetchall()
-    venues = [dict(r) for r in rows]
+    venues = get_all_venues()
     local_conn = _get_local_conn()
     result = [_build_venue_row(v, local_conn) for v in venues]
     local_conn.close()
@@ -101,12 +94,10 @@ def get_all_crm_venues() -> list[dict]:
 
 def get_crm_venue_detail(venue_id: str) -> dict | None:
     """Return one venue with CRM fields + 30-day daily analytics."""
-    vconn = _get_venues_conn()
-    row = vconn.execute("SELECT * FROM venues WHERE venue_id = ?", (venue_id,)).fetchone()
-    if not row:
+    venue = get_venue_by_id(venue_id)
+    if not venue:
         return None
 
-    venue = dict(row)
     local_conn = _get_local_conn()
     result = _build_venue_row(venue, local_conn)
 
