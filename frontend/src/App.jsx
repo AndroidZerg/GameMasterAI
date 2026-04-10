@@ -49,6 +49,7 @@ import CoverArtManager from "./pages/CoverArtManager";
 import PublisherSignup from "./pages/PublisherSignup";
 import PublisherLogin from "./pages/PublisherLogin";
 import PublisherDashboard from "./pages/PublisherDashboard";
+import PublisherGameOnboarding from "./pages/PublisherGameOnboarding";
 import { PublisherAuthProvider } from "./contexts/PublisherAuthContext";
 import PublisherProtectedRoute from "./components/PublisherProtectedRoute";
 
@@ -200,6 +201,8 @@ function App() {
               <PublisherProtectedRoute>
                 <Routes>
                   <Route path="dashboard" element={<PublisherDashboard />} />
+                  <Route path="games/new" element={<PublisherGameOnboarding />} />
+                  <Route path="games/:gameId/onboard" element={<PublisherGameOnboarding />} />
                 </Routes>
               </PublisherProtectedRoute>
             </PublisherAuthProvider>
