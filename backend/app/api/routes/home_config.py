@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from app.core.auth import get_current_venue, get_optional_venue
-from app.models.game import search_games
+from app.services import game_service
 from app.services.home_config import (
     get_gotd,
     set_gotd,
@@ -83,7 +83,7 @@ async def get_my_home_config(venue: Optional[dict] = Depends(get_optional_venue)
     # Enrich GOTD with full game data
     gotd_game = None
     if gotd_data:
-        games = search_games()
+        games = game_service.list_games()
         games_map = {g["game_id"]: g for g in games}
 
         if gotd_data["mode"] == "manual" and gotd_data["game_id"] in games_map:
@@ -99,7 +99,7 @@ async def get_my_home_config(venue: Optional[dict] = Depends(get_optional_venue)
     pick_ids = [p["game_id"] for p in picks_data]
     staff_picks_games = []
     if pick_ids:
-        games = search_games()
+        games = game_service.list_games()
         games_map = {g["game_id"]: g for g in games}
         staff_picks_games = [games_map[gid] for gid in pick_ids if gid in games_map]
 

@@ -9,7 +9,7 @@ from fastapi import APIRouter, HTTPException, Request
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 
-from app.services.knowledge import load_game, build_knowledge_text
+from app.services import game_service
 from app.services.llm import chat_completion
 from app.services.turso import get_analytics_db
 
@@ -31,12 +31,12 @@ class QueryRequest(BaseModel):
 @limiter.limit("10/minute")
 async def query_game(request: Request, req: QueryRequest):
     # Load the game
-    game = load_game(req.game_id)
+    game = game_service.get_game(req.game_id)
     if not game:
         raise HTTPException(status_code=404, detail=f"Game '{req.game_id}' not found")
 
     # Build knowledge text (v2.0: flattened tabs/subtopics as Markdown)
-    knowledge = build_knowledge_text(game)
+    knowledge = game_service.get_game_for_llm(req.game_id)
     title = game.get("title", req.game_id)
 
     # Construct system prompt (v2.2 — walkthrough + advanced strategy awareness)

@@ -8,6 +8,7 @@ from pydantic import BaseModel
 
 from app.core.auth import get_current_venue
 from app.models.venues import update_venue_config, get_venue_by_id, set_venue_collection, get_venue_collection, get_all_venues
+from app.services import game_service
 from app.services.turso import get_all_signups
 from app.services.admin_config import (
     get_meetup_enabled, set_meetup_enabled,
@@ -181,6 +182,109 @@ async def list_signups(venue: dict = Depends(get_current_venue)):
     _require_super_admin(venue)
     signups = get_all_signups()
     return {"signups": signups, "count": len(signups)}
+
+
+# ── Game Content Write API (super_admin only) ────────────────────
+
+_ALLOWED_COMPLEXITY = {"party", "gateway", "midweight", "heavy"}
+_ALLOWED_VALIDATION_STATUS = {"pending", "approved", "rejected"}
+
+
+class GameUpsertRequest(BaseModel):
+    game_id: str
+    title: Optional[str] = None
+    aliases: Optional[list[str]] = None
+    publisher: Optional[str] = None
+    publisher_tag: Optional[str] = None
+    publisher_approved: Optional[bool] = None
+    public_domain: Optional[bool] = None
+    image: Optional[str] = None
+    player_count: Optional[dict] = None
+    play_time_minutes: Optional[dict] = None
+    complexity: Optional[str] = None
+    categories: Optional[list[str]] = None
+    source_url: Optional[str] = None
+    source_verified: Optional[bool] = None
+    bgg_id: Optional[int] = None
+    tabs: Optional[dict] = None
+    rules_citations: Optional[dict] = None
+    extensions: Optional[dict] = None
+    teaching: Optional[dict] = None
+    score_config: Optional[dict] = None
+    metadata: Optional[dict] = None
+
+
+def _to_supabase_row(req: GameUpsertRequest) -> dict:
+    """Convert the nested API shape into the flat Supabase column shape."""
+    pc = req.player_count or {}
+    pt = req.play_time_minutes or {}
+    md = req.metadata or {}
+
+    complexity = req.complexity if req.complexity in _ALLOWED_COMPLEXITY else None
+    vs = md.get("validation_status")
+    validation_status = vs if vs in _ALLOWED_VALIDATION_STATUS else None
+
+    row = {
+        "game_id": req.game_id,
+        "title": req.title or req.game_id,
+        "aliases": req.aliases or [],
+        "publisher": req.publisher,
+        "publisher_tag": req.publisher_tag,
+        "publisher_approved": bool(req.publisher_approved) if req.publisher_approved is not None else False,
+        "public_domain": bool(req.public_domain) if req.public_domain is not None else False,
+        "image": req.image,
+        "player_count_min": pc.get("min"),
+        "player_count_max": pc.get("max"),
+        "player_count_recommended": pc.get("recommended"),
+        "expansion_max": pc.get("expansion_max"),
+        "play_time_min": pt.get("min"),
+        "play_time_max": pt.get("max"),
+        "complexity": complexity,
+        "categories": req.categories or [],
+        "source_url": req.source_url,
+        "source_verified": bool(req.source_verified) if req.source_verified is not None else False,
+        "bgg_id": req.bgg_id,
+        "tabs": req.tabs or {},
+        "rules_citations": req.rules_citations or {},
+        "extensions": req.extensions or {},
+        "teaching": req.teaching or {},
+        "score_config": req.score_config or {},
+        "schema_version": md.get("schema_version") or "2.0",
+        "created_by": md.get("created_by") or "admin-api",
+        "validated_by": md.get("validated_by"),
+        "validation_status": validation_status,
+        "revision": md.get("revision") or 1,
+        "notes": md.get("notes"),
+    }
+    return row
+
+
+@router.post("/games")
+async def upsert_game(req: GameUpsertRequest, venue: dict = Depends(get_current_venue)):
+    """Create or update a game in Supabase. Super admin only.
+
+    Accepts the nested JSON-file shape; reshapes into flat Supabase columns
+    and upserts on game_id. Cache is invalidated and the local SQLite mirror
+    is rebuilt so legacy LEFT JOIN queries see the new data immediately.
+    """
+    _require_super_admin(venue)
+    if not req.game_id or not req.game_id.strip():
+        raise HTTPException(status_code=400, detail="game_id is required")
+    row = _to_supabase_row(req)
+    try:
+        result = game_service.create_or_update_game(row)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Upsert failed: {e}")
+    return {"status": "ok", "game_id": req.game_id, "game": result}
+
+
+@router.post("/games/{game_id}/invalidate-cache")
+async def invalidate_game_cache(game_id: str, venue: dict = Depends(get_current_venue)):
+    """Force the next read to refresh from Supabase. Super admin only."""
+    _require_super_admin(venue)
+    game_service.invalidate_cache()
+    game_service.sync_local_games_table()
+    return {"status": "ok", "game_id": game_id, "cache": "invalidated"}
 
 
 # ── Venue Cleanup (super_admin only) ────────────────────────────

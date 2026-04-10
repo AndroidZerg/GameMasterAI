@@ -7,11 +7,10 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.auth import get_optional_venue
-from app.models.game import search_games, search_limited_library, search_by_publisher_tag, rebuild_db, get_msrp, filter_games, get_all_categories, get_quick_games
+from app.services import game_service
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
 from app.models.venues import get_venue_collection
-from app.services.knowledge import load_game
 from app.services.turso import get_cover_art_status
 
 _CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
@@ -56,14 +55,14 @@ async def list_games(
     if collection:
         coll_set = set(collection)
         # Get full catalog then filter to collection
-        results = search_games(search=search, complexity=complexity)
+        results = game_service.list_games(search=search, complexity=complexity)
         results = [g for g in results if g["game_id"] in coll_set]
     elif role == "stonemaier":
-        results = search_by_publisher_tag("stonemaier", search=search, complexity=complexity)
+        results = game_service.search_by_publisher_tag("stonemaier", search=search, complexity=complexity)
     elif role == "demo":
-        results = search_limited_library(search=search, complexity=complexity)
+        results = game_service.search_limited_library(search=search, complexity=complexity)
     else:
-        results = search_games(search=search, complexity=complexity)
+        results = game_service.list_games(search=search, complexity=complexity)
 
     # Attach average ratings
     ratings = get_all_game_ratings()
@@ -81,7 +80,7 @@ async def list_games(
 @router.get("/games/categories")
 async def list_categories():
     """Return all unique categories with game counts, sorted alphabetically."""
-    return get_all_categories()
+    return game_service.get_all_categories()
 
 
 @router.get("/games/filter")
@@ -94,7 +93,7 @@ async def filter_games_endpoint(
     tag: Optional[str] = Query(None, description="Filter by tag: solo, great-for-2, family-friendly, party-game, brain-burner, quick-play, cooperative, mystery-deduction, large-group"),
 ):
     """Filter games by complexity, player count, category, play time, and tags. All params optional and combinable."""
-    return filter_games(
+    return game_service.filter_games(
         complexity=complexity,
         min_players=min_players,
         max_players=max_players,
@@ -109,16 +108,16 @@ async def quick_games(
     max_time: int = Query(30, description="Max play time in minutes"),
 ):
     """Return games with max play time <= threshold. Default 30 minutes."""
-    return get_quick_games(max_time=max_time)
+    return game_service.get_quick_games(max_time=max_time)
 
 
 @router.get("/games/{game_id}")
 async def get_game(game_id: str):
     """Return the full game JSON including all tabs data, MSRP, scoring text, and teaching content."""
-    game = load_game(game_id)
+    game = game_service.get_game(game_id)
     if not game:
         raise HTTPException(status_code=404, detail=f"Game '{game_id}' not found")
-    msrp = get_msrp(game_id)
+    msrp = game_service.get_msrp(game_id)
     if msrp is not None:
         game["msrp"] = msrp
     # Extract scoring/endgame text from rules subtopics
@@ -131,14 +130,6 @@ async def get_game(game_id: str):
             break
     if scoring_text:
         game["scoring_text"] = scoring_text
-    # Attach teaching mode content if available
-    teaching_path = _CONTENT_ROOT / "teaching" / f"{game_id}.json"
-    if teaching_path.exists():
-        try:
-            teaching = json.loads(teaching_path.read_text(encoding="utf-8"))
-            game["teaching"] = teaching.get("sections", {})
-        except Exception:
-            pass
     return game
 
 
@@ -166,7 +157,7 @@ async def get_game_house_rules(
 @router.get("/games/{game_id}/price")
 async def get_game_price(game_id: str):
     """Return MSRP price for a game."""
-    msrp = get_msrp(game_id)
+    msrp = game_service.get_msrp(game_id)
     if msrp is None:
         raise HTTPException(status_code=404, detail=f"Price not available for '{game_id}'")
     return {"game_id": game_id, "msrp": msrp, "currency": "USD"}
@@ -174,6 +165,7 @@ async def get_game_price(game_id: str):
 
 @router.post("/reload")
 async def reload_games():
-    """Re-scan the games directory and rebuild the SQLite database."""
-    count = rebuild_db()
-    return {"status": "ok", "games_loaded": count}
+    """Force a refresh of the in-memory game cache from Supabase."""
+    game_service.invalidate_cache()
+    games = game_service.get_all_games()
+    return {"status": "ok", "games_loaded": len(games)}

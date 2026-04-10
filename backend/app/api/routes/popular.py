@@ -1,11 +1,11 @@
 """Popular games endpoint."""
 
-import json
 import sqlite3
 
 from fastapi import APIRouter
 
 from app.core.config import DB_PATH
+from app.services import game_service
 
 router = APIRouter(prefix="/api/games", tags=["games"])
 
@@ -29,32 +29,27 @@ async def get_popular_games():
 
     # Try session-based popularity
     rows = conn.execute("""
-        SELECT s.game_id, COUNT(*) as session_count, COALESCE(g.title, s.game_id) as title
+        SELECT s.game_id, COUNT(*) as session_count
         FROM sessions s
-        LEFT JOIN games g ON s.game_id = g.game_id
         GROUP BY s.game_id
         ORDER BY session_count DESC
         LIMIT 10
     """).fetchall()
+    conn.close()
 
     if rows:
-        result = [{"game_id": r["game_id"], "title": r["title"], "sessions": r["session_count"]} for r in rows]
-        conn.close()
+        result = []
+        for r in rows:
+            game = game_service.get_game(r["game_id"])
+            title = game["title"] if game else r["game_id"]
+            result.append({"game_id": r["game_id"], "title": title, "sessions": r["session_count"]})
         return result
 
     # Fall back to curated defaults
-    placeholders = ",".join("?" for _ in _DEFAULT_POPULAR)
-    defaults = conn.execute(
-        f"SELECT * FROM games WHERE game_id IN ({placeholders}) ORDER BY title",
-        _DEFAULT_POPULAR,
-    ).fetchall()
-    conn.close()
-
-    return [
-        {
-            "game_id": r["game_id"],
-            "title": r["title"],
-            "sessions": 0,
-        }
-        for r in defaults
-    ]
+    result = []
+    for gid in _DEFAULT_POPULAR:
+        game = game_service.get_game(gid)
+        if game:
+            result.append({"game_id": gid, "title": game["title"], "sessions": 0})
+    result.sort(key=lambda g: g["title"].lower())
+    return result

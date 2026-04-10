@@ -18,7 +18,7 @@ from app.models.venues import (
     get_venue_by_email, update_venue_login, create_venue,
     get_venue_by_id, get_venue_by_username, set_venue_collection,
 )
-from app.models.game import search_games
+from app.services import game_service
 from app.services.admin_config import get_meetup_enabled
 from app.services.turso import insert_signup, get_signup_by_email
 
@@ -262,7 +262,7 @@ async def register(req: RegisterRequest, request: Request,
     )
 
     # Seed collection with all games
-    all_games = search_games()
+    all_games = game_service.list_games()
     game_ids = [g["game_id"] for g in all_games]
     set_venue_collection(venue_id, game_ids)
 

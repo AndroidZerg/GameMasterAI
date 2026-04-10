@@ -65,7 +65,7 @@ from app.api.routes.publisher_auth import router as publisher_auth_router
 from app.api.routes.publisher_admin import router as publisher_admin_router
 from app.api.routes.publisher_games import router as publisher_games_router
 from app.api.routes.publisher_dashboard import router as publisher_dashboard_router
-from app.models.game import rebuild_db, search_games
+from app.services import game_service
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
@@ -74,7 +74,6 @@ from app.models.venues import (
     init_venues_table, init_venue_collections_table,
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
 )
-from app.models.game import search_limited_library, search_by_publisher_tag
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
 from app.models.house_rules import init_house_rules_table
@@ -111,8 +110,13 @@ STONEMAIER_COUNT: int = 0
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup: scan game files, populate SQLite, create tables, seed venues."""
-    count = rebuild_db()
+    """Startup: prime game cache from Supabase, mirror to local SQLite for joins, init tables, seed venues."""
+    # Prime the in-memory cache from Supabase (source of truth) and mirror
+    # game_id+title+metadata into local SQLite so legacy LEFT JOIN queries
+    # in sessions/exports/analytics keep working.
+    all_games_full = game_service.get_all_games()
+    count = len(all_games_full)
+    game_service.sync_local_games_table()
     init_sessions_table()
     init_feedback_table()
     init_contacts_table()
@@ -158,8 +162,7 @@ async def lifespan(app: FastAPI):
     # Seed venue accounts (Shall We Play? + system accounts)
     pw_hash = hash_password("gmg2026")
     seeded = seed_all_venues(pw_hash)
-    all_games = search_games()
-    game_ids = [g["game_id"] for g in all_games]
+    game_ids = [g["game_id"] for g in all_games_full]
     if seeded:
         for vid in seeded:
             set_venue_collection(vid, game_ids)
@@ -168,7 +171,7 @@ async def lifespan(app: FastAPI):
     # Seed Dice Tower West accounts (admin, dicetowerwest, demo, meetup, thaihouse)
     dt_seeded = seed_dicetower_accounts()
     if dt_seeded:
-        limited_games = search_limited_library()
+        limited_games = game_service.search_limited_library()
         limited_ids = [g["game_id"] for g in limited_games]
         for vid in dt_seeded:
             if vid == "demo-dicetower":
@@ -184,10 +187,10 @@ async def lifespan(app: FastAPI):
     # Track game counts for deploy-status endpoint
     global GAMES_LOADED, STONEMAIER_COUNT
     GAMES_LOADED = count
-    all_sm = search_by_publisher_tag("stonemaier")
+    all_sm = game_service.search_by_publisher_tag("stonemaier")
     STONEMAIER_COUNT = len(all_sm)
 
-    print(f"[GMAI] Loaded {count} game(s) into SQLite (commit={DEPLOY_COMMIT})")
+    print(f"[GMAI] Loaded {count} game(s) from Supabase (commit={DEPLOY_COMMIT})")
     yield
 
 
@@ -310,10 +313,11 @@ async def health():
 
 @app.get("/api/v1/deploy-status", tags=["system"])
 async def deploy_status():
-    """Deploy verification endpoint — shows commit, game counts."""
+    """Deploy verification endpoint — shows commit, game counts, data source."""
     return {
         "commit": DEPLOY_COMMIT,
         "deployed_at": DEPLOY_TIMESTAMP,
-        "games_loaded": GAMES_LOADED,
+        "games_loaded": len(game_service.get_all_games()),
         "stonemaier_games": STONEMAIER_COUNT,
+        "data_source": "supabase",
     }

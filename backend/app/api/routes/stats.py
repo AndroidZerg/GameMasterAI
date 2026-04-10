@@ -9,6 +9,12 @@ from fastapi import APIRouter, Depends
 
 from app.core.auth import get_optional_venue
 from app.core.config import DB_PATH
+from app.services import game_service
+
+
+def _title_for(game_id: str) -> str:
+    g = game_service.get_game(game_id)
+    return g["title"] if g else game_id
 
 router = APIRouter(prefix="/api", tags=["stats"])
 
@@ -61,10 +67,9 @@ def _session_stats(conn: sqlite3.Connection, since: str | None = None,
     s_where = ("WHERE " + " AND ".join(s_conditions)) if s_conditions else ""
 
     top_games = conn.execute(f"""
-        SELECT s.game_id, COUNT(*) as cnt, COALESCE(g.title, s.game_id) as title,
+        SELECT s.game_id, COUNT(*) as cnt,
                COALESCE(AVG(s.duration_seconds), 0) as avg_dur
         FROM sessions s
-        LEFT JOIN games g ON s.game_id = g.game_id
         {s_where}
         GROUP BY s.game_id
         ORDER BY cnt DESC
@@ -76,7 +81,7 @@ def _session_stats(conn: sqlite3.Connection, since: str | None = None,
         "questions": row["questions"],
         "avg_duration_minutes": round(row["avg_duration_sec"] / 60, 1) if row["avg_duration_sec"] else 0,
         "top_games": [
-            {"game_id": r["game_id"], "title": r["title"], "sessions": r["cnt"],
+            {"game_id": r["game_id"], "title": _title_for(r["game_id"]), "sessions": r["cnt"],
              "avg_duration": round(r["avg_dur"] / 60, 1) if r["avg_dur"] else 0}
             for r in top_games
         ],
@@ -141,10 +146,8 @@ def _enhanced_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> di
 
     # Recent sessions
     recent = conn.execute(f"""
-        SELECT s.id, s.game_id, COALESCE(g.title, s.game_id) as game_title,
-               s.duration_seconds, s.started_at, s.table_number
+        SELECT s.id, s.game_id, s.duration_seconds, s.started_at, s.table_number
         FROM sessions s
-        LEFT JOIN games g ON s.game_id = g.game_id
         {"WHERE s.venue_id = ?" if venue_id else ""}
         ORDER BY s.started_at DESC LIMIT 10
     """, vid_params).fetchall()
@@ -176,7 +179,7 @@ def _enhanced_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> di
         "busiest_day": day_names[busiest_day["dow"]] if busiest_day else None,
         "recent_sessions": [
             {
-                "id": r["id"], "game_id": r["game_id"], "game_title": r["game_title"],
+                "id": r["id"], "game_id": r["game_id"], "game_title": _title_for(r["game_id"]),
                 "duration_seconds": r["duration_seconds"], "started_at": r["started_at"],
                 "table_number": r["table_number"],
             }
@@ -197,7 +200,7 @@ async def get_stats(
         today = _midnight_today()
         week = _monday_of_this_week()
 
-        total_games = conn.execute("SELECT COUNT(*) as cnt FROM games").fetchone()["cnt"]
+        total_games = len(game_service.get_all_games())
 
         all_time = _session_stats(conn, venue_id=vid)
         all_time["total_games_available"] = total_games
