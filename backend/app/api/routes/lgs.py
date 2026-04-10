@@ -1,6 +1,5 @@
 """LGS (Local Game Store) admin endpoints — create, pair, list, detail."""
 
-import sqlite3
 import uuid
 from datetime import datetime, timezone
 from typing import Optional
@@ -9,7 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from app.api.deps import get_current_super_admin
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 from app.services.venue_service import (
     get_venue_by_id,
     update_venue_fields,
@@ -20,11 +19,9 @@ from app.services.venue_service import (
 router = APIRouter(tags=["lgs"])
 
 
-def _get_local_conn() -> sqlite3.Connection:
-    """Local SQLite for lgs_partners and other non-venue tables."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_local_conn():
+    """Supabase PG shim — backs the legacy sqlite3.Row API for marketplace tables."""
+    return get_analytics_db()
 
 
 def _generate_id() -> str:

@@ -296,3 +296,19 @@ async def deploy_status():
         "stonemaier_games": STONEMAIER_COUNT,
         "data_source": "supabase",
     }
+
+
+@app.get("/api/v1/warm", tags=["system"])
+async def warm_cache():
+    """Warm the game cache. Frontend pings this on mount so that the first
+    real query has an already-hot in-memory cache.
+
+    Wave 4 (2026-04-10): lives next to deploy-status so it can be called
+    anonymously during the app shell bootstrap without hitting auth.
+    """
+    games = game_service.get_all_games()
+    return {
+        "status": "ok",
+        "games_loaded": len(games),
+        "cache_ttl_seconds": game_service.CACHE_TTL_SECONDS,
+    }

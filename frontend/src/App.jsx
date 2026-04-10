@@ -1,7 +1,7 @@
 import { useEffect, useCallback, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import { setOnUnauthorized } from "./services/api";
+import { setOnUnauthorized, warmGameCache } from "./services/api";
 import EventTracker from "./services/EventTracker";
 import { useKioskMode } from "./hooks/useKioskMode";
 import IdlePrompt from "./components/IdlePrompt";
@@ -68,6 +68,12 @@ function AuthWatcher() {
     });
     return () => setOnUnauthorized(null);
   }, [logout, navigate]);
+
+  // Wave 4 (2026-04-10): prime the backend game cache on app boot so the
+  // first /api/games query hits a hot cache. Fire-and-forget, one shot.
+  useEffect(() => {
+    warmGameCache();
+  }, []);
 
   return null;
 }

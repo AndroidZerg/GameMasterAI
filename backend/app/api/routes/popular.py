@@ -1,11 +1,9 @@
 """Popular games endpoint."""
 
-import sqlite3
-
 from fastapi import APIRouter
 
-from app.core.config import DB_PATH
 from app.services import game_service
+from app.services.turso import get_analytics_db
 
 router = APIRouter(prefix="/api/games", tags=["games"])
 
@@ -16,10 +14,9 @@ _DEFAULT_POPULAR = [
 ]
 
 
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — backs the sessions table."""
+    return get_analytics_db()
 
 
 @router.get("/popular")

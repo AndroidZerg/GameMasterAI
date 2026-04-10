@@ -2,7 +2,6 @@
 
 import logging
 import os
-import sqlite3
 import uuid
 from datetime import datetime, timezone
 
@@ -12,9 +11,9 @@ from fastapi import APIRouter, Request, HTTPException
 
 logger = logging.getLogger(__name__)
 
-from app.core.config import DB_PATH, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
+from app.core.config import STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
 from app.models.drink_club import upsert_subscriber, update_subscriber_status
-from app.services.turso import get_swp_rental_db
+from app.services.turso import get_analytics_db, get_swp_rental_db
 from app.services.discord_notify import send_discord_notification
 from app.services.venue_service import (
     get_venue_by_id,
@@ -33,11 +32,9 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 TIER_SEATS = {"starter": 10, "standard": 25, "premium": -1}
 
 
-def _get_local_conn() -> sqlite3.Connection:
-    """Local SQLite for non-venue tables (game_purchases, lgs_partners, etc.)."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_local_conn():
+    """Supabase PG shim — backs marketplace tables (game_purchases, lgs_partners, etc.)."""
+    return get_analytics_db()
 
 
 def _generate_id() -> str:

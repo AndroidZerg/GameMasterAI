@@ -1,13 +1,21 @@
-"""Device session tracking — QR-based venue sessions, notes, Q&A history, CRM analytics."""
+"""Device session tracking — QR-based venue sessions, notes, Q&A history, CRM analytics.
 
-import hashlib
+Wave 4 (2026-04-10): fully migrated to Supabase Postgres via native supabase-py
+client. Table name is ``device_sessions_v2`` to avoid naming confusion with
+``analytics_sessions`` (event-ingestion sessions). Tables ``device_notes``,
+``device_qa_history``, and ``crm_qa_analytics`` keep their existing names.
+"""
+
+import hashlib  # noqa: F401 — preserved for future CRM question-hash writes
 import logging
 import secrets
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
+from postgrest.exceptions import APIError
 
-from app.api.deps import get_current_super_admin, get_current_venue_admin
-from app.services.turso import get_analytics_db
+from app.api.deps import get_current_venue_admin  # noqa: F401 — used on CRM endpoints
+from app.services.supabase_client import get_admin_client
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/v1/sessions", tags=["device-sessions"])
@@ -18,110 +26,43 @@ router = APIRouter(prefix="/api/v1/sessions", tags=["device-sessions"])
 # ---------------------------------------------------------------------------
 
 def init_device_session_tables():
-    """Create device session, notes, Q&A history, and CRM analytics tables.
+    """All device-session tables now live in Supabase. No-op.
 
-    CRITICAL: This function must NEVER crash the app. Session tracking is
-    non-critical — game teaching, Q&A, and all core features must work even
-    if these tables fail to initialise.
+    Tables (``device_sessions_v2``, ``device_notes``, ``device_qa_history``,
+    ``crm_qa_analytics``) are created and migrated out-of-band. Retained so
+    ``main.py``'s lifespan call site doesn't need to change.
     """
-    try:
-        db = get_analytics_db()
-
-        # Migration: drop old tables and recreate fresh.
-        # These tables are brand new with zero real user data.
-        db.execute("DROP TABLE IF EXISTS device_qa_history")
-        db.execute("DROP TABLE IF EXISTS device_notes")
-        db.execute("DROP TABLE IF EXISTS device_sessions")
-        db.execute("DROP TABLE IF EXISTS crm_qa_analytics")
-
-        db.execute("""
-            CREATE TABLE IF NOT EXISTS device_sessions (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                device_id TEXT NOT NULL,
-                venue_id TEXT,
-                table_number INTEGER,
-                session_token TEXT NOT NULL UNIQUE,
-                started_at TEXT NOT NULL DEFAULT (datetime('now')),
-                last_active_at TEXT NOT NULL DEFAULT (datetime('now')),
-                user_agent TEXT,
-                ip_address TEXT
-            )
-        """)
-        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_device ON device_sessions(device_id)")
-        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue ON device_sessions(venue_id)")
-        db.execute("CREATE INDEX IF NOT EXISTS idx_device_sessions_venue_table ON device_sessions(venue_id, table_number)")
-
-        db.execute("""
-            CREATE TABLE IF NOT EXISTS device_notes (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                device_id TEXT NOT NULL,
-                game_id TEXT NOT NULL,
-                content TEXT NOT NULL DEFAULT '',
-                updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-            )
-        """)
-        db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_device_notes_unique ON device_notes(device_id, game_id)")
-
-        db.execute("""
-            CREATE TABLE IF NOT EXISTS device_qa_history (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                device_id TEXT NOT NULL,
-                session_id INTEGER REFERENCES device_sessions(id),
-                game_id TEXT NOT NULL,
-                question TEXT NOT NULL,
-                answer TEXT NOT NULL,
-                answer_quality TEXT DEFAULT NULL,
-                asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-                venue_id TEXT,
-                table_number INTEGER
-            )
-        """)
-        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_device ON device_qa_history(device_id)")
-        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_game ON device_qa_history(game_id)")
-        db.execute("CREATE INDEX IF NOT EXISTS idx_qa_venue ON device_qa_history(venue_id)")
-
-        db.execute("""
-            CREATE TABLE IF NOT EXISTS crm_qa_analytics (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                game_id TEXT NOT NULL,
-                venue_id TEXT,
-                question_text TEXT NOT NULL,
-                question_hash TEXT NOT NULL,
-                answer_text TEXT NOT NULL,
-                times_asked INTEGER DEFAULT 1,
-                first_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-                last_asked_at TEXT NOT NULL DEFAULT (datetime('now')),
-                has_good_answer BOOLEAN DEFAULT 1
-            )
-        """)
-        db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_game ON crm_qa_analytics(game_id)")
-        db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_crm_qa_hash ON crm_qa_analytics(question_hash)")
-        db.execute("CREATE INDEX IF NOT EXISTS idx_crm_qa_venue ON crm_qa_analytics(venue_id)")
-
-        db.commit()
-        logger.info("Device session tables initialized")
-    except Exception as e:
-        logger.warning(f"Device session table init failed (non-fatal): {e}")
-        # Don't crash the app — session tracking is non-critical
+    logger.info("Device session tables: skipped (Supabase)")
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
-def _rows_to_dicts(cursor):
-    """Convert cursor results to list of dicts (works for both sqlite3 and libsql)."""
-    if cursor is None:
-        return []
-    cols = [d[0] for d in cursor.description] if cursor.description else []
-    rows = cursor.fetchall()
-    return [dict(zip(cols, row)) for row in rows]
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
 
 
-def _row_to_dict(cursor):
-    """Convert single row result to dict or None."""
-    rows = _rows_to_dicts(cursor)
-    return rows[0] if rows else None
+def _run_sql(sql: str) -> list[dict]:
+    """Execute raw SQL via the Supabase ``exec_sql`` RPC and return rows.
+
+    Used only for aggregation queries (GROUP BY, COUNT, MAX) that PostgREST
+    cannot express cleanly. All CRUD goes through the native ``.table()`` API.
+    """
+    client = get_admin_client()
+    resp = client.rpc("exec_sql", {"query": sql}).execute()
+    rows = resp.data or []
+    return rows if isinstance(rows, list) else []
+
+
+def _sql_literal(value) -> str:
+    """Safely escape a Python value for inline SQL. Only used with trusted
+    inputs that have already been validated (e.g., venue_id from JWT)."""
+    if value is None:
+        return "NULL"
+    if isinstance(value, (int, float)):
+        return str(value)
+    return "'" + str(value).replace("'", "''") + "'"
 
 
 # ---------------------------------------------------------------------------
@@ -141,44 +82,45 @@ async def start_session(request: Request):
     user_agent = request.headers.get("user-agent", "")
     ip = request.client.host if request.client else ""
 
-    db = get_analytics_db()
+    admin = get_admin_client()
 
     # Check for existing session with this device (optionally scoped to venue)
+    q = admin.table("device_sessions_v2").select("id, session_token")
+    q = q.eq("device_id", device_id)
     if venue_id:
-        existing = _row_to_dict(
-            db.execute(
-                "SELECT id, session_token FROM device_sessions WHERE device_id = ? AND venue_id = ? ORDER BY last_active_at DESC LIMIT 1",
-                (device_id, venue_id),
-            )
-        )
-    else:
-        existing = _row_to_dict(
-            db.execute(
-                "SELECT id, session_token FROM device_sessions WHERE device_id = ? ORDER BY last_active_at DESC LIMIT 1",
-                (device_id,),
-            )
-        )
+        q = q.eq("venue_id", venue_id)
+    existing_resp = q.order("last_active_at", desc=True).limit(1).execute()
+    existing = (existing_resp.data or [None])[0]
+
+    now_iso = _now_iso()
 
     if existing:
-        # Resume — update last active and optionally update table
-        db.execute(
-            "UPDATE device_sessions SET last_active_at = datetime('now'), venue_id = COALESCE(?, venue_id), table_number = COALESCE(?, table_number) WHERE id = ?",
-            (venue_id, table_number, existing["id"]),
-        )
-        db.commit()
-        session_token = existing["session_token"]
-        is_returning = True
-    else:
-        # New session
-        session_token = secrets.token_hex(16)
-        db.execute(
-            "INSERT INTO device_sessions (device_id, venue_id, table_number, session_token, user_agent, ip_address) VALUES (?, ?, ?, ?, ?, ?)",
-            (device_id, venue_id, table_number, session_token, user_agent, ip),
-        )
-        db.commit()
-        is_returning = False
+        # Resume — update last_active and optionally update venue/table
+        updates = {"last_active_at": now_iso}
+        if venue_id is not None:
+            updates["venue_id"] = venue_id
+        if table_number is not None:
+            updates["table_number"] = table_number
+        admin.table("device_sessions_v2").update(updates).eq("id", existing["id"]).execute()
+        return {
+            "session_token": existing["session_token"],
+            "is_returning": True,
+            "device_id": device_id,
+        }
 
-    return {"session_token": session_token, "is_returning": is_returning, "device_id": device_id}
+    # New session
+    session_token = secrets.token_hex(16)
+    admin.table("device_sessions_v2").insert({
+        "device_id": device_id,
+        "venue_id": venue_id,
+        "table_number": table_number,
+        "session_token": session_token,
+        "started_at": now_iso,
+        "last_active_at": now_iso,
+        "user_agent": user_agent,
+        "ip_address": ip,
+    }).execute()
+    return {"session_token": session_token, "is_returning": False, "device_id": device_id}
 
 
 # ---------------------------------------------------------------------------
@@ -187,13 +129,16 @@ async def start_session(request: Request):
 
 @router.get("/notes/{game_id}")
 async def get_notes(game_id: str, device_id: str = Query(...)):
-    db = get_analytics_db()
-    note = _row_to_dict(
-        db.execute(
-            "SELECT content, updated_at FROM device_notes WHERE device_id = ? AND game_id = ?",
-            (device_id, game_id),
-        )
+    admin = get_admin_client()
+    resp = (
+        admin.table("device_notes")
+        .select("content, updated_at")
+        .eq("device_id", device_id)
+        .eq("game_id", game_id)
+        .limit(1)
+        .execute()
     )
+    note = (resp.data or [None])[0]
     return {
         "content": note["content"] if note else "",
         "updated_at": note["updated_at"] if note else None,
@@ -213,14 +158,16 @@ async def save_notes(game_id: str, request: Request):
     if not device_id:
         raise HTTPException(status_code=400, detail="device_id is required")
 
-    db = get_analytics_db()
-    db.execute(
-        """INSERT INTO device_notes (device_id, game_id, content, updated_at)
-           VALUES (?, ?, ?, datetime('now'))
-           ON CONFLICT(device_id, game_id) DO UPDATE SET content = ?, updated_at = datetime('now')""",
-        (device_id, game_id, content, content),
-    )
-    db.commit()
+    admin = get_admin_client()
+    admin.table("device_notes").upsert(
+        {
+            "device_id": device_id,
+            "game_id": game_id,
+            "content": content,
+            "updated_at": _now_iso(),
+        },
+        on_conflict="device_id,game_id",
+    ).execute()
     return {"status": "saved"}
 
 
@@ -230,18 +177,20 @@ async def save_notes(game_id: str, request: Request):
 
 @router.get("/qa/history/{game_id}")
 async def get_qa_history(game_id: str, device_id: str = Query(...)):
-    db = get_analytics_db()
-    history = _rows_to_dicts(
-        db.execute(
-            "SELECT question, answer, asked_at FROM device_qa_history WHERE device_id = ? AND game_id = ? ORDER BY asked_at ASC",
-            (device_id, game_id),
-        )
+    admin = get_admin_client()
+    resp = (
+        admin.table("device_qa_history")
+        .select("question, answer, asked_at")
+        .eq("device_id", device_id)
+        .eq("game_id", game_id)
+        .order("asked_at", desc=False)
+        .execute()
     )
-    return {"history": history}
+    return {"history": resp.data or []}
 
 
 # ---------------------------------------------------------------------------
-# GET /api/v1/sessions/crm/qa-analytics — CRM Q&A intelligence (super_admin or venue_admin)
+# GET /api/v1/sessions/crm/qa-analytics — CRM Q&A intelligence
 # ---------------------------------------------------------------------------
 
 @router.get("/crm/qa-analytics")
@@ -250,33 +199,23 @@ async def get_qa_analytics(
     venue_id: str = Query(None),
     user: dict = Depends(get_current_venue_admin),
 ):
-    db = get_analytics_db()
+    admin = get_admin_client()
     # Venue admins are scoped to their own venue
     effective_venue = venue_id
     if user.get("role") != "super_admin":
         effective_venue = user.get("venue_id")
 
-    clauses = []
-    params = []
+    q = admin.table("crm_qa_analytics").select("*")
     if game_id:
-        clauses.append("game_id = ?")
-        params.append(game_id)
+        q = q.eq("game_id", game_id)
     if effective_venue:
-        clauses.append("venue_id = ?")
-        params.append(effective_venue)
-
-    where = (" WHERE " + " AND ".join(clauses)) if clauses else ""
-    results = _rows_to_dicts(
-        db.execute(
-            f"SELECT * FROM crm_qa_analytics{where} ORDER BY times_asked DESC LIMIT 100",
-            tuple(params),
-        )
-    )
-    return {"analytics": results}
+        q = q.eq("venue_id", effective_venue)
+    resp = q.order("times_asked", desc=True).limit(100).execute()
+    return {"analytics": resp.data or []}
 
 
 # ---------------------------------------------------------------------------
-# GET /api/v1/sessions/crm/table-activity — table usage by venue (super_admin or venue_admin)
+# GET /api/v1/sessions/crm/table-activity — table usage by venue
 # ---------------------------------------------------------------------------
 
 @router.get("/crm/table-activity")
@@ -284,41 +223,33 @@ async def get_table_activity(
     venue_id: str = Query(None),
     user: dict = Depends(get_current_venue_admin),
 ):
-    db = get_analytics_db()
     effective_venue = venue_id
     if user.get("role") != "super_admin":
         effective_venue = user.get("venue_id")
 
+    where = "table_number IS NOT NULL"
     if effective_venue:
-        results = _rows_to_dicts(
-            db.execute(
-                """SELECT venue_id, table_number, COUNT(*) as total_sessions,
-                          COUNT(DISTINCT device_id) as unique_devices,
-                          MAX(last_active_at) as last_activity
-                   FROM device_sessions
-                   WHERE venue_id = ? AND table_number IS NOT NULL
-                   GROUP BY venue_id, table_number
-                   ORDER BY table_number""",
-                (effective_venue,),
-            )
-        )
-    else:
-        results = _rows_to_dicts(
-            db.execute(
-                """SELECT venue_id, table_number, COUNT(*) as total_sessions,
-                          COUNT(DISTINCT device_id) as unique_devices,
-                          MAX(last_active_at) as last_activity
-                   FROM device_sessions
-                   WHERE table_number IS NOT NULL
-                   GROUP BY venue_id, table_number
-                   ORDER BY venue_id, table_number"""
-            )
-        )
+        where += f" AND venue_id = {_sql_literal(effective_venue)}"
+
+    sql = (
+        "SELECT venue_id, table_number, COUNT(*) as total_sessions, "
+        "COUNT(DISTINCT device_id) as unique_devices, "
+        "MAX(last_active_at) as last_activity "
+        "FROM device_sessions_v2 "
+        f"WHERE {where} "
+        "GROUP BY venue_id, table_number "
+        "ORDER BY venue_id, table_number"
+    )
+    try:
+        results = _run_sql(sql)
+    except APIError as e:
+        logger.warning("crm/table-activity SQL failed: %s", e)
+        results = []
     return {"tables": results}
 
 
 # ---------------------------------------------------------------------------
-# GET /api/v1/sessions/crm/question-trends — games generating most questions (super_admin or venue_admin)
+# GET /api/v1/sessions/crm/question-trends — games generating most questions
 # ---------------------------------------------------------------------------
 
 @router.get("/crm/question-trends")
@@ -326,35 +257,27 @@ async def get_question_trends(
     venue_id: str = Query(None),
     user: dict = Depends(get_current_venue_admin),
 ):
-    db = get_analytics_db()
     effective_venue = venue_id
     if user.get("role") != "super_admin":
         effective_venue = user.get("venue_id")
 
     if effective_venue:
-        results = _rows_to_dicts(
-            db.execute(
-                """SELECT game_id, venue_id, COUNT(*) as total_questions,
-                          COUNT(DISTINCT device_id) as unique_askers,
-                          MIN(asked_at) as first_asked, MAX(asked_at) as last_asked
-                   FROM device_qa_history
-                   WHERE venue_id = ?
-                   GROUP BY game_id
-                   ORDER BY total_questions DESC
-                   LIMIT 50""",
-                (effective_venue,),
-            )
-        )
+        where = f"WHERE venue_id = {_sql_literal(effective_venue)}"
+        group_by = "GROUP BY game_id"
     else:
-        results = _rows_to_dicts(
-            db.execute(
-                """SELECT game_id, venue_id, COUNT(*) as total_questions,
-                          COUNT(DISTINCT device_id) as unique_askers,
-                          MIN(asked_at) as first_asked, MAX(asked_at) as last_asked
-                   FROM device_qa_history
-                   GROUP BY game_id, venue_id
-                   ORDER BY total_questions DESC
-                   LIMIT 50"""
-            )
-        )
+        where = ""
+        group_by = "GROUP BY game_id, venue_id"
+
+    sql = (
+        "SELECT game_id, venue_id, COUNT(*) as total_questions, "
+        "COUNT(DISTINCT device_id) as unique_askers, "
+        "MIN(asked_at) as first_asked, MAX(asked_at) as last_asked "
+        f"FROM device_qa_history {where} {group_by} "
+        "ORDER BY total_questions DESC LIMIT 50"
+    )
+    try:
+        results = _run_sql(sql)
+    except APIError as e:
+        logger.warning("crm/question-trends SQL failed: %s", e)
+        results = []
     return {"trends": results}

@@ -45,6 +45,53 @@ export async function fetchGame(gameId) {
   return handleResponse(res);
 }
 
+// Fire-and-forget cache warmer. Called once on app mount so the first
+// real /api/games query hits a primed in-memory cache on the backend.
+// Failures are swallowed — warming is an optimization, not a requirement.
+export function warmGameCache() {
+  try {
+    fetch(`${API_BASE}/api/v1/warm`, { method: "GET", cache: "no-store" }).catch(() => {});
+  } catch {
+    /* no-op */
+  }
+}
+
+// ── Game detail prefetch ────────────────────────────────────────
+// Deduped fire-and-forget prefetch. Used by GameSelector to warm individual
+// game detail responses on hover and for the top-N on mount.
+const _prefetchedGames = new Set();
+const _inflightPrefetches = new Map();
+
+export function prefetchGame(gameId) {
+  if (!gameId || _prefetchedGames.has(gameId)) return;
+  if (_inflightPrefetches.has(gameId)) return;
+  const promise = fetch(`${API_BASE}/api/games/${gameId}`, { method: "GET" })
+    .then((res) => {
+      if (res.ok) _prefetchedGames.add(gameId);
+    })
+    .catch(() => {})
+    .finally(() => {
+      _inflightPrefetches.delete(gameId);
+    });
+  _inflightPrefetches.set(gameId, promise);
+}
+
+// Bulk prefetch (used for top-20 on mount). Yields between requests so
+// we don't saturate the network on slow connections.
+export function prefetchGamesBulk(gameIds, { concurrency = 4 } = {}) {
+  const ids = (gameIds || []).filter((g) => g && !_prefetchedGames.has(g));
+  let index = 0;
+  const worker = () => {
+    if (index >= ids.length) return Promise.resolve();
+    const id = ids[index++];
+    prefetchGame(id);
+    const inflight = _inflightPrefetches.get(id);
+    return (inflight || Promise.resolve()).then(worker);
+  };
+  const workers = Array.from({ length: Math.min(concurrency, ids.length) }, worker);
+  return Promise.all(workers).catch(() => {});
+}
+
 export async function queryGame(gameId, question, extra = {}) {
   const body = { game_id: gameId, question };
   if (extra.device_id) body.device_id = extra.device_id;

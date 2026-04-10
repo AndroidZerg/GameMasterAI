@@ -1,15 +1,14 @@
 """Stats endpoint — aggregates session, feedback, and score data."""
 
 import json
-import sqlite3
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 from fastapi import APIRouter, Depends
 
 from app.core.auth import get_optional_venue
-from app.core.config import DB_PATH
 from app.services import game_service
+from app.services.turso import get_analytics_db
 
 
 def _title_for(game_id: str) -> str:
@@ -19,10 +18,9 @@ def _title_for(game_id: str) -> str:
 router = APIRouter(prefix="/api", tags=["stats"])
 
 
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — backs sessions, feedback, score_history."""
+    return get_analytics_db()
 
 
 def _monday_of_this_week() -> str:
@@ -36,7 +34,7 @@ def _midnight_today() -> str:
     return now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
 
 
-def _session_stats(conn: sqlite3.Connection, since: str | None = None,
+def _session_stats(conn, since: str | None = None,
                    venue_id: str | None = None) -> dict:
     conditions = []
     params = []
@@ -88,7 +86,7 @@ def _session_stats(conn: sqlite3.Connection, since: str | None = None,
     }
 
 
-def _feedback_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> dict:
+def _feedback_stats(conn, venue_id: str | None = None) -> dict:
     if venue_id:
         row = conn.execute("""
             SELECT COUNT(*) as total,
@@ -114,7 +112,7 @@ def _feedback_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> di
     }
 
 
-def _enhanced_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> dict:
+def _enhanced_stats(conn, venue_id: str | None = None) -> dict:
     """Additional stats for authenticated venue owners."""
     vid_clause = "WHERE venue_id = ?" if venue_id else ""
     vid_params = [venue_id] if venue_id else []
@@ -123,21 +121,21 @@ def _enhanced_stats(conn: sqlite3.Connection, venue_id: str | None = None) -> di
     totals = conn.execute(f"""
         SELECT COUNT(*) as total_sessions,
                COALESCE(SUM(questions_asked), 0) as total_questions,
-               COALESCE(SUM(CASE WHEN score_tracked = 1 THEN 1 ELSE 0 END), 0) as total_scores,
+               COALESCE(SUM(CASE WHEN score_tracked = TRUE THEN 1 ELSE 0 END), 0) as total_scores,
                COALESCE(AVG(duration_seconds), 0) as avg_dur
         FROM sessions {vid_clause}
     """, vid_params).fetchone()
 
     # Busiest hour
     busiest_hour = conn.execute(f"""
-        SELECT CAST(strftime('%H', started_at) AS INTEGER) as hour, COUNT(*) as cnt
+        SELECT EXTRACT(HOUR FROM started_at)::int as hour, COUNT(*) as cnt
         FROM sessions {vid_clause}
         GROUP BY hour ORDER BY cnt DESC LIMIT 1
     """, vid_params).fetchone()
 
     # Busiest day of week
     busiest_day = conn.execute(f"""
-        SELECT CAST(strftime('%w', started_at) AS INTEGER) as dow, COUNT(*) as cnt
+        SELECT EXTRACT(DOW FROM started_at)::int as dow, COUNT(*) as cnt
         FROM sessions {vid_clause}
         GROUP BY dow ORDER BY cnt DESC LIMIT 1
     """, vid_params).fetchone()

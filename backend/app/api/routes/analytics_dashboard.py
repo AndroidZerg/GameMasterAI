@@ -915,15 +915,14 @@ async def unused_games(
     """, ep).fetchall()
     played_ids = {r[0] for r in played_rows}
 
-    # Get all games from the main game list
-    from app.core.config import DB_PATH
-    import sqlite3
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    all_games = conn.execute("SELECT game_id, title FROM games ORDER BY title").fetchall()
-    conn.close()
-
-    unused = [{"game_id": g["game_id"], "title": g["title"]} for g in all_games if g["game_id"] not in played_ids]
+    # Get all games from Supabase via the cached service
+    from app.services.game_service import get_all_games
+    all_games = get_all_games()
+    unused = [
+        {"game_id": g.get("game_id"), "title": g.get("title")}
+        for g in all_games
+        if g.get("game_id") and g.get("game_id") not in played_ids
+    ]
 
     return {"games": unused}
 

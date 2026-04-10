@@ -1,7 +1,6 @@
 """Venue subscription endpoints — Stripe checkout, upgrade, status."""
 
 import os
-import sqlite3
 import uuid
 from datetime import datetime, timezone
 
@@ -11,12 +10,12 @@ from pydantic import BaseModel
 
 from app.api.deps import get_current_venue_admin
 from app.core.config import (
-    DB_PATH,
     STRIPE_SECRET_KEY,
     STRIPE_PRICE_STARTER,
     STRIPE_PRICE_STANDARD,
     STRIPE_PRICE_PREMIUM,
 )
+from app.services.turso import get_analytics_db
 from app.services.venue_service import get_venue_by_id, update_venue_fields
 
 router = APIRouter(prefix="/api/v1/venues", tags=["venue-subscriptions"])
@@ -30,11 +29,9 @@ TIER_CONFIG = {
 }
 
 
-def _get_local_conn() -> sqlite3.Connection:
-    """Local SQLite for venue_games and other non-venue tables."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_local_conn():
+    """Supabase PG shim — backs venue_games and other marketplace tables."""
+    return get_analytics_db()
 
 
 def _generate_id() -> str:

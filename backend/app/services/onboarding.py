@@ -1,11 +1,10 @@
 """Onboarding service — DB operations for the 5-step venue setup wizard."""
 
 import json
-import sqlite3
 from datetime import datetime, timezone
 from typing import Optional
 
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 from app.services.venue_service import (
     get_venue_by_id,
     set_venue_collection,
@@ -14,11 +13,9 @@ from app.services.venue_service import (
 )
 
 
-def _get_local_conn() -> sqlite3.Connection:
-    """Local SQLite for non-venue tables (logos, venue_games, menus, etc.)."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_local_conn():
+    """Supabase PG shim — backs venue_logos, venue_games, menus, etc."""
+    return get_analytics_db()
 
 
 def _current_onboarding_step(venue_id: str) -> int:
@@ -123,14 +120,14 @@ def save_game_collection(
     """Save owned games + priority selections for the venue."""
     now = datetime.now(timezone.utc).isoformat()
 
-    # venue_games stays in local SQLite
+    # venue_games in Supabase (via shim)
     local = _get_local_conn()
     local.execute("DELETE FROM venue_games WHERE venue_id = ?", (venue_id,))
     for gid in owned_game_ids:
-        is_priority = 1 if gid in priority_game_ids else 0
+        is_priority = gid in priority_game_ids
         local.execute(
             """INSERT INTO venue_games (venue_id, game_id, is_active, is_priority, added_at)
-               VALUES (?, ?, 1, ?, ?)""",
+               VALUES (?, ?, TRUE, ?, ?)""",
             (venue_id, gid, is_priority, now),
         )
     local.commit()
@@ -176,7 +173,7 @@ def save_menu(venue_id: str, categories: list[dict]) -> dict:
     for sort_order, cat in enumerate(categories):
         cur = local.execute(
             """INSERT INTO venue_menu_categories (venue_id, name, sort_order, is_active, created_at)
-               VALUES (?, ?, ?, 1, ?)""",
+               VALUES (?, ?, ?, TRUE, ?)""",
             (venue_id, cat["name"], sort_order, now),
         )
         cat_id = cur.lastrowid
@@ -184,7 +181,7 @@ def save_menu(venue_id: str, categories: list[dict]) -> dict:
         for item_order, item in enumerate(cat.get("items", [])):
             price_dollars = item.get("price_dollars", 0)
             price_cents = int(round(float(price_dollars) * 100))
-            is_available = 1 if item.get("is_available", True) else 0
+            is_available = bool(item.get("is_available", True))
             local.execute(
                 """INSERT INTO venue_menu_items
                    (venue_id, category_id, name, description, price_cents,

@@ -1,6 +1,5 @@
 """LGS Dashboard endpoints — venues, inventory, pricing, alerts, transactions."""
 
-import sqlite3
 import uuid
 from datetime import datetime, timezone, timedelta
 from typing import Optional
@@ -9,17 +8,15 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
 from app.api.deps import get_current_lgs_admin
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 from app.services.venue_service import get_venue_by_id, get_venues_by_lgs
 
 router = APIRouter(prefix="/api/v1/lgs", tags=["lgs-dashboard"])
 
 
-def _get_conn() -> sqlite3.Connection:
-    """Local SQLite for non-venue tables."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — serves marketplace tables via exec_sql RPC."""
+    return get_analytics_db()
 
 
 def _generate_id() -> str:
@@ -386,14 +383,14 @@ async def update_pricing(lgs_id: str, req: PricingUpdateRequest,
             conn.execute(
                 "UPDATE lgs_game_pricing SET retail_price_cents = ?, is_available = ?, updated_at = ? "
                 "WHERE lgs_id = ? AND game_id = ?",
-                (req.retail_price_cents, 1 if req.is_available else 0, now, lgs_id, req.game_id),
+                (req.retail_price_cents, bool(req.is_available), now, lgs_id, req.game_id),
             )
         else:
             conn.execute(
                 """INSERT INTO lgs_game_pricing (id, lgs_id, game_id, retail_price_cents, is_available, updated_at)
                    VALUES (?, ?, ?, ?, ?, ?)""",
                 (_generate_id(), lgs_id, req.game_id, req.retail_price_cents,
-                 1 if req.is_available else 0, now),
+                 bool(req.is_available), now),
             )
         conn.commit()
 

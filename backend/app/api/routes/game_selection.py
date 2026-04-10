@@ -1,7 +1,6 @@
 """Game selection endpoints — activate/deactivate games with seat enforcement."""
 
 import os
-import sqlite3
 import uuid
 from datetime import datetime, timezone
 
@@ -10,7 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from app.api.deps import get_current_venue_admin
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 from app.services.venue_service import get_venue_by_id
 
 router = APIRouter(prefix="/api/v1/venues", tags=["game-selection"])
@@ -19,11 +18,9 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 
-def _get_conn() -> sqlite3.Connection:
-    """Local SQLite for venue_games, games, lgs_partners, etc."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — backs venue_games, games, lgs_partners, etc."""
+    return get_analytics_db()
 
 
 def _telegram_notify(text: str):
@@ -151,14 +148,14 @@ async def activate_game(venue_id: str, req: GameActionRequest,
         if existing:
             conn.execute(
                 """UPDATE venue_games
-                   SET is_active = 1, activated_at = ?, deactivated_at = NULL
+                   SET is_active = TRUE, activated_at = ?, deactivated_at = NULL
                    WHERE venue_id = ? AND game_id = ?""",
                 (now, venue_id, req.game_id),
             )
         else:
             conn.execute(
                 """INSERT INTO venue_games (venue_id, game_id, is_active, activated_at, added_at)
-                   VALUES (?, ?, 1, ?, ?)""",
+                   VALUES (?, ?, TRUE, ?, ?)""",
                 (venue_id, req.game_id, now, now),
             )
         conn.commit()
@@ -205,7 +202,7 @@ async def deactivate_game(venue_id: str, req: GameActionRequest,
     try:
         conn.execute(
             """UPDATE venue_games
-               SET is_active = 0, deactivated_at = ?
+               SET is_active = FALSE, deactivated_at = ?
                WHERE venue_id = ? AND game_id = ?""",
             (now, venue_id, req.game_id),
         )

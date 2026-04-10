@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchMyHomeConfig, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE } from "../services/api";
+import { fetchGames, fetchVenueConfig, fetchVenueCollection, fetchMyHomeConfig, fetchClearRecentTs, submitRentalRequest, fetchMyRental, API_BASE, prefetchGame, prefetchGamesBulk } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import EventTracker from "../services/EventTracker";
 
@@ -192,6 +192,8 @@ function GameCard({ game, onClick, small }) {
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
   const triedPng = useRef(false);
+  // 200 ms hover-intent prefetch timer (Wave 4 cache warming)
+  const prefetchTimerRef = useRef(null);
   const fallbackColor = COMPLEXITY_COLORS[game.complexity] || "#666";
 
   const handleImgError = () => {
@@ -221,8 +223,25 @@ function GameCard({ game, onClick, small }) {
         display: "flex",
         flexDirection: "column",
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "translateY(0)"; }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--accent)";
+        e.currentTarget.style.transform = "translateY(-2px)";
+        // Hover-intent prefetch: if the user actually pauses on a card
+        // for 200 ms, warm the game detail response in the background.
+        if (prefetchTimerRef.current) clearTimeout(prefetchTimerRef.current);
+        prefetchTimerRef.current = setTimeout(() => {
+          prefetchGame(game.game_id);
+        }, 200);
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "var(--border)";
+        e.currentTarget.style.transform = "translateY(0)";
+        if (prefetchTimerRef.current) {
+          clearTimeout(prefetchTimerRef.current);
+          prefetchTimerRef.current = null;
+        }
+      }}
+      onFocus={() => { prefetchGame(game.game_id); }}
     >
       <div
         style={{
@@ -958,6 +977,15 @@ export default function GameSelector() {
           if (!mounted) return;
           setGames(data);
           try { localStorage.setItem("gmai_games_cache", JSON.stringify(data)); } catch {}
+          // Wave 4: bulk prefetch the top 20 by default sort so the first
+          // card the user clicks is already cached. Only when there's no
+          // active search — search results are too volatile.
+          if (!search.trim()) {
+            const topIds = data.slice(0, 20).map((g) => g.game_id).filter(Boolean);
+            if (topIds.length > 0) {
+              prefetchGamesBulk(topIds);
+            }
+          }
         })
         .catch((err) => {
           if (!mounted) return;

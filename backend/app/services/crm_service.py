@@ -1,17 +1,21 @@
-"""CRM service — aggregates venue data for Tim's admin CRM view."""
+"""CRM service — aggregates venue data for Tim's admin CRM view.
 
-import sqlite3
+Wave 4 (2026-04-10): migrated from DB_PATH SQLite to Supabase Postgres via
+the PG shim. Column names updated to match the Supabase schema
+(``sessions``/``questions_asked``/``orders`` replace ``sessions_count``
+/``questions_count``/``orders_count``); ``venue_game_stats.sessions_count``
+is now ``play_sessions``.
+"""
+
 from datetime import datetime, timezone, timedelta
 
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 from app.services.venue_service import get_all_venues, get_venue_by_id
 
 
-def _get_local_conn() -> sqlite3.Connection:
-    """Local SQLite for analytics/game stats tables."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_local_conn():
+    """Supabase PG shim — backs venue_analytics_daily, venue_game_stats, venue_games."""
+    return get_analytics_db()
 
 
 def _compute_trial_days_remaining(venue: dict) -> int | None:
@@ -34,29 +38,29 @@ def _compute_trial_days_remaining(venue: dict) -> int | None:
         return None
 
 
-def _build_venue_row(venue: dict, local_conn: sqlite3.Connection) -> dict:
+def _build_venue_row(venue: dict, local_conn) -> dict:
     """Build a single CRM venue row with computed fields.
 
-    venue dict comes from Turso; local_conn is for analytics/game stats.
+    venue dict comes from Supabase; local_conn is the PG shim (analytics/game stats).
     """
     vid = venue.get("venue_id", "")
 
-    # sessions this week (local SQLite)
+    # sessions this week (Supabase)
     week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
     row = local_conn.execute(
-        "SELECT COALESCE(SUM(sessions_count), 0) FROM venue_analytics_daily WHERE venue_id = ? AND date >= ?",
+        "SELECT COALESCE(SUM(sessions), 0) FROM venue_analytics_daily WHERE venue_id = ? AND date >= ?",
         (vid, week_ago),
     ).fetchone()
     sessions_this_week = row[0] if row else 0
 
-    # top game (local SQLite)
+    # top game (Supabase)
     row = local_conn.execute(
-        "SELECT game_id FROM venue_game_stats WHERE venue_id = ? ORDER BY sessions_count DESC LIMIT 1",
+        "SELECT game_id FROM venue_game_stats WHERE venue_id = ? ORDER BY play_sessions DESC LIMIT 1",
         (vid,),
     ).fetchone()
     top_game = row[0] if row else None
 
-    # games count (local SQLite)
+    # games count (Supabase)
     row = local_conn.execute(
         "SELECT COUNT(*) FROM venue_games WHERE venue_id = ?",
         (vid,),
@@ -101,18 +105,18 @@ def get_crm_venue_detail(venue_id: str) -> dict | None:
     local_conn = _get_local_conn()
     result = _build_venue_row(venue, local_conn)
 
-    # last 30 days daily analytics (local SQLite)
+    # last 30 days daily analytics (Supabase)
     thirty_ago = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
     daily_rows = local_conn.execute(
-        "SELECT date, sessions_count, questions_count, orders_count FROM venue_analytics_daily "
+        "SELECT date, sessions, questions_asked, orders FROM venue_analytics_daily "
         "WHERE venue_id = ? AND date >= ? ORDER BY date",
         (venue_id, thirty_ago),
     ).fetchall()
     result["daily_analytics"] = [dict(r) for r in daily_rows]
 
-    # top 5 games (local SQLite)
+    # top 5 games (Supabase)
     top_games = local_conn.execute(
-        "SELECT game_id, sessions_count FROM venue_game_stats WHERE venue_id = ? ORDER BY sessions_count DESC LIMIT 5",
+        "SELECT game_id, play_sessions FROM venue_game_stats WHERE venue_id = ? ORDER BY play_sessions DESC LIMIT 5",
         (venue_id,),
     ).fetchall()
     result["top_games"] = [{"game_id": r[0], "sessions": r[1]} for r in top_games]

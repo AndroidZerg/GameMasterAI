@@ -1,7 +1,6 @@
 """Customer-facing game purchase and staff fulfillment endpoints."""
 
 import os
-import sqlite3
 import uuid
 from datetime import datetime, timezone
 
@@ -11,7 +10,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from app.api.deps import get_current_venue_admin
-from app.core.config import DB_PATH, STRIPE_SECRET_KEY
+from app.core.config import STRIPE_SECRET_KEY
+from app.services.turso import get_analytics_db
 from app.services.venue_service import get_venue_by_id
 
 router = APIRouter(prefix="/api/v1/venues", tags=["shop"])
@@ -25,11 +25,9 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 AUTO_REFUND_MINUTES = 1440
 
 
-def _get_conn() -> sqlite3.Connection:
-    """Local SQLite for game_purchases, venue_game_inventory, etc."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — backs game_purchases, venue_game_inventory, etc."""
+    return get_analytics_db()
 
 
 def _generate_id() -> str:

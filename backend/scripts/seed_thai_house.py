@@ -21,7 +21,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.services.turso import get_analytics_db
-from app.core.config import DB_PATH
+
+# Wave 4 (2026-04-10): DB_PATH removed from config. This legacy seed script
+# predates the Supabase migration and relied on a local SQLite file; the
+# ``ensure_venue_exists`` path below will need to be ported to Supabase
+# before this script is re-run. For now we only import the shim — any code
+# that still references a raw sqlite file will raise a clear error.
 
 # ── Venue config ──────────────────────────────────────────────
 VENUE_ID = "thaihouse"

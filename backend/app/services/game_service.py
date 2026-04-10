@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 _full_cache: list[dict] = []
 _by_id_cache: dict[str, dict] = {}
 _cache_ts: float = 0.0
-CACHE_TTL_SECONDS = 300  # 5 minutes
+CACHE_TTL_SECONDS = 60  # 1 minute — Wave 4: shorter TTL so writes propagate fast
 
 # ── MSRP prices (loaded once from disk — small JSON) ─────────────
 _MSRP_PRICES: dict[str, float] = {}
@@ -477,82 +477,15 @@ def create_or_update_game(game_data: dict) -> dict:
     return {}
 
 
-# ── Local SQLite mirror (for LEFT JOINs in legacy queries) ───────
+# ── Legacy no-op: local SQLite mirror is gone ────────────────────
 
 
 def sync_local_games_table() -> int:
-    """Mirror the Supabase games catalog into the local SQLite `games` table.
+    """No-op. Retained for backwards compatibility with callers.
 
-    Many legacy SQL queries (sessions, exports, analytics, lgs_dashboard, etc.)
-    LEFT JOIN a local `games` table to resolve titles and metadata. This
-    function pulls the canonical Supabase data via the in-memory cache and
-    rebuilds the local mirror so those joins keep working without rewrites.
-
-    Returns the number of rows written.
+    Wave 4 (2026-04-10): ``games`` is now a canonical Supabase table
+    (not a local SQLite mirror). All LEFT JOIN games queries now flow
+    through the Supabase PG shim to the real Supabase table, so the
+    mirror-rebuild is no longer needed.
     """
-    import sqlite3
-    from app.core.config import DB_PATH
-
-    games = get_all_games()
-    conn = sqlite3.connect(DB_PATH)
-    try:
-        conn.execute(
-            """
-            CREATE TABLE IF NOT EXISTS games (
-                game_id TEXT PRIMARY KEY,
-                title TEXT NOT NULL,
-                aliases TEXT DEFAULT '[]',
-                player_count_min INTEGER DEFAULT 0,
-                player_count_max INTEGER DEFAULT 0,
-                play_time_min INTEGER DEFAULT 0,
-                play_time_max INTEGER DEFAULT 0,
-                complexity TEXT DEFAULT '',
-                categories TEXT DEFAULT '[]',
-                public_domain INTEGER DEFAULT 0,
-                publisher_approved INTEGER DEFAULT 0,
-                publisher_tag TEXT DEFAULT ''
-            )
-            """
-        )
-        # Add columns if upgrading from old schema
-        for col in (
-            "play_time_min INTEGER DEFAULT 0",
-            "play_time_max INTEGER DEFAULT 0",
-            "public_domain INTEGER DEFAULT 0",
-            "publisher_approved INTEGER DEFAULT 0",
-            "publisher_tag TEXT DEFAULT ''",
-        ):
-            try:
-                conn.execute(f"ALTER TABLE games ADD COLUMN {col}")
-            except sqlite3.OperationalError:
-                pass
-
-        conn.execute("DELETE FROM games")
-        for g in games:
-            pc = g.get("player_count") or {}
-            pt = g.get("play_time_minutes") or {}
-            conn.execute(
-                """INSERT OR REPLACE INTO games
-                   (game_id, title, aliases, player_count_min, player_count_max,
-                    play_time_min, play_time_max, complexity, categories,
-                    public_domain, publisher_approved, publisher_tag)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (
-                    g.get("game_id") or "",
-                    g.get("title") or "",
-                    json.dumps(g.get("aliases") or []),
-                    pc.get("min") or 0,
-                    pc.get("max") or 0,
-                    pt.get("min") or 0,
-                    pt.get("max") or 0,
-                    g.get("complexity") or "",
-                    json.dumps(g.get("categories") or []),
-                    1 if g.get("public_domain") else 0,
-                    1 if g.get("publisher_approved") else 0,
-                    g.get("publisher_tag") or "",
-                ),
-            )
-        conn.commit()
-    finally:
-        conn.close()
-    return len(games)
+    return 0

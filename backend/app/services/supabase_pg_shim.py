@@ -112,6 +112,24 @@ _TRANSLATIONS: list[tuple[re.Pattern, str]] = [
         re.compile(r"strftime\(\s*'%w'\s*,\s*(\w+)\s*\)"),
         r"EXTRACT(dow FROM \1::timestamptz)",
     ),
+    # Boolean column literals: SQLite stores booleans as INTEGER 0/1, but
+    # Wave 4 Supabase schema uses real BOOLEAN for is_active/is_featured/
+    # is_priority/is_available/is_eighty_sixed. PG rejects ``col = 1`` on
+    # a boolean column, so rewrite those literals in place.
+    (
+        re.compile(
+            r"\b(is_active|is_featured|is_priority|is_available|is_eighty_sixed)\s*=\s*1\b"
+        ),
+        r"\1 = TRUE",
+    ),
+    (
+        re.compile(
+            r"\b(is_active|is_featured|is_priority|is_available|is_eighty_sixed)\s*=\s*0\b"
+        ),
+        r"\1 = FALSE",
+    ),
+    # SET is_active = 1 → SET is_active = TRUE (inside UPDATE/INSERT value lists)
+    # Covered by the same rules above since they are general equality forms.
     # INSERT OR IGNORE INTO  →  INSERT INTO (plus ON CONFLICT DO NOTHING appended)
     (re.compile(r"\bINSERT\s+OR\s+IGNORE\s+INTO\b", re.IGNORECASE), "INSERT INTO"),
     # INSERT OR REPLACE INTO  →  INSERT INTO (seeding paths only, not hit at runtime)

@@ -38,7 +38,10 @@ CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:3100")
 _IS_RENDER = os.getenv("RENDER", "")  # Render sets this automatically
 CONTENT_DIR = os.getenv("CONTENT_DIR", "../content/games" if _IS_RENDER else "/mnt/d/GameMasterAI/content/games")
 HEARTBEAT_DIR = os.getenv("HEARTBEAT_DIR", "/mnt/d/GameMasterAI/agents/heartbeat")
-DB_PATH = os.getenv("DB_PATH", "/tmp/games.db" if _IS_RENDER else "/mnt/d/GameMasterAI/backend/games.db")
+# DB_PATH removed in Wave 4 (2026-04-10) — ephemeral SQLite is gone. All
+# runtime reads/writes go to Supabase Postgres via get_analytics_db() (the
+# PG shim) or native supabase-py clients. One-off dev scripts that still
+# want a local cache file should define their own path.
 
 # ── Telegram — Thai House Orders bot ─────────────────────────────
 THAI_HOUSE_BOT_TOKEN = os.getenv("THAI_HOUSE_BOT_TOKEN", "")

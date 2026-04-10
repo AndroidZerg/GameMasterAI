@@ -2,24 +2,22 @@
 
 import csv
 import io
-import sqlite3
 
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
 from app.core.auth import get_current_venue
-from app.core.config import DB_PATH
+from app.services.turso import get_analytics_db
 
 router = APIRouter(prefix="/api/admin/export", tags=["admin"])
 
 
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+def _get_conn():
+    """Supabase PG shim — backs sessions, feedback, games."""
+    return get_analytics_db()
 
 
-def _rows_to_csv(rows: list[sqlite3.Row], columns: list[str]) -> str:
+def _rows_to_csv(rows, columns: list[str]) -> str:
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(columns)

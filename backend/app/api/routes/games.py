@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
 
 from app.core.auth import get_optional_venue
 from app.services import game_service
@@ -39,9 +39,15 @@ def _load_highlights():
 
 router = APIRouter(prefix="/api", tags=["games"])
 
+# Wave 4 (2026-04-10): let the browser and any CDN cache read-heavy game
+# endpoints. Stale-while-revalidate keeps the UI snappy while the cache
+# refreshes in the background.
+_GAME_CACHE_CONTROL = "public, max-age=300, stale-while-revalidate=60"
+
 
 @router.get("/games")
 async def list_games(
+    response: Response,
     search: Optional[str] = Query(None, description="Filter by title (case-insensitive)"),
     complexity: Optional[str] = Query(None, description="Filter by complexity value"),
     current_venue: Optional[dict] = Depends(get_optional_venue),
@@ -74,17 +80,20 @@ async def list_games(
             g["average_rating"] = avg
         g["has_image_override"] = g["game_id"] in override_status
 
+    response.headers["Cache-Control"] = _GAME_CACHE_CONTROL
     return results
 
 
 @router.get("/games/categories")
-async def list_categories():
+async def list_categories(response: Response):
     """Return all unique categories with game counts, sorted alphabetically."""
+    response.headers["Cache-Control"] = _GAME_CACHE_CONTROL
     return game_service.get_all_categories()
 
 
 @router.get("/games/filter")
 async def filter_games_endpoint(
+    response: Response,
     complexity: Optional[str] = Query(None),
     min_players: Optional[int] = Query(None),
     max_players: Optional[int] = Query(None),
@@ -93,6 +102,7 @@ async def filter_games_endpoint(
     tag: Optional[str] = Query(None, description="Filter by tag: solo, great-for-2, family-friendly, party-game, brain-burner, quick-play, cooperative, mystery-deduction, large-group"),
 ):
     """Filter games by complexity, player count, category, play time, and tags. All params optional and combinable."""
+    response.headers["Cache-Control"] = _GAME_CACHE_CONTROL
     return game_service.filter_games(
         complexity=complexity,
         min_players=min_players,
@@ -105,14 +115,16 @@ async def filter_games_endpoint(
 
 @router.get("/games/quick")
 async def quick_games(
+    response: Response,
     max_time: int = Query(30, description="Max play time in minutes"),
 ):
     """Return games with max play time <= threshold. Default 30 minutes."""
+    response.headers["Cache-Control"] = _GAME_CACHE_CONTROL
     return game_service.get_quick_games(max_time=max_time)
 
 
 @router.get("/games/{game_id}")
-async def get_game(game_id: str):
+async def get_game(game_id: str, response: Response):
     """Return the full game JSON including all tabs data, MSRP, scoring text, and teaching content."""
     game = game_service.get_game(game_id)
     if not game:
@@ -130,6 +142,7 @@ async def get_game(game_id: str):
             break
     if scoring_text:
         game["scoring_text"] = scoring_text
+    response.headers["Cache-Control"] = _GAME_CACHE_CONTROL
     return game
 
 

@@ -12,8 +12,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 
-from app.core.config import DB_PATH
 from app.core.auth import hash_password, create_token, get_current_venue
+from app.services.turso import get_analytics_db
 
 logger = logging.getLogger(__name__)
 
@@ -41,66 +41,23 @@ class ReturnRequest(BaseModel):
 # ── DB helpers ────────────────────────────────────────────────────
 
 def _get_db():
-    import sqlite3
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = lambda c, r: dict(zip([col[0] for col in c.description], r))
-    return conn
+    """Supabase PG shim — backs rental_subscribers, rental_history, rental_requests."""
+    return get_analytics_db()
 
 
 def _get_db_raw():
-    """Connection without row_factory for inserts/updates."""
-    import sqlite3
-    return sqlite3.connect(DB_PATH)
+    """Alias — the shim returns dict-and-index rows, so one helper suffices."""
+    return get_analytics_db()
 
 
 def init_rental_tables():
-    """Create all rental tables. Safe to call on every startup."""
-    try:
-        db = _get_db_raw()
-        db.execute("""CREATE TABLE IF NOT EXISTS rental_subscribers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL,
-            customer_name TEXT NOT NULL,
-            customer_contact TEXT NOT NULL,
-            email TEXT,
-            password_hash TEXT,
-            status TEXT DEFAULT 'active',
-            mrr_cents INTEGER DEFAULT 1000,
-            current_game_id TEXT,
-            signup_source TEXT DEFAULT 'venue_qr',
-            table_number INTEGER,
-            device_id TEXT,
-            created_at TEXT NOT NULL DEFAULT (datetime('now')),
-            cancelled_at TEXT
-        )""")
-        db.execute("""CREATE TABLE IF NOT EXISTS rental_history (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subscriber_id INTEGER REFERENCES rental_subscribers(id),
-            game_id TEXT NOT NULL,
-            game_title TEXT NOT NULL,
-            venue_id TEXT NOT NULL,
-            checked_out_at TEXT NOT NULL DEFAULT (datetime('now')),
-            returned_at TEXT,
-            status TEXT DEFAULT 'out'
-        )""")
-        # Keep the old rental_requests table for backwards compat
-        db.execute("""CREATE TABLE IF NOT EXISTS rental_requests (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL,
-            device_id TEXT,
-            table_number INTEGER,
-            customer_name TEXT NOT NULL,
-            customer_contact TEXT NOT NULL,
-            games TEXT NOT NULL,
-            game_count INTEGER DEFAULT 1,
-            status TEXT DEFAULT 'pending',
-            created_at TEXT NOT NULL DEFAULT (datetime('now')),
-            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-        )""")
-        db.commit()
-        db.close()
-    except Exception as e:
-        logger.warning(f"Rental tables init failed: {e}")
+    """All rental tables now live in Supabase. No-op.
+
+    Tables (``rental_subscribers``, ``rental_history``, ``rental_requests``)
+    are created out-of-band via Wave-4 Supabase migrations. Retained so
+    ``main.py``'s lifespan call site doesn't need to change.
+    """
+    logger.info("Rental tables: skipped (Supabase)")
 
 
 # Keep old name as alias for backwards compat with main.py
