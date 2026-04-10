@@ -198,9 +198,11 @@ app.add_middleware(
 app.include_router(auth_router)
 
 # --- Game endpoints ---
+# popular_router must register before games_router so /api/games/popular
+# isn't swallowed by the /api/games/{game_id} catch-all.
+app.include_router(popular_router)
 app.include_router(games_router)
 app.include_router(search_router)
-app.include_router(popular_router)
 app.include_router(recommendations_router)
 app.include_router(scores_router)
 
