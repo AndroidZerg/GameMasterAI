@@ -7,13 +7,13 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
 from app.core.auth import get_current_venue
-from app.models.venues import update_venue_config, get_venue_by_id, set_venue_collection, get_venue_collection, get_all_venues
-from app.services import game_service
-from app.services.turso import get_all_signups
-from app.services.admin_config import (
+from app.services.venue_service import (
+    update_venue_config, get_venue_by_id, set_venue_collection,
+    get_venue_collection, get_all_venues, get_all_signups,
     get_meetup_enabled, set_meetup_enabled,
     get_clear_recent_ts, trigger_clear_recent,
 )
+from app.services import game_service
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 

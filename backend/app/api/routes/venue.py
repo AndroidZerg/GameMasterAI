@@ -8,8 +8,10 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from app.core.auth import get_current_venue, get_optional_venue
 from app.models.house_rules import set_house_rules, get_all_house_rules
-from app.models.venues import get_venue_by_id, get_venue_collection, get_all_venues
-from app.services.home_config import get_staff_picks as vc_get_staff_picks
+from app.services.venue_service import (
+    get_venue_by_id, get_venue_collection, get_all_venues,
+    get_staff_picks as vc_get_staff_picks,
+)
 
 router = APIRouter(prefix="/api", tags=["venue"])
 

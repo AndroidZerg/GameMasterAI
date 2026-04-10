@@ -70,9 +70,9 @@ from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
 from app.models.contacts import init_contacts_table
 from app.models.publisher_leads import init_publisher_leads_table
-from app.models.venues import (
-    init_venues_table, init_venue_collections_table,
+from app.services.venue_service import (
     seed_all_venues, seed_dicetower_accounts, set_venue_collection,
+    seed_home_config_if_empty,
 )
 from app.models.analytics import init_analytics_table
 from app.models.score_history import init_score_history_table
@@ -85,7 +85,7 @@ from app.core.auth import hash_password
 from app.core.config import CORS_ORIGIN
 from app.models.venue_platform import run_migrations as run_venue_platform_migrations
 from app.models.marketplace import init_marketplace_tables
-from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_signups_table, init_cover_art_tables
+from app.services.turso import init_drink_club_tables, init_menu_tables, seed_menu_from_json, get_menu_db, init_cover_art_tables
 
 # ── Deploy metadata (set once at module load) ───────────────────
 def _get_commit_hash() -> str:
@@ -132,20 +132,20 @@ async def lifespan(app: FastAPI):
     run_venue_platform_migrations()
     init_marketplace_tables()
 
-    # Venues table lives in Turso (persistent across redeploys)
+    # Venues + signups + home_config + admin_config moved to Supabase (Wave 1).
+    # The legacy Turso ``venues`` / ``venue_collections`` tables remain as a
+    # read-mirror for LGS / shop / Stripe webhooks / CRM / analytics dashboard
+    # callers that still issue raw SQL via get_venues_db(). venue_service writes
+    # canonical data to Supabase AND mirrors into Turso best-effort. Wave 1.5
+    # follow-up should migrate those callers and remove this mirror.
     init_turso_venues_table()
-    init_venues_table()
-    init_venue_collections_table()
     init_drink_club_tables()
     init_menu_tables()
     init_swp_rental_tables()
-    init_signups_table()
     init_cover_art_tables()
 
-    # Home config (GOTD + Staff Picks) — new Turso tables
-    from app.services.home_config import init_home_config_tables, seed_if_empty
-    init_home_config_tables()
-    seed_if_empty()
+    # Home config (GOTD + Staff Picks) — Supabase admin_config
+    seed_home_config_if_empty()
 
     seed_swp_rental_inventory()
     match_shopify_inventory()
@@ -180,9 +180,8 @@ async def lifespan(app: FastAPI):
                 set_venue_collection(vid, game_ids)
         print(f"[GMAI] Seeded Dice Tower accounts: {', '.join(dt_seeded)}")
 
-    # Load system config (meetup toggle, clear-recent)
-    from app.services.admin_config import load_all as _load_admin_config
-    _load_admin_config()
+    # System config (meetup toggle, clear-recent) is now read directly
+    # from Supabase admin_config on demand — no in-memory cache needed.
 
     # Track game counts for deploy-status endpoint
     global GAMES_LOADED, STONEMAIER_COUNT

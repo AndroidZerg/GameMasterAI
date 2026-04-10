@@ -14,13 +14,12 @@ from pydantic import BaseModel
 from app.core.limiter import limiter
 
 from app.core.auth import hash_password, verify_password, create_token, get_current_venue
-from app.models.venues import (
+from app.services.venue_service import (
     get_venue_by_email, update_venue_login, create_venue,
     get_venue_by_id, get_venue_by_username, set_venue_collection,
+    insert_signup, get_signup_by_email, get_meetup_enabled,
 )
 from app.services import game_service
-from app.services.admin_config import get_meetup_enabled
-from app.services.turso import insert_signup, get_signup_by_email
 
 logger = logging.getLogger(__name__)
 
@@ -181,7 +180,7 @@ async def guest_auth(venue: str = Query(None, min_length=1),
 
     # Fuzzy match: strip hyphens from both slug and stored venue_ids
     if not matched:
-        from app.models.venues import get_all_venues
+        from app.services.venue_service import get_all_venues
         normalised = slug.replace("-", "")
         for v in get_all_venues():
             if v["venue_id"].replace("-", "") == normalised:

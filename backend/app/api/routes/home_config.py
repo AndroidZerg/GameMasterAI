@@ -1,4 +1,4 @@
-"""Home Config API — GOTD and Staff Picks, single source of truth in Turso."""
+"""Home Config API — GOTD and Staff Picks, source of truth in Supabase admin_config."""
 
 import hashlib
 import json
@@ -11,7 +11,7 @@ from pydantic import BaseModel
 
 from app.core.auth import get_current_venue, get_optional_venue
 from app.services import game_service
-from app.services.home_config import (
+from app.services.venue_service import (
     get_gotd,
     set_gotd,
     get_staff_picks,

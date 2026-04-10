@@ -10,7 +10,7 @@ from app.core.auth import get_optional_venue
 from app.services import game_service
 from app.models.feedback import get_all_game_ratings
 from app.models.house_rules import get_house_rules
-from app.models.venues import get_venue_collection
+from app.services.venue_service import get_venue_collection
 from app.services.turso import get_cover_art_status
 
 _CONTENT_ROOT = Path(__file__).resolve().parents[4] / "content"
