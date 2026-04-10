@@ -1,89 +1,67 @@
-"""SQLite session tracking model."""
+"""Game session tracking — Supabase (game_sessions table).
 
-import sqlite3
+Wave 3 (2026-04-10): migrated off /tmp/games.db to Supabase Postgres so
+session data persists across Render deploys.
+"""
+
 from datetime import datetime, timezone
 
-from app.core.config import DB_PATH
-
-
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+from app.services.supabase_client import get_admin_client
 
 
 def init_sessions_table():
-    conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS sessions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            game_id TEXT,
-            table_number TEXT,
-            started_at TIMESTAMP NOT NULL,
-            ended_at TIMESTAMP,
-            duration_seconds INTEGER,
-            questions_asked INTEGER DEFAULT 0,
-            score_tracked BOOLEAN DEFAULT 0,
-            venue_id TEXT DEFAULT 'default'
-        )
-    """)
-    conn.commit()
-    conn.close()
+    """No-op — game_sessions table lives in Supabase and is created out-of-band."""
+    return None
 
 
 def create_session(game_id: str, table_number: str | None = None, venue_id: str | None = None) -> int:
-    conn = _get_conn()
+    admin = get_admin_client()
     vid = venue_id or "default"
-    cur = conn.execute(
-        "INSERT INTO sessions (game_id, table_number, venue_id, started_at) VALUES (?, ?, ?, ?)",
-        (game_id, table_number, vid, datetime.now(timezone.utc).isoformat()),
-    )
-    session_id = cur.lastrowid
-    conn.commit()
-    conn.close()
-    return session_id
+    result = admin.table("game_sessions").insert({
+        "game_id": game_id,
+        "table_number": table_number,
+        "venue_id": vid,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def end_session(session_id: int) -> bool:
-    conn = _get_conn()
-    row = conn.execute("SELECT started_at FROM sessions WHERE id = ?", (session_id,)).fetchone()
-    if not row:
-        conn.close()
+    admin = get_admin_client()
+    row = admin.table("game_sessions").select("started_at").eq("id", session_id).limit(1).execute()
+    if not row.data:
         return False
-    started = datetime.fromisoformat(row["started_at"])
-    now = datetime.now(timezone.utc)
-    # Handle naive datetimes from DB
+    started_raw = row.data[0].get("started_at")
+    if not started_raw:
+        return False
+    started = datetime.fromisoformat(started_raw.replace("Z", "+00:00"))
     if started.tzinfo is None:
         started = started.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
     duration = int((now - started).total_seconds())
-    conn.execute(
-        "UPDATE sessions SET ended_at = ?, duration_seconds = ? WHERE id = ?",
-        (now.isoformat(), duration, session_id),
-    )
-    conn.commit()
-    conn.close()
+    admin.table("game_sessions").update({
+        "ended_at": now.isoformat(),
+        "duration_seconds": duration,
+    }).eq("id", session_id).execute()
     return True
 
 
 def increment_questions(session_id: int) -> bool:
-    conn = _get_conn()
-    cur = conn.execute(
-        "UPDATE sessions SET questions_asked = questions_asked + 1 WHERE id = ?",
-        (session_id,),
-    )
-    updated = cur.rowcount > 0
-    conn.commit()
-    conn.close()
-    return updated
+    """Read current count, increment, write back. Supabase has no atomic increment via PostgREST."""
+    admin = get_admin_client()
+    row = admin.table("game_sessions").select("questions_asked").eq("id", session_id).limit(1).execute()
+    if not row.data:
+        return False
+    current = row.data[0].get("questions_asked") or 0
+    admin.table("game_sessions").update({"questions_asked": current + 1}).eq("id", session_id).execute()
+    return True
 
 
 def set_score_tracked(session_id: int) -> bool:
-    conn = _get_conn()
-    cur = conn.execute(
-        "UPDATE sessions SET score_tracked = 1 WHERE id = ?",
-        (session_id,),
-    )
-    updated = cur.rowcount > 0
-    conn.commit()
-    conn.close()
-    return updated
+    admin = get_admin_client()
+    # Check existence first so the return value is meaningful
+    row = admin.table("game_sessions").select("id").eq("id", session_id).limit(1).execute()
+    if not row.data:
+        return False
+    admin.table("game_sessions").update({"score_tracked": True}).eq("id", session_id).execute()
+    return True

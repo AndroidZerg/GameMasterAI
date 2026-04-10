@@ -1,70 +1,35 @@
-"""SQLite feedback model — supports star ratings, reactions, and post-game surveys."""
+"""Game feedback model — Supabase (game_feedback table).
 
-import sqlite3
-from datetime import datetime, timezone
+Supports star ratings, reactions, and post-game surveys.
+
+Wave 3 (2026-04-10): migrated off /tmp/games.db to Supabase Postgres so
+feedback and survey data persist across Render deploys.
+"""
+
 from typing import Optional
 
-from app.core.config import DB_PATH
-
-
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+from app.services.supabase_client import get_admin_client
 
 
 def init_feedback_table():
-    conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS feedback (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            session_id INTEGER,
-            game_id TEXT,
-            question TEXT,
-            response TEXT,
-            rating INTEGER,
-            reaction TEXT,
-            comment TEXT,
-            created_at TIMESTAMP NOT NULL
-        )
-    """)
-    # Add columns if upgrading from old schema
-    for col_def in [
-        "reaction TEXT",
-        "comment TEXT",
-        "lobby_id TEXT",
-        "venue_id TEXT",
-        "player_name TEXT",
-        "played_before INTEGER",
-        "helpful_setup INTEGER",
-        "helpful_rules INTEGER",
-        "helpful_strategy INTEGER",
-        "helpful_scoring INTEGER",
-        "would_use_again INTEGER",
-        "feedback_text TEXT",
-    ]:
-        try:
-            conn.execute(f"ALTER TABLE feedback ADD COLUMN {col_def}")
-        except sqlite3.OperationalError:
-            pass
-    conn.commit()
-    conn.close()
+    """No-op — game_feedback table lives in Supabase."""
+    return None
 
 
 def create_feedback(game_id: str, rating: int, question: str = "",
                     response: str = "", reaction: str = "",
                     comment: str = "", session_id: Optional[int] = None) -> int:
-    conn = _get_conn()
-    cur = conn.execute(
-        """INSERT INTO feedback (session_id, game_id, question, response, rating,
-           reaction, comment, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-        (session_id, game_id, question, response, rating, reaction, comment,
-         datetime.now(timezone.utc).isoformat()),
-    )
-    fb_id = cur.lastrowid
-    conn.commit()
-    conn.close()
-    return fb_id
+    admin = get_admin_client()
+    result = admin.table("game_feedback").insert({
+        "session_id": session_id,
+        "game_id": game_id,
+        "question": question or "",
+        "response": response or "",
+        "rating": rating,
+        "reaction": reaction or "",
+        "comment": comment or "",
+    }).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def create_survey_feedback(
@@ -81,34 +46,42 @@ def create_survey_feedback(
     would_use_again: Optional[bool] = None,
     feedback_text: Optional[str] = None,
 ) -> int:
-    conn = _get_conn()
-    now = datetime.now(timezone.utc).isoformat()
-    cur = conn.execute(
-        """INSERT INTO feedback (game_id, rating, lobby_id, venue_id, player_name,
-           played_before, helpful_setup, helpful_rules, helpful_strategy,
-           helpful_scoring, would_use_again, feedback_text, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-        (game_id, game_rating, lobby_id, venue_id, player_name,
-         1 if played_before else 0 if played_before is not None else None,
-         helpful_setup, helpful_rules, helpful_strategy, helpful_scoring,
-         1 if would_use_again else 0 if would_use_again is not None else None,
-         feedback_text or "", now),
-    )
-    fb_id = cur.lastrowid
-    conn.commit()
-    conn.close()
-    return fb_id
+    admin = get_admin_client()
+
+    def _bool_to_int(v):
+        if v is None:
+            return None
+        return 1 if v else 0
+
+    payload = {
+        "game_id": game_id,
+        "rating": game_rating,
+        "lobby_id": lobby_id,
+        "venue_id": venue_id,
+        "player_name": player_name,
+        "played_before": _bool_to_int(played_before),
+        "helpful_setup": helpful_setup,
+        "helpful_rules": helpful_rules,
+        "helpful_strategy": helpful_strategy,
+        "helpful_scoring": helpful_scoring,
+        "would_use_again": _bool_to_int(would_use_again),
+        "feedback_text": feedback_text or "",
+    }
+    result = admin.table("game_feedback").insert(payload).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def get_survey_stats() -> dict:
     """Aggregate stats for admin feedback dashboard."""
-    conn = _get_conn()
-    rows = conn.execute(
-        """SELECT rating, helpful_setup, helpful_rules, helpful_strategy,
-           helpful_scoring, would_use_again FROM feedback
-           WHERE rating IS NOT NULL AND helpful_setup IS NOT NULL"""
-    ).fetchall()
-    conn.close()
+    admin = get_admin_client()
+    result = (
+        admin.table("game_feedback")
+        .select("rating,helpful_setup,helpful_rules,helpful_strategy,helpful_scoring,would_use_again")
+        .not_.is_("rating", "null")
+        .not_.is_("helpful_setup", "null")
+        .execute()
+    )
+    rows = result.data or []
 
     if not rows:
         return {
@@ -118,13 +91,16 @@ def get_survey_stats() -> dict:
         }
 
     total = len(rows)
-    avg = lambda vals: round(sum(v for v in vals if v) / max(len([v for v in vals if v]), 1), 1)
-    ratings = [r["rating"] for r in rows if r["rating"]]
-    setups = [r["helpful_setup"] for r in rows if r["helpful_setup"]]
-    rules = [r["helpful_rules"] for r in rows if r["helpful_rules"]]
-    strats = [r["helpful_strategy"] for r in rows if r["helpful_strategy"]]
-    scores = [r["helpful_scoring"] for r in rows if r["helpful_scoring"]]
-    use_again = [r["would_use_again"] for r in rows if r["would_use_again"] is not None]
+    def avg(vals):
+        filtered = [v for v in vals if v]
+        return round(sum(filtered) / max(len(filtered), 1), 1) if filtered else 0
+
+    ratings = [r.get("rating") for r in rows if r.get("rating")]
+    setups = [r.get("helpful_setup") for r in rows if r.get("helpful_setup")]
+    rules = [r.get("helpful_rules") for r in rows if r.get("helpful_rules")]
+    strats = [r.get("helpful_strategy") for r in rows if r.get("helpful_strategy")]
+    scores = [r.get("helpful_scoring") for r in rows if r.get("helpful_scoring")]
+    use_again = [r.get("would_use_again") for r in rows if r.get("would_use_again") is not None]
 
     return {
         "total": total,
@@ -139,73 +115,83 @@ def get_survey_stats() -> dict:
 
 def get_all_survey_feedback() -> list[dict]:
     """Return all survey feedback entries for admin view."""
-    conn = _get_conn()
-    rows = conn.execute(
-        """SELECT id, game_id, rating, lobby_id, venue_id, player_name,
-           played_before, helpful_setup, helpful_rules, helpful_strategy,
-           helpful_scoring, would_use_again, feedback_text, created_at
-           FROM feedback WHERE helpful_setup IS NOT NULL
-           ORDER BY created_at DESC"""
-    ).fetchall()
-    conn.close()
-    return [dict(r) for r in rows]
+    admin = get_admin_client()
+    result = (
+        admin.table("game_feedback")
+        .select("id,game_id,rating,lobby_id,venue_id,player_name,played_before,"
+                "helpful_setup,helpful_rules,helpful_strategy,helpful_scoring,"
+                "would_use_again,feedback_text,created_at")
+        .not_.is_("helpful_setup", "null")
+        .order("created_at", desc=True)
+        .execute()
+    )
+    return result.data or []
 
 
 def get_feedback(game_id: Optional[str] = None) -> list[dict]:
-    conn = _get_conn()
+    admin = get_admin_client()
+    query = admin.table("game_feedback").select("*")
     if game_id:
-        rows = conn.execute("SELECT * FROM feedback WHERE game_id = ? ORDER BY created_at DESC", (game_id,)).fetchall()
-    else:
-        rows = conn.execute("SELECT * FROM feedback ORDER BY created_at DESC").fetchall()
-    conn.close()
-    return [dict(r) for r in rows]
+        query = query.eq("game_id", game_id)
+    result = query.order("created_at", desc=True).execute()
+    return result.data or []
 
 
 def get_game_rating(game_id: str) -> dict:
     """Get aggregate rating for a game. Maps old thumbs (1/-1) to star scale."""
-    conn = _get_conn()
-    rows = conn.execute(
-        "SELECT rating FROM feedback WHERE game_id = ? AND rating IS NOT NULL",
-        (game_id,),
-    ).fetchall()
-    conn.close()
+    admin = get_admin_client()
+    result = (
+        admin.table("game_feedback")
+        .select("rating")
+        .eq("game_id", game_id)
+        .not_.is_("rating", "null")
+        .execute()
+    )
+    rows = result.data or []
 
     if not rows:
         return {"average_rating": 0, "total_ratings": 0, "distribution": {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}}
 
-    # Map old -1/1 thumbs to stars: -1 -> 1, 1 -> 5
     stars = []
     for r in rows:
-        val = r["rating"]
+        val = r.get("rating")
+        if val is None:
+            continue
         if val == -1:
             stars.append(1)
-        elif val == 1 and val not in (2, 3, 4, 5):
-            # Could be old thumbs-up (1) or new 1-star
-            # If only 1 or -1 exists, treat 1 as thumbs-up = 5 stars
+        elif val == 1:
+            # Legacy thumbs-up — treat as 5 stars
             stars.append(5)
         else:
             stars.append(max(1, min(5, val)))
 
+    if not stars:
+        return {"average_rating": 0, "total_ratings": 0, "distribution": {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}}
+
     dist = {i: 0 for i in range(1, 6)}
     for s in stars:
         dist[s] = dist.get(s, 0) + 1
-
-    avg = round(sum(stars) / len(stars), 1) if stars else 0
+    avg = round(sum(stars) / len(stars), 1)
     return {"average_rating": avg, "total_ratings": len(stars), "distribution": dist}
 
 
 def get_all_game_ratings() -> dict[str, float]:
     """Get average rating for all games that have ratings."""
-    conn = _get_conn()
-    rows = conn.execute(
-        "SELECT game_id, rating FROM feedback WHERE rating IS NOT NULL"
-    ).fetchall()
-    conn.close()
+    admin = get_admin_client()
+    result = (
+        admin.table("game_feedback")
+        .select("game_id,rating")
+        .not_.is_("rating", "null")
+        .execute()
+    )
+    rows = result.data or []
 
     game_ratings: dict[str, list[int]] = {}
     for r in rows:
-        gid = r["game_id"]
-        val = r["rating"]
+        gid = r.get("game_id")
+        val = r.get("rating")
+        if not gid or val is None:
+            continue
         if val == -1:
             star = 1
         elif val == 1:

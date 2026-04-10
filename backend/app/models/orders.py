@@ -1,221 +1,273 @@
-"""Orders model — SQLite persistence for venue orders."""
+"""Orders model — Supabase persistence for venue orders and print queue.
+
+Wave 3 (2026-04-10): migrated off /tmp/games.db to Supabase Postgres so
+order history, print queue, per-venue order counters, and print agent
+heartbeats all persist across Render deploys.
+
+Schema notes (the Supabase tables differ from legacy SQLite):
+  - gmg_orders: no session_id, no total (dollars) — total is stored as
+    subtotal_cents (int). Legacy session_id is appended to the notes
+    column as "session:<id>".
+  - print_queue: order_data -> content (text JSON blob, includes
+    order_number), print_status -> status. No print_attempts/last_error.
+  - venue_order_counters: PK on venue_id; increment is read-then-write
+    (not strictly atomic, but fine at single-venue volumes).
+  - print_agent_heartbeats: PK on venue_id.
+
+The public function signatures and return shapes mirror the legacy
+SQLite model so route code and frontend contracts stay stable.
+"""
 
 import json
-import sqlite3
 from datetime import datetime, timezone
 
-from app.core.config import DB_PATH
+from app.services.supabase_client import get_admin_client
+
+
+# ── Helpers ────────────────────────────────────────────────────────
+
+
+def _dollars_to_cents(total: float) -> int:
+    try:
+        return int(round(float(total) * 100))
+    except Exception:
+        return 0
+
+
+def _cents_to_dollars(cents) -> float:
+    try:
+        return round((int(cents) or 0) / 100.0, 2)
+    except Exception:
+        return 0.0
+
+
+def _session_id_from_notes(notes: str | None) -> str:
+    if not notes:
+        return ""
+    for part in notes.split("\n"):
+        part = part.strip()
+        if part.startswith("session:"):
+            return part[len("session:"):].strip()
+    return ""
+
+
+# ── Orders ─────────────────────────────────────────────────────────
 
 
 def init_orders_table():
-    """Create orders table if it doesn't exist."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS orders (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                venue_id TEXT DEFAULT 'default',
-                session_id TEXT,
-                items TEXT NOT NULL,
-                total REAL NOT NULL,
-                status TEXT DEFAULT 'pending',
-                submitted_at TIMESTAMP NOT NULL,
-                completed_at TIMESTAMP
-            )
-        """)
-        conn.commit()
+    """No-op — gmg_orders table lives in Supabase."""
+    return None
 
 
 def create_order(venue_id: str, session_id: str, items: list, total: float, customer_name: str = None) -> int:
     """Insert a new order, return its ID."""
-    now = datetime.now(timezone.utc).isoformat()
-    with sqlite3.connect(DB_PATH) as conn:
-        # Add customer_name column if it doesn't exist (migration-safe)
-        try:
-            conn.execute("ALTER TABLE orders ADD COLUMN customer_name TEXT DEFAULT ''")
-        except sqlite3.OperationalError:
-            pass  # column already exists
-        cur = conn.execute(
-            "INSERT INTO orders (venue_id, session_id, items, total, customer_name, submitted_at) VALUES (?, ?, ?, ?, ?, ?)",
-            (venue_id or "default", session_id or "", json.dumps(items), round(total, 2), customer_name or "", now),
-        )
-        conn.commit()
-        return cur.lastrowid
+    admin = get_admin_client()
+    notes = f"session:{session_id}" if session_id else ""
+    result = admin.table("gmg_orders").insert({
+        "venue_id": venue_id or "default",
+        "items": items or [],  # jsonb
+        "subtotal_cents": _dollars_to_cents(total),
+        "status": "pending",
+        "notes": notes,
+        "customer_name": customer_name or "",
+    }).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def get_orders(venue_id: str = None, limit: int = 50):
-    """Get orders, optionally filtered by venue."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        if venue_id:
-            rows = conn.execute(
-                "SELECT * FROM orders WHERE venue_id = ? ORDER BY submitted_at DESC LIMIT ?",
-                (venue_id, limit),
-            ).fetchall()
-        else:
-            rows = conn.execute(
-                "SELECT * FROM orders ORDER BY submitted_at DESC LIMIT ?",
-                (limit,),
-            ).fetchall()
-        result = []
-        for r in rows:
-            d = dict(r)
-            d["items"] = json.loads(d["items"]) if d["items"] else []
-            result.append(d)
-        return result
+    """Get orders, optionally filtered by venue. Shape matches legacy model."""
+    admin = get_admin_client()
+    query = admin.table("gmg_orders").select("*")
+    if venue_id:
+        query = query.eq("venue_id", venue_id)
+    result = query.order("created_at", desc=True).limit(limit).execute()
+    rows = result.data or []
+    out = []
+    for r in rows:
+        out.append({
+            "id": r.get("id"),
+            "venue_id": r.get("venue_id"),
+            "session_id": _session_id_from_notes(r.get("notes")),
+            "items": r.get("items") or [],
+            "total": _cents_to_dollars(r.get("subtotal_cents")),
+            "status": r.get("status"),
+            "customer_name": r.get("customer_name") or "",
+            "submitted_at": r.get("created_at"),
+            "completed_at": r.get("updated_at") if r.get("status") in ("completed", "cancelled") else None,
+        })
+    return out
 
 
 def update_order_status(order_id: int, status: str):
     """Update order status (pending, preparing, completed, cancelled)."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            "UPDATE orders SET status = ?, completed_at = ? WHERE id = ?",
-            (status, datetime.now(timezone.utc).isoformat() if status in ("completed", "cancelled") else None, order_id),
-        )
-        conn.commit()
+    admin = get_admin_client()
+    update = {
+        "status": status,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+    admin.table("gmg_orders").update(update).eq("id", order_id).execute()
 
 
-# ── Print Queue ───────────────────────────────────────────────────
+# ── Venue Order Counters ───────────────────────────────────────────
 
 
 def init_print_queue_tables():
-    """Create print_queue and venue_order_counters tables."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS print_queue (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                order_id INTEGER NOT NULL,
-                venue_id TEXT NOT NULL,
-                order_data TEXT NOT NULL,
-                order_number INTEGER,
-                print_status TEXT DEFAULT 'pending',
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                printed_at TIMESTAMP,
-                print_attempts INTEGER DEFAULT 0,
-                last_error TEXT
-            )
-        """)
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS venue_order_counters (
-                venue_id TEXT PRIMARY KEY,
-                last_order_number INTEGER DEFAULT 0
-            )
-        """)
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS print_agent_heartbeats (
-                venue_id TEXT PRIMARY KEY,
-                printer_ip TEXT,
-                printer_status TEXT DEFAULT 'unknown',
-                agent_uptime_seconds INTEGER DEFAULT 0,
-                last_seen TIMESTAMP
-            )
-        """)
-        conn.commit()
+    """No-op — print_queue/venue_order_counters/print_agent_heartbeats live in Supabase."""
+    return None
 
 
 def next_order_number(venue_id: str) -> int:
-    """Atomically increment and return the next order number for a venue."""
-    with sqlite3.connect(DB_PATH) as conn:
-        cur = conn.execute(
-            "INSERT INTO venue_order_counters (venue_id, last_order_number) VALUES (?, 1) "
-            "ON CONFLICT(venue_id) DO UPDATE SET last_order_number = last_order_number + 1",
-            (venue_id,),
-        )
-        conn.commit()
-        row = conn.execute(
-            "SELECT last_order_number FROM venue_order_counters WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        return row[0]
+    """Read-increment-write the per-venue order counter.
+
+    Not strictly atomic (no Postgres RPC yet), but sufficient for
+    single-venue throughput. If we ever see races, promote this to a
+    SQL function via apply_migration.
+    """
+    admin = get_admin_client()
+    existing = (
+        admin.table("venue_order_counters")
+        .select("last_order_number")
+        .eq("venue_id", venue_id)
+        .limit(1)
+        .execute()
+    )
+    if existing.data:
+        current = existing.data[0].get("last_order_number") or 0
+        next_num = int(current) + 1
+        admin.table("venue_order_counters").update(
+            {"last_order_number": next_num}
+        ).eq("venue_id", venue_id).execute()
+        return next_num
+    # First order for this venue
+    admin.table("venue_order_counters").insert({
+        "venue_id": venue_id,
+        "last_order_number": 1,
+    }).execute()
+    return 1
+
+
+# ── Print Queue ────────────────────────────────────────────────────
 
 
 def insert_print_queue(order_id: int, venue_id: str, order_data: str, order_number: int):
-    """Insert a new print queue record."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            "INSERT INTO print_queue (order_id, venue_id, order_data, order_number) VALUES (?, ?, ?, ?)",
-            (order_id, venue_id, order_data, order_number),
-        )
-        conn.commit()
+    """Insert a new print queue record.
+
+    `order_data` is a JSON string from the route layer. We merge
+    `order_number` into the blob so we can surface it later (Supabase
+    schema has no dedicated order_number column).
+    """
+    admin = get_admin_client()
+    try:
+        parsed = json.loads(order_data) if order_data else {}
+    except Exception:
+        parsed = {}
+    parsed["order_number"] = order_number
+    content = json.dumps(parsed)
+    admin.table("print_queue").insert({
+        "order_id": order_id,
+        "venue_id": venue_id,
+        "content": content,
+        "print_type": "receipt",
+        "status": "pending",
+    }).execute()
+
+
+def _translate_print_row(row: dict) -> dict:
+    """Shape a Supabase print_queue row into the legacy dict format."""
+    content_raw = row.get("content")
+    try:
+        order_data = json.loads(content_raw) if content_raw else {}
+    except Exception:
+        order_data = {}
+    return {
+        "id": row.get("id"),
+        "order_id": row.get("order_id"),
+        "venue_id": row.get("venue_id"),
+        "order_data": order_data,
+        "order_number": order_data.get("order_number"),
+        "print_status": row.get("status"),
+        "created_at": row.get("created_at"),
+        "printed_at": row.get("printed_at"),
+        "print_attempts": 0,
+        "last_error": None,
+    }
 
 
 def get_pending_prints(venue_id: str):
     """Get pending print queue items for a venue."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        rows = conn.execute(
-            "SELECT * FROM print_queue WHERE venue_id = ? AND print_status = 'pending' ORDER BY created_at ASC",
-            (venue_id,),
-        ).fetchall()
-        result = []
-        for r in rows:
-            d = dict(r)
-            d["order_data"] = json.loads(d["order_data"]) if d["order_data"] else {}
-            result.append(d)
-        return result
+    admin = get_admin_client()
+    result = (
+        admin.table("print_queue")
+        .select("*")
+        .eq("venue_id", venue_id)
+        .eq("status", "pending")
+        .order("created_at", desc=False)
+        .execute()
+    )
+    return [_translate_print_row(r) for r in (result.data or [])]
 
 
 def update_print_status(order_id: int, status: str, error: str = None):
     """Update print status for an order."""
-    now = datetime.now(timezone.utc).isoformat()
-    with sqlite3.connect(DB_PATH) as conn:
-        if status == "printed":
-            conn.execute(
-                "UPDATE print_queue SET print_status = 'printed', printed_at = ?, print_attempts = print_attempts + 1 WHERE order_id = ?",
-                (now, order_id),
-            )
-        elif status == "failed":
-            conn.execute(
-                "UPDATE print_queue SET print_status = 'failed', print_attempts = print_attempts + 1, last_error = ? WHERE order_id = ?",
-                (error or "", order_id),
-            )
-        conn.commit()
+    admin = get_admin_client()
+    if status == "printed":
+        admin.table("print_queue").update({
+            "status": "printed",
+            "printed_at": datetime.now(timezone.utc).isoformat(),
+        }).eq("order_id", order_id).execute()
+    elif status == "failed":
+        admin.table("print_queue").update({"status": "failed"}).eq("order_id", order_id).execute()
 
 
 def reset_print_status(order_id: int):
     """Reset print status to pending for reprint."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            "UPDATE print_queue SET print_status = 'pending', print_attempts = 0, printed_at = NULL, last_error = NULL WHERE order_id = ?",
-            (order_id,),
-        )
-        conn.commit()
+    admin = get_admin_client()
+    admin.table("print_queue").update({
+        "status": "pending",
+        "printed_at": None,
+    }).eq("order_id", order_id).execute()
 
 
 def get_print_history(venue_id: str, limit: int = 50):
     """Get recent print history for a venue."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        rows = conn.execute(
-            "SELECT * FROM print_queue WHERE venue_id = ? ORDER BY created_at DESC LIMIT ?",
-            (venue_id, limit),
-        ).fetchall()
-        result = []
-        for r in rows:
-            d = dict(r)
-            d["order_data"] = json.loads(d["order_data"]) if d["order_data"] else {}
-            result.append(d)
-        return result
+    admin = get_admin_client()
+    result = (
+        admin.table("print_queue")
+        .select("*")
+        .eq("venue_id", venue_id)
+        .order("created_at", desc=True)
+        .limit(limit)
+        .execute()
+    )
+    return [_translate_print_row(r) for r in (result.data or [])]
+
+
+# ── Print Agent Heartbeats ─────────────────────────────────────────
 
 
 def upsert_heartbeat(venue_id: str, printer_ip: str, printer_status: str, uptime: int):
-    """Insert or update print agent heartbeat."""
+    """Insert or update print agent heartbeat. PK is venue_id so upsert is straightforward."""
+    admin = get_admin_client()
     now = datetime.now(timezone.utc).isoformat()
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            "INSERT INTO print_agent_heartbeats (venue_id, printer_ip, printer_status, agent_uptime_seconds, last_seen) "
-            "VALUES (?, ?, ?, ?, ?) "
-            "ON CONFLICT(venue_id) DO UPDATE SET printer_ip = ?, printer_status = ?, agent_uptime_seconds = ?, last_seen = ?",
-            (venue_id, printer_ip, printer_status, uptime, now, printer_ip, printer_status, uptime, now),
-        )
-        conn.commit()
+    admin.table("print_agent_heartbeats").upsert({
+        "venue_id": venue_id,
+        "printer_ip": printer_ip,
+        "printer_status": printer_status,
+        "agent_uptime_seconds": uptime,
+        "last_seen": now,
+    }).execute()
 
 
 def get_heartbeat(venue_id: str):
     """Get latest heartbeat for a venue."""
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        row = conn.execute(
-            "SELECT * FROM print_agent_heartbeats WHERE venue_id = ?",
-            (venue_id,),
-        ).fetchone()
-        return dict(row) if row else None
+    admin = get_admin_client()
+    result = (
+        admin.table("print_agent_heartbeats")
+        .select("*")
+        .eq("venue_id", venue_id)
+        .limit(1)
+        .execute()
+    )
+    if not result.data:
+        return None
+    return result.data[0]

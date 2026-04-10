@@ -1,85 +1,69 @@
-"""SQLite score history model."""
+"""Score history model — Supabase (score_history table).
 
-import json
-import sqlite3
-from datetime import datetime, timezone
+Wave 3 (2026-04-10): migrated off /tmp/games.db to Supabase Postgres so
+score histories and leaderboards persist across Render deploys.
+
+Game titles used to be resolved via LEFT JOIN to a local games mirror;
+now we look them up through the in-memory game_service cache.
+"""
+
 from typing import Optional
 
-from app.core.config import DB_PATH
-
-
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+from app.services.supabase_client import get_admin_client
 
 
 def init_score_history_table():
-    conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS score_history (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            game_id TEXT NOT NULL,
-            venue_id TEXT,
-            table_number TEXT,
-            players TEXT DEFAULT '[]',
-            scoring_type TEXT,
-            winner_name TEXT,
-            duration_seconds INTEGER,
-            created_at TIMESTAMP NOT NULL
-        )
-    """)
-    conn.commit()
-    conn.close()
+    """No-op — score_history table lives in Supabase."""
+    return None
+
+
+def _resolve_game_title(game_id: str) -> str:
+    """Look up a game title from the game_service cache; fall back to the id."""
+    try:
+        from app.services import game_service
+        game = game_service.get_game(game_id)
+        if game:
+            return game.get("title") or game_id
+    except Exception:
+        pass
+    return game_id
 
 
 def save_score(game_id: str, players: list[dict], scoring_type: str = "calculator",
                winner_name: str = None, duration_seconds: int = None,
                venue_id: str = None, table_number: str = None) -> int:
-    conn = _get_conn()
-    cur = conn.execute(
-        """INSERT INTO score_history (game_id, venue_id, table_number, players, scoring_type,
-           winner_name, duration_seconds, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-        (game_id, venue_id, table_number, json.dumps(players), scoring_type,
-         winner_name, duration_seconds, datetime.now(timezone.utc).isoformat()),
-    )
-    sid = cur.lastrowid
-    conn.commit()
-    conn.close()
-    return sid
+    admin = get_admin_client()
+    result = admin.table("score_history").insert({
+        "game_id": game_id,
+        "venue_id": venue_id,
+        "table_number": table_number,
+        "players": players or [],  # jsonb
+        "scoring_type": scoring_type,
+        "winner_name": winner_name,
+        "duration_seconds": duration_seconds,
+    }).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def get_score_history(game_id: str, venue_id: str = None, limit: int = 20) -> list[dict]:
-    conn = _get_conn()
-    conditions = ["sh.game_id = ?"]
-    params = [game_id]
+    admin = get_admin_client()
+    query = admin.table("score_history").select("*").eq("game_id", game_id)
     if venue_id:
-        conditions.append("sh.venue_id = ?")
-        params.append(venue_id)
-    where = "WHERE " + " AND ".join(conditions)
-    params.append(limit)
+        query = query.eq("venue_id", venue_id)
+    result = query.order("created_at", desc=True).limit(limit).execute()
+    rows = result.data or []
 
-    rows = conn.execute(f"""
-        SELECT sh.*, COALESCE(g.title, sh.game_id) as game_title
-        FROM score_history sh
-        LEFT JOIN games g ON sh.game_id = g.game_id
-        {where}
-        ORDER BY sh.created_at DESC
-        LIMIT ?
-    """, params).fetchall()
-    conn.close()
-
+    game_title = _resolve_game_title(game_id)
     return [
         {
-            "id": r["id"],
-            "game_id": r["game_id"],
-            "game_title": r["game_title"],
-            "players": json.loads(r["players"]),
-            "scoring_type": r["scoring_type"],
-            "winner_name": r["winner_name"],
-            "duration_seconds": r["duration_seconds"],
-            "created_at": r["created_at"],
+            "id": r.get("id"),
+            "game_id": r.get("game_id"),
+            "game_title": game_title,
+            "players": r.get("players") or [],  # already a list from jsonb
+            "scoring_type": r.get("scoring_type"),
+            "winner_name": r.get("winner_name"),
+            "duration_seconds": r.get("duration_seconds"),
+            "created_at": r.get("created_at"),
         }
         for r in rows
     ]
@@ -87,32 +71,26 @@ def get_score_history(game_id: str, venue_id: str = None, limit: int = 20) -> li
 
 def get_leaderboard(game_id: str, venue_id: str = None, limit: int = 10) -> list[dict]:
     """Get top scores for a game. Extracts max score per entry from players JSON."""
-    conn = _get_conn()
-    conditions = ["game_id = ?"]
-    params = [game_id]
+    admin = get_admin_client()
+    query = admin.table("score_history").select("*").eq("game_id", game_id)
     if venue_id:
-        conditions.append("venue_id = ?")
-        params.append(venue_id)
-    where = "WHERE " + " AND ".join(conditions)
+        query = query.eq("venue_id", venue_id)
+    result = query.order("created_at", desc=True).execute()
+    rows = result.data or []
 
-    rows = conn.execute(f"""
-        SELECT * FROM score_history {where} ORDER BY created_at DESC
-    """, params).fetchall()
-    conn.close()
-
-    # Build leaderboard from players data
     entries = []
     for r in rows:
-        players = json.loads(r["players"])
+        players = r.get("players") or []
         for p in players:
+            if not isinstance(p, dict):
+                continue
             entries.append({
                 "player_name": p.get("name", "Unknown"),
                 "score": p.get("score", 0),
-                "game_id": r["game_id"],
-                "date": r["created_at"],
-                "winner": p.get("name") == r["winner_name"],
+                "game_id": r.get("game_id"),
+                "date": r.get("created_at"),
+                "winner": p.get("name") == r.get("winner_name"),
             })
 
-    # Sort by score descending and return top N
     entries.sort(key=lambda x: x["score"], reverse=True)
     return entries[:limit]

@@ -1,102 +1,103 @@
-"""SQLite house rules model — venue-specific custom rules for games."""
+"""House rules model — Supabase (house_rules table).
 
-import sqlite3
-from datetime import datetime, timezone
+Venue-specific custom rules overlays for games.
+
+Wave 3 (2026-04-10): migrated off /tmp/games.db to Supabase Postgres so
+venue rule customizations persist across Render deploys.
+
+The Supabase schema has no `updated_at` column and no UNIQUE constraint on
+(venue_id, game_id), so set_house_rules does a read-then-update/insert by
+hand (one row per (venue_id, game_id) pair).
+"""
+
 from typing import Optional
 
-from app.core.config import DB_PATH
-
-
-def _get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+from app.services.supabase_client import get_admin_client
 
 
 def init_house_rules_table():
-    conn = _get_conn()
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS house_rules (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            venue_id TEXT NOT NULL,
-            game_id TEXT NOT NULL,
-            rule_text TEXT NOT NULL,
-            created_at TIMESTAMP NOT NULL,
-            updated_at TIMESTAMP,
-            UNIQUE(venue_id, game_id)
-        )
-    """)
-    conn.commit()
-    conn.close()
+    """No-op — house_rules table lives in Supabase."""
+    return None
+
+
+def _resolve_game_title(game_id: str) -> str:
+    try:
+        from app.services import game_service
+        game = game_service.get_game(game_id)
+        if game:
+            return game.get("title") or game_id
+    except Exception:
+        pass
+    return game_id
 
 
 def get_house_rules(game_id: str, venue_id: Optional[str] = None) -> Optional[dict]:
     """Get house rules for a game at a venue."""
-    conn = _get_conn()
+    admin = get_admin_client()
+    query = admin.table("house_rules").select("*").eq("game_id", game_id)
     if venue_id:
-        row = conn.execute(
-            "SELECT * FROM house_rules WHERE game_id = ? AND venue_id = ?",
-            (game_id, venue_id),
-        ).fetchone()
+        query = query.eq("venue_id", venue_id)
     else:
-        row = conn.execute(
-            "SELECT * FROM house_rules WHERE game_id = ? ORDER BY created_at DESC LIMIT 1",
-            (game_id,),
-        ).fetchone()
-    conn.close()
-    if row:
-        return {
-            "id": row["id"],
-            "venue_id": row["venue_id"],
-            "game_id": row["game_id"],
-            "rule_text": row["rule_text"],
-            "created_at": row["created_at"],
-            "updated_at": row["updated_at"],
-        }
-    return None
+        query = query.order("created_at", desc=True)
+    result = query.limit(1).execute()
+    if not result.data:
+        return None
+    row = result.data[0]
+    return {
+        "id": row.get("id"),
+        "venue_id": row.get("venue_id"),
+        "game_id": row.get("game_id"),
+        "rule_text": row.get("rule_text"),
+        "created_at": row.get("created_at"),
+        "updated_at": row.get("created_at"),  # no updated_at column; reuse created_at for compat
+    }
 
 
 def set_house_rules(venue_id: str, game_id: str, rule_text: str) -> int:
-    """Create or update house rules for a game at a venue."""
-    conn = _get_conn()
-    now = datetime.now(timezone.utc).isoformat()
-    conn.execute(
-        """INSERT INTO house_rules (venue_id, game_id, rule_text, created_at, updated_at)
-           VALUES (?, ?, ?, ?, ?)
-           ON CONFLICT(venue_id, game_id) DO UPDATE SET
-             rule_text = excluded.rule_text,
-             updated_at = excluded.updated_at""",
-        (venue_id, game_id, rule_text, now, now),
+    """Create or update house rules for a game at a venue.
+
+    Supabase table has no composite UNIQUE constraint, so do a manual upsert.
+    """
+    admin = get_admin_client()
+    existing = (
+        admin.table("house_rules")
+        .select("id")
+        .eq("venue_id", venue_id)
+        .eq("game_id", game_id)
+        .limit(1)
+        .execute()
     )
-    conn.commit()
-    row = conn.execute(
-        "SELECT id FROM house_rules WHERE venue_id = ? AND game_id = ?",
-        (venue_id, game_id),
-    ).fetchone()
-    conn.close()
-    return row["id"] if row else 0
+    if existing.data:
+        rid = existing.data[0]["id"]
+        admin.table("house_rules").update({"rule_text": rule_text}).eq("id", rid).execute()
+        return rid
+    result = admin.table("house_rules").insert({
+        "venue_id": venue_id,
+        "game_id": game_id,
+        "rule_text": rule_text,
+    }).execute()
+    return result.data[0]["id"] if result.data else 0
 
 
 def get_all_house_rules(venue_id: str) -> list[dict]:
     """Get all house rules for a venue."""
-    conn = _get_conn()
-    rows = conn.execute(
-        """SELECT hr.*, COALESCE(g.title, hr.game_id) as game_title
-           FROM house_rules hr
-           LEFT JOIN games g ON hr.game_id = g.game_id
-           WHERE hr.venue_id = ?
-           ORDER BY hr.game_id""",
-        (venue_id,),
-    ).fetchall()
-    conn.close()
+    admin = get_admin_client()
+    result = (
+        admin.table("house_rules")
+        .select("*")
+        .eq("venue_id", venue_id)
+        .order("game_id")
+        .execute()
+    )
+    rows = result.data or []
     return [
         {
-            "id": r["id"],
-            "game_id": r["game_id"],
-            "game_title": r["game_title"],
-            "rule_text": r["rule_text"],
-            "created_at": r["created_at"],
-            "updated_at": r["updated_at"],
+            "id": r.get("id"),
+            "game_id": r.get("game_id"),
+            "game_title": _resolve_game_title(r.get("game_id") or ""),
+            "rule_text": r.get("rule_text"),
+            "created_at": r.get("created_at"),
+            "updated_at": r.get("created_at"),
         }
         for r in rows
     ]
