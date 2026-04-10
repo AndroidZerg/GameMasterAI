@@ -64,6 +64,7 @@ from app.api.routes.publisher_leads import router as publisher_leads_router
 from app.api.routes.publisher_auth import router as publisher_auth_router
 from app.api.routes.publisher_admin import router as publisher_admin_router
 from app.api.routes.publisher_games import router as publisher_games_router
+from app.api.routes.publisher_dashboard import router as publisher_dashboard_router
 from app.models.game import rebuild_db, search_games
 from app.models.sessions import init_sessions_table
 from app.models.feedback import init_feedback_table
@@ -297,6 +298,7 @@ app.include_router(publisher_leads_router)
 # --- Publisher Portal ---
 app.include_router(publisher_auth_router, prefix="/api/v1/publishers")
 app.include_router(publisher_games_router, prefix="/api/v1/publishers")
+app.include_router(publisher_dashboard_router, prefix="/api/v1/publishers")
 app.include_router(publisher_admin_router, prefix="/api/v1/admin")
 
 
