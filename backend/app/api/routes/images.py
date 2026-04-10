@@ -1,11 +1,13 @@
 """Static image serving for game covers and venue logos."""
 
+import logging
 import time
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse, RedirectResponse
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api", tags=["images"])
 
 _IMAGES_DIR = Path(__file__).resolve().parents[4] / "content" / "images"
@@ -18,14 +20,22 @@ _cache_ttl = 60  # seconds
 
 
 def _get_override_url(game_id: str) -> str | None:
-    """Check Turso for an image override, with 60s in-memory cache."""
+    """Check Supabase for an image override, with 60s in-memory cache."""
     now = time.time()
     cached = _override_cache.get(game_id)
     if cached and (now - cached[1]) < _cache_ttl:
         return cached[0] if cached[0] else None
 
-    from app.services.turso import get_cover_art_override
-    url = get_cover_art_override(game_id)
+    # Use native Supabase client — bypasses PG shim which was silently failing
+    try:
+        from app.services.supabase_client import get_admin_client
+        admin = get_admin_client()
+        result = admin.table("game_image_overrides").select("image_url").eq("game_id", game_id).execute()
+        url = result.data[0]["image_url"] if result.data else None
+    except Exception as exc:
+        logger.warning("Failed to check cover art override for %s: %s", game_id, exc)
+        url = None
+
     _override_cache[game_id] = (url or "", now)
     return url
 
@@ -81,17 +91,19 @@ async def get_step_image(game_id: str, filename: str):
 
 @router.get("/images/{filename}")
 async def get_image(filename: str):
-    """Serve game cover images — checks Turso overrides first, then local file."""
+    """Serve game cover images - checks Supabase overrides first, then local file."""
     if ".." in filename or "/" in filename or "\\" in filename:
         raise HTTPException(status_code=400, detail="Invalid filename")
 
-    # Derive game_id from filename (e.g. "scythe.webp" → "scythe")
+    # Derive game_id from filename (e.g. "scythe.webp" -> "scythe")
     game_id = Path(filename).stem
 
-    # Check for a Turso override
+    # Check for a cover art override (CDN redirect)
     override_url = _get_override_url(game_id)
     if override_url:
-        return RedirectResponse(url=override_url, status_code=302)
+        # Short cache on redirects so admin changes via Cover Art Manager take effect quickly
+        return RedirectResponse(url=override_url, status_code=302,
+                                headers={"Cache-Control": "public, max-age=300, stale-while-revalidate=60"})
 
     filepath = _IMAGES_DIR / filename
     if not filepath.exists():
@@ -99,5 +111,6 @@ async def get_image(filename: str):
     suffix = filepath.suffix.lower()
     media = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
              "webp": "image/webp", "gif": "image/gif", "avif": "image/avif"}.get(suffix.lstrip("."), "image/jpeg")
+    # Local publisher files get longer cache since they rarely change
     return FileResponse(filepath, media_type=media,
                         headers={"Cache-Control": "public, max-age=86400, stale-while-revalidate=3600"})
