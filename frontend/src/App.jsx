@@ -46,6 +46,11 @@ import SWPRentalBrowse from "./pages/swp/SWPRentalBrowse";
 import SWPRentalProfile from "./pages/swp/SWPRentalProfile";
 import LandingPage from "./components/LandingPage";
 import CoverArtManager from "./pages/CoverArtManager";
+import PublisherSignup from "./pages/PublisherSignup";
+import PublisherLogin from "./pages/PublisherLogin";
+import PublisherDashboard from "./pages/PublisherDashboard";
+import { PublisherAuthProvider } from "./contexts/PublisherAuthContext";
+import PublisherProtectedRoute from "./components/PublisherProtectedRoute";
 
 // Roles that can access admin routes
 const ADMIN_ROLES = ["super_admin", "demo", "venue_admin"];
@@ -186,8 +191,19 @@ function App() {
           <Route path="/thaihouse/staff/redeem" element={<StaffRedeem />} />
           <Route path="/thaihouse/admin" element={<ThaiHouseAdmin />} />
           <Route path="/thaihouse/dashboard" element={<ThaiHouseDashboard />} />
-          {/* Publisher landing — no app shell, no auth */}
+          {/* Publisher Portal — separate auth system, no venue app shell */}
           <Route path="/publishers" element={<PublisherLandingPage />} />
+          <Route path="/publishers/signup" element={<PublisherSignup />} />
+          <Route path="/publishers/login" element={<PublisherLogin />} />
+          <Route path="/publishers/*" element={
+            <PublisherAuthProvider>
+              <PublisherProtectedRoute>
+                <Routes>
+                  <Route path="dashboard" element={<PublisherDashboard />} />
+                </Routes>
+              </PublisherProtectedRoute>
+            </PublisherAuthProvider>
+          } />
           {/* SWP Rental routes — no app shell, no GMG auth */}
           <Route path="/swp/rentals-sign-up" element={<SWPRentalLanding />} />
           <Route path="/swp/rentals" element={<Navigate to="/swp/rentals-sign-up" replace />} />
